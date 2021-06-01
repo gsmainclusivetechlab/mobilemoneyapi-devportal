@@ -1,0 +1,23 @@
+{
+  "name": "gsma-starter",
+  "version": "1.0.0",
+  "description": "API documentation",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "keywords": [
+    "documentation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-fulltext-search": "^2.2.0"
+  },
+  "dependencies": {
+    "mermaid": "^8.9.3",
+    "swagger-ui": "^3.48.0"
+  }
+}

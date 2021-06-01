@@ -1,0 +1,14 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  opacity: 0;
+}
+
+.zal00pa {
+  .theme-default-content:not(.custom) {
+    max-width: none;
+  }
+}
