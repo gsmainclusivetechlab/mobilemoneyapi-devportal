@@ -6,74 +6,66 @@ const { path } = require('@vuepress/shared-utils');
 const mainNavigation = [
   {
     text: 'About',
-    link: '/examples/',
-    submenu: [
+    items: [
       {
-        text: 'About 1',
+        text: 'Business 1',
         link: '/examples/',
       },
-      {
-        text: 'About 2',
-        link: '/examples/',
-      },
-      {
-        text: 'About 3',
-        link: '/examples/',
-      }
     ]
   },
   {
     text: 'Business',
-    link: '/test/',
-    submenu: [
+    items: [
       {
         text: 'Business 1',
         link: '/examples/',
       },
       {
-        text: 'Business 2',
+        text: 'Business 1',
         link: '/examples/',
       },
       {
-        text: 'Business 3',
+        text: 'Business 1',
         link: '/examples/',
-      }
+      },
+      {
+        text: 'Business 1',
+        link: '/examples/',
+      },
+      {
+        text: 'Business 1',
+        link: '/examples/',
+      },
     ]
   },
   {
     text: 'API version',
-    link: '/test/',
-    submenu: [
+    items: [
       {
-        text: 'API version 1',
+        text: 'Business 1',
         link: '/examples/',
       },
       {
-        text: 'API version 2',
+        text: 'Business 1',
         link: '/examples/',
       },
-      {
-        text: 'API version 3',
-        link: '/examples/',
-      }
     ]
   },
   {
     text: 'Resources',
-    link: '/test/',
-    submenu: [
+    items: [
       {
-        text: 'Resources 1',
+        text: 'Business 1',
         link: '/examples/',
       },
       {
-        text: 'Resources 2',
+        text: 'Business 1',
         link: '/examples/',
       },
       {
-        text: 'Resources 3',
+        text: 'Business 1',
         link: '/examples/',
-      }
+      },
     ]
   },
   {
@@ -132,6 +124,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     logo: '/images/logo.svg',
+    logoSmall: '/images/logo-small.svg',
     nav: [...mainNavigation],
     footer: [...footerNavigation],
     sidebar: sidebarNavigation

@@ -1,0 +1,150 @@
+html {
+  .sidebar {
+    @include media('<tablet-lg') {
+      padding-top: 98px;
+      top: 0;
+    }
+
+    &-button {
+      @include media('<tablet-lg') {
+        display: block;
+      }
+    }
+
+    .nav-links {
+      display: block;
+      font-size: 1.6rem;
+    }
+
+    .nav-item {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .dropdown-wrapper {
+    @include media('<tablet-lg') {
+      height: auto;
+    }
+
+    &:hover  {
+      .nav-dropdown {
+        @include media('<tablet-lg') {
+          display: none !important;
+        }
+      }
+    }
+
+    &.open  {
+      .nav-dropdown {
+        @include media('<tablet-lg') {
+          display: block !important;
+          padding-bottom: 0;
+        }
+      }
+
+      .mobile-dropdown-title {
+  
+        .arrow {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    .nav-dropdown {
+      @include media('<tablet-lg') {
+        border: none;
+        position: static;
+      }
+
+      .dropdown-item {
+        a {
+          padding-top: 2px;
+          padding-bottom: 2px;
+          opacity: 1;
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+
+        &:last-child {
+          a {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+    
+    .dropdown-title {
+      @include media('<tablet-lg') {
+        display: none;
+      }
+    }
+
+    .mobile-dropdown-title {
+      font-size: 1.4rem;
+      line-height: 1.5;
+
+      @include media('<tablet-lg') {
+        display: block;
+      }
+
+      .arrow {
+        width: 8px;
+        height: 8px;
+        background: url('/images/expand_arrow.svg') center no-repeat;
+        border: none;
+        margin-top: -1px;
+        margin-left: 0.4rem;
+        transform: rotate(-90deg);
+        vertical-align: initial;
+      }
+    }
+  }
+
+  .nav-item {
+    & > a {
+      font-size: 1.4rem;
+    }
+
+    & > a:not(.external) {
+      &:hover,
+      &.router-link-active{
+        border-bottom: none;
+        margin-bottom: 0;
+        color: var(--base-accent-btn-bg-color);
+      }
+    }
+  }
+
+  .theme-container{
+    .sidebar {
+      @include animate(transform);
+      transform: translateX(-100%);
+
+      @include media('>=tablet'){
+        display: block;
+      }
+    }
+
+    &.no-sidebar {
+      .sidebar {
+        @include media('>=tablet'){
+          display: block;
+        }
+      }
+    }
+
+    &.sidebar-open {
+      .sidebar {
+        @include media('<tablet-lg') {
+          display: block;
+          transform: translateX(0);
+        }
+
+        @include media('>=tablet'){
+          display: block;
+        }
+      }
+    }
+  }
+}

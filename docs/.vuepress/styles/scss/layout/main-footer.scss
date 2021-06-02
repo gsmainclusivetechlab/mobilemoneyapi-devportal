@@ -10,18 +10,34 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include media('<tablet-lg') {
+      flex-direction: column;
+    }
   }
 
   .nav-links {
     @extend %listreset;
 
+    @include media('<tablet-lg') {
+      margin-bottom: 20px;
+    }
+
     .nav-item {
       margin: 0 33px 0 0;
+
+      @include media('<desktop') {
+        margin: 0 15px 0 0;
+      }
 
       & > a {
         @include animate(color);
         font-size: 1.6rem;
         border-bottom: none;
+
+        @include media('<desktop') {
+          font-size: 1.4rem;
+        }
   
         &:not(.external) {
           &:hover,
