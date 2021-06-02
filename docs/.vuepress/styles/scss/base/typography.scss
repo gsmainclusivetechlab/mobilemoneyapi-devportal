@@ -1,0 +1,196 @@
+// Typography
+//
+// Base font styles for headings and links.
+html {
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6,
+  .h {
+    font-family: var(--headings-font-family);
+    font-weight: var(--base-headings-font-weight);
+    line-height: var(--headings-line-height);
+    margin: 0 0 0.5em;
+    color: var(--headings-color);
+  }
+
+  h1, .h1 {
+    font-weight: var(--base-h1-font-weight);
+    font-size: var(--h1-font-size);
+    margin-bottom: 0.41em;
+
+    @include media("<desktop") {
+      margin-bottom: 0.45em;
+    }
+
+    @include media("<tablet") {
+      margin-bottom: 0.34em;
+    }
+  }
+
+  h2, .h2 {
+    font-weight: var(--base-h2-font-weight);
+    font-size: var(--h2-font-size);
+  }
+
+  h3, .h3 {
+    font-weight: var(--base-h3-font-weight);
+    font-size: var(--h3-font-size);
+  }
+
+  h4, .h4 {
+    font-weight: var(--base-h4-font-weight);
+    font-size: var(--h4-font-size);
+  }
+
+  h5, .h5 {
+    font-weight: var(--base-h5-font-weight);
+    font-size: var(--h5-font-size);
+  }
+
+  h6, .h6 {
+    font-weight: var(--base-h6-font-weight);
+    font-size: var(--h6-font-size);
+  }
+}
+
+button {
+  font-family: var(--base-body-font-family);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  html & {
+    @include animate(opacity);
+    color: var(--base-link-color);
+    font-weight: 400;
+    opacity: 1;
+    &:focus {
+      text-decoration: none;
+    }
+    @include media('hover') {
+      &:hover {
+        opacity: .6;
+        text-decoration: none;
+      }
+    }
+
+    &.btn {
+      opacity: 1;
+    }
+  }
+}
+
+.heading {
+  position: relative;
+  display: inline-block;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -0.8rem;
+    left: 8.8rem;
+    width: 19.2rem;
+    height: 4.4rem;
+    z-index: -1;
+    background: var(--base-secondary-accent-color);
+    [dir=rtl] & {
+      left: auto;
+      right: 8.8rem;
+    }
+    @include media("<widescreen") {
+      @include size(15.2rem, 2.4rem);
+      top: 0.2rem;
+      left: 6.4rem;
+      [dir=rtl] & {
+        left: auto;
+        right: 6.4rem;
+      }
+    }
+    @include media("<tablet") {
+      @include size(8.8rem, 1.8rem);
+      top: 0.1rem;
+      left: 5.9rem;
+      [dir=rtl] & {
+        left: auto;
+        right: 5.9rem;
+      }
+    }
+  }
+  &-small {
+    &:before {
+      @include size(7.5rem, 1.4rem);
+      top: 0;
+      left: 3.2rem;
+      [dir=rtl] & {
+        left: auto;
+        right: 3.2rem;
+      }
+      @include media("<widescreen") {
+        @include size(6.4rem, 1.2rem);
+        top: 0;
+        left: 3.3rem;
+        [dir=rtl] & {
+          left: auto;
+          right: 3.3rem;
+        }
+      }
+      @include media("<tablet") {
+        @include size(5.8rem, 1rem);
+        top: 0.2rem;
+        left: 1.8rem;
+        [dir=rtl] & {
+          left: auto;
+          right: 1.8rem;
+        }
+      }
+    }
+  }
+  &.heading-medium {
+    &:before {
+      @include size(11.7rem, 2.8rem);
+
+      top: 0.2rem;
+      left: 3.2rem;
+
+      [dir=rtl] & {
+        left: auto;
+        right: 3.2rem;
+      }
+
+      @include media("<widescreen") {
+        height: 1.2rem;
+        top: 0.1rem;
+      }
+    }
+  }
+}
+
+.heading-center {
+  text-align: center;
+
+  &:after {
+    content: '';
+    display: block;
+    margin: 1.2rem auto 0;
+    width: 6.4rem;
+    height: .8rem;
+    background: var(--base-light-accent-color);
+
+    @include media("<widescreen") {
+      margin-top: 1.6rem;
+    }
+
+    @include media("<tablet") {
+      width: 4.8rem;
+      height: .6rem;
+      margin-top: 1.9rem;
+    }
+  }
+}

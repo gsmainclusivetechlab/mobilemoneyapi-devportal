@@ -19,6 +19,7 @@
     "vuepress-plugin-fulltext-search": "^2.2.0"
   },
   "dependencies": {
+    "include-media": "^1.4.10",
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0"
   }

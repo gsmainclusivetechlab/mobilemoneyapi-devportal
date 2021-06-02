@@ -1,0 +1,39 @@
+.btn {
+  @include animate(background-color color border-color);
+  display: inline-block;
+  padding: 6px 22px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--base-accent-color);
+  background-color: transparent;
+  border-radius: 6px;
+  border: solid 2px var(--base-accent-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--base-accent-color);
+    color: #fff;
+  }
+
+  &--accent {
+    color: #fff;
+    background-color: var(--base-accent-btn-bg-color);
+
+    &:hover {
+      border-color: var(--base-accent-btn-hover-bg-color);
+      background-color: var(--base-accent-btn-hover-bg-color);
+    }
+  }
+
+  &--register {
+    border-color: transparent;
+    padding: 6px 10px;
+
+    &:hover {
+      border-color: transparent;
+      background-color: transparent;
+      color: var(--base-accent-btn-hover-bg-color);
+    }
+  }
+}
