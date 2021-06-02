@@ -6,8 +6,8 @@
     align-items: center;
   }
 
-  .logo-holder{
-    margin-right: 20px;
+  .nav-links {
+    margin-bottom: -7px;
   }
 
   .search-box {
@@ -20,6 +20,27 @@
 
     &-holder {
       max-width: 200px;
+      margin-right: 23px;
+
+      @include media('<tablet-lg') {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .home-link {
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
+
+    &--small {
+      display: block;
+
+      @media (min-width: 1200px) {
+        display: none;
+      }
     }
   }
 
@@ -30,6 +51,20 @@
       &.btn--register {
         margin-left: 8px;
       }
+    }
+  }
+
+  .sidebar-button {
+    @include media('<tablet-lg') {
+      width: 30px;
+      height: 30px;
+      top: 32px;
+      left: 20px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
     }
   }
 }
