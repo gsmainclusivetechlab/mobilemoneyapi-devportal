@@ -15,7 +15,7 @@ html {
 html body {
   @include font-smoothing(on);
   color: var(--base-text-color);
-  background: var(--base-page-background-color);
+  background: #fff;
   font: var(--base-body-font-weight) var(--base-font-size-xs) / var(--base-line-height) var(--base-font-family);
   min-width: var(--base-min-width);
 

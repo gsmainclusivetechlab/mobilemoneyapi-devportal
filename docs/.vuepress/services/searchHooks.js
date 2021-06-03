@@ -1,7 +1,6 @@
 // /docs/.vuepress/searchHooks.js
 export default {
   // async processSuggestions(suggestions, queryString, queryTerms) {
-  //   console.log('kek');
   //   if (queryString) {
   //     // add a suggestion to start a search in an external service
   //     suggestions.push({

@@ -1,7 +1,7 @@
 html {
   .sidebar {
     @include media('<tablet-lg') {
-      padding-top: 98px;
+      padding-top: 96px;
       top: 0;
     }
 

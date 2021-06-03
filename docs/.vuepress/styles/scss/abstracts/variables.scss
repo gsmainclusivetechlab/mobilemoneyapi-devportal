@@ -55,7 +55,7 @@ $media-expressions: (
 
   // colors 
 
-  --base-page-background-color: #F8F8F9;
+  --base-light-background-color: #F8F8F9;
   --base-accent-color: #DE002B;
 
   --base-btn-bg-color: transparent;
@@ -66,7 +66,7 @@ $media-expressions: (
   --base-text-color: var(--primaty-dark-color);
 
   @include media("<widescreen") {
-    --h1-font-size: 4.8rem;
+    --h1-font-size: 4.4rem;
     --h2-font-size: 4rem;
     --h3-font-size: 2.4rem;
     --h4-font-size: 2rem;
@@ -113,7 +113,7 @@ $media-expressions: (
 
   @include media("<widescreen") {
     --base-font-size-xxs: 1.2rem;
-    --base-font-size-xs: 1.4rem;
+    --base-font-size-xs: var(--base-body-font-size);
     --base-font-size-sm: 1.6rem;
     --base-font-size-md: 1.6rem;
     --base-font-size-lg: 2rem;
@@ -129,7 +129,7 @@ $media-expressions: (
     --base-font-size-xl: 1.6rem;
   }
 
-  --base-body-line-height: 1.65;
+  --base-body-line-height: 1.8;
   --base-line-height: var(--base-body-line-height);
   --base-min-width: 320px;
 

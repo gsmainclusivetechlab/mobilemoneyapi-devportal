@@ -6,6 +6,17 @@
   .theme-container {
     flex-grow: 1;
     flex-shrink: 0;
+
+    &.custom {
+      .theme-default-content {
+        max-width: none;
+        padding: 0;
+
+        & > * {
+          margin-top: 0;
+        }
+      }
+    }
   }
 
   .main-footer {

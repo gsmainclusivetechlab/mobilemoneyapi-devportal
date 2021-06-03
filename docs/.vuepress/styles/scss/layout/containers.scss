@@ -7,8 +7,12 @@
   @include media('<desktop') {
     padding: 0 25px;
   }
+
+  &--thin {
+    max-width: 912px;
+  }
 }
 
 .theme-container {
-  padding-top: 98px;
+  padding-top: 95px;
 }
