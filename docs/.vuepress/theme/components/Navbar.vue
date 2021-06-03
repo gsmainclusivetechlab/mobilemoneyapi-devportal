@@ -1,40 +1,38 @@
 <template>
   <header class="navbar main-header">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
-    <div class="container">
-      <div class="main-header__box">
-        <div class="logo-holder">
-          <RouterLink
-              :to="$localePath"
-              class="home-link"
+    <div class="main-header__box">
+      <div class="logo-holder">
+        <RouterLink
+            :to="$localePath"
+            class="home-link"
+        >
+          <img
+              v-if="$site.themeConfig.logo"
+              class="logo"
+              :src="$withBase($site.themeConfig.logo)"
+              :alt="$siteTitle"
           >
-            <img
-                v-if="$site.themeConfig.logo"
-                class="logo"
-                :src="$withBase($site.themeConfig.logo)"
-                :alt="$siteTitle"
-            >
-          </RouterLink>
-          <RouterLink
-              :to="$localePath"
-              class="home-link home-link--small"
+        </RouterLink>
+        <RouterLink
+            :to="$localePath"
+            class="home-link home-link--small"
+        >
+          <img
+              v-if="$site.themeConfig.logoSmall"
+              class="logo"
+              :src="$withBase($site.themeConfig.logoSmall)"
+              :alt="$siteTitle"
           >
-            <img
-                v-if="$site.themeConfig.logoSmall"
-                class="logo"
-                :src="$withBase($site.themeConfig.logoSmall)"
-                :alt="$siteTitle"
-            >
-          </RouterLink>
-        </div>
- 
-        <NavLinks class="can-hide" />
+        </RouterLink>
+      </div>
 
-        <SearchBox/>
-        <div class="login-links">
-          <button type="button" class="btn btn--register">Sign up</button>
-          <button type="button" class="btn btn--accent">Log in</button>
-        </div>
+      <NavLinks class="can-hide" />
+
+      <SearchBox/>
+      <div class="login-links">
+        <button type="button" class="btn btn--transparent btn--register">Sign up</button>
+        <button type="button" class="btn btn--accent">Log in</button>
       </div>
     </div>
   </header>

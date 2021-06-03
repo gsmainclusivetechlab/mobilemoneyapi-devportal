@@ -1,7 +1,7 @@
 <template>
   <div id="global-layout">
     <component :is="layout"/>
-    <Footer></Footer>
+    <Footer/>
   </div>
 </template>
 

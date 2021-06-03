@@ -1,9 +1,14 @@
 // vuepress styles
 html {
   .navbar {
-    background: var(--base-page-background-color);
+    background: var(--base-light-background-color);
     height: auto;
     border: none;
+    
+    @include media('<tablet-lg') {
+      border-bottom: 1px solid #eaecef;
+    }
+
     .site-name {
       position: relative;
     }
