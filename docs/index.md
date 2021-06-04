@@ -15,3 +15,5 @@ pageClass: home-page custom
     
     />
 
+  <what-you-get/>
+

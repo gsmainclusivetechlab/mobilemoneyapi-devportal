@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-section">
+  <div class="hero-section section">
     <div class="container container--thin">
       <div class="section-intro">
         <h1 class="hero-section__title text-center">{{ title }}</h1>
