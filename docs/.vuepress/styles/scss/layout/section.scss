@@ -1,0 +1,55 @@
+.section {
+  &--m-gap {
+    margin: 184px 0;
+
+    @include media('<=tablet-lg') {
+      margin: 122px 0;
+    }
+
+    @include media('<=tablet') {
+      margin: 64px 0;
+    }
+  }
+
+  &--p-gap {
+    padding: 92px 0;
+
+    @include media('<=tablet-lg') {
+      padding: 62px 0;
+    }
+
+    @include media('<=tablet') {
+      padding: 32px 0;
+    }
+  }
+
+  &-description {
+    font-size: 1.8rem;
+
+    @include media('<=tablet-lg') {
+      font-size: 1.6rem;
+    }
+
+    @include media('<=520px') {
+      font-size: 1.4rem;
+    }
+  }
+
+  &-intro {
+    margin: 0 0 62px;
+
+    @include media('<=tablet-lg') {
+      margin: 0 0 40px;
+    }
+
+    @include media('<=520px') {
+      margin: 0 0 20px;
+    }
+
+    &--narrow {
+      max-width: 615px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
