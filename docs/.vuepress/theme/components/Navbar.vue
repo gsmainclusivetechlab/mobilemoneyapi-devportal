@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar main-header">
+  <header class="navbar main-header" :class="{'mobile-search-opened':isMobileSearchOpened}">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
     <div class="main-header__box">
       <div class="logo-holder">
@@ -30,6 +30,7 @@
       <NavLinks class="can-hide" />
 
       <SearchBox/>
+      <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
       <div class="login-links">
         <button type="button" class="btn btn--transparent btn--register">Sign up</button>
         <button type="button" class="btn btn--accent">Log in</button>
@@ -53,9 +54,11 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
+      isMobileSearchOpened: false,
     }
   },
+  
   computed: {
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
@@ -64,6 +67,7 @@ export default {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
     }
   },
+
   mounted () {
     const MOBILE_DESKTOP_BREAKPOINT = 979 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
@@ -77,6 +81,12 @@ export default {
     }
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
+  },
+
+  methods: {
+    toggleMobileSearch: function() {
+    this.isMobileSearchOpened = !this.isMobileSearchOpened;
+    }
   }
 }
 
