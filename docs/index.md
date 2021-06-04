@@ -10,7 +10,7 @@ pageClass: home-page custom
     :videoThumbSrc="'/images/hero-video-thumb.png'"
     :imageSrc="'/images/test.jpg'"
     :imageAlt="'image alt'" 
-    :accentLink="{text: 'Go to API Docs', link: '/example'}"
+    :accentLink="{text: 'Go to API Docs', link: '/examples'}"
     :transparentLink="{text: 'Learn more', link: '/test'}"
     
     />
