@@ -1,7 +1,15 @@
 .lightbox {
   &-holder {
     position: relative;
-    margin-bottom: 25%;
+    margin-bottom: 92px;
+
+    @include media('<=tablet-lg') {
+      margin-bottom: 62px;
+    }
+
+    @include media('<=tablet') {
+      margin-bottom: 32px;
+    }
 
     &:after {
       content: '';
@@ -9,9 +17,13 @@
       top: 50%;
       left: calc((50vw - (100%/2)) * -1);
       width: 100vw;
-      height: 98.5%;
+      height: calc(50% + 92px);
       z-index: 1;
       background: #fff;
+
+      @include media('<=tablet-lg') {
+        height: calc(50% + 62px);
+      }
     }
 
     .images-wrapper {
