@@ -2,7 +2,6 @@
 pageClass: home-page custom
 ---
 
-
   <hero-section 
     :title="'Welcome to the GSMA Mobile Money API Developer Portal.'"
     :description="'Semper eu, erat amet, vitae elementum amet. Lorem facilisi est, fusce nibh arcu vulputate turpis.'"
@@ -16,4 +15,6 @@ pageClass: home-page custom
     />
 
   <what-you-get/>
+
+  <benefits-list/>
 

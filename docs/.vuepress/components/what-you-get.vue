@@ -6,8 +6,10 @@
           <img class="image" src="/images/what_youll_get.jpg" alt="">
         </div>
         <div class="content-holder">
-          <h2 class="h2 section-title">What you’ll get</h2>
-          <div class="description">We provide access to harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.</div>
+          <div class="section-intro">
+            <h2 class="h2 section-title">What you’ll get</h2>
+            <div class="section-description">We provide access to harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.</div>
+          </div>
           <ul class="what-you-get__list">
             <li class="what-you-get__list-item">
               <div class="icon-box">

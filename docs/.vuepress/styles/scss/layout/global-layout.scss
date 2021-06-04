@@ -23,29 +23,3 @@
     flex-grow: 0;
   }
 }
-
-.section {
-  &--m-gap {
-    margin: 92px 0;
-
-    @include media('<=tablet-lg') {
-      margin: 62px 0;
-    }
-
-    @include media('<=tablet') {
-      margin: 32px 0;
-    }
-  }
-
-  &--p-gap {
-    padding: 92px 0;
-
-    @include media('<=tablet-lg') {
-      padding: 62px 0;
-    }
-
-    @include media('<=tablet') {
-      padding: 32px 0;
-    }
-  }
-}
