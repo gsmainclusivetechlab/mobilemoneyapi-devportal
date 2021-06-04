@@ -1,6 +1,14 @@
 .main-header {
   padding: 24px 88px;
 
+  @include media('<desktop')  {
+    padding: 24px 40px;
+  }
+
+  @include media('<tablet')  {
+    padding: 15px 25px;
+  }
+
   &__box {
     display: flex;
     align-items: center;
@@ -20,10 +28,14 @@
 
     &-holder {
       max-width: 200px;
-      margin-right: 23px;
+      margin-right: 18px;
 
-      @include media('<tablet-lg') {
-        margin-left: 40px;
+      @include media('<=tablet-lg') {
+        margin-left: 35px;
+      }
+
+      @include media('<tablet') {
+        margin-left: 50px;
       }
     }
   }
@@ -37,6 +49,10 @@
 
     &--small {
       display: block;
+
+      @include media('<tablet') {
+        max-width: 30px;
+      }
 
       @media (min-width: 1200px) {
         display: none;
@@ -53,22 +69,29 @@
       @include media('<tablet') {
         padding: 4px 15px;
         font-size: 1.4rem;
+        margin-left: 14px;
       }
 
       &.btn--register {
         margin-left: 8px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
       }
     }
   }
 
   .sidebar-button {
-    @include media('<tablet-lg') {
+    @include media('<=tablet-lg') {
       width: 30px;
       height: 30px;
       top: 32px;
       left: 20px;
+      display: block;
+    }
+
+    @include media('<tablet') {
+      top: 16px;
+      left: 10px;
     }
 
     .icon {

@@ -1,18 +1,23 @@
 html {
   .sidebar {
-    @include media('<tablet-lg') {
+    @include media('<=tablet-lg') {
       padding-top: 96px;
       top: 0;
     }
 
+    @include media('<tablet') {
+      padding-top: 63px;
+    }
+
     &-button {
-      @include media('<tablet-lg') {
+      @include media('<=tablet-lg') {
         display: block;
       }
     }
 
     .nav-links {
       display: block;
+      padding: 15px 0;
       font-size: 1.6rem;
     }
 
@@ -23,13 +28,13 @@ html {
   }
 
   .dropdown-wrapper {
-    @include media('<tablet-lg') {
+    @include media('<=tablet-lg') {
       height: auto;
     }
 
     &:hover  {
       .nav-dropdown {
-        @include media('<tablet-lg') {
+        @include media('<=tablet-lg') {
           display: none !important;
         }
       }
@@ -37,14 +42,13 @@ html {
 
     &.open  {
       .nav-dropdown {
-        @include media('<tablet-lg') {
+        @include media('<=tablet-lg') {
           display: block !important;
           padding-bottom: 0;
         }
       }
 
       .mobile-dropdown-title {
-  
         .arrow {
           transform: rotate(0deg);
         }
@@ -52,7 +56,7 @@ html {
     }
 
     .nav-dropdown {
-      @include media('<tablet-lg') {
+      @include media('<=tablet-lg') {
         border: none;
         position: static;
       }
@@ -64,6 +68,12 @@ html {
           opacity: 1;
           font-size: 1.4rem;
           line-height: 1.5;
+
+          &.router-link-active {
+            &::after {
+              display: none;
+            }
+          }
         }
 
         &:last-child {
@@ -75,16 +85,17 @@ html {
     }
     
     .dropdown-title {
-      @include media('<tablet-lg') {
+      @include media('<=tablet-lg') {
         display: none;
       }
     }
 
     .mobile-dropdown-title {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       line-height: 1.5;
+      color: var(--base-text-color);
 
-      @include media('<tablet-lg') {
+      @include media('<=tablet-lg') {
         display: block;
       }
 
@@ -103,7 +114,8 @@ html {
 
   .nav-item {
     & > a {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
 
     & > a:not(.external) {
@@ -118,6 +130,11 @@ html {
 
   .theme-container{
     .sidebar {
+      @include media('<=tablet-lg') {
+        display: block;
+        width: 230px;
+      }
+
       @include animate(transform);
       transform: translateX(-100%);
 
@@ -136,7 +153,7 @@ html {
 
     &.sidebar-open {
       .sidebar {
-        @include media('<tablet-lg') {
+        @include media('<=tablet-lg') {
           display: block;
           transform: translateX(0);
         }

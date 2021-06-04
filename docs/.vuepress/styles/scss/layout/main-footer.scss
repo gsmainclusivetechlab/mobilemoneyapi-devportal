@@ -4,6 +4,14 @@
 
   &.footer {
     padding: 24px 88px 17px;
+
+    @include media('<desktop')  {
+      padding: 24px 40px 17px;
+    }
+  
+    @include media('<tablet')  {
+      padding: 20px 25px;
+    }
   }
 
   &__content-holder {
@@ -12,7 +20,7 @@
     align-items: center;
     width: 100%;
 
-    @include media('<tablet-lg') {
+    @include media('<=tablet-lg') {
       flex-direction: column;
     }
   }
@@ -20,8 +28,8 @@
   .nav-links {
     @extend %listreset;
 
-    @include media('<tablet-lg') {
-      margin-bottom: 20px;
+    @include media('<=tablet-lg') {
+      margin-bottom: 15px;
     }
 
     .nav-item {
