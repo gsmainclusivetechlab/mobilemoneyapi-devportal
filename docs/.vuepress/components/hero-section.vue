@@ -7,18 +7,18 @@
       </div>
 
       <div class="buttons-holder content-center">
-        <a v-if="accentLink.text"
-          :href="accentLink.link ? accentLink.link : '#'"
+        <router-link v-if="accentLink.text"
+          :to="accentLink.link ? accentLink.link : '#'"
           class="btn btn--accent"
         >
           {{ accentLink.text }}
-        </a>
-        <a v-if="transparentLink.text"
-          :href="transparentLink.link ? transparentLink.link : '#'"
+        </router-link>
+        <router-link v-if="transparentLink.text"
+          :to="transparentLink.link ? transparentLink.link : '#'"
           class="btn btn--transparent"
         >
           {{ transparentLink.text }}
-        </a>
+        </router-link>
       </div>
 
       <lightbox v-if="videoSrc"
