@@ -18,3 +18,4 @@ pageClass: home-page custom
 
   <benefits-list/>
 
+  <mm-metrics/>

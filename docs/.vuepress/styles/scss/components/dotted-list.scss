@@ -17,5 +17,9 @@
       background-color: var(--base-accent-color);
       border-radius: 50%;
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
