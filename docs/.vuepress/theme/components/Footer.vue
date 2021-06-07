@@ -4,9 +4,13 @@
       <ul class="nav-links can-hide">
         <li class="nav-item" v-for="item in $site.themeConfig.footer">
           <router-link
-              :to="item.link"
-              class="nav-link"
+            v-if="!item.target"
+            :to="item.link"
+            class="nav-link"
           >{{item.text}}</router-link>
+          <a v-else :href="item.link" class="nav-link" target="_blank">
+            {{item.text}} blank
+          </a>
         </li>
       </ul>
       <div class="copyright"> Copyright &copy; 2021 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div>
@@ -16,7 +20,7 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
 }
 </script>
 

@@ -8,8 +8,19 @@ const mainNavigation = [
     text: 'About',
     items: [
       {
-        text: 'Business 1',
-        link: '/examples/',
+        text: 'About GSMA',
+        link: 'https://www.gsma.com/aboutus/',
+        target:'_blank',
+      },
+      {
+        text: 'Mobile for Development',
+        link: 'https://www.gsma.com/mobilefordevelopment/mobile-money/',
+        target:'_blank',
+      },
+      {
+        text: 'Inclusive Tech Lab',
+        link: 'https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/',
+        target:'_blank',
       },
     ]
   },
@@ -42,11 +53,15 @@ const mainNavigation = [
     text: 'API version',
     items: [
       {
-        text: 'Business 1',
+        text: 'Version 1.2',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Version 1.1',
+        link: '/examples/',
+      },
+      {
+        text: 'Version 1.0',
         link: '/examples/',
       },
     ]
@@ -55,15 +70,15 @@ const mainNavigation = [
     text: 'Resources',
     items: [
       {
-        text: 'Business 1',
+        text: 'Security',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Glossary',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'FAQ',
         link: '/examples/',
       },
     ]
@@ -76,20 +91,19 @@ const mainNavigation = [
 
 const footerNavigation = [
   {
-    text: 'Sitemap',
-    link: '/test/'
-  },
-  {
     text: 'Contact GSMA',
-    link: '/test/'
+    link: 'https://www.gsma.com/aboutus/worldwide-offices',
+    target:'_blank',
   },
   {
     text: 'Legal',
-    link: '/test/'
+    link: 'https://www.gsma.com/aboutus/legal',
+    target:'_blank',
   },
   {
     text: 'Email Preference Centre',
-    link: '/test/'
+    link: 'https://www.gsma.com/aboutus/legal/email-preference-centre',
+    target:'_blank',
   },
 ]
 

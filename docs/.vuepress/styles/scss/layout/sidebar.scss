@@ -74,6 +74,12 @@ html {
               display: none;
             }
           }
+          
+          &:hover {
+            .icon.outbound {
+              color: var(--base-accent-color) !important;
+            }
+          }
         }
 
         &:last-child {
@@ -129,7 +135,7 @@ html {
   }
 
   .theme-container{
-    .sidebar {
+    .sidebar.sidebar {
       @include media('<=tablet-lg') {
         display: block;
         width: 230px;

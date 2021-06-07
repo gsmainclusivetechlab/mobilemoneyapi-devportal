@@ -26,9 +26,11 @@
         :videoThumbSrc="videoThumbSrc"
       />
 
-      <!-- <div v-if="imageSrc" class="image-holder">
-        <img :src="imageSrc" :alt="imageAlt">
-      </div> -->
+      <div class="hero-image-holder">
+        <div v-if="imageSrc && !videoSrc" class="images-wrapper">
+          <img :src="imageSrc" :alt="imageAlt">
+        </div>
+      </div>
     </div>
   </div>
 </template>
