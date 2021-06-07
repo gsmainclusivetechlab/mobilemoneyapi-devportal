@@ -3,4 +3,17 @@
   column-gap: 32px;
   row-gap: 32px;
   grid-template-columns: repeat(4, 1fr);
+
+  @include media ('<desktop') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media ('<tablet-lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 24px;
+  }
+
+  @include media ('<tablet-xs') {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

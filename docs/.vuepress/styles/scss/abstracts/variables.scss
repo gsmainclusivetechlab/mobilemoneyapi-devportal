@@ -4,6 +4,7 @@
 $breakpoints: (
   "phone": 375px,
   "tablet": 768px,
+  "tablet-xs": 520px,
   "tablet-lg": 1024px,
   "desktop": 1280px,
   "desktop-lg": 1360px,
@@ -53,7 +54,7 @@ $media-expressions: (
 
   --base-headings-font-weight: normal;
 
-  // colors 
+  // colors
 
   --base-light-background-color: #F8F8F9;
   --base-accent-color: #DE002B;

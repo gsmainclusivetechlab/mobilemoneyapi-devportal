@@ -23,12 +23,23 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 32px 24px;
+    padding: 32px 24px 22px;
     border-radius: 12px;
     box-shadow: 0px 3px 30px -2px transparent;
-  
-    &:hover {
-      box-shadow: 0px 3px 30px -2px var(--shadow-light-color);
+    cursor: pointer;
+
+    @include media ('<tablet-lg') {
+      padding: 24px;
+      box-shadow: 0px 2px 15px 2px var(--shadow-light-color);
+    }
+
+    @include media ('<tablet-xs') {
+      font-size: 1.4rem;
+    }
+    @include media('hover') {
+      &:hover {
+        box-shadow: 0px 3px 30px -2px var(--shadow-light-color);
+      }
     }
 
     .icon {
@@ -44,7 +55,7 @@
         width: 64px;
         height: 64px;
         border-radius: 50%;
-  
+
         img {
           display: block;
         }
@@ -56,9 +67,13 @@
     }
 
     .industries-description {
-      margin: 0 0 20px;
+      margin: 0 0 22px;
       font-size: 1.6rem;
       line-height: 1.6;
+
+      @include media ('<tablet-xs') {
+        font-size: 1.4rem;
+      }
     }
 
     .btn {
