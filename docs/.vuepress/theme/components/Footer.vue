@@ -9,7 +9,7 @@
             class="nav-link"
           >{{item.text}}</router-link>
           <a v-else :href="item.link" class="nav-link" target="_blank">
-            {{item.text}} blank
+            {{item.text}}
           </a>
         </li>
       </ul>
