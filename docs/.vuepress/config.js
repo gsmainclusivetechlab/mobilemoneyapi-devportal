@@ -28,23 +28,53 @@ const mainNavigation = [
     text: 'Business',
     items: [
       {
-        text: 'Business 1',
+        text: 'Mobile Money Providers',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Merchants & Service Providers',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Governments',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Humanitarian Agencies',
+        link: '/examples/',
+      },
+
+      {
+        text: 'International Transfer Organisations',
         link: '/examples/',
       },
       {
-        text: 'Business 1',
+        text: 'Payment Service Providers & Payment Aggregators',
+        link: '/examples/',
+      },
+      {
+        text: 'Banks & Microfinance Institutions',
+        link: '/examples/',
+      },
+      {
+        text: 'FinTech Providers (Insurance Savings Loans)',
+        link: '/examples/',
+      },
+
+      {
+        text: 'Employers',
+        link: '/examples/',
+      },
+      {
+        text: 'Energy & Utilities & AgriTech',
+        link: '/examples/',
+      },
+      {
+        text: 'Education & Health',
+        link: '/examples/',
+      },
+      {
+        text: 'Mobile Money Agents',
         link: '/examples/',
       },
     ]
