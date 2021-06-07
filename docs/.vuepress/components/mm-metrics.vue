@@ -6,7 +6,7 @@
           <h2 class="h2 section-title">Mobile Money Metrics</h2>
         </div>
         <div class="section-intro__column">
-          <div class="section-description">Explore our interactive tool that provides a comprehensive set of global metrics by combining unique data sources</div>
+          <div class="section-description">Explore our interactive tool that provides a comprehensive set of global metrics by combining unique data sources.</div>
         </div>
       </div>
       <div class="iframe-box">
