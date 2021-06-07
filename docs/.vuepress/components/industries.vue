@@ -19,9 +19,9 @@
               v-if="!mainIndustry.target"
               :to="mainIndustry.link"
               class="btn btn--transparent"
-            >Learm more</router-link>
+            >Learn more</router-link>
             <a v-else :href="mainIndustry.link" class="btn btn--transparent" target="_blank">
-              Learm more
+              Learn more
             </a>
           </div>
         </div>
@@ -41,9 +41,9 @@
                 v-if="!industry.target"
                 :to="industry.link"
                 class="btn btn--transparent"
-              >Learm more</router-link>
+              >Learn more</router-link>
               <a v-else :href="industry.link" class="btn btn--transparent" target="_blank">
-                Learm more
+                Learn more
               </a>
             </div>
           </div>
