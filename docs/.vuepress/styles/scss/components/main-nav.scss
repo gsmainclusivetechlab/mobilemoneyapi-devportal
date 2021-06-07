@@ -66,9 +66,21 @@ html {
       color: var(--base-text-color);
       margin-left: 0;
 
+      a {
+        &:hover {
+          .icon.outbound {
+            color: var(--base-accent-color) !important;
+          }
+        }
+      }
+
+      > a {
+        font-size: 1.4rem;
+      }
+
       & > a:not(.external) {
         &:hover,
-        &.router-link-active{
+        &.router-link-active {
           border-bottom: none;
           margin-bottom: 0;
           color: var(--base-accent-btn-bg-color);
@@ -139,10 +151,6 @@ html {
             padding: 10px 15px;
             &:after {
               display: none;
-            }
-
-            &:hover {
-              font-weight: 500;
             }
           }
         }
