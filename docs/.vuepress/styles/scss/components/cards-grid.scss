@@ -1,7 +1,6 @@
 .cards-grid {
   display: grid;
-  column-gap: 32px;
-  row-gap: 32px;
+  gap: 32px;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
 
@@ -11,7 +10,7 @@
 
   @include media ('<tablet-lg') {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px 24px;
+    gap: 24px;
   }
 
   @include media ('<tablet-xs') {
