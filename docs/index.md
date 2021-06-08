@@ -49,3 +49,4 @@ pageClass: home-page custom
   :borderedLink="{text: 'Learn more', link: '/test'}"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  <testimonials-slider/>

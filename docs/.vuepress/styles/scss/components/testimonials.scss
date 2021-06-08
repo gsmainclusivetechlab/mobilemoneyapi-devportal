@@ -1,0 +1,26 @@
+.testimonials {
+  &__slide {
+    display: flex;
+  }
+
+  &__content-holder,
+  &__image-holder {
+    width: 50%;
+  }
+
+  &__image-holder {
+    position: relative;
+    justify-content: flex-end;
+    text-align: right;
+
+    img {
+      margin-left: auto;
+    }
+  }
+
+  &__icon-holder {
+    position: absolute;
+    top: 30px;
+    left: 18%;
+  }
+}
