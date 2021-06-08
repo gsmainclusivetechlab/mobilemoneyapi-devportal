@@ -21,3 +21,5 @@ pageClass: home-page custom
   <mm-metrics/>
 
   <industries/>
+  
+  <use-case/>
