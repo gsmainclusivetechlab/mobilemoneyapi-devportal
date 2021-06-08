@@ -1,0 +1,62 @@
+.use-case-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #DEDEDF;
+  border-radius: 12px;
+
+  @include media ('hover') {
+    &:hover {
+      opacity: 1;
+      // fix this style
+      text-decoration: none !important;
+      // fix this style
+
+      .use-case-card__header {
+        background: var(--base-accent-color);
+        color: #fff;
+      }
+
+      .use-case-card__icon {
+        img {
+          filter: invert(100%);
+        }
+      }
+
+      .use-case-card__footer {
+        svg path {
+          fill: var(--base-accent-color);
+        }
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 15px 12px;
+    border-bottom: 1px solid #DEDEDF;
+    border-radius: 12px 12px 0 0;
+  }
+
+  &__content {
+    padding: 24px 24px 2px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: auto 0 29px;
+    padding: 0 24px;
+
+  }
+
+  &__icon {
+    display: flex;
+    margin-right: 17px;
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
