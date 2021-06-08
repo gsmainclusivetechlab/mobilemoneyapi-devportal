@@ -3,6 +3,7 @@
  *
  * https://v1.vuepress.vuejs.org/guide/basic-config.html#app-level-enhancements
  */
+import './styles/scss/styles.scss';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app

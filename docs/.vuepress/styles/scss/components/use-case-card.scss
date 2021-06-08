@@ -1,0 +1,80 @@
+.use-case-card {
+  @include animate(box-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #DEDEDF;
+  border-radius: 12px;
+
+  @include media ('hover') {
+    &:hover {
+      opacity: 1;
+      // fix this style
+      text-decoration: none !important;
+      box-shadow: 0px 3px 30px -2px var(--shadow-light-color);
+
+      .use-case-card__header {
+        background: var(--base-accent-color);
+        color: #fff;
+      }
+
+      .use-case-card__icon {
+        img {
+          filter: invert(100%);
+        }
+      }
+
+      .use-case-card__footer {
+        svg path {
+          fill: var(--base-accent-color);
+        }
+      }
+    }
+  }
+
+  .use-case-card__header {
+    @include animate(background-color color);
+  }
+
+  .use-case-card__icon {
+    img {
+      @include animate(filter);
+    }
+  }
+
+  .use-case-card__footer {
+    svg path {
+      @include animate(fill);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 15px 14px;
+    border-bottom: 1px solid #DEDEDF;
+    border-radius: 12px 12px 0 0;
+  }
+
+  &__content {
+    padding: 27px 23px 0 22px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: auto 0 26px;
+    padding: 0 27px;
+
+  }
+
+  &__icon {
+    display: flex;
+    margin-right: 17px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+}

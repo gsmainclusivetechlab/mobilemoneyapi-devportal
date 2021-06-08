@@ -12,6 +12,6 @@
 
 <script>
 export default {
-  name: "IframeComponent",
+  name: "iframe-component",
 }
 </script>

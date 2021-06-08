@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include media('<=tablet') {
+    padding: 0 25px;
+  }
+
+  &--thin {
+    max-width: 912px;
+  }
+
+  &--narrow {
+    // max-width: 1128px;
+    padding: 0 148px;
+
+    @include media('<=1200px') {
+      padding: 0 108px;
+    }
+
+    @include media('<=tablet-lg') {
+      padding: 0 40px;
+    }
+
+    @include media('<=tablet') {
+      padding: 0 25px;
+    }
+  }
+}
+
+.theme-container {
+  padding-top: 95px;
+
+  @include media('<tablet') {
+    padding-top: 63px;
+  }
+}

@@ -1,0 +1,25 @@
+#global-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .theme-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    &.custom {
+      .theme-default-content {
+        max-width: none;
+        padding: 0;
+
+        & > :first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .main-footer {
+    flex-grow: 0;
+  }
+}

@@ -1,0 +1,104 @@
+html { 
+  .search-box {
+    @include media('<=tablet-lg') {
+      @include animate(opacity visibility);
+      position: absolute;
+      left: 0;
+      top: calc(100% + 1px);
+      width: 100%;
+      margin-left: auto;
+      padding: 5px 10px;
+      border-bottom: 1px solid #eaecef;
+      background: var(--base-light-background-color);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    input {
+      @include animate(border-color width);
+      cursor: pointer;
+      width: 40px;
+      height: auto;
+      color: var(--base-text-color);
+      font-weight: 400;
+      display: inline-block;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      font-size: 14px;
+      font-family: var(--base-body-font-family);
+      line-height: 1;
+      padding: 7px 10px 4px 30px;
+      outline: none;
+      transition: all 0.3s ease;
+      background: url('/images/search.svg') 7px 50% no-repeat;
+
+      &:focus {
+        cursor: text;
+        width: 160px;
+        padding: 7px 10px 4px 35px;
+        border-color: var(--base-accent-color);
+      }
+      
+      @include media('<=tablet-lg') {
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 7px 10px 4px 35px;
+
+        &:focus {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .mobile-search-opened {
+    .search-box {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+
+      input {
+        border-color: var(--base-accent-color);
+      }
+    }
+  }
+}
+
+.mobile-search-opener {
+  appearance: none;
+  border: none;
+  background: url('/images/search.svg') center no-repeat;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
+  margin-left: auto;
+
+  @include media('>tablet-lg') {
+    display: none;
+  }
+
+  .mobile-search-opened & {
+    position: relative;
+    background: none;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: #000;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+}

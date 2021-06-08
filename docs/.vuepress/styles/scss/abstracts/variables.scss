@@ -1,0 +1,267 @@
+// Global variables
+
+// Breakpoints for include media mixin
+$breakpoints: (
+  "phone": 375px,
+  "tablet": 768px,
+  "tablet-xs": 520px,
+  "tablet-lg": 1024px,
+  "desktop": 1280px,
+  "desktop-lg": 1360px,
+  "widescreen": 1560px,
+  "widescreen-lg": 1920px
+);
+
+// Keywords for include media mixin
+$media-expressions: (
+  "screen": "screen",
+  "print": "print",
+  "handheld": "handheld",
+  "landscape": "(orientation: landscape)",
+  "portrait": "(orientation: portrait)",
+  "retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+  "retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
+  "hover": "(hover: hover) and (pointer: fine)",
+  "hover-none": "(hover: none)"
+);
+
+:root {
+  //Headings
+  --base-h1-font-size: 4.4rem;
+  --base-h1-font-weight: 700;
+
+  --base-h2-font-size: 3.2rem;
+  --base-h2-font-weight: 700;
+
+  --base-h3-font-size: 2.4rem;
+  --base-h3-font-weight: 700;
+
+  --base-h4-font-size: 2.2rem;
+  --base-h4-font-weight: 700;
+
+  --base-h5-font-size: 2.0rem;
+  --base-h5-font-weight: 700;
+
+  --base-h6-font-size: 1.8rem;
+  --base-h6-font-weight: 700;
+
+  --h1-font-size: var(--base-h1-font-size);
+  --h2-font-size: var(--base-h2-font-size);
+  --h3-font-size: var(--base-h3-font-size);
+  --h4-font-size: var(--base-h4-font-size);
+  --h5-font-size: var(--base-h5-font-size);
+  --h6-font-size: var(--base-h6-font-size);
+
+  --base-headings-font-weight: normal;
+
+  // colors
+
+  --base-light-background-color: #F8F8F9;
+  --base-accent-color: #DE002B;
+
+  --base-btn-bg-color: transparent;
+  --base-accent-btn-bg-color: var(--base-accent-color);
+  --base-accent-btn-hover-bg-color: #e64060;
+
+  --shadow-light-color: rgba(36, 37, 41, 0.1);
+
+  --primaty-dark-color: #242529;
+  --base-text-color: var(--primaty-dark-color);
+
+  @include media("<widescreen") {
+    --h1-font-size: 4.4rem;
+    --h2-font-size: 3.2rem;
+    --h3-font-size: 2.4rem;
+    --h4-font-size: 2.2rem;
+    --h5-font-size: 1.8rem;
+    --h6-font-size: 1.6rem;
+  }
+
+  @include media("<desktop") {
+    --h1-font-size: 4.4rem;
+  }
+
+  @include media("<tablet") {
+    --h1-font-size: 3rem;
+    --h2-font-size: 2.6rem;
+    --h3-font-size: 2rem;
+    --h4-font-size: 1.8rem;
+    --h5-font-size: 1.6rem;
+  }
+  // Breakpoints
+  --phone: #{map-get($breakpoints, "phone")};
+  --tablet: #{map-get($breakpoints, "tablet")};
+  --desktop: #{map-get($breakpoints, "desktop")};
+  --widescreen: #{map-get($breakpoints, "widescreen")};
+
+  // Fonts
+  --base-body-font-family: 'gotham', Arial, Helvetica, sans-serif;
+  --base-headings-font-family: var(--base-body-font-family);
+
+  --font-sans-serif: var(--base-body-font-family);
+  --secondary-font: var(--base-headings-font-family);
+
+  // Body base
+  --base-body-font-weight: 400;
+  --base-body-font-size: 1.6rem;
+
+  --base-font-family: var(--font-sans-serif);
+
+  --base-font-size-xxs: 1.4rem;
+  --base-font-size-xs: var(--base-body-font-size);
+  --base-font-size-sm: 1.8rem;
+  --base-font-size-md: 2rem;
+  --base-font-size-lg: 2.4rem;
+  --base-font-size-xl: 3.2rem;
+
+  @include media("<widescreen") {
+    --base-font-size-xxs: 1.2rem;
+    --base-font-size-xs: var(--base-body-font-size);
+    --base-font-size-sm: 1.6rem;
+    --base-font-size-md: 1.6rem;
+    --base-font-size-lg: 2rem;
+    --base-font-size-xl: 2.4rem;
+  }
+
+  @include media("<tablet") {
+    --base-font-size-xxs: 1.2rem;
+    --base-font-size-xs: 1.4rem;
+    --base-font-size-sm: 1.4rem;
+    --base-font-size-md: 1.4rem;
+    --base-font-size-lg: 1.8rem;
+    --base-font-size-xl: 1.6rem;
+  }
+
+  --base-body-line-height: 1.8;
+  --base-line-height: var(--base-body-line-height);
+  --base-min-width: 320px;
+
+  // Buttons base
+  --btn-padding: 0 0.7em;
+  --btn-font-family: var(--secondary-font);
+  --btn-font-size: 1.8rem;
+  --btn-heigth: 5.6rem;
+
+  @include media("<widescreen") {
+    --btn-font-size: 1.6rem;
+    --btn-heigth: 5rem;
+  }
+
+  @include media("<tablet") {
+    --btn-font-size: 1.4rem;
+    --btn-heigth: 4.6rem;
+  }
+
+  // Forms base
+  --form-font-family: inherit;
+  --form-element-padding: 1.6rem 2.2rem;
+
+  // Headings base
+  --headings-font-family: var(--secondary-font);
+  --headings-line-height: 1.5;
+
+  // Offset
+  --vertical-margin: 25rem;
+
+  @include media("<widescreen") {
+    --vertical-margin: 20rem;
+  }
+
+  @include media("<tablet-lg") {
+    --vertical-margin: 15rem;
+  }
+
+  @include media("<tablet") {
+    --vertical-margin: 14rem;
+  }
+
+  //Offset wrapper
+  --wrapper-offset: 12rem;
+
+  @include media("<desktop-lg") {
+    --wrapper-offset: 8rem;
+  }
+
+  @include media("<desktop") {
+    --wrapper-offset: 11.2rem;
+  }
+
+  @include media("<tablet-lg") {
+    --wrapper-offset: 4.8rem;
+  }
+
+  @include media("<tablet") {
+    --wrapper-offset: 2.4rem;
+  }
+
+  //Offset container
+  --container-offset: 14.4rem;
+
+  @include media("<widescreen") {
+    --container-offset: 0;
+  }
+
+  //header height
+  --header-height-initial: 14.1rem;
+  --header-height: 8.8rem;
+
+  @include media("<widescreen") {
+    --header-height-initial: 10.5rem;
+    --header-height: 7rem;
+  }
+
+  @include media("<desktop-lg") {
+    --header-height-initial: 11.2rem;
+  }
+
+  @include media("<desktop") {
+    --header-height-initial: 10.4rem;
+  }
+
+  @include media("<tablet") {
+    --header-height-initial: 5.9rem;
+    --header-height: 5.8rem;
+  }
+
+  //navigation padding
+  --navigation-padding: 0;
+
+  // z-index
+  --z-index-modal: 101;
+  --z-index-header: 100;
+  --z-index-nav: 99;
+
+  //testimonials slider
+
+  --testimonials-slider-width: 52.8rem;
+
+  @include media("<widescreen") {
+    --testimonials-slider-width: 41.6rem;
+  }
+
+  @include media("<desktop") {
+    --testimonials-slider-width: 38.4rem;
+  }
+
+  @include media("<tablet") {
+    --testimonials-slider-width: 32.7rem;
+  }
+
+  //posts (gap and quantity)
+  --gap-card: 4.8rem;
+  --card-quantity-row: 3;
+
+  @include media("<widescreen") {
+    --gap-card: 3.6rem;
+  }
+
+  @include media("<desktop") {
+    --gap-card: 3.2rem;
+    --card-quantity-row: 2;
+  }
+
+  @include media("<tablet") {
+    --gap-card: 0;
+    --card-quantity-row: 1;
+  }
+}

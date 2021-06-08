@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-book.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-bookitalic.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-bookitalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-medium.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-mediumitalic.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-mediumitalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-bold.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/fonts/gotham/gotham-bolditalic.woff2') format('woff2');
+  src: url('/fonts/gotham/gotham-bolditalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+// @font-face {
+//   font-family: 'icomoon';
+//   src: url('../fonts/icomoon/icomoon.woff?tnhq09') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: block;
+// }
+
+// [class^="icon-"], [class*=" icon-"] {
+//   font-family: 'icomoon' !important;
+//   speak: none;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-variant: normal;
+//   text-transform: none;
+//   line-height: 1;
+
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// .icon-twitter:before {
+//   content: "\e900";
+// }
+// .icon-facebook:before {
+//   content: "\e901";
+// }
+// .icon-linkedin:before {
+//   content: "\e902";
+// }
+// .icon-instagram:before {
+//   content: "\e903";
+// }
+// .icon-arrow-right:before {
+//   content: "\e904";
+// }
+// .icon-arrow-left:before {
+//   content: "\e905";
+// }
+// .icon-work:before {
+//   content: "\e906";
+// }
+// .icon-map-pin:before {
+//   content: "\e907";
+// }
+// .icon-mail:before {
+//   content: "\e908";
+// }
+// .icon-phone:before {
+//   content: "\e909";
+// }
