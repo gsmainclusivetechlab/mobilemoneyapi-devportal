@@ -1,4 +1,5 @@
 .use-case-card {
+  @include animate(box-shadow);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -10,8 +11,7 @@
       opacity: 1;
       // fix this style
       text-decoration: none !important;
-      // fix this style
-      box-shadow: 0px 3px 30px -2px rgba(36, 37, 41, 0.1);
+      box-shadow: 0px 3px 30px -2px var(--shadow-light-color);
 
       .use-case-card__header {
         background: var(--base-accent-color);
@@ -29,6 +29,22 @@
           fill: var(--base-accent-color);
         }
       }
+    }
+  }
+
+  .use-case-card__header {
+    @include animate(background-color color);
+  }
+
+  .use-case-card__icon {
+    img {
+      @include animate(filter);
+    }
+  }
+
+  .use-case-card__footer {
+    svg path {
+      @include animate(fill);
     }
   }
 

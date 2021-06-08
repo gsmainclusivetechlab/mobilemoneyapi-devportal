@@ -138,6 +138,7 @@ html {
         border-radius: 0;
         border: none;
         border-top: 2px solid var(--base-accent-color);
+        box-shadow: 0 0 20px 2px var(--shadow-light-color);
 
         @media (min-width: 719px) {
           top: calc(100% - 7px);

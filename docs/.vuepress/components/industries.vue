@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section-intro section-intro--two-columns">
         <div class="section-intro__column">
-          <h2 class="h2 section-title">Mobile Money Metrics</h2>
+          <h2 class="h2 section-title">Explore what’s possible</h2>
           <div class="section-description">Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.</div>
         </div>
         <div class="section-intro__column">
