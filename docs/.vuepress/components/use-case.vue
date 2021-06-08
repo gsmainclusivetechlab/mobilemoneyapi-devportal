@@ -2,8 +2,8 @@
 <div class="use-case-section section--m-gap">
   <div class="container">
     <div class="section-intro section-intro--one-column">
-      <h2 class="h2 section-title">Explore use cases</h2>
-      <div class="section-description">Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.</div>
+      <h2 class="h2 section-title"> {{ sectionTitle }} </h2>
+      <div class="section-description"> {{ sectionDescription }} </div>
     </div>
     <div class="use-case-grid">
       <div class="cards-grid">
@@ -21,9 +21,13 @@
 import useCaseCard from './use-case-card';
 
 export default {
-name: 'use-case',
+  name: 'use-case',
   components: {
     useCaseCard,
+  },
+  props: {
+      sectionTitle: String,
+      sectionDescription: String,
   },
   data() {
     return {

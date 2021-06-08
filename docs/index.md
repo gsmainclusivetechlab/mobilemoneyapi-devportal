@@ -22,4 +22,7 @@ pageClass: home-page custom
 
   <industries/>
   
-  <use-case/>
+  <use-case
+  :sectionTitle="'Explore use cases'"
+  :sectionDescription="'Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.'"
+  />
