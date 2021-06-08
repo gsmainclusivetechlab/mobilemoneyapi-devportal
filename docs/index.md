@@ -23,3 +23,10 @@ pageClass: home-page custom
   <industries/>
   
   <use-case/>
+
+  <get-started
+  :sectionTitle="'Get Started with Development'"
+  :sectionDescription="'We offers a powerful and easy to use tools to take full advantage of the Mobile Money API Specification.'"
+  :borderedLink="{text: 'Learn more', link: '/test'}"
+  :accentLink="{text: 'Start developing', link: '/examples'}"
+/>
