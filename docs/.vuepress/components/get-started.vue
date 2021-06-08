@@ -1,5 +1,5 @@
 <template>
-<div class="get-started-section section--p-gap">
+<section class="get-started-section section--p-gap">
   <div class="container container--narrow">
     <div class="section-intro section-intro--narrow text-center">
       <h2 class="h2 section-title"> {{ sectionTitle }} </h2>
@@ -16,7 +16,7 @@
       > {{ accentLink.text }} </router-link>
     </div>
   </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -33,11 +33,15 @@ name: "get-started",
     },
     borderedLink: {
       type: Object,
-      default: {text: 'Learn more', link: '#'}
+      default() {
+        return {text: 'Learn more', link: '#'}
+      },
     },
     accentLink: {
       type: Object,
-      default: {text: 'Start developing', link: '#'}
+      default() {
+        return {text: 'Start developing', link: '#'}
+      },
     },
   },
 }
