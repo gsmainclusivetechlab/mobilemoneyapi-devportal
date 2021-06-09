@@ -24,7 +24,7 @@ pageClass: home-page custom
   
   <use-case/>
 
-  <column-section
+  <specific-grid-section
   :cards="[
     {
       image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder',
@@ -49,4 +49,39 @@ pageClass: home-page custom
   :borderedLink="{text: 'Learn more', link: '/test'}"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  <testimonials-slider/>
+  <testimonials-slider
+  :slides="[
+        {
+          image: '/images/slide-item-1.jpg',
+          description: 'Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.\n' +
+          'Scelerisque hendrerit sagittis, sit aliquet id sodales dictum pellentesque quis. Lobortis ultrices\n' +
+          'ultrices integer urna, pharetra.',
+          author: 'John Smith',
+          position: 'Developer at Porto',
+        },
+        {
+          image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder-1',
+          description: 'Text for test 1',
+          author: 'Test 1',
+          position: 'Test 1',
+        },
+        {
+          image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder-2',
+          description: 'Text for test 2',
+          author: 'Test 2',
+          position: 'Test 2',
+        },
+        {
+          image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder-3',
+          description: 'Text for test 3',
+          author: 'Test 3',
+          position: 'Test 3',
+        },
+        {
+          image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder-4',
+          description: 'Text for test 4',
+          author: 'Test 4',
+          position: 'Test 4',
+        },
+    ]"
+  />
