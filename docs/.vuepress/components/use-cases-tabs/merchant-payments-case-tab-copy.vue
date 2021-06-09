@@ -9,55 +9,24 @@
         <p><b>Payee-initiated merchant payment.</b> The merchant initiates the payment and the payer is requested to authenticate to confirm acceptance by the mobile money provider. <br>
         <b>Payer-initiated merchant payment.</b> The payer initiates the payment by specifying the merchant that is to be paid.
         <b>Merchant payment via pre-authorised payment code.</b> The payer generates a payment authorisation code up to a maximum payment amount. The merchant then enters or scans (if rendered as a QR code) the payer’s code to perform the payment.</p>
-        
         <router-link :to="'#'" class="btn btn--transparent">
           Start developing
         </router-link>
       </div>
-
-      <h3 class="h3">Use case scenarios</h3>
-
-      <accordion>
-        <accordion-item>
-          <template #heaeder>
-            Payee-Initiated Merchant Payment
-          </template>
-          <template #body>
-            <p>In this example, an asynchronous payment flow is used with a final callback. The merchant initiates the request and will be credited when the payer approves the request.</p>
-          </template>
-        </accordion-item>
-        <accordion-item>
-          <template #heaeder>
-            title 2
-          </template>
-          <template #body>
-            content 2
-          </template>
-        </accordion-item>
-      </accordion>
     </div>
   </div>
 </template>
 
 <script>
-
-import accordion from '../simple-accordion/accordion.vue';
-import accordionItem from '../simple-accordion/accordion-item.vue';
-
 export default {
   name: 'merchant-payments-case-tab',
   props: [
     'isActive',
   ],
 
-  components: {
-    accordion,
-    accordionItem,
-  },
-
   data: function() {
     return {
-      tabTitle: 'Merchant payments', // required
+      tabTitle: 'Merchant payments copy', // required
     }
   }
 };

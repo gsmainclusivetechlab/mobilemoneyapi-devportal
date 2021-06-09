@@ -1,0 +1,59 @@
+.accordion {
+  .accordion {
+    &__item {
+      @include animate(box-shadow);
+      width: calc(100% + 64px);
+      margin: 0 -32px;
+      border-radius: 12px;
+
+      &--active {
+        box-shadow: 0px 6px 30px -2px var(--shadow-light-color);
+
+        .accordion__item-haeder {
+          .arrow-icon {
+            transform: scaleY(1);
+            
+            path {
+              fill: var(--base-accent-color);
+            }
+          }
+        }
+      }
+      
+      &-haeder {
+        position: relative;
+        cursor: pointer;
+        padding: 25px 32px 0;
+
+        .title {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .arrow-icon {
+          @include animate(transform);
+          position: absolute;
+          top: 34px;
+          right: 34px;
+          transform: scaleY(-1);
+          
+          path {
+            @include animate(fill);
+            fill: var(--primaty-dark-color);
+          }
+        }
+      }
+
+      &-body {
+        @include animate(height);
+        overflow: hidden;
+        padding-left: 32px;
+        padding-right: 32px;
+
+        &-content{
+          padding-bottom: 1px;
+        }
+      }
+    }
+  }
+}

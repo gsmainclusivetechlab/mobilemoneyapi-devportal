@@ -1,0 +1,66 @@
+.tabs-section {
+  .section-intro {
+    margin: 0 0 36px;
+  }
+
+  .tabs-buttons {
+    display: flex;
+    overflow-x: auto;
+    margin: 0 0 30px;
+
+    .btn {
+      flex-shrink: 0;
+      margin: 0 24px 15px 0;
+      padding: 6px 22px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &--accent {
+        cursor: default;
+        pointer-events: none;
+      }
+
+      
+    }
+  }
+
+  .tabs-holder {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tabs__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &--active {
+      position: static;
+    }
+
+    .tab-content {
+      padding: 20px 0;
+    }
+  }
+
+  .text-box {
+    margin: 0 0 58px;
+    font-size: 1.8rem;
+
+    p {
+      margin: 0 0 30px;
+      line-height: 1.8;
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+    
+  }
+
+  .btn--transparent {
+    padding: 0;
+  }
+}

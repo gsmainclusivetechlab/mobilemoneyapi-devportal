@@ -68,6 +68,8 @@ $media-expressions: (
   --primaty-dark-color: #242529;
   --base-text-color: var(--primaty-dark-color);
 
+  --inactive-btn-color: #BEBEBF;
+
   @include media("<widescreen") {
     --h1-font-size: 4.4rem;
     --h2-font-size: 3.2rem;

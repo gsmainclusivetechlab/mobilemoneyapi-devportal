@@ -1,25 +1,30 @@
 <template>
-  <div class="use-cases-tabs-section section--m-gap">
+  <div class="use-cases-tabs-section tabs-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro">
         <h2 class="h2 section-title">Use cases</h2>
       </div>
 
-      <div class="tabs-filter">
+      <div class="tabs-buttons">
         <button
           v-for="(tab, index) in tabs"
           :key="`tab-button-${index}`"
           type="button"
           class="btn btn-bordered"
-          :class="{ 'btn--accent': getTabTitle(tab) === activeTabName }"
+          :class="{ 
+            'btn--accent': getTabTitle(tab) === activeTabName,
+            'btn--inactive': getTabTitle(tab) !== activeTabName,
+          }"
           @click="hendleTabSwitch(getTabTitle(tab))"
         >
           {{ getTabTitle(tab) }}
         </button>
       </div>
 
-      <div class="tab" v-for="(tab, index) in tabs" :key="`tab-${index}`">
-        <component :is="tab" v-show="getTabTitle(tab) === activeTabName"/>
+      <div class="tabs-holder" v-for="(tab, index) in tabs" :key="`tab-${index}`">
+        <transition name="fade">
+          <component :is="tab" v-if="getTabTitle(tab) === activeTabName" :isActive="getTabTitle(tab) === activeTabName"/>
+        </transition>
       </div>
     </div>
   </div>
@@ -28,10 +33,12 @@
 <script>
 import merchantPaymentsCaseTab from './use-cases-tabs/merchant-payments-case-tab.vue';
 import internationalTransfetTab from './use-cases-tabs/international-transfet-tab.vue';
+import internationalTransfetTabCopy from './use-cases-tabs/merchant-payments-case-tab-copy.vue';
 
 const tabs = {
   merchantPaymentsCaseTab,
   internationalTransfetTab,
+  internationalTransfetTabCopy,
 };
 
 export default {
@@ -41,20 +48,17 @@ export default {
 
   data: function() {
     return {
-      someData: 'some data',
       tabs: tabs,
       activeTabName: '',
     }
   },
   
   created: function() {
-    console.log(this.tabs[`${Object.keys(this.tabs)[0]}`]);
     this.setStartActiveTab();
   },
   
   methods: {
     hendleTabSwitch: function(tabName) {
-      console.log(tabName);
       this.activeTabName = tabName;
     },
 
@@ -63,7 +67,7 @@ export default {
     },
 
     setStartActiveTab: function() {
-      this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[0]}`]);
+      this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[1]}`]);
     }
   }
 };
