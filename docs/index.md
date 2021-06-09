@@ -22,7 +22,10 @@ pageClass: home-page custom
 
   <industries/>
   
-  <use-case/>
+  <use-case
+  :sectionTitle="'Explore use cases'"
+  :sectionDescription="'Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.'"
+  />
 
   <specific-grid-section
   :cards="[
@@ -49,6 +52,7 @@ pageClass: home-page custom
   :borderedLink="{text: 'Learn more', link: '/test'}"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+
   <testimonials-slider
   :slides="[
         {
