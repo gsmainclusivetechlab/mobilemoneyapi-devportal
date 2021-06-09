@@ -23,3 +23,29 @@ pageClass: home-page custom
   <industries/>
   
   <use-case/>
+
+  <column-section
+  :cards="[
+    {
+      image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder',
+      title: 'Compliance platform',
+      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
+      btnText: 'Learn more',
+      link: '#',
+    },
+    {
+      image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder',
+      title: 'Collaboration platform',
+      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
+      btnText: 'Learn more',
+      link: '#',
+    },
+  ]"
+/>
+
+  <get-started
+  :sectionTitle="'Get Started with Development'"
+  :sectionDescription="'We offers a powerful and easy to use tools to take full advantage of the Mobile Money API Specification.'"
+  :borderedLink="{text: 'Learn more', link: '/test'}"
+  :accentLink="{text: 'Start developing', link: '/examples'}"
+  />
