@@ -8,7 +8,7 @@
     <div class="buttons-holder content-center get-started__btn-holder">
       <router-link
           :to="borderedLink.link"
-          class="btn btn--bordered"
+          class="btn"
       > {{ borderedLink.text }} </router-link>
       <router-link
           :to="accentLink.link"

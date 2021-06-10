@@ -15,11 +15,7 @@
         </router-link>
         <router-link v-if="transparentLink.text"
           :to="transparentLink.link ? transparentLink.link : '#'"
-<<<<<<< HEAD
           class="btn"
-=======
-          class="btn btn--bordered"
->>>>>>> d0ee87767f91389c07e235efe6f6c4415a15de28
         >
           {{ transparentLink.text }}
         </router-link>

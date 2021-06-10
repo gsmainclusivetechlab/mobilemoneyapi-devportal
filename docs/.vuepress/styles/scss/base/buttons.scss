@@ -48,7 +48,6 @@
     }
   }
 
-<<<<<<< HEAD
   &--inactive {
     color: var(--inactive-btn-color);
     border-color: var(--inactive-btn-color);
@@ -59,11 +58,6 @@
       border-color: var(--base-accent-btn-hover-bg-color);
       text-decoration: none !important;
     }
-=======
-  &--bordered {
-    border: 2px solid var(--base-accent-color);
-    border-radius: 6px;
->>>>>>> d0ee87767f91389c07e235efe6f6c4415a15de28
   }
 }
 
