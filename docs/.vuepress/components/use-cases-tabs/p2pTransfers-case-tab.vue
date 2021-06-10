@@ -35,7 +35,7 @@
 
       <accordion>
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             P2P Transfer via Switch
           </template>
           <template #body>
@@ -44,7 +44,7 @@
         </accordion-item>
 
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             Bilateral P2P Transfer
           </template>
           <template #body>
@@ -78,7 +78,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             'On-us' P2P Transfer Initiated by a Third Party Provider
           </template>
           <template #body>
@@ -87,7 +87,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             P2P Transfer Failure
           </template>
           <template #body>
@@ -96,7 +96,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             P2P Transfer Reversal
           </template>
           <template #body>
@@ -105,7 +105,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             Obtain an FSP Balance
           </template>
           <template #body>
@@ -114,7 +114,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             Retrieve Transactions for an FSP
           </template>
           <template #body>
@@ -123,7 +123,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             P2P Transfer via Switch
           </template>
           <template #body>
@@ -132,7 +132,7 @@
         </accordion-item>
         
         <accordion-item>
-          <template #heaeder>
+          <template #header>
             Retrieve a Missing API Response
           </template>
           <template #body>
