@@ -70,14 +70,6 @@ export default {
 
       industries: [
         {
-          link: 'https://www.gsma.com/aboutus/',
-          target: '_blank',
-          icon: '/images/industry-1.svg',
-          iconBackground: '#DE002B',
-          title: 'Mobile Money Providers',
-          description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
-        },
-        {
           link: '/examples/',
           icon: '/images/industry-2.svg',
           iconBackground: '#EE3772',
