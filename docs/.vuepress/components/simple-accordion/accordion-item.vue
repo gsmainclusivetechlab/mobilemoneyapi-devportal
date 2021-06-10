@@ -3,7 +3,7 @@
     <div class="accordion__item-wrapper">
       <div class="accordion__item-haeder" @click="openClose">
         <div class="title">
-          <slot name="heaeder"></slot>
+          <slot name="header"></slot>
         </div>
         <svg class="arrow-icon" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M1.42413 10.0384L8.19336 3.26916L14.9626 10.0384L16.1934 8.80762L9.42413 2.0384L8.19336 0.807629L6.96259 2.0384L0.193366 8.80762L1.42413 10.0384Z" fill="#DE002B"/>
