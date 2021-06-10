@@ -15,9 +15,5 @@ export default {
       isOpened: false,
     }
   },
-
-  created: function() {
-    console.log(this.$children);
-  },
 }
 </script>

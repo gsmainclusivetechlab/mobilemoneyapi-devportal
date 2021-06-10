@@ -23,6 +23,8 @@
     "include-media": "^1.4.10",
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0",
-    "vue-cool-lightbox": "^2.7.4"
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-resource": "^1.5.2",
+    "vue-showdown": "^3.1.0"
   }
 }

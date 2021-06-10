@@ -31,20 +31,24 @@
 </template>
 
 <script>
-import merchantPaymentsCaseTab from './use-cases-tabs/merchant-payments-case-tab.vue';
-import internationalTransfetTab from './use-cases-tabs/international-transfet-tab.vue';
-import internationalTransfetTabCopy from './use-cases-tabs/merchant-payments-case-tab-copy.vue';
+import p2pTransfersCaseTab from './use-cases-tabs/p2pTransfers-case-tab.vue';
+import accountLinkingTab from './use-cases-tabs/account-linking-tab.vue';
+import agentServicesTab from './use-cases-tabs/agent-services-tab.vue';
 
 const tabs = {
-  merchantPaymentsCaseTab,
-  internationalTransfetTab,
-  internationalTransfetTabCopy,
+  p2pTransfersCaseTab,
+  accountLinkingTab,
+  agentServicesTab,
 };
 
 export default {
   name: 'use-cases-with-tabs',
 
   components: tabs,
+
+  props: [
+    'defaultTab',
+  ],
 
   data: function() {
     return {
@@ -67,7 +71,7 @@ export default {
     },
 
     setStartActiveTab: function() {
-      this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[1]}`]);
+      this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[this.defaultTab ? this.defaultTab -1 : 0]}`]);
     }
   }
 };

@@ -70,15 +70,16 @@ p {
 a {
   html & {
     @include animate(opacity);
-    color: var(--base-link-color);
+    color: var(--base-accent-color);
     font-weight: 400;
     opacity: 1;
+    text-decoration: none;
     &:focus {
       text-decoration: none;
     }
     @include media('hover') {
       &:hover {
-        opacity: .6;
+        opacity: .8;
         text-decoration: none;
       }
     }
@@ -86,6 +87,33 @@ a {
     &.btn {
       opacity: 1;
     }
+  }
+
+  &:not(.nav-link) {
+
+    .icon.outbound {
+      margin-left: 3px;
+
+      path,
+      polygon {
+        fill: var(--base-accent-color);
+      }
+    }
+  }
+
+  &.external {
+    &:not(.nav-link) {
+      text-decoration: none;
+      display: inline;
+      padding-right: 20px;
+      background: url('/images/external-link.svg') no-repeat 100% 0;
+    }
+  }
+}
+html {
+
+  .theme-default-content:not(.custom) a:hover {
+    text-decoration: none;
   }
 }
 

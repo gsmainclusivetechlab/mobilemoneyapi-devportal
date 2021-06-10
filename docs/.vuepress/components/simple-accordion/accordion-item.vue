@@ -56,6 +56,7 @@ export default {
 
   methods: {
     openClose: function() {
+      this.detectItemHeigth();
       this.isOpened = !this.isOpened;
     },
 
