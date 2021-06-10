@@ -3,8 +3,8 @@
 // Breakpoints for include media mixin
 $breakpoints: (
   "phone": 375px,
-  "tablet": 768px,
   "tablet-xs": 520px,
+  "tablet": 768px,
   "tablet-lg": 1024px,
   "desktop": 1280px,
   "desktop-lg": 1360px,
@@ -67,6 +67,8 @@ $media-expressions: (
 
   --primaty-dark-color: #242529;
   --base-text-color: var(--primaty-dark-color);
+
+  --inactive-btn-color: #BEBEBF;
 
   @include media("<widescreen") {
     --h1-font-size: 4.4rem;

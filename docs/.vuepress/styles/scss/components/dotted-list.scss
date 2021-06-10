@@ -1,7 +1,7 @@
 .dotted-list {
   @extend %listreset;
 
-  &__item {
+  li {
     position: relative;
     padding-left: 24px;
     margin: 0 0 12px;

@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/plugin-register-components": "^1.8.2",
     "node-sass": "^6.0.0",
     "sass-loader": "^10",
+    "vue2-collapse": "^1.0.15",
     "vuepress": "^1.8.2",
     "vuepress-plugin-fulltext-search": "^2.2.0"
   },
@@ -23,6 +23,7 @@
     "include-media": "^1.4.10",
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0",
-    "vue-cool-lightbox": "^2.7.4"
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-slick-carousel": "^1.0.6"
   }
 }

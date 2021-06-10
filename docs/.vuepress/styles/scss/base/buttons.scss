@@ -48,9 +48,16 @@
     }
   }
 
-  &--bordered {
-    border: 2px solid var(--base-accent-color);
-    border-radius: 6px;
+  &--inactive {
+    color: var(--inactive-btn-color);
+    border-color: var(--inactive-btn-color);
+
+    &:hover {
+      background-color: transparent;
+      color: var(--base-accent-btn-hover-bg-color);
+      border-color: var(--base-accent-btn-hover-bg-color);
+      text-decoration: none !important;
+    }
   }
 }
 
