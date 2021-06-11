@@ -23,3 +23,11 @@
     flex-grow: 0;
   }
 }
+
+.page-edit {
+  display: none;
+}
+
+.theme-container.no-sidebar .page {
+  padding-bottom: 0;
+}
