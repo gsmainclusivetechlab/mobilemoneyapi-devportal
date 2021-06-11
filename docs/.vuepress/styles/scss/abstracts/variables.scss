@@ -70,6 +70,9 @@ $media-expressions: (
 
   --inactive-btn-color: #BEBEBF;
 
+  --input-border-color: #DEDEDF;
+  --base-border-color: #DEDEDF;
+
   @include media("<widescreen") {
     --h1-font-size: 4.4rem;
     --h2-font-size: 3.2rem;

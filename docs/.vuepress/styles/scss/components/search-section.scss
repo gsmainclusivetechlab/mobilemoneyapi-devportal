@@ -1,0 +1,29 @@
+.search-section {
+  padding: 73px 0 0;
+
+  .container {
+    max-width: 696px;
+  }
+
+  .hero-section__description {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .section-intro  {
+    margin: 0 0 35px;
+  }
+
+  .search-input-holder {
+    transform: translateY(50%);
+    z-index: 2;
+
+    .input {
+      width: 100%;
+    }
+  }
+}
+
+.search-results-section {
+  margin: 92px 0;
+}

@@ -109,7 +109,7 @@ const mainNavigation = [
       },
       {
         text: 'FAQ',
-        link: '/examples/',
+        link: '/faq/',
       },
     ]
   },
