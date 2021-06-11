@@ -3,10 +3,10 @@
   background-color: var(--primaty-dark-color);
 
   &.footer {
-    padding: 24px 88px 17px;
+    padding: 20px 88px 17px;
 
     @include media('<desktop')  {
-      padding: 24px 40px 17px;
+      padding: 20px 40px 17px;
     }
   
     @include media('<tablet')  {
