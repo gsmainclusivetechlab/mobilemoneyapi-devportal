@@ -51,3 +51,9 @@ pageClass: industry-page custom
         },
     ]"
   />
+
+  <get-started
+  :sectionTitle="'Ready to explore?'"
+  :sectionDescription="'Find our latest API documentation.'"
+  :accentLink="{text: 'Start developing', link: '/examples'}"
+  />

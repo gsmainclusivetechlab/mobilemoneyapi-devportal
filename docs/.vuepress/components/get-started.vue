@@ -7,10 +7,12 @@
     </div>
     <div class="buttons-holder content-center get-started__btn-holder">
       <router-link
+          v-if="borderedLink"
           :to="borderedLink.link"
           class="btn"
       > {{ borderedLink.text }} </router-link>
       <router-link
+          v-if="accentLink"
           :to="accentLink.link"
           class="btn btn--accent"
       > {{ accentLink.text }} </router-link>
@@ -33,15 +35,9 @@ name: "get-started",
     },
     borderedLink: {
       type: Object,
-      default() {
-        return {text: 'Learn more', link: '#'}
-      },
     },
     accentLink: {
       type: Object,
-      default() {
-        return {text: 'Start developing', link: '#'}
-      },
     },
   },
 }
