@@ -15,7 +15,7 @@
             'btn--accent': getTabTitle(tab) === activeTabName,
             'btn--inactive': getTabTitle(tab) !== activeTabName,
           }"
-          @click="hendleTabSwitch(getTabTitle(tab))"
+          @click="handleTabSwitch(getTabTitle(tab))"
         >
           {{ getTabTitle(tab) }}
         </button>
@@ -62,7 +62,7 @@ export default {
   },
   
   methods: {
-    hendleTabSwitch: function(tabName) {
+    handleTabSwitch: function(tabName) {
       this.activeTabName = tabName;
     },
 
