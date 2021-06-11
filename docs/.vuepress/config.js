@@ -167,8 +167,7 @@ module.exports = {
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
-    logo: '/images/logo.svg',
-    logoSmall: '/images/logo-small.svg',
+    logo: '/images/logo-small.svg',
     nav: [...mainNavigation],
     footer: [...footerNavigation],
     sidebar: sidebarNavigation

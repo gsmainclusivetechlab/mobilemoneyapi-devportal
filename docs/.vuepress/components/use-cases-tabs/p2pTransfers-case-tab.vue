@@ -26,7 +26,7 @@
           <a href="https://developer.mobilemoneyapi.io/" target="_blank" class="external">GSMA Mobile Money API Developer Portal.</a>
         </p>
         
-        <router-link :to="'#'">
+        <router-link class="btn btn--transparent" :to="'#'">
           Start developing
         </router-link>
       </div>

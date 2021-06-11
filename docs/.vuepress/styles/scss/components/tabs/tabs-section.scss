@@ -9,6 +9,7 @@
 
   .tabs-buttons {
     display: flex;
+    flex-wrap: wrap;
     overflow-x: auto;
     margin: 0 0 30px;
 
@@ -20,6 +21,7 @@
       flex-shrink: 0;
       margin: 0 24px 15px 0;
       padding: 6px 22px;
+      font-weight: 500;
 
       @include media('<tablet')  {
         margin: 0 14px 10px 0;

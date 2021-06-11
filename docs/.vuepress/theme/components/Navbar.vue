@@ -14,17 +14,10 @@
               :alt="$siteTitle"
           >
         </RouterLink>
-        <RouterLink
-            :to="$localePath"
-            class="home-link home-link--small"
-        >
-          <img
-              v-if="$site.themeConfig.logoSmall"
-              class="logo"
-              :src="$withBase($site.themeConfig.logoSmall)"
-              :alt="$siteTitle"
-          >
-        </RouterLink>
+
+        <div class="branding-text">
+          mobile money api
+        </div>
       </div>
 
       <NavLinks class="can-hide" />
