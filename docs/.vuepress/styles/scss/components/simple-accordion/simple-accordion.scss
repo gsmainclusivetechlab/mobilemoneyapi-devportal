@@ -24,7 +24,7 @@
           }
         }
 
-        .accordion__item-haeder {
+        .accordion__item-header {
           padding: 25px 32px 0;
 
           @include media('<tablet') {
@@ -41,7 +41,7 @@
         }
       }
       
-      &-haeder {
+      &-header {
         @include animate(padding);
         position: relative;
         cursor: pointer;

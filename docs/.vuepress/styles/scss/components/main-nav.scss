@@ -5,7 +5,7 @@ html {
     height: auto;
     border: none;
     
-    @include media('<tablet-lg') {
+    @include media('<=tablet-lg') {
       border-bottom: 1px solid #eaecef;
     }
 

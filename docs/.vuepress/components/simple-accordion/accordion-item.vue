@@ -1,7 +1,7 @@
 <template>
   <div class="accordion__item" :class="{'accordion__item--active': isOpened}">
     <div class="accordion__item-wrapper">
-      <div class="accordion__item-haeder" @click="openClose">
+      <div class="accordion__item-header" @click="openClose">
         <div class="title">
           <slot name="header"></slot>
         </div>
