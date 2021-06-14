@@ -101,7 +101,7 @@ const mainNavigation = [
     items: [
       {
         text: 'Security',
-        link: '/examples/',
+        link: '/security/',
       },
       {
         text: 'Glossary',
