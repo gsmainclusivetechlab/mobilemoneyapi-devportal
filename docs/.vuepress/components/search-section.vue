@@ -32,10 +32,6 @@ export default {
     }
   },
 
-  created: function() {
-    console.log('faq gage created');
-  },
-
   methods: {
     handleSearch: function() {
       this.$emit('on-search', this.filterInput);

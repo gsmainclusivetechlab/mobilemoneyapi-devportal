@@ -32,7 +32,12 @@
           }
           
           .arrow-icon {
+            top: 34px;
             transform: scaleY(1);
+
+            @include media('<tablet') {
+              top: 24px;
+            }
             
             path {
               fill: var(--base-accent-color);
@@ -77,14 +82,14 @@
         }
 
         .arrow-icon {
-          @include animate(transform);
+          @include animate(transform top);
           position: absolute;
-          top: 34px;
+          top: 26px;
           right: 34px;
           transform: scaleY(-1);
 
           @include media('<tablet') {
-            top: 24px;
+            top: 19px;
             right: 24px;
           }
           
