@@ -29,53 +29,53 @@ const mainNavigation = [
     items: [
       {
         text: 'Mobile Money Providers',
-        link: '/examples/',
+        link: '/mobile-money-providers/',
       },
       {
         text: 'Merchants & Service Providers',
-        link: '/examples/',
+        link: '/merchants-and-service-providers/',
       },
       {
         text: 'Governments',
-        link: '/examples/',
+        link: '/governments/',
       },
       {
         text: 'Humanitarian Agencies',
-        link: '/examples/',
+        link: '/humanitarian-agencies/',
       },
 
       {
         text: 'International Transfer Organisations',
-        link: '/examples/',
+        link: '/international-transfer-organisations/',
       },
       {
         text: 'Payment Service Providers & Payment Aggregators',
-        link: '/examples/',
+        link: '/payment-service-providers-and-payment-aggregators/',
       },
       {
         text: 'Banks & Microfinance Institutions',
-        link: '/examples/',
+        link: '/banks-microfinance-institutions/',
       },
       {
         text: 'FinTech Providers (Insurance Savings Loans)',
-        link: '/examples/',
+        link: '/fintech-providers/',
       },
 
       {
         text: 'Employers',
-        link: '/examples/',
+        link: '/employers/',
       },
       {
         text: 'Energy & Utilities & AgriTech',
-        link: '/examples/',
+        link: '/energy-utilities-agritech/',
       },
       {
         text: 'Education & Health',
-        link: '/examples/',
+        link: '/education-and-health/',
       },
       {
         text: 'Mobile Money Agents',
-        link: '/examples/',
+        link: '/mobile-money-agents/',
       },
     ]
   },
@@ -101,7 +101,7 @@ const mainNavigation = [
     items: [
       {
         text: 'Security',
-        link: '/examples/',
+        link: '/security/',
       },
       {
         text: 'Glossary',
@@ -109,7 +109,7 @@ const mainNavigation = [
       },
       {
         text: 'FAQ',
-        link: '/examples/',
+        link: '/faq/',
       },
     ]
   },
@@ -167,8 +167,7 @@ module.exports = {
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
-    logo: '/images/logo.svg',
-    logoSmall: '/images/logo-small.svg',
+    logo: '/images/logo-small.svg',
     nav: [...mainNavigation],
     footer: [...footerNavigation],
     sidebar: sidebarNavigation

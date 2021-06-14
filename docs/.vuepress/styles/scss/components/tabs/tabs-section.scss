@@ -1,0 +1,91 @@
+.tabs-section {
+  .section-intro {
+    margin: 0 0 36px;
+
+    @include media('<tablet')  {
+      margin: 0 0 26px;
+    }
+  }
+
+  .tabs-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    margin: 0 0 30px;
+
+    @include media('<tablet')  {
+      margin: 0 0 20px;
+    }
+
+    .btn {
+      flex-shrink: 0;
+      margin: 0 24px 15px 0;
+      padding: 6px 22px;
+      font-weight: 500;
+
+      @include media('<tablet')  {
+        margin: 0 14px 10px 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        @include media('<tablet')  {
+          margin-right: 0;
+        }
+      }
+
+      &--accent {
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .tabs-holder {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tabs__item {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+
+    &--active {
+      position: static !important;
+    }
+
+    .tab-content {
+      padding: 20px 0;
+    }
+  }
+
+  .text-box {
+    margin: 0 0 58px;
+    font-size: 1.8rem;
+
+    @include media('<tablet') {
+      font-size: 1.6rem;
+    }
+
+    p {
+      margin: 0 0 30px;
+      line-height: 1.8;
+
+      @include media('<tablet') {
+        margin: 0 0 20px;
+        line-height: 1.6;
+      }
+    }
+
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+    
+  }
+
+  .btn--transparent {
+    padding: 0;
+  }
+}

@@ -1,0 +1,126 @@
+.main-header {
+  padding: 24px 88px;
+
+  &.main-header {
+    @include media('<desktop')  {
+      padding: 24px 40px;
+    }
+
+    @include media('<=tablet') {
+      padding-left: 40px;
+    }
+
+    @include media('<tablet')  {
+      padding: 15px 25px;
+      padding-left: 0;
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    margin-bottom: -7px;
+  }
+
+  .search-box {
+    margin-left: auto;
+  }
+
+  .logo {
+    width: 100%;
+    display: block;
+
+    &-holder {
+      display: flex;
+      align-items: center;
+      margin-right: 18px;
+
+      @include media('<=tablet-lg') {
+        margin-left: 35px;
+      }
+
+      @include media('<tablet') {
+        margin-left: 50px;
+      }
+    }
+  }
+
+  .home-link {
+    display: block;
+    margin: 0 30px 0 0;
+
+    @include media('<desktop') {
+      margin: 0 10px 0 0;
+    }
+
+    @include media('<tablet') {
+      max-width: 30px;
+    }
+
+    @include media('<tablet-xs') {
+      margin: 0;
+    }
+  }
+
+  .branding-text {
+    margin-top: 2px;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--base-accent-color);
+    line-height: 1;
+    letter-spacing: -1px;
+
+    @include media('<desktop') {
+      margin-top: 5px;
+      font-size: 1.2rem;
+    }
+
+    @include media('<tablet-xs') {
+      display: none;
+    }
+  }
+
+  .login-links {
+    .btn {
+      margin-left: 17px;
+      padding: 6px 22px;
+
+
+      @include media('<tablet') {
+        padding: 4px 15px;
+        font-size: 1.4rem;
+        margin-left: 14px;
+      }
+
+      &.btn--register {
+        margin-left: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+
+  .sidebar-button {
+    @include media('<=tablet-lg') {
+      width: 30px;
+      height: 30px;
+      top: 32px;
+      left: 20px;
+      display: block;
+    }
+
+    @include media('<tablet') {
+      top: 16px;
+      left: 10px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

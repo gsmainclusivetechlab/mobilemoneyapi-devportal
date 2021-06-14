@@ -16,9 +16,12 @@ html {
     }
 
     .nav-links {
-      display: block;
       padding: 15px 0;
       font-size: 1.6rem;
+
+      @include media('<=tablet-lg') {
+        display: block;
+      }
     }
 
     .nav-item {
@@ -137,16 +140,30 @@ html {
 
   .theme-container{
     .sidebar.sidebar {
+      @include animate(transform);
+      transform: translateX(-100%);
+
+      @include media('>tablet-lg') {
+        top: 95px;
+      }
+      
       @include media('<=tablet-lg') {
         display: block;
         width: 230px;
       }
 
-      @include animate(transform);
-      transform: translateX(-100%);
-
       @include media('>=tablet'){
         display: block;
+      }
+    }
+    
+
+    &:not(.no-sidebar){
+      .sidebar.sidebar {
+        @include media('>tablet-lg') {
+          padding-bottom: 64px;
+          transform: none;
+        }
       }
     }
 
@@ -154,6 +171,10 @@ html {
       .sidebar {
         @include media('>=tablet'){
           display: block;
+        }
+
+        @include media('>tablet-lg'){
+          display: none !important;
         }
       }
     }

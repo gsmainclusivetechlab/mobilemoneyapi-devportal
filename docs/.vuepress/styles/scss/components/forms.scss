@@ -1,0 +1,17 @@
+input.input {
+  padding-top: 17px;
+  padding-bottom: 13px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  border: 1px solid var(--input-border-color);
+
+  @include media('<tablet') {
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+
+  &--search {
+    padding-left: 48px;
+    background: #fff url('/images/search.svg') 17px 50% no-repeat;
+  }
+}

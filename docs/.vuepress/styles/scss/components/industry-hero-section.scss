@@ -1,0 +1,22 @@
+.industry-hero-section  {
+  background-color: transparent;
+
+  .hero-section {
+    &__title {
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__description {
+      max-width: 560px;
+      line-height: 1.6;
+    }
+  }
+
+  .hero-image-holder {
+    &:after {
+      display: none;
+    }
+  }
+}
