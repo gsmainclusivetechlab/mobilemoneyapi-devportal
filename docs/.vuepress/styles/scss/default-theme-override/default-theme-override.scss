@@ -88,4 +88,10 @@ html {
       }
     }
   }
+
+  .page {
+    @include media('<=tablet-lg') {
+      padding-left: 0;
+    }
+  }
 }
