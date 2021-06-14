@@ -30,14 +30,14 @@ pageClass: home-page custom
   <specific-grid-section
   :cards="[
     {
-      image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder',
+      image: '/images/succeed-use-case.jpg',
       title: 'Compliance platform',
       description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
       btnText: 'Learn more',
       link: '#',
     },
     {
-      image: 'https://via.placeholder.com/400x400/F8F8F9/DE002B?text=placeholder',
+      image: '/images/succeed-use-case.jpg',
       title: 'Collaboration platform',
       description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
       btnText: 'Learn more',
