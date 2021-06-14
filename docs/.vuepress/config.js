@@ -58,7 +58,7 @@ const mainNavigation = [
       },
       {
         text: 'FinTech Providers (Insurance Savings Loans)',
-        link: '/fintech-providers /',
+        link: '/fintech-providers/',
       },
 
       {
