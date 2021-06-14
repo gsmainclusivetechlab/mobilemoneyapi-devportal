@@ -161,6 +161,7 @@ html {
     &:not(.no-sidebar){
       .sidebar.sidebar {
         @include media('>tablet-lg') {
+          padding-bottom: 64px;
           transform: none;
         }
       }
