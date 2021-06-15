@@ -21,5 +21,5 @@ Applicable security measures and best practices are applied to the connection be
 </iframe>
 
 <div class="buttons-holder text-center">
-  <a href="#" class="btn btn--accent">Download PDF</a>
+  <a href="https://developer.mobilemoneyapi.io/sites/default/files/GSMA_MM_API_Security_Design.pdf" class="btn btn--accent">Download PDF</a>
 </div>
