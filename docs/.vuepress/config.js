@@ -84,15 +84,17 @@ const mainNavigation = [
     items: [
       {
         text: 'Version 1.2',
-        link: '/examples/',
+        link: '/api-versions-1.2/',
       },
       {
         text: 'Version 1.1',
-        link: '/examples/',
+        link: '/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml',
+        target: 'download',
       },
       {
         text: 'Version 1.0',
-        link: '/examples/',
+        link: '/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml',
+        target: 'download',
       },
     ]
   },
@@ -148,8 +150,98 @@ const sidebarNavigation = {
       ]
     }
   ],
-}
+  
+  '/api-versions-1.2/': [
+    {
+      title: 'API version 1.2',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        {
+          title: 'Get started',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Api Fundamental',
+              path: '/api-versions-1.2/get-started',
+              sidebarDepth: 2,
+            }
+          ]
+        },
+        {
+          title: 'Resources',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Endpoints',
+              path: '/api-versions-1.2/resources/api-service-definition',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
+              title: 'Change list',
+              path: '/api-versions-1.2/resources/change-list',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
+              title: 'Highlights',
+              path: '/api-versions-1.2/resources/highlights',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+          ]
+        },
+        {
+          title: 'Use cases',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfer/',
+            },
+          ]
+        }
+      ]
+    }
+  ],
+  '/use-cases/p-2-p-tranfer/':[
+    {
+      title: 'P2P Transfers',
+      collapsable: false,
+      sidebarDepth: 2,
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfer/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarious',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Use case scenarious',
+              path: '/use-cases/p-2-p-tranfer/scenarious',
+              sidebarDepth: 2,
+            }
+          ]
+        }
+      ]
+    },
+  ],
 
+}
 
 module.exports = {
   title: "GSMA",
@@ -170,7 +262,7 @@ module.exports = {
     logo: '/images/logo-small.svg',
     nav: [...mainNavigation],
     footer: [...footerNavigation],
-    sidebar: sidebarNavigation
+    sidebar: sidebarNavigation,
   },
   plugins: [
     // ['@vuepress/search', {

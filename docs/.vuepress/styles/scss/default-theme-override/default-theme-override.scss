@@ -2,7 +2,7 @@ html {
   .theme-container:not(.custom) {
     .theme-default-content {
       &:not(.custom) {
-        max-width: 916px;
+        max-width: 100%;
         padding: 73px 40px 184px;
     
         @include media('<=tablet-lg') {
@@ -85,6 +85,25 @@ html {
             margin-bottom: 0;
           }
         }
+      }
+    }
+  }
+
+  .theme-container {
+    &:not(.no-sidebar) {
+      .page{
+        padding-left: 380px;
+
+        @include media('<tablet-lg') {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+
+    &.no-sidebar {
+      .theme-default-content:not(.custom){
+        max-width: 916px;
       }
     }
   }

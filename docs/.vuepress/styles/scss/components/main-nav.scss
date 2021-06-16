@@ -1,11 +1,20 @@
 // vuepress styles
 html {
+  .no-sidebar {
+    .navbar {
+      box-shadow: none;
+      background: var(--base-light-background-color);
+    }
+  }
+  
   .navbar {
-    background: var(--base-light-background-color);
+    background: #fff;
     height: auto;
     border: none;
+    box-shadow: 0px 4px 30px -2px rgba(36, 37, 41, 0.05);
     
     @include media('<=tablet-lg') {
+      background: var(--base-light-background-color);
       border-bottom: 1px solid #eaecef;
     }
 
