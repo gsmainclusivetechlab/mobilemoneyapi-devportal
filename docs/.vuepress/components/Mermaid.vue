@@ -11,6 +11,9 @@ export default {
       m.initialize({
         startOnLoad: true,
         securityLevel: 'loose',
+        er:{
+          useMaxWidth:false,
+        },
       });
       m.init();
     });

@@ -1,27 +1,77 @@
 ---
-pageClass: test
+pageClass: api-page
 ---
 
-# Introduction Test
+# Heading 1
 
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
-## Document
-<IframeComponent/>
+# Heading 1
 
+## Heading 2
+
+Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Donec magna egestas in neque, sed tempor nisl dapibus.
+
+### Heading 3
+
+Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Donec magna egestas in neque, sed tempor nisl dapibus.
+
+## Tips
+
+::: tip Note
+Hendrerit rhoncus, neque nunc massa purus risus.
+:::
+
+::: danger Warning
+Hendrerit rhoncus, neque nunc massa purus risus.
+:::
+
+::: warning Warning
+Hendrerit rhoncus, neque nunc massa purus risus.
+:::
+
+## Table
+
+| Audience        | Usage           | Role  |
+|:--------------|:-------------|:-----|
+| Mobile Money Providers | To understand how to implement the Mobile Money API to receive payments from merchants. | API provider |
+| Merchants     | To understand how to implement the Mobile Money API to accept mobile money payments.     |  API consumer |
+
+Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Donec magna egestas in neque, sed tempor nisl dapibus.
+
+## Code examples
+
+<code-group>
+<code-block title="View">
+  <div class="code-header" style="color: #BEBEBF">Post</div>
+  
+  <div class="api-route">POST/transactions/type/merchantpay \</div>
+  <div class="code-body">
+
+  <p>curl --location --request POST 'https://sandbox.mobilemoneyapi.io/simulator/v1.2/passthrough/mm/transactions/type/merchantpay'\<br>
+  --header 'X-CorrelationID: Please enter your UUID here'\ <br>
+  --header 'X-Callback-URL: Please enter your callback URL here'\<br>
+  --header 'Content-Type: application/json'\<br>
+  --data-raw '{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"amount": "200.00",</p>
+
+  </div>
+</code-block>
+
+<code-block title="Code">
 ::: v-pre
 `{{ This will be displayed as-is }}`
 :::
+</code-block>
+</code-group>
 
-## Demo component
-
-<demo-component/>
-
-## Image in markdown
-
-![Image of Yaktocat](/images/test.jpg)
-
-## Code examples
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
 
 ```javascript
 function fancyAlert(arg) {
@@ -40,33 +90,30 @@ echo str_word_count("PHP");
 ```vue
 <img :src="$withBase('/foo.png')" alt="foo">
 ```
-## Tables
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
-[[toc]]
 
-## Tips
-
-::: tip
-This is a tip
-:::
-
-::: warning
-This is a warning
-:::
-
-::: danger
-This is a dangerous warning
-:::
+<IframeComponent/>
 
 ::: details
 This is a details block, which does not work in IE / Edge
 :::
+
+::: v-pre
+`{{ This will be displayed as-is }}`
+:::
+
+## Demo component
+
+<demo-component/>
+
+## Image in markdown
+
+![Image of Yaktocat](/images/test.jpg)
+
+
+[[toc]]
+
 ## Tabs
 :::: tabs type:board-card
 ::: tab PHP lazy

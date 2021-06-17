@@ -1,0 +1,251 @@
+// duplicates of class names to make styles stronger than has been wroten for default styles
+
+.api-page.api-page.api-page {
+  &.theme-container {
+    .theme-default-content {
+      padding: 34px 32px 184px;
+      max-width: 896px;
+      margin-left: 0;
+
+      h1, .h1 {
+        margin: 0 0 17px;
+        font-size: 2.4rem;
+        font-weight: 700;
+
+        &:not(:first-child) {
+          margin: 39px 0 17px;
+        }
+      }
+    
+      h2, .h2 {
+        margin: 0 0 15px;
+        font-weight: var(--base-h2-font-weight);
+        font-size: 2rem;
+
+        &:not(:first-child) {
+          margin: 31px 0 15px;
+        }
+      }
+    
+      h3, .h3 {
+        margin: 0 0 15px;
+        font-weight: var(--base-h3-font-weight);
+        font-size: 18px;
+
+        &:not(:first-child) {
+          margin: 22px 0 18px;
+        }
+      }
+    
+      h4, .h4 {
+        margin: 21px 0 17px;
+        font-weight: var(--base-h4-font-weight);
+        font-size: var(--h4-font-size);
+      }
+    
+      h5, .h5 {
+        margin: 21px 0 18px;
+        font-weight: var(--base-h5-font-weight);
+        font-size: var(--h5-font-size);
+
+        &:not(:first-of-type) {
+          margin: 38px 0 18px;
+        }
+      }
+    
+      h6, .h6 {
+        font-weight: var(--base-h6-font-weight);
+        font-size: var(--h6-font-size);
+      }
+
+      p,
+      ul {
+        margin: 8px 0;
+        font-size: 1.4rem;
+        line-height: 1.8;
+      }
+
+      ul {
+        @extend %listreset;
+        margin: 8px 0;
+        padding-left: 21px;
+
+        li {
+          position: relative;
+
+          &::before{
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -12px;
+            width: 3px;
+            height: 3px;
+            background-color: currentColor;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      a {
+        &:not(.btn) {
+          text-decoration: underline;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .custom-block {
+        position: relative;
+        overflow: hidden;
+        margin: 16px 0;
+        padding: 9px 30px 6px;
+        color: var(--base-text-color);
+        border-radius: 8px;
+        border: none;
+
+        .custom-block-title {
+          margin-bottom: 9px;
+          font-size: 1.4rem;
+          line-height: 1.5;
+          font-weight: 700;
+          color: var(--base-text-color);
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 8px;
+          height: 100%;
+        }
+
+        &.tip {
+          background: #E5F6F3;
+
+          &:before {
+            background: #00A182;
+          }
+        }
+
+        &.warning {
+          border-left-color: #FFF8EA;
+
+          &:before {
+            background: #FCBB2C;
+          }
+        }
+
+        &.danger {
+          border-left-color: #FEEBEB;
+
+          &:before {
+            background: #F43A3A;
+          }
+        }
+      }
+
+      table {
+        margin: 21px 0;
+        font-size: 1.4rem;
+        line-height: 1.8;
+
+        thead {
+          tr {
+            background: #DEDEDF;
+          }
+        }
+        
+        tr {
+          background: transparent;
+        }
+
+        th {
+          padding: 7px 22px;
+          font-weight: 500;
+        }
+
+        td {
+          padding: 17px 22px 14px;
+        }
+
+        th,
+        td {
+          &:not(:last-child) {
+            border-right-color: transparent;
+          }
+        }
+      }
+
+      iframe {
+        margin: 21px 0;
+      }
+
+      .theme-code-group {
+        margin: 21px 0 32px;
+
+        &__nav {
+          margin-bottom: -12px;
+          padding: 0 0 5px 0;
+          background: transparent;
+
+          ul {
+            @extend %listreset;
+
+            li {
+              &::before {
+                display: none;
+              }
+            }
+
+            button {
+              display: block;
+              padding: 4px 16px 11px;
+              font-size: 1.2rem;
+              line-height: 1.5;
+              font-weight: 500;
+              border-radius: 4px 4px 0px 0px;
+              color: var(--inactive-btn-color);
+
+              &.theme-code-group__nav-tab-active {
+                background: var(--primaty-dark-color);
+                color: #fff;
+                border-bottom: none;
+              }
+            }
+          }
+        }
+
+        .theme-code-block {
+          overflow: hidden;
+          border-radius: 8px;
+          background: var(--primaty-dark-color);
+
+          * {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: invert(#000);
+          }
+
+          .code-header {
+            display: block;
+            padding: 8px 8px 7px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-bottom: 2px solid #323336;
+          }
+
+          .code-body {
+            padding: 4px 8px 8px 16px;
+          }
+
+          .api-route {
+            padding: 12px 8px 0px 8px;
+            color: #BEBEBF;
+          }
+        }
+      }
+    }
+  }
+}
