@@ -47,9 +47,10 @@ The following paths are permitted:
 
 **Figure 2-1 Transaction UML Class Diagram**
 
-|Transaction Object| | | | | |
-|:--------|:--------|:-------------|:--------|:---------|:------|
+**Transaction Object**
+
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+|:--------|:--------|:-------------|:--------|:---------|:------|
 | transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | 🡪NA <br> 🡨M |  |  |
 | requesting <br> OrganisationTransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | 🡪O <br> 🡨O |  |  |
 | originalTransactionReference | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | 🡪NA <br> 🡨M | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#) |  |
