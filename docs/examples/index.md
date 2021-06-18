@@ -43,9 +43,10 @@ Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Done
 
 <code-group>
 <code-block title="View">
-  <div class="code-header" style="color: #BEBEBF">Post</div>
+  <div class="code-header" style="color: #FCBB2C">Post</div>
   
-  <div class="api-route">POST/transactions/type/merchantpay \</div>
+  <div class="api-route" style="color: #BEBEBF">POST/transactions/type/merchantpay \</div>
+
   <div class="code-body">
 
   <p>curl --location --request POST 'https://sandbox.mobilemoneyapi.io/simulator/v1.2/passthrough/mm/transactions/type/merchantpay'\<br>
@@ -65,6 +66,8 @@ Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Done
 </code-block>
 </code-group>
 
+<code-group>
+<code-block title="JS">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -72,6 +75,16 @@ function fancyAlert(arg) {
   }
 }
 ```
+</code-block>
+
+<code-block title="PHP">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
 
 ```javascript
 function fancyAlert(arg) {
@@ -91,7 +104,38 @@ echo str_word_count("PHP");
 <img :src="$withBase('/foo.png')" alt="foo">
 ```
 
+<cta-2-col
+  :ctaCards="[
+    {
+      title: 'Explore documentation',
+      text: 'Review the documentation for particular use case.',
+      link: '#',
+      linkText: 'Merchant payments Docs',
+    },
+    {
+      title: 'Open OAS UI',
+      text: 'Visualize and interact with the API’s resources.',
+      link: '#',
+      linkText: 'Merchant payments Open OAS UI',
+    }
+  ]"
+/>
 
+<code-component>
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+</code-component>
+
+<view-link
+  :blockText="'View example in postman collection.'"
+  :link="'#'"
+  :linkText="'Open Postman'"
+/>
 
 <IframeComponent/>
 

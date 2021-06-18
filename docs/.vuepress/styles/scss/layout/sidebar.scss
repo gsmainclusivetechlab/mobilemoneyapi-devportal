@@ -169,6 +169,11 @@ html {
           padding: 45px 20px 64px 73px;
           transform: none;
         }
+
+        @include media('>tablet-lg','<1200px') {
+          max-width: 280px;
+          padding: 45px 20px 64px 23px;
+        }
       }
 
       .nav-links {

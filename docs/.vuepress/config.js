@@ -1,6 +1,10 @@
 const fs = require('fs');
 const { path } = require('@vuepress/shared-utils');
 
+const md = require('markdown-it')()
+    .use(require('markdown-it-code-copy'));
+
+
 // define navigation menus
 
 const mainNavigation = [
@@ -202,6 +206,8 @@ const sidebarNavigation = {
             {
               title: 'P2P Transfers',
               path: '/use-cases/p-2-p-tranfer/',
+              sidebarDepth: 2,
+              collapsable: true,
             },
           ]
         }
@@ -231,9 +237,12 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Use case scenarious',
-              path: '/use-cases/p-2-p-tranfer/scenarious',
-              sidebarDepth: 2,
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfer/scenarious/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfer/scenarious/bilateral-p2p-transfer',
             }
           ]
         }

@@ -1,0 +1,28 @@
+.view-link-block{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0;
+  padding: 14px 23px;
+  background: var(--base-light-background-color);
+
+  .block-text {
+    padding-right: 15px;
+    flex-shrink: 0;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .external {
+    align-self: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+
+    .api-page.api-page.api-page.theme-container .theme-default-content & {
+      text-decoration: none;
+      background-position-y: 50%;
+    }
+  }
+}

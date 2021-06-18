@@ -3,9 +3,13 @@
 .api-page.api-page.api-page {
   &.theme-container {
     .theme-default-content {
-      padding: 34px 32px 184px;
+      padding: 34px 32px 64px;
       max-width: 896px;
       margin-left: 0;
+
+      @include media('<tablet') {
+        padding: 34px 0 64px;
+      }
 
       h1, .h1 {
         margin: 0 0 17px;
@@ -151,6 +155,10 @@
         font-size: 1.4rem;
         line-height: 1.8;
 
+        @include media('<tablet') {
+          font-size: 1.2rem;
+        }
+
         thead {
           tr {
             background: #DEDEDF;
@@ -222,28 +230,77 @@
           border-radius: 8px;
           background: var(--primaty-dark-color);
 
+          .code-body{
+            * {
+              color: invert(#000);
+            }
+          }
+
           * {
             font-size: 1.2rem;
             line-height: 1.5;
-            color: invert(#000);
           }
 
+
           .code-header {
+            overflow-x: auto;
             display: block;
             padding: 8px 8px 7px;
+            font-size: 1.2rem;
+            line-height: 1.5;
             text-transform: uppercase;
             font-weight: 500;
             border-bottom: 2px solid #323336;
           }
 
           .code-body {
+            overflow-x: auto;
             padding: 4px 8px 8px 16px;
           }
 
           .api-route {
+            overflow-x: auto;
             padding: 12px 8px 0px 8px;
             color: #BEBEBF;
           }
+        }
+
+        pre[class*="language-"] {
+          padding: 8px 8px 7px 14px;
+        }
+
+        div[class*="language-"] {
+          margin: 0;
+  
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+      div[class*="language-"] {
+        margin: 21px 0;
+        background: var(--primaty-dark-color);
+        border-radius: 8px;
+
+        &:before {
+          position: static;
+          display: block;
+          padding: 8px 8px 7px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          text-transform: uppercase;
+          border-bottom: 2px solid #323336;
+        }
+
+        pre[class*="language-"] {
+          margin: 0;
+          padding: 8px 8px 15px 14px;
+        }
+
+        code {
+          font-size: 1.2rem;
+          line-height: 1.5;
         }
       }
     }
