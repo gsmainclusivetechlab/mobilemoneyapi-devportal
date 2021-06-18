@@ -52,7 +52,7 @@ The following paths are permitted:
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 |:--------|:--------|:-------------|:--------|:---------|:------|
 | transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | 🡪NA <br> 🡨M |  |  |
-| requesting <br> OrganisationTransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | 🡪O <br> 🡨O |  |  |
+| requesting <br> Organisation TransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | 🡪O <br> 🡨O |  |  |
 | originalTransactionReference | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | 🡪NA <br> 🡨M | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#) |  |
 | creditParty | array | 	
 A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | 🡪O <br> 🡨O |  |  |

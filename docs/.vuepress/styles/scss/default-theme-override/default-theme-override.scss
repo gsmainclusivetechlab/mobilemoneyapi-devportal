@@ -98,6 +98,10 @@ html {
           padding-left: 20px;
           padding-right: 20px;
         }
+
+        @include media('>tablet-lg','<1200px') {
+          padding-left: 280px;
+        }
       }
     }
 

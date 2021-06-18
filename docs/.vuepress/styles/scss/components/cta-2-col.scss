@@ -1,0 +1,48 @@
+.cta-cards-block {
+  margin: 32px 0;
+
+  .cta-cards-holder {
+    display: flex;
+    justify-content: space-between;
+
+    @include media('<tablet') {
+      flex-direction: column;;
+    }
+  }
+
+  .cta-card {
+    width: 48%;
+    padding: 24px 23px 28px;
+    background: var(--base-light-background-color);
+
+    @include media('<tablet') {
+      width: 100%;
+      margin: 0 0 20px;
+    }
+
+    &__title {
+      margin: 0 0 7px;
+
+      .api-page.api-page.api-page.theme-container .theme-default-content & {
+        margin: 0 0 7px;
+      }
+    }
+
+    &__text {
+      margin: 0 0 35px;
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
+
+    &__link {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.5;
+      text-decoration: none;
+      
+      .api-page.api-page.api-page.theme-container .theme-default-content & {
+        text-decoration: none;
+      }
+    }
+  }
+}
