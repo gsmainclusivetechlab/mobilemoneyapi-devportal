@@ -1,5 +1,5 @@
 ---
-pageClass: api-page
+pageClass: api-page has-back-btn
 ---
 
 # Heading 1
@@ -67,6 +67,7 @@ Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Done
 </code-group>
 
 <code-group>
+
 <code-block title="JS">
 ```javascript
 function fancyAlert(arg) {
@@ -120,16 +121,6 @@ echo str_word_count("PHP");
     }
   ]"
 />
-
-<code-component>
-  ```javascript
-  function fancyAlert(arg) {
-    if (arg) {
-      $.facebox({div: '#foo'})
-    }
-  }
-  ```
-</code-component>
 
 <view-link
   :blockText="'View example in postman collection.'"

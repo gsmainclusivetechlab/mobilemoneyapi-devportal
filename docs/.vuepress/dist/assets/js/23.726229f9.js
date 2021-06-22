@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{413:function(e,n,t){"use strict";t.r(n);var c={name:"code-component"},o=t(24),s=Object(o.a)(c,(function(){var e=this.$createElement;return(this._self._c||e)("section",{staticClass:"code-component"},[this._v("\n  code blocks will be here\n  "),this._t("default")],2)}),[],!1,null,null,null);n.default=s.exports}}]);

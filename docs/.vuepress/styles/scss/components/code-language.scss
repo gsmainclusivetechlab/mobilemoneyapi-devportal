@@ -1,0 +1,84 @@
+.lang {
+  &-content-box {
+    position: relative;
+    color: #fff;
+  }
+
+  &-select-box {
+    @include animate(background color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    padding: 6px 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border-radius: 4px 4px 0 0;
+    z-index: 2;
+
+    .active-lang {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: right;
+      cursor: pointer;
+      
+      .icon {
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 3px;
+      }
+    }
+
+    &.opened {
+      background: var(--base-light-background-color);
+      color: var(--base-text-color);
+
+      .active-lang  {
+        cursor: auto;
+      }
+
+      .lang-list {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &-list {
+    @include  animate(opacity visibility);
+    @extend %listreset;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: var(--base-light-background-color);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    .api-page.api-page.api-page.theme-container .theme-default-content & {
+      margin: 0;
+      padding: 0 0 5px;
+      border-radius: 0 0 4px 4px;
+    }
+
+    &__item {
+      @include animate(color);
+      cursor: pointer;
+      padding: 0 12px 3px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--base-text-color);
+
+      &::before {
+        display: none;
+        padding-left: 0;
+      }
+
+      &:hover {
+        color: var(--base-accent-color);
+      }
+    }
+  }
+}
