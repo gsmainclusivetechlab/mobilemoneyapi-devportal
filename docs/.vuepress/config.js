@@ -160,6 +160,10 @@ const sidebarNavigation = {
       title: 'API version 1.2',
       collapsable: false,
       sidebarDepth: 2,
+      backLink: {
+        title: 'backto API version  1.2',
+        path: '/api-versions-1.2/',
+      },
       children: [
         {
           title: 'Get started',
@@ -167,7 +171,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Api Fundamental',
+              title: 'Getting started',
               path: '/api-versions-1.2/get-started',
               sidebarDepth: 2,
             }
@@ -219,6 +223,10 @@ const sidebarNavigation = {
       title: 'P2P Transfers',
       collapsable: false,
       sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
       children: [
         {
           title: 'Overview',
@@ -276,6 +284,7 @@ module.exports = {
     nav: [...mainNavigation],
     footer: [...footerNavigation],
     sidebar: sidebarNavigation,
+    smoothScroll: true,
   },
   plugins: [
     // ['@vuepress/search', {
