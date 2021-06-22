@@ -37,3 +37,45 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLDt" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+<side-code-panel>
+  <code-group>
+  <code-block title="View">
+
+  <code-group>
+  <code-block title="post">
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+  </code-block>
+
+  <code-block title="get">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  <code-block title="get">
+  any content can be inserted here
+
+  ::: v-pre
+  `{{ Some pher information  }}`
+  :::
+  </code-block>
+  </code-group>
+
+  </code-block>
+
+  <code-block title="Code">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  </code-group>
+</side-code-panel>
