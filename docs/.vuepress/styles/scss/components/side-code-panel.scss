@@ -1,0 +1,45 @@
+.panel-collapsable {
+  @include animate(transform box-shadow);
+  position: fixed;
+  top: 96px;
+  right: 0;
+  height: calc(100vh - 96px);
+  width: 412px;
+  padding: 26px 24px 120px;
+  background: #323336;
+  transform: translateX(324px);
+  z-index: 1;
+
+  @include media('<tablet') {
+
+  }
+
+  &.opened {
+    transform: translateX(0);
+    box-shadow: 0 0 20px 20px var(--shadow-light-color);
+  }
+
+  .panel-opener {
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    margin: -4px 0 0 -4px;
+    background: none;
+    appearance: none;
+    border: none;
+  }
+
+  &__content-holder {
+    height: 100%;
+    overflow-y: auto;
+    
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .4);
+      border-radius: 4px;
+    }
+  }
+}

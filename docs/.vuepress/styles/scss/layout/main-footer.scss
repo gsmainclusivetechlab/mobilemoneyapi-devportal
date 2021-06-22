@@ -1,6 +1,7 @@
 .main-footer {
   color: #fff;
   background-color: var(--primaty-dark-color);
+  z-index: 1;
 
   &.footer {
     padding: 20px 88px 17px;
