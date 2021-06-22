@@ -79,8 +79,8 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   </code-block>
   </code-group>
 
-  <code-language-selector>
-  <code-lang title="vue">
+  <!-- <code-language-selector>
+  <code-lang title="vue"> -->
   <code-group>
   <code-block title="View">
 
@@ -121,9 +121,9 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   ```
   </code-block>
   </code-group>
-  </code-lang>
+  <!-- </code-lang> -->
 
-  <code-lang title="JavaScript">
+  <!-- <code-lang title="JavaScript"> -->
   <code-group>
   <code-block title="View">
 
@@ -164,9 +164,9 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   ```
   </code-block>
   </code-group>
-  </code-lang>
+  <!-- </code-lang> -->
 
-  <code-lang title="Russian :D">
+  <!-- <code-lang title="Russian :D"> -->
   <code-group>
   <code-block title="View">
 
@@ -207,6 +207,6 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   ```
   </code-block>
   </code-group>
-  </code-lang>
-  </code-language-selector>
+  <!-- </code-lang> -->
+  <!-- </code-language-selector> -->
 </side-code-panel>
