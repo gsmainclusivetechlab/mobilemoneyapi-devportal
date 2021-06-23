@@ -1,6 +1,10 @@
 const fs = require('fs');
 const { path } = require('@vuepress/shared-utils');
 
+const md = require('markdown-it')()
+    .use(require('markdown-it-code-copy'));
+
+
 // define navigation menus
 
 const mainNavigation = [
@@ -84,15 +88,17 @@ const mainNavigation = [
     items: [
       {
         text: 'Version 1.2',
-        link: '/examples/',
+        link: '/api-versions-1.2/',
       },
       {
         text: 'Version 1.1',
-        link: '/examples/',
+        link: '/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml',
+        target: 'download',
       },
       {
         text: 'Version 1.0',
-        link: '/examples/',
+        link: '/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml',
+        target: 'download',
       },
     ]
   },
@@ -148,8 +154,427 @@ const sidebarNavigation = {
       ]
     }
   ],
-}
+  
+  '/api-versions-1.2/': [
+    {
+      title: 'API version 1.2',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'backto API version  1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Get started',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Getting started',
+              path: '/api-versions-1.2/get-started',
+              sidebarDepth: 2,
+            }
+          ]
+        },
+        {
+          title: 'Resources',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Endpoints',
+              path: '/api-versions-1.2/resources/api-service-definition',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
+              title: 'Change list',
+              path: '/api-versions-1.2/resources/change-list',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
+              title: 'Highlights',
+              path: '/api-versions-1.2/resources/highlights',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+          ]
+        },
+        {
+          title: 'Use cases',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Merchant payments',
+              path: '/use-cases/merchant-payments/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'Disbursements',
+              path: '/use-cases/disbursements/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'International transfers',
+              path: '/use-cases/international-transfers/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'P2P transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'Reccuring payments',
+              path: '/use-cases/reccuring-payments/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'Account linking',
+              path: '/use-cases/account-linking/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'Bill payments',
+              path: '/use-cases/bill-payments/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+            {
+              title: 'Agent Services',
+              path: '/use-cases/agent-services/',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
+          ]
+        }
+      ]
+    }
+  ],
 
+  '/use-cases/merchant-payments/':[
+    {
+      title: 'Merchant payments',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/disbursements/':[
+    {
+      title: 'Disbursements',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/international-transfers/':[
+    {
+      title: 'International transfers',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/p-2-p-tranfers/':[
+    {
+      title: 'P2P Transfers',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/reccuring-payments/':[
+    {
+      title: 'Reccuring payments',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/account-linking/':[
+    {
+      title: 'Account linking',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/bill-payments/':[
+    {
+      title: 'Bill payments',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+  '/use-cases/agent-services/':[
+    {
+      title: 'Agent Services',
+      collapsable: false,
+      sidebarDepth: 2,
+      backLink: {
+        title: 'API version 1.2',
+        path: '/api-versions-1.2/',
+      },
+      children: [
+        {
+          title: 'Overview',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers',
+              path: '/use-cases/p-2-p-tranfers/',
+            },
+          ]
+        },
+        {
+          title: 'Use case scenarios',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfer via Switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
+            },
+            {
+              title: 'Bilateral P2P Transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
+            }
+          ]
+        }
+      ]
+    },
+  ],
+
+}
 
 module.exports = {
   title: "GSMA",
@@ -161,6 +586,10 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
   extend: '@vuepress/theme-default',
+  // render all <h> tags that exist in .md page
+  markdown: {
+    extractHeaders: [ 'h2', 'h3', 'h4','h5','h6' ],
+  },
   themeConfig: {
     repo: '',
     editLinks: false,
@@ -170,7 +599,8 @@ module.exports = {
     logo: '/images/logo-small.svg',
     nav: [...mainNavigation],
     footer: [...footerNavigation],
-    sidebar: sidebarNavigation
+    sidebar: sidebarNavigation,
+    smoothScroll: true,
   },
   plugins: [
     // ['@vuepress/search', {

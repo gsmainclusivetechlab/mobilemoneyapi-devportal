@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "include-media": "^1.4.10",
+    "markdown-it-code-copy": "^0.1.0",
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0",
     "vue-cool-lightbox": "^2.7.4",
