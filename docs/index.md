@@ -9,8 +9,8 @@ pageClass: home-page custom
     :videoThumbSrc="'/images/hero-video-thumb.png'"
     :imageSrc="'/images/hero-video-thumb.png'"
     :imageAlt="'image alt'" 
-    :accentLink="{text: 'Go to API Docs', link: '/examples'}"
-    :transparentLink="{text: 'Learn more', link: '/test'}"
+    :accentLink="{text: 'Go to API Docs', link: '/api-versions-1.2/resources/api-service-definition'}"
+    :transparentLink="{text: 'Learn more', link: '/api-versions-1.2/get-started'}"
     
     />
 
@@ -20,11 +20,151 @@ pageClass: home-page custom
 
   <mm-metrics/>
 
-  <industries/>
+  <industries
+    :title="'Explore what’s possible'"
+    :description="'Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.'"
+    :mainIndustry="{
+        title: 'Mobile Money Provider',
+        description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
+        link: '/mobile-money-providers/',
+        icon: '/images/industry-1.svg',
+        iconBackground: '#DE002B',
+      }"
+    :industries="[
+        {
+          title: 'Merchants & Service Providers',
+          description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
+          link: '/merchants-and-service-providers/',
+          icon: '/images/industry-2.svg',
+          iconBackground: '#EE3772',
+        },
+        {
+          title: 'Governments',
+          description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
+          link: '/governments/',
+          icon: '/images/industry-3.svg',
+          iconBackground: '#FCBB2C',
+        },
+        {
+          title: 'Humanitarian Agencies',
+          description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
+          link: '/humanitarian-agencies/',
+          icon: '/images/industry-3.svg',
+          iconBackground: '#00A182',
+        },
+        {
+          title: 'International Transfer Organisations',
+          description: 'Fringilla egestas ut sit odio hendrerit in quis purus in. Molestie euismod cras dis neque eget urna eget amet enim.',
+          link: '/international-transfer-organisations/',
+          icon: '/images/industry-4.svg',
+          iconBackground: '#00A6C9',
+        },
+        {
+          title: 'Payment Service Providers & Payment Aggregators',
+          description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
+          link: '/payment-service-providers-and-payment-aggregators/',
+          icon: '/images/industry-5.svg',
+          iconBackground: '#FF6600',
+        },
+        {
+          title: 'Banks & Microfinance Institutions',
+          description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
+          link: '/banks-microfinance-institutions/',
+          icon: '/images/industry-1.svg',
+          iconBackground: '#95226C',
+        },
+        {
+          title: 'FinTech Providers (Insurance Savings Loans)',
+          description: 'Et vel tincidunt ipsum eleifend nisi. Ipsum sapien neque pellentesque nec nibh tellus scelerisque ut lectus.',
+          link: '/fintech-providers/',
+          icon: '/images/industry-5.svg',
+          iconBackground: '#99CCCC',
+        },
+        {
+          title: 'Employers',
+          description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
+          link: '/employers/',
+          icon: '/images/industry-1.svg',
+          iconBackground: '#00A6C9',
+        },
+        {
+          title: 'Energy & Utilities & AgriTech',
+          description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
+          link: '/energy-utilities-agritech/',
+          icon: '/images/industry-2.svg',
+          iconBackground: '#FF6600',
+        },
+        {
+          title: 'Education & Health',
+          description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
+          link: '/education-and-health/',
+          icon: '/images/industry-3.svg',
+          iconBackground: '#95226C',
+        },
+        {
+          title: 'Mobile Money Agents',
+          description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
+          link: '/mobile-money-agents/',
+          icon: '/images/industry-3.svg',
+          iconBackground: '#99CCCC',
+        },
+      ]
+    "
+  />
   
   <use-case
   :sectionTitle="'Explore use cases'"
   :sectionDescription="'Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.'"
+  :useCases="[
+    {
+      link: '/use-cases/merchant-payments',
+      icon: '/images/use-case-1.png',
+      title: 'Merchant payments',
+      description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
+    },
+    {
+      link: '/use-cases/disbursements',
+      icon: '/images/use-case-2.png',
+      title: 'Disbursements',
+      description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
+    },
+    {
+      link: '/use-cases/international-transfers',
+      icon: 'images/use-case-3.png',
+      title: 'International transfers',
+      description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
+    },
+    {
+      link: '/use-cases/p-2-p-tranfer',
+      icon: '/images/use-case-4.png',
+      title: 'P2P transfers',
+      description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
+    },
+    {
+      link: '/use-cases/reccuring-payments',
+      icon: '/images/use-case-1.png',
+      title: 'Reccuring payments',
+      description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
+    },
+    {
+      link: '/use-cases/account-linking',
+      icon: '/images/use-case-5.png',
+      title: 'Account linking',
+      description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
+    },
+    {
+      link: '/use-cases/bill-payments',
+      icon: '/images/use-case-2.png',
+      title: 'Bill payments',
+      description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
+    },
+    {
+      link: '/use-cases/agent-services',
+      icon: '/images/use-case-6.png',
+      title: 'Agent Services',
+      description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
+    },
+  ]"
   />
 
   <specific-grid-section
@@ -49,8 +189,8 @@ pageClass: home-page custom
   <get-started
   :sectionTitle="'Get Started with Development'"
   :sectionDescription="'We offers a powerful and easy to use tools to take full advantage of the Mobile Money API Specification.'"
-  :borderedLink="{text: 'Learn more', link: '/test'}"
-  :accentLink="{text: 'Start developing', link: '/examples'}"
+  :borderedLink="{text: 'Learn more', link: '/api-versions-1.2/resources/api-service-definition'}"
+  :accentLink="{text: 'Start developing', link: '/resources/api-service-definition'}"
   />
 
   <testimonials-slider

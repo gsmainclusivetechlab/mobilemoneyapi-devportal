@@ -97,3 +97,11 @@
     }
   }
 }
+
+.sidebar__btn-back {
+  display: none;
+
+  .has-back-btn & {
+    display: block;
+  }
+}
