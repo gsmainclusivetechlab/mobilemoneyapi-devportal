@@ -1,5 +1,5 @@
 ---
-pageClass: security-page
+pageClass: security-page api-page
 ---
 
 # Security

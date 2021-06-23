@@ -43,8 +43,8 @@ Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Done
 
 <code-group>
 <code-block title="View">
-  <div class="code-header" style="color: #FCBB2C">Post</div>
-  
+<code-group>
+<code-block title="Post">
   <div class="api-route" style="color: #BEBEBF">POST/transactions/type/merchantpay \</div>
 
   <div class="code-body">
@@ -57,6 +57,8 @@ Fermentum, at volutpat tincidunt ut. Dui id aliquam sed interdum imperdiet. Done
   &nbsp;&nbsp;&nbsp;&nbsp;"amount": "200.00",</p>
 
   </div>
+</code-block>
+</code-group>
 </code-block>
 
 <code-block title="Code">

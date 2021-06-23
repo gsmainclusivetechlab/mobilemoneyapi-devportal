@@ -33,13 +33,15 @@ export default {
   },
 
   mounted: function() {
-    this.latnguageTabsInit();
+    setTimeout(()=> {
+      this.latnguageTabsInit();
     
-    document.addEventListener('click', (event) => {
-      if(!event.target.closest('.lang-select-box')) {
-        this.isListOpened = false;
-      }
-    });
+      document.addEventListener('click', (event) => {
+        if(!event.target.closest('.lang-select-box')) {
+          this.isListOpened = false;
+        }
+      });
+    }, 300);
   },
 
   methods: {

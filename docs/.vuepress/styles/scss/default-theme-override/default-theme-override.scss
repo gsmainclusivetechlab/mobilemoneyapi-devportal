@@ -1,5 +1,5 @@
 html {
-  .theme-container:not(.custom) {
+  .theme-container:not(.custom):not(.api-page) {
     .theme-default-content {
       &:not(.custom) {
         max-width: 100%;

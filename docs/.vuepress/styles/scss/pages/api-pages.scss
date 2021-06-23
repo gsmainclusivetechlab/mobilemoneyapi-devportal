@@ -5,14 +5,27 @@
     &.has-code-panel {
       .theme-default-content {
         padding: 34px 122px 64px 32px;
-        // max-width: 986px;
         max-width: 100%;
+
+        @include media('<tablet') {
+          padding: 34px 32px 64px;
+        }
+
+        @include media('<tablet-xs') {
+          padding: 34px 0px 64px;
+        }
+      }
+    }
+
+    &.security-page {
+      .theme-default-content {
+        margin-left: auto;
       }
     }
 
     .theme-default-content {
-      padding: 34px 32px 64px;
-      max-width: 896px;
+      padding: 34px 90px 64px 32px;
+      max-width: 100%;
       margin-left: 0;
 
       @include media('<tablet') {
@@ -20,54 +33,75 @@
       }
 
       h1, .h1 {
-        margin: 0 0 17px;
+        margin: -100px 0 17px;
         font-size: 2.4rem;
         font-weight: 700;
+        padding-top: 121px;
 
         &:not(:first-child) {
-          margin: 39px 0 17px;
+          margin: -100px 0 17px;
+          padding-top: 139px;
         }
       }
     
       h2, .h2 {
-        margin: 0 0 15px;
+        margin: -100px 0 15px;
         font-weight: var(--base-h2-font-weight);
         font-size: 2rem;
+        padding-top: 121px;
 
         &:not(:first-child) {
-          margin: 31px 0 15px;
+          margin: -100px 0 15px;
+          padding-top: 131px;
         }
       }
     
       h3, .h3 {
-        margin: 0 0 15px;
+        margin: -100px 0 15px;
         font-weight: var(--base-h3-font-weight);
         font-size: 18px;
+        padding-top: 121px;
 
         &:not(:first-child) {
-          margin: 22px 0 18px;
+          margin: -100px 0 18px;
+          padding-top: 122px;
         }
       }
     
       h4, .h4 {
-        margin: 21px 0 17px;
+        margin: -100px 0 17px;
         font-weight: var(--base-h4-font-weight);
         font-size: var(--h4-font-size);
+        padding-top: 121px;
+
+        &:not(:first-of-type) {
+          margin: -100 0 17px;
+          padding-top: 121px;
+        }
       }
     
       h5, .h5 {
-        margin: 21px 0 18px;
+        margin: -100px 0 18px;
         font-weight: var(--base-h5-font-weight);
         font-size: var(--h5-font-size);
+        padding-top: 121px;
 
         &:not(:first-of-type) {
-          margin: 38px 0 18px;
+          margin: -100px 0 18px;
+          padding-top: 121px;
         }
       }
     
       h6, .h6 {
+        margin: -100px 0 18px;
         font-weight: var(--base-h6-font-weight);
         font-size: var(--h6-font-size);
+        padding-top: 121px;
+
+        &:not(:first-of-type) {
+          margin: -100px 0 18px;
+          padding-top: 121px;
+        }
       }
 
       p,
@@ -82,7 +116,7 @@
         margin: 8px 0;
         padding-left: 21px;
 
-        li {
+        & > li {
           position: relative;
 
           &::before{
@@ -249,18 +283,6 @@
             line-height: 1.5;
           }
 
-
-          .code-header {
-            overflow-x: auto;
-            display: block;
-            padding: 8px 8px 7px;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            text-transform: uppercase;
-            font-weight: 500;
-            border-bottom: 2px solid #323336;
-          }
-
           .code-body {
             overflow-x: auto;
             padding: 4px 8px 8px 16px;
@@ -292,6 +314,20 @@
           padding: 8px 0;
 
           .theme-code-group__nav {
+            
+            .theme-code-group__li {
+              &:only-child {
+                button.theme-code-group__nav-tab-active {
+                  &::before {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+          
+
+          .theme-code-group__nav {
             margin: 0;
             padding: 0 0 7px 0;
             border-bottom: 2px solid #323336;
@@ -306,6 +342,7 @@
                 position: relative;
                 color: #FCBB2C;
                 font-weight: 500;
+                cursor: default;
 
                 &:before {
                   content: '';

@@ -1,5 +1,6 @@
 ---
-pageClass: api-page has-back-btn
+pageClass: api-page
+goBacKBtn: kek
 ---
 
 ## API Fundamentals

@@ -4,7 +4,16 @@
 
     <slot name="top" />
 
-    <!-- <button class="sidebar__btn-back" type="button" @click="goBack">back</button> -->
+    <router-link :to="{path: backLink.path}" v-if="backLink && backLink.path !== $route.path " class="sidebar__back-btn">
+      <div class="icon">
+        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 0L5.715 0.6965L1.925 4.5H12V5.5H1.925L5.715 9.2865L5 10L0 5L5 0Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="text-holder">
+        Back to {{backLink.title}}
+      </div>
+    </router-link>
 
     <SidebarLinks
       :depth="0"
@@ -23,13 +32,38 @@ export default {
 
   components: { SidebarLinks, NavLinks },
 
+  data: function() {
+    return {
+      sidebarItems: [...this.items],
+      backLink: null,
+    }
+  },
+
   props: ['items'],
 
   methods: {
-    goBack: function() {
-      window.history.back();
+    getBackLink: function() {
+      const sidebarCnfigKeys = Object.keys(this.$site.themeConfig.sidebar);
+      this.backLink = null;
+
+      sidebarCnfigKeys.forEach((itemName) => {
+        if(this.$route.path.includes(itemName)) {
+          this.backLink = this.$site.themeConfig.sidebar[itemName][0].backLink;
+        }
+      });
+    },
+  },
+
+  mounted: function() {
+    this.getBackLink();
+  },
+
+  watch: {
+    $route(to, from) {
+      this.getBackLink();
     }
   }
+
 }
 </script>
 
