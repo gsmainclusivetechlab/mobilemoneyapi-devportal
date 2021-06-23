@@ -80,7 +80,7 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   </code-group>
 
   <code-language-selector>
-  <code-lang title="vue">
+  <code-lang title="Vue">
   <code-group>
   <code-block title="View">
 
@@ -166,7 +166,7 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
   </code-group>
   </code-lang>
 
-  <code-lang title="Russian :D">
+  <code-lang title="Java">
   <code-group>
   <code-block title="View">
 

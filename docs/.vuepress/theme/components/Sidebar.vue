@@ -47,15 +47,8 @@ export default {
       this.backLink = null;
 
       sidebarCnfigKeys.forEach((itemName) => {
-        console.log(itemName);
-        console.log(this.$route.path);
-        console.log(this.$route.path.includes(itemName));
-
-        console.log('===================');
-
         if(this.$route.path.includes(itemName)) {
           this.backLink = this.$site.themeConfig.sidebar[itemName][0].backLink;
-          console.log(this.backLink);
         }
       });
     },

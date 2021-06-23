@@ -25,8 +25,8 @@
       <SearchBox/>
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
       <div class="login-links">
-        <button type="button" class="btn btn--transparent btn--register">Sign up</button>
-        <button type="button" class="btn btn--accent">Log in</button>
+        <a href="https://developer.mobilemoneyapi.io/user/register" class="btn btn--transparent btn--register" target="_blank">Sign up</a>
+        <a href="https://developer.mobilemoneyapi.io/user/login" class="btn btn--accent" target="_blank">Log in</a>
       </div>
     </div>
   </header>
