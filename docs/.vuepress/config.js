@@ -161,7 +161,7 @@ const sidebarNavigation = {
       collapsable: false,
       sidebarDepth: 2,
       backLink: {
-        title: 'backto API version  1.2',
+        title: 'API version  1.2',
         path: '/api-versions-1.2/',
       },
       children: [
@@ -413,7 +413,26 @@ const sidebarNavigation = {
               path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
             }
           ]
-        }
+        },
+        {
+          title: 'API Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Endpoints',
+              path: '/use-cases/p-2-p-transfers/api-endpoints',
+            },
+            {
+              title: 'Supporting Objects',
+              path: '/use-cases/p-2-p-transfers/supporting-objects',
+            },
+            {
+              title: 'Enumerations',
+              path: '/use-cases/p-2-p-transfers/enumerations',
+            },
+          ]
+        },
       ]
     },
   ],
