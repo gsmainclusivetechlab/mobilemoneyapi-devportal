@@ -6,6 +6,14 @@
       .theme-default-content {
         padding: 34px 122px 64px 32px;
         max-width: 100%;
+
+        @include media('<tablet') {
+          padding: 34px 32px 64px;
+        }
+
+        @include media('<tablet-xs') {
+          padding: 34px 0px 64px;
+        }
       }
     }
 

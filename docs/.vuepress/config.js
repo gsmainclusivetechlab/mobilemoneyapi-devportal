@@ -261,7 +261,7 @@ const sidebarNavigation = {
     }
   ],
 
-  '/use-cases/merchant-payments':[
+  '/use-cases/merchant-payments/':[
     {
       title: 'Merchant payments',
       collapsable: false,
@@ -289,18 +289,18 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
       ]
     },
   ],
-  '/use-cases/disbursements':[
+  '/use-cases/disbursements/':[
     {
       title: 'Disbursements',
       collapsable: false,
@@ -328,18 +328,18 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
       ]
     },
   ],
-  '/use-cases/international-transfers':[
+  '/use-cases/international-transfers/':[
     {
       title: 'International transfers',
       collapsable: false,
@@ -367,11 +367,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
@@ -406,11 +406,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch/',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer/',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
@@ -445,11 +445,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
@@ -484,11 +484,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
@@ -523,11 +523,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
@@ -562,11 +562,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-tranfer/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-tranfers/scenarios/p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-tranfer/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-tranfers/scenarios/bilateral-p2p-transfer',
             }
           ]
         }
