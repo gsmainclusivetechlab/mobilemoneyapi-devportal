@@ -135,7 +135,7 @@ pageClass: home-page custom
       description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
     },
     {
-      link: '/use-cases/p-2-p-tranfer',
+      link: '/use-cases/p-2-p-transfers',
       icon: '/images/use-case-4.png',
       title: 'P2P transfers',
       description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
