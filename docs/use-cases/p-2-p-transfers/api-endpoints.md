@@ -41,7 +41,7 @@ P2P Transfers can be created,  and viewed and updated using transactions APIs. T
 The following paths are permitted:
 
 | Operation | Path  | Description |
-|-----------|-------|-------------|
+|:-----------|:-------|:-------------|
 | Create | POST */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL.  |
 | View | GET */transactions/{transactionReference}* | To view a transaction. |
 | Update | PATCH */transactions/{transactionReference}* | To update the transactionStatus of a transaction. |

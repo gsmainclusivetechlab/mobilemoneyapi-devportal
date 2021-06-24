@@ -40,6 +40,11 @@ html {
       line-height: 1.5;
       font-weight: 700;
 
+      @include media('<=tablet-lg') {
+        margin-top: 20px;
+        margin-bottom: 0px;
+      }
+
       &:hover {
         color: var(--base-accent-color);
 

@@ -190,7 +190,7 @@ pageClass: home-page custom
   :sectionTitle="'Get Started with Development'"
   :sectionDescription="'We offers a powerful and easy to use tools to take full advantage of the Mobile Money API Specification.'"
   :borderedLink="{text: 'Learn more', link: '/api-versions-1.2/resources/api-service-definition'}"
-  :accentLink="{text: 'Start developing', link: '/resources/api-service-definition'}"
+  :accentLink="{text: 'Start developing', link: '/api-versions-1.2/get-started'}"
   />
 
   <testimonials-slider

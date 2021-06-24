@@ -8,7 +8,8 @@
 
     <div class="search-results-section">
       <div class="container container--narrow">
-        <template v-if="true">
+        <h2 v-if="!Object.keys(filteredDaqData).length" class="no-results text-center">No results found.</h2>
+        <template v-else>
           <div class="faq-results__item" v-for="(item, key) in filteredDaqData" :key="`category-${key}`">
             <h2 class="h2 faq-results__item-title">{{ key }}</h2>
             <accordion>
@@ -70,7 +71,10 @@ export default {
         item.items.forEach(el => {
           if (
             el.title.toLowerCase().includes(searchebleValue.toLowerCase())
+            ||
+            el.text.toLowerCase().includes(searchebleValue.toLowerCase())
           ) {
+            console.log(el.text);
             if (!this.filteredDaqData[item.title]) {
               this.filteredDaqData[item.title] = [];
             }
