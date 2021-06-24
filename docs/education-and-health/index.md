@@ -9,7 +9,7 @@ pageClass: industry-page custom
     :imageAlt="'image alt'" 
     />
 
-  <use-cases-with-tabs :defaultTab="1"/>
+  <use-cases-education-and-health-with-tabs :defaultTab="1"/>
 
   <succeed-use-case-section
   :cards="[
