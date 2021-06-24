@@ -74,7 +74,6 @@ export default {
             ||
             el.text.toLowerCase().includes(searchebleValue.toLowerCase())
           ) {
-            console.log(el.text);
             if (!this.filteredDaqData[item.title]) {
               this.filteredDaqData[item.title] = [];
             }
