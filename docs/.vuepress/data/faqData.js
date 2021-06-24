@@ -8,11 +8,11 @@ export default [
       },
       {
         title: "Who created and maintains the Mobile Money API?",
-        text: "The API is designed to be used by any party in the Mobile Money industry. This includes Mobile Money Operators, other Payment Service Providers, Retail and eCommerce Merchants, Application Developers, companies receiving Bill Payments, and others."
+        text: "unique_1"
       },
       {
         title: "Who can use the Mobile Money API?",
-        text: "The API is designed to be used by any party in the Mobile Money industry. This includes Mobile Money Operators, other Payment Service Providers, Retail and eCommerce Merchants, Application Developers, companies receiving Bill Payments, and others."
+        text: "unique_2"
       },
       {
         title: "Which use cases does the Mobile Money API support?",
@@ -50,7 +50,7 @@ export default [
       },
       {
         title: "Is the Mobile Money API easy to implement?",
-        text: "The API is designed to be used by any party in the Mobile Money industry. This includes Mobile Money Operators, other Payment Service Providers, Retail and eCommerce Merchants, Application Developers, companies receiving Bill Payments, and others."
+        text: "unique_3"
       },
       {
         title: "Why are only REST and JSON supported over other API designs and data formats?",
@@ -76,7 +76,7 @@ export default [
     items: [
       {
         title: "Are there security recommendations to consider when implementing the Mobile Money API?",
-        text: "The API is designed to be used by any party in the Mobile Money industry. This includes Mobile Money Operators, other Payment Service Providers, Retail and eCommerce Merchants, Application Developers, companies receiving Bill Payments, and others."
+        text: "unique_4"
       },
       {
         title: "Do I need to implement an API Gateway to host the Mobile Money API?",

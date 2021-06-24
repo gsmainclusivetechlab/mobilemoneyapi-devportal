@@ -94,7 +94,7 @@ html {
       .page{
         padding-left: 380px;
 
-        @include media('<tablet-lg') {
+        @include media('<=tablet-lg') {
           padding-left: 20px;
           padding-right: 20px;
         }
