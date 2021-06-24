@@ -9,7 +9,7 @@ pageClass: industry-page custom
     :imageAlt="'image alt'" 
     />
 
-  <use-cases-with-tabs :defaultTab="1"/>
+  <use-cases-humanitarian-agencies-with-tabs :defaultTab="1"/>
 
   <succeed-use-case-section
   :cards="[

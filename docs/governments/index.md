@@ -9,7 +9,7 @@ pageClass: industry-page custom
     :imageAlt="'image alt'" 
     />
 
-  <use-cases-with-tabs :defaultTab="1"/>
+  <use-cases-governments-with-tabs :defaultTab="1"/>
 
   <succeed-use-case-section
   :cards="[
