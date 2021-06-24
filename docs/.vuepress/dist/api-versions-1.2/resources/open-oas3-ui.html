@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Open OAS3 UI | GSMA</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="GSMA API documentation">
+    <meta name="theme-color" content="red">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.dac1dc48.css" as="style"><link rel="preload" href="/assets/js/app.71b4f263.js" as="script"><link rel="preload" href="/assets/js/5.a5d0e081.js" as="script"><link rel="preload" href="/assets/js/3.dd792140.js" as="script"><link rel="preload" href="/assets/js/67.5c4cbd1b.js" as="script"><link rel="preload" href="/assets/js/35.d8d87ad6.js" as="script"><link rel="prefetch" href="/assets/js/1.cfb5244b.js"><link rel="prefetch" href="/assets/js/10.50dbf21b.js"><link rel="prefetch" href="/assets/js/100.7e5b3403.js"><link rel="prefetch" href="/assets/js/101.61bcd1b6.js"><link rel="prefetch" href="/assets/js/102.ae25df2a.js"><link rel="prefetch" href="/assets/js/103.7bf8efbb.js"><link rel="prefetch" href="/assets/js/104.e0693212.js"><link rel="prefetch" href="/assets/js/105.201e2a45.js"><link rel="prefetch" href="/assets/js/106.d09b6f69.js"><link rel="prefetch" href="/assets/js/107.91fe6864.js"><link rel="prefetch" href="/assets/js/108.2056fd9f.js"><link rel="prefetch" href="/assets/js/109.24cdc227.js"><link rel="prefetch" href="/assets/js/11.6c06dc5a.js"><link rel="prefetch" href="/assets/js/110.d18f7042.js"><link rel="prefetch" href="/assets/js/111.d19081ba.js"><link rel="prefetch" href="/assets/js/112.38aa36c1.js"><link rel="prefetch" href="/assets/js/113.c973e450.js"><link rel="prefetch" href="/assets/js/114.7e5bdb62.js"><link rel="prefetch" href="/assets/js/12.7cb3fe2e.js"><link rel="prefetch" href="/assets/js/13.714d63d0.js"><link rel="prefetch" href="/assets/js/14.8b5ffa06.js"><link rel="prefetch" href="/assets/js/15.9d386b22.js"><link rel="prefetch" href="/assets/js/16.33746935.js"><link rel="prefetch" href="/assets/js/17.6cb4a870.js"><link rel="prefetch" href="/assets/js/18.16282899.js"><link rel="prefetch" href="/assets/js/19.9bb3ba98.js"><link rel="prefetch" href="/assets/js/20.9b8e5b4e.js"><link rel="prefetch" href="/assets/js/21.054619e3.js"><link rel="prefetch" href="/assets/js/22.3eee4521.js"><link rel="prefetch" href="/assets/js/23.94bb0fb9.js"><link rel="prefetch" href="/assets/js/24.53bedde2.js"><link rel="prefetch" href="/assets/js/25.284c65a0.js"><link rel="prefetch" href="/assets/js/26.8eccdd3b.js"><link rel="prefetch" href="/assets/js/27.4ea9b812.js"><link rel="prefetch" href="/assets/js/28.df1eb349.js"><link rel="prefetch" href="/assets/js/29.9afe28c2.js"><link rel="prefetch" href="/assets/js/30.4ec30b64.js"><link rel="prefetch" href="/assets/js/31.bc2989a2.js"><link rel="prefetch" href="/assets/js/32.e18bf019.js"><link rel="prefetch" href="/assets/js/33.623fe5f1.js"><link rel="prefetch" href="/assets/js/34.4fe15c97.js"><link rel="prefetch" href="/assets/js/36.3550e56f.js"><link rel="prefetch" href="/assets/js/37.fb0afb3c.js"><link rel="prefetch" href="/assets/js/38.b0a4da9c.js"><link rel="prefetch" href="/assets/js/39.22b7e324.js"><link rel="prefetch" href="/assets/js/4.c76d45b7.js"><link rel="prefetch" href="/assets/js/40.248c75ab.js"><link rel="prefetch" href="/assets/js/41.569675b5.js"><link rel="prefetch" href="/assets/js/42.ae9c55fd.js"><link rel="prefetch" href="/assets/js/43.23770d31.js"><link rel="prefetch" href="/assets/js/44.b4482b93.js"><link rel="prefetch" href="/assets/js/45.1588e89c.js"><link rel="prefetch" href="/assets/js/46.c6b9e79c.js"><link rel="prefetch" href="/assets/js/47.01f3aa10.js"><link rel="prefetch" href="/assets/js/48.ed354ebb.js"><link rel="prefetch" href="/assets/js/49.4e056bac.js"><link rel="prefetch" href="/assets/js/50.b03d9ca1.js"><link rel="prefetch" href="/assets/js/51.182c2a5b.js"><link rel="prefetch" href="/assets/js/52.e340cb84.js"><link rel="prefetch" href="/assets/js/53.f8e3977b.js"><link rel="prefetch" href="/assets/js/54.57c2086e.js"><link rel="prefetch" href="/assets/js/55.7f3ac26f.js"><link rel="prefetch" href="/assets/js/56.922ec0cd.js"><link rel="prefetch" href="/assets/js/57.57d9e4c2.js"><link rel="prefetch" href="/assets/js/58.1b05e535.js"><link rel="prefetch" href="/assets/js/59.67393ec3.js"><link rel="prefetch" href="/assets/js/6.937d6d60.js"><link rel="prefetch" href="/assets/js/60.2acd02d4.js"><link rel="prefetch" href="/assets/js/61.185f1ce8.js"><link rel="prefetch" href="/assets/js/62.22ea5a88.js"><link rel="prefetch" href="/assets/js/63.e587d2c1.js"><link rel="prefetch" href="/assets/js/64.683fa37c.js"><link rel="prefetch" href="/assets/js/65.9e130da2.js"><link rel="prefetch" href="/assets/js/66.a901427a.js"><link rel="prefetch" href="/assets/js/68.bc7d004b.js"><link rel="prefetch" href="/assets/js/69.392ef001.js"><link rel="prefetch" href="/assets/js/7.7d0bcae8.js"><link rel="prefetch" href="/assets/js/70.2f8d60e7.js"><link rel="prefetch" href="/assets/js/71.39b03958.js"><link rel="prefetch" href="/assets/js/72.b5f995af.js"><link rel="prefetch" href="/assets/js/73.500b1e46.js"><link rel="prefetch" href="/assets/js/74.40c97f55.js"><link rel="prefetch" href="/assets/js/75.344b8b18.js"><link rel="prefetch" href="/assets/js/76.5ab36210.js"><link rel="prefetch" href="/assets/js/77.a403c090.js"><link rel="prefetch" href="/assets/js/78.9a14825d.js"><link rel="prefetch" href="/assets/js/79.d5d5d0a3.js"><link rel="prefetch" href="/assets/js/8.ac995687.js"><link rel="prefetch" href="/assets/js/80.ef43203d.js"><link rel="prefetch" href="/assets/js/81.20a5e158.js"><link rel="prefetch" href="/assets/js/82.b0ad4359.js"><link rel="prefetch" href="/assets/js/83.6f21b469.js"><link rel="prefetch" href="/assets/js/84.e901de87.js"><link rel="prefetch" href="/assets/js/85.bbc506c2.js"><link rel="prefetch" href="/assets/js/86.0a0f822c.js"><link rel="prefetch" href="/assets/js/87.4842c462.js"><link rel="prefetch" href="/assets/js/88.461452ce.js"><link rel="prefetch" href="/assets/js/89.a2a64e99.js"><link rel="prefetch" href="/assets/js/9.87b9c2ee.js"><link rel="prefetch" href="/assets/js/90.c3ace5b4.js"><link rel="prefetch" href="/assets/js/91.5a7fc2d4.js"><link rel="prefetch" href="/assets/js/92.02ac1e30.js"><link rel="prefetch" href="/assets/js/93.5d5890c7.js"><link rel="prefetch" href="/assets/js/94.a7037925.js"><link rel="prefetch" href="/assets/js/95.c0e2aad6.js"><link rel="prefetch" href="/assets/js/96.ed656fe5.js"><link rel="prefetch" href="/assets/js/97.0eec42bc.js"><link rel="prefetch" href="/assets/js/98.c80e8d06.js"><link rel="prefetch" href="/assets/js/99.2b452063.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dac1dc48.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="global-layout"><div class="theme-container api-page"><header class="navbar main-header"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <div class="main-header__box"><div class="logo-holder"><a href="/" class="home-link router-link-active"><img src="/images/logo-small.svg" alt="GSMA" class="logo"></a> <div class="branding-text">
+        mobile money api
+      </div></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API version" class="dropdown-title"><span class="title">API version</span> <span class="arrow down"></span></button> <button type="button" aria-label="API version" class="mobile-dropdown-title"><span class="title">API version</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api-versions-1.2/" class="nav-link router-link-active">
+  Version 1.2
+</a></li><li class="dropdown-item"><!----> <a href="/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml" download="" class="nav-link external">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml" download="" class="nav-link external">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/examples/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/test/" class="nav-link">
+  Support
+</a></div> <!----></nav> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <button type="button" class="mobile-search-opener"></button> <div class="login-links"><a href="https://developer.mobilemoneyapi.io/user/register" target="_blank" class="btn btn--transparent btn--register">Sign up</a> <a href="https://developer.mobilemoneyapi.io/user/login" target="_blank" class="btn btn--accent">Log in</a></div></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API version" class="dropdown-title"><span class="title">API version</span> <span class="arrow down"></span></button> <button type="button" aria-label="API version" class="mobile-dropdown-title"><span class="title">API version</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api-versions-1.2/" class="nav-link router-link-active">
+  Version 1.2
+</a></li><li class="dropdown-item"><!----> <a href="/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml" download="" class="nav-link external">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml" download="" class="nav-link external">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/examples/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/test/" class="nav-link">
+  Support
+</a></div> <!----></nav>  <!----> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>API version 1.2</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Get started</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Resources</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api-versions-1.2/resources/api-service-definition.html" class="sidebar-link">API Endpoints</a></li><li><a href="/api-versions-1.2/resources/open-oas3-ui.html" aria-current="page" class="active sidebar-link">Open OAS3 UI</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api-versions-1.2/resources/open-oas3-ui.html#open-oas3-ui" class="sidebar-link">Open OAS3 UI</a></li></ul></li><li><a href="/api-versions-1.2/resources/change-list.html" class="sidebar-link">Change list</a></li><li><a href="/api-versions-1.2/resources/highlights.html" class="sidebar-link">Highlights</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Use cases</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="open-oas3-ui"><a href="#open-oas3-ui" class="header-anchor">#</a> Open OAS3 UI</h2> <div id="swagger" class="swagger"></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/api-versions-1.2/resources/api-service-definition.html" class="prev">
+        API Endpoints
+      </a></span> <span class="next"><a href="/api-versions-1.2/resources/change-list.html">
+        Change list
+      </a>
+      →
+    </span></p></div> </main></div> <footer class="footer main-footer"><div class="main-footer__content-holder"><ul class="nav-links can-hide"><li class="nav-item"><a href="https://www.gsma.com/aboutus/worldwide-offices" target="_blank" class="nav-link">
+          Contact GSMA
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal" target="_blank" class="nav-link">
+          Legal
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal/email-preference-centre" target="_blank" class="nav-link">
+          Email Preference Centre
+        </a></li></ul> <div class="copyright"> Copyright © 2021 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.71b4f263.js" defer></script><script src="/assets/js/5.a5d0e081.js" defer></script><script src="/assets/js/3.dd792140.js" defer></script><script src="/assets/js/67.5c4cbd1b.js" defer></script><script src="/assets/js/35.d8d87ad6.js" defer></script>
+  </body>
+</html>

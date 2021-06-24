@@ -189,6 +189,12 @@ const sidebarNavigation = {
               sidebarDepth: 2,
             },
             {
+              title: 'Open OAS3 UI',
+              path: '/api-versions-1.2/resources/open-oas3-ui',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
               title: 'Change list',
               path: '/api-versions-1.2/resources/change-list',
               collapsable: true,
@@ -430,6 +436,17 @@ const sidebarNavigation = {
             {
               title: 'Enumerations',
               path: '/use-cases/p-2-p-transfers/enumerations',
+            },
+          ]
+        },
+        {
+          title: 'P2P Transfers Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers Open OAS UI',
+              path: '/use-cases/p-2-p-transfers/p2p-transfers-open-oas-ui',
             },
           ]
         },
