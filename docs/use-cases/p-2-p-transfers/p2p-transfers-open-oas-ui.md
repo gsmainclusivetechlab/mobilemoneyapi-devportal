@@ -1,4 +1,5 @@
 ---
+sidebarDepth: 0
 pageClass: api-page
 ---
 
