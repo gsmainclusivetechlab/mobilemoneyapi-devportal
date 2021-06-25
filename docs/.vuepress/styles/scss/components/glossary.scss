@@ -34,8 +34,21 @@
       cursor: pointer;
 
       &.active {
+        margin-top: -2px;
         font-weight: 700;
         color: var(--base-accent-color);
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -3px;
+          left: 50%;
+          display: block;
+          width: calc(100% - 8px);
+          height: 2px;
+          background: currentColor;
+          transform: translateX(-50%);
+        }
       }
     }
 
