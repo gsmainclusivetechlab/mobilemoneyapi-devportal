@@ -14,4 +14,9 @@ input.input {
     padding-left: 48px;
     background: #fff url('/images/search.svg') 17px 50% no-repeat;
   }
+
+  @include placeholder() {
+    opacity: .5;
+    font-family: var(--base-font-family)
+  }
 }

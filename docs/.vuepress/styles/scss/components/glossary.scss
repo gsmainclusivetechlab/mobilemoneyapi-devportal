@@ -1,0 +1,81 @@
+.glossary {
+  .alphabet {
+    &-box {
+      margin: 0 0 92px;
+
+      @include media('<=tablet-lg') {
+        margin: 0 0 40px;
+      }
+    }
+
+    &__list {
+      @extend %listreset;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+
+      @include media('<=tablet') {
+        display: none;
+      }
+
+      &-item {
+        margin: 0 7px 0 6px;
+      }
+    }
+
+    &-filter__btn {
+      position: relative;
+      appearance: none;
+      border: none;
+      background: none;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      cursor: pointer;
+
+      &.active {
+        font-weight: 700;
+        color: var(--base-accent-color);
+      }
+    }
+
+    &__select {
+      appearance: none;
+      width: 60px;
+      display: block;
+      padding: 5px 10px;
+      font-size: 1.6rem;
+      background: transparent url('/images/expand_arrow.svg') calc(100% - 9px) center no-repeat;
+      border: 1px solid var(--input-border-color);
+
+      @include media('>tablet') {
+        display: none;
+      }
+    }
+  }
+
+  &-results {
+    padding: 0 0 53px;
+
+    .glossary-results__item-title {
+      margin: 0 0 17px;
+    }
+
+    &__item {
+      margin: 0 0 38px;
+
+      @include media('<tablet') {
+        margin: 0 0 22px;
+      }
+
+      &-text {
+        font-size: 1.8rem;
+        line-height: 1.8;
+
+        @include media('<tablet') {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
