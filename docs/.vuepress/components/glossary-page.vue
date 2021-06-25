@@ -70,7 +70,7 @@ export default {
       filteredDataBySearch: [],
       filteredDataByAlphabet: [],
       alphabetFilterLetters: alphabetFilterLetters,
-      activeLetter: 'C',
+      activeLetter: 'All',
       searchebleValue: '',
     }
   },
