@@ -58,15 +58,15 @@ export default {
   },
   
   methods: {
-    handleTabSwitch: function(tabName) {
+    handleTabSwitch(tabName) {
       this.activeTabName = tabName;
     },
 
-    getTabTitle : function(tab) {
+    getTabTitle(tab) {
       return tab.data().tabTitle;
     },
 
-    setStartActiveTab: function() {
+    setStartActiveTab() {
       this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[this.defaultTab ? this.defaultTab -1 : 0]}`]);
     }
   }

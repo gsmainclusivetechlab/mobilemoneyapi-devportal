@@ -111,7 +111,7 @@ const mainNavigation = [
       },
       {
         text: 'Glossary',
-        link: '/examples/',
+        link: '/glossary/',
       },
       {
         text: 'FAQ',

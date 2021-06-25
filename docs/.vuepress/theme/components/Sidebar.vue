@@ -32,7 +32,7 @@ export default {
 
   components: { SidebarLinks, NavLinks },
 
-  data: function() {
+  data() {
     return {
       sidebarItems: [...this.items],
       backLink: null,
@@ -42,7 +42,7 @@ export default {
   props: ['items'],
 
   methods: {
-    getBackLink: function() {
+    getBackLink() {
       const sidebarCnfigKeys = Object.keys(this.$site.themeConfig.sidebar);
       this.backLink = null;
 
@@ -54,7 +54,7 @@ export default {
     },
   },
 
-  mounted: function() {
+  mounted() {
     this.getBackLink();
   },
 
