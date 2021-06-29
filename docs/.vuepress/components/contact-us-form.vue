@@ -44,7 +44,8 @@
                 :clearable="false"
                 rules="required|alpha"
                 :placeholder="'Select country'"
-                :options="options"></v-select>
+                :options="options"
+                v-model="country"></v-select>
           </div>
           <div class="input-wrapper input-wrapper__with-error-mark">
             <label for="company">Company</label>
@@ -127,17 +128,24 @@ export default {
       countries: COUNTRIES,
       options: [],
       mailSend: false,
+      country: null,
     }
   },
   methods: {
     send() {
       this.$validator.validateAll().then((result) => {
         if (result) {
+          const formData = new FormData(this.$refs['contactForm']);
+
+          if (this.country) {
+            formData.append('country', this.country.label);
+          }
+
           fetch('/form/sendmail.php', {
             method: 'POST',
+            body: formData,
           })
           .then((response) => {
-            console.log(response);
             if (response) {
               this.$refs.contactForm.reset();
               this.mailSend = true;
@@ -161,8 +169,5 @@ export default {
       };
     });
   },
-  // mounted: function() {
-  //   this.$refs["mySelect"].open = true;
-  // }
 }
 </script>

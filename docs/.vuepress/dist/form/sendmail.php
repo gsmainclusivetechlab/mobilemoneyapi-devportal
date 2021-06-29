@@ -12,6 +12,8 @@ require 'vendor/autoload.php';
   $userCountry = '';
   $userAcceptedConditions = '';
 
+  var_dump($_POST['country']);
+
   if (isset($_POST['subject']) && is_string($_POST['subject'])) {
    $userSubject = $_POST['subject'];
   } else {
@@ -37,11 +39,11 @@ require 'vendor/autoload.php';
    $userJobTitle = "<strong>User job title: </strong> " .$_POST['job_title'];
   }
 
-  if (isset($_POST['job_title']) && is_string($_POST['job_title'])) {
+  if (isset($_POST['contact_number']) && is_string($_POST['contact_number'])) {
    $userContactNumber = "<strong>User contact number: </strong> " .$_POST['contact_number'];
   }
 
-  if (isset($_POST['job_title']) && is_string($_POST['job_title'])) {
+  if (isset($_POST['country']) && is_string($_POST['country'])) {
    $userCountry = "<strong>User country: </strong> " .$_POST['country'];
   }
 
