@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import p2pTransfersCaseTab from './use-cases-tabs/mobile-money-providers/p2p-transfers.vue';
-import accountLinkingTab from './use-cases-tabs/mobile-money-providers/account-linking.vue';
-import agentServicesTab from './use-cases-tabs/mobile-money-providers/agent-services.vue';
+import p2pTransfersCaseTab from './use-cases-tabs/banks-microfinance-institutions/p2p-transfers.vue';
+import accountLinkingTab from './use-cases-tabs/banks-microfinance-institutions/account-linking.vue';
+import agentServicesTab from './use-cases-tabs/banks-microfinance-institutions/agent-services.vue';
 
 const tabs = {
   p2pTransfersCaseTab,
