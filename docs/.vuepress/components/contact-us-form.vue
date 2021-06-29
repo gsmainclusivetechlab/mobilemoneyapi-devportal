@@ -7,7 +7,7 @@
             class="section-description">If you have any comments or you have found any issues please let us know by filling in the fields below.</div>
       </div>
       <div class="contact-form__wrapper  input-wrapper__with-error-mark">
-        <form @submit.prevent="send" action="#" method="post" class="form contact-form">
+        <form @submit.prevent="send" ref="contactForm" class="form contact-form">
           <div class="input-wrapper input-wrapper__with-error-mark">
             <label for="name">Full name</label>
             <input type="text"
@@ -131,10 +131,20 @@ export default {
   methods: {
     send() {
       this.$validator.validateAll().then((result) => {
+        const formData = JSON.stringify({
+          email: this.email,
+        })
+        console.log(formData)
         if (result) {
           // eslint-disable-next-line
           alert('Form Submitted!');
-          return;
+          fetch('sendmail.php', {
+            method: 'POST',
+            body: formData,
+          })
+          .then((response) => {
+            console.log(response);
+          });
         }
       });
     }
