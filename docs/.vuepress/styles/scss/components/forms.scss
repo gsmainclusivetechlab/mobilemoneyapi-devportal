@@ -27,7 +27,7 @@ input.input {
   flex-direction: column;
   width: 50%;
   margin: 0 0 23px;
-  padding: 0 17px 0 14px;
+  padding: 0 17px 0 16px;
 
   @include media ('<tablet-lg') {
     width: 100%;
@@ -52,7 +52,6 @@ input.input {
 
     &::placeholder {
       font-size: 1.4rem;
-      letter-spacing: 1px;
       color: var(--inactive-btn-color);
       font-family: var(--base-body-font-family);
     }

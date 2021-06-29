@@ -54,7 +54,7 @@
                    name="company"
                    id="company"
                    v-validate="'required'"
-                   placeholder="Enter full name"
+                   placeholder="Enter company name"
                    :class="[{ 'input-wrapper--error': errors.has('company')}]"
                    v-model="company">
             <span class="input-wrapper__error">{{ errors.first('company') }}</span>
@@ -64,7 +64,7 @@
             <input type="text"
                    name="job_title"
                    id="job_title"
-                   placeholder="Enter full name"
+                   placeholder="Enter job title"
                    v-model="jobTitle">
           </div>
           <div class="input-wrapper input-wrapper__fullwidth">
@@ -96,7 +96,7 @@
                 <span></span>
               </span>
               <span class="input-wrapper__checkbox-text">
-                I agree with GSMA <a href="#" target="_blank">Terms and Conditions</a> and have read the <a href="#" target="_blank">GSMA Privacy Statement</a>.
+                I agree with <a href="#" target="_blank">GSMA Terms and Conditions</a> and have read the <a href="#" target="_blank">GSMA Privacy Statement</a>.
               </span>
             </label>
             <span class="input-wrapper__error">{{ errors.first('T&C') }}</span>
@@ -107,14 +107,27 @@
         </form>
       </div>
     </div>
+    <modal :show-modal="mailSend"
+           @close="showSuccessModal">
+      <template slot="header">
+        <h2 class="h2 modal_title">Success</h2>
+      </template>
+      <template slot="body">
+        Email has been send!
+      </template>
+    </modal>
   </div>
 </template>
 
 <script>
 import {COUNTRIES} from '../constants.js';
+import Modal from './modal.vue';
 
 export default {
   name: 'contact-us-from',
+  comments: {
+    Modal,
+  },
   data: function () {
     return {
       countries: COUNTRIES,
@@ -126,6 +139,7 @@ export default {
       company: '',
       jobTitle: '',
       subject: '',
+      mailSend: false,
     }
   },
   methods: {
@@ -136,18 +150,26 @@ export default {
         })
         console.log(formData)
         if (result) {
-          // eslint-disable-next-line
-          alert('Form Submitted!');
-          fetch('/docs/.vuepress/dist/form/sendmail.php', {
+          fetch('/form/sendmail.php', {
             method: 'POST',
             body: formData,
           })
           .then((response) => {
             console.log(response);
+            if (response) {
+              this.$refs.contactForm.reset();
+              this.mailSend = true;
+            }
+          })
+          .catch((error) => {
+            throw new Error(error);
           });
         }
       });
-    }
+    },
+    showSuccessModal() {
+      this.mailSend = !this.mailSend;
+    },
   },
   created() {
     this.options = this.countries.map((country) => {
