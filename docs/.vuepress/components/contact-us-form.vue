@@ -113,7 +113,7 @@
         <h2 class="h2 modal_title">Success</h2>
       </template>
       <template slot="body">
-        Email has been send!
+        Email has been sent!
       </template>
     </modal>
   </div>
