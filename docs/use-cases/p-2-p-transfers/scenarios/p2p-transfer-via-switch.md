@@ -16,7 +16,7 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
     activate Sending FSP
     activate Switch
     activate Receiving FSP
-    Note right of Switch: (1) The Sending FSP retrieves the name of the intended recipient from the Receiving FSP via the Switch.
+    Note right of Switch: (1) The Sending FSP retrieves the name of the intended<br>recipient from the Receiving FSP via the Switch.
     Switch->>Receiving FSP: GET /accounts/{identifierType}/{identifier}/accountname
     Receiving FSP-->>Switch: HTTP 200 (Account Holder Name Object)
     Switch-->>Sending FSP: HTTP 200 (Account Holder Name Object)
@@ -27,21 +27,21 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
     activate Sending FSP
     activate Switch
     activate Receiving FSP
-    Note right of Switch: (2) Subject to sender confirmation of the name returned in step 1, the Sending FSP submits a quotation<br>request to the Switch. The Switch will return the Request State object to indicate that the request<br>is 'pending'. 
+    Note right of Switch: (2) Subject to sender confirmation of the name returned in step 1, the Sending FSP<br>submits a quotation request to the Switch. The Switch will return the Request<br>State object to indicate that the request is 'pending'. 
     Switch->>Receiving FSP: POST /quotations
-    Note right of Receiving FSP: (3) The Swith in turn submits the quotation request to the Receiving FSP.<br>The Receiving FSP will return the Request State object to indicate<br>that the request is 'pending'.
-    Receiving FSP-->>Switch: HTTP 200 (Request State Object)
-    Switch-->>Sending FSP: HTTP 200 (Request State  Object)
+    Note right of Receiving FSP: (3) The Swith in turn submits the quotation request to the<br>Receiving FSP. The Receiving FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
+    Receiving FSP-->>Switch: HTTP 202 (Request State Object)
+    Switch-->>Sending FSP: HTTP 202 (Request State  Object)
     deactivate Sending FSP
     deactivate Switch
     Receiving FSP->>Switch: PUT {Callback URL} (Quotations Object)
     activate Switch
     activate Sending FSP
-    Note right of Receiving FSP: (4) The FSP informs the Switch that the quotation has been successfully<br>created by returning the final representation of the quotation. 
+    Note right of Receiving FSP: (4) The FSP informs the Switch that the quotation<br>has been successfully created by returning the<br>final representation of the quotation. 
     Switch-->>Receiving FSP: HTTP 204
     deactivate Receiving FSP
     Switch->>Sending FSP: PUT {Callback URL} (Quotations Object)
-    Note right of Switch: (5) The Swith in turn informs the Sending FSP that the transaction has succesfully complteted<br>by returning the final representation of the transaction.
+    Note right of Switch: (5) The Swith in turn informs the Sending FSP that the quotation<br> has successfully created by returning the final representation<br>of the quotation.
     Sending FSP-->>Switch: HTTP 204
     deactivate Switch
     deactivate Sending FSP
@@ -49,9 +49,9 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
     activate Switch
     activate Sending FSP
     activate Receiving FSP
-    Note right of Switch: (6) Subject to sender confirmation, the Sending FSP submits a transfer request to the Swith. The Switch<br>will return the Request State object to indicate that the request is 'pending'.
+    Note right of Switch: (6) Subject to sender confirmation, the Sending FSP submits a transfer<br>request to the Swith. The Switch will return the Request State object to<br>indicate that the request is 'pending'.
     Switch->>Receiving FSP: POST /transactions/type/transfer
-    Note right of Receiving FSP: (7) The Switch in turn submits the transaction request to the<br>Receiving FSP. The Receiving FSP will return the Request State object<br>to indicate that the request is 'pending'.
+    Note right of Receiving FSP: (7) The Switch in turn submits the transaction request to the<br>Receiving FSP. The Receiving FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
     Receiving FSP-->>Switch: HTTP 202 (Request State Object)
     Switch-->>Sending FSP: HTTP 202 (Request State Object)
     deactivate Switch
@@ -59,11 +59,11 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
     Receiving FSP->>Switch: PUT {Callback URL} (Transactions Object)
     activate Switch
     activate Sending FSP
-    Note right of Receiving FSP: (8) The FSP informs the Switch that the transaction has been<br>successfully completed by returning the final representation of the<br>transaction.
+    Note right of Receiving FSP: (8) The FSP informs the Switch that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
     Switch-->>Receiving FSP: HTTP 204
     deactivate Receiving FSP
     Switch->>Sending FSP: PUT {Callback URL} (Transactions Object)
-    Note right of Switch: (9) The Swith in turn informs the Sending FSP that the transaction has been successfully completed<br>by returning the final representation of the transaction.
+    Note right of Switch: (9) The Swith in turn informs the Sending FSP that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
     Sending FSP-->>Switch: HTTP 204
     deactivate Switch
     deactivate Sending FSP
