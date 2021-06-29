@@ -26,7 +26,7 @@ export default {
     'expanded'
   ],
 
-  data: function() {
+  data() {
     return {
       isOpened: false,
       itemElement: null,
@@ -35,11 +35,11 @@ export default {
     }
   },
 
-  created: function() {
+  created() {
     this.isOpened = this.expanded ? true : false;
   },
 
-  mounted: function() {
+  mounted() {
     this.itemElement = this.$el.getElementsByClassName("accordion__item-body-content")[0];
     this.detectItemHeigth();
 
@@ -55,12 +55,12 @@ export default {
   },
 
   methods: {
-    openClose: function() {
+    openClose() {
       this.detectItemHeigth();
       this.isOpened = !this.isOpened;
     },
 
-    detectItemHeigth: function() {
+    detectItemHeigth() {
       this.itemElementHeig = 'auto';
       this.itemElementHeig = `${this.itemElement.offsetHeight}px`;
     }

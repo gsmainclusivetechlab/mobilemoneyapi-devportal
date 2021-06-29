@@ -1,6 +1,6 @@
 ---
-sidebarDepth: 2
-pageClass: api-page
+sidebarDepth: 0
+pageClass: api-page has-code-panel
 ---
 
 ## P2P Transfer via Switch
@@ -73,3 +73,182 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdjZhR" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLNf" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
+<side-code-panel>
+
+  ## P2P Transfer via Switch
+
+  <code-group>
+  <code-block title="View">
+
+  <code-group>
+  <code-block title="post">
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+  </code-block>
+
+  <code-block title="get">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  <code-block title="get">
+  any content can be inserted here
+
+  ::: v-pre
+  `{{ Some pher information  }}`
+  :::
+  </code-block>
+  </code-group>
+
+  </code-block>
+
+  <code-block title="Code">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  </code-group>
+
+  Short description: In this diagram, a switch is used by the sending FSP to (1) confirm the recipient name, (2) request a quotation and and to(3) perform the transfer with the receiving FSP. A callback is provided by the receiving FSP to return confirmation of the transfer.
+
+  <code-language-selector>
+  <code-lang title="Vue">
+  <code-group>
+  <code-block title="View">
+
+  <code-group>
+  <code-block title="post">
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+  </code-block>
+
+  <code-block title="get">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  <code-block title="get">
+  any content can be inserted here
+
+  ::: v-pre
+  `{{ Some pher information  }}`
+  :::
+  </code-block>
+  </code-group>
+
+  </code-block>
+
+  <code-block title="Code">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  </code-group>
+  </code-lang>
+
+  <code-lang title="JavaScript">
+  <code-group>
+  <code-block title="View">
+
+  <code-group>
+  <code-block title="post">
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+  </code-block>
+
+  <code-block title="get">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  <code-block title="get">
+  any content can be inserted here
+
+  ::: v-pre
+  `{{ Some pher information  }}`
+  :::
+  </code-block>
+  </code-group>
+
+  </code-block>
+
+  <code-block title="Code">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  </code-group>
+  </code-lang>
+
+  <code-lang title="Java">
+  <code-group>
+  <code-block title="View">
+
+  <code-group>
+  <code-block title="post">
+  ```javascript
+  function fancyAlert(arg) {
+    if (arg) {
+      $.facebox({div: '#foo'})
+    }
+  }
+  ```
+  </code-block>
+
+  <code-block title="get">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  <code-block title="get">
+  any content can be inserted here
+
+  ::: v-pre
+  `{{ Some pher information  }}`
+  :::
+  </code-block>
+  </code-group>
+
+  </code-block>
+
+  <code-block title="Code">
+  ```php
+  <?php
+  echo str_word_count("PHP");
+  ?> 
+  ```
+  </code-block>
+  </code-group>
+  </code-lang>
+  </code-language-selector>
+</side-code-panel>

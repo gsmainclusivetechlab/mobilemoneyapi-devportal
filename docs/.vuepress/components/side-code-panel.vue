@@ -17,14 +17,14 @@
 export default {
   name: 'side-code-panel',
 
-  data: function() {
+  data() {
     return {
       isPanelOpened: null,
     }
   },
 
   methods: {
-    togglePanel: function() {
+    togglePanel() {
       this.isPanelOpened = !this.isPanelOpened;
     }
   }

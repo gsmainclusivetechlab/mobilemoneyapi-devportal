@@ -1,6 +1,6 @@
 ---
-sidebarDepth: 2
-pageClass: api-page has-code-panel has-back-btn
+sidebarDepth: 0
+pageClass: api-page has-code-panel
 ---
 
 ## Bilateral P2P Transfer

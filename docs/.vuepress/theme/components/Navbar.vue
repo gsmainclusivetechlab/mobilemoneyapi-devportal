@@ -61,7 +61,7 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     const MOBILE_DESKTOP_BREAKPOINT = 979 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
     const handleLinksWrapWidth = () => {
@@ -77,8 +77,8 @@ export default {
   },
 
   methods: {
-    toggleMobileSearch: function() {
-    this.isMobileSearchOpened = !this.isMobileSearchOpened;
+    toggleMobileSearch() {
+      this.isMobileSearchOpened = !this.isMobileSearchOpened;
     }
   }
 }

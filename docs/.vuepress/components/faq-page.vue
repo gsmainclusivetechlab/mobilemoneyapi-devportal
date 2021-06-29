@@ -51,20 +51,20 @@ export default {
     'description',
   ],
 
-  data: function() {
+  data() {
     return {
       faqDataSource: null,
       filteredDaqData: {},
     }
   },
 
-  created: function() {
+  created() {
     this.faqDataSource = faqData;
     this.applyFilter('');
   },
 
   methods: {
-    applyFilter: function(searchebleValue) {
+    applyFilter(searchebleValue) {
       this.filteredDaqData = {};
 
       this.faqDataSource.forEach(item => {
