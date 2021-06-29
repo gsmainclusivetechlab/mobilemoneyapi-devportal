@@ -111,7 +111,7 @@ const mainNavigation = [
       },
       {
         text: 'Glossary',
-        link: '/examples/',
+        link: '/glossary/',
       },
       {
         text: 'FAQ',
@@ -185,6 +185,12 @@ const sidebarNavigation = {
             {
               title: 'API Endpoints',
               path: '/api-versions-1.2/resources/api-service-definition',
+              collapsable: true,
+              sidebarDepth: 2,
+            },
+            {
+              title: 'Open OAS3 UI',
+              path: '/api-versions-1.2/resources/open-oas3-ui',
               collapsable: true,
               sidebarDepth: 2,
             },
@@ -430,6 +436,17 @@ const sidebarNavigation = {
             {
               title: 'Enumerations',
               path: '/use-cases/p-2-p-transfers/enumerations',
+            },
+          ]
+        },
+        {
+          title: 'P2P Transfers Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'P2P Transfers Open OAS UI',
+              path: '/use-cases/p-2-p-transfers/p2p-transfers-open-oas-ui',
             },
           ]
         },

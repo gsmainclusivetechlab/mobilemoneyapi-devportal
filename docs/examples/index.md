@@ -1,5 +1,5 @@
 ---
-pageClass: api-page has-back-btn
+pageClass: api-page
 ---
 
 # Heading 1

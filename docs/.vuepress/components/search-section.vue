@@ -11,6 +11,7 @@
           class="input input--search"
           v-model="filterInput"
           @input="handleSearch"
+          placeholder="Search"
         />
       </div>
     </div>
@@ -26,14 +27,14 @@ export default {
     'description',
   ],
 
-  data: function() {
+  data() {
     return {
       filterInput: '',
     }
   },
 
   methods: {
-    handleSearch: function() {
+    handleSearch() {
       this.$emit('on-search', this.filterInput);
     }
   }

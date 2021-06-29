@@ -1,3 +1,7 @@
+---
+pageClass: api-page
+---
+
 # Using Vue in Markdown
 
 ## Browser API Access Restrictions
