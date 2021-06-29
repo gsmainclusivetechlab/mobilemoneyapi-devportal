@@ -32,7 +32,7 @@ export default {
     }
   },
 
-  mounted: function() {
+  mounted() {
     setTimeout(()=> {
       this.latnguageTabsInit();
     
@@ -45,7 +45,7 @@ export default {
   },
 
   methods: {
-    latnguageTabsInit: function () {
+    latnguageTabsInit() {
       for(const child of this.$children) {
         this.languages.push(child.title);
       }
@@ -53,7 +53,7 @@ export default {
       this.activeLanguage = this.languages[0];
     },
 
-    changeLanguage: function(lang) {
+    changeLanguage(lang) {
       this.activeLanguage = lang;
     },
   },
