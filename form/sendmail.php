@@ -12,15 +12,22 @@ $mail = new PHPMailer(true);
 
 try {
 //Recipients
-$mail->setFrom('akoroteev@justcoded.co');
+$mail->setFrom('artyom.koroteev@gmail.com');
 $mail->addAddress('akoroteev@justcoded.co');
 $mail->CharSet = 'UTF-8';
 
 //Content
 $mail->isHTML(true);                                  //Set email format to HTML
 $mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+if (trim(!empty($_POST['email']))) {
+  $body=$_POST['email'];
+}
+
+$mail->Body = $body;
+
+
 
 $mail->send();
 echo 'Message has been sent';
