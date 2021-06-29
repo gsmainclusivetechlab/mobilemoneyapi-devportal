@@ -28,7 +28,7 @@
                    v-model="tel">
           </div>
           <div class="input-wrapper input-wrapper__with-error-mark">
-            <label for="contact_number">Email</label>
+            <label for="contact_number">E-mail</label>
             <input type="text"
                    name="email"
                    id="email"
@@ -138,7 +138,7 @@ export default {
         if (result) {
           // eslint-disable-next-line
           alert('Form Submitted!');
-          fetch('sendmail.php', {
+          fetch('/docs/.vuepress/dist/form/sendmail.php', {
             method: 'POST',
             body: formData,
           })
