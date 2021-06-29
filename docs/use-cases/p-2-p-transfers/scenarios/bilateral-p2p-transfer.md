@@ -14,19 +14,19 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
     Sending FSP->>Receiving FSP: GET /accounts/{identifierType}/{identifier}/accountname
     activate Sending FSP
     activate Receiving FSP
-    Note right of Receiving FSP: (1) The Sending FSP retrieves the name of the intended recipient from the Receiving FSP.
+    Note right of Receiving FSP: (1) The Sending FSP retrieves the name of the<br>intended recipient from the Receiving FSP.
     Receiving FSP-->>Sending FSP: HTTP 200 (Account Holder Name Object)
     deactivate Receiving FSP
     Sending FSP->>Receiving FSP: POST /transactions/type/transfer
     activate Receiving FSP
-    Note right of Receiving FSP: (2) Subject to sender confirmation, the Sending FSP submits a transfer request. <br>The Receiving FSP will return the Request State object to indicate that the request is "pending".
+    Note right of Receiving FSP: (2) Subject to sender confirmation, the Sending FSP<br>submits a transfer request. The Receiving FSP will<br>return the Request State object to indicate that the<br>request is "pending".
     Receiving FSP-->>Sending FSP: HTTP 202 (Request State Object)
     deactivate Sending FSP
     deactivate Receiving FSP
     Receiving FSP->>Sending FSP: PUT {Callback URL} (Transaction Object)
     activate Sending FSP
     activate Receiving FSP
-    Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the transation has been succesfully completed<br>by returning the final representation of the transaction. 
+    Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the<br>transation has been succesfully completed by<br>returning the final representation of the transaction. 
     Sending FSP-->>Receiving FSP: HTTP 204
     deactivate Sending FSP
     deactivate Receiving FSP
