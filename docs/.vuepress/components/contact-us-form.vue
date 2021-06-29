@@ -15,8 +15,7 @@
                    id="name"
                    v-validate="'required'"
                    placeholder="Enter full name"
-                   :class="[{ 'input-wrapper--error': errors.has('full name')}]"
-                   v-model="firstName">
+                   :class="[{ 'input-wrapper--error': errors.has('full name')}]">
             <span class="input-wrapper__error">{{ errors.first('full name') }}</span>
           </div>
           <div class="input-wrapper">
@@ -24,8 +23,7 @@
             <input type="tel"
                    name="contact number"
                    id="contact_number"
-                   placeholder="+ 3 (765) 56 67 485"
-                   v-model="tel">
+                   placeholder="+ 3 (765) 56 67 485">
           </div>
           <div class="input-wrapper input-wrapper__with-error-mark">
             <label for="contact_number">E-mail</label>
@@ -34,14 +32,14 @@
                    id="email"
                    v-validate="'required|email'"
                    placeholder="Enter e-mail"
-                   :class="[{ 'input-wrapper--error': errors.has('email')}]"
-                   v-model="email">
+                   :class="[{ 'input-wrapper--error': errors.has('email')}]">
             <span class="input-wrapper__error">{{ errors.first('email') }}</span>
           </div>
           <div class="input-wrapper input-wrapper__custom-select">
             <label for="country">Country</label>
             <v-select
                 id="country"
+                name="country"
                 ref="mySelect"
                 :clearable="false"
                 rules="required|alpha"
@@ -55,8 +53,7 @@
                    id="company"
                    v-validate="'required'"
                    placeholder="Enter company name"
-                   :class="[{ 'input-wrapper--error': errors.has('company')}]"
-                   v-model="company">
+                   :class="[{ 'input-wrapper--error': errors.has('company')}]">
             <span class="input-wrapper__error">{{ errors.first('company') }}</span>
           </div>
           <div class="input-wrapper">
@@ -64,16 +61,14 @@
             <input type="text"
                    name="job_title"
                    id="job_title"
-                   placeholder="Enter job title"
-                   v-model="jobTitle">
+                   placeholder="Enter job title">
           </div>
           <div class="input-wrapper input-wrapper__fullwidth">
             <label for="subject">Subject</label>
             <input type="text"
                    name="subject"
                    id="subject"
-                   placeholder="Emphasize the subject of request"
-                   v-model="subject">
+                   placeholder="Emphasize the subject of request">
           </div>
           <div class="input-wrapper input-wrapper__fullwidth input-wrapper__with-error-mark">
             <label for="comment">Comment</label>
@@ -82,14 +77,13 @@
                       placeholder="Write down comment"
                       cols="20"
                       v-validate="'required'"
-                      :class="[{ 'input-wrapper--error': errors.has('comment')}]"
-                      v-model="comment"></textarea>
+                      :class="[{ 'input-wrapper--error': errors.has('comment')}]"></textarea>
             <span class="input-wrapper__error">{{ errors.first('comment') }}</span>
           </div>
           <div class="input-wrapper__checkbox">
             <label for="terms">
               <input type="checkbox"
-                     name="T&C"
+                     name="conditions"
                      id="terms"
                      v-validate="'required'">
               <span :class="[{ 'input-wrapper__checkbox__pseudo-checkbox--error': errors.has('T&C') }, 'input-wrapper__checkbox__pseudo-checkbox']">
@@ -132,27 +126,15 @@ export default {
     return {
       countries: COUNTRIES,
       options: [],
-      firstName: '',
-      email: '',
-      tel: '',
-      comment: '',
-      company: '',
-      jobTitle: '',
-      subject: '',
       mailSend: false,
     }
   },
   methods: {
     send() {
       this.$validator.validateAll().then((result) => {
-        const formData = JSON.stringify({
-          email: this.email,
-        })
-        console.log(formData)
         if (result) {
           fetch('/form/sendmail.php', {
             method: 'POST',
-            body: formData,
           })
           .then((response) => {
             console.log(response);

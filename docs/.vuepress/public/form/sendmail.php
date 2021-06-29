@@ -1,36 +1,65 @@
-<?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
+<?php
 require 'vendor/autoload.php';
 
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+  $userEmail = '';
+  $userFullName = '';
+  $userCompany = '';
+  $userComment = '';
+  $userJobTitle = '';
+  $userSubject = '';
+  $userContactNumber = '';
+  $userCountry = '';
+  $userAcceptedConditions = '';
 
-try {
-//Recipients
-$mail->setFrom('artyom.koroteev@gmail.com');
-$mail->addAddress('akoroteev@justcoded.co');
-$mail->CharSet = 'UTF-8';
+  if (isset($_POST['subject']) && is_string($_POST['subject'])) {
+   $userSubject = $_POST['subject'];
+  } else {
+    $userSubject = "Default subject";
+  }
 
-//Content
-$mail->isHTML(true);                                  //Set email format to HTML
-$mail->Subject = 'Here is the subject';
-$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+  $email = new \SendGrid\Mail\Mail();
+  $email->setFrom("agalaguz@justcoded.com", "Anton Galaguz");
+  $email->setSubject($userSubject);
+  $email->addTo("akoroteev@justcoded.co", "Example User");
 
-if (trim(!empty($_POST['email']))) {
-  $body=$_POST['email'];
-}
+  $userFullName   = "<strong>User full name: </strong>" .$_POST['full_name'];
+  $userEmail      = "<strong>User email: </strong>" .$_POST['email'];
+  $userCompany    = "<strong>User company: </strong>" .$_POST['company'];
+  $userComment    = "<strong>User comment: </strong>" .$_POST['comment'];
 
-$mail->Body = $body;
+  if (isset($_POST['conditions']) && $_POST['conditions'] == 'on') {
+   $userAcceptedConditions = "User has accepted T&C and Privacy statment";
+  }
+  
 
+  if (isset($_POST['job_title']) && is_string($_POST['job_title'])) {
+   $userJobTitle = "<strong>User job title: </strong> " .$_POST['job_title'];
+  }
 
+  if (isset($_POST['job_title']) && is_string($_POST['job_title'])) {
+   $userContactNumber = "<strong>User contact number: </strong> " .$_POST['contact_number'];
+  }
 
-$mail->send();
-echo 'Message has been sent';
-} catch (Exception $e) {
-echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+  if (isset($_POST['job_title']) && is_string($_POST['job_title'])) {
+   $userCountry = "<strong>User country: </strong> " .$_POST['country'];
+  }
+
+  $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+  $email->addContent(
+  "text/html", "<div>{$userFullName} <br> {$userEmail} <br> {$userCompany} <br> {$userComment} <br> {$userJobTitle} <br> {$userContactNumber} <br> {$userCountry} <br> <br> <br> 
+   {$userAcceptedConditions}</div>"
+  );
+
+  
+  // $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+  $sendgrid = new \SendGrid('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');
+
+  try {
+    $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";
+  } catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+  }
