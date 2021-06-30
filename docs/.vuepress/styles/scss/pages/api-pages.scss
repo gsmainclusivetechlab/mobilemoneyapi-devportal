@@ -1,6 +1,11 @@
 // duplicates of class names to make styles stronger than has been wroten for default styles
 
 .api-page.api-page.api-page {
+  code {
+    font-size: 1.4rem;
+    word-break: break-word;
+  }
+  
   &.theme-container {
     &.has-code-panel {
       .theme-default-content {
@@ -248,7 +253,7 @@
       }
 
       table {
-        margin: 21px 0;
+        margin: 21px 0 32px;
         font-size: 1.4rem;
         line-height: 1.8;
 
