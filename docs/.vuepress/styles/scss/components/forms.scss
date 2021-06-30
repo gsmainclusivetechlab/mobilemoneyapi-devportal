@@ -97,6 +97,10 @@ input.input {
     padding: 0 15px;
     font-size: 1.2rem;
 
+    @include media ('<tablet-lg') {
+      padding: 0;
+    }
+
     input[type="checkbox"] {
       position: absolute;
       left: 0;
@@ -122,6 +126,10 @@ input.input {
       border: 1px solid var(--input-border-color);
       width: 16px;
       height: 16px;
+
+      @include media ('<tablet-lg') {
+        left: 0;
+      }
 
       span {
         position: absolute;

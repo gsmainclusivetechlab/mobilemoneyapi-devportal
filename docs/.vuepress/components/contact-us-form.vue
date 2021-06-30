@@ -107,10 +107,11 @@
     <modal :show-modal="mailSend"
            @close="showSuccessModal">
       <template slot="header">
-        <h2 class="h2 modal_title">Success</h2>
+        <h2 class="h2 modal_title">Thank you!</h2>
       </template>
       <template slot="body">
-        Email has been sent!
+        Your enquiry has been successfully sent to our administrators.
+        We'll get back to you within the next 24 hours.
       </template>
     </modal>
   </section>
@@ -175,5 +176,8 @@ export default {
       };
     });
   },
+  // mounted: function() {
+  //   this.$refs["mySelect"].open = true;
+  // }
 }
 </script>
