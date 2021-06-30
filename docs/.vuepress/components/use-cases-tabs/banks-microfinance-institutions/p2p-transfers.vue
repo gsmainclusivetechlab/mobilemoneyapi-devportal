@@ -107,7 +107,7 @@
                 deactivate Sending FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -149,7 +149,7 @@
                 deactivate Receiving FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -208,7 +208,7 @@
                 deactivate FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/p2p-transfer-initiated-third-party-provider'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#on-us-p2p-transfer-initiated-by-a-third-party-provider'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -249,7 +249,7 @@
                 deactivate Receiving FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/p2p-transfer-failure'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-failure'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -280,7 +280,7 @@
                 deactivate Receiving FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/p2p-transfer-reversal'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-reversal'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -307,7 +307,7 @@
                 deactivate FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/obtain-fsp-balance'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#obtain-an-fsp-balance'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -339,7 +339,7 @@
                 deactivate FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/retrieve-transactions-fsp'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#retrieve-transactions-for-an-fsp'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -367,7 +367,7 @@
                 deactivate FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/check-service-availability'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#check-for-service-availability'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>
@@ -399,7 +399,7 @@
                 deactivate Sending FSP
             </Mermaid>
             <div class="buttons-holder content-center">
-              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/retrieve-missing-api-response'" class="btn btn--accent">
+              <router-link :to="'/use-cases/p-2-p-transfers/scenarios/scenarios.html#retrieve-a-missing-api-response'" class="btn btn--accent">
                 Start developing
               </router-link>
             </div>

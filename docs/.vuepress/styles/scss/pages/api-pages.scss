@@ -1,6 +1,7 @@
 // duplicates of class names to make styles stronger than has been wroten for default styles
 
 .api-page.api-page.api-page {
+  overflow: hidden;
   code {
     font-size: 1.4rem;
     word-break: break-word;
@@ -9,8 +10,12 @@
   &.theme-container {
     &.has-code-panel {
       .theme-default-content {
-        padding: 34px 122px 64px 32px;
+        padding: 34px 142px 64px 32px;
         max-width: 100%;
+
+        @include media('<tablet-lg') {
+          padding: 34px 122px 64px 32px;
+        }
 
         @include media('<tablet') {
           padding: 34px 32px 64px;
@@ -294,6 +299,10 @@
 
       .theme-code-group {
         margin: 21px 0 32px;
+
+        &:first-child {
+          margin-top: 0;
+        }
 
         &__nav {
           margin-bottom: -12px;
