@@ -88,7 +88,20 @@ const mainNavigation = [
     items: [
       {
         text: 'Version 1.2',
-        link: '/api-versions-1.2/',
+        items: [
+          { 
+            text: 'Home',
+            link: '/api-versions-1.2/',
+          },
+          { 
+            text: 'Highlights',
+            link: '/api-versions-1.2/resources/highlights',
+          },
+          { 
+            text: 'Change list',
+            link: '/api-versions-1.2/resources/change-list',
+          },
+        ]
       },
       {
         text: 'Version 1.1',

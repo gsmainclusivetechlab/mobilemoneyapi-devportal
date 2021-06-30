@@ -59,6 +59,22 @@ html {
         transform: translateX(0);
       }
     }
+
+    .dropdown-item {
+      h4 {
+        font-size: 1.4rem;
+  
+        & + .dropdown-subitem-wrapper {
+          padding-left: 10px !important;
+        }
+      }
+    }
+
+    .nav-dropdown {
+      @include media('<=tablet-lg') {
+        white-space: normal;
+      }
+    }
   }
 
   .dropdown-wrapper {

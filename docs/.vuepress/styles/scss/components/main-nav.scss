@@ -167,4 +167,21 @@ html {
       }
     }
   }
+
+  .dropdown-item.dropdown-item.dropdown-item.dropdown-item {
+    h4 {
+      padding-top: 10px;
+      padding: 10px 15px;
+    }
+  }
+
+  .dropdown-item {
+    h4 {
+      font-size: 1.4rem;
+
+      & + .dropdown-subitem-wrapper {
+        border-bottom: 1px solid #e2e2e2;
+      }
+    }
+  }
 }
