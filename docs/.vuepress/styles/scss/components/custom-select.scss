@@ -23,6 +23,7 @@
     padding: 0;
     border: 1px solid var(--input-border-color);
     border-radius: 0;
+    max-height: 40px;
   }
 
   .vs__selected-options {
@@ -61,14 +62,15 @@
   }
 
   .vs--single.vs--open .vs__selected {
-    position: static;
+    height: 100%;
   }
 
   .vs__search {
+    padding: 11px 15px 9px;
     border: 1px solid transparent;
     &:focus {
       margin: 0;
-      padding: 11px 16px 10px 16px;
+      padding: 11px 16px 10px;
       font-size: 1.4rem;
       line-height: 1.3;
     }
