@@ -1,0 +1,76 @@
+.input-wrapper__custom-select {
+  input {
+    margin: 0;
+    padding: 10px 15px;
+    border: none;
+    font-size: 1.4rem;
+    color: #000;
+
+    &::placeholder {
+      font-size: 1.4rem;
+    }
+  }
+
+  .vs--single .vs__selected {
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 1.3rem;
+    color: #000;
+    border: none;
+  }
+
+  .vs__dropdown-toggle {
+    padding: 0;
+    border: 1px solid var(--input-border-color);
+    border-radius: 0;
+  }
+
+  .vs__selected-options {
+    padding: 0;
+  }
+
+  .vs__open-indicator {
+    fill: var(--primaty-dark-color);
+    transform: scale(.6);
+  }
+
+  .vs--open .vs__open-indicator {
+    transform: rotate(180deg) scale(.6);
+  }
+
+  .vs__actions {
+    padding: 2px 13px 0 3px;
+  }
+
+  .vs__dropdown-option {
+    padding: 10px 15px;
+    font-size: 1.4rem;
+  }
+
+  .vs__dropdown-option--highlight {
+    background: var(--base-accent-btn-hover-bg-color);
+  }
+
+  .vs__dropdown-option--selected {
+    background: var(--base-accent-btn-bg-color);
+    color: #fff;
+  }
+
+  .vs__selected {
+    font-size: 1.4rem;
+  }
+
+  .vs--single.vs--open .vs__selected {
+    position: static;
+  }
+
+  .vs__search {
+    border: 1px solid transparent;
+    &:focus {
+      margin: 0;
+      padding: 11px 16px 10px 16px;
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+  }
+}
