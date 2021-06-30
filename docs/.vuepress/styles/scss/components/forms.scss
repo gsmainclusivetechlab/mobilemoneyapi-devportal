@@ -13,6 +13,10 @@ input.input {
   &--search {
     padding-left: 48px;
     background: #fff url('/images/search.svg') 17px 50% no-repeat;
+
+    .sidebar-open {
+      pointer-events: none;
+    }
   }
 
   @include placeholder() {
