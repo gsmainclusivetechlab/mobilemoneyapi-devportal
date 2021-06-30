@@ -39,9 +39,60 @@
       font-weight: 700;
       line-height: 1.5;
       text-decoration: none;
-      
+
       .api-page.api-page.api-page.theme-container .theme-default-content & {
         text-decoration: none;
+      }
+    }
+  }
+
+  &__contact-us {
+    margin: 184px auto;
+    max-width: 1309px;
+
+    @include media('<=tablet-lg') {
+      margin: 122px 0;
+    }
+
+    @include media('<=tablet') {
+      margin: 64px 0;
+    }
+
+    .cta-cards-holder {
+      padding: 0 20px;
+      margin: -14px 0 0;
+
+      @include media('<tablet-lg') {
+        flex-direction: column;
+        padding: 0 40px;
+      }
+
+      @include media('<tablet') {
+        padding: 0 25px;
+      }
+    }
+
+    .cta-card {
+      width: 48.55%;
+      max-width: 836px;
+      padding: 46px 41px 43px;
+      font-size: 1.8rem;
+
+      @include media('<tablet-lg') {
+        width: 100%;
+        margin: 0 auto 20px;
+      }
+
+      &__title {
+        margin: 0 0 15px;
+      }
+
+      &__text {
+        font-size: 1.8rem;
+      }
+
+      &__link {
+        font-size: 1.6rem;
       }
     }
   }

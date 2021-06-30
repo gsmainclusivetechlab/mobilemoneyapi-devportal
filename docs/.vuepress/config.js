@@ -92,13 +92,15 @@ const mainNavigation = [
       },
       {
         text: 'Version 1.1',
-        link: '/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml',
-        target: 'download',
+        link: '/api-versions-1.1/',
+        // link: '/download-files/Mobile_Money_API_v1.1.2-Specification_Definition.yaml',
+        // target: 'download',
       },
       {
         text: 'Version 1.0',
-        link: '/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml',
-        target: 'download',
+        link: '/api-versions-1.0/'
+        // link: '/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml',
+        // target: 'download',
       },
     ]
   },
@@ -121,7 +123,7 @@ const mainNavigation = [
   },
   {
     text: 'Support',
-    link: '/test/'
+    link: '/support/',
   },
 ]
 
@@ -154,7 +156,7 @@ const sidebarNavigation = {
       ]
     }
   ],
-  
+
   '/api-versions-1.2/': [
     {
       title: 'API version 1.2',
