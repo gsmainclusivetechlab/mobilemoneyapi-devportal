@@ -1,5 +1,5 @@
 <template>
-<section v-if="ctaCards" class="cta-cards-block">
+<section v-if="ctaCards" class="cta-cards-block" :class="sectionClass">
   <div class="cta-cards-holder">
     <div v-for="(ctaCard, index) in ctaCards" :key="`cta-card-${index}`" class="cta-card">
       <h2 v-if="ctaCard.title" class="cta-card__title">{{ ctaCard.title }}</h2>
@@ -17,6 +17,7 @@ name: "cta-2-col",
     ctaCards: {
       type: Array[{}],
     },
+    sectionClass: String,
   },
 }
 </script>

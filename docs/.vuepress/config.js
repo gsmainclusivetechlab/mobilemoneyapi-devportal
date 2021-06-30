@@ -121,7 +121,7 @@ const mainNavigation = [
   },
   {
     text: 'Support',
-    link: '/test/'
+    link: '/support/',
   },
 ]
 
@@ -154,7 +154,7 @@ const sidebarNavigation = {
       ]
     }
   ],
-  
+
   '/api-versions-1.2/': [
     {
       title: 'API version 1.2',
