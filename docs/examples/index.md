@@ -156,7 +156,7 @@ This is a details block, which does not work in IE / Edge
 ::: tab PHP lazy
 ```php
 <?php
-echo str_word_count("PHP is givno");
+echo str_word_count("PHP example");
 ?> 
 ```
 :::
