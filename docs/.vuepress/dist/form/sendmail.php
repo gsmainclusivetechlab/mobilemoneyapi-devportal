@@ -22,7 +22,7 @@ require 'vendor/autoload.php';
   $email = new \SendGrid\Mail\Mail();
   $email->setFrom("agalaguz@justcoded.com", "Anton Galaguz");
   $email->setSubject($userSubject);
-  $email->addTo("akoroteev@justcoded.co", "Example User");
+  $email->addTo("qa@justcoded.co", "Example User");
 
   $userFullName   = "<strong>User full name: </strong>" .$_POST['full_name'];
   $userEmail      = "<strong>User email: </strong>" .$_POST['email'];
