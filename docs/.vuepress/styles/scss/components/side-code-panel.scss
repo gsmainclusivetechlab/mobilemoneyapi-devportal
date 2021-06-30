@@ -1,10 +1,11 @@
-.panel-collapsable {
+.panel-collapsable.panel-collapsable.panel-collapsable.panel-collapsable {
   @include animate(transform box-shadow);
   position: fixed;
+  margin: 0;
   top: 96px;
   right: 0;
   height: calc(100vh - 96px);
-  width: 412px;
+  width: 442px;
   padding: 26px 24px 120px;
   background: #323336;
   color: #fff;
@@ -22,6 +23,16 @@
     transform: translateX(0);
     box-shadow: 0 0 20px 20px var(--shadow-light-color);
 
+    & ~ .has-code-panel-block {
+      .code-panel-block-holder {
+        transform: translateX(calc(-100% + 85px));
+
+        @include media('<tablet') {
+          transform: translateX(-100%);
+        }
+      }
+    }
+
     .panel-opener {
       @include media('<tablet') {
         transform: translateX(0);
@@ -34,17 +45,17 @@
     cursor: pointer;
     display: block;
     padding: 5px;
-    margin: -4px 0 0 -4px;
+    margin: -4px 0 0 -14px;
     background: none;
     appearance: none;
     border: none;
     background: #323336;
+    z-index: 2;
 
     @include media('<tablet') {
-      transform: translateX(-55px);
+      transform: translateX(-45px);
       padding: 8px;
-      margin: -7px 0 0 -7px;
-
+      margin: -7px 0 0 -17px;
       border-radius: 4px 0 0 4px;
     }
 
@@ -52,18 +63,26 @@
       display: block;
     }
   }
+}
 
-  &__content-holder {
-    height: 100%;
-    overflow-y: auto;
-    
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
+.has-code-panel-block {
+  position: relative;
 
-    &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, .4);
-      border-radius: 4px;
+  .code-panel-block-holder {
+    @include animate(transform);
+    position: absolute;
+    top: 0;
+    left: calc(100% + 50px);
+    width: 412px;
+    max-width: calc(100vw - 30px);
+    padding: 0 24px;
+    transform: translateX(0);
+    z-index: 3;
+
+    @include media('<tablet-xs') {
+      padding: 0 20px 0 0;
+      left: calc(100% + 24px);
+      max-width: calc(100vw - 50px);
     }
   }
 }

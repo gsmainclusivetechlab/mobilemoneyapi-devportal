@@ -295,11 +295,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -334,11 +334,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -373,11 +373,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -411,41 +411,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
-            },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
-            },
-
-            {
-              title: '‘On-us’ P2P Transfer Initiated by a Third Party Provider',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-initiated-third-party-provider',
-            },
-            {
-              title: 'P2P Transfer Failure',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-failure',
-            },
-            {
-              title: 'P2P Transfer Reversal',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-reversal',
-            },
-            {
-              title: 'Obtain an FSP Balance',
-              path: '/use-cases/p-2-p-transfers/scenarios/obtain-fsp-balance',
-            },
-            {
-              title: 'Retrieve Transactions for an FSP',
-              path: '/use-cases/p-2-p-transfers/scenarios/retrieve-transactions-fsp',
-            },
-            {
-              title: 'Check for Service Availability',
-              path: '/use-cases/p-2-p-transfers/scenarios/check-service-availability',
-            },
-            {
-              title: 'Retrieve a Missing API Response',
-              path: '/use-cases/p-2-p-transfers/scenarios/retrieve-missing-api-response',
+              title: 'Scenarios',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios',
             },
           ]
         },
@@ -510,11 +477,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -549,11 +516,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -588,11 +555,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
@@ -627,11 +594,11 @@ const sidebarNavigation = {
           children: [
             {
               title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/p2p-transfer-via-switch',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
             },
             {
               title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/bilateral-p2p-transfer',
+              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
             }
           ]
         }
