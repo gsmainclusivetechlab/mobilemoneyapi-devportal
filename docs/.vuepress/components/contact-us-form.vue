@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-us-section section--m-gap">
+  <section class="contact-us-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro section-intro--narrow text-center">
         <h1 class="h1 section-title">Contact us</h1>
@@ -82,22 +82,24 @@
             <span class="input-wrapper__error">{{ errors.first('comment') }}</span>
           </div>
           <div class="input-wrapper__checkbox">
-            <label for="terms">
+            <label for="conditions">
               <input type="checkbox"
                      name="conditions"
-                     id="terms"
+                     id="conditions"
                      v-validate="'required'">
               <span :class="[{ 'input-wrapper__checkbox__pseudo-checkbox--error': errors.has('T&C') }, 'input-wrapper__checkbox__pseudo-checkbox']">
                 <span></span>
               </span>
               <span class="input-wrapper__checkbox-text">
-                I agree with <a href="#" target="_blank">GSMA Terms and Conditions</a> and have read the <a href="#" target="_blank">GSMA Privacy Statement</a>.
+                I agree with <a href="https://www.gsma.com/aboutus/legal" target="_blank">GSMA Terms and Conditions</a> and have read the <a href="https://www.gsma.com/aboutus/legal/privacy" target="_blank">GSMA Privacy Statement</a>.
               </span>
             </label>
-            <span class="input-wrapper__error">{{ errors.first('T&C') }}</span>
+            <span class="input-wrapper__error">{{ errors.first('conditions') }}</span>
           </div>
           <div class="form__btn-container">
-            <button class="btn btn--accent" type="submit">Submit</button>
+            <button class="btn btn--accent"
+                    type="submit"
+                    :disabled="submit">Submit</button>
           </div>
         </form>
       </div>
@@ -111,7 +113,7 @@
         Email has been sent!
       </template>
     </modal>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -129,11 +131,14 @@ export default {
       options: [],
       mailSend: false,
       country: null,
+      submit: false,
     }
   },
   methods: {
     send() {
+      this.submit = true;
       this.$validator.validateAll().then((result) => {
+        this.submit = false;
         if (result) {
           const formData = new FormData(this.$refs['contactForm']);
 
@@ -147,6 +152,7 @@ export default {
           })
           .then((response) => {
             if (response) {
+              this.submit = false;
               this.$refs.contactForm.reset();
               this.mailSend = true;
             }
