@@ -13,7 +13,7 @@ $mail = new PHPMailer(true);
 try {
 //Recipients
 $mail->setFrom('artyom.koroteev@gmail.com');
-$mail->addAddress('akoroteev@justcoded.co');
+$mail->addAddress('qa@justcoded.co');
 $mail->CharSet = 'UTF-8';
 
 //Content
