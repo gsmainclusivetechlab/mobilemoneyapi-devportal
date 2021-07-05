@@ -23,10 +23,18 @@
 
   .nav-links {
     margin-bottom: -7px;
+
+    .auth-page & {
+      display: none;
+    }
   }
 
   .search-box {
     margin-left: auto;
+
+    .auth-page & {
+      display: none;
+    }
   }
 
   .logo {
@@ -85,6 +93,10 @@
   }
 
   .login-links {
+    .auth-page & {
+      display: none;
+    }
+
     .btn {
       margin-left: 17px;
       padding: 6px 22px;
