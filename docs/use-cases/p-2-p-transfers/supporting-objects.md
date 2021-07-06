@@ -83,8 +83,8 @@ The custom data object allows additional fields to be specified for the associat
 
 | Name | Type | Description |  | Reference | Validation |
 |:--|:--|:--|:--|:--|:--|
-| key | string | Identifies the type of additional fields. | 🡪M <br> 🡪M |  |  |
-| value | string | Identifies the value of the additional field. | 🡪M <br> 🡪M |  |  |
+| key | string | Identifies the type of additional fields. | &#8594; M <br> &#8592; M |  |  |
+| value | string | Identifies the value of the additional field. | &#8594; M <br> &#8592; M |  |  |
 
 ## Fees Object
 
@@ -102,5 +102,5 @@ An object that details the originating organisation of the request.
 
 | Name | Type | Description |  | Reference | Validation |
 |:--|:--|:--|:--|:--|:--|
-| requestingOrganisationIdentifierType | string | Identifies the identifier type of the requesting organisation. | 🡪M <br> 🡪M |  | ‘swiftbic’, ‘lei’, ‘organisationid |
-| requestingOrganisationIdentifier | string | Contains the requesting organisation identifier. | 🡪M <br> 🡪M |  |  |
+| requestingOrganisationIdentifierType | string | Identifies the identifier type of the requesting organisation. | &#8594; M <br> &#8592; M |  | ‘swiftbic’, ‘lei’, ‘organisationid |
+| requestingOrganisationIdentifier | string | Contains the requesting organisation identifier. | &#8594; M <br> &#8592; M |  |  |

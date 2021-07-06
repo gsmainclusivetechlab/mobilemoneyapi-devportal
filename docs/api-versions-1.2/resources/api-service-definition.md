@@ -12,9 +12,9 @@ API endpoint fields are described in this specification as follows:
 - **Description** of the field.
 - **Optionality** of the field, i.e. whether the field must be supplied. Optionality is identified as per follows:
 
-🡪    Request optionality
+&#8594;     Request optionality
 
-🡨    Response optionality
+&#8592;     Response optionality
 
 O    Field is optional
 
@@ -51,28 +51,27 @@ The following paths are permitted:
 
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | 🡪NA <br> 🡨M |  |  |
-| requesting <br> Organisation TransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | 🡪O <br> 🡨O |  |  |
-| originalTransactionReference | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | 🡪NA <br> 🡨M | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#) |  |
-| creditParty | array | 	
-A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | 🡪O <br> 🡨O |  |  |
-| debitParty  | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | 🡪O <br> 🡨O |  | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects6) |
-| type | string | The harmonised Transaction Type. | 🡪M <br> 🡨M |  | Enumeration = [Transaction Types](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects12) <br> Note that only Reversals and Refunds (adjustments) are supported. |
-| subType | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | 🡪O <br> 🡨O |  |  |
-| transactionStatus | string | Indicates the status of the transaction as stored by the API provider.  | 🡪NA <br> 🡨M |  |  |
-| amount | string | The transaction amount. | 🡪O <br> 🡨O |  | Please refer to API Fundamentals document for amount validation rules. |
-| currency | string | Currency of the transaction amount. | 🡪O <br> 🡨O |  | Enumeration = [ISO Currency Codes](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#Enumerations1).|
-| descriptionText | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | 🡪O <br> 🡨O |  |  |
-| fees | array | Allows the passing and/or returning of all fees pertaining to the transaction. | 🡪O <br> 🡨O | [Fees Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects14) |  |
-| geoCode | string | Indicates the geographic location from where the transaction was initiated. | 🡪O <br> 🡨O |  |  |
-| requestingOrganisation | object | The originating organisation of the request. | 🡪O <br> 🡨O | [Requesting Organisation](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects16) |  |
-| servicingIdentity | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | 🡪O <br> 🡨O |  |  |
-| transactionReceipt | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | 🡪NA <br> 🡨O |  |  |
-| creationDate | date-time | Date and time when the transaction was created by the API Provider. | 🡪NA <br> 🡨O |  |  |
-| modificationDate | date-time | Date and time when the transaction was modified by the API Provider. | 🡪NA <br> 🡨O |  |  |
-| requestDate | date-time | The date and time of the transaction request as supplied by the client | 🡪O <br> 🡨O  |  |  |
-| customData | string | A collection of key/value pairs that can be used for provider specific fields. | 🡪O <br> 🡨O | [Custom Data Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects10) |  |
-| metadata | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the transaction. | 🡪O <br> 🡨O | [Metadata](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects9) |  |
+| transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| requesting <br> Organisation TransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
+| originalTransactionReference | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594; NA <br> &#8592; M | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#) |  |
+| creditParty | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; O <br> &#8592; O |  |  |
+| debitParty  | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; O <br> &#8592; O |  | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects6) |
+| type | string | The harmonised Transaction Type. | &#8594; M <br> &#8592; M |  | Enumeration = [Transaction Types](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects12) <br> Note that only Reversals and Refunds (adjustments) are supported. |
+| subType | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | &#8594; O <br> &#8592; O |  |  |
+| transactionStatus | string | Indicates the status of the transaction as stored by the API provider.  | &#8594; NA <br> &#8592; M |  |  |
+| amount | string | The transaction amount. | &#8594; O <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| currency | string | Currency of the transaction amount. | &#8594; O <br> &#8592; O |  | Enumeration = [ISO Currency Codes](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#Enumerations1).|
+| descriptionText | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594; O <br> &#8592; O |  |  |
+| fees | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594; O <br> &#8592; O | [Fees Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects14) |  |
+| geoCode | string | Indicates the geographic location from where the transaction was initiated. | &#8594; O <br> &#8592; O |  |  |
+| requestingOrganisation | object | The originating organisation of the request. | &#8594; O <br> &#8592; O | [Requesting Organisation](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects16) |  |
+| servicingIdentity | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594; O <br> &#8592; O |  |  |
+| transactionReceipt | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594; NA <br> &#8592; O |  |  |
+| creationDate | date-time | Date and time when the transaction was created by the API Provider. | &#8594; NA <br> &#8592; O |  |  |
+| modificationDate | date-time | Date and time when the transaction was modified by the API Provider. | &#8594; NA <br> &#8592; O |  |  |
+| requestDate | date-time | The date and time of the transaction request as supplied by the client | &#8594; O <br> &#8592; O  |  |  |
+| customData | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594; O <br> &#8592; O | [Custom Data Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects10) |  |
+| metadata | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the transaction. | &#8594; O <br> &#8592; O | [Metadata](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects9) |  |
 
 ## Batch Transactions
 
