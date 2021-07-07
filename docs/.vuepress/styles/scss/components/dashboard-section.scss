@@ -1,0 +1,160 @@
+.dashboard-section {
+  display: flex;
+  height: 100%;
+
+  .dashboard-sidebar {
+    width: 350px;
+    background: var(--base-light-background-color);
+    padding: 50px 30px 30px 100px;
+    flex-shrink: 0;
+  }
+
+  .dashboard-title {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primaty-dark-color);
+    margin-bottom: 23px;
+  }
+
+  .sidebar-list {
+    @extend %listreset;
+  }
+
+  .sidebar-item {
+    display: flex;
+    cursor: pointer;
+
+    @include media('hover') {
+      &:hover {
+        .icon-wrap {
+          svg {
+            fill: var(--base-accent-color);
+          }
+        }
+
+        .sidebar-item-text {
+          color: var(--base-accent-color);
+        }
+      }
+    }
+
+    &.active {
+      .icon-wrap {
+        svg {
+          fill: var(--base-accent-color);
+        }
+      }
+
+      .sidebar-item-text {
+        color: var(--base-accent-color);
+      }
+    }
+
+    & + .sidebar-item {
+      margin-top: 18px;
+    }
+  }
+
+  .icon-wrap {
+    svg {
+      fill: var(--primaty-dark-color);
+    }
+  }
+
+  .sidebar-item-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--primaty-dark-color);
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+
+  .dashboard-content {
+    padding: 30px;
+
+    & > * + *:not(.dashboard-modal) {
+      margin-top: 60px;
+    }
+  }
+
+  .flex-container {
+    display: flex;
+  }
+
+  .create-app-banner {
+    background: var(--base-light-background-color);
+    padding: 40px 70px 30px 30px;
+    border-radius: 15px;
+    display: inline-block;
+  }
+
+  .create-app-banner-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .create-app-banner-text {
+    font-size: 16px;
+  }
+
+  .content-box {
+    &:first-child {
+      max-width: 700px;
+    }
+
+    &:last-child {
+      margin-left: 100px;
+      flex-shrink: 0;
+    }
+
+    img {
+      width: 90px;
+      height: 150px;
+    }
+  }
+
+  .btn-wrap {
+    margin-top: 20px;
+
+    & > * + * {
+      margin-left: 30px;
+    }
+  }
+
+  .links-cards-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .cards-wrap {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-bottom: 40px;
+
+    .btn {
+      font-size: 12px;
+    }
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+}

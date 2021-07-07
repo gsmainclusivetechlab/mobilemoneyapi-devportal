@@ -11,9 +11,9 @@ API endpoint fields are described in this specification as follows:
 - **Description** of the field.
 - **Optionality** of the field, i.e. whether the field must be supplied. Optionality is identified as per follows:
 
-&#8594;  Request optionality
+&#8594;&nbsp; Request optionality
 
-&#8592;  Response optionality
+&#8592;&nbsp; Response optionality
 
 O    Field is optional
 
@@ -61,23 +61,23 @@ Transaction Object
 | type | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) |
 | subType | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | O <br> O |  |  |
 | transactionStatus | string | Indicates the status of the transaction as stored by the API provider. | NA <br> &#8592;&nbsp;M |  |  |
-| descriptionText | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594; O <br> &#8592; O |  |  |
-| requestDate | date-time | The creation date and time of the transaction as supplied by the client. | &#8594; O <br> &#8592; O |  |  |
-| creationDate | date-time | Date and time when the transaction was created by the API Provider | &#8594;&nbsp;NA <br> &#8592; O |  |  |
-| modificationDate | date-time | Date and time when the transaction was modified by the API Provider | &#8594; NA <br> &#8592; O |  |  |
-| transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594; NA <br> &#8592; M |  |  |
-| transactionReceipt | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594; NA <br> &#8592; O |  |  |
-| requestingOrganisationTransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
-| oneTimeCode | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594; O <br> &#8592; O |  |  |
-| geoCode | string | Indicates the geographic location from where the transaction was initiated. | &#8594; O <br> &#8592; O |  |  |
-| debitParty | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; C <br> &#8592; C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
-| creditParty | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; C <br> &#8592; C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
-| senderKyc | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594; O <br> &#8592; O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
-| recipientKyc | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594; O <br> &#8592; O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
-| originalTransactionReference | string | This field indicates the transaction which is the subject of the reversal. | &#8594; O <br> &#8592; O |  |  |
-| servicingIdentity | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594; O <br> &#8592; O  |  |  |
-| fees | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594; O <br> &#8592; O | [Fees Object](/use-cases/p-2-p-transfers/supporting-objects.html#custom-data-object) |  |
-| metadata | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594; O <br> &#8592; O | [Metadata](/use-cases/p-2-p-transfers/supporting-objects.html#metadata-object) |  |
+| descriptionText | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| requestDate | date-time | The creation date and time of the transaction as supplied by the client. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| creationDate | date-time | Date and time when the transaction was created by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
+| modificationDate | date-time | Date and time when the transaction was modified by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
+| transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
+| transactionReceipt | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
+| requestingOrganisationTransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| oneTimeCode | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| geoCode | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| debitParty | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
+| creditParty | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
+| senderKyc | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
+| recipientKyc | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
+| originalTransactionReference | string | This field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| servicingIdentity | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
+| fees | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](/use-cases/p-2-p-transfers/supporting-objects.html#custom-data-object) |  |
+| metadata | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Metadata](/use-cases/p-2-p-transfers/supporting-objects.html#metadata-object) |  |
 
 ## Reversals API
 

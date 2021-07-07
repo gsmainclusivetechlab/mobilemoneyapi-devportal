@@ -18,7 +18,7 @@
             <input type="text" id="company" placeholder="Enter company name">
           </div>
           <div class="form-row">
-            <label for="email">Email</label>
+            <label for="email">E-mail</label>
             <input type="email" id="email" placeholder="Enter e-mail">
           </div>
           <div class="form-row">
@@ -27,7 +27,7 @@
           </div>
           <div class="form-row privacy-row">
             <input type="checkbox" id="privacy-checkbox">
-            <label class="privacy-checkbox" for="privacy-checkbox">I agree with <a href="https://www.gsma.com/aboutus/legal" target="_blank">GSMA Terms and Conditions</a> and have read the <a href="https://www.gsma.com/aboutus/legal/privacy" target="_blank">GSMA Privacy Statement</a></label>
+            <label class="privacy-checkbox" for="privacy-checkbox">I agree with <a href="https://www.gsma.com/aboutus/legal" target="_blank">GSMA Terms and Conditions</a> and have read the <a href="https://www.gsma.com/aboutus/legal/privacy" target="_blank">GSMA Privacy Statement</a>.</label>
           </div>
           <div class="button-holder">
             <router-link :to="'#'" class="btn btn--accent">Sign up</router-link>

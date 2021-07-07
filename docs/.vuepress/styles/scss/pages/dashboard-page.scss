@@ -1,0 +1,9 @@
+.dashboard-page {
+  display: flex;
+
+  .theme-default-content,
+  .content__default {
+    padding: 0 !important;
+    height: 100%;
+  }
+}

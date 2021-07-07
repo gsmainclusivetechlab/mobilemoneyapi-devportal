@@ -1,0 +1,152 @@
+.dashboard-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 111;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-black);
+    opacity: .6;
+  }
+
+  .content-wrap {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  .modal-container {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 50px 120px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    padding: 15px;
+    margin: 0;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 17px;
+      height: 2px;
+      background: var(--primaty-dark-color);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+  .input-wrap {
+    display: flex;
+    flex-direction: column;
+
+    & + .input-wrap {
+      margin-top: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    input,
+    select {
+      border-radius: 0;
+      height: 40px;
+      border: 1px solid var(--base-border-color);
+    }
+
+    input {
+      padding-left: 15px;
+
+      &::placeholder {
+        color: var(--input-placeholder-color);
+        font-size: 14px;
+        letter-spacing: 0.8px;
+      }
+    }
+  }
+
+  .tooltip-wrap {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .tooltip-btn {
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--primaty-dark-color);
+    background: none;
+    padding: 3px 0 0;
+    margin: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+
+    @include media('hover') {
+      display: none;
+
+      &:hover {
+        ~.tooltip-popup {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .tooltip-popup {
+    position: absolute;
+    left: 100%;
+    bottom: 100%;
+    width: 100vw;
+    z-index: 1;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid var(--base-border-color);
+    max-width: 150px;
+    border-radius: 6px 6px 6px 0;
+    background: var(--color-white);
+  }
+
+  .btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+}

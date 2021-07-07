@@ -19,6 +19,11 @@
   &__box {
     display: flex;
     align-items: center;
+    min-height: 48px;
+
+    @include media('<tablet') {
+      min-height: 33px;
+    }
   }
 
   .nav-links {

@@ -209,14 +209,14 @@ The object definition for RequestState is described below.
 | **RequestState Object Properties**                                                   ||||||
 |:--------------- |:--------------|------------------|----------------|----------------|---|
 | **Name**        | **Type**      | **Description**  |                | **Reference**  | **Validation** ||
-| serverCorrelationId | string | A unique identifier issued by the provider to enable the client to identify the RequestState resource on subsequent polling requests.  | &#8594;&nbsp;NA<br/>&#8592; M | | UUID format |
-| objectReference | string | Provides a reference to the subject resource, e.g. transaction reference.  | &#8594; NA<br/>&#8592; O | | |
-| status | string | Indicates the status of the request.  | &#8594; NA<br/>&#8592; M | | Enumeration = pending, completed, failed |
-| notificationMethod | date-time | Indicates whether a callback will be issued or whether the client will need to poll. | &#8594; NA<br/>&#8592; M | | Enumeration = callback, polling |
-| pendingReason | string | A textual description that can be provided to describe the reason for a pending status. | &#8594; NA<br/>&#8592; O |  | |
-| expiryTime | date-time | Indicates the time by which the provider will fail the request if completion criteria have not been met. For an example, a debit party failing to authorise within the allowed time period. | &#8594; NA<br/>&#8592; O |  ||
-| pollLimit | integer | Indicates the number of poll attempts for the given requeststate resource that will be allowed by the provider. | &#8594; NA<br/>&#8592; O |  ||
-| errorReference | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594; NA<br/>&#8592; O | [Errors Object](/api-versions-1.2/get-started.html#errors-object-definition) ||
+| serverCorrelationId | string | A unique identifier issued by the provider to enable the client to identify the RequestState resource on subsequent polling requests.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | UUID format |
+| objectReference | string | Provides a reference to the subject resource, e.g. transaction reference.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | | |
+| status | string | Indicates the status of the request.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = pending, completed, failed |
+| notificationMethod | date-time | Indicates whether a callback will be issued or whether the client will need to poll. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = callback, polling |
+| pendingReason | string | A textual description that can be provided to describe the reason for a pending status. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  | |
+| expiryTime | date-time | Indicates the time by which the provider will fail the request if completion criteria have not been met. For an example, a debit party failing to authorise within the allowed time period. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
+| pollLimit | integer | Indicates the number of poll attempts for the given requeststate resource that will be allowed by the provider. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
+| errorReference | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | [Errors Object](/api-versions-1.2/get-started.html#errors-object-definition) ||
 
 #### Generic API Sequence Diagrams
 
@@ -307,11 +307,11 @@ With the errorParameters property, care should be taken regarding confidentially
 | **Errors Object Properties**                                                   ||||||
 |:--------------- |:--------------|:-----------------|-----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |       | **Reference**  | **Validation** |
-| errorCategory | string | The category grouping for the error.  | &#8594; M<br/>&#8592; M | | Enumeration = [Errors Categories](/api-versions-1.2/get-started.html#http-error-response-codes) |
-| errorCode | string | The harmonised error code identifying the reason for error.  | &#8594; M<br/>&#8592; M | | Enumeration = [Errors Codes](/api-versions-1.2/get-started.html#api-error-codes) |
-| errorDescription | string | A textual description of the error.  | &#8594; O<br/>&#8592; O | | |
-| errorDateTime | date-time | The timestamp indicating when the error occurred. | &#8594; O<br/>&#8592; O | | |
-| errorParameters | array | Diagnostic information in the form of key/value pairs relating to the error. | &#8594; O<br/>&#8592; O | [Errors Parameters](/api-versions-1.2/get-started.html#error-parameters-object) ||
+| errorCategory | string | The category grouping for the error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Categories](/api-versions-1.2/get-started.html#http-error-response-codes) |
+| errorCode | string | The harmonised error code identifying the reason for error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Codes](/api-versions-1.2/get-started.html#api-error-codes) |
+| errorDescription | string | A textual description of the error.  | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
+| errorDateTime | date-time | The timestamp indicating when the error occurred. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
+| errorParameters | array | Diagnostic information in the form of key/value pairs relating to the error. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | [Errors Parameters](/api-versions-1.2/get-started.html#error-parameters-object) ||
 
 ##### Error Parameters Object
 
@@ -320,8 +320,8 @@ Allows error parameter properties to be specified in the form of key/value pairs
 | **Error Parameters Object Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |       | **Reference**  | **Validation** |
-| key | string | Identifies the type of additional error parameter.  | &#8594; M<br/>&#8592; M |    ||
-| value | string | Identifies the value of the additional error parameter. | &#8594; M<br/>&#8592; M |  ||
+| key | string | Identifies the type of additional error parameter.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |    ||
+| value | string | Identifies the value of the additional error parameter. | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |  ||
 
 #### API Error Codes
 
@@ -376,9 +376,9 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 | **Heartbeat Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |     | **Reference**  | **Validation** |
-| serviceStatus | string | Provides the status of the requested service. | &#8594;&nbsp;NA<br/>&#8592; M || Enumeration = available, unavailable, degraded |
-| delay | number | The anticipated processing delay in milliseconds. | &#8594; NA<br/>&#8592; O || serviceStatus property must be set to degraded. |
-| plannedRestorationTime | date-time | Where the planned restoration time is known (e.g. scheduled maintenance), it can be provided in this property. | &#8594; NA<br/>&#8592; O |  ||
+| serviceStatus | string | Provides the status of the requested service. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M || Enumeration = available, unavailable, degraded |
+| delay | number | The anticipated processing delay in milliseconds. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O || serviceStatus property must be set to degraded. |
+| plannedRestorationTime | date-time | Where the planned restoration time is known (e.g. scheduled maintenance), it can be provided in this property. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
 
 ### Missing Response Retrieval
 
@@ -389,4 +389,4 @@ The response object for /responses is detailed below.
 | **Responses Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |   | **Reference**  | **Validation** |
-| link | string | Provides a URL to the resource associated with the given correlation ID. | &#8594; NA<br/>&#8592; M |  ||
+| link | string | Provides a URL to the resource associated with the given correlation ID. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M |  ||

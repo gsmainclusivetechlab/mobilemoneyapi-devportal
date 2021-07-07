@@ -10,7 +10,7 @@
       <div class="form-wrap">
         <form>
           <div class="form-row">
-            <label for="email">Email</label>
+            <label for="email">E-mail</label>
             <input type="email" id="email" placeholder="Enter e-mail">
           </div>
           <div class="form-row">
