@@ -1,12 +1,36 @@
 .dashboard-section {
   display: flex;
   height: 100%;
+  position: relative;
+  margin-top: 0 !important;
+
+  @include media('<desktop') {
+    margin-top: 36px !important;
+  }
 
   .dashboard-sidebar {
+    @include animate(transform);
+
     width: 350px;
     background: var(--base-light-background-color);
     padding: 50px 30px 30px 100px;
     flex-shrink: 0;
+
+    @include media('<desktop') {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      height: 100%;
+      transform: translateX(-100%);
+      border-top: 1px solid var(--base-border-color);
+      border-right: 1px solid var(--base-border-color);
+    }
+
+    &.show-sidebar {
+      @include media('<desktop') {
+        transform: translateX(0);
+      }
+    }
   }
 
   .dashboard-title {
@@ -73,6 +97,13 @@
   .dashboard-content {
     padding: 30px;
 
+    @include media('<desktop') {
+      width: 100%;
+    }
+    @include media('<tablet') {
+      padding: 30px 15px;
+    }
+
     & > * + *:not(.dashboard-modal) {
       margin-top: 60px;
     }
@@ -108,6 +139,10 @@
     &:last-child {
       margin-left: 100px;
       flex-shrink: 0;
+
+      @include media('<tablet') {
+        margin-left: 15px;
+      }
     }
 
     img {
@@ -156,5 +191,24 @@
   .card-text {
     font-size: 14px;
     margin-bottom: 14px;
+  }
+
+  .aside-menu-swipe-area {
+    position: absolute;
+    left: 50%;
+    top: -35px;
+    height: 65px;
+    width: 70%;
+    transform: translateX(-50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: var(--color-grey);
+    font-weight: bold;
+
+    @include media('<desktop') {
+      display: flex;
+    }
   }
 }

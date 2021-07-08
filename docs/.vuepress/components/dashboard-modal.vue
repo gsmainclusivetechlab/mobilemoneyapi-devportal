@@ -19,8 +19,13 @@
         <div class="input-wrap">
           <label for="product-name">Product
             <div class="tooltip-wrap">
-              <button class="tooltip-btn" @click="tooltipPopupIsVisible = !tooltipPopupIsVisible">?</button>
-              <span class="tooltip-popup" v-show="tooltipPopupIsVisible"
+              <button class="tooltip-btn"
+                      @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
+                      @focusout="tooltipPopupIsVisible = false"
+                      tabindex="0"
+              >?</button>
+              <span class="tooltip-popup"
+                    v-show="tooltipPopupIsVisible"
               >Here you can select product version</span>
             </div>
           </label>
@@ -43,6 +48,7 @@
 
 <script>
 export default {
+
   name: 'dashboard-modal',
 
   data() {

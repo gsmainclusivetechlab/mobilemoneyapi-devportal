@@ -8,6 +8,7 @@ import Vue from 'vue';
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import VeeValidate from 'vee-validate';
+import VueTouch from 'vue-touch';
 // import { ValidationProvider } from 'vee-validate';
 
 Vue.component("v-select", vSelect);
@@ -21,6 +22,7 @@ export default ({
 
 }) => {
   Vue.use(VeeValidate);
+  Vue.use(VueTouch);
   // ...apply enhancements for the site.
   // prevent ReferenceError: window is not defined during production build
 }

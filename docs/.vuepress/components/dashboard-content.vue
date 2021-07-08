@@ -1,6 +1,14 @@
 <template>
   <div class="dashboard-section">
-    <div class="dashboard-sidebar">
+    <v-touch
+        @swiperight="openSidebar"
+        @swipeleft="closeSidebar"
+    >
+      <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
+    </v-touch>
+    <div class="dashboard-sidebar"
+         :class="{ 'show-sidebar': sidebarOpened }"
+    >
       <span class="dashboard-title">Developer Portal</span>
       <ul class="sidebar-list">
         <li
@@ -16,7 +24,7 @@
       </ul>
     </div>
     <template v-for="tab in tabs">
-      <component :is="tab" v-if="getTabTitle(tab) === activeTabName"/>
+      <component :is="tab" v-if="getTabTitle(tab) === activeTabName" @close-menu="sidebarOpened = false"/>
     </template>
   </div>
 </template>
@@ -39,6 +47,7 @@ export default {
     return {
         tabs: tabs,
         activeTabName: '',
+        sidebarOpened: false,
     }
   },
 
@@ -61,6 +70,12 @@ export default {
 
       setStartActiveTab() {
           this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[this.defaultTab ? this.defaultTab -1 : 0]}`]);
+      },
+      openSidebar() {
+          this.sidebarOpened = true;
+      },
+      closeSidebar() {
+          this.sidebarOpened = false;
       }
   }
 }

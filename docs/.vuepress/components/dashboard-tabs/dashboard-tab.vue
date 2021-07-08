@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-content">
+  <div class="dashboard-content" @click="handleMenuClose">
     <div class="create-app-banner">
       <div class="flex-container">
         <div class="content-box">
@@ -81,7 +81,12 @@ export default {
   methods: {
     toggleModal() {
       this.modalIsVisible = !this.modalIsVisible;
-    }
+    },
+
+    handleMenuClose() {
+        console.log('333');
+        this.$emit('close-menu');
+    },
   }
 };
 </script>
