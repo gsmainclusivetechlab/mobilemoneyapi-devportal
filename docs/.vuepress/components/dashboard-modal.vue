@@ -9,14 +9,8 @@
           <input id="app-name" type="text" placeholder="Enter app name">
         </div>
         <div class="input-wrap">
-<!--          <label for="product-name">App name</label>-->
-<!--          <select name="Product" id="product-name">-->
-<!--            <option disabled selected>Select product</option>-->
-<!--            <option value="1">Product 1</option>-->
-<!--            <option value="2">Product 2</option>-->
-<!--          </select>-->
         </div>
-        <div class="input-wrap">
+        <div class="input-wrap input-wrapper__custom-select">
           <label for="product-name">Product
             <div class="tooltip-wrap">
               <button class="tooltip-btn"
@@ -30,11 +24,12 @@
             </div>
           </label>
           <v-select
+              return-object
               id="product-name"
               name="country"
               :clearable="false"
-              rules="required|alpha"
-              :placeholder="'Select country'"
+              :options="items"
+              :placeholder="'Select product'"
               ></v-select>
         </div>
         <div class="btn-row">
@@ -54,6 +49,9 @@ export default {
   data() {
       return {
           tooltipPopupIsVisible: false,
+          items: ['GSMA Mobile Money API v1.2 OAuth_Simulator',
+              'GSMA Mobile Money API v1.1 OAuth_Simulator',
+              'GSMA Mobile Money API v1.0 OAuth_Simulator'],
       }
   },
 

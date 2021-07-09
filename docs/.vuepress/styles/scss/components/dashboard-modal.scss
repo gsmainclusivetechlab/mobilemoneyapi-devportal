@@ -33,6 +33,13 @@
     max-width: 800px;
     margin: auto;
     position: relative;
+
+    @include media('<tablet') {
+      padding: 40px;
+    }
+    @include media('<tablet-xs') {
+      padding: 35px 15px;
+    }
   }
 
   .close-btn {
@@ -76,6 +83,10 @@
 
     & + .input-wrap {
       margin-top: 20px;
+
+      @include media('<tablet') {
+        margin-top: 10px;
+      }
     }
 
     label {
@@ -83,7 +94,7 @@
       font-weight: 500;
     }
 
-    input,
+    input:not(.vs__selected-options &),
     select {
       border-radius: 0;
       height: 40px;
@@ -94,9 +105,9 @@
       padding-left: 15px;
 
       &::placeholder {
-        color: var(--input-placeholder-color);
         font-size: 14px;
-        letter-spacing: 0.8px;
+        color: var(--inactive-btn-color);
+        font-family: var(--base-body-font-family);
       }
     }
   }
@@ -112,7 +123,7 @@
     border: 1px solid var(--primaty-dark-color);
     background: none;
     padding: 3px 0 0;
-    margin: 0;
+    margin: 0 0 0 3px;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -120,11 +131,9 @@
     font-size: 13px;
 
     @include media('hover') {
-      display: none;
-
       &:hover {
         ~.tooltip-popup {
-          display: block;
+          display: block !important;
         }
       }
     }

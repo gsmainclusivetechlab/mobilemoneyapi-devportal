@@ -1,6 +1,10 @@
 .dashboard-page {
   display: flex;
 
+  main {
+    width: 100%;
+  }
+
   .theme-default-content,
   .content__default {
     padding: 0 !important;
