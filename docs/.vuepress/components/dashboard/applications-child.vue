@@ -31,8 +31,20 @@
             <label for="appName">App name</label>
             <input type="text" id="appName" v-model="appNameVar" :disabled="appDetailsDisabled">
           </div>
-          <div class="input-group">
-            <label for="product">Product</label>
+          <div class="input-group input-wrapper__custom-select">
+            <label for="product">
+              Product
+              <div class="tooltip-wrap">
+                <button class="tooltip-btn"
+                        @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
+                        @focusout="tooltipPopupIsVisible = false"
+                        tabindex="0"
+                >?</button>
+                <span class="tooltip-popup"
+                      v-show="tooltipPopupIsVisible"
+                >Here you can select product version</span>
+              </div>
+            </label>
             <v-select
                 return-object
                 id="product"
@@ -68,7 +80,7 @@
       </div>
       <div class="application-control-buttons">
         <button class="delete-btn btn btn--transparent" type="button">Delete</button>
-        <button class="btn btn--accent set-default-btn" type="button">Set as default</button>
+        <button class="btn btn--accent set-default-btn" type="button">Set as default app</button>
       </div>
     </div>
   </div>
@@ -89,6 +101,7 @@ export default {
             updateBtnEnabled: false,
             appNameVar: this.appName,
             productBindVar: this.productBind,
+            tooltipPopupIsVisible: false
         }
     },
 

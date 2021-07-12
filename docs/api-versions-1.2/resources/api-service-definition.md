@@ -47,12 +47,14 @@ The following paths are permitted:
 
 **Figure 2-1 Transaction UML Class Diagram**
 
+### Transaction Object Definition
+
 **Transaction Object**
 
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 |:--------|:--------|:-------------|:--------|:---------|:------|
 | transactionReference | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
-| requesting <br> Organisation TransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
+| requestingOrganisation TransactionReference | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
 | originalTransactionReference | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594; NA <br> &#8592; M | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#) |  |
 | creditParty | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; O <br> &#8592; O |  |  |
 | debitParty  | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594; O <br> &#8592; O |  | [Account Identifiers](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects6) |
@@ -64,6 +66,10 @@ The following paths are permitted:
 | descriptionText | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594; O <br> &#8592; O |  |  |
 | fees | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594; O <br> &#8592; O | [Fees Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects14) |  |
 | geoCode | string | Indicates the geographic location from where the transaction was initiated. | &#8594; O <br> &#8592; O |  |  |
+| internationalTransferInformation | object | A collection of fields detailing information specifically used for international transfers. | &#8594; O <br> &#8592; O | [International Transfer Information](/api-versions-1.2/resources/api-service-definition#supporting-objects)  |  |
+| oneTimeCode | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An [authorisation code](/api-versions-1.2/resources/api-service-definition#api-endpoints-13) | &#8594; O <br> &#8592; O |  |  |
+| recipientKyc | object | A collection of fields detailing the KYC of the transaction recipient. | &#8594; O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition#supporting-objects-2) |  |
+| senderKyc | object | A collection of fields detailing the KYC of the transaction sender. | &#8594; O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition#supporting-objects-2) |  |
 | requestingOrganisation | object | The originating organisation of the request. | &#8594; O <br> &#8592; O | [Requesting Organisation](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects16) |  |
 | servicingIdentity | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594; O <br> &#8592; O |  |  |
 | transactionReceipt | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594; NA <br> &#8592; O |  |  |
@@ -72,6 +78,22 @@ The following paths are permitted:
 | requestDate | date-time | The date and time of the transaction request as supplied by the client | &#8594; O <br> &#8592; O  |  |  |
 | customData | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594; O <br> &#8592; O | [Custom Data Object](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects10) |  |
 | metadata | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the transaction. | &#8594; O <br> &#8592; O | [Metadata](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition#SupportingObjects9) |  |
+
+## Reversals API
+
+The Reversals API is used to reverse, adjust or refund a financial transaction. The originating transaction reference must be provided in the path in order to identify the transaction to be reversed. For a partial reversal, the amount needs to be supplied. It should be noted that some API providers do not support partial reversals and will return an error if a partial amount is supplied. 
+
+For viewing and updating reversals, the [Transactions API](https://developer.mobilemoneyapi.io/1.2/content/api-service-definition) should be used. 
+
+The supported path is *POST /transactions/{originalTransactionReference}/reversals*.
+
+### Reversal UML Class Diagram
+
+![Reversal UML Class Diagram](/images/Reversal-UML-Class-Diagram.png)
+
+**Figure 2-1 Transaction UML Class Diagram**
+
+### Reversal Object Definition
 
 ## Batch Transactions
 
