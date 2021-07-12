@@ -48,6 +48,17 @@
     }
   }
 
+  &--link {
+    border: none;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.7;
+      background-color: transparent;
+      color: var(--base-accent-btn-hover-bg-color);
+    }
+  }
+
   &--inactive {
     color: var(--inactive-btn-color);
     border-color: var(--inactive-btn-color);

@@ -56,6 +56,10 @@ $media-expressions: (
 
   // colors
 
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-grey: #BEBEBF;
+
   --base-light-background-color: #F8F8F9;
   --base-accent-color: #DE002B;
 
@@ -72,6 +76,7 @@ $media-expressions: (
 
   --input-border-color: #DEDEDF;
   --base-border-color: #DEDEDF;
+  --input-placeholder-color: #BEBEBF;
 
   --sidebar-active-item-bg: #DEDEDF;
 

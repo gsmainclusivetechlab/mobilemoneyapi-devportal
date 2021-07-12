@@ -63,7 +63,7 @@ html {
     .dropdown-item {
       h4 {
         font-size: 1.4rem;
-  
+
         & + .dropdown-subitem-wrapper {
           padding-left: 10px !important;
         }
@@ -125,7 +125,7 @@ html {
               display: none;
             }
           }
-          
+
           &:hover {
             .icon.outbound {
               color: var(--base-accent-color) !important;
@@ -140,7 +140,7 @@ html {
         }
       }
     }
-    
+
     .dropdown-title {
       @include media('<=tablet-lg') {
         display: none;
@@ -193,7 +193,7 @@ html {
       @include media('>tablet-lg') {
         top: 95px;
       }
-      
+
       @include media('<=tablet-lg') {
         display: block;
         width: 230px;
@@ -203,7 +203,7 @@ html {
         display: block;
       }
     }
-    
+
 
     &:not(.no-sidebar){
       .sidebar.sidebar {
@@ -233,7 +233,7 @@ html {
     &.no-sidebar {
       .sidebar {
         background: #fff;
-        
+
         @include media('>=tablet'){
           display: block;
         }
@@ -287,6 +287,8 @@ html {
             & > .sidebar-heading {
               margin: 0 0 14px;
               padding-left: 12px;
+              cursor: pointer;
+              width: fit-content;
 
               @include media('<=tablet-lg') {
                 margin: 0 0 5px;

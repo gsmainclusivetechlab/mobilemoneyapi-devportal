@@ -25,8 +25,8 @@
       <SearchBox/>
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
       <div class="login-links">
-        <a href="https://developer.mobilemoneyapi.io/user/register" class="btn btn--transparent btn--register" target="_blank">Sign up</a>
-        <a href="https://developer.mobilemoneyapi.io/user/login" class="btn btn--accent" target="_blank">Log in</a>
+        <a href="/signup/" class="btn btn--transparent btn--register">Sign up</a>
+        <a href="/login/" class="btn btn--accent">Log in</a>
       </div>
     </div>
   </header>
@@ -51,7 +51,7 @@ export default {
       isMobileSearchOpened: false,
     }
   },
-  
+
   computed: {
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}

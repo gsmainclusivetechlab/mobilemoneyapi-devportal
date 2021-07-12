@@ -13,14 +13,21 @@ import VeeValidate from 'vee-validate';
 Vue.component("v-select", vSelect);
 // Vue.component('ValidationProvider', ValidationProvider);
 
-export default ({
+export default async ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
   router, // the router instance for the app
   siteData, // site metadata
+  isServer
 
 }) => {
   Vue.use(VeeValidate);
+  if (!isServer) {
+    await import('vue-touch').then(module => {
+      Vue.use(module.default);
+    })
+  }
+  // Vue.use(VueTouch);
   // ...apply enhancements for the site.
   // prevent ReferenceError: window is not defined during production build
 }

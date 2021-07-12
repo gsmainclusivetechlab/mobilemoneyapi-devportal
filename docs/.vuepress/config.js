@@ -89,15 +89,15 @@ const mainNavigation = [
       {
         text: 'Version 1.2',
         items: [
-          { 
+          {
             text: 'Home',
             link: '/api-versions-1.2/',
           },
-          { 
+          {
             text: 'Highlights',
             link: '/api-versions-1.2/resources/highlights',
           },
-          { 
+          {
             text: 'Change list',
             link: '/api-versions-1.2/resources/change-list',
           },
@@ -198,7 +198,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'API Endpoints',
+              title: 'API Service Definition',
               path: '/api-versions-1.2/resources/api-service-definition',
               collapsable: true,
               sidebarDepth: 2,
