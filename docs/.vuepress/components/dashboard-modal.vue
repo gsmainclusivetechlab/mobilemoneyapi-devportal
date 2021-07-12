@@ -8,8 +8,6 @@
           <label for="app-name">App name</label>
           <input id="app-name" type="text" placeholder="Enter app name">
         </div>
-        <div class="input-wrap">
-        </div>
         <div class="input-wrap input-wrapper__custom-select">
           <label for="product-name">Product
             <div class="tooltip-wrap">

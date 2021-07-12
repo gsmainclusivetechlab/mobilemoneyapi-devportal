@@ -6,7 +6,7 @@
           <span class="create-app-banner-title">Create an app</span>
           <div class="create-app-banner-text">
             <span>Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span>
-            <ol>
+            <ol class="create-app-banner-list">
               <li>Tincidunt aenean eget tincidunt in fringilla congue.</li>
               <li>Egestas lectus nisi diam felis, tortor.</li>
               <li>Sed vitae est a, consectetur viverra fringilla non.</li>

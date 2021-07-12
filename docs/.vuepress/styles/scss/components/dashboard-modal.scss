@@ -28,9 +28,9 @@
   .modal-container {
     background: var(--color-white);
     border-radius: 12px;
-    padding: 50px 120px;
+    padding: 61px 162px 64px;
     width: 100%;
-    max-width: 800px;
+    max-width: 832px;
     margin: auto;
     position: relative;
 
@@ -44,8 +44,8 @@
 
   .close-btn {
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 29px;
+    top: 29px;
     background: none;
     border: none;
     padding: 15px;
@@ -82,7 +82,7 @@
     flex-direction: column;
 
     & + .input-wrap {
-      margin-top: 20px;
+      margin-top: 23px;
 
       @include media('<tablet') {
         margin-top: 10px;
@@ -92,17 +92,18 @@
     label {
       font-size: 14px;
       font-weight: 500;
+      margin-bottom: 2px;
     }
 
     input:not(.vs__selected-options &),
     select {
       border-radius: 0;
-      height: 40px;
       border: 1px solid var(--base-border-color);
     }
 
     input {
       padding-left: 15px;
+      height: 40px;
 
       &::placeholder {
         font-size: 14px;
@@ -110,25 +111,53 @@
         font-family: var(--base-body-font-family);
       }
     }
+
+    .vs__selected-options {
+      width: 90%;
+      height: 40px;
+    }
+
+    .vs__selected,
+    .vs--open .vs__selected {
+      height: 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 2;
+      padding: 8px 15px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    select {
+      input {
+        height: auto;
+
+        &::placeholder {
+          line-height: 1;
+        }
+      }
+    }
   }
 
   .tooltip-wrap {
     position: relative;
     display: inline-flex;
+    vertical-align: middle;
   }
 
   .tooltip-btn {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     border: 1px solid var(--primaty-dark-color);
     background: none;
-    padding: 3px 0 0;
     margin: 0 0 0 3px;
+    padding: 2px 0 0 0;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
+    font-size: 10px;
 
     @include media('hover') {
       &:hover {
@@ -156,6 +185,14 @@
   .btn-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 64px;
+
+    .btn.btn--accent {
+      min-width: 184px;
+
+      @include media('<phone') {
+        min-width: 120px;
+      }
+    }
   }
 }
