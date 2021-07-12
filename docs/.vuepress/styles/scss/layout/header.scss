@@ -36,8 +36,7 @@
   .search-box {
     margin-left: auto;
 
-    .auth-page &,
-    .dashboard-page & {
+    .auth-page & {
       display: none;
     }
   }
@@ -98,8 +97,6 @@
   }
 
   .login-links {
-    margin-left: auto;
-
     .auth-page & {
       display: none;
     }

@@ -53,7 +53,7 @@ export default {
                 0: {
                     appName: 'Application 1',
                     appDefault: true,
-                    appCreated: '1.06.21',
+                    appCreated: 'Jan 19, 2021',
                     appExpire: 'Never',
                     appStatus: 'Approved',
                     productBind: 'GSMA Mobile Money API v1.0 OAuth_Simulator',
@@ -64,7 +64,7 @@ export default {
                 1: {
                     appName: 'Application 2',
                     appDefault: false,
-                    appCreated: '8.05.21',
+                    appCreated: 'Jun 05, 2021',
                     appExpire: '',
                     appStatus: '',
                     productBind: 'GSMA Mobile Money API v1.2 OAuth_Simulator',
