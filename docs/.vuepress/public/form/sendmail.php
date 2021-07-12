@@ -52,7 +52,7 @@ require 'vendor/autoload.php';
   );
 
   // $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
-  $sendgrid = new \SendGrid('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');
+  $sendgrid = new \SendGrid('');
 
   try {
     $response = $sendgrid->send($email);
