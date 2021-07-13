@@ -37,8 +37,6 @@ The resource part of the URI path identifies the type of resource and if applica
 ##### Client Correlation ID
 
 A client correlation id can be supplied by the API client on HTTP POST and PATCH requests. The client correlation id is a UUID that enables the client to correlate the API request with the resource created/updated by the provider. The client correlation id is specified in the [HTTP Request Header.](https://developer.mobilemoneyapi.io/1.2/content/getting-started#APIFundamentals8) When a provider issues a callback, the provider should ensure that the original correlation id provided by the client is placed in request header.
-  
-<br>
 
 The client correlation ID supports safe operations. A POST request that is submitted with a correlation ID that has already been supplied will be rejected as unsafe, thus avoiding transaction duplication.
 
@@ -51,7 +49,7 @@ There are two standard flows:
 - **Synchronous Flow**. The final resource is always provided in response to an API request. There is no interim response. Can be used with POST, PATCH and GET requests.
 - **Asynchronous Flow**. An interim response is always provided in response to an API request in the form of a Request State object. The final response is then provided via a callback or alternatively can be accessed via polling on Request State. Can be used with POST and PATCH requests.
 
-More detail can be found in the [API Behavioural Model](https://developer.mobilemoneyapi.io/1.2/content/getting-started#APIBehaviourErrorHandling1) section.
+More detail can be found in the [API Behavioural Model](/api-versions-1.2/get-started.html#api-behavioural-model) section.
 
 ##### Case Sensitivity
 
@@ -94,7 +92,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 | X-Date          | {The date and time that the message was sent in HTTP-date format - RFC 7231} | Conditional  | Used for Basic message integrity checks. |
 | X-Client-Id     | Used to pass pre-shared client's identifier to the server | Conditional  | Can be used in addition to X-API-Key. |
 | X-Content-Hash  | SHA-256 hex digest of the request content (encrypted or plain) | Conditional  | Applicable only if the HTTP request contains JSON body and basic data integrity checking is to be performed. |
-| X-CorrelationID | UUID                             | Conditional  | Please refer to [Client Correlation ID](https://developer.mobilemoneyapi.io/1.2/content/getting-started#APIFundamentals5). |
+| X-CorrelationID | UUID                             | Conditional  | Please refer to [Client Correlation ID](/api-versions-1.2/get-started.html#client-correlation-id). |
 | X-User-Credential-1 | Contains an authentication credential of the end user (e.g. PIN, Password). | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
 | X-User-Credential-2 | Contains an authentication credential of the end user (e.g. PIN, Password). Can be used when a second credential is required. | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
 | X-Channel       | string containing the channel that was used to originate the request. For example, USSD, Web, App. | Conditional  | Used to identify the API invocation channel. |
@@ -277,7 +275,7 @@ The following HTTP response codes are returned for the listed methods:
 #### HTTP Error Response Codes
 
 | **Error Category**     | **Description** | **HTTP Response Code** |
-|:---------------------- |:----------------|------------------------|
+|:---------------------- |:----------------|:------------------------|
 | BusinessRule           | The resource could not be successfully completed due a violation of a business rule. Business rules include financial limit violations, duplicate requests, and invalid states. | 400              |
 | Validation             | Violation of a constraint that will prevent the resource from being processed. Examples include:<br> - Invalid property length.<br> - Failure to resolve regular expression.    | 400              |
 | Authorisation          | It was not possible to authenticate or authorise the client or other party to perform the service.         | 401              |
