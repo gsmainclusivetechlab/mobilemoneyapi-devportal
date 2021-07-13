@@ -94,7 +94,8 @@
       .sidebar-item-main-btn:after {
         content: url('/images/expand_arrow.svg');
         margin-left: 7px;
-        transform: translateY(2px) rotate(180deg);
+        line-height: 0;
+        transform: translateY(-1px) rotate(180deg);
       }
     }
 
@@ -524,6 +525,8 @@
       font-size: 14px;
       font-weight: 500;
       margin-bottom: 2px;
+      display: flex;
+      align-items: center;
     }
 
     input {
@@ -622,6 +625,7 @@
   }
 
   .tooltip-wrap {
+    margin-left: 4px;
     position: relative;
     display: inline-flex;
     vertical-align: middle;

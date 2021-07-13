@@ -182,7 +182,7 @@ const sidebarNavigation = {
       children: [
         {
           title: 'Get started',
-          collapsable: true,
+          //collapsable: false,
           sidebarDepth: 2,
           children: [
             {
@@ -194,7 +194,7 @@ const sidebarNavigation = {
         },
         {
           title: 'Resources',
-          collapsable: true,
+          //collapsable: false,
           sidebarDepth: 2,
           children: [
             {
@@ -225,7 +225,7 @@ const sidebarNavigation = {
         },
         {
           title: 'Use cases',
-          collapsable: true,
+          //collapsable: false,
           sidebarDepth: 2,
           children: [
             {
