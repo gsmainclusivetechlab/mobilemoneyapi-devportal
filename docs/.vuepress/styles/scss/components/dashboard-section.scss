@@ -492,6 +492,7 @@
   .application-info-container {
     max-width: 510px;
     margin-top: 61px;
+    width: 100%;
   }
 
   .application-info-title-wrap {
@@ -524,7 +525,7 @@
 
     &.key-group {
       @include media('<tablet') {
-        width: 92%;
+        max-width: calc(100% - 40px);
       }
     }
 
@@ -630,8 +631,10 @@
     margin: 0;
     position: absolute;
     left: calc(100% + 15px);
-    bottom: 5px;
+    bottom: 10px;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
 
     @include media('hover') {
       &:hover {
