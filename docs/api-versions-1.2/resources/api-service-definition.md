@@ -269,10 +269,10 @@ To filter the number of records returned, the following query strings can be use
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
 
 ::: tip
 Note: HTTP response headers are returned with each response indicating the total number of records available (X-Records-Available-Count) and total number of records returned (X-Records-Returned-Count).

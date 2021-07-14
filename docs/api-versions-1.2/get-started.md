@@ -527,7 +527,7 @@ Allows error parameter properties to be specified in the form of key/value pairs
 | **Authorisation** | RequestDeclined | The debit party did not approve the request. |
 | **Authorisation** | RequestingPartyAuthorisationError | The party requesting the service has not provided the right credentials and/or does not have permission to perform this service. |
 | **Internal** | GenericError | The request could not be completed due to a non-client related issues that do not constitute complete system unavailability. Examples include software licence issues, unavailability of system configuration information. |
-| **Service** Unavailable | GenericError | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed. |
+| **Service Unavailable** | GenericError | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed. |
 
 ### API Heartbeat
 
@@ -539,7 +539,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the sy
 
 The Heartbeat can be requested using the following path:
 
-- *GET /heartbeat* 
+- *GET /heartbeat*
 
 Only synchronous API Heartbeat requests are supported. The HTTP response contains the following properties.
 
