@@ -68,41 +68,41 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Standard Request Headers
 
-| Header          | Value            | Optionality  | Notes  |
+| **Header**          | **Value**            | **Optionality**  | **Notes**  |
 |:--------------- |:-----------------|--------------|--------|
-| Accept          | application/json | Mandatory    |        |
-| Accept-Charset  | utf-8            | Mandatory    |        |
-| Authorization   | Authorization: Basic {base64Encode(concatenated client's username followed by ‘:’ and password)} OR OAuth2 Access Token. For OAuth2 format is {‘Bearer’ ***token value***} | Mandatory    |        |
-| Content-Length  | Length of request content in 8-bit bytes | Mandatory    |        |
-| Content-Type    | application/json | Mandatory    |        |
+| **Accept**          | application/json | Mandatory    |        |
+| **Accept-Charset**  | utf-8            | Mandatory    |        |
+| **Authorization**   | Authorization: Basic {base64Encode(concatenated client's username followed by ‘:’ and password)} OR OAuth2 Access Token. For OAuth2 format is {‘Bearer’ ***token value***} | Mandatory    |        |
+| **Content-Length**  | Length of request content in 8-bit bytes | Mandatory    |        |
+| **Content-Type**    | application/json | Mandatory    |        |
 
 ###### Standard Response Headers
 
-| Header          | Value                           | Optionality  | Notes                                                   |
+| **Header**          | **Value**                           | **Optionality**  | **Notes**                                                   |
 |:--------------- |:--------------------------------|--------------|---------------------------------------------------------|
-| Content-Length  | Length of response content      | Conditional  | Applicable only if the HTTP response contains JSON body |
-| Content-Type    | application/json; charset=utf-8 | Conditional  | Applicable only if the HTTP response contains JSON body |
+| **Content-Length**  | Length of response content      | Conditional  | Applicable only if the HTTP response contains JSON body |
+| **Content-Type**    | application/json; charset=utf-8 | Conditional  | Applicable only if the HTTP response contains JSON body |
 
 ###### Custom Request Headers
 
-| Header          | Value                            | Optionality  | Notes                                                   |
+| **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
-| X-API-Key       | Used to pass pre-shared client's API key to the server | Conditional | Only required when API Client Authentication based on API key is used. |
-| X-User-Bearer   | Used to pass user’s access token | Conditional  | Only required when OAuth 2.0/OIDC authorisation framework is used for end-user authentication. |
-| X-Date          | {The date and time that the message was sent in HTTP-date format - RFC 7231} | Conditional  | Used for Basic message integrity checks. |
-| X-Client-Id     | Used to pass pre-shared client's identifier to the server | Conditional  | Can be used in addition to X-API-Key. |
-| X-Content-Hash  | SHA-256 hex digest of the request content (encrypted or plain) | Conditional  | Applicable only if the HTTP request contains JSON body and basic data integrity checking is to be performed. |
-| X-CorrelationID | UUID                             | Conditional  | Please refer to [Client Correlation ID](/api-versions-1.2/get-started.html#client-correlation-id). |
-| X-User-Credential-1 | Contains an authentication credential of the end user (e.g. PIN, Password). | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
-| X-User-Credential-2 | Contains an authentication credential of the end user (e.g. PIN, Password). Can be used when a second credential is required. | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
-| X-Channel       | string containing the channel that was used to originate the request. For example, USSD, Web, App. | Conditional  | Used to identify the API invocation channel. |
-| X-Callback-URL  | string containing the URL which should receive the Callback for asynchronous requests. | Conditional  | Will only be used by the API provider if they have implemented the Callback method. |
+| **X-API-Key**       | Used to pass pre-shared client's API key to the server | Conditional | Only required when API Client Authentication based on API key is used. |
+| **X-User-Bearer**   | Used to pass user’s access token | Conditional  | Only required when OAuth 2.0/OIDC authorisation framework is used for end-user authentication. |
+| **X-Date**          | {The date and time that the message was sent in HTTP-date format - RFC 7231} | Conditional  | Used for Basic message integrity checks. |
+| **X-Client-Id**     | Used to pass pre-shared client's identifier to the server | Conditional  | Can be used in addition to X-API-Key. |
+| **X-Content-Hash**  | SHA-256 hex digest of the request content (encrypted or plain) | Conditional  | Applicable only if the HTTP request contains JSON body and basic data integrity checking is to be performed. |
+| **X-CorrelationID** | UUID                             | Conditional  | Please refer to [Client Correlation ID](/api-versions-1.2/get-started.html#client-correlation-id). |
+| **X-User-Credential-1** | Contains an authentication credential of the end user (e.g. PIN, Password). | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
+| **X-User-Credential-2** | Contains an authentication credential of the end user (e.g. PIN, Password). Can be used when a second credential is required. | Conditional  | Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider. |
+| **X-Channel**       | string containing the channel that was used to originate the request. For example, USSD, Web, App. | Conditional  | Used to identify the API invocation channel. |
+| **X-Callback-URL**  | string containing the URL which should receive the Callback for asynchronous requests. | Conditional  | Will only be used by the API provider if they have implemented the Callback method. |
 
 ###### Custom Response Headers
 
-| Header          | Value                            | Optionality  | Notes                                                   |
+| **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
-| X-Date          | {The date and time that the response was sent in HTTP-date format - RFC 7231} | Conditional | Used for Basic message integrity checks |
+| **X-Date**          | {The date and time that the response was sent in HTTP-date format - RFC 7231} | Conditional | Used for Basic message integrity checks |
 
 ##### API Versioning
 
@@ -130,7 +130,7 @@ The version that a client intends to use is indicated in the path. Format is ‘
 
 The following table provides examples of API version compatibility:
 
-| Client Version  | Provider Version                 | Compatible?  |
+| **Client Version**  | **Provider Version**                 | **Compatible?**  |
 |:--------------- |:---------------------------------|--------------|
 | 1.0.0           | 1.1.0                            | Yes          |
 | 1.1.0           | 1.0.0                            | Client would need to submit only 1.0.0 related payload. If 1.1.0 services, properties or parameters are supplied by the client, the provider will reject the request. |
@@ -149,7 +149,7 @@ The mobile money API applies common validation to all amount properties. The fol
 
 Amount validation examples are shown below.
 
-| Value           | Permitted?       |
+| **Value**           | **Permitted?**       |
 |:--------------- |:-----------------|
 | 5               | Yes              |
 | 5.0             | Yes              |
@@ -437,8 +437,8 @@ The following HTTP response codes are returned for the listed methods:
 
 | **Method** | **Success** | **Intermediate** | **Client Error** | **Server Error** |
 |:---------- |:------------|:-----------------|:-----------------|:-----------------|
-| GET        | 200         | N/A              | 400, 401, 404    | 500, 503         |
-| POST       | 201         | 202              | 400, 401, 404    | 500, 503         |
+| **GET**        | 200         | N/A              | 400, 401, 404    | 500, 503         |
+| **POST**       | 201         | 202              | 400, 401, 404    | 500, 503         |
 
 ::: tip
 *Note that the ‘intermediate’ column in the table above relates to the HTTP response for the first leg of an asynchronous request.
@@ -448,12 +448,12 @@ The following HTTP response codes are returned for the listed methods:
 
 | **Error Category**     | **Description** | **HTTP Response Code** |
 |:---------------------- |:----------------|:------------------------|
-| BusinessRule           | The resource could not be successfully completed due a violation of a business rule. Business rules include financial limit violations, duplicate requests, and invalid states. | 400              |
-| Validation             | Violation of a constraint that will prevent the resource from being processed. Examples include:<br> - Invalid property length.<br> - Failure to resolve regular expression.    | 400              |
-| Authorisation          | It was not possible to authenticate or authorise the client or other party to perform the service.         | 401              |
-| Identification         | The requested resource could not be matched on the system with the supplied identifier(s).         | 404              |
-| Internal               | The request could not be completed due to non-client related issues that do not constitute complete system unavailability. Examples include software licence issues, unavailability of system configuration information.         | 500              |
-| Service Unavailable    | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed.         | 503              |
+| **BusinessRule**           | The resource could not be successfully completed due a violation of a business rule. Business rules include financial limit violations, duplicate requests, and invalid states. | 400              |
+| **Validation**             | Violation of a constraint that will prevent the resource from being processed. Examples include:<br> - Invalid property length.<br> - Failure to resolve regular expression.    | 400              |
+| **Authorisation**          | It was not possible to authenticate or authorise the client or other party to perform the service.         | 401              |
+| **Identification**         | The requested resource could not be matched on the system with the supplied identifier(s).         | 404              |
+| **Internal**               | The request could not be completed due to non-client related issues that do not constitute complete system unavailability. Examples include software licence issues, unavailability of system configuration information.         | 500              |
+| **Service Unavailable**    | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed.         | 503              |
 
 #### Errors Object Definition
 
@@ -497,37 +497,37 @@ Allows error parameter properties to be specified in the form of key/value pairs
 
 | **Error Category**      | **Error Code**   | **Error Code Description** |
 |:--------------- |:--------------|:-----------------|
-| BusinessRule    | GenericError     | A generic Error Code for the Rule Error Category. This is used in two scenarios:<br> 1. The API Provider has generated an error that does not map to existing Rule error codes.<br>  2. The API Provider wishes to avoid disclosure of confidential information regarding the resource or parties to the resource.|
-| BusinessRule | DailyVolumeLimitExceeded | The party has exceeded their daily transacting volume limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | DailyValueLimitExceeded | The party has exceeded their daily transacting value limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | WeeklyVolumeLimitExceeded | The party has exceeded their weekly transacting volume limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | WeeklyValueLimitExceeded | The party has exceeded their weekly transacting value limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | MonthlyVolumeLimitExceeded | The party has exceeded their monthly transacting volume limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | MonthlyValueLimitExceeded | The party has exceeded their monthly transacting value limit - This can be a service limit or a limit that is specific to the party. |
-| BusinessRule | AccountMaxTotalValueExceeded | The party has exceeded their cumulative transacting value limit defined for the account. |
-| BusinessRule | AccountMaxTotalVolumeExceeded | The party has exceeded their cumulative transacting volume limit defined for the account. |
-| BusinessRule | LessThanTransactionMinValue | The amount specified for the transaction is less than the defined minimum for the service. |
-| BusinessRule | GreaterThanTransactionMaxValue | The amount specified for the transaction is greater than the defined maximum for the service. |
-| BusinessRule | MaxBalanceExceeded | The amount specified will cause the balance of the credit parties account to exceed the rule limit. |
-| BusinessRule | SamePartiesError | The debit and credit parties are the same. |
-| BusinessRule | DuplicateRequest | The request has previously been processed, i.e. this request is a duplicate and hence has been rejected. |
-| BusinessRule | InsufficientFunds | Available funds are not sufficient to enable the party to be debited for the requested transaction. |
-| BusinessRule | IncorrectState | The account is in a state that does not permit the requested service. |
-| BusinessRule | UnderPaymentNotAllowed | The requested amount is less than the amount that needs to be supplied for this transaction |
-| BusinessRule | OverPaymentNotAllowed | The requested amount is greater than the amount that needs to be supplied for this transaction |
-| BusinessRule | RateLimitError | The client has submitted too many requests within a period of time. |
-| Identification | IdentifierError | The requested resource could not be matched on the system with the supplied identifier(s). |
-| Validation | GenericError | A generic Error Code for the Validation Error Category. This is used in where the API Provider has generated an error that does not map to existing Validation error codes. |
-| Validation | LengthError | The specified property contents are greater than the maximum allowed length or less than the minimum allowed length. |
-| Validation | FormatError | The specified property contents do not conform to the format required for this Property. |
-| Validation | NegativeValue | The amount supplied is negative and this is not allowed for the given service. |
-| Validation | CurrencyNotSupported | The currency supplied is not supported by the API Provider. |
-| Validation | MandatoryValueNotSupplied | A mandatory value has not been provided in the header and/or JSON body. |
-| Authorisation | ClientAuthorisationError | General Client Authentication failure. No further details provided to prevent leakage of security information. |
-| Authorisation | RequestDeclined | The debit party did not approve the request. |
-| Authorisation | RequestingPartyAuthorisationError | The party requesting the service has not provided the right credentials and/or does not have permission to perform this service. |
-| Internal | GenericError | The request could not be completed due to a non-client related issues that do not constitute complete system unavailability. Examples include software licence issues, unavailability of system configuration information. |
-| Service Unavailable | GenericError | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed. |
+| **BusinessRule** | GenericError     | A generic Error Code for the Rule Error Category. This is used in two scenarios:<br> 1. The API Provider has generated an error that does not map to existing Rule error codes.<br>  2. The API Provider wishes to avoid disclosure of confidential information regarding the resource or parties to the resource.|
+| **BusinessRule** | DailyVolumeLimitExceeded | The party has exceeded their daily transacting volume limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | DailyValueLimitExceeded | The party has exceeded their daily transacting value limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | WeeklyVolumeLimitExceeded | The party has exceeded their weekly transacting volume limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | WeeklyValueLimitExceeded | The party has exceeded their weekly transacting value limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | MonthlyVolumeLimitExceeded | The party has exceeded their monthly transacting volume limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | MonthlyValueLimitExceeded | The party has exceeded their monthly transacting value limit - This can be a service limit or a limit that is specific to the party. |
+| **BusinessRule** | AccountMaxTotalValueExceeded | The party has exceeded their cumulative transacting value limit defined for the account. |
+| **BusinessRule** | AccountMaxTotalVolumeExceeded | The party has exceeded their cumulative transacting volume limit defined for the account. |
+| **BusinessRule** | LessThanTransactionMinValue | The amount specified for the transaction is less than the defined minimum for the service. |
+| **BusinessRule** | GreaterThanTransactionMaxValue | The amount specified for the transaction is greater than the defined maximum for the service. |
+| **BusinessRule** | MaxBalanceExceeded | The amount specified will cause the balance of the credit parties account to exceed the rule limit. |
+| **BusinessRule** | SamePartiesError | The debit and credit parties are the same. |
+| **BusinessRule** | DuplicateRequest | The request has previously been processed, i.e. this request is a duplicate and hence has been rejected. |
+| **BusinessRule** | InsufficientFunds | Available funds are not sufficient to enable the party to be debited for the requested transaction. |
+| **BusinessRule** | IncorrectState | The account is in a state that does not permit the requested service. |
+| **BusinessRule** | UnderPaymentNotAllowed | The requested amount is less than the amount that needs to be supplied for this transaction |
+| **BusinessRule** | OverPaymentNotAllowed | The requested amount is greater than the amount that needs to be supplied for this transaction |
+| **BusinessRule** | RateLimitError | The client has submitted too many requests within a period of time. |
+| **Identification** | IdentifierError | The requested resource could not be matched on the system with the supplied identifier(s). |
+| **Validation** | GenericError | A generic Error Code for the Validation Error Category. This is used in where the API Provider has generated an error that does not map to existing Validation error codes. |
+| **Validation** | LengthError | The specified property contents are greater than the maximum allowed length or less than the minimum allowed length. |
+| **Validation** | FormatError | The specified property contents do not conform to the format required for this Property. |
+| **Validation** | NegativeValue | The amount supplied is negative and this is not allowed for the given service. |
+| **Validation** | CurrencyNotSupported | The currency supplied is not supported by the API Provider. |
+| **Validation** | MandatoryValueNotSupplied | A mandatory value has not been provided in the header and/or JSON body. |
+| **Authorisation** | ClientAuthorisationError | General Client Authentication failure. No further details provided to prevent leakage of security information. |
+| **Authorisation** | RequestDeclined | The debit party did not approve the request. |
+| **Authorisation** | RequestingPartyAuthorisationError | The party requesting the service has not provided the right credentials and/or does not have permission to perform this service. |
+| **Internal** | GenericError | The request could not be completed due to a non-client related issues that do not constitute complete system unavailability. Examples include software licence issues, unavailability of system configuration information. |
+| **Service** Unavailable | GenericError | The service is not currently available. This could be due to network issues, issues with individual components or complete systems outages. Regardless of the cause, the result means that the request cannot be performed. |
 
 ### API Heartbeat
 

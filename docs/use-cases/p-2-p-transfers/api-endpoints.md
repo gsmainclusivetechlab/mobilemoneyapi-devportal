@@ -41,9 +41,9 @@ The following paths are permitted:
 
 | **Operation** | **Path**  | **Description** |
 |:-----------|:-------|:-------------|
-| Create | POST */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL.  |
-| View | GET */transactions/{transactionReference}* | To view a transaction. |
-| Update | PATCH */transactions/{transactionReference}* | To update the transactionStatus of a transaction. |
+| **Create** | POST */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL.  |
+| **View** | GET */transactions/{transactionReference}* | To view a transaction. |
+| **Update** | PATCH */transactions/{transactionReference}* | To update the transactionStatus of a transaction. |
 
 ### Transaction UML Class Diagram
 
@@ -62,10 +62,9 @@ classDiagram
 
 ### Transaction Object Definition
 
-Transaction Object
-
-| **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
+| **Transaction Object** ||||||
 |:-----|:-----|:------------|:--|:----------|:-----------|
+| **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 | **amount** | string | The transaction amount. | M <br> M |  | Please refer to API Fundamentals document for amount validation rules. |
 | **currency** | string | Currency of the transaction amount. | M <br> M |  | Enumeration = [ISO Currency Codes](/use-cases/p-2-p-transfers/enumerations.html) |
 | **type** | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) |
@@ -173,12 +172,12 @@ To filter the number of records returned, the following query strings can be use
 
 | **Parameter** | **Type** | **Format** | **Description** |
 |:--|:--|:--|:--|
-| lLimit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| oOffset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum date creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum date creationDate for which records should be returned. |
-| transactionStatus | string | N/A | Indicates the status of the transactions to be returned. |
-| transactionType | string | N/A | Indicates the [type](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) of the transactions to be returned. |
+| **lLimit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **oOffset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum date creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum date creationDate for which records should be returned. |
+| **transactionStatus** | string | N/A | Indicates the status of the transactions to be returned. |
+| **transactionType** | string | N/A | Indicates the [type](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) of the transactions to be returned. |
 
 ::: tip Note 1:
 For a harmonised behavior, API Providers should make sure that the transactions are returned in descending date created order.

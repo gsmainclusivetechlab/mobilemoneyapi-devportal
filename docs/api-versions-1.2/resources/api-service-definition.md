@@ -42,9 +42,9 @@ The following paths are permitted:
 
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
-| POST          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
-| View          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
-| Update | PATCH */transactions/{transactionReference}*  | To update the transactionStatus of a transaction.|
+| **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
+| **View**          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
+| **Update** | PATCH */transactions/{transactionReference}*  | To update the transactionStatus of a transaction.|
 
 #### Transaction UML Class Diagram
 
@@ -310,10 +310,10 @@ To filter the number of records returned, the following query strings can be use
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
 
 ::: tip
 Note: HTTP response headers are returned with each response indicating the total number of records available (X-Records-Available-Count) and total number of records returned (X-Records-Returned-Count)
@@ -401,8 +401,8 @@ The following account fields can be updated:
 
 |**Field**|**PATCH Body**|**Description**|
 |:--------|:--------|:-------------|
-| accountStatus | *"op": "replace", "path": "/accountStatus", "value": “string”* | Use to modify the status of an account. |
-| accountSubStatus |  *"op": "replace", "path": "/accountSubStatus", "value": “string”* | Use to modify the sub-status of an account. |
+| **accountStatus** | *"op": "replace", "path": "/accountStatus", "value": “string”* | Use to modify the status of an account. |
+| **accountSubStatus** |  *"op": "replace", "path": "/accountSubStatus", "value": “string”* | Use to modify the sub-status of an account. |
 
 For more information on the above fields please refer to the [Account](/api-versions-1.2/resources/api-service-definition.html#account-object-definition) object.
 
@@ -420,10 +420,10 @@ The following identity fields can be updated:
 
 |**Field**|**PATCH Body**|**Description**|
 |:--------|:--------|:-------------|
-| identity.identityStatus | *"op": "replace", "path": "/identityStatus", "value": “string”* | Use to modify the status of an identity associated with an account. |
-| identity.kycVerificationStatus |  *"op": "replace", "path": "/kycVerificationStatus", "value": “string”* | Use to change the KYC verification status of an identity associated with an account. |
-| identity.kycVerificationEntity |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the entity (e.g. mobile money agent) that performed the verification. |
-| identity.kycLevel |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | UUse to modify the KYC level of an identity associated with an account. |
+| **identity.identityStatus** | *"op": "replace", "path": "/identityStatus", "value": “string”* | Use to modify the status of an identity associated with an account. |
+| **identity.kycVerificationStatus** |  *"op": "replace", "path": "/kycVerificationStatus", "value": “string”* | Use to change the KYC verification status of an identity associated with an account. |
+| **identity.kycVerificationEntity** |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the entity (e.g. mobile money agent) that performed the verification. |
+| **identity.kycLevel** |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | UUse to modify the KYC level of an identity associated with an account. |
 
 For more information on the above fields please refer to the [Identity Object](/api-versions-1.2/resources/api-service-definition.html#identity-object).
 
@@ -478,12 +478,12 @@ To filter the number of records returned, the following query strings can be use
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
-| transactionStatus | string | N/A | Indicates the status of the transactions to be returned. |
-| transactionType | string | N/A | Indicates the [type](/api-versions-1.2/resources/api-service-definition.html#transaction-type-object) of the transactions to be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **transactionStatus** | string | N/A | Indicates the status of the transactions to be returned. |
+| **transactionType** | string | N/A | Indicates the [type](/api-versions-1.2/resources/api-service-definition.html#transaction-type-object) of the transactions to be returned. |
 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the transactions are returned in descending date created order. 
@@ -594,12 +594,12 @@ To filter the number of records returned, the following query string parameters 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
-| transactionStatus | string | N/A | Indicates the status of the transactions to be returned. |
-| displayType | string | N/A | Indicates the Display Type of the transactions to be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **transactionStatus** | string | N/A | Indicates the status of the transactions to be returned. |
+| **displayType** | string | N/A | Indicates the Display Type of the transactions to be returned. |
 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the statement entries are returned in descending date created order. 
@@ -650,10 +650,10 @@ To filter the number of records returned, the following query string parameters 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the bills are returned in descending date created order. 
@@ -694,10 +694,10 @@ The Bill Payments APIs are used to pay a specific bill associated with an accoun
 
 |**Path**|**Usage**|
 |:--------|:--------|
-| */accounts/{identifierType}/{identifier}/bills/{billReference}/payments* | Use when a single identifier suffices to identify the bill account. |
-| */accounts/{Account Identifiers}/bills/{billReference}/payments* | Use when two or three identifiers are required to identify an account. |
-| */bills/{billReference}/payments* | Use when a bill payment is not associated with a service provider account. |
-| */accounts/{identifierType}/{identifier}/bills/payments* **OR** */accounts/{Account Identifiers}/bills/payments* | Use when a bill does not have a bill reference |
+| ***/accounts/{identifierType}/{identifier}/bills/{billReference}/payments*** | Use when a single identifier suffices to identify the bill account. |
+| ***/accounts/{Account Identifiers}/bills/{billReference}/payments*** | Use when two or three identifiers are required to identify an account. |
+| ***/bills/{billReference}/payments*** | Use when a bill payment is not associated with a service provider account. |
+| ***/accounts/{identifierType}/{identifier}/bills/payments*** **OR** */accounts/{Account Identifiers}/bills/payments* | Use when a bill does not have a bill reference |
 
 As per MM API standards, POST is used to create a bill payment whereas GET is used to retrieve all payments associated with a bill.
 
@@ -705,10 +705,10 @@ When retrieving bill payments, the following query string parameters can be used
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the bill payments are returned in descending date created order. 
@@ -772,8 +772,8 @@ To filter the number of records returned, the following query strings can be use
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
 
 ::: tip
 Note: HTTP response headers are returned with each response indicating the total number of records available (X-Records-Available-Count) and total number of records returned (X-Records-Returned-Count).
@@ -930,11 +930,11 @@ When retrieving authorisation codes, the following query string parameters can b
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
-| limit | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| offset | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
-| fromDateTime | string | date-time | Indicates the minimum creationDate for which records should be returned. |
-| toDateTime | string | date-time | Indicates the maximum creationDate for which records should be returned. |
-| codeState | string | string | Allows filtering on the state of the authorisation code. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **codeState** | string | string | Allows filtering on the state of the authorisation code. |
 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the authorisation codes are returned in descending date created order. 
@@ -1258,15 +1258,15 @@ A transaction type is used to classify the nature of a transaction.
 
 |**Code**|**Description**|
 |:--------|:--------|
-| billpay | Payment of bill from a business for goods and/or services. |
-| deposit | Exchange of cash in return for e-Money at a physical agent or via ATM. |
-| disbursement | Disbursement of funds (making payments from an organisation (business, NGO, government entity) to a mobile money recipient. |
-| transfer | Transfer of funds between mobile money provider and another provider or financial institution in the same country. |
-| merchantpay | Purchases of goods and/or services from shops (payer present) or online (payer not present). |
-| inttransfer | Transfer of funds to a recipient in another country, either directly to/from a mobile wallet or via an international money transfer provider. |
-| adjustment | General adjustments to an account via an adjustment transaction (e.g. refunds). |
-| reversal | Reversal of a prior transaction to return funds to the payer. |
-| withdrawal | Exchange of e-Money in return for cash at a physical agent or via ATM. |
+| **billpay** | Payment of bill from a business for goods and/or services. |
+| **deposit** | Exchange of cash in return for e-Money at a physical agent or via ATM. |
+| **disbursement** | Disbursement of funds (making payments from an organisation (business, NGO, government entity) to a mobile money recipient. |
+| **transfer** | Transfer of funds between mobile money provider and another provider or financial institution in the same country. |
+| **merchantpay** | Purchases of goods and/or services from shops (payer present) or online (payer not present). |
+| **inttransfer** | Transfer of funds to a recipient in another country, either directly to/from a mobile wallet or via an international money transfer provider. |
+| **adjustment** | General adjustments to an account via an adjustment transaction (e.g. refunds). |
+| **reversal** | Reversal of a prior transaction to return funds to the payer. |
+| **withdrawal** | Exchange of e-Money in return for cash at a physical agent or via ATM. |
 
 ### ID Types
 
@@ -1274,23 +1274,23 @@ The ID Types enumeration contains accepted identification types. Due to the wide
 
 |**ID Type**|**Description**|
 |:--------|:--------|
-| passport | Payment of bill from a business for goods and/or services. |
-| nationalregistration | National Registration Number. |
-| othered | Catch-all for IDs not on the list. |
-| drivinglicence | Driving Licence Number. |
-| socialsecurity | Social Security Number. |
-| alienregistration | Alien Registration ID. |
-| nationalidcard | National Identity Card. |
-| employer | Employers Identification. |
-| taxid | Tax Identification Number. |
-| seniorcitizenscard | Senior Citizens ID Card. |
-| marriagecertificate | Marriage Certificate. |
-| birthcertificate | Birth Certificate. |
-| healthcard | Health Card. |
-| votersid | Voters Identification. |
-| villageelderletter | Letter of confirmation from village elder. |
-| pancard | Credit/debit card number (Primary Account Number). |
-| officialletter | Official letter confirming identity. |
+| **passport** | Payment of bill from a business for goods and/or services. |
+| **nationalregistration** | National Registration Number. |
+| **othered** | Catch-all for IDs not on the list. |
+| **drivinglicence** | Driving Licence Number. |
+| **socialsecurity** | Social Security Number. |
+| **alienregistration** | Alien Registration ID. |
+| **nationalidcard** | National Identity Card. |
+| **employer** | Employers Identification. |
+| **taxid** | Tax Identification Number. |
+| **seniorcitizenscard** | Senior Citizens ID Card. |
+| **marriagecertificate** | Marriage Certificate. |
+| **birthcertificate** | Birth Certificate. |
+| **healthcard** | Health Card. |
+| **votersid** | Voters Identification. |
+| **villageelderletter** | Letter of confirmation from village elder. |
+| **pancard** | Credit/debit card number (Primary Account Number). |
+| **officialletter** | Official letter confirming identity. |
 
 ### Account Identifiers
 
@@ -1298,26 +1298,26 @@ The Account Identifier enumeration lists all possible means to identify a target
 
 |**Code**|**Short Description**|**Type**|**Description**|
 |:--------|:--------|:--------|:--------|
-| accountcategory | Account Category | string | Can be used to identify the sources of funds category where there are multiple accounts (wallets) held against an account holder. |
-| bankaccountno | Bank Account Number | string | Financial institution account number that is typically known by the account holder. |
-| accountrank | Account Rank | string | Is used to identify the rank of the source of funds where there are multiple accounts (wallets) held against an account holder. |
-| identityalias | Identity Alias | string | An alias for the identity, e.g. short code for an agent till. |
-| iban | IBAN | string | Internationally agreed system of identifying bank accounts across national borders to facilitate the communication and processing of cross border transactions. Can contain up to 34 alphanumeric characters. |
-| accountid | Account Holder Identity | string | Identifier for the account holder. |
-| msisdn | MSISDN | string | Must contain between 6 and 15 consecutive digits<br>>First character can contain a ‘+’ or digit<br>>Can contain spaces. |
-| swiftbic | SWIFTBIC | string | A bank identifier code (BIC) is a unique identifier for a specific financial institution. A BIC is composed of a 4-character bank code, a 2-character country code, a 2-character location code and an optional 3-character branch code. BICs are used by financial institutions for letters of credit, payments and securities transactions and other business messages between banks. Please refer to [ISO 9362](http://www.iso.org/iso/catalogue_detail?csnumber=60390) for further information. |
-| sortcode | Bank Sort Code | string | Sort code to identify the financial institution holding the account. |
-| organisationid | Organisation Account Identifier | string | Used to identify the organisation for which a payment is to be made. |
-| username | Username | string | Used to identify target account via an associated username. |
-| walletid | Wallet Identifier | string | A means to identify a mobile money wallet, particularly where multiple wallets can be held against an MSISDN. typically used in conjunction with MSISDN or identity alias to identify a particular wallet. |
-| linkref | Link Reference | string | A means to uniquely identify an account via an account to account link. E.g. wallet account link to bank account. |
-| consumerno | Consumer Number | string | Identifies the consumer associated with the account. |
-| serviceprovider | Service Provider | string | Provides a reference for a Service Provider. |
-| storeid | Store ID | string | Identifies the transacting store / retail outlet. |
-| bankname | Bank Name | string | Name of the bank. |
-| bankaccounttitle | Bank Account Title | string | The title of the bank account. |
-| emailaddress | Email Address | string | emailaddress of the party. |
-| mandatereference | Debit Mandate Reference | string | A means to identify an account via a debit mandate reference. |
+| **accountcategory** | Account Category | string | Can be used to identify the sources of funds category where there are multiple accounts (wallets) held against an account holder. |
+| **bankaccountno** | Bank Account Number | string | Financial institution account number that is typically known by the account holder. |
+| **accountrank** | Account Rank | string | Is used to identify the rank of the source of funds where there are multiple accounts (wallets) held against an account holder. |
+| **identityalias** | Identity Alias | string | An alias for the identity, e.g. short code for an agent till. |
+| **iban** | IBAN | string | Internationally agreed system of identifying bank accounts across national borders to facilitate the communication and processing of cross border transactions. Can contain up to 34 alphanumeric characters. |
+| **accountid** | Account Holder Identity | string | Identifier for the account holder. |
+| **msisdn** | MSISDN | string | Must contain between 6 and 15 consecutive digits<br>>First character can contain a ‘+’ or digit<br>>Can contain spaces. |
+| **swiftbic** | SWIFTBIC | string | A bank identifier code (BIC) is a unique identifier for a specific financial institution. A BIC is composed of a 4-character bank code, a 2-character country code, a 2-character location code and an optional 3-character branch code. BICs are used by financial institutions for letters of credit, payments and securities transactions and other business messages between banks. Please refer to [ISO 9362](http://www.iso.org/iso/catalogue_detail?csnumber=60390) for further information. |
+| **sortcode** | Bank Sort Code | string | Sort code to identify the financial institution holding the account. |
+| **organisationid** | Organisation Account Identifier | string | Used to identify the organisation for which a payment is to be made. |
+| **username** | Username | string | Used to identify target account via an associated username. |
+| **walletid** | Wallet Identifier | string | A means to identify a mobile money wallet, particularly where multiple wallets can be held against an MSISDN. typically used in conjunction with MSISDN or identity alias to identify a particular wallet. |
+| **linkref** | Link Reference | string | A means to uniquely identify an account via an account to account link. E.g. wallet account link to bank account. |
+| **consumerno** | Consumer Number | string | Identifies the consumer associated with the account. |
+| **serviceprovider** | Service Provider | string | Provides a reference for a Service Provider. |
+| **storeid** | Store ID | string | Identifies the transacting store / retail outlet. |
+| **bankname** | Bank Name | string | Name of the bank. |
+| **bankaccounttitle** | Bank Account Title | string | The title of the bank account. |
+| **emailaddress** | Email Address | string | emailaddress of the party. |
+| **mandatereference** | Debit Mandate Reference | string | A means to identify an account via a debit mandate reference. |
 
 ### ISO Country Codes
 
@@ -1329,9 +1329,9 @@ When a customer requests a quotation they are able to specify their preferred me
 
 |**Delivery Method**|**Description**|
 |:--------|:--------|
-| directtoaccount | The transfer is to be delivered into the account (wallet) of the recipient. |
-| agent | The recipient can visit an agent and get the transferred funds. |
-| personaldelivery | a supplementary service where an authorised person can deliver the funds, in hand, to the receiving end user. |
+| **directtoaccount** | The transfer is to be delivered into the account (wallet) of the recipient. |
+| **agent** | The recipient can visit an agent and get the transferred funds. |
+| **personaldelivery** | a supplementary service where an authorised person can deliver the funds, in hand, to the receiving end user. |
 
 ### Frequency Type
 
@@ -1339,21 +1339,21 @@ When requesting a debit mandate, the API client is able to specify the frequency
 
 |**Frequency Type**|**Description**|
 |:--------|:--------|
-| weekly | Payment will be taken weekly. |
-| fortnight | Payment will be taken every two weeks. |
-| monthspecificdate | Payment to be taken on a specific date every month. |
-| twomonths | Payment to be taken every two months. |
-| threemonths | Payment to be taken every three months. |
-| fourmonths | Payment to be taken every four months. |
-| sixmonths | Payment to be taken every six months. |
-| yearly | Payment to be taken yearly. |
-| lastdaymonth | Payment to be taken on the last calendar day of the month. |
-| lastdaymonthworking | Payment to be taken on the last working day of the month according to working days as per the resident country of the account. |
-| lastmonday | Payment to be taken on the last Monday of the month. |
-| lasttuesday | Payment to be taken on the last Tuesday of the month. |
-| lastwednesday | Payment to be taken on the last Wednesday of the month. |
-| lastthursday | Payment to be taken on the last Thursday of the month. |
-| lastfriday | Payment to be taken on the last Friday of the month. |
-| lastsaturday | Payment to be taken on the last Saturday of the month. |
-| lastsunday | Payment to be taken on the last Sunday of the month. |
-| specificdaymonthly | Payment to be taken on a specific day of the month. |
+| **weekly** | Payment will be taken weekly. |
+| **fortnight** | Payment will be taken every two weeks. |
+| **monthspecificdate** | Payment to be taken on a specific date every month. |
+| **twomonths** | Payment to be taken every two months. |
+| **threemonths** | Payment to be taken every three months. |
+| **fourmonths** | Payment to be taken every four months. |
+| **sixmonths** | Payment to be taken every six months. |
+| **yearly** | Payment to be taken yearly. |
+| **lastdaymonth** | Payment to be taken on the last calendar day of the month. |
+| **lastdaymonthworking** | Payment to be taken on the last working day of the month according to working days as per the resident country of the account. |
+| **lastmonday** | Payment to be taken on the last Monday of the month. |
+| **lasttuesday** | Payment to be taken on the last Tuesday of the month. |
+| **lastwednesday** | Payment to be taken on the last Wednesday of the month. |
+| **lastthursday** | Payment to be taken on the last Thursday of the month. |
+| **lastfriday** | Payment to be taken on the last Friday of the month. |
+| **lastsaturday** | Payment to be taken on the last Saturday of the month. |
+| **lastsunday** | Payment to be taken on the last Sunday of the month. |
+| **specificdaymonthly** | Payment to be taken on a specific day of the month. |
