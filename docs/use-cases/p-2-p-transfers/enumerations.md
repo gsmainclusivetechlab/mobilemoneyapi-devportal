@@ -9,7 +9,7 @@ The three-character alphabetic code for currency as defined by ISO 4217 is to be
 
 ## Transaction Types
 
-| Code | Description |
+| **Code** | **Description** |
 |:--|:--|
 | transfer | Transfer of funds between mobile money provider and another provider or financial institution in the same country. |
 | reversal | Reversal of a prior transaction to return funds to the payer. |
@@ -18,7 +18,7 @@ The three-character alphabetic code for currency as defined by ISO 4217 is to be
 
 The ID Types enumeration contains accepted identification types. Due to the wide international variation in accepted types of identification, a catch-all type of ‘otherid’ is included.
 
-| ID Type | Description |
+| **ID Type** | **Description** |
 |:--|:--|
 | passport | Payment of bill from a business for goods and/or services. |
 | nationalregistration | National Registration Number. |
@@ -42,7 +42,7 @@ The ID Types enumeration contains accepted identification types. Due to the wide
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
 
-| Code | Short Description | Type | Description |
+| **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|
 | accountcategory | Account Category | string | Can be used to identify the sources of funds category where there are multiple accounts (wallets) held against an account holder. |
 | bankaccountno | Bank Account Number | string | Financial institution account number that is typically known by the account holder. |

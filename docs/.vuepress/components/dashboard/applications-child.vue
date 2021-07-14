@@ -66,15 +66,27 @@
           </div>
           <div class="input-group">
             <label for="consumerKey">Consumer key</label>
-            <input type="text" id="consumerKey" v-model="consumerKey">
+            <input type="text" id="consumerKey" v-model="consumerKey" readonly>
+            <button class="copy-btn" data-bind="consumerKey" @click.prevent="copyToClipboard($event)">
+              <img src="/images/copy-icon.svg" alt="">
+            </button>
+            <span class="copy-popup" data-bind="consumerKey">Copied to clipboard!</span>
           </div>
           <div class="input-group">
             <label for="consumerSecret">Consumer secret</label>
-            <input type="text" id="consumerSecret" v-model="consumerSecret">
+            <input type="text" id="consumerSecret" v-model="consumerSecret" readonly>
+            <button class="copy-btn" data-bind="consumerSecret" @click.prevent="copyToClipboard($event)">
+              <img src="/images/copy-icon.svg" alt="">
+            </button>
+            <span class="copy-popup" data-bind="consumerSecret">Copied to clipboard!</span>
           </div>
           <div class="input-group">
             <label for="apiKey">API key</label>
-            <input type="text" id="apiKey" v-model="apiKey">
+            <input type="text" id="apiKey" v-model="apiKey" readonly>
+            <button class="copy-btn" data-bind="apiKey" @click.prevent="copyToClipboard($event)">
+              <img src="/images/copy-icon.svg" alt="">
+            </button>
+            <span class="copy-popup" data-bind="apiKey">Copied to clipboard!</span>
           </div>
         </div>
       </div>
@@ -130,6 +142,16 @@ export default {
             this.editBtnEnabled = true;
             this.updateBtnEnabled = false;
         },
+        copyToClipboard(e) {
+            const text = e.currentTarget.getAttribute('data-bind')
+            navigator.clipboard.writeText(this[text]).then(function() {}, function(err) {
+                console.error('Async: Could not copy text: ', err);
+            });
+            const popup = document.querySelectorAll(`span[data-bind="${text}"]`);
+            popup[0].style.opacity = 1;
+            setTimeout(() => { popup[0].style.transition = 'opacity ease-in-out 1.5s'; }, 0)
+            setTimeout(() => { popup[0].style.opacity = 0; }, 0)
+        }
     }
 };
 </script>

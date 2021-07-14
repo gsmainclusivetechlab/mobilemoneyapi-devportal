@@ -207,56 +207,225 @@ The object definition for RequestState is described below.
 | **RequestState Object Properties**                                                   ||||||
 |:--------------- |:--------------|------------------|----------------|----------------|---|
 | **Name**        | **Type**      | **Description**  |                | **Reference**  | **Validation** ||
-| serverCorrelationId | string | A unique identifier issued by the provider to enable the client to identify the RequestState resource on subsequent polling requests.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | UUID format |
-| objectReference | string | Provides a reference to the subject resource, e.g. transaction reference.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | | |
-| status | string | Indicates the status of the request.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = pending, completed, failed |
-| notificationMethod | date-time | Indicates whether a callback will be issued or whether the client will need to poll. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = callback, polling |
-| pendingReason | string | A textual description that can be provided to describe the reason for a pending status. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  | |
-| expiryTime | date-time | Indicates the time by which the provider will fail the request if completion criteria have not been met. For an example, a debit party failing to authorise within the allowed time period. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
-| pollLimit | integer | Indicates the number of poll attempts for the given requeststate resource that will be allowed by the provider. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
-| errorReference | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | [Errors Object](/api-versions-1.2/get-started.html#errors-object-definition) ||
+| **serverCorrelationId** | string | A unique identifier issued by the provider to enable the client to identify the RequestState resource on subsequent polling requests.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | UUID format |
+| **objectReference** | string | Provides a reference to the subject resource, e.g. transaction reference.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | | |
+| **status** | string | Indicates the status of the request.  | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = pending, completed, failed |
+| **notificationMethod** | date-time | Indicates whether a callback will be issued or whether the client will need to poll. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M | | Enumeration = callback, polling |
+| **pendingReason** | string | A textual description that can be provided to describe the reason for a pending status. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  | |
+| **expiryTime** | date-time | Indicates the time by which the provider will fail the request if completion criteria have not been met. For an example, a debit party failing to authorise within the allowed time period. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
+| **pollLimit** | integer | Indicates the number of poll attempts for the given requeststate resource that will be allowed by the provider. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
+| **errorReference** | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | [Errors Object](/api-versions-1.2/get-started.html#errors-object-definition) ||
 
 #### Generic API Sequence Diagrams
 
 Figures 1 to 7 illustrate the standard flows for the Mobile Money API. The green flows represent a success path and red flows represent a failure path.
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams1.jpg)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider
+    Client->>Provider: HTTP GET Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate & Process<br>Request
+    alt Failure?
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Success
+        Provider--)Client: HTTP 200 Response
+    end
+    deactivate Provider
+    deactivate Client
+</mermaid>
 
 **Figure 1** : Mobile Money API Generic Sequence Diagram for Read Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams2.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider
+    Client->>Provider: HTTP POST Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate & Process<br>Request
+    alt Failure
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Success
+        Provider--)Client: HTTP 201 Response
+    end
+    deactivate Provider
+    deactivate Client
+</mermaid>
 
 **Figure 2** : Mobile Money API Synchronous Diagram for Create Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams3.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider
+    Client->>Provider: HTTP POST Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate Request
+    alt Validation Failed
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Validation Succeeded
+        Provider--)Client: HTTP 202 Response, Response Object = requestState, Status = Pending
+    end
+    deactivate Client
+    Provider->>Provider: Process Request
+    activate Client
+    alt Processing Failed
+        Provider->>Client: HTTP PUT Request, Error Object is Returned
+        alt Successful Response
+            Client--)Provider: HTTP 204 Resposne
+        else Failure Response
+            Client--)Provider: HTTP 4xx/5xx Response
+        end
+    else Processing Completed
+        Provider->>Client: HTTP PUT Request, Created Object is Returned
+        alt Failure Response
+            Client--)Provider: HTTP 4xx/5xx Response
+        else Successful Response
+            Client--)Provider: HTTP 204 Resposne
+        end
+    end
+    deactivate Client
+    deactivate Provider
+</mermaid>
 
 **Figure 3** : Mobile Money API Asynchronous Callback Diagram for Create Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams4.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider    
+    Client->>Provider: HTTP POST Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate Request
+    alt Validation Failed
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Validation Succeeded
+        Provider--)Client: HTTP 202 Response, Response Object = requestState, Status = Pending
+    end
+    Provider->>Provider: Process Request
+    loop Until requestState.status = completed or failed
+        Client->>Provider: HTTP GET Request, Requested Resource = requestState
+        alt Successful Response
+            Provider--)Client: HTTP 200 Response, Response Object = requestState, status = pending OR completed OR failed
+        else Failure Response
+            Provider--)Client: HTTP 4xx/5xx Response
+        end
+    end
+    opt requestState.status = completed
+        Note right of Client: Optional Flow - use if the Client wishes to retrieve a representation of the created resourse.
+        Client->>Provider: HTTP GET Request
+        Provider--)Client: (Refer to GET Sequence Diagram for HTTP response details)
+    end
+    deactivate Client
+    deactivate Provider
+</mermaid>
 
 **Figure 4** : Mobile Money API Asynchronous Polling Diagram for Create Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams5.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider
+    Client->>Provider: HTTP PATCH Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate & Process<br>Request
+    alt Failure
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Success
+        Provider--)Client: HTTP 204 Response
+    end
+    deactivate Provider
+    deactivate Client
+</mermaid>
 
 **Figure 5** : Mobile Money API Synchronous Diagram for Update Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams6.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider
+    Client->>Provider: HTTP PATCH Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate Request
+    alt Validation Failed
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Validation Succeeded
+        Provider--)Client: HTTP 202 Response, Response Object = requestState, Status = Pending
+    end
+    deactivate Client
+    Provider->>Provider: Process Request
+    activate Client
+    alt Processing Failed
+        Provider->>Client: HTTP PUT Request, Error Object is returned
+        alt Successful Response
+            Client--)Provider: HTTP 204 Resposne
+        else Failure Response
+            Client--)Provider: HTTP 4xx/5xx Response
+        end
+    else Processing Completed
+        Provider->>Client: HTTP PUT Request, {"result":"success"} is returned
+        alt Failure Response
+            Client--)Provider: HTTP 4xx/5xx Response
+        else Successful Response
+            Client--)Provider: HTTP 204 Resposne
+        end
+    end
+    deactivate Client
+    deactivate Provider
+</mermaid>
 
 **Figure 6** : Mobile Money API Asynchronous Callback Diagram for Update Requests
 <br>
 <br>
 
-![Transaction UML Class Diagram](/images/generic-api-sequence-diagrams7.png)
+<mermaid>
+sequenceDiagram
+    participant Client
+    participant Provider   
+    Client->>Provider: HTTP PATCH Request
+    activate Client
+    activate Provider
+    Provider->>Provider: Validate Request
+    alt Validation Failed
+        Provider--)Client: HTTP 4xx/5xx Response
+    else Validation Succeeded
+        Provider--)Client: HTTP 202 Response, Response Object = requestState, Status = Pending
+    end
+    Provider->>Provider: Process Request
+    loop Until requestState.status = completed or failed
+        Client->>Provider: HTTP GET Request, Requested Resource = requestState
+        alt Successful Response
+            Provider--)Client: HTTP 200 Response, Response Object = requestState, status = pending OR completed OR failed
+        else Failure Response
+            Provider--)Client: HTTP 4xx/5xx Response
+        end
+    end
+    opt requestState.status = completed
+        Note right of Client: Optional Flow - use if the Client wishes to retrieve a representation of the created resourse.
+        Client->>Provider: HTTP GET Request
+        Provider--)Client: (Refer to GET Sequence Diagram for HTTP response details)
+    end
+    deactivate Client
+    deactivate Provider
+</mermaid>
 
 **Figure 7** : Mobile Money API Asynchronous Polling Diagram for Update Requests
 
@@ -270,7 +439,10 @@ The following HTTP response codes are returned for the listed methods:
 |:---------- |:------------|:-----------------|:-----------------|:-----------------|
 | GET        | 200         | N/A              | 400, 401, 404    | 500, 503         |
 | POST       | 201         | 202              | 400, 401, 404    | 500, 503         |
+
+::: tip
 *Note that the ‘intermediate’ column in the table above relates to the HTTP response for the first leg of an asynchronous request.
+:::
 
 #### HTTP Error Response Codes
 
@@ -305,11 +477,11 @@ With the errorParameters property, care should be taken regarding confidentially
 | **Errors Object Properties**                                                   ||||||
 |:--------------- |:--------------|:-----------------|-----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |       | **Reference**  | **Validation** |
-| errorCategory | string | The category grouping for the error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Categories](/api-versions-1.2/get-started.html#http-error-response-codes) |
-| errorCode | string | The harmonised error code identifying the reason for error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Codes](/api-versions-1.2/get-started.html#api-error-codes) |
-| errorDescription | string | A textual description of the error.  | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
-| errorDateTime | date-time | The timestamp indicating when the error occurred. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
-| errorParameters | array | Diagnostic information in the form of key/value pairs relating to the error. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | [Errors Parameters](/api-versions-1.2/get-started.html#error-parameters-object) ||
+| **errorCategory** | string | The category grouping for the error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Categories](/api-versions-1.2/get-started.html#http-error-response-codes) |
+| **errorCode** | string | The harmonised error code identifying the reason for error.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M | | Enumeration = [Errors Codes](/api-versions-1.2/get-started.html#api-error-codes) |
+| **errorDescription** | string | A textual description of the error.  | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
+| **errorDateTime** | date-time | The timestamp indicating when the error occurred. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | | |
+| **errorParameters** | array | Diagnostic information in the form of key/value pairs relating to the error. | &#8594;&nbsp;O<br/>&#8592;&nbsp;O | [Errors Parameters](/api-versions-1.2/get-started.html#error-parameters-object) ||
 
 ##### Error Parameters Object
 
@@ -318,8 +490,8 @@ Allows error parameter properties to be specified in the form of key/value pairs
 | **Error Parameters Object Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |       | **Reference**  | **Validation** |
-| key | string | Identifies the type of additional error parameter.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |    ||
-| value | string | Identifies the value of the additional error parameter. | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |  ||
+| **key** | string | Identifies the type of additional error parameter.  | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |    ||
+| **value** | string | Identifies the value of the additional error parameter. | &#8594;&nbsp;M<br/>&#8592;&nbsp;M |  ||
 
 #### API Error Codes
 
@@ -374,9 +546,9 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 | **Heartbeat Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |     | **Reference**  | **Validation** |
-| serviceStatus | string | Provides the status of the requested service. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M || Enumeration = available, unavailable, degraded |
-| delay | number | The anticipated processing delay in milliseconds. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O || serviceStatus property must be set to degraded. |
-| plannedRestorationTime | date-time | Where the planned restoration time is known (e.g. scheduled maintenance), it can be provided in this property. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
+| **serviceStatus** | string | Provides the status of the requested service. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M || Enumeration = available, unavailable, degraded |
+| **delay** | number | The anticipated processing delay in milliseconds. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O || serviceStatus property must be set to degraded. |
+| **plannedRestorationTime** | date-time | Where the planned restoration time is known (e.g. scheduled maintenance), it can be provided in this property. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
 
 ### Missing Response Retrieval
 
@@ -387,4 +559,4 @@ The response object for /responses is detailed below.
 | **Responses Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |   | **Reference**  | **Validation** |
-| link | string | Provides a URL to the resource associated with the given correlation ID. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M |  ||
+| **link** | string | Provides a URL to the resource associated with the given correlation ID. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;M |  ||
