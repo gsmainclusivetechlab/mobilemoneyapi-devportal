@@ -522,6 +522,12 @@
       margin-top: 23px;
     }
 
+    &.key-group {
+      @include media('<tablet') {
+        width: 92%;
+      }
+    }
+
     label {
       font-size: 14px;
       font-weight: 500;
@@ -610,6 +616,10 @@
       .vs__selected {
         color: var(--color-grey);
       }
+
+      .vs__open-indicator {
+        fill: var(--color-grey);
+      }
     }
   }
 
@@ -641,6 +651,11 @@
     background: var(--color-white);
     padding: 3px 5px;
     border-radius: 5px;
+
+    @include media('<tablet') {
+      left: unset;
+      right: -30px;
+    }
   }
 
   .update-btn-wrap {

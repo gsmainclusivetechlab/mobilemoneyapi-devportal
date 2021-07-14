@@ -1,21 +1,69 @@
 <template>
   <div class="dashboard-content">
-    <div class="create-app-banner">
-      <div class="flex-container">
-        <div class="content-box">
-          <span class="create-app-banner-title">Create an app</span>
-          <div class="create-app-banner-text">
-            <span>Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span>
-            <ol>
-              <li>Tincidunt aenean eget tincidunt in fringilla congue.</li>
-              <li>Egestas lectus nisi diam felis, tortor.</li>
-              <li>Sed vitae est a, consectetur viverra fringilla non.</li>
-            </ol>
-          </div>
+    <div class="account-flex-container">
+      <div class="account-title-info-wrap">
+        <h3 class="content-title">My account</h3>
+      </div>
+      <div class="account-info-container">
+        <div class="account-info-title-wrap">
+          <span class="account-info-title">Personal information</span>
+          <button class="btn btn--transparent edit-btn" type="button"
+                  @click="handleAccountDetailsEdit()"
+                  v-if="accountEditBtnEnabled"
+          >Edit</button>
         </div>
-        <div class="content-box">
-          <div class="img-wrap">
-            <img src="/images/create-app-img.svg" alt="">
+        <div class="fields-wrap">
+          <div class="input-group">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" v-model="accountDB.fullName" :disabled="accountDetailsDisabled">
+          </div>
+          <div class="input-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" v-model="accountDB.company" :disabled="accountDetailsDisabled">
+          </div>
+          <div class="input-group input-wrapper__custom-select">
+            <label for="timezone">Timezone</label>
+            <v-select
+                return-object
+                id="timezone"
+                name="timezone"
+                :clearable="false"
+                :options="items"
+                :disabled="accountDetailsDisabled"
+                v-model="accountDB.timezone"
+            ></v-select>
+          </div>
+          <div class="update-btn-wrap">
+            <button class="btn btn--accent update-btn" type="button"
+                    v-if="accountUpdateBtnEnabled"
+                    @click="handleAccountDetailsUpdate()"
+            >Update</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="account-info-container">
+        <div class="account-info-title-wrap">
+          <span class="account-info-title">Security</span>
+          <button class="btn btn--transparent edit-btn" type="button"
+                  @click="handleAccountSecurityEdit()"
+                  v-if="accountSecurityBtnEnabled"
+          >Edit</button>
+        </div>
+        <div class="fields-wrap">
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" v-model="accountDB.email" :disabled="accountSecurityDisabled">
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" v-model="accountDB.password" :disabled="accountSecurityDisabled">
+          </div>
+          <div class="update-btn-wrap">
+            <button class="btn btn--accent update-btn" type="button"
+                    v-if="accountSecurityUpdateBtnEnabled"
+                    @click="handleAccountSecurityUpdate()"
+            >Update</button>
           </div>
         </div>
       </div>
@@ -37,7 +85,46 @@ export default {
         return {
             tabTitle: 'My account',
             tabIcon: tabIcon,
+            accountEditBtnEnabled: true,
+            accountDetailsDisabled: true,
+            accountUpdateBtnEnabled: false,
+            accountSecurityBtnEnabled: true,
+            accountSecurityDisabled: true,
+            accountSecurityUpdateBtnEnabled: false,
+            accountDB: {
+                fullName: 'Thomas Ride',
+                company: 'Porto',
+                timezone: 'GMT+3',
+                email: 'thomas.ride@mail.com',
+                password: '12345678',
+            },
+            items: ['GMT+1',
+                'GMT+2',
+                'GMT+4'],
         }
     },
+
+    methods: {
+        handleAccountDetailsEdit() {
+            this.accountDetailsDisabled = !this.accountDetailsDisabled;
+            this.accountEditBtnEnabled = false;
+            this.accountUpdateBtnEnabled = true;
+        },
+        handleAccountSecurityEdit() {
+            this.accountSecurityDisabled = !this.accountSecurityDisabled;
+            this.accountSecurityBtnEnabled = false;
+            this.accountSecurityUpdateBtnEnabled = true;
+        },
+        handleAccountDetailsUpdate() {
+            this.accountDetailsDisabled = true;
+            this.accountEditBtnEnabled = true;
+            this.accountUpdateBtnEnabled = false;
+        },
+        handleAccountSecurityUpdate() {
+            this.accountSecurityDisabled = true;
+            this.accountSecurityBtnEnabled = true;
+            this.accountSecurityUpdateBtnEnabled = false;
+        },
+    }
 };
 </script>

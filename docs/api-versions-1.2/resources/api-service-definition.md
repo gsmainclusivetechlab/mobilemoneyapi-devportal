@@ -40,7 +40,7 @@ The Transactions APIs are used to support mobile money financial transaction use
 
 The following paths are permitted:
 
-| Operation     | Path          | Description  |
+| **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
 | POST          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
 | View          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
@@ -65,10 +65,9 @@ classDiagram
 
 #### Transaction Object Definition
 
-**Transaction Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
 | **originalTransactionReference** | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594; O <br> &#8592; O |  |  |
@@ -82,7 +81,7 @@ classDiagram
 | **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594; O <br> &#8592; O |  |  |
 | **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594; O <br> &#8592; O | [Fees Object](/api-versions-1.2/resources/api-service-definition.html#fees-object) |  |
 | **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594; O <br> &#8592; O |  |  |
-| **internationalTransferInformation** | object | A collection of fields detailing information specifically used for international transfers. | &#8594; O <br> &#8592; O | [International Transfer Information](/api-versions-1.2/resources/api-service-definition.html#international-transfer-information)  |  |
+| **internationalTransferInformation** | object | A collection of fields detailing information specifically used for international transfers. | &#8594; O <br> &#8592; O | [International Transfer Information](/api-versions-1.2/resources/api-service-definition.html#international-transfer-information-object)  |  |
 | **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An [authorisation code](/api-versions-1.2/resources/api-service-definition.html#authorisation-codes-api) can be supplied in this field for requests that have been pre-authorised. | &#8594; O <br> &#8592; O |  |  |
 | **recipientKyc** | object | A collection of fields detailing the KYC of the transaction recipient. | &#8594; O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition.html#kyc-information-object) |  |
 | **senderKyc** | object | A collection of fields detailing the KYC of the transaction sender. | &#8594; O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition.html#kyc-information-object) |  |
@@ -118,10 +117,9 @@ classDiagram
 
 #### Reversal Object Definition
 
-**Reversal Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Reversal Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594; O <br> &#8592; O |  |  |
 | **originalTransactionReference** | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594; NA <br> &#8592; M |  |  |
@@ -242,10 +240,9 @@ classDiagram
 
 #### Batch Transaction Object Definition
 
-**Batch Transaction Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Batch Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **batchID** | string | Identifier for the Batch that is assigned by the API provider. This ID is used by the client on subsequent GET or PATCH methods. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **batchStatus** | string | Indicates the status of the batch. | &#8594; O <br> &#8592; M |  | Enumeration = created, approved, completed |
 | **Transactions** | array | Collection of Transactions that are to be processed. Note that the representation of each completed transaction can be retrieved via the ‘/completions API. | &#8594; M <br> &#8592; NA | [Transactions](/api-versions-1.2/resources/api-service-definition.html#transactions-api) |  |
@@ -294,16 +291,15 @@ classDiagram
 
 #### Batch Rejection Object Definition
 
-**Batch Rejection Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Batch Rejection Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **transactionReference** | string | Transaction Reference as assigned by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transactions. | &#8594; N/A <br> &#8592; O |  |  |
-| **creditParty** | array | The credit party identifiers for the transaction as specific in the batch request. | &#8594; N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **debitParty** | array | The debit party identifiers for the transaction as specific in the batch request. | &#8594; N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **rejectionReason**  | string | The reason for the transaction request as indicated by the API provider. | &#8594; N/A <br> &#8592; M |  |  |
-| **rejectionDate** | date-time | Date and time of the rejection. | &#8594; N/A <br> &#8592; M |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **transactionReference** | string | Transaction Reference as assigned by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transactions. | &#8594; NA <br> &#8592; O |  |  |
+| **creditParty** | array | The credit party identifiers for the transaction as specific in the batch request. | &#8594; NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **debitParty** | array | The debit party identifiers for the transaction as specific in the batch request. | &#8594; NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **rejectionReason**  | string | The reason for the transaction request as indicated by the API provider. | &#8594; NA <br> &#8592; M |  |  |
+| **rejectionDate** | date-time | Date and time of the rejection. | &#8594; NA <br> &#8592; M |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594; O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 
 ### Batch Completions API
@@ -336,16 +332,15 @@ classDiagram
 
 #### Batch Completion Object Definition
 
-**Batch Completion Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Batch Completion Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **transactionReference** | string | Transaction Reference as assigned by the API provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transactions. | &#8594; N/A <br> &#8592; O |  |  |
-| **creditParty** | array | The credit party identifiers for the transaction as specific in the batch request. | &#8594; N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **debitParty** | array | The debit party identifiers for the transaction as specific in the batch request. | &#8594; N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **completionDate**  | date-time | Date and time indicating when the transaction was completed. | &#8594; N/A <br> &#8592; M |  |  |
-| **link** | string | Provides a URL to the transaction resource. | &#8594; N/A <br> &#8592; M |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **transactionReference** | string | Transaction Reference as assigned by the API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transactions. | &#8594; NA <br> &#8592; O |  |  |
+| **creditParty** | array | The credit party identifiers for the transaction as specific in the batch request. | &#8594; NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **debitParty** | array | The debit party identifiers for the transaction as specific in the batch request. | &#8594; NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **completionDate**  | date-time | Date and time indicating when the transaction was completed. | &#8594; NA <br> &#8592; M |  |  |
+| **link** | string | Provides a URL to the transaction resource. | &#8594; NA <br> &#8592; M |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594; O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 
 ### Accounts APIs
@@ -409,7 +404,7 @@ The following account fields can be updated:
 | accountStatus | *"op": "replace", "path": "/accountStatus", "value": “string”* | Use to modify the status of an account. |
 | accountSubStatus |  *"op": "replace", "path": "/accountSubStatus", "value": “string”* | Use to modify the sub-status of an account. |
 
-For more information on the above fields please refer to the [Account](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) object.
+For more information on the above fields please refer to the [Account](/api-versions-1.2/resources/api-service-definition.html#account-object-definition) object.
 
 ##### Identity-Level Updates
 
@@ -430,7 +425,7 @@ The following identity fields can be updated:
 | identity.kycVerificationEntity |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the entity (e.g. mobile money agent) that performed the verification. |
 | identity.kycLevel |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | UUse to modify the KYC level of an identity associated with an account. |
 
-For more information on the above fields please refer to the [Identity Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object).
+For more information on the above fields please refer to the [Identity Object](/api-versions-1.2/resources/api-service-definition.html#identity-object).
 
 #### Account UML Diagram
 
@@ -450,26 +445,25 @@ classDiagram
 
 #### Account Object Definition
 
-**Account Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Account Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **accountIdentifiers** | array | A series of key/value pairs that enable the account to be identified. Identifiers are assigned by the API Provider during creation. | &#8594;&nbsp;O <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **identity** | array | An account must be associated with one or more identities. | &#8594;&nbsp;M <br> &#8592; M | [Identity Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
+| **identity** | array | An account must be associated with one or more identities. | &#8594;&nbsp;M <br> &#8592; M | [Identity Object](/api-versions-1.2/resources/api-service-definition.html#identity-object) |  |
 | **accountType** | string | A non-harmonised field that indicates the type of the account. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **accountStatus** | string | Indicates a simplified representation of the account status. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **accountSubStatus** | string | Field can be used to return a provider-specific status for the account. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **currentBalance** | string | The current outstanding balance on the account. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the account. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+| **accountStatus** | string | Indicates a simplified representation of the account status. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **accountSubStatus** | string | Field can be used to return a provider-specific status for the account. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **currentBalance** | string | The current outstanding balance on the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency of the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 | **fees** | string | Returns all fees related to the creation of the account. | &#8594;&nbsp;O <br> &#8592; O | [Fees Object](/api-versions-1.2/resources/api-service-definition.html#fees-object) |  |
-| **commissionEarned** | string | Returns all commission earned by the registering entity for the creation of the account. | &#8594;&nbsp;N/A <br> &#8592; O | [Commission Object](/api-versions-1.2/resources/api-service-definition.html#commission-object) |  |
+| **commissionEarned** | string | Returns all commission earned by the registering entity for the creation of the account. | &#8594;&nbsp;NA <br> &#8592; O | [Commission Object](/api-versions-1.2/resources/api-service-definition.html#commission-object) |  |
 | **registeringEntity** | string | The entity that registered the account, for example, a mobile money agent. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **creationDate** | date-time | Indicates when the account was created as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Indicates when the account was modified as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **creationDate** | date-time | Indicates when the account was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the account was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the account request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 
 #### Retrieving Transactions for an Account
@@ -530,13 +524,12 @@ classDiagram
 
 ##### Account Status Object Definition
 
-**Account Status Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Account Status Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **accountStatus** | string | Indicates a simplified representation of the account status. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction posted with the account identifier(s) will result in an unregistered voucher creation. | &#8594;&nbsp;N/A <br> &#8592; M |  | Enumeration = available, unavailable, unregistered |
-| **subStatus** | string | Field can be used to return a provider-specific status for the account. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **lei** | string | Indicates the Legal Entity Identifier of the organisation holding the account. | &#8594;&nbsp;N/A <br> &#8592; O |  | Refer to LEI format as defined here: [https://www.leiroc.org/lei.htm](https://www.leiroc.org/lei.htm) |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **accountStatus** | string | Indicates a simplified representation of the account status. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction posted with the account identifier(s) will result in an unregistered voucher creation. | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = available, unavailable, unregistered |
+| **subStatus** | string | Field can be used to return a provider-specific status for the account. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **lei** | string | Indicates the Legal Entity Identifier of the organisation holding the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Refer to LEI format as defined here: [https://www.leiroc.org/lei.htm](https://www.leiroc.org/lei.htm) |
 
 #### Account Balances API
 
@@ -553,16 +546,15 @@ classDiagram
 
 **Figure 2-9 Account Balance UML Class Diagram**
 
-**Balance Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Balance Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **accountStatus** | string | Indicates a harmonises representation of the account state. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction created with the account identifier(s) will result in an unregistered voucher creation. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = available, unavailable, unregistered |
-| **currentBalance** | string | The current outstanding balance on the account. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency for all returned balances. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **accountStatus** | string | Indicates a harmonises representation of the account state. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction created with the account identifier(s) will result in an unregistered voucher creation. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = available, unavailable, unregistered |
+| **currentBalance** | string | The current outstanding balance on the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency for all returned balances. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
 
 #### Account Holder Name API
 
@@ -579,12 +571,11 @@ classDiagram
 
 ##### Account Holder Name Object Definition
 
-**Balance Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Account Holder Name Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **name** | rReference | A collection of fields detailing the name of the Primary Account Holder. | &#8594;&nbsp;N/A <br> &#8592; O | [Name](/api-versions-1.2/resources/api-service-definition.html#name-object) |  |
-| **lei** | string | Indicates the Legal Entity Identifier of the organisation holding the account. | &#8594;&nbsp;N/A <br> &#8592; O |  | Refer to LEI format as defined here: [https://www.leiroc.org/lei.htm](https://www.leiroc.org/lei.htm) |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **name** | rReference | A collection of fields detailing the name of the Primary Account Holder. | &#8594;&nbsp;NA <br> &#8592; O | [Name](/api-versions-1.2/resources/api-service-definition.html#name-object) |  |
+| **lei** | string | Indicates the Legal Entity Identifier of the organisation holding the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Refer to LEI format as defined here: [https://www.leiroc.org/lei.htm](https://www.leiroc.org/lei.htm) |
 
 #### Account Statement Entries API
 
@@ -634,22 +625,21 @@ classDiagram
 
 ##### Account Statement Entry Object Definition
 
-**Account Statement Entry Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Account Statement Entry Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **creditParty** | array | A series of key/value pairs that identify the credit party. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **debitParty** | array | A collection of key/value pairs that identify the debit. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;N/A <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
-| **transactionStatus** | string | Indicates the status of the transaction as represented by the API provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **amount** | string | Amount of the transaction. | &#8594;&nbsp;N/A <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the transaction. | &#8594;&nbsp;N/A <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
-| **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **displayType** | string | The transaction type that is to be used for presentation to the account holder as determined by the API provider. This is not necessarily the actual transaction type. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **creationDate** | date-time | Date and time when the transaction was created by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Date and time when the transaction modified by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **requestDate** | date-time | The date and time of the transaction request as supplied by the client. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **creditParty** | array | A series of key/value pairs that identify the credit party. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **debitParty** | array | A collection of key/value pairs that identify the debit. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;NA <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
+| **transactionStatus** | string | Indicates the status of the transaction as represented by the API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **amount** | string | Amount of the transaction. | &#8594;&nbsp;NA <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency of the transaction. | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+| **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **displayType** | string | The transaction type that is to be used for presentation to the account holder as determined by the API provider. This is not necessarily the actual transaction type. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **creationDate** | date-time | Date and time when the transaction was created by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Date and time when the transaction modified by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **requestDate** | date-time | The date and time of the transaction request as supplied by the client. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 
 ### Bills API
@@ -683,21 +673,20 @@ classDiagram
 
 #### Bill Object Definition
 
-**Bill Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Bill Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **billReference** | string | Reference number for the Bill that the payer can use when making a payment. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **billStatus** | string | Identifies the status of the Bill. | &#8594;&nbsp;N/A <br> &#8592; O |  | ‘paid’, ‘unpaid’, ‘partialpaid’ |
-| **amountDue** | string | Amount outstanding on the bill to be paid. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **billDescription** | string | Description of the bill that is to be paid. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **currency** | string | Currency of the bill to be paid. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
-| **dueDate** | date | Date on which the Bill is due to be paid. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **minimumAmountDue** | string | The minimum amount that is outstanding on the bill to be paid. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **creationDate** | date-time | Indicates when the bill was created by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Indicates when the bill was modified by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **billReference** | string | Reference number for the Bill that the payer can use when making a payment. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **billStatus** | string | Identifies the status of the Bill. | &#8594;&nbsp;NA <br> &#8592; O |  | ‘paid’, ‘unpaid’, ‘partialpaid’ |
+| **amountDue** | string | Amount outstanding on the bill to be paid. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **billDescription** | string | Description of the bill that is to be paid. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **currency** | string | Currency of the bill to be paid. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+| **dueDate** | date | Date on which the Bill is due to be paid. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **minimumAmountDue** | string | The minimum amount that is outstanding on the bill to be paid. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **creationDate** | date-time | Indicates when the bill was created by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the bill was modified by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
-| **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the bill. | &#8594;&nbsp;N/A <br> &#8592; O | [Metadata](/api-versions-1.2/resources/api-service-definition.html#metadata-object) |  |
+| **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the bill. | &#8594;&nbsp;NA <br> &#8592; O | [Metadata](/api-versions-1.2/resources/api-service-definition.html#metadata-object) |  |
 
 ### Bill Payments API
 
@@ -745,23 +734,22 @@ classDiagram
 
 #### Bill Payment Object Definition
 
-**Bill Payment Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Bill Payment Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **serviceProviderPaymentReference** | string | Reference for the payment generated by the service provider. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **requestingOrganisationTransactionReference** | string | The mobile money provider’s (or Financial Institution’s) transaction reference used to debit the customer and credit the service provider. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **paymentType** | string | Describes the type of Bill Payment, i.e. whether a full or partial payment. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = ‘fullpayment’, ‘partialpayment’ |
-| **billPaymentStatus** | string | Indicates the status of the bill payment as stored by the API provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
+| **billPaymentStatus** | string | Indicates the status of the bill payment as stored by the API provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **amountPaid** | string | Amount that is being paid. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
 | **currency** | string | Currency of the amount that is being paid. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
 | **customerReference** | string | Textual reference provided by the customer paying the bill. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **requestingOrganisation** | string | The originating mobile money provider or financial institution that holds the wallet/account of the payer. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **supplementaryBillReferenceDetails** | array | In some cases, a single reference is not sufficient to identify a bill. This key-value collection enables further reference information to be supplied. | &#8594;&nbsp;C <br> &#8592; C | [Bill References](/api-versions-1.2/resources/api-service-definition.html#supplementary-bill-reference-object) | Not applicable if billReference is no passed in the path. |
-| **serviceProviderComment** | string | Allows the Service Provider to include specific information regarding the bill payment. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **serviceProviderNotification** | string | Allows the Service Provider to include specific information that will be included on the notification to the customer by the mobile money provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **creationDate** | date-time | Indicates when the bill payment was created as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Indicates when the bill payment was modified as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **serviceProviderComment** | string | Allows the Service Provider to include specific information regarding the bill payment. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **serviceProviderNotification** | string | Allows the Service Provider to include specific information that will be included on the notification to the customer by the mobile money provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **creationDate** | date-time | Indicates when the bill payment was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the bill payment was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the bill payment request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the bill payment. | &#8594;&nbsp;O <br> &#8592; O | [Metadata](/api-versions-1.2/resources/api-service-definition.html#metadata-object) |  |
@@ -807,15 +795,14 @@ classDiagram
 
 #### Bill Company Object Definition
 
-**Bill Companies Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Bill Companies Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **serviceProvider** | string | Service Provider Reference Code. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **service ProviderType** | string | Type of Service Provider that accepts payments. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **serviceProviderSubType** | string | Sub-Type of Service Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **companyName** | string | Display Name for the Service Provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **supplementary ServiceProviderDetails** | array | In some cases, further information for a service provider can be returned. This key-value collection enables further information to be supplied. | &#8594;&nbsp;N/A <br> &#8592; O | [Supplementary Service Provider Details](/api-versions-1.2/resources/api-service-definition.html#supplementary-bill-reference-object) |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **serviceProvider** | string | Service Provider Reference Code. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **service ProviderType** | string | Type of Service Provider that accepts payments. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **serviceProviderSubType** | string | Sub-Type of Service Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **companyName** | string | Display Name for the Service Provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **supplementary ServiceProviderDetails** | array | In some cases, further information for a service provider can be returned. This key-value collection enables further information to be supplied. | &#8594;&nbsp;NA <br> &#8592; O | [Supplementary Service Provider Details](/api-versions-1.2/resources/api-service-definition.html#supplementary-bill-reference-object) |  |
 
 ### Debit Mandates API
 
@@ -848,11 +835,10 @@ classDiagram
 
 #### Debit Mandate Object Definition
 
-**Debit Mandate Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Debit Mandate Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **mandateReference** | string | Unique reference provided by the API Provider for the Debit Mandate. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **mandateReference** | string | Unique reference provided by the API Provider for the Debit Mandate. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **payee** | array | A series of key/value pairs that enable the payee to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;O <br> &#8592; O | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
 | **mandateStatus** | string | Indicates the status of the Debit Mandate as held in the API Provider system. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = active, inactive |
 | **startDate** | date | Date on which the mandate starts. If a frequencyType is specified, this will also be the date on which the first payment is to be taken. | &#8594;&nbsp;M <br> &#8592; M |  |  |
@@ -862,8 +848,8 @@ classDiagram
 | **frequencyType** | string | Indicates the frequency for which payments will be taken from the payers account. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [Frequency](/api-versions-1.2/resources/api-service-definition.html#frequency-type) |
 | **numberOfPayments** | number | Indicates the number of consecutive payments that are to be taken. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation](/api-versions-1.2/resources/api-service-definition.html#requesting-organisation-object) |  |
-| **creationDate** | date-time | Date and time when the Debit Mandate was created by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Date and time when the Debit Mandate was modified by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **creationDate** | date-time | Date and time when the Debit Mandate was created by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Date and time when the Debit Mandate was modified by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the debit mandate request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 
@@ -901,17 +887,16 @@ classDiagram
 
 #### Link Object Definition
 
-**Link Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Link Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **linkReference** | string | Indicates the Link reference. This enables a linked account to be uniquely identified. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **linkReference** | string | Indicates the Link reference. This enables a linked account to be uniquely identified. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **sourceAccountIdentifiers** | array | A series of key/value pairs that identify the source account. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;M <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
 | **mode** | string | Indicates the mode of operation for the Link. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = push, pull, both |
 | **status** | string | Indicates the status of the Link. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = active, inactive |
 | **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation](/api-versions-1.2/resources/api-service-definition.html#requesting-organisation-object) |  |
-| **creationDate** | date-time | Indicates when the link was created as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Indicates when the link was modified as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **creationDate** | date-time | Indicates when the link was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the link was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the link request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **customData** | string | Contains provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 
@@ -974,14 +959,13 @@ classDiagram
 
 #### Authorisation Code Object Definition
 
-**Authorisation Codes Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Authorisation Codes Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **authorisationCode** | string | The code that will be presented to the other party for redemption. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **codeState** | string | Indicates the state of the [Authorisation Code](/api-versions-1.2/resources/api-service-definition.html#authorisation-codes-api) | &#8594;&nbsp;N/A <br> &#8592; M |  | Enumeration = ‘active’, ‘expired’, ‘cancelled’ |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **authorisationCode** | string | The code that will be presented to the other party for redemption. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **codeState** | string | Indicates the state of the [Authorisation Code](/api-versions-1.2/resources/api-service-definition.html#authorisation-codes-api) | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = ‘active’, ‘expired’, ‘cancelled’ |
 | **amount** | string | Indicates the amount associated with the [authorisation code](/api-versions-1.2/resources/api-service-definition.html#authorisation-codes-api). Typically, this is set by the client. | &#8594;&nbsp;O <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Indicates the amount currency. Must be supplied when an amount is supplied. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [Frequency](/api-versions-1.2/resources/api-service-definition.html#frequency-type) |
+| **currency** | string | Indicates the amount currency. Must be supplied when an amount is supplied. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
 | **amountType** | string | The amount for the authorisation can be an exact amount or can be a maximum amount, i.e. redemption up to but not higher than the amount specified. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = ‘exact’, ‘maximum’ |
 | **codeLifetime** | integer | Indicates the expiry time in seconds of the code. Depending upon the use case, this can be set by the client or server. | &#8594;&nbsp;O <br> &#8592; O |  | If supplied, then must be 1 second or greater. |
 | **holdFundsIndicator** | boolean | Indicates whether funds should be reserved against the payer’s account where the payer is the requestor. | &#8594;&nbsp;O <br> &#8592; O |  |  |
@@ -989,15 +973,15 @@ classDiagram
 | **redemptionChannels** | string | Indicates the channel(s) that the code can be redeemed against, e.g. ATM, Merchant, etc.. | &#8594;&nbsp;O <br> &#8592; O | [Channel Types Object](/api-versions-1.2/resources/api-service-definition.html#channel-type-object) |  |
 | **redemptionTransactionTypes** | string | Indicates the Transaction Types(s) that the code can be redeemed against. | &#8594;&nbsp;O <br> &#8592; O | [Transaction Types Object](/api-versions-1.2/resources/api-service-definition.html#transaction-type-object) |  |
 | **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation](/api-versions-1.2/resources/api-service-definition.html#requesting-organisation-object) |  |
-| **creationDate** | date-time | Indicates when the link was created as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Indicates when the link was modified as recorded by the API provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **creationDate** | date-time | Indicates when the link was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the link was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the request as provided by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the [authorisation code](/api-versions-1.2/resources/api-service-definition.html#authorisation-codes-api) | &#8594;&nbsp;O <br> &#8592; O | [Metadata](/api-versions-1.2/resources/api-service-definition.html#metadata-object) |  |
 
 ### Quotations API
 
-The Quotations APIs are used to obtain one or multiple quotes for a mobile money customer that wishes to transfer money. The creation of a quote involves returning any fees that will be levied on the sending customer and if the request is international, the forex rate. A request is made for a quotation by the requesting Service Provider in response to a customer request. The quotation is calculated and returned. If the customer is satisfied with the quotation, then they can confirm and proceed with a transaction request using the [/transactions](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) API.
+The Quotations APIs are used to obtain one or multiple quotes for a mobile money customer that wishes to transfer money. The creation of a quote involves returning any fees that will be levied on the sending customer and if the request is international, the forex rate. A request is made for a quotation by the requesting Service Provider in response to a customer request. The quotation is calculated and returned. If the customer is satisfied with the quotation, then they can confirm and proceed with a transaction request using the [/transactions](/api-versions-1.2/resources/api-service-definition.html#api-endpoints) API.
 
 The following paths are permitted:
 
@@ -1024,31 +1008,30 @@ classDiagram
 
 #### Quotation Object Definition
 
-**Quotation Object Definition**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Quotation Object Definition** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **quotationReference** | string | Unique reference for the quotation as provided by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **quotationReference** | string | Unique reference for the quotation as provided by the API Provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
 | **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;M <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
 | **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;M <br> &#8592; M | [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |  |
 | **type** | string | The transaction type that the quotation has been requested for. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [Transaction Types](/api-versions-1.2/resources/api-service-definition.html#transaction-type-object) |
 | **subtype** | string | The transaction sub-type that the quotation has been requested for. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **quotationStatus** | string | Indicates the creation state of the quotation. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = pending, rejected, completed |
+| **quotationStatus** | string | Indicates the creation state of the quotation. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = pending, rejected, completed |
 | **requestAmount** | string | Requested Quotation amount. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
 | **requestCurrency** | string | Currency of the requested quotation amount. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
-| **availableDeliveryMethod** | string | Delivery Method that is possible for the intended recipient. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [Delivery Method](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
+| **availableDeliveryMethod** | string | Delivery Method that is possible for the intended recipient. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [Delivery Method](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
 | **chosenDeliveryMethod** | string | The delivery method chosen by the sending end user as the specific delivery method to be used in the quotes received. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [Delivery Method](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
 | **originCountry** | string | The originating country of the quotation request, i.e. the country where the request was initiated. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **receivingCountry** | string | Destination country of the quotation request, i.e. the country that the sender wishes to send to. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **quotes** | array | A collection of quotes. A quote can be received from a single receiving financial service provider or from multiple providers. | &#8594;&nbsp;N/A <br> &#8592; O | [Quotes](/api-versions-1.2/resources/api-service-definition.html#quote-object) |  |
+| **quotes** | array | A collection of quotes. A quote can be received from a single receiving financial service provider or from multiple providers. | &#8594;&nbsp;NA <br> &#8592; O | [Quotes](/api-versions-1.2/resources/api-service-definition.html#quote-object) |  |
 | **recipientKyc** | object | A collection of fields detailing the KYC of the transaction recipient, typically used for International Transfers. | &#8594;&nbsp;O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition.html#kyc-information-object) |  |
 | **senderKyc** | object | A collection of fields detailing the KYC of the transaction sender, typically used for International Transfers. | &#8594;&nbsp;O <br> &#8592; O | [KYC Information](/api-versions-1.2/resources/api-service-definition.html#kyc-information-object) |  |
-| **recipientBlockingReason** | string | The reason for blocking the quotation, based on AML checks on the recipient. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **senderBlockingReason** | string | The reason for blocking the quotation, based on AML checks on the sender. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;N/A <br> &#8592; O | [Requesting Organisation](/api-versions-1.2/resources/api-service-definition.html#requesting-organisation-object) |  |
+| **recipientBlockingReason** | string | The reason for blocking the quotation, based on AML checks on the recipient. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **senderBlockingReason** | string | The reason for blocking the quotation, based on AML checks on the sender. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;NA <br> &#8592; O | [Requesting Organisation](/api-versions-1.2/resources/api-service-definition.html#requesting-organisation-object) |  |
 | **sendingServiceProviderCountry** | string | The country of the sending service provider that holds the account of the sender. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **creationDate** | date-time | Date and time when the quotation was created by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **modificationDate** | date-time | Date and time when the quotation was modified by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **creationDate** | date-time | Date and time when the quotation was created by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Date and time when the quotation was modified by the API Provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **requestDate** | date-time | The date and time of the quotation request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](/api-versions-1.2/resources/api-service-definition.html#custom-data-object) |  |
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the quotation. | &#8594;&nbsp;O <br> &#8592; O | [Metadata](/api-versions-1.2/resources/api-service-definition.html#metadata-object) |  |
@@ -1059,18 +1042,17 @@ classDiagram
 
 The International Transfer Information object contains details that are specific to international money transfers.
 
-**International Transfer Information Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **International Transfer Information Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **quotationReference** | string | Reference for the quotation that was provided to the sender. (refer to [Quotations](/api-versions-1.2/resources/api-service-definition.html#quotations-api) API for more information). | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **quoteId** | string | The specific quote associated with the quotation (refer to [Quotes](/api-versions-1.2/resources/api-service-definition.html#quote-object) object for more information). | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **originCountry** | string | The originating country of the transaction, i.e. the country where the transaction was initiated. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Country Codes](/api-versions-1.2/resources/api-service-definition.html#iso-country-codes). |
 | **deliveryMethod** | string | The recipient delivery method as chosen by the sender. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [Delivery Method Types](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
 | **receivingCountry** | string | Destination country of the international transfer. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **relationshipSender** | string | Indicates the relationship (if any) between the sender and the receiver. | &#8594;&nbsp;O <br> &#8592; O |  |  |
-| **recipientBlockingReason** | string | The reason for blocking the transaction, based on AML checks on the recipient. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **senderBlockingReason** | string | The reason for blocking the transaction, based on AML checks on the sender. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+| **recipientBlockingReason** | string | The reason for blocking the transaction, based on AML checks on the recipient. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **senderBlockingReason** | string | The reason for blocking the transaction, based on AML checks on the sender. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **remittancePurpose** | string | field providing a description of the reason for the international transfer. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | ***sendingServiceProviderCountry*** | string | The country of the sending service provider that holds the account of the sender. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 
@@ -1078,10 +1060,9 @@ The International Transfer Information object contains details that are specific
 
 KYC refers to ‘Know your Customer’. The KYC object contains a number of fields that enable the identity of the subject to be verified. KYC can be provided with transfers for the sending identity and the receiving identity. There are no mandatory KYC object fields.
 
-**KYC Information Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **KYC Information Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **birthCountry** | string | The country of birth of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [ISO Country Codes](/api-versions-1.2/resources/api-service-definition.html#iso-country-codes). |
 | **dateOfBirth** | date | Birth date of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **contactPhone** | string | Contact phone number (mobile or landline) of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  | Must contain between 6 and 15 consecutive digits<br>First character can contain a ‘+’ or digit<br>Can contain spaces. |
@@ -1089,7 +1070,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 | **employerName** | string | Employer name of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **gender** | string | Gender of the KYC Object. | &#8594;&nbsp;O <br> &#8592; O |  | Length=1, Enumeration = (m)ale, (f)emale, (u)nspecified |
 | **idDocument** | array | An array of fields containing the forms of identification that are associated with the subject. | &#8594;&nbsp;O <br> &#8592; O | [Id Document Object](/api-versions-1.2/resources/api-service-definition.html#id-document-object) |  |
-| **nationality** | string | Nationality of the KYC subject. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [ISO Country Codes](/api-versions-1.2/resources/api-service-definition.html#iso-country-codes) |
+| **nationality** | string | Nationality of the KYC subject. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [ISO Country Codes](/api-versions-1.2/resources/api-service-definition.html#iso-country-codes) |
 | **postalAddress** | object | A collection of fields that details the postal address of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O | [Address](/api-versions-1.2/resources/api-service-definition.html#address-object) |  |
 | **occupation** | string | Occupation of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **subjectName** | object | Refers to the name fields for the KYC subject. | &#8594;&nbsp;O <br> &#8592; O | [Name](/api-versions-1.2/resources/api-service-definition.html#name-object) |  |
@@ -1098,10 +1079,9 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 
 The name object identifies the name details for the subject identity.
 
-**Name Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Name Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **title** | string | The given title of the KYC subject, e.g. Mr, Mrs, Dr. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **firstName** | string | First name (also referred to as given name) of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **middleName** | string | Middle Name of the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
@@ -1113,10 +1093,9 @@ The name object identifies the name details for the subject identity.
 
 As part of KYC information, identification documentation is normally required. The Id Document Object enables documents pertaining to a subject’s identity to be described.
 
-**Id Document Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Id Document Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **idType** | string | Indicates the type of identification for the KYC subject, e.g. passport, driving licence etc.. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ID Types](/api-versions-1.2/resources/api-service-definition.html#id-types) |
 | **idNumber** | string | Reference pertaining to the type of identification for the KYC subject. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **issueDate** | date | Date of issue for the identification document. | &#8594;&nbsp;O <br> &#8592; O |  |  |
@@ -1130,10 +1109,9 @@ As part of KYC information, identification documentation is normally required. T
 
 The address object holds the postal address of the subject. Due to variability of address information in a number of mobile money markets, only the country is mandatory.
 
-**Address Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Address Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **addressLine1** | string | First line of the address. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **addressLine2** | string | Second line of the address. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 | **addressLine3** | string | Third line of the address. | &#8594;&nbsp;O <br> &#8592; O |  |  |
@@ -1146,10 +1124,9 @@ The address object holds the postal address of the subject. Due to variability o
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
-**Account Identifier Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Account Identifier Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **key** | string | Provides the account identifier type. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [Account Identifiers](/api-versions-1.2/resources/api-service-definition.html#account-identifier-object) |
 | **value** | string | Provides the account identifier type value. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 
@@ -1157,13 +1134,12 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The Identity object defines the information for an identity associated with an account. Between one and twenty identities can be associated with an account.
 
-**Identity Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Identity Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **identityId** | string | A unique id for the identity as assigned by the API Provider. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **identityType** | string | Indicates the type of the identity. Currently, only ‘individual’ is supported. | &#8594;&nbsp;N/A <br> &#8592; M |  | ‘individual’ |
-| **identityStatus** | string | A non-harmonised field describing the status of the identity. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **identityId** | string | A unique id for the identity as assigned by the API Provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **identityType** | string | Indicates the type of the identity. Currently, only ‘individual’ is supported. | &#8594;&nbsp;NA <br> &#8592; M |  | ‘individual’ |
+| **identityStatus** | string | A non-harmonised field describing the status of the identity. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 | **identityKyc** | object | A collection of fields detailing the KYC held for the identity. | &#8594;&nbsp;M <br> &#8592; M | [KYC Information](/api-versions-1.2/resources/api-service-definition.html#kyc-information-object) |  |
 | **accountRelationship** | string | Describes the relationship that the identity holds with the account. | &#8594;&nbsp;M <br> &#8592; M |  | ‘accountholder’ |
 | **kycVerificationStatus** | string | Indicates the status of the identity’s KYC verification. | &#8594;&nbsp;O <br> &#8592; O |  | ‘verified’, ‘unverified’, ‘rejected’ |
@@ -1175,29 +1151,27 @@ The Identity object defines the information for an identity associated with an a
 
 Quotations can consist of multiple quotes. The fields for a quote are defined in the object.
 
-**Quote Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Quote Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
-| **quoteId** | string | The unique ID for this quote. | &#8594;&nbsp;N/A <br> &#8592; M |  |  |
-| **receivingAmount** | string | The total amount as it will be received by the receiving end user. | &#8594;&nbsp;N/A <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **receivingCurrency** | string | The currency of the quote. | &#8594;&nbsp;N/A <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
-| **sendingAmount** | string | Requested quotation amount as supplied by the sender. | &#8594;&nbsp;N/A <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **sendingCurrency** | string | Currency of the requested quotation amount. | &#8594;&nbsp;N/A <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
-| **deliveryMethod** | string | The delivery method that is applicable to the quotation. | &#8594;&nbsp;N/A <br> &#8592; O |  | Enumeration = [Delivery Method](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
-| **fees** | array | Returns all fees that are applicable to the quote. | &#8594;&nbsp;N/A <br> &#8592; O | [Fees Object](/api-versions-1.2/resources/api-service-definition.html#fees-object) |  |
-| **fxRate** | string | The conversion rate applicable between the sending and the receiving currency for the requested transaction. | &#8594;&nbsp;N/A <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. Note 10 decimal places supported. |
-| **quoteExpiryTime** | date-time | The timestamp when the quote will expire. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
-| **receivingServiceProvider** | string | The name of the receiving service provider, i.e. the provider that the quote is associated with. | &#8594;&nbsp;N/A <br> &#8592; O |  |  |
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **quoteId** | string | The unique ID for this quote. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **receivingAmount** | string | The total amount as it will be received by the receiving end user. | &#8594;&nbsp;NA <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **receivingCurrency** | string | The currency of the quote. | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+| **sendingAmount** | string | Requested quotation amount as supplied by the sender. | &#8594;&nbsp;NA <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **sendingCurrency** | string | Currency of the requested quotation amount. | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
+| **deliveryMethod** | string | The delivery method that is applicable to the quotation. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [Delivery Method](/api-versions-1.2/resources/api-service-definition.html#delivery-method-types) |
+| **fees** | array | Returns all fees that are applicable to the quote. | &#8594;&nbsp;NA <br> &#8592; O | [Fees Object](/api-versions-1.2/resources/api-service-definition.html#fees-object) |  |
+| **fxRate** | string | The conversion rate applicable between the sending and the receiving currency for the requested transaction. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. Note 10 decimal places supported. |
+| **quoteExpiryTime** | date-time | The timestamp when the quote will expire. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **receivingServiceProvider** | string | The name of the receiving service provider, i.e. the provider that the quote is associated with. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
 
 ### Metadata Object
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-**Metadata Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Metadata Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **key** | string | Identifies the type of additional fields. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **value** | string | Identifies the value of the additional field. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 
@@ -1205,10 +1179,9 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-**Custom Data Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Custom Data Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **key** | string | Identifies the type of additional fields. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **value** | string | Identifies the value of the additional field. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 
@@ -1216,10 +1189,9 @@ The custom data object allows additional fields to be specified for the associat
 
 This object enables additional payment references to be specified for a bill payment in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-**Supplementary Bill Reference Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Supplementary Bill Reference Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **paymentReferenceType** | string | Identifies the type of the additional payment reference. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **paymentReferenceValue** | string | Identifies the value of the additional payment reference. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 
@@ -1227,10 +1199,9 @@ This object enables additional payment references to be specified for a bill pay
 
 This object enables multiple transaction types to be specified along with paired sub-types. This object is used where multiple transaction types need to be passed in an API.
 
-**Transaction Type Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Transaction Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **transactionType** | string | Identifies the Transaction Type. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [Transaction Types](/api-versions-1.2/resources/api-service-definition.html#transaction-type-object) |
 | **transactionSubType** | string | Identifies the Transaction Sub-Type. | &#8594;&nbsp;O <br> &#8592; O |  |  |
 
@@ -1238,20 +1209,18 @@ This object enables multiple transaction types to be specified along with paired
 
 This object enables multiple channel types to be specified. This object is used where multiple channel types need to be passed in an API.
 
-**Channel Type Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Channel Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **channelType** | string | Identifies the Channel Type. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 
 ### Fees Object
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
 
-**Fees Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Fees Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **feeType** | string | Defines the type of fee. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **feeAmount** | string | Defines the amount of the fee. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
 | **feeCurrency** | string | Defines the currency for the given fee. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
@@ -1260,10 +1229,9 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 An object that enables earned commission that is calculated by the API provider to be returned.
 
-**Commission Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Commission Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **commissionType** | string | Defines the type of commission. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **commissionAmount** | string | Defines the amount of the commission. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
 | **commissionCurrency** | string | Defines the currency of the commission. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](/api-versions-1.2/resources/api-service-definition.html#iso-currency-codes) |
@@ -1272,10 +1240,9 @@ An object that enables earned commission that is calculated by the API provider 
 
 An object that details the originating organisation of the request.
 
-**Requesting Organisation Object**
-
-|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **Requesting Organisation Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **requestingOrganisationIdentifierType** | string | Identifies the identifier type of the requesting organisation. | &#8594;&nbsp;M <br> &#8592; M |  | ‘swiftbic’, ‘lei’, ‘organisationid’ |
 | **requestingOrganisationIdentifier** | string | Contains the requesting organisation identifier. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 

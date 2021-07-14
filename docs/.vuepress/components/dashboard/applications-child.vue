@@ -64,7 +64,7 @@
           <div class="info-text">
             <p>Below are keys you can use to access the Product (Usage Plan) associated with this application. The actual keys are capable of accessing any of the URIS defined in the Product (Usage Plan).</p>
           </div>
-          <div class="input-group">
+          <div class="input-group key-group">
             <label for="consumerKey">Consumer key</label>
             <input type="text" id="consumerKey" v-model="consumerKey" readonly>
             <button class="copy-btn" data-bind="consumerKey" @click.prevent="copyToClipboard($event)">
@@ -72,7 +72,7 @@
             </button>
             <span class="copy-popup" data-bind="consumerKey">Copied to clipboard!</span>
           </div>
-          <div class="input-group">
+          <div class="input-group key-group">
             <label for="consumerSecret">Consumer secret</label>
             <input type="text" id="consumerSecret" v-model="consumerSecret" readonly>
             <button class="copy-btn" data-bind="consumerSecret" @click.prevent="copyToClipboard($event)">
@@ -80,7 +80,7 @@
             </button>
             <span class="copy-popup" data-bind="consumerSecret">Copied to clipboard!</span>
           </div>
-          <div class="input-group">
+          <div class="input-group key-group">
             <label for="apiKey">API key</label>
             <input type="text" id="apiKey" v-model="apiKey" readonly>
             <button class="copy-btn" data-bind="apiKey" @click.prevent="copyToClipboard($event)">
@@ -143,14 +143,16 @@ export default {
             this.updateBtnEnabled = false;
         },
         copyToClipboard(e) {
-            const text = e.currentTarget.getAttribute('data-bind')
+            const text = e.currentTarget.getAttribute('data-bind');
+            console.log(text);
             navigator.clipboard.writeText(this[text]).then(function() {}, function(err) {
                 console.error('Async: Could not copy text: ', err);
             });
             const popup = document.querySelectorAll(`span[data-bind="${text}"]`);
             popup[0].style.opacity = 1;
-            setTimeout(() => { popup[0].style.transition = 'opacity ease-in-out 1.5s'; }, 0)
-            setTimeout(() => { popup[0].style.opacity = 0; }, 0)
+            setTimeout(() => { popup[0].style.transition = 'opacity ease-in-out 1.5s'; }, 0);
+            setTimeout(() => { popup[0].style.opacity = 0; }, 0);
+            popup[0].style.transition = 'none';
         }
     }
 };

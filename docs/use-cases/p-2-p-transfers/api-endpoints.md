@@ -47,7 +47,18 @@ The following paths are permitted:
 
 ### Transaction UML Class Diagram
 
-![Transaction UML Class Diagram](/images/transaction_uml_class_diagram.png)
+<mermaid>
+classDiagram
+    Credit Party Identifier "1..10" --* "1" Transaction
+    Debit Party Identifier "1..10" --* "1" Transaction
+    Fee "0..20" --* "1" Transaction
+    Transaction "1" *-- "0..20" Metadata
+    Transaction "1" *-- "0..2" KYC Information
+    Transaction "1" *-- "0..1" International Transfer Information
+    KYC Information "1" *-- "0..10" ID Document
+    KYC Information "1" *-- "0..1" Address
+    KYC Information "1" *-- "0..1" Name
+</mermaid>
 
 ### Transaction Object Definition
 
@@ -86,7 +97,14 @@ For viewing reversals, the [Transactions API](#transactions-api) should be used.
 
 ### Reversal UML Class Diagram
 
-![Reversal UML Class Diagram](https://lh3.googleusercontent.com/NI675xQbRGMNuwxppQabSV5vhstf_FKwwKs5bNlUVfOcm1x9h4lydPUEn5yRMbSp8Cr1vRVo-7tGEBXcv-qKo-v4YhYPOScrElqYPmLCLPMKu-36t5nu4bApTjvUVOFk68bjxd3BhEe1OYvtQg)
+<mermaid>
+classDiagram
+    Credit Party Identifier "0..10" --* "" Reversal
+    Debit Party Identifier "0..10" --* "" Reversal
+    Fee "0..20" --* "1" Reversal
+    Metadata "0..20" --* "1" Reversal
+    Reversal --> Transaction
+</mermaid>
 
 ### Reversal Object Definition
 
@@ -172,7 +190,19 @@ HTTP response headers are returned with each response indicating the total numbe
 
 ### Account Transaction UML Class Diagram
 
-![Account Transaction UML Class Diagram](https://lh4.googleusercontent.com/cHKdoa4nQsgY8ksjSGtDSjaKvkN19GyGwhYJHAzw_sA-TYpx8axzUPe88KsdKm0-zk5Sh7p7a_Xgr-9e4xBD9TGnXQ31S5W878BuZuI1uc3Rhem5guayQAtABlyH4IGuuVhMaKkwVT_NiLJeUA)
+<mermaid>
+classDiagram
+    ID Document "0..10" --* "1" KYC Information
+    Address "0..1" --* "1" KYC Information
+    Name "0..1" --* "1" KYC Information
+    Credit Party Identifier "1..10" --* "1" Transaction
+    Debit Party Identifier "1..10" --* "1" Transaction
+    Fee "0..20" --* "1" Transaction
+    KYC Information "0..2" --* "1" Transaction
+    Metadata "0..20" --* "1" Transaction
+    International TransferInformation "0..1" --* "1" Transaction
+    Transaction "0..*" --* "2" Account
+</mermaid>
 
 ## Account Balances API
 
@@ -207,10 +237,13 @@ or GET `/accounts/{Account Identifiers}/accountname`
 
 ### Account Holder Name UML Class Diagram
 
-![Account Holder Name UML Class Diagram](https://lh5.googleusercontent.com/-6eHKXPpZVKSP8RPlxWNQM6Blq0rO46NAVwkOw3VO3vB1O0rjunm8oMSJNZ9kuOdK4avePRGzv3E2jbs1jxkanvlXQVXJuRa1KrQkNxQo1dnqDPWivLcFYZV3sbEpck942ChX-ESO4l5-L3whw)
+<mermaid>
+classDiagram
+    Account Holder Name "1" --* "1" Account
+</mermaid>
 
 ### Account Holder Name Object Definition
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
-| name | Reference | A collection of fields detailing the name of the primary account holder. | NA <br> O | [Name](/use-cases/p-2-p-transfers/supporting-objects.html#name-object) |  |
+| **name** | Reference | A collection of fields detailing the name of the primary account holder. | NA <br> O | [Name](/use-cases/p-2-p-transfers/supporting-objects.html#name-object) |  |
