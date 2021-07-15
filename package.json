@@ -25,6 +25,7 @@
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0",
     "vee-validate": "2.1.4",
+    "vue-clickaway": "^2.2.2",
     "vue-cool-lightbox": "^2.7.4",
     "vue-select": "^3.11.2",
     "vue-slick-carousel": "^1.0.6",

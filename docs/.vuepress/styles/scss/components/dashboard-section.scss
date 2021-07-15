@@ -150,6 +150,10 @@
       }
     }
 
+    &.active {
+      color: var(--base-accent-color);
+    }
+
     & + .sidebar-child-item {
       margin-top: 9px;
     }
