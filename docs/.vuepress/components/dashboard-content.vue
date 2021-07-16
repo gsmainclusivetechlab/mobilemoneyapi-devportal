@@ -7,6 +7,7 @@
       <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
     </v-touch>
     <div class="dashboard-sidebar"
+         v-on-clickaway="closeSidebar"
          :class="{ 'show-sidebar': sidebarOpened }"
     >
       <span class="dashboard-title">Developer Portal</span>
@@ -66,6 +67,7 @@ import dashboardTab from './dashboard/dashboard-tab.vue';
 import applicationsTab from './dashboard/applications-tab.vue';
 import myAccountTab from './dashboard/myAccount-tab.vue';
 import applicationsChild from './dashboard/applications-child.vue';
+import { mixin as clickaway } from 'vue-clickaway';
 
 const tabs = {
     dashboardTab,
@@ -77,6 +79,8 @@ export default {
   name: 'dashboard-section',
 
   components: { applicationsChild },
+
+  mixins: [ clickaway ],
 
   data() {
     return {
@@ -102,7 +106,10 @@ export default {
               setTimeout(() => {e.target.closest('li').classList.remove('item-closed')}, 50);
               return;
           } else if (isChildMenu) e.target.closest('li').classList.add('item-closed');
-          this.closeSidebar()
+          if (!isChildMenu) this.closeSidebar();
+          this.$refs.sidebarChildItem.forEach((element) => {
+              element.classList.remove('active');
+          });
       },
 
       getTabTitle(tab) {
@@ -135,11 +142,16 @@ export default {
 
       toggleApplicationChildTab(show, e, item) {
           if (e) {
-              this.applicationChildItem = item;
               e.stopPropagation();
+              this.$refs.sidebarChildItem.forEach((element) => {
+                  element.classList.remove('active');
+              });
+              e.target.classList.add('active')
+              this.applicationChildItem = item;
           }
           this.tabsActive = !show;
           this.applicationsChildActive = show;
+          if (this.applicationsChildActive) this.closeSidebar();
       },
       handleAppClick(key, tabTitle) {
           this.$refs.sidebarChildItem[key].click();

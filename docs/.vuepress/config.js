@@ -182,7 +182,6 @@ const sidebarNavigation = {
       children: [
         {
           title: 'Get started',
-          collapsable: true,
           sidebarDepth: 2,
           children: [
             {
@@ -194,7 +193,6 @@ const sidebarNavigation = {
         },
         {
           title: 'Resources',
-          collapsable: true,
           sidebarDepth: 2,
           children: [
             {
@@ -225,9 +223,14 @@ const sidebarNavigation = {
         },
         {
           title: 'Use cases',
-          collapsable: true,
           sidebarDepth: 2,
           children: [
+            {
+              title: 'About',
+              path: '/api-versions-1.2/use-cases-about.md',
+              sidebarDepth: 2,
+              collapsable: true,
+            },
             {
               title: 'Merchant payments',
               path: '/use-cases/merchant-payments/',

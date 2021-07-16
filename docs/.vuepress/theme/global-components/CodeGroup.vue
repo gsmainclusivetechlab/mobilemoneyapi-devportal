@@ -78,7 +78,7 @@ export default {
       if (this.codeTabs[index].elm) {
         this.codeTabs[index].elm.classList.add('theme-code-block__active')
       }
-    }
+    },
   }
 }
 </script>

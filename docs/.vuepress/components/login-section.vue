@@ -21,7 +21,7 @@
             <router-link :to="'/forgot-password'" class="btn-forgot-password">Forgot password?</router-link>
           </div>
           <div class="button-holder">
-            <router-link :to="'#'" class="btn btn--accent">Log in</router-link>
+            <button class="btn btn--accent" @click.prevent="handleLogIn">Log in</button>
             <span class="bottom-row">
               <router-link :to="'/signup'">Sign up</router-link> instead?
             </span>
@@ -35,5 +35,12 @@
 <script>
 export default {
   name: 'login-section',
+
+  methods: {
+    handleLogIn() {
+        this.$root.$emit('log-user-in', true);
+        this.$router.push({ path: '/dashboard' }).catch(() => {});
+    }
+  }
 };
 </script>
