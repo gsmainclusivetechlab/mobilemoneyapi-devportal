@@ -653,6 +653,7 @@ module.exports = {
     smoothScroll: true,
   },
   plugins: [
+    ['vuepress-plugin-code-copy', true],
     // ['@vuepress/search', {
     //   searchMaxSuggestions: 10
     // }],
@@ -665,4 +666,4 @@ module.exports = {
       },
     ],
   ]
-}
+};
