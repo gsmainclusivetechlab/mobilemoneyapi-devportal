@@ -666,4 +666,4 @@ module.exports = {
       },
     ],
   ]
-}
+};
