@@ -1,7 +1,9 @@
 ---
-pageClass: api-page
+pageClass: api-page has-code-panel
 goBacKBtn: kek
 ---
+
+<side-code-panel/>
 
 ## API Fundamentals
 
@@ -67,6 +69,196 @@ The following header information can be supplied for the mobile money API.
 For the security headers, please also refer to the Mobile Money API Security Design for further information.
 
 ###### Standard Request Headers
+
+
+<div class="has-code-panel-block">
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="post">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="get">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="Get">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+<!-- <copy-btn/> -->
+</code-group>
+
+
+<code-language-selector>
+<code-lang title="Vue">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="post">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="get">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="Get">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+</code-group>
+
+</code-lang>
+
+<code-lang title="JavaScript">
+<code-group>
+
+<code-block title="View">
+
+<code-group>
+<code-block title="post">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="get">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="Get">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
+
+</code-lang>
+
+<code-lang title="Java">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="post">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="get">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="Get">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
+</code-lang>
+</code-language-selector>
+
+</div>
+</div>
+
 
 | **Header**          | **Value**            | **Optionality**  | **Notes**  |
 |:--------------- |:-----------------|--------------|--------|

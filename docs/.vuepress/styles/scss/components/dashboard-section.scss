@@ -617,6 +617,12 @@
       transform: scale(0.6);
     }
 
+    .vs--open {
+      .vs__open-indicator {
+        transform: scale(0.6) rotate(180deg);
+      }
+    }
+
     .vs--disabled {
       .vs__selected {
         color: var(--color-grey);

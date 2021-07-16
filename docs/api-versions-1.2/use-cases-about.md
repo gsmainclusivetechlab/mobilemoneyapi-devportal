@@ -13,8 +13,8 @@ Read more about the Mobile Money API Use Сases here:
 1. [Merchant Payments](/use-cases/merchant-payments),
 2. [Disbursements](/use-cases/disbursements)
 3. [International Transfers](/use-cases/international-transfers)
-4. [P2P Transfers](/use-cases/p2p-transfers)
-5. [Recurring Payments](/use-cases/recurring-payments)
+4. [P2P Transfers](/use-cases/p-2-p-transfers)
+5. [Recurring Payments](/use-cases/reccuring-payments)
 6. [Account Linking](/use-cases/account-linking)
 7. [Bill Payments](/use-cases/bill-payments)
 8. [Agent Services (including Cash-In and Cash-Out)](/use-cases/agent-services (including Cash-In and Cash-Out))

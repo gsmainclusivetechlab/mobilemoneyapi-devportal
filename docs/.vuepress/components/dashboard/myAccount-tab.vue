@@ -15,11 +15,15 @@
         <div class="fields-wrap">
           <div class="input-group">
             <label for="fullName">Full name</label>
-            <input type="text" id="fullName" v-model="accountDB.fullName" :disabled="accountDetailsDisabled">
+            <input type="text" id="fullName"
+                   v-model="accountDB.fullName"
+                   :disabled="accountDetailsDisabled">
           </div>
           <div class="input-group">
             <label for="company">Company</label>
-            <input type="text" id="company" v-model="accountDB.company" :disabled="accountDetailsDisabled">
+            <input type="text" id="company"
+                   v-model="accountDB.company"
+                   :disabled="accountDetailsDisabled">
           </div>
           <div class="input-group input-wrapper__custom-select">
             <label for="timezone">Timezone</label>

@@ -21,7 +21,7 @@
     max-width: 510px;
 
     & + .account-info-container {
-      margin-top: 41px;
+      margin-top: 21px;
     }
   }
 
@@ -70,6 +70,7 @@
 
       &:disabled {
         background: none;
+        -webkit-appearance: none;
         color: var(--color-grey);
       }
     }
@@ -135,6 +136,12 @@
     .vs__open-indicator {
       fill: var(--primaty-dark-color);
       transform: scale(0.6);
+    }
+
+    .vs--open {
+      .vs__open-indicator {
+        transform: scale(0.6) rotate(180deg);
+      }
     }
 
     .vs--disabled {

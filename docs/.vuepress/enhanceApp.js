@@ -27,7 +27,6 @@ export default async ({
       Vue.use(module.default);
     })
   }
-  // Vue.use(VueTouch);
   // ...apply enhancements for the site.
   // prevent ReferenceError: window is not defined during production build
 }

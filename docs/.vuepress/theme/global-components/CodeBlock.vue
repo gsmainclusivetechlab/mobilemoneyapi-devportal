@@ -4,7 +4,6 @@
     :class="{ 'theme-code-block__active': active }"
   >
     <slot />
-    keeeek
   </div>
 </template>
 

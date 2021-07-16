@@ -144,7 +144,6 @@ export default {
         },
         copyToClipboard(e) {
             const text = e.currentTarget.getAttribute('data-bind');
-            console.log(text);
             navigator.clipboard.writeText(this[text]).then(function() {}, function(err) {
                 console.error('Async: Could not copy text: ', err);
             });
