@@ -72,10 +72,10 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 
 <div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
 <code-group>
 <code-block title="View">
 
@@ -97,7 +97,6 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-
 <code-block title="Get">
 
 ::: v-pre
@@ -115,13 +114,10 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<!-- <copy-btn/> -->
 </code-group>
-
 
 <code-language-selector>
 <code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
@@ -143,8 +139,8 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-
 <code-block title="Get">
+any content can be inserted here
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -161,14 +157,11 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-
 </code-group>
-
 </code-lang>
 
 <code-lang title="JavaScript">
 <code-group>
-
 <code-block title="View">
 
 <code-group>
@@ -177,6 +170,8 @@ echo str_word_count("PHP");
 function fancyAlert(arg) {
   if (arg) {
     $.facebox({div: '#foo'})
+    if(!#foo) return
+    #foo.insert(true)
   }
 }
 ```
@@ -189,8 +184,8 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-
 <code-block title="Get">
+any content can be inserted here
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -208,11 +203,9 @@ echo str_word_count("PHP");
 ```
 </code-block>
 </code-group>
-
 </code-lang>
 
 <code-lang title="Java">
-
 <code-group>
 <code-block title="View">
 
@@ -234,8 +227,8 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-
 <code-block title="Get">
+any content can be inserted here
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -257,6 +250,8 @@ echo str_word_count("PHP");
 </code-language-selector>
 
 </div>
+<!-- end of right-side code blocks holder -->
+
 </div>
 
 

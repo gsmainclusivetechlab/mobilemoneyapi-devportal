@@ -18,6 +18,12 @@
     }
   }
 
+  .code-copy {
+    svg {
+      filter: brightness(10);
+    }
+  }
+
   .custom-block.tip .custom-block-title {
     display: none;
   }
