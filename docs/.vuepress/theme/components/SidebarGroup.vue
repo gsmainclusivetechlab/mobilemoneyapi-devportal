@@ -17,7 +17,7 @@
         'active': isActive($route, item.path)
       }"
       :to="item.path"
-      @click.native="$emit('toggle')"
+      @click.native="toggle"
     >
       <span>{{ item.title }}</span>
       <span
@@ -31,7 +31,7 @@
       v-else
       class="sidebar-heading"
       :class="{ open }"
-      @click="$emit('toggle')"
+      @click="toggle"
     >
       <span>{{ item.title }}</span>
       <span
@@ -65,9 +65,14 @@ export default {
     DropdownTransition
   },
 
+  data() {
+      return {
+          open: false,
+      }
+  },
+
   props: [
     'item',
-    'open',
     'collapsable',
     'depth'
   ],
@@ -77,7 +82,12 @@ export default {
     this.$options.components.SidebarLinks = require('@theme/components/SidebarLinks.vue').default
   },
 
-  methods: { isActive }
+  methods: {
+      isActive,
+      toggle() {
+          this.open = !this.open;
+      }
+  }
 }
 </script>
 
