@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>FinTech Providers (Insurance Savings Loans).</p>
+    <p>The term Fintech (Financial Technology) refers to software and other modern technologies used by businesses that provide automated and imporved financial services.</p>
+  </div>

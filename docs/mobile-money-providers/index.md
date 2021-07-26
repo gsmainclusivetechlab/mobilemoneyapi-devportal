@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Mobile Money Providers.</p>
+    <p>A mobile money operator is a mobile money service provider that develops and delivers financial services through mobile phones and mobile telephone networks.</p>
+  </div>

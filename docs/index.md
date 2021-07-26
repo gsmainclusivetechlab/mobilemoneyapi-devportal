@@ -11,7 +11,6 @@ pageClass: home-page custom
     :imageAlt="'image alt'" 
     :accentLink="{text: 'Go to API Docs', link: '/api-versions-1.2/resources/api-service-definition'}"
     :transparentLink="{text: 'Learn more', link: '/api-versions-1.2/get-started'}"
-    
     />
 
   <what-you-get/>
@@ -229,3 +228,8 @@ pageClass: home-page custom
         },
     ]"
   />
+    
+<div class="text-hidden">
+  <p>Welcome to the GSMA Mobile Money API Developer Portal.</p>
+  <p>The Mobile Money API is an initiative developed through collaboration between the mobile money industry and the GSMA, which provides a harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.</p>
+</div>

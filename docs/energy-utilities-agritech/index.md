@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Energy & Utilities & AgriTech.</p>
+    <p>Agritech is the use of technology and technological innovation to improve the efficiency and output of agricultural processes.</p>
+  </div>

@@ -435,21 +435,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'API Definition',
+          title: 'API Service Definition',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'API Endpoints',
-              path: '/use-cases/p-2-p-transfers/api-endpoints',
-            },
-            {
-              title: 'Supporting Objects',
-              path: '/use-cases/p-2-p-transfers/supporting-objects',
-            },
-            {
-              title: 'Enumerations',
-              path: '/use-cases/p-2-p-transfers/enumerations',
+              title: 'API Service Definition',
+              path: '/use-cases/p-2-p-transfers/api-service-definition',
             },
           ]
         },

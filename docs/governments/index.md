@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Governments.</p>
+    <p>In the future, the great government transition will expect FM providers and other private sector organizations to take the lead in creating change.</p>
+  </div>
