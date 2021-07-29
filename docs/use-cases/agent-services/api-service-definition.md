@@ -31,10 +31,15 @@ NA&nbsp; Field does not need to be supplied. If supplied, it will be ignored.
 - **Reference** where the fields is a acollection/n array and/or is defined by another object.
 - **Validation** applied to the field, including enumeration, field length and use of regular expressions to validate format.
 
+::: tip
 Please note that string fields have a default maximum length of 256 characters unless specified otherwise.
+:::
 
 ### Transactions API
 
+Customer cash-in and cash-out transactions can be created, updated, and viewed using Transactions APIs.
+
+The following paths are permitted:
 
 <div class="has-code-panel-block">
 
@@ -45,214 +50,130 @@ Please note that string fields have a default maximum length of 256 characters u
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
   }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
 }
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+GET .../transactions/36125b528237
 ```
 </code-block>
 
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
+<code-block title="PATCH">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<!-- <copy-btn/> -->
-</code-group>
-
-
-<code-language-selector>
-<code-lang title="Vue">
 
 <code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
+<code-block title="POST">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
+<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
+<code-block title="PATCH">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-<code-lang title="Java">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
 
 </div>
 </div>
-
-
-P2P Transfers can be created,  and viewed and updated using transactions APIs. The following paths are permitted:
-
-*POST /transactions/type/transfer*. To create a P2P transfer.
-
-*GET /transactions/{transactionReference}*. To view a P2P transfer.
-
-The following paths are permitted:
 
 | **Operation** | **Path**  | **Description** |
 |:-----------|:-------|:-------------|
 | **Create** | POST */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL.  |
 | **View** | GET */transactions/{transactionReference}* | To view a transaction. |
-| **Update** | PATCH */transactions/{transactionReference}* | To update the transactionStatus of a transaction. |
+| **Update** | PATCH */transactions/{transactionReference}* | To update the *transactionStatus* of a transaction. |
 
 #### Transaction UML Class Diagram
 
 <mermaid>
 classDiagram
+    Transaction Party "1..2" --* "1" Transaction
+    Fee "0..20" --* "1" Transaction
+    Metadata "0..20" --* "1" Transaction
+</mermaid>
+<mermaid>
+classDiagram
     Credit Party Identifier "1..10" --* "1" Transaction
     Debit Party Identifier "1..10" --* "1" Transaction
     Fee "0..20" --* "1" Transaction
-    Transaction "1" *-- "0..20" Metadata
-    Transaction "1" *-- "0..2" KYC Information
-    Transaction "1" *-- "0..1" International Transfer Information
-    KYC Information "1" *-- "0..10" ID Document
-    KYC Information "1" *-- "0..1" Address
-    KYC Information "1" *-- "0..1" Name
+    Metadata "0..20" --* "1" Transaction
 </mermaid>
+
+**Figure 2‑1 Transaction UML Class Diagram**
+
 
 #### Transaction Object Definition
 
@@ -260,8 +181,8 @@ classDiagram
 |:-----|:-----|:------------|:--|:----------|:-----------|
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 | **amount** | string | The transaction amount. | M <br> M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the transaction amount. | M <br> M |  | Enumeration = [ISO Currency Codes](/use-cases/p-2-p-transfers/enumerations.html) |
-| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) |
+| **currency** | string | Currency of the transaction amount. | M <br> M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](#transaction-types) |
 | **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | O <br> O |  |  |
 | **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | NA <br> &#8592;&nbsp;M |  |  |
 | **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
@@ -273,31 +194,42 @@ classDiagram
 | **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
 | **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
 | **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
-| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
-| **senderKyc** | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
-| **recipientKyc** | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](/use-cases/p-2-p-transfers/supporting-objects.html#kyc-information-object) |  |
+| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
+| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
+| **senderKyc** | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
+| **recipientKyc** | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
 | **originalTransactionReference** | string | This field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
 | **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
-| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](/use-cases/p-2-p-transfers/supporting-objects.html#custom-data-object) |  |
-| **metadata** | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Metadata](/use-cases/p-2-p-transfers/supporting-objects.html#metadata-object) |  |
+| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](#custom-data-object) |  |
+| **metadata** | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Metadata](#metadata-object) |  |
 
 ### Reversals API
 
-The Reversals API is used to reverse a P2P transfer. The originating transaction reference must be provided in the path to identify the payment to be reversed. For a partial reversal, the amount needs to be supplied. 
+The Reversals API is used to reverse a cash-in or cash-out. The originating transaction reference must be provided in the path in order to identify the transaction to be reversed. For a partial reversal, the amount needs to be supplied.
 
-For viewing reversals, the [Transactions API](#transactions-api) should be used. For performing a reversal without the original transaction reference, use the [Transactions API](#transactions-api). 
+For viewing reversals, the [Transactions API](#transactions-api) should be used. 
+
+The supported path is POST `/transactions/{originalTransactionReference}/reversals`.
 
 #### Reversal UML Class Diagram
 
 <mermaid>
 classDiagram
-    Credit Party Identifier "0..10" --* "" Reversal
-    Debit Party Identifier "0..10" --* "" Reversal
+    Transaction Party "1..2" --* "1" Reversal
     Fee "0..20" --* "1" Reversal
     Metadata "0..20" --* "1" Reversal
     Reversal --> Transaction
 </mermaid>
+<mermaid>
+classDiagram
+    Credit Party Identifier "0..10" --* "1" Reversal
+    Debit Party Identifier "0..10" --* "1" Reversal
+    Fee "0..20" --* "1" Reversal
+    Metadata "0..20" --* "1" Reversal
+    Reversal --> Transaction
+</mermaid>
+
+**Figure 2-2 Reversal UML Class Diagram**
 
 #### Reversal Object Definition
 
@@ -306,57 +238,142 @@ classDiagram
 | **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider.  | NA <br> M |  |  |
 | **requesting OrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | O <br> O |  |  |
 | **originalTransactionReference** | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | NA <br> M |  |  |
-| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | O <br> O | [Account Identifiers](/use-cases/p-2-p-transfers/supporting-objects.html#account-identifiers-object) |  |
-| **debitParty** | array | 	A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | O <br> O | [Account Identifiers](/use-cases/p-2-p-transfers/supporting-objects.html#account-identifiers-object) |  |
-| **type** | string | The harmonised Transaction Type | M <br> M |  | Enumeration = [Transaction Types](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) Note that only Reversals and Refunds (adjustments) are supported. |
+| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | O <br> O | [Account Identifiers](#account-identifiers-object) |  |
+| **debitParty** | array | 	A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | O <br> O | [Account Identifiers](#account-identifiers-object) |  |
+| **type** | string | The harmonised Transaction Type | M <br> M |  | Enumeration = [Transaction Types](#transaction-types) Note that only Reversals and Refunds (adjustments) are supported. |
 | **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | O <br> O |  |  |
 | **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | NA <br> M |  |  |
 | **amount** | string | The transaction Amount. | O <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the transaction amount. | O <br> O |  | Enumeration = [ISO Currency Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-currency-codes) |
+| **currency** | string | Currency of the transaction amount. | O <br> O |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
 | **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | O <br> O |  |  |
-| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | O <br> O | [Fees Object](/use-cases/p-2-p-transfers/supporting-objects.html#custom-data-object) |  |
+| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | O <br> O | [Fees Object](#custom-data-object) |  |
 | **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | O <br> O |  |  |
-| **requestingOrganisation** | object | The originating organisation of the request. | O <br> O | [Requesting Organisation Object](/use-cases/p-2-p-transfers/supporting-objects.html#requesting-organisation-object) |  |
+| **requestingOrganisation** | object | The originating organisation of the request. | O <br> O | [Requesting Organisation Object](#requesting-organisation-object) |  |
 | **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | O <br> O |  |  |
 | **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | NA <br> O |  |  |
 | **creationDate** | date-time | Date and time when the transaction was created by the API Provider. | NA <br> O |  |  |
 | **modificationDate** | date-time | Date and time when the transaction was modified by the API Provider. | NA <br> O |  |  |
 | **requestDate** | date-time | The date and time of the transaction request as supplied by the client. | O <br> O |  |  |
-| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | O <br> O | [Custom Data Object](/use-cases/p-2-p-transfers/supporting-objects.html#custom-data-object) |  |
-| **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the transaction. | O <br> O | [Metadata](/use-cases/p-2-p-transfers/supporting-objects.html#metadata-object) |  |
+| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | O <br> O | [Custom Data Object](#custom-data-object) |  |
+| **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the transaction. | O <br> O | [Metadata](#metadata-object) |  |
 
-### Accounts APIs
+### Agent Accounts APIs
 
-Using account APIs, an FSP can:
+Using the mobile money Account APIs, agents can:
 
-- View transfers for their account with another FSP.
-- View their account balance with another FSP.
-- Return the name of the intended recipient of a transfer.
+- Register a new customer mobile money account.
+- Perform KYC verification services for a customer.
+- View transactions for their account.
+- View their account balance
 
-#### Identifying an FSP Account
+#### Identifying an Agent Account
 
-Two methods are provided for identifying an FSP account, the single identifier method, and the multiple identifiers method.
+Two methods are provided for identifying an agent account, the single identifier method, and the multiple identifiers method
 
 ##### Single Identifier Method
 
 In the scenario where one identifier suffices to uniquely identify an account, the following path is to be used:
 <br>
 
-*`/accounts/{identifierType}/{identifier}`* .
+`/accounts/{identifierType}/{identifier}` .
 
 ##### Multiple Identifiers Method
 
 Where a single identifier is not sufficient to identify an account, the following path is to be used:
 
-*`/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}`* .
+`/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}` .
 
-The path uses a ‘$’ delimiter to separate each identifier, up to a limit of three account identifiers. Each key/value is delimited by ‘@’.
+The path uses a `$` delimiter to separate each identifier, up to a limit of three account identifiers. Each key/value is delimited by `@`.
 
-The list of permitted account identifiers supported by the Mobile Money API can be found in the [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) section.
+The list of permitted account identifiers supported by the Mobile Money API can be found in the [Account Identifiers](#account-identifiers) section.
 
-### Account Transactions API
 
-An FSP should use this API to return a list of payments transfers against their account. One of the following paths can be used:
+### Customer Account Services
+
+#### Register a Customer Mobile Money Account
+
+The Mobile Money API allows account creation for customers who are classified as individuals. Upon registration, new customers are generally provided with account and transaction limits based upon the level of KYC information they have provided and whether their KYC information has been physically verified.
+
+To create an account, use POST `/accounts/{identityType}`, supplying `individual` as the `identityType`.
+
+#### Verify a Customer’s KYC
+
+In some markets, customers are able self-register for a mobile money account but have limited access to services until they have physically verified their KYC documentation with an authorised mobile money agent. The agent will compare the physical KYC against the details held by the mobile money provider. Agents can use the mobile money API to notify the outcome of the KYC verification to the mobile money provider. The steps are as follows:
+
+1. Retrieve the KYC details for the customer from the mobile money provider.
+2. Inform the mobile money provider as to whether the KYC verification was successful.
+
+##### Retrieve Customer KYC Details from the Mobile Money Provider
+
+KYC details for a customer(s) associated with an account can be retrieved via the following paths:
+
+GET /accounts/{accountIdentifierType}/{identifier} OR
+
+GET /accounts/{Account Identifiers}
+
+The `identityId` of the customer will also be returned in the response which must then be used to identify the customer in the subsequent verification request.
+
+##### Provide Customer KYC Verification Update to the Mobile Money Provider
+
+To verify a customer’s KYC, use one of the following paths:
+
+PATCH `/accounts/{identifierType}/{identifier}/identities/{identityId}` OR
+
+PATCH `/accounts/{Account Identifiers}/identities/{identityId}`
+
+The following identity fields can be updated:
+
+|**Field**|**PATCH Body**|**Description**|
+|:--------|:--------|:-------------|
+| **identity.kycVerificationStatus**<br>(**required**) |  *"op": "replace", "path": "/kycVerificationStatus", "value": “string”* | Use to change the KYC verification status of an identity associated with an account. The values that can be set will be provided by the mobile money provider. |
+| **identity.kycVerificationEntity**<br>(**optional**) |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the agent that performed the verification. |
+| **identity.kycLevel**<br>(**optional**) |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | Use to modify the KYC level of an identity associated with an account. Valid KYC levels will be provided by the mobile money provider. |
+
+
+#### Account UML Diagram
+
+<mermaid>
+classDiagram
+    ID Document "0..10" --* "1" KYC Information
+    Address "0..1" --* "1" KYC Information
+    Name "0..1" --* "1" KYC Information
+    KYC Information "1" --* "1" Identity
+    Account Identifier "1..10" --* "1" Account
+    Identity "1..20" --* "1" Account
+    Fee "1..20" --* "1" Account
+    Commission "1..20" --* "1" Account
+</mermaid>
+
+**Figure 2‑3 Account Creation UML Class Diagram**
+
+#### Account Object Definition
+
+| **Account Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **accountIdentifiers** | array | A series of key/value pairs that enable the account to be identified. Identifiers are assigned by the API Provider during creation. | &#8594;&nbsp;O <br> &#8592; M | [Account Identifiers](#account-identifier-object) |  |
+| **identity** | array | An account must be associated with one or more identities. | &#8594;&nbsp;M <br> &#8592; M | [Identity Object](#identity-object) |  |
+| **accountType** | string | A non-harmonised field that indicates the type of the account. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **accountStatus** | string | Indicates a simplified representation of the account status. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **accountSubStatus** | string | Field can be used to return a provider-specific status for the account. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **currentBalance** | string | The current outstanding balance on the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | &#8594;&nbsp;NA <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency of the account. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](#custom-data-object) |  |
+| **fees** | string | Returns all fees related to the creation of the account. | &#8594;&nbsp;O <br> &#8592; O | [Fees Object](#fees-object) |  |
+| **commissionEarned** | string | Returns all commission earned by the registering entity for the creation of the account. | &#8594;&nbsp;NA <br> &#8592; O | [Commission Object](#commission-object) |  |
+| **registeringEntity** | string | The entity that registered the account, for example, a mobile money agent. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **creationDate** | date-time | Indicates when the account was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the account was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **requestDate** | date-time | The date and time of the account request as supplied by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+
+
+
+### View Transactions for an Agent
+
+An agent should use this API to return a list of transactions against their account. One of the following paths can be used:
 
 GET `/accounts/{identifierType}/{identifier}/transactions`
 
@@ -366,38 +383,43 @@ To filter the number of records returned, the following query strings can be use
 
 | **Parameter** | **Type** | **Format** | **Description** |
 |:--|:--|:--|:--|
-| **lLimit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| **oOffset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
 | **fromDateTime** | string | date-time | Indicates the minimum date creationDate for which records should be returned. |
 | **toDateTime** | string | date-time | Indicates the maximum date creationDate for which records should be returned. |
 | **transactionStatus** | string | N/A | Indicates the status of the transactions to be returned. |
-| **transactionType** | string | N/A | Indicates the [type](/use-cases/p-2-p-transfers/enumerations.html#transaction-types) of the transactions to be returned. |
+| **transactionType** | string | N/A | Indicates the [type](#transaction-types) of the transactions to be returned. This can be ‘deposit’, ‘withdrawal’, ‘reversal’ or ‘adjustment’. |
 
 ::: tip Note 1:
 For a harmonised behavior, API Providers should make sure that the transactions are returned in descending date created order.
 :::
 
 ::: tip Note 2:
-HTTP response headers are returned with each response indicating the total number of records available (X-Records-Available-Count) and total number of records returned (X-Records-Returned-Count).
+HTTP response headers are returned with each response indicating the total number of records available (`X-Records-Available-Count`) and total number of records returned (`X-Records-Returned-Count`).
 :::
 
 #### Account Transaction UML Class Diagram
 
 <mermaid>
 classDiagram
-    ID Document "0..10" --* "1" KYC Information
-    Address "0..1" --* "1" KYC Information
-    Name "0..1" --* "1" KYC Information
+    Transaction Party "1..2" --* "1" Transaction
+    Fee "0..20" --* "1" Transaction
+    Metadata "0..20" --* "1" Transaction
+    Transaction "0..*" --* "2" Account
+</mermaid>
+<mermaid>
+classDiagram
     Credit Party Identifier "1..10" --* "1" Transaction
     Debit Party Identifier "1..10" --* "1" Transaction
     Fee "0..20" --* "1" Transaction
-    KYC Information "0..2" --* "1" Transaction
     Metadata "0..20" --* "1" Transaction
-    International TransferInformation "0..1" --* "1" Transaction
     Transaction "0..*" --* "2" Account
 </mermaid>
 
-### Account Balances API
+**Figure 2‑4 Account Transaction UML Class Diagram**
+
+
+### View an Agent’s Account Balance
 
 Using the Account Balances API, an FSP can check their balance. Permitted paths are: 
 
@@ -406,6 +428,17 @@ GET `/accounts/{identifierType}/{identifier}/balance`
 or GET `/accounts/{Account Identifiers}/balance`
 
 A ‘self’ version is also available where the calling API client is the FSP account holder. Path for the ‘self’ version is `/accounts/balance`.
+
+
+#### Account Balance UML Class Diagram
+
+<mermaid>
+classDiagram
+    Account Balance "1" --* "1" Account
+</mermaid>
+
+**Figure 2‑5 Account Balance UML Class Diagram**
+
 
 #### Account Balance Object Definition
 
@@ -416,13 +449,15 @@ A ‘self’ version is also available where the calling API client is the FSP a
 | **availableBalance** | string | Indicates the balance that is able to be debited for an account. This balance is only provided on some API provider systems. | NA <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
 | **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | NA <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
 | **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | NA <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency for all returned balances. | NA <br> O |  | Enumeration = [ISO Currency Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-currency-codes) |
+| **currency** | string | Currency for all returned balances. | NA <br> O |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+
+
 
 ### Account Holder Name API
 
-Using the Account Holder Name API, a sending FSP can retrieve the name of the intended recipient of a transfer. This can then be provided to the sending account holder to confirm the recipient name is correct prior to authorising the transfer.  
+Using the Account Holder Name API, an agent can retrieve the name of the depositing customer to confirm the name is correct prior to authorising the request.
 
-Permitted paths are: 
+Permitted paths are:
 
 GET `/accounts/{identifierType}/{identifier}/accountname`
 
@@ -435,224 +470,95 @@ classDiagram
     Account Holder Name "1" --* "1" Account
 </mermaid>
 
+**Figure 2‑6 Account Holder Name UML Class Diagram**
+
 #### Account Holder Name Object Definition
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
-| **name** | Reference | A collection of fields detailing the name of the primary account holder. | NA <br> O | [Name](/use-cases/p-2-p-transfers/supporting-objects.html#name-object) |  |
+| **name** | Reference | A collection of fields detailing the name of the primary account holder. | NA <br> O | [Name](#name-object) |  |
 
 
+### Authorisation Codes API
 
+The Authorisation Codes API allows a withdrawing customer to generate a code which when presented to the agent, can be redeemed for an amount set by the withdrawing customer. The code can then be presented to the agent in the form of a digital code or QR code displayed on an app. The agent enters the digital code or scans the QR code via their POS.
+
+Authorisation codes can be set to expire. Note that expiry time can be specified via the API, however the mobile money provider may mandate a common expiry period for all codes.
+
+The following paths are permitted:
+
+- **Generate** an Authorisation Code. POST `/accounts/{identifierType}/{identifier}/authorisationcodes` or POST `/accounts/{Account Identifiers}/authorisationcodes`
+- **Cancel** an Authorisation Code (`codeState` = ‘cancelled’). PATCH `/accounts/{identifierType}/{identifier}/authorisationcodes/{authorisationCode}` or PATCH `/accounts/{Account Identifiers}/authorisationcodes/{authorisationCode}`. 
+- **View** An Authorisation Code for a given account. GET `/accounts/{identifierType}/{identifier}/authorisationcodes/{authorisationCode}` or GET `/accounts/{Requestor Account Identifiers}/authorisationcodes/{authorisationCode}`. 
+- **View** all Authorisation Codes for a given account. GET `/accounts/{identifierType}/{identifier}/authorisationcodes` or GET `/accounts/{Requestor Account Identifiers}/authorisationcodes`.
+
+When retrieving authorisation codes, the following query string parameters can be used to filter the number of records returned:
+
+|**Parameter**|**Type**|**Format**|**Description**|
+|:--------|:--------|:-------------|:--------|
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **fromDateTime** | string | date-time | Indicates the minimum creationDate for which records should be returned. |
+| **toDateTime** | string | date-time | Indicates the maximum creationDate for which records should be returned. |
+| **codeState** | string | string | Allows filtering on the state of the authorisation code. |
+
+::: tip
+Note 1: For a harmonised behavior, API Providers should make sure that the authorisation codes are returned in descending date created order. 
+
+Note 2: HTTP response headers are returned with each response indicating the total number of records available (`X-Records-Available-Count`) and total number of records returned (`X-Records-Returned-Count`).
+:::
+
+Synchronous and asynchronous modes are supported for the POST and PATCH methods whereas only synchronous mode is supported for the GET method.
+
+#### Authorisation Code UML Class Diagram
+
+<mermaid>
+classDiagram
+    Redemption Party "1" --* "1" Authorisation Code
+    Metadata "0..20" --* "1" Authorisation Code
+    Redemption Channel "0..50" --* "1" Authorisation Code
+    Redemption Transaction Type "0..50" --* "1" Authorisation Code
+    Authorisation Code "0..*" --* "1" Account
+</mermaid>
+<mermaid>
+classDiagram
+    Redemption Account Identifier "0..10" --* "1" Authorisation Code
+    Metadata "0..20" --* "1" Authorisation Code
+    Redemption Channel "0..50" --* "1" Authorisation Code
+    Redemption Transaction Type "0..50" --* "1" Authorisation Code
+    Authorisation Code "0..*" --* "1" Account
+</mermaid>
+
+**Figure 2-7 Authorisation Code UML Class Diagram**
+
+#### Authorisation Code Object Definition
+
+| **Authorisation Codes Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **authorisationCode** | string | The code that will be presented to the other party for redemption. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **codeState** | string | Indicates the state of the [Authorisation Code](#authorisation-codes-api) | &#8594;&nbsp;NA <br> &#8592; M |  | Enumeration = ‘active’, ‘expired’, ‘cancelled’ |
+| **amount** | string | Indicates the amount associated with the [authorisation code](#authorisation-codes-api). Typically, this is set by the client. | &#8594;&nbsp;O <br> &#8592; O |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Indicates the amount currency. Must be supplied when an amount is supplied. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+| **amountType** | string | The amount for the authorisation can be an exact amount or can be a maximum amount, i.e. redemption up to but not higher than the amount specified. | &#8594;&nbsp;O <br> &#8592; O |  | Enumeration = ‘exact’, ‘maximum’ |
+| **codeLifetime** | integer | Indicates the expiry time in seconds of the code. Depending upon the use case, this can be set by the client or server. | &#8594;&nbsp;O <br> &#8592; O |  | If supplied, then must be 1 second or greater. |
+| **holdFundsIndicator** | boolean | Indicates whether funds should be reserved against the payer’s account where the payer is the requestor. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **redemptionAccountIdentifiers** | array | A series of key/value pairs that identify the  account where the code must be redeemed. Only needed if the redemption account needs to be explicitly stated. | &#8594;&nbsp;O <br> &#8592; O | [Account Identifiers](#account-identifier-object) |  |
+| **redemptionChannels** | string | Indicates the channel(s) that the code can be redeemed against, e.g. ATM, Merchant, etc.. | &#8594;&nbsp;O <br> &#8592; O | [Channel Types Object](#channel-type-object) |  |
+| **redemptionTransactionTypes** | string | Indicates the Transaction Types(s) that the code can be redeemed against. | &#8594;&nbsp;O <br> &#8592; O | [Transaction Types Object](#transaction-type-object) |  |
+| **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation](#requesting-organisation-object) |  |
+| **creationDate** | date-time | Indicates when the link was created as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **modificationDate** | date-time | Indicates when the link was modified as recorded by the API provider. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **requestDate** | date-time | The date and time of the request as provided by the client. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](#custom-data-object) |  |
+| **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the [authorisation code](#authorisation-codes-api) | &#8594;&nbsp;O <br> &#8592; O | [Metadata](#metadata-object) |  |
 
 
 ## Supporting Objects
 
-### KYC Information Object
-
-| **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
-|:--|:--|:--|:--|:--|:--|
-| **birthCountry** | string | The country of birth of the KYC subject. | O <br> O |  | Enumeration = [ISO Country Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-country-codes) |
-| **dateOfBirth** | date | Birth date of the KYC subject. | O <br> O |  |  |
-| **contactPhone** | string | Contact phone number (mobile or landline) of the KYC subject. | O <br> O |  | Must contain between 6 and 15 consecutive digits <br> First character can contain a ‘+’ or digit <br> Can contain spaces. |
-| **emailAddress** | string | Email address of the KYC subject. | O <br> O |  |  |
-| **employerName** | string | Employer name of the KYC subject. | O <br> O |  |  |
-| **gender** | string | Gender of the KYC Object. | O <br> O |  | Length=1, Enumeration = (m)ale, (f)emale, (u)nspecified |
-| **idDocument** | array | An array of fields containing the forms of identification that are associated with the subject. | O <br> O | [Id Document](#id-document-object) | |
-| **nationality** | string | Nationality of the KYC subject. | O <br> O |  | Enumeration = [ISO Country Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-country-codes) |
-| **postalAddress** | object | A collection of fields that details the postal address of the KYC subject. | O <br> O | [Address](#address-object) |  |
-| **occupation** | string | Occupation of the KYC subject. | O <br> O |  |  |
-
 ### Name Object
 
-
-<div class="has-code-panel-block">
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<!-- <copy-btn/> -->
-</code-group>
-
-
-<code-language-selector>
-<code-lang title="Vue">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</code-lang>
-
-<code-lang title="Java">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-</div>
-
+The name object identifies the name details for the subject identity.
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -663,47 +569,38 @@ echo str_word_count("PHP");
 | **fullName** | string | The full name of the KYC subject. | O <br> O |  |  |
 | **nativeName** | string | The full name expressed as in the native language. | O <br> O |  |  |
 
-### Id Document Object
 
-As part of KYC information, identification documentation is normally required. The Id Document Object enables documents pertaining to a subject’s identity to be described.
-
-| **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
-|:--|:--|:--|:--|:--|:--|
-| **idType** | string | Indicates the type of identification for the KYC subject, e.g. passport, driving licence etc. | M <br> M |  | Enumeration = [ID Types](/use-cases/p-2-p-transfers/enumerations.html#id-types) |
-| **idNumber** | string | Reference pertaining to the type of identification for the KYC subject. | O <br> O |  |  |
-| **issueDate**| date | Date of issue for the identification document. | O <br> O |  |  |
-| **expiryDate** | date | Date of expiry for the identification document. | O <br> O |  |  |
-| **issuer** | string | Indicates the organisation/government entity that issued the ID document. | O <br> O |  |  |
-| **issuerPlace** | string | Place of issue for the identification type. | O <br> O |  |  |
-| **issuerCountry** | string | Country where the identification type was issued.  | O <br> O |  | Enumeration = [ISO Country Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-country-codes) |
-| **otherIdDescription** | string | Where an ID Type of ‘otherid’ is specified, a description of the type of identification can be provided in this field. | O <br> O |  |  |
-
-### Address Object
-
-The address object holds the postal address of the subject. Due to variability of address information in a number of mobile money markets, only country is mandatory.
-
-| **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
-|:--|:--|:--|:--|:--|:--|
-| **addressLine1** | string | First line of the address. | O <br> O |  |  |
-| **addressLine2** | string | Second line of the address. | O <br> O |  |  |
-| **addressLine3** | string | Third line of the address. | O <br> O |  |  |
-| **city** | string | City/Town. | O <br> O |  |  |
-| **stateProvince** | string | State or Province. | O <br> O |  |  |
-| **postalCode** | string | Postal Code. | O <br> O |  |  |
-| **country** | string | Country | M <br> M |  | Enumeration = [ISO Country Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-country-codes) |
-
-### Account Identifiers Object
+### Account Identifier Object
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
-| **key** | string | Provides the account identifier type. | M <br> M |  | Enumeration = [Account Identifiers](/use-cases/p-2-p-transfers/enumerations.html#account-identifiers) |
+| **key** | string | Provides the account identifier type. | M <br> M |  | Enumeration = [Account Identifiers](#account-identifiers) |
 | **value** | string | Provides the account identifier type value. | M <br> M |  |  |
+
+
+### Identity Object
+
+The Identity object defines the information for an identity associated with an account. Between one and twenty identities can be associated with an account.
+
+| **Identity Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **identityId** | string | A unique id for the identity as assigned by the API Provider. | &#8594;&nbsp;NA <br> &#8592; M |  |  |
+| **identityType** | string | Indicates the type of the identity. Currently, only ‘individual’ is supported. | &#8594;&nbsp;NA <br> &#8592; M |  | ‘individual’ |
+| **identityStatus** | string | A non-harmonised field describing the status of the identity. | &#8594;&nbsp;NA <br> &#8592; O |  |  |
+| **identityKyc** | object | A collection of fields detailing the KYC held for the identity. | &#8594;&nbsp;M <br> &#8592; M | [KYC Information](#kyc-information-object) |  |
+| **accountRelationship** | string | Describes the relationship that the identity holds with the account. | &#8594;&nbsp;M <br> &#8592; M |  | ‘accountholder’ |
+| **kycVerificationStatus** | string | Indicates the status of the identity’s KYC verification. | &#8594;&nbsp;O <br> &#8592; O |  | ‘verified’, ‘unverified’, ‘rejected’ |
+| **kycVerificationEntity** | string | Indicates the entity (e.g. mobile money agent) that has verified the KYC of the identity. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **kycLevel** | integer | Indicates the KYC level that the identity is associated with. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **customData** | array | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+
 
 ### Metadata Object
 
-The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20The metadata object allows additional fields to be specified for the parent object in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
+The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -719,6 +616,26 @@ The custom data object allows additional fields to be specified for the associat
 | **key** | string | Identifies the type of additional fields. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  |  |
 | **value** | string | Identifies the value of the additional field. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  |  |
 
+
+### Transaction Type Object
+
+This object enables multiple transaction types to be specified along with paired sub-types. This object is used where multiple transaction types need to be passed in an API.
+
+| **Transaction Type Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **transactionType** | string | Identifies the Transaction Type. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [Transaction Types](#transaction-type-object) |
+| **transactionSubType** | string | Identifies the Transaction Sub-Type. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+
+### Channel Type Object
+
+This object enables multiple channel types to be specified. This object is used where multiple channel types need to be passed in an API.
+
+| **Channel Type Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **channelType** | string | Identifies the Channel Type. | &#8594;&nbsp;M <br> &#8592; M |  |  |
+
 ### Fees Object
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
@@ -727,7 +644,19 @@ An object that enables fees that are differentiated by type to be provided and/o
 |:--|:--|:--|:--|:--|:--|
 | **feeType** | string | Defines the type of fee. | M <br> M |  |  |
 | **feeAmount** | string | Defines the amount of the fee. | M <br> M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **feeCurrency** | string | Defines the currency for the given fee. | M <br> M |  | Enumeration = [ISO Currency Codes](/use-cases/p-2-p-transfers/enumerations.html#iso-currency-codes) |
+| **feeCurrency** | string | Defines the currency for the given fee. | M <br> M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+
+### Commission Object
+
+An object that enables earned commission that is calculated by the API provider to be returned.
+
+| **Commission Object** ||||||
+|:--------|:--------|:-------------|:--------|:---------|:------|
+|**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
+| **commissionType** | string | Defines the type of commission. | &#8594;&nbsp;M <br> &#8592; M |  |  |
+| **commissionAmount** | string | Defines the amount of the commission. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **commissionCurrency** | string | Defines the currency of the commission. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
+
 
 ### Requesting Organisation Object
 
@@ -742,9 +671,6 @@ An object that details the originating organisation of the request.
 
 
 
-
-
-
 ## Enumerations
 
 ### ISO Currency Codes
@@ -754,224 +680,14 @@ The three-character alphabetic code for currency as defined by ISO 4217 is to be
 
 ### Transaction Types
 
+A transaction type is used to classify the nature of a transaction.
+
 | **Code** | **Description** |
 |:--|:--|
-| **transfer** | Transfer of funds between mobile money provider and another provider or financial institution in the same country. |
+| **deposit** | Exchange of cash in return for e-Money at a physical agent or via ATM (cash-in). |
+| **adjustment** | General adjustments to an account via an adjustment transaction (e.g. refunds). |
 | **reversal** | Reversal of a prior transaction to return funds to the payer. |
-
-### ID Types
-
-
-<div class="has-code-panel-block">
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<!-- <copy-btn/> -->
-</code-group>
-
-
-<code-language-selector>
-<code-lang title="Vue">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</code-lang>
-
-<code-lang title="Java">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-</div>
-
-
-The ID Types enumeration contains accepted identification types. Due to the wide international variation in accepted types of identification, a catch-all type of ‘otherid’ is included.
-
-| **ID Type** | **Description** |
-|:--|:--|
-| **passport** | Payment of bill from a business for goods and/or services. |
-| **nationalregistration** | National Registration Number. |
-| **othered** | Catch-all for IDs not on the list. |
-| **drivinglicence** | Driving Licence Number. |
-| **socialsecurity** | Social Security Number. |
-| **alienregistration** | Alien Registration ID. |
-| **nationalidcard** | National Identity Card. |
-| **employer** | Employers Identification. |
-| **taxid** | Tax Identification Number. |
-| **seniorcitizenscard** | Senior Citizens ID Card. |
-| **marriagecertificate** | Marriage Certificate. |
-| **birthcertificate** | Birth Certificate. |
-| **healthcard** | Health Card. |
-| **votersid** | Voters Identification. |
-| **villageelderletter** | Letter of confirmation from village elder. |
-| **pancard** | Credit/debit card number (Primary Account Number). |
-| **officialletter** | Official letter confirming identity. |
+| **withdrawal** | Exchange of e-Money in return for cash at a physical agent or via ATM (cash-out). |
 
 ### Account Identifiers
 
@@ -999,7 +715,3 @@ The Account Identifier enumeration lists all possible means to identify a target
 | **bankaccounttitle** | Bank Account Title | String | The title of the bank account. |
 | **emailaddress** | Email Address | String | emailaddress of the party. |
 | **mandatereference** | Debit Mandate Reference | String | A means to identify an account via a debit mandate reference. |
-
-### ISO Country Codes
-
-The two-character alphabetic code for country as defined by ISO 3166 is to be used for all fields specifying a country or nationality. The full list of codes is maintained by the International Organisation for Standardisation. The list can be obtained via the following website - [http://www.iso.org/iso/country_codes](http://www.iso.org/iso/country_codes).

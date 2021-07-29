@@ -140,9 +140,9 @@ pageClass: home-page custom
       description: 'Facilisis rutrum diam imperdiet euismod tincidunt id volutpat egestas. Fermentum ornare blandit.'
     },
     {
-      link: '/use-cases/reccuring-payments',
+      link: '/use-cases/recurring-payments',
       icon: '/images/use-case-1.png',
-      title: 'Reccuring payments',
+      title: 'Recurring payments',
       description: 'Ut hendrerit nunc id amet mollis. Cras urna dolor nibh a ut cursus ut.'
     },
     {
