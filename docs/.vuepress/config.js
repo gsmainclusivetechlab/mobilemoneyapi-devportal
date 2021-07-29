@@ -256,8 +256,8 @@ const sidebarNavigation = {
               collapsable: true,
             },
             {
-              title: 'Reccuring payments',
-              path: '/use-cases/reccuring-payments/',
+              title: 'Recurring payments',
+              path: '/use-cases/recurring-payments/',
               sidebarDepth: 2,
               collapsable: true,
             },
@@ -287,7 +287,7 @@ const sidebarNavigation = {
 
   '/use-cases/merchant-payments/':[
     {
-      title: 'Merchant payments',
+      title: 'Merchant Payments',
       collapsable: false,
       sidebarDepth: 2,
       backLink: {
@@ -301,7 +301,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'Merchant Payments',
               path: '/use-cases/merchant-payments/',
             },
           ]
@@ -312,7 +312,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Use Case Scenarios',
               path: '/use-cases/merchant-payments/scenarios/scenarios',
             },
           ]
@@ -329,13 +329,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'Merchant Payments Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/merchant-payments/p2p-transfers-open-oas-ui',
+              title: 'Merchant Payments Open OAS UI',
+              path: '/use-cases/merchant-payments/merchant-payments-open-oas-ui',
             },
           ]
         },
@@ -358,7 +358,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'Disbursements',
               path: '/use-cases/disbursements/',
             },
           ]
@@ -369,7 +369,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Use Case Scenarios',
               path: '/use-cases/disbursements/scenarios/scenarios',
             },
           ]
@@ -386,13 +386,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'Disbursements Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/disbursements/p2p-transfers-open-oas-ui',
+              title: 'Disbursements Open OAS UI',
+              path: '/use-cases/disbursements/disbursements-open-oas-ui',
             },
           ]
         },
@@ -415,7 +415,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'International Transfers',
               path: '/use-cases/international-transfers/',
             },
           ]
@@ -443,13 +443,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'International Transfers Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/international-transfers/p2p-transfers-open-oas-ui',
+              title: 'International Transfers Open OAS UI',
+              path: '/use-cases/international-transfers/international-transfers-open-oas-ui',
             },
           ]
         },
@@ -513,9 +513,9 @@ const sidebarNavigation = {
       ]
     },
   ],
-  '/use-cases/reccuring-payments/':[
+  '/use-cases/recurring-payments/':[
     {
-      title: 'Reccuring payments',
+      title: 'Recurring Payments',
       collapsable: false,
       sidebarDepth: 2,
       backLink: {
@@ -529,8 +529,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/reccuring-payments/',
+              title: 'Recurring Payments',
+              path: '/use-cases/recurring-payments/',
             },
           ]
         },
@@ -541,7 +541,7 @@ const sidebarNavigation = {
           children: [
             {
               title: 'Scenarios',
-              path: '/use-cases/reccuring-payments/scenarios/scenarios',
+              path: '/use-cases/recurring-payments/scenarios/scenarios',
             },
           ]
         },
@@ -552,18 +552,18 @@ const sidebarNavigation = {
           children: [
             {
               title: 'API Service Definition',
-              path: '/use-cases/reccuring-payments/api-service-definition',
+              path: '/use-cases/recurring-payments/api-service-definition',
             },
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
-          collapsable: true,
+          title: 'Recurring Payments Open OAS UI',
+          Recurring: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/reccuring-payments/p2p-transfers-open-oas-ui',
+              title: 'Recurring Payments Open OAS UI',
+              path: '/use-cases/recurring-payments/recurring-payments-open-oas-ui',
             },
           ]
         },
@@ -586,7 +586,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'Account Linking',
               path: '/use-cases/account-linking/',
             },
           ]
@@ -614,13 +614,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'Account Linking Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/account-linking/p2p-transfers-open-oas-ui',
+              title: 'Account Linking Open OAS UI',
+              path: '/use-cases/account-linking/account-linking-open-oas-ui',
             },
           ]
         },
@@ -643,7 +643,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'Bill Payments',
               path: '/use-cases/bill-payments/',
             },
           ]
@@ -671,13 +671,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'Bill Payments Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/bill-payments/p2p-transfers-open-oas-ui',
+              title: 'Bill Payments Open OAS UI',
+              path: '/use-cases/bill-payments/bill-payments-open-oas-ui',
             },
           ]
         },
@@ -700,7 +700,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
+              title: 'Agent Services',
               path: '/use-cases/agent-services/',
             },
           ]
@@ -728,13 +728,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'P2P Transfers Open OAS UI',
+          title: 'Agent Services Open OAS UI',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers Open OAS UI',
-              path: '/use-cases/agent-services/p2p-transfers-open-oas-ui',
+              title: 'Agent Services Open OAS UI',
+              path: '/use-cases/agent-services/agent-services-open-oas-ui',
             },
           ]
         },

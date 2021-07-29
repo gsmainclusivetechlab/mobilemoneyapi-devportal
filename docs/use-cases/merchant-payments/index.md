@@ -4,19 +4,22 @@ pageClass: api-page
 ---
 
 ## Introduction
-The P2P Transfer Mobile Money APIs allow financial service providers (FSPs) to transfer funds from an account holding individual to another account holding individual or to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers, banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs). Bilateral and Switch-based transfers can be supported.
+The Merchant Payment Mobile Money APIs allow merchants to accept payments from mobile money customers. Supported payment mechanisms include:
 
+- **Payee-initiated merchant payment.** The merchant initiates the payment and the payer is requested to authenticate to confirm acceptance by the mobile money provider.
+- **Payer-initiated merchant payment.** The payer initiates the payment by specifying the merchant that is to be paid.
+- **Merchant payment via pre-authorised payment code.** The payer generates a payment authorisation code up to a maximum payment amount. The merchant then enters or scans (if rendered as a QR code) the payer’s code to perform the payment.
+
+Closed loop and open-loop merchant payments are supported by the Mobile Money API. Closed loop merchant payments occur where the payer and payee accounts reside with the same mobile money provider. Open loop payments occur where the payer and payee accounts reside with different mobile money providers.
 For further reading, please refer to the following:
 
-- Getting Started. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
-- API Service Definition. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
-All documentation can be found on the [GSMA Mobile Money API Developer Portal](https://developer.mobilemoneyapi.io/).
+- **Getting Started.** Specifies the design principles, behaviours, and error handling of the Mobile Money API.
+- **API Service Definition.** Documents all Mobile Money API endpoints, fields, objects, and enumerations.
+
+All documentation can be found on the [GSMA Mobile Money API Developer Portal](../../api-versions-1.2/).
 
 ## Intended Audience
-The P2P Transfer Mobile Money APIs allow financial service providers (FSPs) to transfer funds from an account holding individual to another account holding individual or to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers, banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs). Bilateral and Switch-based transfers can be supported.
-
-For further reading, please refer to the following:
-
-Getting Started. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
-API Service Definition. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
-All documentation can be found on the GSMA Mobile Money API Developer Portal.
+| **Audience** | **Usage** | **Role** |
+|:--------|:------|:-----|
+| **Mobile Money Providers** | To understand how to implement the Mobile Money API to receive payments from merchants. | API Provider |
+| **Merchants** | To understand how to implement the Mobile Money API to accept mobile money payments. | API Consumer |

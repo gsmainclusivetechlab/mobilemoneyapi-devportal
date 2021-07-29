@@ -8,128 +8,52 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
-## P2P Transfer via Switch
+## Payee-Initiated Merchant Payment
 
-In this diagram, a switch is used by the sending FSP to (1) confirm the recipient name, (2) request a quotation and  and to(3) perform the transfer with the receiving FSP. A callback is provided by the receiving FSP to return confirmation of the transfer.
+In this example, an asynchronous payment flow is used with a final callback. The merchant initiates the request and will be credited when the payer approves the request.
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
-  <mermaid>
-    sequenceDiagram
-      participant Sending FSP
-      participant Switch
-      participant Receiving FSP
-      Sending FSP->>Switch: GET /accounts/{identifierType}/{identifier}/accountname
-      activate Sending FSP
-      activate Switch
-      activate Receiving FSP
-      Note right of Switch: (1) The Sending FSP retrieves the name of the intended<br>recipient from the Receiving FSP via the Switch.
-      Switch->>Receiving FSP: GET /accounts/{identifierType}/{identifier}/accountname
-      Receiving FSP-->>Switch: HTTP 200 (Account Holder Name Object)
-      Switch-->>Sending FSP: HTTP 200 (Account Holder Name Object)
-      deactivate Sending FSP
-      deactivate Switch
-      deactivate Receiving FSP
-      Sending FSP->>Switch: POST /quotations
-      activate Sending FSP
-      activate Switch
-      activate Receiving FSP
-      Note right of Switch: (2) Subject to sender confirmation of the name returned in step 1, the Sending FSP<br>submits a quotation request to the Switch. The Switch will return the Request<br>State object to indicate that the request is 'pending'. 
-      Switch->>Receiving FSP: POST /quotations
-      Note right of Receiving FSP: (3) The Swith in turn submits the quotation request to the<br>Receiving FSP. The Receiving FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
-      Receiving FSP-->>Switch: HTTP 202 (Request State Object)
-      Switch-->>Sending FSP: HTTP 202 (Request State  Object)
-      deactivate Sending FSP
-      deactivate Switch
-      Receiving FSP->>Switch: PUT {Callback URL} (Quotations Object)
-      activate Switch
-      activate Sending FSP
-      Note right of Receiving FSP: (4) The FSP informs the Switch that the quotation<br>has been successfully created by returning the<br>final representation of the quotation. 
-      Switch-->>Receiving FSP: HTTP 204
-      deactivate Receiving FSP
-      Switch->>Sending FSP: PUT {Callback URL} (Quotations Object)
-      Note right of Switch: (5) The Swith in turn informs the Sending FSP that the quotation<br> has successfully created by returning the final representation<br>of the quotation.
-      Sending FSP-->>Switch: HTTP 204
-      deactivate Switch
-      deactivate Sending FSP
-      Sending FSP->>Switch: POST /transactions/type/transfer
-      activate Switch
-      activate Sending FSP
-      activate Receiving FSP
-      Note right of Switch: (6) Subject to sender confirmation, the Sending FSP submits a transfer<br>request to the Swith. The Switch will return the Request State object to<br>indicate that the request is 'pending'.
-      Switch->>Receiving FSP: POST /transactions/type/transfer
-      Note right of Receiving FSP: (7) The Switch in turn submits the transaction request to the<br>Receiving FSP. The Receiving FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
-      Receiving FSP-->>Switch: HTTP 202 (Request State Object)
-      Switch-->>Sending FSP: HTTP 202 (Request State Object)
-      deactivate Switch
-      deactivate Sending FSP
-      Receiving FSP->>Switch: PUT {Callback URL} (Transactions Object)
-      activate Switch
-      activate Sending FSP
-      Note right of Receiving FSP: (8) The FSP informs the Switch that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
-      Switch-->>Receiving FSP: HTTP 204
-      deactivate Receiving FSP
-      Switch->>Sending FSP: PUT {Callback URL} (Transactions Object)
-      Note right of Switch: (9) The Swith in turn informs the Sending FSP that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
-      Sending FSP-->>Switch: HTTP 204
-      deactivate Switch
-      deactivate Sending FSP
-  </mermaid>
+<mermaid>
+  sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    participant Payer  
+    Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    deactivate Merchant
+    Mobile Money Provider->>Payer: Obtain Customer Authorisation
+    activate Payer
+    Note right of Payer: (2) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer authorisation.
+    Payer-->>Mobile Money Provider: (Authorised)
+    deactivate Payer
+    activate Merchant
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
 
 <code-language-selector>
 <code-lang title="Vue">
+
 <code-group>
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -139,15 +63,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -164,15 +88,18 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
+
 </code-group>
+
 </code-lang>
 
 <code-lang title="JavaScript">
 <code-group>
+
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -182,15 +109,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -208,50 +135,9 @@ echo str_word_count("PHP");
 ```
 </code-block>
 </code-group>
+
 </code-lang>
 
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
 </code-language-selector>
 
 </div>
@@ -260,91 +146,51 @@ echo str_word_count("PHP");
 </div>
 
 <div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdjZhR" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLNf" target="_blank">Open Postman Collection with Authentication</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEr4" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLNh" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
-## Bilateral P2P Transfer
+## Payee-Initiated Merchant Payment Failure
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-In this diagram, the sending FSP connects directly with the receiving FSP to confirm the recipient name and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer. In this example, a quotation is not requested.
+In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
 
 <mermaid>
-  sequenceDiagram
-    participant Sending FSP
-    participant Receiving FSP
-    Sending FSP->>Receiving FSP: GET /accounts/{identifierType}/{identifier}/accountname
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (1) The Sending FSP retrieves the name of the<br>intended recipient from the Receiving FSP.
-    Receiving FSP-->>Sending FSP: HTTP 200 (Account Holder Name Object)
-    deactivate Receiving FSP
-    Sending FSP->>Receiving FSP: POST /transactions/type/transfer
-    activate Receiving FSP
-    Note right of Receiving FSP: (2) Subject to sender confirmation, the Sending FSP<br>submits a transfer request. The Receiving FSP will<br>return the Request State object to indicate that the<br>request is "pending".
-    Receiving FSP-->>Sending FSP: HTTP 202 (Request State Object)
-    deactivate Sending FSP
-    deactivate Receiving FSP
-    Receiving FSP->>Sending FSP: PUT {Callback URL} (Transaction Object)
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the<br>transation has been succesfully completed by<br>returning the final representation of the transaction. 
-    Sending FSP-->>Receiving FSP: HTTP 204
-    deactivate Sending FSP
-    deactivate Receiving FSP
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    participant Payer  
+    Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    deactivate Merchant
+    Mobile Money Provider->>Payer: Obtain Customer Authorisation
+    activate Payer
+    Note right of Payer: (2) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer authorisation.
+    Payer-->>Mobile Money Provider: (Authorised)
+    deactivate Payer
+    activate Merchant
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
 </mermaid>
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
 <code-language-selector>
 <code-lang title="Vue">
+
 <code-group>
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -354,15 +200,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -379,15 +225,18 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
+
 </code-group>
+
 </code-lang>
 
 <code-lang title="JavaScript">
 <code-group>
+
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -397,15 +246,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -423,497 +272,9 @@ echo str_word_count("PHP");
 ```
 </code-block>
 </code-group>
+
 </code-lang>
 
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLAUy2" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLDt" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-## ‘On-us’ P2P Transfer Initiated by a Third Party Provider
-
-In this diagram, A third party provider enables a sender to transfer money to a recipient in the same FSP. The third party provider (1) confirms the recipient name, (2) requests a quotation and (3) performs the transfer with the FSP. A callback is provided by the FSP to return confirmation of the transfer.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
-<mermaid>
-  sequenceDiagram
-    participant Third Party Provider
-    participant FSP
-    Third Party Provider->>FSP: GET /accounts/{identifierType}/{identifier}/accountname
-    activate Third Party Provider
-    activate FSP
-    Note right of FSP: (1) The Third Party Provider retrieves the name of the<br>intended recipient from the FSP.
-    FSP-->>Third Party Provider: HTTP 200 (Account Holder Name Object)
-    deactivate Third Party Provider
-    deactivate FSP
-    Third Party Provider->>FSP: POST /quotations
-    activate Third Party Provider
-    activate FSP
-    Note right of FSP: (2) Subject to sender confirmation, the Third Party Provider<br>submits a quotation request. The FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
-    Third Party Provider-->>FSP: HTTP 202 (Request State Object)
-    deactivate Third Party Provider
-    deactivate FSP
-    FSP->>Third Party Provider: PUT {Callback URL} (Quotations Object)
-    activate Third Party Provider
-    activate FSP
-    Note right of FSP: (3) The FSP in turn informs the Third Party Provider that<br>the quotation has been successfully completed by<br>returning the final representation of the quotation.
-    Third Party Provider-->>FSP: HTTP 204
-    deactivate Third Party Provider
-    deactivate FSP
-    Third Party Provider->>FSP: POST /transactions/type/transfer
-    activate Third Party Provider
-    activate FSP
-    Note right of FSP: (4) Subject to sender confirmation, the Third Party Provider<br>submits a transfer request. The FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
-    Third Party Provider-->>FSP: HTTP 202 (Request State Object)
-    deactivate Third Party Provider
-    deactivate FSP
-    FSP->>Third Party Provider: PUT {Callback URL} (Transactions Object)
-    activate Third Party Provider
-    activate FSP
-    Note right of FSP: (5) The FSP in turn informs the Third Party Provider that<br>the transaction has been successfully completed by<br>returning the final representation of the transaction.
-    Third Party Provider-->>FSP: HTTP 204
-    deactivate Third Party Provider
-    deactivate FSP
-</mermaid>
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLAUy4" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfrY" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-
-## P2P Transfer Failure
-
-In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
-<mermaid>
-  sequenceDiagram
-    participant Sending FSP
-    participant Receiving FSP
-    Sending FSP->>Receiving FSP: GET /accounts/{identifierType}/{identifier}/accountname
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (1) The Sending FSP retrieves the name of the<br>intended recipient from the Receiving FSP.
-    Receiving FSP-->>Sending FSP: HTTP 200 (Account Holder Name Object)
-    deactivate Receiving FSP
-    Sending FSP->>Receiving FSP: POST /transactions/type/transfer
-    activate Receiving FSP
-    Note right of Receiving FSP: (2) Subject to sender confirmation, the Sending FSP<br>submits a transfer request. The Receiving FSP will<br>return the Request State object to indicate that the<br>request is "pending".
-    Receiving FSP-->>Sending FSP: HTTP 202 (Request State Object)
-    deactivate Sending FSP
-    deactivate Receiving FSP
-    Receiving FSP->>Sending FSP: PUT {Callback URL} (Error Object)
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the<br>transation has been failed by returning an Error<br>object containing the reason for failure. 
-    Sending FSP-->>Receiving FSP: HTTP 204
-    deactivate Sending FSP
-    deactivate Receiving FSP
-</mermaid>
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
 </code-language-selector>
 
 </div>
@@ -921,100 +282,61 @@ echo str_word_count("PHP");
 </div>
 
 
-## P2P Transfer Reversal
+## Payee-Initiated Merchant Payment using the Polling Method
 
-In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
-
-<mermaid>
-  sequenceDiagram
-    participant Sending FSP
-    participant Receiving FSP
-    Sending FSP->>Receiving FSP: POST /transactions/{original transaction reference}/reversals
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (1) The Sending FSP submits the reversal request for<br>processing to the Receiving FSP - passing the reference of<br>the transaction that is to bve reversed. The Receiving FSP<br>will return the Request State object to indicate the the<br>request is "pending".
-    Receiving FSP-->>Sending FSP: HTTP 202 (Request State Object)
-    Receiving FSP->>Sending FSP: PUT {Callback URL} (Reversal Object)
-    Note right of Receiving FSP: (2) The Receiving FSP informs the Sending FSP<br>that the reversal has been successully<br>completed by returning the final representation<br>of the reversal transaction.
-    Sending FSP-->>Receiving FSP: HTTP 204
-    deactivate Sending FSP
-    deactivate Receiving FSP
-</mermaid>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF3P" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfUV" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-
-## Obtain an FSP Balance
+In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
-  sequenceDiagram
-    participant Requesting FSP
-    participant FSP
-    Requesting FSP->>FSP: GET /accounts/{identifierType}/{identifier}/balance
-    activate Requesting FSP
-    activate FSP
-    Note right of FSP: (1) Obtain the balance of the<br>Requesting FSP's account.
-    FSP-->>Requesting FSP: HTTP 200 (Balance Object)
-    deactivate Requesting FSP
-    deactivate FSP
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    participant Payer
+    Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    deactivate Merchant      
+    par
+        loop 
+            activate Merchant
+            Merchant->>Mobile Money Provider: GET /requeststates/{serverCorrelationId}
+            Note right of Mobile Money Provider: (2) The Merchant polls the MMP for the Request State until the<br>transaction is authorised or declined or until the polling limit<br>is reached.
+            Mobile Money Provider-->>Merchant: HTTP 200 (Request State Object)
+        end
+    and
+        Mobile Money Provider->>Payer: Obtain Customer Authorisation
+        activate Payer
+        Note right of Payer: (3) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer<br>authorisation.
+        Payer-->>Mobile Money Provider: (Authorised)
+    end
+    deactivate Merchant
+    deactivate Payer
+    deactivate Mobile Money Provider
+    opt
+        activate Mobile Money Provider
+        activate Merchant
+        Merchant->>Mobile Money Provider: GET /transactions/transactionsReference
+        Note right of Mobile Money Provider: (4) The Merchant can use the objectReference returned in the<br>Request State to retrieve a representation of the complete<br>payment transaction.
+        Mobile Money Provider-->>Merchant: HTTP 200 (Transactions Object)
+    end    
+    deactivate Merchant
+    deactivate Mobile Money Provider
 </mermaid>
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
 <code-language-selector>
 <code-lang title="Vue">
+
 <code-group>
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -1024,15 +346,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -1049,15 +371,18 @@ echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
+
 </code-group>
+
 </code-lang>
 
 <code-lang title="JavaScript">
 <code-group>
+
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="POST">
 ```javascript
 function fancyAlert(arg) {
   if (arg) {
@@ -1067,15 +392,15 @@ function fancyAlert(arg) {
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
 <?php
 echo str_word_count("PHP");
 ?> 
 ```
 </code-block>
-<code-block title="patch">
-any content can be inserted here
+
+<code-block title="PATCH">
 
 ::: v-pre
 `{{ Some pher information  }}`
@@ -1093,50 +418,9 @@ echo str_word_count("PHP");
 ```
 </code-block>
 </code-group>
+
 </code-lang>
 
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="patch">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
 </code-language-selector>
 
 </div>
@@ -1144,34 +428,344 @@ echo str_word_count("PHP");
 </div>
 
 <div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF3U" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9M" target="_blank">Open Postman Collection with Authentication</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvL" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXR" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
 
-## Retrieve Transactions for an FSP
+## Payer-Initiated Merchant Payment
+
+In this example, an asynchronous payment flow is used with a final callback. The payer initiates the request and will be debited upon successful completion of the request.
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
-This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.
+<mermaid>
+sequenceDiagram
+    participant Payer  
+    participant Mobile Money Provider  
+    participant Merchant
+    Payer->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Payer
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Payer's channel (e.g. Mobile Money App) submits the<br>payment request for processing to the MMP. The MMP will<br>return the Request State object to indicate that the request<br>is 'pending'.
+    Mobile Money Provider-->>Payer: HTTP 202 (Request State Object)
+    deactivate Payer   
+    Mobile Money Provider->>Payer: PUT {Callback URL} (transactions Object)
+    activate Payer
+    Note right of Mobile Money Provider: (2) The MMP informs the Payer's channel that the<br>payment has been successfully completed<br>by returning the final representation of the<br>transaction.
+    Payer-->>Mobile Money Provider: HTTP 204  
+    deactivate Payer
+    activate Merchant
+    Mobile Money Provider->>Merchant: Notify
+    Note right of Merchant: (3) The MMP notifies the merchant tha the<br>payment has successfully compeleted.
+    deactivate Mobile Money Provider
+    deactivate Merchant
+</mermaid>
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-language-selector>
+<code-lang title="Vue">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+</code-group>
+
+</code-lang>
+
+<code-lang title="JavaScript">
+<code-group>
+
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
+
+</code-lang>
+
+</code-language-selector>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvP" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXU" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+## Payer-Initiated Merchant Payment Failure
+
+In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
 
 <mermaid>
-  sequenceDiagram
-    participant Requesting FSP
-    participant FSP
-    Requesting FSP->>FSP: GET /accounts/{identifierType}/{identifier}/transactions?offset=0&limit=20
-    activate Requesting FSP
-    activate FSP
-    Note right of FSP: (1) The Requesting FSP requests up to<br>20 transactions for their account<br>from the FSP.
-    FSP-->>Requesting FSP: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
-    Note right of FSP: (2) The FSP returns an array of 20<br>transactions and indicates via a<br>response header that there are 40<br>records available in total.
-    Requesting FSP->>FSP: GET /accounts/{identifierType}/{identifier}/transactions?offset=20&limit=20
-    Note right of FSP: (3) The Requesting FSP requests the<br>remaining transactions from the<br>account from the Receiving FSP.
-    FSP-->>Requesting FSP: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
-    deactivate Requesting FSP
-    deactivate FSP
+sequenceDiagram
+    participant Payer  
+    participant Mobile Money Provider  
+    participant Merchant
+    Payer->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Payer
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Payer's channel (e.g. Mobile Money App) submits the<br>payment request for processing to the MMP. The MMP will<br>return the Request State object to indicate that the request<br>is 'pending'.
+    Mobile Money Provider-->>Payer: HTTP 202 (Request State Object)
+    deactivate Payer  
+    Mobile Money Provider->>Payer: PUT {Callback URL} (Error Object)
+    activate Payer
+    Note right of Mobile Money Provider: (2) The MMP informs the Payer's channel that the<br>payment has been failed and returns the error<br>object detailing the reason for failure.
+    Payer-->>Mobile Money Provider: HTTP 204   
+    deactivate Payer
+    activate Merchant
+    Mobile Money Provider->>Merchant: Notify
+    Note right of Merchant: (3) The MMP notifies the merchant tha the<br>payment has failed.
+    deactivate Mobile Money Provider
+    deactivate Merchant
+</mermaid>
+
+
+## Payee-Initiated Merchant Payment using a Pre-authorised Payment Code
+
+In this example the /authorisationcodes API is used to obtain a pre-authorised payment code. This in turn is presented by the payer to the merchant who initiates the payment request. Both flows in the diagram result in a callback. This flow is primarily used for payment on delivery use cases.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+
+<mermaid>
+sequenceDiagram
+    participant Payer  
+    participant Merchant
+    participant Mobile Money Provider    
+    Payer->>Mobile Money Provider: POST /accounts/{identifierType}/{identifier}/authorisationcodes
+    activate Payer
+    activate Mobile Money Provider 
+    Note right of Mobile Money Provider: (1) The Payer's channel (e.g. Mobile Money App) submits<br>the request to generate an authorisation code to the<br>MMP. The MMP will return the Request State object to<br>indicate that the request is 'pending'.
+    Mobile Money Provider-->>Payer: HTTP 202 (Request State Object)
+    Mobile Money Provider->>Payer: PUT {Callback URL} (Authorisation Code Object)
+    Note right of Mobile Money Provider: (2) The MMP informs the Payer's channel that the<br>request has been successfully completed by<br>returing the final representation of the<br>authorisation code.
+    Payer-->>Mobile Money Provider: HTTP 204
+    deactivate Payer
+    deactivate Mobile Money Provider    
+    Note right of Payer: (3) The Payer communicates the code to the merchant. This<br>can be via QR code or by verbally communicating the code. 
+    Payer->>Merchant: Communicates Code Verbally or via QR Presentment
+    activate Payer
+    activate Merchant
+    activate Mobile Money Provider 
+    Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
+    Note right of Mobile Money Provider: (4) The Merchant submits the payment request for<br>processing to the MMP. The request will contain the<br>authorisation code. The MMP will return the Request<br>State object to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    deactivate Merchant
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    activate Merchant
+    Note right of Mobile Money Provider: (5) The MMP informs the Merchant that the<br>transaction has been successfully completed by<br>returning the final representation of the<br>transaction.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Payer
+    deactivate Merchant
+    deactivate Mobile Money Provider 
+</mermaid>
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-language-selector>
+<code-lang title="Vue">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+</code-group>
+
+</code-lang>
+
+<code-lang title="JavaScript">
+<code-group>
+
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
+
+</code-lang>
+
+</code-language-selector>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzm" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLTA" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+
+## Merchant Payment Refund
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+
+Merchants can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
+
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: POST /transactions/type/adjustment
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the refund request for processing to<br>the MMP. The MMP will return the Request State object to<br>indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    Note right of Mobile Money Provider: (2) The MMP informs the Merchant that the<br>refund has been successfully completed by<br>returning the final representation of the refund.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
 </mermaid>
 
 <div class="code-panel-block-holder">
@@ -1202,85 +796,230 @@ echo str_word_count("PHP");
 </div>
 
 <div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7n" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1wE" target="_blank">Open Postman Collection with Authentication</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzq" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLJG" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
+
+## Merchant Payment Reversal
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+
+In some failure scenarios, a merchant may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
+
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: POST /transactions/{original transaction reference}/reversals
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the reversal request for processing<br>to the MMP - passing the reference of the transaction that<br>is to be reversed. The MMP will return the Request State<br>object to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Reversal Object)
+    Note right of Mobile Money Provider: (2) The MMP informs the Merchant that the<br>reversal has been successfully completed by<br>returning the final representation of the<br>reversal transaction.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-language-selector>
+<code-lang title="Vue">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+</code-group>
+
+</code-lang>
+
+<code-lang title="JavaScript">
+<code-group>
+
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```javascript
+function fancyAlert(arg) {
+  if (arg) {
+    $.facebox({div: '#foo'})
+  }
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+
+<code-block title="PATCH">
+
+::: v-pre
+`{{ Some pher information  }}`
+:::
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+```php
+<?php
+echo str_word_count("PHP");
+?> 
+```
+</code-block>
+</code-group>
+
+</code-lang>
+
+</code-language-selector>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGF59" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLJK" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+## Obtain a Merchant Balance
+
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: GET /accounts/{identifierType}/{identifier}/balance
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) Obtain the balance of the<br>requested account.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Balance Object)
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFV" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9Q" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+## Retrieve Payments for a Merchant
+
+This diagram illustrates use of a cursor mechanism to retrieve all payments for a merchant via multiple requests.
+
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: GET /accounts/{identifierType}/{identifier}/transactions?offset=0&limit=20
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant requests up to<br>20 transactions for the<br>account from the MMP.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
+    Note right of Mobile Money Provider: (2) The MMP returns an array of<br>20 transactions and indicates<br>via a response header that<br>there are 40 records<br>available in total.    
+    Merchant->>Mobile Money Provider: GET /accounts/{identifierType}/{identifier}/transactions?offset=20&limit=20
+    Note right of Mobile Money Provider: (3) The Merchant requests the<br>remaining transactions for<br>the account from the MMP.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFX" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1w6" target="_blank">Open Postman Collection with Authentication</a>
+</div>
 
 ## Check for Service Availability
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
-The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
+The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
 
 <mermaid>
-  sequenceDiagram
-    participant Requesting FSP
-    participant FSP
-    Requesting FSP->>FSP: GET /heartbeat
-    activate Requesting FSP
-    activate FSP
-    Note right of FSP: (1) The Requesting FSP requests the<br>availability of the service from the FSP.
-    FSP-->>Requesting FSP: HTTP 200 (Heartbeat Object)
-    Note right of FSP: (2) The FSP returns the availability of<br>the service - available, unavailable<br>or degraded.
-    deactivate Requesting FSP
-    deactivate FSP
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: GET /heartbeat
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant requests the availability<br>of the service from the MMP.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Heartbeat Object)
+    Note right of Mobile Money Provider: (2) The MMP returns the availability of<br>the service - available, unavailable<br>or degraded.
+    deactivate Merchant
+    deactivate Mobile Money Provider
 </mermaid>
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCQbS8z" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
-
 ## Retrieve a Missing API Response
 
-This API can be used by the sending FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the receiving FSP.
+This API can be used by the merchant to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
 <mermaid>
-  sequenceDiagram
-    participant Sending FSP
-    participant Receiving FSP
-    Sending FSP->>Receiving FSP: GET /responses{clientCorrelationId}
-    activate Sending FSP
-    activate Receiving FSP
-    Note right of Receiving FSP: (1) Using the Sending FSP's<br>clientCorrelationId, a request for the<br>missing API response is sent.
-    Sending FSP-->>Receiving FSP: HTTP 200 (Responses Object)
-    Note right of Receiving FSP: (2) A Responses object is returned<br>containing a link to the missing<br>resource.
-    Sending FSP->>Receiving FSP: GET /{link}
-    Note right of Receiving FSP: (3) The Sending FSP uses the link to<br>obtain a representation of the missing<br>resource.
-    Receiving FSP-->>Sending FSP: HTTP 200 (Requested Object)
-    deactivate Receiving FSP
-    deactivate Sending FSP
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: GET /responses{clientCorrelationId}
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) Using the Merchant's<br>clientCorrelationId, a request for the<br>missing API response is sent.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Responses Object) 
+    Note right of Mobile Money Provider: (2) A Responses object is returned<br>containing a link to the missing<br>resource.  
+    Merchant->>Mobile Money Provider: GET /{link}
+    Note right of Mobile Money Provider: (3) The Merchant uses the link to obtain<br>a representation of the missing<br>resource.
+    Mobile Money Provider-->>Merchant: HTTP 200 (Requested Object)
+    deactivate Merchant
+    deactivate Mobile Money Provider
 </mermaid>
 
 <div class="buttons-holder content-center">
