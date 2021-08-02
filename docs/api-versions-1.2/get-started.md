@@ -117,45 +117,102 @@ echo str_word_count("PHP");
 </code-group>
 
 <code-language-selector>
-<code-lang title="Vue">
+<code-lang title="php">
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
   }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
 }
 ```
 </code-block>
 
 <code-block title="get">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+GET .../transactions/36125b528237
 ```
 </code-block>
-<code-block title="Get">
-any content can be inserted here
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
+<code-block title="patch">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
+<code-group>
+<code-block title="post">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
+</code-block>
+
+<code-block title="get">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="patch">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+</code-group>
 </code-block>
 </code-group>
 </code-lang>
@@ -166,84 +223,165 @@ echo str_word_count("PHP");
 
 <code-group>
 <code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-    if(!#foo) return
-    #foo.insert(true)
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
   }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
 }
 ```
 </code-block>
 
 <code-block title="get">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+GET .../transactions/36125b528237
 ```
 </code-block>
-<code-block title="Get">
-any content can be inserted here
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
+<code-block title="patch">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
+<code-group>
+<code-block title="post">
+```javascript
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
 ```
+</code-block>
+
+<code-block title="get">
+```javascript
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e)
+```
+</code-block>
+
+<code-block title="patch">
+```javascript
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails()
+```
+</code-block>
+</code-group>
 </code-block>
 </code-group>
 </code-lang>
 
-<code-lang title="Java">
+<code-lang title="Vue">
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
   }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
 }
 ```
 </code-block>
 
 <code-block title="get">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+GET .../transactions/36125b528237
 ```
 </code-block>
-<code-block title="Get">
-any content can be inserted here
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
+<code-block title="patch">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
+<code-group>
+<code-block title="post">
+```javascript
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) 
 ```
+</code-block>
+
+<code-block title="get">
+```javascript
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+```
+</code-block>
+
+<code-block title="patch">
+```javascript
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails()
+}  
+```
+</code-block>
+</code-group>
 </code-block>
 </code-group>
 </code-lang>

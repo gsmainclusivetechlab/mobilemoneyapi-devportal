@@ -1,6 +1,8 @@
 ---
-pageClass: api-page
+pageClass: api-page has-code-panel
 ---
+
+<side-code-panel/>
 
 # Heading 1
 
@@ -29,6 +31,536 @@ Hendrerit rhoncus, neque nunc massa purus risus.
 ::: warning Warning
 Hendrerit rhoncus, neque nunc massa purus risus.
 :::
+
+
+## Sidebar code sections
+
+### Single language
+
+This will require a single group use as per VuePress documentation, or as per the next example (here and next we assume that the code group is wrapped by wrappers from above). 
+
+In a few word just use `<code-group>` tag as a wrapper for a View `<code-block>` and inside the View add the other combination of `<code-group>` and `<code-block>` to include the Object name and info.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+GET .../transactions/36125b528237
+```
+</code-block>
+
+<code-block title="PATCH">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="PATCH">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
+| **Operation**     | **Path**         | **Description**  |
+| ------------- |:-------------|------|
+| **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
+| **View**          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
+| **Update** | PATCH */transactions/{transactionReference}*  | To update the transactionStatus of a transaction.|
+
+<br><br>
+
+### 1 method + 1 language (w/o a switcher) 
+
+This is an example of how the right sidebar can be used for a single method/object w/o adding a language switcher.
+
+E.g. a **single method/object** needs to be described in **one or few languages**.
+
+Just use the default 2 groups View and Code, where Code will include a group of two blocks are named as languages, e.g. PHP and JavaScript. 
+
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="PHP">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="JavaScript">
+```javascript
+//This is JavaScript
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
+| **Operation**     | **Path**         | **Description**  |
+| ------------- |:-------------|------|
+| **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+### Multiple methods/objects and languages (w/o switcher)
+
+This is an example of how multiple methods/objects and languages can be supported. 
+
+E.g. we need 2 methods and code examples in two languages for them as separate tabs / `<code-group>`s.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+GET .../transactions/36125b528237
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="JavaScript">
+<code-group>
+<code-block title="POST">
+```javascript
+//This is JavaScript
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//This is JavaScript
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e)
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
+| **Operation**     | **Path**         | **Description**  |
+| ------------- |:-------------|------|
+| **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
+| **View**          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
+
+<br><br><br><br><br><br><br><br><br><br>
+
+### Multiple methods/objects and languages (with switcher)
+
+This is an example of how multiple methods/objects and languages can be supported. 
+
+E.g. we need 2 methods and code examples in two languages for them. 
+
+This will require adding methods and code examples for all languages wrapping them into `<code-language-selector>` tags.
+
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-language-selector>
+<code-lang title="PHP">
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+GET .../transactions/36125b528237
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+</code-group>
+</code-lang>
+
+<code-lang title="JavaScript">
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
+}
+```
+</code-block>
+
+<code-block title="GET">
+```php
+GET .../transactions/36125b528237
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group>
+<code-block title="POST">
+```javascript
+//This is JavaScript
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//This is JavaScript
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e)
+```
+</code-block>
+
+</code-group>
+</code-block>
+</code-group>
+</code-lang>
+
+</code-language-selector>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
+| **Operation**     | **Path**         | **Description**  |
+| ------------- |:-------------|------|
+| **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
+| **View**          | GET <br>  */transactions/{transactionReference}* |   To view a transaction. |
+
 
 ## Table
 

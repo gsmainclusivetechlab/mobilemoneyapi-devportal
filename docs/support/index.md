@@ -21,3 +21,8 @@ pageClass: contact-us-page custom
         }
     ]"
 />
+
+<div class="text-hidden">
+  <p>Contact us.</p>
+  <p>If you have any comments or you have found any issues please let us know by filling in the fields below.</p>
+</div>

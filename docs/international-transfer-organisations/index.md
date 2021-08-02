@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>International Transfer Organisations.</p>
+    <p>Behind most international money and security transfers is the Society for Worldwide Interbank Financial Telecommunications (SWIFT) system.</p>
+  </div>
