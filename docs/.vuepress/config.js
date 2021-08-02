@@ -256,8 +256,8 @@ const sidebarNavigation = {
               collapsable: true,
             },
             {
-              title: 'Reccuring payments',
-              path: '/use-cases/reccuring-payments/',
+              title: 'Recurring payments',
+              path: '/use-cases/recurring-payments/',
               sidebarDepth: 2,
               collapsable: true,
             },
@@ -287,7 +287,7 @@ const sidebarNavigation = {
 
   '/use-cases/merchant-payments/':[
     {
-      title: 'Merchant payments',
+      title: 'Merchant Payments',
       collapsable: false,
       sidebarDepth: 2,
       backLink: {
@@ -301,8 +301,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Merchant Payments',
+              path: '/use-cases/merchant-payments/',
             },
           ]
         },
@@ -312,15 +312,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'About Use Case Scenarios',
+              path: '/use-cases/merchant-payments/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/merchant-payments/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Merchant Payments Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Merchant Payments Open OAS UI',
+              path: '/use-cases/merchant-payments/merchant-payments-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -340,8 +358,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Disbursements',
+              path: '/use-cases/disbursements/',
             },
           ]
         },
@@ -351,15 +369,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'About Use Case Scenarios',
+              path: '/use-cases/disbursements/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/disbursements/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Disbursements Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Disbursements Open OAS UI',
+              path: '/use-cases/disbursements/disbursements-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -379,8 +415,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'International Transfers',
+              path: '/use-cases/international-transfers/',
             },
           ]
         },
@@ -390,15 +426,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'Scenarios',
+              path: '/use-cases/international-transfers/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/international-transfers/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'International Transfers Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'International Transfers Open OAS UI',
+              path: '/use-cases/international-transfers/international-transfers-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -435,21 +489,13 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'API Definition',
+          title: 'API Service Definition',
           collapsable: true,
           sidebarDepth: 2,
           children: [
             {
-              title: 'API Endpoints',
-              path: '/use-cases/p-2-p-transfers/api-endpoints',
-            },
-            {
-              title: 'Supporting Objects',
-              path: '/use-cases/p-2-p-transfers/supporting-objects',
-            },
-            {
-              title: 'Enumerations',
-              path: '/use-cases/p-2-p-transfers/enumerations',
+              title: 'API Service Definition',
+              path: '/use-cases/p-2-p-transfers/api-service-definition',
             },
           ]
         },
@@ -467,9 +513,9 @@ const sidebarNavigation = {
       ]
     },
   ],
-  '/use-cases/reccuring-payments/':[
+  '/use-cases/recurring-payments/':[
     {
-      title: 'Reccuring payments',
+      title: 'Recurring Payments',
       collapsable: false,
       sidebarDepth: 2,
       backLink: {
@@ -483,8 +529,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Recurring Payments',
+              path: '/use-cases/recurring-payments/',
             },
           ]
         },
@@ -494,15 +540,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'Scenarios',
+              path: '/use-cases/recurring-payments/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/recurring-payments/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Recurring Payments Open OAS UI',
+          Recurring: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Recurring Payments Open OAS UI',
+              path: '/use-cases/recurring-payments/recurring-payments-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -522,8 +586,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Account Linking',
+              path: '/use-cases/account-linking/',
             },
           ]
         },
@@ -533,15 +597,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'Scenarios',
+              path: '/use-cases/account-linking/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/account-linking/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Account Linking Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Account Linking Open OAS UI',
+              path: '/use-cases/account-linking/account-linking-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -561,8 +643,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Bill Payments',
+              path: '/use-cases/bill-payments/',
             },
           ]
         },
@@ -572,15 +654,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'Scenarios',
+              path: '/use-cases/bill-payments/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/bill-payments/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Bill Payments Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Bill Payments Open OAS UI',
+              path: '/use-cases/bill-payments/bill-payments-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],
@@ -600,8 +700,8 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfers',
-              path: '/use-cases/p-2-p-transfers/',
+              title: 'Agent Services',
+              path: '/use-cases/agent-services/',
             },
           ]
         },
@@ -611,15 +711,33 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'P2P Transfer via Switch',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#p2p-transfer-via-switch',
+              title: 'Scenarios',
+              path: '/use-cases/agent-services/scenarios/scenarios',
             },
-            {
-              title: 'Bilateral P2P Transfer',
-              path: '/use-cases/p-2-p-transfers/scenarios/scenarios.html#bilateral-p2p-transfer',
-            }
           ]
-        }
+        },
+        {
+          title: 'API Service Definition',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'API Service Definition',
+              path: '/use-cases/agent-services/api-service-definition',
+            },
+          ]
+        },
+        {
+          title: 'Agent Services Open OAS UI',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Agent Services Open OAS UI',
+              path: '/use-cases/agent-services/agent-services-open-oas-ui',
+            },
+          ]
+        },
       ]
     },
   ],

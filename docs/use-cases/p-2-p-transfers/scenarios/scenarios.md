@@ -8,6 +8,9 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+# About Use case scenarios
+
+The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
 ## P2P Transfer via Switch
 
@@ -84,172 +87,102 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
+<code-block title="POST">
+```php
+POST .../transactions/type/merchantpay
+---
+Body Parameters:
+{
+  "amount":"5.00",
+  "currency":"GBP",
+  "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
   }
+  ],
+  "creditParty":[
+  {
+    "key":"accountid",
+    "value":"12"
+  }
+  ]
 }
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+GET .../transactions/36125b528237
 ```
 </code-block>
-<code-block title="get">
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
+<code-block title="PATCH">
+```php
+PATCH .../transactions/36125b528237
+---
+Body Parameters:
+{
+  "transactionStatus":"completed"
+}
+```
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
 
 <code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
+<code-block title="POST">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
-<code-block title="get">
-any content can be inserted here
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
+<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="get">
+<code-block title="PATCH">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 33333333;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
-<code-block title="get">
-any content can be inserted here
 
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -264,8 +197,6 @@ echo str_word_count("PHP");
 
 ## Bilateral P2P Transfer
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 In this diagram, the sending FSP connects directly with the receiving FSP to confirm the recipient name and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer. In this example, a quotation is not requested.
 
 <mermaid>
@@ -293,183 +224,6 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
     deactivate Receiving FSP
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLAUy2" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLDt" target="_blank">Open Postman Collection with Authentication</a>
@@ -479,9 +233,6 @@ echo str_word_count("PHP");
 ## ‘On-us’ P2P Transfer Initiated by a Third Party Provider
 
 In this diagram, A third party provider enables a sender to transfer money to a recipient in the same FSP. The third party provider (1) confirms the recipient name, (2) requests a quotation and (3) performs the transfer with the FSP. A callback is provided by the FSP to return confirmation of the transfer.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
   sequenceDiagram
@@ -524,183 +275,6 @@ In this diagram, A third party provider enables a sender to transfer money to a 
     deactivate FSP
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLAUy4" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfrY" target="_blank">Open Postman Collection with Authentication</a>
@@ -711,9 +285,6 @@ echo str_word_count("PHP");
 ## P2P Transfer Failure
 
 In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
   sequenceDiagram
@@ -739,184 +310,6 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
     deactivate Sending FSP
     deactivate Receiving FSP
 </mermaid>
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
 
 ## P2P Transfer Reversal
 
@@ -947,9 +340,6 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 
 ## Obtain an FSP Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
 <mermaid>
   sequenceDiagram
     participant Requesting FSP
@@ -963,183 +353,6 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
     deactivate FSP
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Java">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="get">
-any content can be inserted here
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF3U" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9M" target="_blank">Open Postman Collection with Authentication</a>
@@ -1148,9 +361,6 @@ echo str_word_count("PHP");
 
 
 ## Retrieve Transactions for an FSP
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.
 
@@ -1171,33 +381,6 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
     deactivate FSP
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7n" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1wE" target="_blank">Open Postman Collection with Authentication</a>
@@ -1206,9 +389,6 @@ echo str_word_count("PHP");
 
 
 ## Check for Service Availability
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
@@ -1225,33 +405,6 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank">Open Postman Collection</a>

@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Employers.</p>
+    <p>An employer is a person, company, or organization that employs people—pays them for work.</p>
+  </div>

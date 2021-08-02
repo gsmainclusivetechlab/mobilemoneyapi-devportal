@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Humanitarian Agencies.</p>
+    <p>Humanitarian organisations help to ensure that there is swift, efficient humanitarian assistance available when sudden natural disasters strike or wars occur or in connection with long-term conflicts.</p>
+  </div>

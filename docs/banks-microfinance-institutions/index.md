@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Banks &  Microfinance Institutions.</p>
+    <p>Microfinance is a banking service provided to unemployed or low-income individuals or groups who otherwise would have no other access to financial services.</p>
+  </div>

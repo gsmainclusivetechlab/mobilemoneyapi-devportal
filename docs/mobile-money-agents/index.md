@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Mobile Money Agents.</p>
+    <p>The mobile money agent is the provider\'s retail arm, supporting cash-in/cash-out transactions as well as person-to-person fund transfers, mobile phone airtime purchases, and bill payments.</p>
+  </div>

@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Education & Health.</p>
+    <p>Investing in Africa’s education sector today will return sizable social and economic dividends tomorrow, helping the continent better compete—and succeed—in an increasingly globalized world.</p>
+  </div>

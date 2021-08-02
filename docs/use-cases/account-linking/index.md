@@ -4,19 +4,20 @@ pageClass: api-page
 ---
 
 ## Introduction
-The P2P Transfer Mobile Money APIs allow financial service providers (FSPs) to transfer funds from an account holding individual to another account holding individual or to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers, banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs). Bilateral and Switch-based transfers can be supported.
+
+The Account Linking Mobile Money APIs allow financial service providers to link customer accounts to mobile money accounts, thus allowing their customers to push funds to and pull funds from mobile money. Conversely, mobile money providers can use the APIs to link their customers mobile money accounts to financial service providers.
 
 For further reading, please refer to the following:
 
-- Getting Started. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
-- API Service Definition. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
-All documentation can be found on the [GSMA Mobile Money API Developer Portal](https://developer.mobilemoneyapi.io/).
+- **Getting Started**. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
+- **API Service Definition**. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
+All documentation can be found on the [GSMA Mobile Money API Developer Portal](../../api-versions-1.2/).
 
 ## Intended Audience
-The P2P Transfer Mobile Money APIs allow financial service providers (FSPs) to transfer funds from an account holding individual to another account holding individual or to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers, banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs). Bilateral and Switch-based transfers can be supported.
 
-For further reading, please refer to the following:
-
-Getting Started. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
-API Service Definition. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
-All documentation can be found on the GSMA Mobile Money API Developer Portal.
+| **Audience** | **Usage** | **Role** |
+|:--------|:------|:-----|
+| **Mobile Money Providers** | - To understand how to implement the Mobile Money API to accept account linking requests from other financial service providers. | API Provider |
+|  | - To understand how to implement the Mobile Money API to request linking of accounts to other financial service providers. | API Consumer |
+| **FSP Banks and Microfinance Institutions** | - To understand how to implement the Mobile Money API to accept account linking requests mobile money providers. | API Provider |
+|  | - To understand how to implement the Mobile Money API to request linking of accounts to mobile money providers. | API Consumer |

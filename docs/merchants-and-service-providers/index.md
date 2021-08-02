@@ -57,3 +57,8 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
+  
+  <div class="text-hidden">
+    <p>Merchants & Service Providers</p>
+    <p>A merchant service provider or merchant account provider is a company or service that gives you access to all the tools you need to handle those all-important transactions.</p>
+  </div>
