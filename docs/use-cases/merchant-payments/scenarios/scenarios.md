@@ -46,99 +46,66 @@ In this example, an asynchronous payment flow is used with a final callback. The
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-language-selector>
-<code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -183,99 +150,67 @@ sequenceDiagram
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-language-selector>
-<code-lang title="Vue">
 
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -329,99 +264,65 @@ sequenceDiagram
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-language-selector>
-<code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -466,99 +367,66 @@ sequenceDiagram
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-language-selector>
-<code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -573,6 +441,9 @@ echo str_word_count("PHP");
 ## Payer-Initiated Merchant Payment Failure
 
 In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
 sequenceDiagram
@@ -597,6 +468,72 @@ sequenceDiagram
     deactivate Merchant
 </mermaid>
 
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```bash
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
 
 ## Payee-Initiated Merchant Payment using a Pre-authorised Payment Code
 
@@ -640,99 +577,55 @@ sequenceDiagram
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-language-selector>
-<code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../accounts/accountid/2000/authorisationcodes
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "requestDate": "2018-07-03T10:43:27.405Z",
+    "currency": "GBP",
+    "amount": "1000.00"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -773,22 +666,62 @@ sequenceDiagram
 <code-group>
 <code-block title="View">
 
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+<code-group>
+<code-block title="POST">
+```bash
+POST .../transactions/type/adjustment
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
 }
 ```
 </code-block>
+</code-group>
+
+</code-block>
 
 <code-block title="Code">
+
+<code-group>
+<code-block title="POST">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
+
+</code-group>
+</code-block>
+
 </code-group>
 
 </div>
@@ -827,99 +760,53 @@ sequenceDiagram
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-language-selector>
-<code-lang title="Vue">
-
 <code-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
+```bash
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-Callback-URL": ['Please enter your callback URL here'],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "type": "reversal"
 }
 ```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
 ```php
-<?php
-echo str_word_count("PHP");
-?> 
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
 ```
 </code-block>
 
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
-
 </code-block>
 
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
 </code-group>
-
-</code-lang>
-
-</code-language-selector>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -932,6 +819,9 @@ echo str_word_count("PHP");
 
 
 ## Obtain a Merchant Balance
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
 sequenceDiagram
@@ -946,6 +836,48 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```bash
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFV" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9Q" target="_blank">Open Postman Collection with Authentication</a>
@@ -955,6 +887,9 @@ sequenceDiagram
 ## Retrieve Payments for a Merchant
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a merchant via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
 sequenceDiagram
@@ -973,6 +908,54 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```bash
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+PARAMS:
+{
+   "offset": 0,
+   "limit": 20
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFX" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1w6" target="_blank">Open Postman Collection with Authentication</a>
@@ -981,6 +964,9 @@ sequenceDiagram
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
 sequenceDiagram
@@ -996,6 +982,48 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```bash
+GET .../heartbeat
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCQbS8z" target="_blank">Open Postman Collection with Authentication</a>
@@ -1004,6 +1032,9 @@ sequenceDiagram
 ## Retrieve a Missing API Response
 
 This API can be used by the merchant to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 
 <mermaid>
 sequenceDiagram
@@ -1021,6 +1052,48 @@ sequenceDiagram
     deactivate Merchant
     deactivate Mobile Money Provider
 </mermaid>
+
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```bash
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+
+<code-group>
+<code-block title="POST">
+```php
+<?php 
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7v" target="_blank">Open Postman Collection</a>
