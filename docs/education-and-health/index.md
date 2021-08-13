@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Education & Health
 ---
 
   <industry-hero-section

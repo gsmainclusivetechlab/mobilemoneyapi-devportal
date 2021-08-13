@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Mobile Money Providers
 ---
 
   <industry-hero-section

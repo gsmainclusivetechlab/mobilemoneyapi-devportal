@@ -1,5 +1,6 @@
 ---
 pageClass: faq-page custom
+title: FAQ
 ---
 
  <faq-page

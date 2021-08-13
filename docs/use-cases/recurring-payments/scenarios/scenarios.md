@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: Recurring Payments - Use Case Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -8,7 +9,7 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
@@ -18,6 +19,88 @@ This diagram illustrates the setting-up of a recurring payment via a debit manda
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../accounts/accountid/2000/debitmandates
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+   "payee": [
+    {
+      "key": "accountid",
+      "value": "2999"
+    }
+  ],
+    "requestDate": "2018-07-03T10:43:27.405Z",
+    "startDate": "2018-07-03T10:43:27.405Z",
+    "currency": "GBP",
+    "amountLimit": "1000.00",
+    "endDate": "2028-07-03T10:43:27.405Z",
+    "numberOfPayments": "2",
+    "frequencyType": "sixmonths",
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ]        
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -41,113 +124,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDakaJt" target="_blank">Open Postman Collection</a>
@@ -185,6 +161,86 @@ sequenceDiagram
 ## Take a Recurring Payment
 
 In this diagram, the service provider initiates a payment request to the FSP to debit the account-holders account as per the debit mandate.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "mandatereference",
+            "value": "Place your Mandate Reference here"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -237,6 +293,126 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "mandatereference",
+            "value": "Place your Mandate Reference here"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../requeststates/Place the Server Correlation Id here
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../transactions/Place Transaction Reference here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Service Provider
@@ -273,6 +449,86 @@ sequenceDiagram
 
 Service Providers can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/adjustment
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "mandateReference",
+            "value": "Place your Mandate Reference here"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
       participant Service Provider
@@ -297,6 +553,73 @@ Service Providers can issue a refund to payers. In this diagram, the refund is n
 ## Recurring Payment Reversal
 
 In some failure scenarios, a service provider may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "type": "reversal"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -323,6 +646,91 @@ In some failure scenarios, a service provider may need to reverse a transaction.
 
 This diagram illustrates how the MM API can be used by a mobile money provider to allow a payer to setup a recurring payment using a channel provided by the provider, for example, a mobile money app.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../accounts/accountid/2000/debitmandates
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+   "payee": [
+    {
+      "key": "accountid",
+      "value": "2999"
+    }
+  ],
+    "requestDate": "2018-07-03T10:43:27.405Z",
+    "startDate": "2018-07-03T10:43:27.405Z",
+    "currency": "GBP",
+    "amountLimit": "1000.00",
+    "endDate": "2028-07-03T10:43:27.405Z",
+    "numberOfPayments": "2",
+    "frequencyType": "sixmonths",
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ]        
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
       participant Mobile Money Provider Channel
@@ -346,6 +754,61 @@ This diagram illustrates how the MM API can be used by a mobile money provider t
 
 ## Obtain a Service Provider Balance
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
       participant Service Provider
@@ -367,6 +830,67 @@ This diagram illustrates how the MM API can be used by a mobile money provider t
 ## Retrieve Payments for a Service Provider
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a service provider via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params:
+{
+  "offset": 0,
+  "limit": 20
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -392,7 +916,62 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 
 ## Check for Service Availability
 
-The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing
+The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -416,6 +995,61 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 ## Retrieve a Missing API Response
 
 This API can be used by the service provider to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the FSP.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram

@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 0
 pageClass: api-page
+title: P2P Transfers
 ---
 
 ## Introduction

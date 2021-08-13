@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Humanitarian Agencies
 ---
 
   <industry-hero-section

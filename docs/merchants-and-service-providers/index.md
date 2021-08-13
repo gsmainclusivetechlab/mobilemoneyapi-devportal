@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Merchants & Service Providers
 ---
 
   <industry-hero-section

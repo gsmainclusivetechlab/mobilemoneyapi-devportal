@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: Agent Services - Use Case Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -8,7 +9,7 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
@@ -18,6 +19,83 @@ In this example, an asynchronous cash-out flow is used with a final callback.
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/withdrawal
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -43,114 +121,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamFGd" target="_blank">Open Postman Collection</a>
@@ -191,6 +161,126 @@ sequenceDiagram
 ## Agent-initiated Cash-out using the Polling Method
 
 In this example, an asynchronous cash-out flow is used with the polling method. The client polls against the request state object to determine the outcome of the cash-out request.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/withdrawal
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../requeststates/Place the Server Correlation Id here
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../transactions/Place Transaction Reference here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 
 <mermaid>
 sequenceDiagram
@@ -239,6 +329,87 @@ sequenceDiagram
 ## Customer-initiated Cash-out
 
 In this example, an asynchronous cash-out flow is used with a final callback.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/withdrawal
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -302,6 +473,122 @@ sequenceDiagram
 
 In this example the /authorisationcodes API is used to obtain a pre-authorised code. This in turn is presented by the withdrawing customer to the ATM which then initiates the cash-out request. Both flows in the diagram result in a callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../accounts/accountid/2000/authorisationcodes
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "requestDate": "2018-07-03T10:43:27.405Z",
+    "currency": "GBP",
+    "amount": "1000.00"
+}
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/withdrawal
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "type": "transfer",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF",
+    "oneTimeCode": "Place your Authorisation Code here"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram    
     participant Customer  
@@ -346,6 +633,106 @@ sequenceDiagram
 
 In this diagram, the agent firstly checks that the depositing customer’s name is correct and will then submit the cash-in request. The final result is returned in the callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/accountname
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/deposit
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Agent  
@@ -382,6 +769,73 @@ sequenceDiagram
 
 In some failure scenarios, an agent may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "type": "reversal"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Agent
@@ -408,6 +862,146 @@ sequenceDiagram
 
 In this diagram, an agent registers a new mobile money customer on behalf of a mobile money provider.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="POST">
+```json
+POST .../accounts/individual
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+  "accountIdentifiers": [
+    {
+      "key": "msisdn",
+      "value": "Place a valid Mobile Number here"
+    }
+  ],
+  "identity": [
+    {
+      "identityKyc": {
+        "birthCountry": "AD",
+        "contactPhone": "+447777777777",
+        "dateOfBirth": "2000-11-20",
+        "emailAddress": "xyz@xyz.com",
+        "employerName": "string",
+        "gender": "m",
+        "idDocument": [
+          {
+            "idType": "passport",
+            "idNumber": "111111",
+            "issueDate": "2018-11-20",
+            "expiryDate": "2018-11-20",
+            "issuer": "ABC",
+            "issuerPlace": "DEF",
+            "issuerCountry": "AD"
+          }
+        ],
+        "nationality": "AD",
+        "occupation": "Miner",
+        "postalAddress": {
+          "addressLine1": "37",
+          "addressLine2": "ABC Drive",
+          "addressLine3": "string",
+          "city": "Berlin",
+          "stateProvince": "string",
+          "postalCode": "AF1234",
+          "country": "AD"
+        },
+        "subjectName": {
+          "title": "Mr",
+          "firstName": "H",
+          "middleName": "I",
+          "lastName": "J",
+          "fullName": "H I J",
+          "nativeName": "string"
+        }
+      },
+      "accountRelationship": "accountholder",
+      "kycVerificationStatus": "verified",
+      "kycVerificationEntity": "ABC Agent",
+      "kycLevel": 1,
+      "customData": [
+        {
+          "key": "test",
+          "value": "custom"
+        }
+      ]
+    }
+  ],
+  "accountType": "string",
+  "customData": [
+    {
+      "key": "test",
+      "value": "custom1"
+    }
+  ],
+  "fees": [
+    {
+      "feeType": "string",
+      "feeAmount": "5.46",
+      "feeCurrency": "AED"
+    }
+  ],
+  "registeringEntity": "ABC Agent",
+  "requestDate": "2021-02-17T15:41:45.194Z"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Agent
@@ -429,10 +1023,84 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1ri" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Verify a Customer’s KYC
 
 In this diagram, an agent verifies the physical KYC provided by the customer against details held by the mobile money provider and informs the provider that the KYC has been successfully verified.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="PATCH">
+```json
+PATCH .../accounts/accountid/2000/identities/105
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+  [
+    {
+        "op": "replace",
+        "path": "/kycVerificationStatus",
+        "value": "verified"
+    }
+  ]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="PATCH">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="PATCH">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -461,6 +1129,61 @@ sequenceDiagram
 
 ## Obtain an Agent Balance
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Agent
@@ -483,6 +1206,67 @@ sequenceDiagram
 ## Retrieve Transactions for an Agent
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for an agent via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params:
+{
+  "offset": 0,
+  "limit": 20
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -511,6 +1295,61 @@ sequenceDiagram
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Agent
@@ -534,6 +1373,62 @@ sequenceDiagram
 ## Retrieve a Missing API Response
 
 This API can be used by the agent to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 
 <mermaid>
 sequenceDiagram

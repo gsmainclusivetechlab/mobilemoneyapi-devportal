@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Employers
 ---
 
   <industry-hero-section

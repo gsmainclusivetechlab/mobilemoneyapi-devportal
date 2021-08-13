@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: FinTech Providers (Insurance Savings Loans)
 ---
 
   <industry-hero-section
