@@ -1,5 +1,6 @@
 ---
 pageClass: home-page custom
+title: Home
 ---
 
   <home-hero-section 

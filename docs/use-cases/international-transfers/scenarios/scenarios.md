@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: International Transfers - Use Case Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -8,7 +9,7 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
@@ -20,6 +21,228 @@ This flow can also be used for bilateral international transfers.
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../quotations
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "requestAmount": "75.30",
+    "requestCurrency": "RWF",
+  "requestDate": "2018-07-03T11:43:27.405Z",
+    "type": "inttransfer",
+    "subType": "abc",
+    "chosenDeliveryMethod": "agent",
+    "senderKyc": {
+        "nationality": "GB",
+        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "occupation": "Manager",
+        "employerName": "MFX",
+        "contactPhone": "+447125588999",
+        "gender": "m",
+        "emailAddress": "luke.skywalkeraaabbb@gmail.com",
+        "birthCountry": "GB",
+        "idDocument": [
+            {
+                "idType": "nationalidcard",
+                "idNumber": "1234567",
+                "issueDate": "2018-07-03T11:43:27.405Z",
+                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issuer": "UKPA",
+                "issuerPlace": "GB",
+                "issuerCountry": "GB",
+                "otherIdDescription": "test"
+            }
+        ],
+        "postalAddress": {
+            "country": "GB",
+            "addressLine1": "111 ABC Street",
+            "city": "New York",
+            "stateProvince": "New York",
+            "postalCode": "ABCD"
+        },
+        "subjectName": {
+            "title": "Mr",
+            "firstName": "Luke",
+            "middleName": "R",
+            "lastName": "Skywalker",
+            "fullName": "Luke R Skywalker",
+            "nativeName": "ABC"
+        }        
+    },    
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ],    
+  "sendingServiceProviderCountry": "AD",
+  "originCountry": "AD",
+  "receivingCountry": "AD"
+}
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/inttransfer
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "100.00",
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "currency": "GBP",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "internationalTransferInformation": {
+        "originCountry": "GB",
+        "quotationReference": "{{quotationReference}}",
+        "quoteId": "{{quoteId}}",
+        "receivingCountry": "RW",
+        "remittancePurpose": "personal",
+        "relationshipSender": "none",
+        "deliveryMethod": "agent",
+        "sendingServiceProviderCountry": "AD"           
+   },    
+    "senderKyc": {
+        "nationality": "GB",
+        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "occupation": "Manager",
+        "employerName": "MFX",
+        "contactPhone": "+447125588999",
+        "gender": "m",
+        "emailAddress": "luke.skywalkeraaabbb@gmail.com",
+        "birthCountry": "GB",
+        "idDocument": [
+            {
+                "idType": "nationalidcard",
+                "idNumber": "1234567",
+                "issueDate": "2018-07-03T11:43:27.405Z",
+                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issuer": "UKPA",
+                "issuerPlace": "GB",
+                "issuerCountry": "GB",
+                "otherIdDescription": "test"
+            }
+        ],
+        "postalAddress": {
+            "country": "GB",
+            "addressLine1": "111 ABC Street",
+            "city": "New York",
+            "stateProvince": "New York",
+            "postalCode": "ABCD"
+        },
+        "subjectName": {
+            "title": "Mr",
+            "firstName": "Luke",
+            "middleName": "R",
+            "lastName": "Skywalker",
+            "fullName": "Luke R Skywalker",
+            "nativeName": "ABC"
+        }        
+     },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "testorganisation"
+  }
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -63,6 +286,20 @@ This flow can also be used for bilateral international transfers.
       deactivate Sending FSP
 </mermaid>
 
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcFuk7" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfnE" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+<br><br><br><br><br><br><br>
+
+
+## Bilateral International Transfer
+
+In this diagram, the sending FSP connects directly with the receiving FSP to obtain a quotation and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
@@ -71,116 +308,220 @@ This flow can also be used for bilateral international transfers.
 
 <code-group>
 <code-block title="POST">
-```php
-POST .../transactions/type/merchantpay
+```json
+POST .../quotations
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
 ---
 Body Parameters:
 {
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "requestAmount": "75.30",
+    "requestCurrency": "RWF",
+  "requestDate": "2018-07-03T11:43:27.405Z",
+    "type": "inttransfer",
+    "subType": "abc",
+    "chosenDeliveryMethod": "agent",
+    "senderKyc": {
+        "nationality": "GB",
+        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "occupation": "Manager",
+        "employerName": "MFX",
+        "contactPhone": "+447125588999",
+        "gender": "m",
+        "emailAddress": "luke.skywalkeraaabbb@gmail.com",
+        "birthCountry": "GB",
+        "idDocument": [
+            {
+                "idType": "nationalidcard",
+                "idNumber": "1234567",
+                "issueDate": "2018-07-03T11:43:27.405Z",
+                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issuer": "UKPA",
+                "issuerPlace": "GB",
+                "issuerCountry": "GB",
+                "otherIdDescription": "test"
+            }
+        ],
+        "postalAddress": {
+            "country": "GB",
+            "addressLine1": "111 ABC Street",
+            "city": "New York",
+            "stateProvince": "New York",
+            "postalCode": "ABCD"
+        },
+        "subjectName": {
+            "title": "Mr",
+            "firstName": "Luke",
+            "middleName": "R",
+            "lastName": "Skywalker",
+            "fullName": "Luke R Skywalker",
+            "nativeName": "ABC"
+        }        
+    },    
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ],    
+  "sendingServiceProviderCountry": "AD",
+  "originCountry": "AD",
+  "receivingCountry": "AD"
 }
 ```
 </code-block>
 
-<code-block title="GET">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-PATCH .../transactions/36125b528237
+<code-block title="POST">
+```json
+POST .../transactions/type/inttransfer
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
 ---
 Body Parameters:
 {
-  "transactionStatus":"completed"
+    "amount": "100.00",
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "currency": "GBP",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "internationalTransferInformation": {
+        "originCountry": "GB",
+        "quotationReference": "{{quotationReference}}",
+        "quoteId": "{{quoteId}}",
+        "receivingCountry": "RW",
+        "remittancePurpose": "personal",
+        "relationshipSender": "none",
+        "deliveryMethod": "agent",
+        "sendingServiceProviderCountry": "AD"           
+   },    
+    "senderKyc": {
+        "nationality": "GB",
+        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "occupation": "Manager",
+        "employerName": "MFX",
+        "contactPhone": "+447125588999",
+        "gender": "m",
+        "emailAddress": "luke.skywalkeraaabbb@gmail.com",
+        "birthCountry": "GB",
+        "idDocument": [
+            {
+                "idType": "nationalidcard",
+                "idNumber": "1234567",
+                "issueDate": "2018-07-03T11:43:27.405Z",
+                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issuer": "UKPA",
+                "issuerPlace": "GB",
+                "issuerCountry": "GB",
+                "otherIdDescription": "test"
+            }
+        ],
+        "postalAddress": {
+            "country": "GB",
+            "addressLine1": "111 ABC Street",
+            "city": "New York",
+            "stateProvince": "New York",
+            "postalCode": "ABCD"
+        },
+        "subjectName": {
+            "title": "Mr",
+            "firstName": "Luke",
+            "middleName": "R",
+            "lastName": "Skywalker",
+            "fullName": "Luke R Skywalker",
+            "nativeName": "ABC"
+        }        
+     },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "testorganisation"
+  }
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="Code">
+<code-block title="JavaScript">
 
 <code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
 
-<code-block title="GET">
+<code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
 
 </code-group>
-</code-block>
 
+</code-block>
 </code-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
-
 </div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcFuk7" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfnE" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-## Bilateral International Transfer
-
-In this diagram, the sending FSP connects directly with the receiving FSP to obtain a quotation and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer.
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -219,6 +560,8 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfnE" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
 
 ## International Transfer Failure
 
@@ -262,6 +605,72 @@ sequenceDiagram
 
 In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+  "type": "reversal"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Sending FSP
@@ -287,6 +696,60 @@ sequenceDiagram
 
 ## Obtain an FSP Balance
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Sending FSP
@@ -309,6 +772,66 @@ sequenceDiagram
 ## Retrieve Transactions for an FSP
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending FSP via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params:
+{
+  "offset": 0,
+  "limit": 20
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -337,6 +860,60 @@ sequenceDiagram
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Sending FSP
@@ -360,6 +937,60 @@ sequenceDiagram
 ## Retrieve a Missing API Response
 
 This API can be used by the sending FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the receiving FSP.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram

@@ -312,7 +312,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'About Use Case Scenarios',
+              title: 'About Merchant Payments Scenarios',
               path: '/use-cases/merchant-payments/scenarios/scenarios',
             },
           ]
@@ -369,7 +369,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'About Use Case Scenarios',
+              title: 'About Disbursements Scenarios',
               path: '/use-cases/disbursements/scenarios/scenarios',
             },
           ]
@@ -426,7 +426,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About International Transfers Scenarios',
               path: '/use-cases/international-transfers/scenarios/scenarios',
             },
           ]
@@ -483,7 +483,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About P2P Transfers Scenarios',
               path: '/use-cases/p-2-p-transfers/scenarios/scenarios',
             },
           ]
@@ -540,7 +540,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Recurring Payments Scenarios',
               path: '/use-cases/recurring-payments/scenarios/scenarios',
             },
           ]
@@ -597,7 +597,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Account Linking Scenarios',
               path: '/use-cases/account-linking/scenarios/scenarios',
             },
           ]
@@ -654,7 +654,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Bill Payments Scenarios',
               path: '/use-cases/bill-payments/scenarios/scenarios',
             },
           ]
@@ -711,7 +711,7 @@ const sidebarNavigation = {
           sidebarDepth: 2,
           children: [
             {
-              title: 'Scenarios',
+              title: 'About Agent Services Scenarios',
               path: '/use-cases/agent-services/scenarios/scenarios',
             },
           ]
@@ -745,8 +745,8 @@ const sidebarNavigation = {
 }
 
 module.exports = {
-  title: "GSMA",
-  description: "GSMA API documentation",
+  title: "Mobile Money API Developer Portal",
+  description: "Mobile Money API documentation",
   base: '/',
   head: [
     ['meta', { name: 'theme-color', content: 'red' }],

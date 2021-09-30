@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 0
 pageClass: api-page
+title: Bill Payments
 ---
 
 ## Introduction

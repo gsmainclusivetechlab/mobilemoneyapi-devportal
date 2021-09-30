@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 2
 pageClass: api-page
+title: Highlights
 ---
 
 Version 1.2 of the Mobile Money API has seen the introduction of a number of changes that increase deliver new features and increase consistency.

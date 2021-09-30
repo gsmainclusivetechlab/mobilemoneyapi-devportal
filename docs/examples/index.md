@@ -1,5 +1,6 @@
 ---
 pageClass: api-page has-code-panel
+title: Examples page
 ---
 
 <side-code-panel/>

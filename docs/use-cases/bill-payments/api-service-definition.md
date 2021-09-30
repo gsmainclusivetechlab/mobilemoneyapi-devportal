@@ -1,5 +1,6 @@
 ---
 pageClass: api-page has-code-panel
+title: Bill Payments - API Service Definition
 ---
 
 <side-code-panel/>
@@ -58,6 +59,63 @@ The Bills API are used to return all outstanding bills associated with an accoun
 
 To filter the number of records returned, the following query string parameters can be used:
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Bills API filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Bills API filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Bills API filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
 | **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
@@ -68,7 +126,7 @@ To filter the number of records returned, the following query string parameters 
 ::: tip
 Note 1: For a harmonised behavior, API Providers should make sure that the bills are returned in descending date created order. 
 
-Note 2: HTTP response headers are returned with each response indicating the total number of records available (X-Records-Available-Count) and total number of records returned (X-Records-Returned-Count).
+Note 2: HTTP response headers are returned with each response indicating the total number of records available (`X-Records-Available-Count`) and total number of records returned (`X-Records-Returned-Count`).
 :::
 
 #### Bill UML Class Diagram
@@ -82,6 +140,78 @@ classDiagram
 **Figure 2-1 Bill UML Class Diagram**
 
 #### Bill Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Bill Object">
+```json
+{
+  "billReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "billStatus": "partialpaid",
+  "amountDue": "123.45",
+  "billDescription": "My custom description...",
+  "currency": "GBP",
+  "dueDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "minimumAmountDue": "23.45",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Bill Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Bill Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Bill Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -112,6 +242,63 @@ The Bill Payments API is used to pay a specific bill associated with an account 
 As per MM API standards, POST is used to create a bill payment whereas GET is used to retrieve all payments associated with a bill.
 
 When retrieving bill payments, the following query string parameters can be used to filter the number of records returned:
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Bill Payments filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Bill Payments filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Bill Payments filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -149,6 +336,87 @@ classDiagram
 
 #### Bill Payment Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Bill Payment Object">
+```json
+{
+  "serviceProviderPaymentReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "paymentType": "fullpayment",
+  "billPaymentStatus": "approved",
+  "amountPaid": "123.45",
+  "currency": "GBP",
+  "customerReference": "Customer reference text...",
+  "requestingOrganisation": "creditFSP",
+  "supplementaryBillReferenceDetails": [
+    {
+      "paymentReferenceType": "paymentReferenceValue"
+    }
+  ],
+  "serviceProviderComment": "This is SP comment...",
+  "serviceProviderNotification": "This is SP notification...",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Bill Payment Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Bill Payment Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Bill Payment Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -170,11 +438,84 @@ classDiagram
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the bill payment. | &#8594;&nbsp;O <br> &#8592; O | [Metadata](#metadata-object) |  |
 
 
+
+
+
+
+
+
+
+
+
+
+
 ## Supporting Objects
 
 ### Account Identifiers Object
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifier Object">
+```json
+{
+  "accountcategory":"default",
+  "bankaccountno":"1234567890",
+  "accountrank":"high",
+  "identityalias":"12345",
+  "iban":"GB24BKEN10000031510604",
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "swiftbic":"BARCGB22",
+  "sortcode":"100000"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Account Identifier Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Account Identifier Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -185,6 +526,61 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Metadata Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Metadata Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Metadata Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **key** | string | Identifies the type of additional fields. | M <br> M |  |  |
@@ -193,6 +589,61 @@ The metadata object allows fields to be specified to convey administrative infor
 ### Custom Data Object
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Custom Data Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Custom Data Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Custom Data Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -204,11 +655,73 @@ The custom data object allows additional fields to be specified for the associat
 
 This object enables additional payment references to be specified for a bill payment in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Supplementary Bill Reference Object">
+```json
+{
+  "paymentReferenceType": "paymentReferenceValue"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Supplementary Bill Reference Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Supplementary Bill Reference Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Supplementary Bill Reference Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
 | **paymentReferenceType** | string | Identifies the type of the additional payment reference. | &#8594;&nbsp;M <br> &#8592; M |  |  |
 | **paymentReferenceValue** | string | Identifies the value of the additional payment reference. | &#8594;&nbsp;M <br> &#8592; M |  |  |
+
+
+
+
+
+
+
+
 
 
 
@@ -224,6 +737,66 @@ The three-character alphabetic code for currency as defined by ISO 4217 is to be
 ### Account Identifiers
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifiers">
+```json
+{
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "organisationid":"987654321",
+  "username":"johndoe",
+  "consumerno":"1122334455",
+  "serviceprovider":"serviceProvider",
+  "emailaddress":"example@email.com",
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+<code-block title="Account Identifiers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="PHP">
+<code-group>
+  
+<code-block title="Account Identifiers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

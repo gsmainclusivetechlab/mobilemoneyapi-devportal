@@ -1,5 +1,6 @@
 ---
 pageClass: contact-us-page custom
+title: Support
 ---
 
 <contact-us-form/>

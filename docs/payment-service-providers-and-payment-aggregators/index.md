@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Payment Service Providers & Payment Aggregators
 ---
 
   <industry-hero-section
