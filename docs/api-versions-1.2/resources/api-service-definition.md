@@ -2960,6 +2960,155 @@ classDiagram
 
 ### Quotations API
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../quotations
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "requestAmount": "75.30",
+    "requestCurrency": "RWF",
+  "requestDate": "2018-07-03T11:43:27.405Z",
+    "type": "inttransfer",
+    "subType": "abc",
+    "chosenDeliveryMethod": "agent",
+    "senderKyc": {
+        "nationality": "GB",
+        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "occupation": "Manager",
+        "employerName": "MFX",
+        "contactPhone": "+447125588999",
+        "gender": "m",
+        "emailAddress": "luke.skywalkeraaabbb@gmail.com",
+        "birthCountry": "GB",
+        "idDocument": [
+            {
+                "idType": "nationalidcard",
+                "idNumber": "1234567",
+                "issueDate": "2018-07-03T11:43:27.405Z",
+                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issuer": "UKPA",
+                "issuerPlace": "GB",
+                "issuerCountry": "GB",
+                "otherIdDescription": "test"
+            }
+        ],
+        "postalAddress": {
+            "country": "GB",
+            "addressLine1": "111 ABC Street",
+            "city": "New York",
+            "stateProvince": "New York",
+            "postalCode": "ABCD"
+        },
+        "subjectName": {
+            "title": "Mr",
+            "firstName": "Luke",
+            "middleName": "R",
+            "lastName": "Skywalker",
+            "fullName": "Luke R Skywalker",
+            "nativeName": "ABC"
+        }        
+    },    
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ],    
+  "sendingServiceProviderCountry": "AD",
+  "originCountry": "AD",
+  "receivingCountry": "AD"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../quotations/dd82cc6a-159a-4ddf-bea7-23bae38e72c5
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="JavaScript">
+
+<code-group>
+
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+</code-block>
+
+<code-block title="PHP">
+
+<code-group>
+
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+
+
 The Quotations APIs are used to obtain one or multiple quotes for a mobile money customer that wishes to transfer money. The creation of a quote involves returning any fees that will be levied on the sending customer and if the request is international, the forex rate. A request is made for a quotation by the requesting Service Provider in response to a customer request. The quotation is calculated and returned. If the customer is satisfied with the quotation, then they can confirm and proceed with a transaction request using the [/transactions](#api-endpoints) API.
 
 The following paths are permitted:
@@ -2967,6 +3116,7 @@ The following paths are permitted:
 - **Creation** of a quotation: *POST /quotations*
 
 - **View** a quotation: *GET /quotations/{Quotation Reference}*
+
 
 #### Quotation UML Class Diagram
 
@@ -2984,6 +3134,9 @@ classDiagram
 </mermaid>
 
 **Figure 2-18 Quotation UML Class Diagram**
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Quotation Object Definition
 
