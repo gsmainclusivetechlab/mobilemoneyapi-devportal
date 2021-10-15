@@ -97,6 +97,27 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+<code-block title="PATCH">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
 <code-group title="PHP">
 <code-block title="POST">
 ```php
@@ -119,27 +140,6 @@ Body Parameters:
 <?php 
   //some PHP code here 
 ?>
-```
-</code-block>
-
-</code-group>
-
-<code-group title="JS">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-
-<code-block title="PATCH">
-```javascript
-//some JavaScript code here 
 ```
 </code-block>
 

@@ -52,9 +52,7 @@ Transactions fields that are not applicable for recurring payments have been omi
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -102,9 +100,8 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
@@ -122,12 +119,9 @@ Body Parameters:
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
-<code-block title="PHP">
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -151,10 +145,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
+</code-group>
 
-</code-group>
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -188,9 +183,7 @@ classDiagram
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -266,9 +259,8 @@ classDiagram
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Transaction Object">
 ```javascript
 //some JavaScript code here 
@@ -276,11 +268,7 @@ classDiagram
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Transaction Object">
 ```php
 <?php 
@@ -288,11 +276,10 @@ classDiagram
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -357,7 +344,7 @@ classDiagram
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -433,9 +420,8 @@ classDiagram
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Reversal Object">
 ```javascript
 //some JavaScript code here 
@@ -443,10 +429,7 @@ classDiagram
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Reversal Object">
 ```php
@@ -459,7 +442,7 @@ classDiagram
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -534,7 +517,7 @@ To filter the number of records returned, the following query strings can be use
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -554,9 +537,9 @@ To filter the number of records returned, the following query strings can be use
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Account Transactions filters">
 ```javascript
 //some JavaScript code here 
@@ -564,10 +547,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Account Transactions filters">
 ```php
@@ -580,7 +560,7 @@ To filter the number of records returned, the following query strings can be use
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -646,7 +626,7 @@ classDiagram
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -666,9 +646,9 @@ classDiagram
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Account Balance Object">
 ```javascript
 //some JavaScript code here 
@@ -676,10 +656,7 @@ classDiagram
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Account Balance Object">
 ```php
@@ -692,7 +669,7 @@ classDiagram
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -742,7 +719,7 @@ classDiagram
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -781,9 +758,9 @@ classDiagram
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Debit Mandate Object">
 ```javascript
 //some JavaScript code here 
@@ -791,10 +768,7 @@ classDiagram
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Debit Mandate Object">
 ```php
@@ -807,7 +781,7 @@ classDiagram
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -848,7 +822,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -871,9 +845,9 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Account Identifier Object">
 ```javascript
 //some JavaScript code here 
@@ -881,10 +855,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Account Identifier Object">
 ```php
@@ -897,7 +868,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -919,7 +890,7 @@ The metadata object allows fields to be specified to convey administrative infor
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -935,9 +906,9 @@ The metadata object allows fields to be specified to convey administrative infor
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Metadata Object">
 ```javascript
 //some JavaScript code here 
@@ -945,10 +916,7 @@ The metadata object allows fields to be specified to convey administrative infor
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Metadata Object">
 ```php
@@ -961,7 +929,7 @@ The metadata object allows fields to be specified to convey administrative infor
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -983,7 +951,7 @@ The custom data object allows additional fields to be specified for the associat
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -999,9 +967,9 @@ The custom data object allows additional fields to be specified for the associat
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Custom Data Object">
 ```javascript
 //some JavaScript code here 
@@ -1009,10 +977,8 @@ The custom data object allows additional fields to be specified for the associat
 </code-block>
 </code-group>
 
-</code-block>
 
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Custom Data Object">
 ```php
@@ -1025,7 +991,7 @@ The custom data object allows additional fields to be specified for the associat
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1047,7 +1013,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1064,9 +1030,9 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Fees Object">
 ```javascript
 //some JavaScript code here 
@@ -1074,10 +1040,8 @@ An object that enables fees that are differentiated by type to be provided and/o
 </code-block>
 </code-group>
 
-</code-block>
 
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Fees Object">
 ```php
@@ -1090,7 +1054,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1113,7 +1077,7 @@ An object that details the originating organisation of the request.
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1129,9 +1093,9 @@ An object that details the originating organisation of the request.
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Requesting Organisation Object">
 ```javascript
 //some JavaScript code here 
@@ -1139,10 +1103,7 @@ An object that details the originating organisation of the request.
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Requesting Organisation Object">
 ```php
@@ -1155,7 +1116,7 @@ An object that details the originating organisation of the request.
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1200,7 +1161,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 <!-- start of right-side code blocks holder -->
 
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1234,9 +1195,9 @@ The Account Identifier enumeration lists all possible means to identify a target
 
 </code-block>
 
-<code-block title="JavaScript">
+<code-block title="Code">
+<code-group title="JavaScript">
 
-<code-group>
 <code-block title="Account Identifiers">
 ```javascript
 //some JavaScript code here 
@@ -1244,10 +1205,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 </code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
+<code-group title="PHP">
   
 <code-block title="Account Identifiers">
 ```php
@@ -1260,7 +1218,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 </code-group>
 </code-block>
 
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

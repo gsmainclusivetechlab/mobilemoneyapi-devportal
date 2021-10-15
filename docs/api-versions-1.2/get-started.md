@@ -74,9 +74,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -91,25 +89,22 @@ For the security headers, please also refer to the Mobile Money API Security Des
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Standard Request Headers">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Standard Request Headers">
 ```php
 <?php 
@@ -119,9 +114,9 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -143,9 +138,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -157,25 +150,22 @@ For the security headers, please also refer to the Mobile Money API Security Des
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Standard Response Headers">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Standard Response Headers">
 ```php
 <?php 
@@ -185,9 +175,9 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -205,9 +195,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -227,25 +215,22 @@ For the security headers, please also refer to the Mobile Money API Security Des
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Custom Request Headers">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Custom Request Headers">
 ```php
 <?php 
@@ -255,9 +240,9 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -283,9 +268,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -296,25 +279,22 @@ For the security headers, please also refer to the Mobile Money API Security Des
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Custom Response Headers">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Custom Response Headers">
 ```php
 <?php 
@@ -324,9 +304,9 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -441,9 +421,7 @@ The object definition for RequestState is described below.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -464,25 +442,22 @@ The object definition for RequestState is described below.
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="RequestState Object">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="RequestState Object">
 ```php
 <?php 
@@ -492,9 +467,9 @@ The object definition for RequestState is described below.
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -775,9 +750,7 @@ With the errorParameters property, care should be taken regarding confidentially
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -797,25 +770,22 @@ With the errorParameters property, care should be taken regarding confidentially
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Errors Object">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Errors Object">
 ```php
 <?php 
@@ -825,9 +795,9 @@ With the errorParameters property, care should be taken regarding confidentially
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -851,9 +821,7 @@ Allows error parameter properties to be specified in the form of key/value pairs
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -869,25 +837,22 @@ Allows error parameter properties to be specified in the form of key/value pairs
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Error Parameters Object">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Error Parameters Object">
 ```php
 <?php 
@@ -897,9 +862,9 @@ Allows error parameter properties to be specified in the form of key/value pairs
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -966,9 +931,7 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -981,25 +944,22 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Heartbeat Response">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Heartbeat Response">
 ```php
 <?php 
@@ -1009,9 +969,9 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1035,9 +995,7 @@ The response object for /responses is detailed below.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1048,25 +1006,22 @@ The response object for /responses is detailed below.
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Responses Response">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
+
 </code-group>
 
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Responses Response">
 ```php
 <?php 
@@ -1076,9 +1031,9 @@ The response object for /responses is detailed below.
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
