@@ -26,4 +26,4 @@ jobs:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           S3_BUCKET_REGION: ${{ secrets.S3_BUCKET_REGION }}
           CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        run: ./s3deploy -source docs/src/.vuepress/dist -key $AWS_ACCESS_KEY_ID -secret $AWS_SECRET_ACCESS_KEY -bucket=$S3_BUCKET -region=$S3_BUCKET_REGION -distribution-id=$CLOUDFRONT_DISTRIBUTION_ID -v
+        run: ./s3deploy -source docs/src/.vuepress/dist -key $AWS_ACCESS_KEY_ID -secret $AWS_SECRET_ACCESS_KEY -bucket=$S3_BUCKET -region=$S3_BUCKET_REGION -v
