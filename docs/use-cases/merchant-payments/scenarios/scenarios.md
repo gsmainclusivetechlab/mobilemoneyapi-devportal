@@ -22,8 +22,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -57,26 +56,20 @@ Body Parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -84,11 +77,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
-
 </code-group>
+
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -134,8 +127,7 @@ In this example, an asynchronous payment flow is used with a final callback that
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -173,20 +165,16 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
-<code-block title="PHP">
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -194,11 +182,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
+</code-main-group>
 
-</code-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -240,7 +228,7 @@ In this example, an asynchronous payment flow is used with the polling method. T
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -273,13 +261,11 @@ Body Parameters:
 }
 ```
 </code-block>
-
 <code-block title="GET">
 ```json
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
-
 <code-block title="GET">
 ```json
 GET .../transactions/Place Transaction Reference here
@@ -289,33 +275,26 @@ GET .../transactions/Place Transaction Reference here
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 <code-block title="GET">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 <code-block title="GET">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -323,7 +302,6 @@ GET .../transactions/Place Transaction Reference here
 ?>
 ```
 </code-block>
-
 <code-block title="GET">
 ```php
 <?php 
@@ -331,7 +309,6 @@ GET .../transactions/Place Transaction Reference here
 ?>
 ```
 </code-block>
-
 <code-block title="GET">
 ```php
 <?php 
@@ -339,11 +316,10 @@ GET .../transactions/Place Transaction Reference here
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -405,7 +381,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -443,21 +419,16 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -465,11 +436,10 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -514,7 +484,8 @@ In this example, an asynchronous payment flow is used with a final callback that
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -552,21 +523,16 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -574,11 +540,10 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -618,8 +583,7 @@ In this example the /authorisationcodes API is used to obtain a pre-authorised p
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -679,9 +643,8 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -693,13 +656,9 @@ Body Parameters:
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -715,11 +674,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
+</code-main-group>
 
-</code-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -775,8 +734,7 @@ Merchants can issue a refund to payers. In this diagram, the refund is not linke
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -814,21 +772,16 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -839,7 +792,8 @@ Body Parameters:
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -879,8 +833,7 @@ In some failure scenarios, a merchant may need to reverse a transaction. This di
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -905,21 +858,16 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -930,7 +878,7 @@ Body Parameters:
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -966,8 +914,7 @@ sequenceDiagram
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -980,21 +927,16 @@ GET .../accounts/accountid/2000/balance
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1005,7 +947,7 @@ GET .../accounts/accountid/2000/balance
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1040,8 +982,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1060,21 +1001,16 @@ Params:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1085,7 +1021,7 @@ Params:
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1123,8 +1059,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1137,21 +1072,16 @@ GET .../heartbeat
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1162,7 +1092,7 @@ GET .../heartbeat
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1197,8 +1127,7 @@ This API can be used by the merchant to retrieve a link to the final representat
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -1211,21 +1140,16 @@ GET .../responses/Please enter your UUID here
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1236,7 +1160,7 @@ GET .../responses/Please enter your UUID here
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

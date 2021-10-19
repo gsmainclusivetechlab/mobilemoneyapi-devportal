@@ -22,11 +22,9 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/accountname
@@ -116,69 +114,68 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
-
-
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
-
-</code-group>
 
 </code-block>
 </code-group>
+</code-block>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -263,11 +260,9 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/accountname
@@ -308,54 +303,49 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
-</code-block>
 
+</code-block>
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
-
-</code-group>
 
 </code-block>
 </code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -402,11 +392,9 @@ In this diagram, A third party provider enables a sender to transfer money to a 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/accountname
@@ -495,68 +483,67 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
-</code-block>
 
+</code-block>
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
-
-</code-group>
 
 </code-block>
 </code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -649,11 +636,9 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
@@ -665,46 +650,39 @@ Headers:
    "Content-Type": ["application/json"]
 }
 ---
-Body parameters: 
+Body parameters:
 {
   "type": "reversal"
 }
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
+
 ```php
-<?php 
-  //some PHP code here 
+<?php
+  //some PHP code here
 ?>
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -741,11 +719,9 @@ Body parameters:
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/balance
@@ -753,38 +729,32 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -820,11 +790,9 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
@@ -838,38 +806,32 @@ Params:
 </code-block>
 
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -909,11 +871,9 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../heartbeat
@@ -921,38 +881,32 @@ GET .../heartbeat
 </code-block>
 
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -988,11 +942,9 @@ This API can be used by the sending FSP to retrieve a link to the final represen
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../responses/Please enter your UUID here
@@ -1000,38 +952,33 @@ GET .../responses/Please enter your UUID here
 </code-block>
 
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 </code-group>
-</code-block>
-
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
+
 ```php
-<?php 
-  //some PHP code here 
+<?php
+  //some PHP code here
 ?>
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->

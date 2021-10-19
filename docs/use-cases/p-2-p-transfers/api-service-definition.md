@@ -51,10 +51,8 @@ The following paths are permitted:
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="POST">
 ```json
@@ -97,62 +95,67 @@ Body Parameters:
 ```
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 
 <code-block title="PATCH">
+
 ```javascript
 //some JavaScript code here 
 ```
-</code-block>
 
+</code-block>
 </code-group>
-</code-block>
-<code-block title="PHP">
-
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="PATCH">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
-</code-group>
 </code-block>
 </code-group>
+</code-block>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -187,10 +190,8 @@ classDiagram
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Transaction Object">
 ```json
@@ -260,37 +261,34 @@ classDiagram
 }
 ```
 </code-block>
+
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Transaction Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
+
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Transaction Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -335,6 +333,64 @@ The supported path is `POST /transactions/{originalTransactionReference}/reversa
 Note that for performing a reversal without the original transaction reference, please use the [Transactions API](#transactions-api).
 :::
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters:
+{
+  "type": "reversal"
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="POST">
+
+```php
+<?php
+  //some PHP code here
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 For viewing or updating reversals, the [Transactions API](#transactions-api) should be used.
 
 #### Reversal UML Class Diagram
@@ -355,10 +411,8 @@ classDiagram
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Reversal Object">
 ```json
@@ -429,36 +483,32 @@ classDiagram
 ```
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Reversal Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
+
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Reversal Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -532,13 +582,11 @@ To filter the number of records returned, the following query strings can be use
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Account Transactions filters">
+
 ```json
 {
   "limit": 50,
@@ -549,38 +597,35 @@ To filter the number of records returned, the following query strings can be use
   "transactionType": "merchantpay"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Account Transactions filters">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
+
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Account Transactions filters">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -636,13 +681,11 @@ A ‘self’ version is also available where the calling API client is the FSP a
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Account Balance Object">
+
 ```json
 {
   "accountStatus": "available",
@@ -653,38 +696,35 @@ A ‘self’ version is also available where the calling API client is the FSP a
   "currency": "GBP"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Account Balance Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
+
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Account Balance Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -723,13 +763,11 @@ classDiagram
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Account Holder Name Object">
+
 ```json
 {
   "name": {
@@ -742,38 +780,33 @@ classDiagram
   }
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Account Holder Name Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Account Holder Name Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -806,13 +839,11 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="KYC Information Object">
+
 ```json
 {
   "birthCountry": "GB",
@@ -840,38 +871,33 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
   "occupation": "Manager"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="KYC Information Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="KYC Information Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -899,13 +925,11 @@ The name object identifies the name details for the subject identity.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Name Object">
+
 ```json
 {
   "title": "Mr",
@@ -916,38 +940,33 @@ The name object identifies the name details for the subject identity.
   "nativeName": "John Doe"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Name Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Name Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -971,13 +990,11 @@ As part of KYC information, identification documentation is normally required. T
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Id Document Object">
+
 ```json
 {
   "idType": "passport",
@@ -990,38 +1007,33 @@ As part of KYC information, identification documentation is normally required. T
   "otherIdDescription": "Other ID description..."
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Id Document Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Id Document Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1047,13 +1059,11 @@ The address object holds the postal address of the subject. Due to variability o
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Address Object">
+
 ```json
 {
   "addressLine1": "33 Brow Rd",
@@ -1065,38 +1075,33 @@ The address object holds the postal address of the subject. Due to variability o
   "country": "GB"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Address Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Address Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1121,13 +1126,11 @@ The Account Identifier object enables one or multiple identifiers to be provided
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Account Identifier Object">
+
 ```json
 {
   "accountcategory":"default",
@@ -1141,38 +1144,33 @@ The Account Identifier object enables one or multiple identifiers to be provided
   "sortcode":"100000"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Account Identifier Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Account Identifier Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1192,51 +1190,44 @@ The metadata object allows fields to be specified to convey administrative infor
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Metadata Object">
+
 ```json
 {
   "customKey01": "customValue01",
   "customKey02": "customValue02"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Metadata Object">
+
 ```javascript
-//some JavaScript code here 
+//some JavaScript code here
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Metadata Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1256,51 +1247,44 @@ The custom data object allows additional fields to be specified for the associat
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Custom Data Object">
+
 ```json
 {
   "customKey01": "customValue01",
   "customKey02": "customValue02"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Custom Data Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Custom Data Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1320,13 +1304,11 @@ An object that enables fees that are differentiated by type to be provided and/o
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Fees Object">
+
 ```json
 {
   "feeType": "addition",
@@ -1334,38 +1316,33 @@ An object that enables fees that are differentiated by type to be provided and/o
   "feeCurrency": "GBP"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Fees Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Fees Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1386,51 +1363,44 @@ An object that details the originating organisation of the request.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Requesting Organisation Object">
+
 ```json
 {
   "requestingOrganisationIdentifierType": "organisationid",
   "requestingOrganisationIdentifier": "987654321"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Requesting Organisation Object">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Requesting Organisation Object">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1499,13 +1469,11 @@ The Account Identifier enumeration lists all possible means to identify a target
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
-
 <code-group>
 <code-block title="Account Identifiers">
+
 ```json
 {
   "accountcategory":"default",
@@ -1530,38 +1498,33 @@ The Account Identifier enumeration lists all possible means to identify a target
   "mandatereference":"85f6196e-0557-42bd-b3c5-c4a7d5433815"
 }
 ```
+
 </code-block>
 </code-group>
-
 </code-block>
-
-<code-block title="JavaScript">
-
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="Account Identifiers">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
-
-</code-block>
-
-<code-block title="PHP">
-<code-group>
-  
+<code-group title="PHP">
 <code-block title="Account Identifiers">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
-</code-block>
 
+</code-block>
 </code-group>
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

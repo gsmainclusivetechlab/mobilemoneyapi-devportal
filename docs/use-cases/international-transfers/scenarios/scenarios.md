@@ -23,8 +23,7 @@ This flow can also be used for bilateral international transfers.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -190,15 +189,12 @@ Body Parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -210,14 +206,9 @@ Body Parameters:
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -233,11 +224,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -292,6 +283,8 @@ Body Parameters:
 </div>
 
 <br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
 
 ## Bilateral International Transfer
@@ -302,8 +295,7 @@ In this diagram, the sending FSP connects directly with the receiving FSP to obt
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -469,15 +461,12 @@ Body Parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -489,14 +478,9 @@ Body Parameters:
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -512,11 +496,11 @@ Body Parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -609,8 +593,7 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -636,10 +619,8 @@ Body Parameters:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -647,12 +628,8 @@ Body Parameters:
 </code-block>
 
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -664,7 +641,7 @@ Body Parameters:
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -700,8 +677,7 @@ sequenceDiagram
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -715,10 +691,8 @@ GET .../accounts/accountid/2000/balance
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
@@ -726,12 +700,8 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -743,7 +713,8 @@ GET .../accounts/accountid/2000/balance
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -777,8 +748,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -798,10 +768,8 @@ Params:
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
@@ -809,12 +777,8 @@ Params:
 </code-block>
 
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -826,7 +790,7 @@ Params:
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -864,8 +828,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -879,10 +842,8 @@ GET .../heartbeat
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
@@ -890,12 +851,8 @@ GET .../heartbeat
 </code-block>
 
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -907,7 +864,7 @@ GET .../heartbeat
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -942,8 +899,7 @@ This API can be used by the sending FSP to retrieve a link to the final represen
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -957,10 +913,8 @@ GET .../responses/Please enter your UUID here
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
@@ -968,12 +922,8 @@ GET .../responses/Please enter your UUID here
 </code-block>
 
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -985,7 +935,7 @@ GET .../responses/Please enter your UUID here
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

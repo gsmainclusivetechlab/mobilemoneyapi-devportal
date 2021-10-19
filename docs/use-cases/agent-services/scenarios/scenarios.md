@@ -21,12 +21,10 @@ In this example, an asynchronous cash-out flow is used with a final callback.
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../transactions/type/withdrawal
@@ -57,28 +55,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -86,11 +76,11 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -167,11 +157,10 @@ In this example, an asynchronous cash-out flow is used with the polling method. 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../transactions/type/withdrawal
@@ -213,15 +202,12 @@ GET .../requeststates/Place the Server Correlation Id here
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -239,14 +225,9 @@ GET .../transactions/Place Transaction Reference here
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -270,11 +251,11 @@ GET .../transactions/Place Transaction Reference here
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -335,11 +316,10 @@ In this example, an asynchronous cash-out flow is used with a final callback.
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../transactions/type/withdrawal
@@ -370,28 +350,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -399,12 +371,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -477,12 +447,10 @@ In this example the /authorisationcodes API is used to obtain a pre-authorised c
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../accounts/accountid/2000/authorisationcodes
@@ -535,15 +503,12 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -555,14 +520,9 @@ Body parameters:
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -578,11 +538,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -637,12 +596,10 @@ In this diagram, the agent firstly checks that the depositing customer’s name 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/accountname
@@ -679,15 +636,12 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
@@ -699,14 +653,9 @@ Body parameters:
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -722,11 +671,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -773,12 +721,10 @@ In some failure scenarios, an agent may need to reverse a transaction. This diag
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
@@ -796,28 +742,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -825,11 +763,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -866,12 +803,10 @@ In this diagram, an agent registers a new mobile money customer on behalf of a m
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../accounts/individual
@@ -962,28 +897,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -991,11 +918,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1023,7 +949,10 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1ri" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><
+br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 ## Verify a Customer’s KYC
 
@@ -1033,12 +962,10 @@ In this diagram, an agent verifies the physical KYC provided by the customer aga
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="PATCH">
 ```json
 PATCH .../accounts/accountid/2000/identities/105
@@ -1062,28 +989,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="PATCH">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="PATCH">
 ```php
 <?php 
@@ -1091,11 +1010,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1133,39 +1051,29 @@ sequenceDiagram
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1173,11 +1081,10 @@ GET .../accounts/accountid/2000/balance
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1211,12 +1118,10 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
@@ -1228,28 +1133,20 @@ Params:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1257,11 +1154,10 @@ Params:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1299,39 +1195,29 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../heartbeat
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1339,11 +1225,10 @@ GET .../heartbeat
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -1378,39 +1263,29 @@ This API can be used by the agent to retrieve a link to the final representation
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../responses/Please enter your UUID here
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -1418,11 +1293,10 @@ GET .../responses/Please enter your UUID here
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

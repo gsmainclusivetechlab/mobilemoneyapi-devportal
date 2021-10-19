@@ -21,12 +21,10 @@ This diagram illustrates how a mobile money provider can retrieve bills for a gi
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/1/bills?offset=0&limit=20
@@ -38,28 +36,20 @@ Params:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -67,11 +57,10 @@ Params:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -126,12 +115,10 @@ This diagram illustrates how a mobile money provider can make a bill payment to 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../accounts/accountid/1/bills/REF-000001/payments
@@ -150,28 +137,20 @@ Body parameters:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -179,11 +158,10 @@ Body parameters:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -255,12 +233,10 @@ This diagram illustrates how a mobile money provider can make a bill payment to 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="POST">
 ```json
 POST .../accounts/accountid/1/bills/REF-000001/payments
@@ -295,15 +271,12 @@ Params:
 GET .../requestStates/Place the Server Correlation Id here
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //some JavaScript code here
@@ -321,14 +294,9 @@ GET .../requestStates/Place the Server Correlation Id here
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -352,11 +320,10 @@ GET .../requestStates/Place the Server Correlation Id here
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -396,12 +363,10 @@ This diagram illustrates how a mobile money provider can retrieve payments again
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../accounts/accountid/1/bills/REF-000001/payments?offset=0&limit=20
@@ -413,28 +378,20 @@ Params:
 }
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -442,11 +399,10 @@ Params:
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -483,39 +439,29 @@ The Heartbeat API is used for monitoring purposes and establishes whether the Se
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-
 <code-block title="GET">
 ```json
 GET .../heartbeat
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
 
-<code-block title="JavaScript">
-
-<code-group>
-
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="GET">
 ```javascript
 //some JavaScript code here
 ```
 </code-block>
-
 </code-group>
-</code-block>
 
-<code-block title="PHP">
-
-<code-group>
-
+<code-group title="PHP">
 <code-block title="GET">
 ```php
 <?php 
@@ -523,11 +469,10 @@ GET .../heartbeat
 ?>
 ```
 </code-block>
-
 </code-group>
 
 </code-block>
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
