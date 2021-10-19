@@ -1,0 +1,29 @@
+name: DevPortal Deployment
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install s3deploy
+        run: curl -L https://github.com/bep/s3deploy/releases/download/v2.4.0/s3deploy_2.4.0_Linux-64bit.tar.gz | tar xvz
+
+      - name: Install dependencies
+        run: cd docs && npm install
+
+      - name: Build static website
+        run: cd docs && npm run build
+
+      - name: Deploy to AWS
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          S3_BUCKET_REGION: ${{ secrets.S3_BUCKET_REGION }}
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: ./s3deploy -source docs/src/.vuepress/dist -key $AWS_ACCESS_KEY_ID -secret $AWS_SECRET_ACCESS_KEY -bucket=$S3_BUCKET -region=$S3_BUCKET_REGION -distribution-id=$CLOUDFRONT_DISTRIBUTION_ID -v
