@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: Merchant Payments - Use Case Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -18,6 +19,74 @@ In this example, an asynchronous payment flow is used with a final callback. The
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/type/merchantpay
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -43,21 +112,33 @@ In this example, an asynchronous payment flow is used with a final callback. The
     deactivate Mobile Money Provider
 </mermaid>
 
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEr4" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLNh" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+## Payee-Initiated Merchant Payment Failure
+
+In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+```json
 POST .../transactions/type/merchantpay
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
    "Content-Type": ["application/json"]
 }
 ---
@@ -85,44 +166,32 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
+</code-main-group>
 
-</code-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
-
 </div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEr4" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLNh" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-## Payee-Initiated Merchant Payment Failure
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -148,10 +217,18 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
+
+
+
+## Payee-Initiated Merchant Payment using the Polling Method
+
+In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -161,8 +238,7 @@ POST .../transactions/type/merchantpay
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
    "Content-Type": ["application/json"]
 }
 ---
@@ -185,44 +261,70 @@ Body Parameters:
 }
 ```
 </code-block>
+<code-block title="GET">
+```json
+GET .../requeststates/Place the Server Correlation Id here
+```
+</code-block>
+<code-block title="GET">
+```json
+GET .../transactions/Place Transaction Reference here
+```
+</code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+<code-block title="GET">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+<code-block title="GET">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
-</code-group>
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
 </code-block>
-
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
 </code-group>
+
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
 </div>
-
-
-## Payee-Initiated Merchant Payment using the Polling Method
-
-In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -262,19 +364,35 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
+
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvL" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXR" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+
+## Payer-Initiated Merchant Payment
+
+In this example, an asynchronous payment flow is used with a final callback. The payer initiates the request and will be debited upon successful completion of the request.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+```json
 POST .../transactions/type/merchantpay
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
    "Content-Type": ["application/json"]
 }
 ---
@@ -302,45 +420,31 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
 </div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvL" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXR" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-
-## Payer-Initiated Merchant Payment
-
-In this example, an asynchronous payment flow is used with a final callback. The payer initiates the request and will be debited upon successful completion of the request.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -365,20 +469,34 @@ sequenceDiagram
     deactivate Merchant
 </mermaid>
 
+
+<div class="buttons-holder content-center">
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvP" target="_blank">Open Postman Collection</a>
+  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXU" target="_blank">Open Postman Collection with Authentication</a>
+</div>
+
+
+## Payer-Initiated Merchant Payment Failure
+
+In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+```json
 POST .../transactions/type/merchantpay
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
    "Content-Type": ["application/json"]
 }
 ---
@@ -406,44 +524,31 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
 </div>
-
-<div class="buttons-holder content-center">
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvP" target="_blank">Open Postman Collection</a>
-  <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXU" target="_blank">Open Postman Collection with Authentication</a>
-</div>
-
-
-## Payer-Initiated Merchant Payment Failure
-
-In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -468,26 +573,55 @@ sequenceDiagram
     deactivate Merchant
 </mermaid>
 
+
+
+## Payee-Initiated Merchant Payment using a Pre-authorised Payment Code
+
+In this example the /authorisationcodes API is used to obtain a pre-authorised payment code. This in turn is presented by the payer to the merchant who initiates the payment request. Both flows in the diagram result in a callback. This flow is primarily used for payment on delivery use cases.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+```json
+POST .../accounts/accountid/2000/authorisationcodes
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "requestDate": "2018-07-03T10:43:27.405Z",
+    "currency": "GBP",
+    "amount": "1000.00"
+}
+```
+</code-block>
+
+<code-block title="POST">
+```json
 POST .../transactions/type/merchantpay
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
    "Content-Type": ["application/json"]
 }
 ---
 Body Parameters:
 {
     "amount": "200.00",
+    "type": "transfer",
     "debitParty": [
         {
             "key": "accountid",
@@ -500,7 +634,8 @@ Body Parameters:
             "value": "2999"
         }
     ],
-    "currency": "RWF"
+    "currency": "RWF",
+    "oneTimeCode": "Place your Authorisation Code here"
 }
 ```
 </code-block>
@@ -509,38 +644,46 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
 
-<code-group>
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
 
-</code-group>
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
 </code-block>
-
 </code-group>
+
+</code-block>
+</code-main-group>
+
 
 </div>
 <!-- end of right-side code blocks holder -->
 </div>
-
-## Payee-Initiated Merchant Payment using a Pre-authorised Payment Code
-
-In this example the /authorisationcodes API is used to obtain a pre-authorised payment code. This in turn is presented by the payer to the merchant who initiates the payment request. Both flows in the diagram result in a callback. This flow is primarily used for payment on delivery use cases.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -575,61 +718,6 @@ sequenceDiagram
     deactivate Mobile Money Provider 
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-POST .../accounts/accountid/2000/authorisationcodes
----
-Headers:
-{
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
-   "Content-Type": ["application/json"]
-}
----
-Body Parameters:
-{
-    "requestDate": "2018-07-03T10:43:27.405Z",
-    "currency": "GBP",
-    "amount": "1000.00"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzm" target="_blank">Open Postman Collection</a>
@@ -640,41 +728,24 @@ try {
 
 ## Merchant Payment Refund
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
 Merchants can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
-<mermaid>
-sequenceDiagram
-    participant Merchant
-    participant Mobile Money Provider 
-    Merchant->>Mobile Money Provider: POST /transactions/type/adjustment
-    activate Merchant
-    activate Mobile Money Provider
-    Note right of Mobile Money Provider: (1) The Merchant submits the refund request for processing to<br>the MMP. The MMP will return the Request State object to<br>indicate that the request is 'pending'.
-    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
-    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
-    Note right of Mobile Money Provider: (2) The MMP informs the Merchant that the<br>refund has been successfully completed by<br>returning the final representation of the refund.
-    Merchant-->>Mobile Money Provider: HTTP 204
-    deactivate Merchant
-    deactivate Mobile Money Provider
-</mermaid>
-
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+```json
 POST .../transactions/type/adjustment
 ---
 Headers:
 {
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
    "Content-Type": ["application/json"]
 }
 ---
@@ -702,31 +773,50 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
+</code-main-group>
 
-</code-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
 </div>
+<!-- end of right-side code blocks wrapper -->
+
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    Merchant->>Mobile Money Provider: POST /transactions/type/adjustment
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the refund request for processing to<br>the MMP. The MMP will return the Request State object to<br>indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    Note right of Mobile Money Provider: (2) The MMP informs the Merchant that the<br>refund has been successfully completed by<br>returning the final representation of the refund.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
+
+
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzq" target="_blank">Open Postman Collection</a>
@@ -737,10 +827,63 @@ try {
 
 ## Merchant Payment Reversal
 
+In some failure scenarios, a merchant may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
+
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
 
-In some failure scenarios, a merchant may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body Parameters:
+{
+    "type": "reversal"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -758,59 +901,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-POST .../transactions/Place Reference of Txn to be Reversed here/reversals
----
-Headers:
-{
-   "X-CorrelationID": ['Please enter your UUID here'],
-   "X-Callback-URL": ['Please enter your callback URL here'],
-   "Content-Type": ["application/json"]
-}
----
-Body Parameters:
-{
-    "type": "reversal"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGF59" target="_blank">Open Postman Collection</a>
@@ -822,6 +912,47 @@ try {
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -836,47 +967,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-GET .../accounts/accountid/2000/balance
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFV" target="_blank">Open Postman Collection</a>
@@ -890,6 +980,53 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params: 
+{
+    "offset": 0,
+    "limit": 20
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -908,53 +1045,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-GET .../accounts/accountid/2000/transactions?offset=0&limit=20
----
-PARAMS:
-{
-   "offset": 0,
-   "limit": 20
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFX" target="_blank">Open Postman Collection</a>
@@ -967,6 +1057,47 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -982,47 +1113,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-GET .../heartbeat
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank">Open Postman Collection</a>
@@ -1035,7 +1125,47 @@ This API can be used by the merchant to retrieve a link to the final representat
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
 
+<code-group>
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 <mermaid>
 sequenceDiagram
     participant Merchant
@@ -1053,47 +1183,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```bash
-GET .../responses/Please enter your UUID here
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7v" target="_blank">Open Postman Collection</a>

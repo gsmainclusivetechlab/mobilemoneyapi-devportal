@@ -3,7 +3,12 @@
     class="theme-code-block"
     :class="{ 'theme-code-block__active': active }"
   >
-    <slot />
+    <template v-if="title!=='Code'">
+      <slot/>
+    </template>
+    <template v-else>
+      <slot/>
+    </template>
   </div>
 </template>
 
@@ -23,6 +28,9 @@ export default {
   mounted () {
     if (this.$parent && this.$parent.loadTabs) {
       this.$parent.loadTabs()
+    }
+    if(this.title === 'Code') {
+      this.$parent.$emit('get-code-languages', this.$children.map(el=>el.title))
     }
   }
 }

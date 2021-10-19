@@ -1,5 +1,6 @@
 ---
 pageClass: api-page container--narrow
+title: MM API Specification v1.0
 ---
 
 # GSMA Mobile Money API Specification v1.0

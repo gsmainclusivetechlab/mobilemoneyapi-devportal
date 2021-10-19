@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Energy & Utilities & AgriTech
 ---
 
   <industry-hero-section

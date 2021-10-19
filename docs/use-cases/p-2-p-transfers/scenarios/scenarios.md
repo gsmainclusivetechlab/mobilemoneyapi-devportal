@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: P2P Transfers - Use Сase Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -8,7 +9,7 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Сase Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
@@ -18,6 +19,168 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/accountname
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../quotations
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "requestAmount": "75.30",
+    "requestCurrency": "RWF",
+  "requestDate": "2018-07-03T11:43:27.405Z",
+    "type": "transfer",
+    "subType": "abc",
+    "chosenDeliveryMethod": "directtoaccount",
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ]
+}
+```
+</code-block>
+
+
+<code-block title="POST">
+```json
+POST .../transactions/type/transfer
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "100.00",
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "currency": "GBP",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "internationalTransferInformation": {
+        "originCountry": "AD",
+        "quotationReference": "{{quotationReference}}",
+        "quoteId": "{{quoteId}}",
+        "remittancePurpose": "personal",
+        "deliveryMethod": "agent"
+   },    
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "testorganisation"
+  }
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+</code-group>
+</code-block>
+</code-main-group>
+
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
   <mermaid>
     sequenceDiagram
@@ -81,113 +244,6 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
       deactivate Sending FSP
   </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="PATCH">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-</code-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdjZhR" target="_blank">Open Postman Collection</a>
@@ -198,6 +254,103 @@ try {
 ## Bilateral P2P Transfer
 
 In this diagram, the sending FSP connects directly with the receiving FSP to confirm the recipient name and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer. In this example, a quotation is not requested.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/accountname
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/transfer
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "100.00",
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "currency": "GBP",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "testorganisation"
+  }
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -233,6 +386,169 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
 ## ‘On-us’ P2P Transfer Initiated by a Third Party Provider
 
 In this diagram, A third party provider enables a sender to transfer money to a recipient in the same FSP. The third party provider (1) confirms the recipient name, (2) requests a quotation and (3) performs the transfer with the FSP. A callback is provided by the FSP to return confirmation of the transfer.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/accountname
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../quotations
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "requestAmount": "75.30",
+    "requestCurrency": "RWF",
+  "requestDate": "2018-07-03T11:43:27.405Z",
+    "type": "transfer",
+    "subType": "abc",
+    "chosenDeliveryMethod": "directtoaccount",
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ]
+}
+```
+</code-block>
+
+<code-block title="POST">
+```json
+POST .../transactions/type/transfer
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "100.00",
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2000"
+        }
+    ],
+    "currency": "GBP",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "internationalTransferInformation": {
+        "originCountry": "AD",
+        "quotationReference": "{{quotationReference}}",
+        "quoteId": "{{quoteId}}",
+        "remittancePurpose": "personal",
+        "deliveryMethod": "agent"
+   },    
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "testorganisation"
+  }
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -315,6 +631,64 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 
 In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters:
+{
+  "type": "reversal"
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="POST">
+
+```php
+<?php
+  //some PHP code here
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
     participant Sending FSP
@@ -340,6 +714,53 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 
 ## Obtain an FSP Balance
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/balance
+```
+</code-block>
+
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
     participant Requesting FSP
@@ -363,6 +784,59 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 ## Retrieve Transactions for an FSP
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params:
+{
+  "offset": 0,
+  "limit": 20
+}
+```
+</code-block>
+
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -392,6 +866,53 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
     participant Requesting FSP
@@ -415,6 +936,54 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 ## Retrieve a Missing API Response
 
 This API can be used by the sending FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the receiving FSP.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="GET">
+
+```php
+<?php
+  //some PHP code here
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram

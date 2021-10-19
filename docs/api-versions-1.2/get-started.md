@@ -1,6 +1,6 @@
 ---
 pageClass: api-page has-code-panel
-goBacKBtn: kek
+title: Getting Started 
 ---
 
 <side-code-panel/>
@@ -70,338 +70,119 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Standard Request Headers
 
-
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
-<code-block title="post">
+<code-block title="Standard Request Headers">
+```json
+{
+  "Accept": ["application/json"],
+  "Accept-Charset": ["utf-8"],
+  "Authorization": ["Bearer RsT5OjbzRn430zqMLgV3Ia"],
+  "Content-Length": ["123"],
+  "Content-Type": ["application/json"]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Standard Request Headers">
 ```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
+//some JavaScript code here 
 ```
 </code-block>
 
-<code-block title="get">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-<code-block title="Get">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
 </code-group>
 
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-<code-language-selector>
-<code-lang title="php">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="patch">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group>
-<code-block title="post">
+<code-group title="PHP">
+<code-block title="Standard Request Headers">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
 
-<code-block title="get">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="patch">
-```php
-<?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-</code-group>
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="patch">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
 </code-group>
 
 </code-block>
-
-<code-block title="Code">
-<code-group>
-<code-block title="post">
-```javascript
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-```
-</code-block>
-
-<code-block title="get">
-```javascript
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e)
-```
-</code-block>
-
-<code-block title="patch">
-```javascript
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails()
-```
-</code-block>
-</code-group>
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="Vue">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="post">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="get">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-<code-block title="patch">
-```php
-PATCH .../transactions/36125b528237
----
-Body Parameters:
-{
-  "transactionStatus":"completed"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group>
-<code-block title="post">
-```javascript
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) 
-```
-</code-block>
-
-<code-block title="get">
-```javascript
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-```
-</code-block>
-
-<code-block title="patch">
-```javascript
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails()
-}  
-```
-</code-block>
-</code-group>
-</code-block>
-</code-group>
-</code-lang>
-</code-language-selector>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
-
 </div>
-
+<!-- end of right-side code blocks wrapper -->
 
 | **Header**          | **Value**            | **Optionality**  | **Notes**  |
 |:--------------- |:-----------------|--------------|--------|
 | **Accept**          | application/json | Mandatory    |        |
 | **Accept-Charset**  | utf-8            | Mandatory    |        |
-| **Authorization**   | Authorization: Basic {base64Encode(concatenated client's username followed by ‘:’ and password)} OR OAuth2 Access Token. For OAuth2 format is {‘Bearer’ ***token value***} | Mandatory    |        |
+| **Authorization**   | Authorization: Basic {base64Encode(concatenated client's username followed by ‘:’ and password)} OR OAuth2 Access Token. For OAuth2 format is {‘Bearer’ **token value**} | Mandatory    |        |
 | **Content-Length**  | Length of request content in 8-bit bytes | Mandatory    |        |
 | **Content-Type**    | application/json | Mandatory    |        |
 
+
 ###### Standard Response Headers
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Standard Response Headers">
+```json
+{
+  "Content-Length": ["123"],
+  "Content-Type": ["application/json; charset=utf-8"]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Standard Response Headers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Standard Response Headers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Header**          | **Value**                           | **Optionality**  | **Notes**                                                   |
 |:--------------- |:--------------------------------|--------------|---------------------------------------------------------|
@@ -409,6 +190,64 @@ try {
 | **Content-Type**    | application/json; charset=utf-8 | Conditional  | Applicable only if the HTTP response contains JSON body |
 
 ###### Custom Request Headers
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Custom Request Headers">
+```json
+{
+  "X-API-Key": ["a4db08b7-5729-4ba9-8c08-f2df493465a1"],
+  "X-User-Bearer": ["Bearer RsT5OjbzRn430zqMLgV3Ia"],
+  "X-Date": ["Sun, 06 Nov 1994 08:49:37 GMT"],
+  "X-Client-Id": ["12345"],
+  "X-Content-Hash": ["7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"],
+  "X-CorrelationID": ["d820237c-aa97-47e7-9704-1bc6d8ecad2d"],
+  "X-User-Credential-1": ["1234"],
+  "X-User-Credential-2": ["PassWord"],
+  "X-Channel": ["Web"],
+  "X-Callback-URL": ["https://application.com/callback"]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Custom Request Headers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Custom Request Headers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
@@ -424,6 +263,55 @@ try {
 | **X-Callback-URL**  | string containing the URL which should receive the Callback for asynchronous requests. | Conditional  | Will only be used by the API provider if they have implemented the Callback method. |
 
 ###### Custom Response Headers
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Custom Response Headers">
+```json
+{
+  "X-Date": ["Sun, 06 Nov 1994 08:49:37 GMT"]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Custom Response Headers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Custom Response Headers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
@@ -529,6 +417,65 @@ Asynchronous flows involve a callback mechanism or a polling mechanism to enable
 
 The object definition for RequestState is described below.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="RequestState Object">
+```json
+{
+  "serverCorrelationId": "878be43d-9fde-467b-a26b-889c80bf8830",
+  "objectReference": "12345",
+  "status": "pending",
+  "notificationMethod": "callback",
+  "pendingReason": "A textual description...",
+  "expiryTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "pollLimit": 5,
+  "errorReference": {
+    "errorCategory": "BusinessRule",
+    "errorCode": "GenericError"
+  }
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="RequestState Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="RequestState Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **RequestState Object Properties**                                                   ||||||
 |:--------------- |:--------------|------------------|----------------|----------------|---|
 | **Name**        | **Type**      | **Description**  |                | **Reference**  | **Validation** ||
@@ -539,7 +486,7 @@ The object definition for RequestState is described below.
 | **pendingReason** | string | A textual description that can be provided to describe the reason for a pending status. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  | |
 | **expiryTime** | date-time | Indicates the time by which the provider will fail the request if completion criteria have not been met. For an example, a debit party failing to authorise within the allowed time period. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
 | **pollLimit** | integer | Indicates the number of poll attempts for the given requeststate resource that will be allowed by the provider. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O |  ||
-| **errorReference** | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | [Errors Object](/api-versions-1.2/get-started.html#errors-object-definition) ||
+| **errorReference** | object | If the asynchronous processing failed, details of the error will be returned here. | &#8594;&nbsp;NA<br/>&#8592;&nbsp;O | [Errors Object](#errors-object-definition) ||
 
 #### Generic API Sequence Diagrams
 
@@ -766,7 +713,7 @@ The following HTTP response codes are returned for the listed methods:
 | **POST**       | 201         | 202              | 400, 401, 404    | 500, 503         |
 
 ::: tip
-*Note that the ‘intermediate’ column in the table above relates to the HTTP response for the first leg of an asynchronous request.
+Note that the ‘intermediate’ column in the table above relates to the HTTP response for the first leg of an asynchronous request.
 :::
 
 #### HTTP Error Response Codes
@@ -799,6 +746,64 @@ The mobile money API uses the errors object to provide error details to API clie
 
 With the errorParameters property, care should be taken regarding confidentially of information. Confidential parameter information should only be disclosed to trusted clients.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Errors Object">
+```json
+{
+  "errorCategory": "BusinessRule",
+  "errorCode": "GenericError",
+  "errorDescription": "A textual description of the error.",
+  "errorDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "errorParameters": [
+    {
+      "key": "providedValue",
+      "value": "+33555789123"
+    }
+  ]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Errors Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Errors Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Errors Object Properties**                                                   ||||||
 |:--------------- |:--------------|:-----------------|-----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |       | **Reference**  | **Validation** |
@@ -811,6 +816,60 @@ With the errorParameters property, care should be taken regarding confidentially
 ##### Error Parameters Object
 
 Allows error parameter properties to be specified in the form of key/value pairs. The number of key/value pairs is limited to 20.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Error Parameters Object">
+```json
+{
+  "errorParameters": [
+    {
+      "key": "providedValue",
+      "value": "+33555789123"
+    }
+  ]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Error Parameters Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Error Parameters Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Error Parameters Object Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
@@ -868,6 +927,57 @@ The Heartbeat can be requested using the following path:
 
 Only synchronous API Heartbeat requests are supported. The HTTP response contains the following properties.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Heartbeat Response">
+```json
+{
+  "serviceStatus": "degraded",
+  "delay": 4000,
+  "plannedRestorationTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Heartbeat Response">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Heartbeat Response">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Heartbeat Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|----|:---------------|:---------------|
 | **Name**        | **Type**      | **Description**  |     | **Reference**  | **Validation** |
@@ -880,6 +990,55 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 In some circumstances, the client may not have received the final representation of the resource for which it attempted to create. For example, a proxy server issue may have resulted in a HTTP 5xx response but the provider may have actually successfully completed the request. The /responses API allows a client to identify and retrieve the final representation of the resource assuming that the resource was created. In order to get a representation, the client issues a GET /Responses/{clientCorrelationId}. The provider will then match the client correlation id to the appropriate resource and return a link to that resource. If the resource is not found for the given correlation id then a HTTP 404 will be returned. 
 
 The response object for /responses is detailed below.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Responses Response">
+```json
+{
+  "link": "https://application.com/uuid"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Responses Response">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Responses Response">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Responses Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|

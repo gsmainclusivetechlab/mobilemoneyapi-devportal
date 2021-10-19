@@ -1,5 +1,6 @@
 ---
 pageClass: api-page has-code-panel
+title: Examples page
 ---
 
 <side-code-panel/>
@@ -45,8 +46,7 @@ In a few word just use `<code-group>` tag as a wrapper for a View `<code-block>`
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -90,13 +90,14 @@ Body Parameters:
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
 
-<code-group>
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
@@ -143,9 +144,9 @@ try {
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -173,8 +174,7 @@ Just use the default 2 groups View and Code, where Code will include a group of 
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -201,14 +201,31 @@ Body Parameters:
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//This is JavaScript
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+```
+</code-block>
 
-<code-group>
-<code-block title="PHP">
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
 ```php
 <?php 
 //This is PHP
@@ -224,24 +241,10 @@ try {
 ```
 </code-block>
 
-<code-block title="JavaScript">
-```javascript
-//This is JavaScript
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-```
-</code-block>
-
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -266,8 +269,7 @@ E.g. we need 2 methods and code examples in two languages for them as separate t
 
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -305,45 +307,8 @@ GET .../transactions/36125b528237
 
 </code-block>
 
-<code-block title="PHP">
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-//This is PHP
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php 
-//This is PHP
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-
-<code-block title="JavaScript">
-<code-group>
+<code-block title="Code">
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //This is JavaScript
@@ -368,9 +333,44 @@ try {
 </code-block>
 
 </code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
 </code-block>
 
 </code-group>
+
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -399,11 +399,7 @@ This will require adding methods and code examples for all languages wrapping th
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 
-
-<code-language-selector>
-<code-lang title="PHP">
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
@@ -442,85 +438,7 @@ GET .../transactions/36125b528237
 </code-block>
 
 <code-block title="Code">
-<code-group>
-<code-block title="POST">
-```php
-<?php 
-//This is PHP
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php 
-//This is PHP
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
-?>
-```
-</code-block>
-
-</code-group>
-</code-block>
-</code-group>
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```php
-POST .../transactions/type/merchantpay
----
-Body Parameters:
-{
-  "amount":"5.00",
-  "currency":"GBP",
-  "debitParty":[
-  {
-    "key":"msisdn",
-    "value":"+447911123456"
-  }
-  ],
-  "creditParty":[
-  {
-    "key":"accountid",
-    "value":"12"
-  }
-  ]
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-GET .../transactions/36125b528237
-```
-</code-block>
-
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group>
+<code-group title="JavaScript">
 <code-block title="POST">
 ```javascript
 //This is JavaScript
@@ -545,11 +463,44 @@ try {
 </code-block>
 
 </code-group>
-</code-block>
-</code-group>
-</code-lang>
 
-</code-language-selector>
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 11111111;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+//This is PHP
+require_once("mm-api.php");
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}  
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->

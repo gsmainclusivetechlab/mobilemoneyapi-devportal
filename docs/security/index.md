@@ -1,16 +1,20 @@
 ---
 pageClass: security-page api-page
+title: Security
 ---
 
 # Security
 
 Alongside the GSMA Mobile Money API definitions to standardize the connection between API Clients and the Mobile Money Platforms, the GSMA have also produced complimentary security implementation guidelines. This security design provides the following guidance:
 
-The security methods to be implemented for the connection between the API client and the API Gateway
+- The security methods to be implemented for the connection between the API client and the API Gateway.
+- The security methods to be implemented for securely authenticating end user to the Mobile Money platform. 
+- Best practices for API design.
 
-The security methods to be implemented for securely authenticating end user to the Mobile Money platform. Best practices for API design This security design document for the GSMA Mobile Money APIs is to ensure that:
+This security design document for the GSMA Mobile Money APIs is to ensure that:
 
-Applicable security measures and best practices are applied to the connection between the API Client and the API Gateway Applicable security measures and best practices are applied to authenticating end user to the Mobile Money platform. 
+1. Applicable security measures and best practices are applied to the connection between the API Client and the API Gateway.
+2. Applicable security measures and best practices are applied to authenticating end user to the Mobile Money platform. 
 
 
 <iframe

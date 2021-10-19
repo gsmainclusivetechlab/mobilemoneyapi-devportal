@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 0
 pageClass: api-page
+title: Account Linking
 ---
 
 ## Introduction
@@ -17,7 +18,7 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 
 | **Audience** | **Usage** | **Role** |
 |:--------|:------|:-----|
-| **Mobile Money Providers** | - To understand how to implement the Mobile Money API to accept account linking requests from other financial service providers. | API Provider |
+| **FSP - Mobile Money Providers** | - To understand how to implement the Mobile Money API to accept account linking requests from other financial service providers. | API Provider |
 |  | - To understand how to implement the Mobile Money API to request linking of accounts to other financial service providers. | API Consumer |
 | **FSP Banks and Microfinance Institutions** | - To understand how to implement the Mobile Money API to accept account linking requests mobile money providers. | API Provider |
 |  | - To understand how to implement the Mobile Money API to request linking of accounts to mobile money providers. | API Consumer |

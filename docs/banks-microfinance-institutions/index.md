@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Banks & Microfinance Institutions
 ---
 
   <industry-hero-section

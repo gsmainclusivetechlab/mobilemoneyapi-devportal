@@ -1,5 +1,6 @@
 ---
 pageClass: api-page has-code-panel
+title: Agent Services - API Service Definition
 ---
 
 <side-code-panel/>
@@ -42,16 +43,15 @@ Customer cash-in and cash-out transactions can be created, updated, and viewed u
 The following paths are permitted:
 
 <div class="has-code-panel-block">
-
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -75,13 +75,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```php
+```json
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```php
+```json
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -95,19 +95,31 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
 
-<code-group>
+<code-block title="GET">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+<code-block title="PATCH">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
@@ -115,14 +127,7 @@ try {
 <code-block title="GET">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
@@ -130,25 +135,19 @@ try {
 <code-block title="PATCH">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
-
 </code-group>
+
 </code-block>
-
-</code-group>
+</code-main-group>
 
 </div>
+<!-- end of right-side code blocks holder -->
 </div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Operation** | **Path**  | **Description** |
 |:-----------|:-------|:-------------|
@@ -177,30 +176,137 @@ classDiagram
 
 #### Transaction Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Transaction Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "originalTransactionReference": "a7d9e363-46ed-48be-a0e0-1d2d2971b86c",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "type": "merchantpay",
+  "subType": "my custom sub type",
+  "transactionStatus": "completed",
+  "amount": "123.45",
+  "currency": "GBP",
+  "descriptionText": "Client's transaction description",
+  "fees": [
+    {
+      "feeType": "addition",
+      "feeAmount": "2",
+      "feeCurrency": "GBP"
+    }
+  ],
+  "geoCode": "GB",
+  "internationalTransferInformation": {
+    "originCountry": "GBP"
+  },
+  "oneTimeCode": "12345",
+  "recipientKyc": {
+    "nationality": "GBP",
+    "emailAddress": "example@mail.com",
+    "gender": "m"
+  },
+  "senderKyc": {
+    "nationality": "GBP",
+    "emailAddress": "email@dot.com",
+    "gender": "f"
+  },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "servicingIdentity": "0123-456-789",
+  "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Transaction Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Transaction Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Transaction Object** ||||||
 |:-----|:-----|:------------|:--|:----------|:-----------|
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
-| **amount** | string | The transaction amount. | M <br> M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the transaction amount. | M <br> M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
-| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](#transaction-types) |
-| **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | O <br> O |  |  |
-| **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | NA <br> &#8592;&nbsp;M |  |  |
+| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
+| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **originalTransactionReference** | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
+| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
+| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [Transaction Types](#transaction-types) |
+| **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
+| **amount** | string | The transaction amount. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency of the transaction amount. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
 | **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **requestDate** | date-time | The creation date and time of the transaction as supplied by the client. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](#custom-data-object) |  |
+| **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation Object](#requesting-organisation-object) |  |
+| **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
+| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
 | **creationDate** | date-time | Date and time when the transaction was created by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
 | **modificationDate** | date-time | Date and time when the transaction was modified by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
-| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
-| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
-| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
-| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
-| **senderKyc** | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
-| **recipientKyc** | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
-| **originalTransactionReference** | string | This field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
-| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](#custom-data-object) |  |
+| **requestDate** | date-time | The creation date and time of the transaction as supplied by the client. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](#custom-data-object) |  |
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Metadata](#metadata-object) |  |
 
 ### Reversals API
@@ -232,6 +338,113 @@ classDiagram
 **Figure 2-2 Reversal UML Class Diagram**
 
 #### Reversal Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Reversal Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "originalTransactionReference": "a7d9e363-46ed-48be-a0e0-1d2d2971b86c",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "type": "merchantpay",
+  "subType": "my custom sub type",
+  "transactionStatus": "completed",
+  "amount": "123.45",
+  "currency": "GBP",
+  "descriptionText": "Client's transaction description",
+  "fees": [
+    {
+      "feeType": "addition",
+      "feeAmount": "2",
+      "feeCurrency": "GBP"
+    }
+  ],
+  "geoCode": "GB",
+  "internationalTransferInformation": {
+    "originCountry": "GBP"
+  },
+  "oneTimeCode": "12345",
+  "recipientKyc": {
+    "nationality": "GBP",
+    "emailAddress": "example@mail.com",
+    "gender": "m"
+  },
+  "senderKyc": {
+    "nationality": "GBP",
+    "emailAddress": "email@dot.com",
+    "gender": "f"
+  },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "servicingIdentity": "0123-456-789",
+  "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Reversal Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Reversal Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:---|:---|:---|:---|:---|:---|
@@ -323,11 +536,71 @@ PATCH `/accounts/{Account Identifiers}/identities/{identityId}`
 
 The following identity fields can be updated:
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="KYC Verification Update">
+```json
+{
+  "identity.kycVerificationStatus": {
+    "op": "replace", 
+    "path": "/kycVerificationStatus", 
+    "value": "string"
+  },
+  "identity.kycVerificationEntity": {
+    "op": "replace", 
+    "path": "/kycVerificationEntity", 
+    "value": "string"
+  },
+  "identity.kycLevel": {
+    "op": "replace", 
+    "path": "/kycLevel", 
+    "value": "string"
+  }
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="KYC Verification Update">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="KYC Verification Update">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 |**Field**|**PATCH Body**|**Description**|
 |:--------|:--------|:-------------|
-| **identity.kycVerificationStatus**<br>(**required**) |  *"op": "replace", "path": "/kycVerificationStatus", "value": “string”* | Use to change the KYC verification status of an identity associated with an account. The values that can be set will be provided by the mobile money provider. |
-| **identity.kycVerificationEntity**<br>(**optional**) |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the agent that performed the verification. |
-| **identity.kycLevel**<br>(**optional**) |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | Use to modify the KYC level of an identity associated with an account. Valid KYC levels will be provided by the mobile money provider. |
+| **identity.kycVerificationStatus**<br>(required) |  *"op": "replace", "path": "/kycVerificationStatus", "value": “string”* | Use to change the KYC verification status of an identity associated with an account. The values that can be set will be provided by the mobile money provider. |
+| **identity.kycVerificationEntity**<br>(optional) |  *"op": "replace", "path": "/kycVerificationEntity", "value": “string”* | Use to indicate the agent that performed the verification. |
+| **identity.kycLevel**<br>(optional) |  *"op": "replace", "path": "/kycLevel", "value": “integer”* | Use to modify the KYC level of an identity associated with an account. Valid KYC levels will be provided by the mobile money provider. |
 
 
 #### Account UML Diagram
@@ -347,6 +620,96 @@ classDiagram
 **Figure 2‑3 Account Creation UML Class Diagram**
 
 #### Account Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Object">
+```json
+{
+  "accountIdentifiers": [
+    {
+      "key": "myCustomKey",
+      "value": "myCustomValue"
+    }
+  ],
+  "identity": [
+    {
+      "identityId": "12345",
+      "identityType": "individual",
+      "identityKyc": {
+        "dateOfBirth": "Sun, 06 Nov 1994 08:49:37 GMT",
+        "birthCountry": "GB",
+        "contactPhone": "+1234567890"
+      },
+      "accountRelationship": "accountholder"
+    }
+  ],
+  "accountType": "seller",
+  "accountSubStatus": "api",
+  "currentBalance": "123.45",
+  "availableBalance": "100.00",
+  "reservedBalance": "20.45",
+  "unClearedBalance": "3.00",
+  "currency": "GBP",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "fees": [
+    {
+      "feeType": "addition",
+      "feeAmount": "2",
+      "feeCurrency": "GBP"
+    }
+  ],
+  "commissionEarned": {
+    "commissionType": "transfer",
+    "commissionAmount": "2.50",
+    "commissionCurrency": "GBP"
+  },
+  "registeringEntity": "My FSP",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Account Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -380,6 +743,57 @@ GET `/accounts/{identifierType}/{identifier}/transactions`
 or GET `/accounts/{Account Identifiers}/transactions`
 
 To filter the number of records returned, the following query strings can be used:
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Retrieving Transactions filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "transactionStatus": "completed",
+  "transactionType": "merchantpay"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Retrieving Transactions filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Retrieving Transactions filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Parameter** | **Type** | **Format** | **Description** |
 |:--|:--|:--|:--|
@@ -442,6 +856,57 @@ classDiagram
 
 #### Account Balance Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Balance Object">
+```json
+{
+  "accountStatus": "available",
+  "currentBalance": "123.45",
+  "availableBalance": "100.00",
+  "reservedBalance": "20.45",
+  "unClearedBalance": "3.00",
+  "currency": "GBP"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Balance Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Balance Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **accountStatus** | string | Indicates a harmonised representation of the account state. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction created with the account identifier(s) will result in an unregistered voucher creation. | NA <br> O |  | Enumeration = available, unavailable, unregistered |
@@ -450,7 +915,6 @@ classDiagram
 | **reservedBalance** | string | Indicates the portion of the balance that is reserved, i.e. intended to be debited. This balance is only provided on some API provider systems. | NA <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
 | **unClearedBalance** | string | Indicates the sum of uncleared funds in an account, i.e. those that are awaiting a credit confirmation. | NA <br> O |  | Please refer to API Fundamentals document for amount validation rules. |
 | **currency** | string | Currency for all returned balances. | NA <br> O |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
-
 
 
 ### Account Holder Name API
@@ -474,6 +938,59 @@ classDiagram
 
 #### Account Holder Name Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Holder Name Object">
+```json
+{
+  "name": {
+    "title": "Mr",
+    "firstName": "John",
+    "middleName": "Alan",
+    "lastName": "Doe",
+    "fullName": "John Alan Doe",
+    "nativeName": "John Doe"
+  }
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Holder Name Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Holder Name Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **name** | Reference | A collection of fields detailing the name of the primary account holder. | NA <br> O | [Name](#name-object) |  |
@@ -493,6 +1010,56 @@ The following paths are permitted:
 - **View** all Authorisation Codes for a given account. GET `/accounts/{identifierType}/{identifier}/authorisationcodes` or GET `/accounts/{Requestor Account Identifiers}/authorisationcodes`.
 
 When retrieving authorisation codes, the following query string parameters can be used to filter the number of records returned:
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Authorisation Codes filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "codeState": "active"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Authorisation Codes filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Authorisation Codes filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -533,6 +1100,86 @@ classDiagram
 
 #### Authorisation Code Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Authorisation Code Object">
+```json
+{
+  "authorisationCode": "12345",
+  "codeState": "expired",
+  "amount": "123.45",
+  "currency": "GBP",
+  "amountType": "exact",
+  "codeLifetime": 30000,
+  "holdFundsIndicator": true,
+  "redemptionAccountIdentifiers": [
+    {
+      "key":"MSISDN",
+      "value":"+1234567890"
+    }
+  ],
+  "redemptionChannels": "ATM",
+  "redemptionTransactionTypes": {
+    "transactionStatus": "completed",
+    "transactionType": "merchantpay"
+  },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Authorisation Code Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Authorisation Code Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Authorisation Codes Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -554,11 +1201,72 @@ classDiagram
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional properties that describe administrative information regarding the [authorisation code](#authorisation-codes-api) | &#8594;&nbsp;O <br> &#8592; O | [Metadata](#metadata-object) |  |
 
 
+
+
+
+
+
+
+
+
+
+
 ## Supporting Objects
 
 ### Name Object
 
 The name object identifies the name details for the subject identity.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Name Object">
+```json
+{
+  "title": "Mr",
+  "firstName": "John",
+  "middleName": "Alan",
+  "lastName": "Doe",
+  "fullName": "John Alan Doe",
+  "nativeName": "John Doe"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Name Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Name Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -574,6 +1282,60 @@ The name object identifies the name details for the subject identity.
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifier Object">
+```json
+{
+  "accountcategory":"default",
+  "bankaccountno":"1234567890",
+  "accountrank":"high",
+  "identityalias":"12345",
+  "iban":"GB24BKEN10000031510604",
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "swiftbic":"BARCGB22",
+  "sortcode":"100000"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Identifier Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Identifier Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **key** | string | Provides the account identifier type. | M <br> M |  | Enumeration = [Account Identifiers](#account-identifiers) |
@@ -583,6 +1345,67 @@ The Account Identifier object enables one or multiple identifiers to be provided
 ### Identity Object
 
 The Identity object defines the information for an identity associated with an account. Between one and twenty identities can be associated with an account.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Identity Object">
+```json
+{
+  "identityId": "12345",
+  "identityType": "individual",
+  "identityStatus": "Completed",
+  "identityKyc": {
+    "dateOfBirth": "Sun, 06 Nov 1994 08:49:37 GMT",
+    "birthCountry": "GB",
+    "contactPhone": "+1234567890"
+  },
+  "accountRelationship": "accountholder",
+  "kycVerificationStatus": "verified",
+  "kycVerificationEntity": "123456789",
+  "kycLevel": "Regular",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  }
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Identity Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Identity Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Identity Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -602,6 +1425,53 @@ The Identity object defines the information for an identity associated with an a
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Metadata Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Metadata Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Metadata Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **key** | string | Identifies the type of additional fields. | M <br> M |  |  |
@@ -610,6 +1480,53 @@ The metadata object allows fields to be specified to convey administrative infor
 ### Custom Data Object
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Custom Data Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Custom Data Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Custom Data Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -621,6 +1538,53 @@ The custom data object allows additional fields to be specified for the associat
 
 This object enables multiple transaction types to be specified along with paired sub-types. This object is used where multiple transaction types need to be passed in an API.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Transaction Type Object">
+```json
+{
+  "transactionType": "merchantpay",
+  "transactionSubType": "local",
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Transaction Type Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Transaction Type Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Transaction Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -631,6 +1595,52 @@ This object enables multiple transaction types to be specified along with paired
 
 This object enables multiple channel types to be specified. This object is used where multiple channel types need to be passed in an API.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Channel Type Object">
+```json
+{
+  "channelType": "ATM"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Channel Type Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Channel Type Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Channel Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -639,6 +1649,54 @@ This object enables multiple channel types to be specified. This object is used 
 ### Fees Object
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Fees Object">
+```json
+{
+  "feeType": "addition",
+  "feeAmount": "2",
+  "feeCurrency": "GBP"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Fees Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Fees Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -649,6 +1707,54 @@ An object that enables fees that are differentiated by type to be provided and/o
 ### Commission Object
 
 An object that enables earned commission that is calculated by the API provider to be returned.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Commission Object">
+```json
+{
+  "commissionType": "surcharge",
+  "commissionAmount": "2",
+  "commissionCurrency": "GBP"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Commission Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Commission Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Commission Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -662,10 +1768,65 @@ An object that enables earned commission that is calculated by the API provider 
 
 An object that details the originating organisation of the request.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Requesting Organisation Object">
+```json
+{
+  "requestingOrganisationIdentifierType": "organisationid",
+  "requestingOrganisationIdentifier": "987654321"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Requesting Organisation Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Requesting Organisation Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **requestingOrganisationIdentifierType** | string | Identifies the identifier type of the requesting organisation. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  | ‘swiftbic’, ‘lei’, ‘organisationid |
 | **requestingOrganisationIdentifier** | string | Contains the requesting organisation identifier. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  |  |
+
+
+
+
+
+
+
+
 
 
 
@@ -692,6 +1853,72 @@ A transaction type is used to classify the nature of a transaction.
 ### Account Identifiers
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifiers">
+```json
+{
+  "accountcategory":"default",
+  "bankaccountno":"1234567890",
+  "accountrank":"high",
+  "identityalias":"12345",
+  "iban":"GB24BKEN10000031510604",
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "swiftbic":"BARCGB22",
+  "sortcode":"100000",
+  "organisationid":"987654321",
+  "username":"johndoe",
+  "walletid":"11111111111",
+  "linkref":"899fa8a7-7ea7-4880-87c2-e873fc22baf7",
+  "consumerno":"1122334455",
+  "serviceprovider":"serviceProvider",
+  "storeid":"9999999999",
+  "bankname":"Barclays",
+  "bankaccounttitle":"Debit",
+  "emailaddress":"example@email.com",
+  "mandatereference":"85f6196e-0557-42bd-b3c5-c4a7d5433815"
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Identifiers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Identifiers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

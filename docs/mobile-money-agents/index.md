@@ -1,5 +1,6 @@
 ---
 pageClass: industry-page custom
+title: Mobile Money Agents
 ---
 
   <industry-hero-section
