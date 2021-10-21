@@ -3,22 +3,21 @@ pageClass: industry-page custom
 title: Education & Health
 ---
 
-  <industry-hero-section
-    :title="'Education & Health'"
-    :description="'Investing in Africa’s education sector today will return sizable social and economic dividends tomorrow, helping the continent better compete—and succeed—in an increasingly globalized world.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Education & Health
+  </template>    
+  <template v-slot:description>
+  Investing in Africa’s education sector today will return sizable social and economic dividends 
+  tomorrow, helping the continent better compete—and succeed—in an increasingly globalized world.
+  </template>    
+</IndustryHeroSection>
 
   <use-cases-education-and-health-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -35,10 +34,16 @@ title: Education & Health
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
@@ -58,8 +63,3 @@ title: Education & Health
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>Education & Health.</p>
-    <p>Investing in Africa’s education sector today will return sizable social and economic dividends tomorrow, helping the continent better compete—and succeed—in an increasingly globalized world.</p>
-  </div>

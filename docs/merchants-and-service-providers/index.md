@@ -3,22 +3,22 @@ pageClass: industry-page custom
 title: Merchants & Service Providers
 ---
 
-  <industry-hero-section
-    :title="'Merchants & Service Providers'"
-    :description="'A merchant service provider or merchant account provider is a company or service that gives you access to all the tools you need to handle those all-important transactions.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Merchants & Service Providers
+  </template>    
+  <template v-slot:description>
+  A merchant service provider or merchant account provider is a 
+  company or 
+  service that gives you access to all the tools you need to handle those all-important transactions.
+  </template>    
+</IndustryHeroSection>
 
   <use-cases-merchants-service-providers-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -35,10 +35,16 @@ title: Merchants & Service Providers
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
@@ -58,8 +64,3 @@ title: Merchants & Service Providers
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>Merchants & Service Providers</p>
-    <p>A merchant service provider or merchant account provider is a company or service that gives you access to all the tools you need to handle those all-important transactions.</p>
-  </div>
