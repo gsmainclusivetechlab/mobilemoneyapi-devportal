@@ -1,11 +1,14 @@
 <template>
   <div class="faq">
     <search-section
-      @on-search="applyFilter"
-      :title="title"
-      :description="description"
-    />
-
+      @on-search="applyFilter">
+      <template #title>
+        <slot name="title"></slot>
+      </template>
+      <template #description>
+        <slot name="description"></slot>
+      </template>
+    </search-section>
     <div class="search-results-section">
       <div class="container container--narrow">
         <h2 v-if="!Object.keys(filteredDaqData).length" class="no-results text-center">No results found.</h2>
@@ -61,6 +64,7 @@ export default {
   created() {
     this.faqDataSource = faqData;
     this.applyFilter('');
+    console.log(this.$slots)
   },
 
   methods: {

@@ -108,10 +108,11 @@ html {
 }
 
 .suggestions {
-  overflow-y: auto;
+  overflow-y: scroll;
   left: auto ;
   right: 0;
   box-shadow: 0 0 20px 6px var(--shadow-light-color);
+  max-height: 500px;
 
   @include media('<=tablet-lg') {
     position: fixed !important;

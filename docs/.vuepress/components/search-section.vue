@@ -2,8 +2,12 @@
   <div class="search-section section--p-gap has-bg">
     <div class="container container--thin">
       <div class="section-intro">
-        <h1 class="hero-section__title text-center">{{ title }}</h1>
-        <div class="hero-section__description text-center">{{ description }}</div>
+        <h1 class="hero-section__title text-center">
+          <slot name="title"></slot>
+        </h1>
+        <div class="hero-section__description text-center">
+          <slot name="description"></slot>
+        </div>
       </div>
       <div class="search-input-holder">
         <input

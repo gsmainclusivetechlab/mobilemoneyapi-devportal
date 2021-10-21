@@ -1,14 +1,19 @@
 <template>
   <div>
-    <div v-for="item in 5">
-      <slot :name="item"></slot>
-    </div>
+    <TabSection>
+      <slot :name="current"></slot>
+    </TabSection>
   </div>
 </template>
 
 <script>
+import TabSection from "./TabSection";
 export default {
-  name: "TestComponent"
+  name: "TestComponent",
+  components: {TabSection},
+  props: [
+      'current'
+  ]
 }
 </script>
 
