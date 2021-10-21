@@ -1,21 +1,22 @@
 <template>
-  <TabSection :isActive="isActive">
-    tab content will be here (7)
-  </TabSection>
+  <div
+    class="use-case-tab tabs__item"
+    :class="{'tabs__item--active': isActive}"
+  >
+    <div class="tab-content">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script>
-
-import TabSection from "../../TabSection";
-
 export default {
-  name: 'bill-payments-tab',
-  components: {TabSection},
+  name: 'TabSection',
   props: [
     'isActive',
   ],
 
-  data: function () {
+  data: function() {
     return {
       tabTitle: 'Bill Payments', // tabTitle is required (tabs buttons will be generatet with this string)
     }

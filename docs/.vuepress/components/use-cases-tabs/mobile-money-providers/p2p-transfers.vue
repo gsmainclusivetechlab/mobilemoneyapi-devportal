@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="use-case-tab tabs__item"
-    :class="{'tabs__item--active': isActive}"
-  >
-    <div class="tab-content">
-      <div class="text-box">
+  <TabSection :isActive="isActive">
+    <div class="text-box">
         <p>The P2P Transfer Mobile Money APIs allow financial service providers (FSPs) to transfer
           funds from an account holding individual to another account holding individual or to a non-account
           holding individual (known as an unregistered customer). The API supports a wide number of financial
@@ -25,15 +21,15 @@
           All documentation can be found on the
           <a href="https://developer.mobilemoneyapi.io/" target="_blank" class="external">GSMA Mobile Money API Developer Portal.</a>
         </p>
-        
+
         <router-link class="btn btn--transparent" :to="'#'">
           Start developing
         </router-link>
       </div>
 
-      <h3 class="h3">Use case scenarios</h3>
+    <h3 class="h3">Use case scenarios</h3>
 
-      <accordion>
+    <accordion>
         <accordion-item>
           <template #header>
             P2P Transfer via Switch
@@ -56,12 +52,12 @@
                 deactivate Sending FSP
                 deactivate Switch
                 deactivate Receiving FSP
-                
+
                 Sending FSP->>Switch: POST /quotations
                 activate Sending FSP
                 activate Switch
                 activate Receiving FSP
-                Note right of Switch: (2) Subject to sender confirmation of the name returned in step 1, the Sending FSP submits a quotation<br>request to the Switch. The Switch will return the Request State object to indicate that the request<br>is 'pending'. 
+                Note right of Switch: (2) Subject to sender confirmation of the name returned in step 1, the Sending FSP submits a quotation<br>request to the Switch. The Switch will return the Request State object to indicate that the request<br>is 'pending'.
                 Switch->>Receiving FSP: POST /quotations
                 Note right of Receiving FSP: (3) The Swith in turn submits the quotation request to the Receiving FSP.<br>The Receiving FSP will return the Request State object to indicate<br>that the request is 'pending'.
                 Receiving FSP-->>Switch: HTTP 200 (Request State Object)
@@ -72,7 +68,7 @@
                 Receiving FSP->>Switch: PUT {Callback URL} (Quotations Object)
                 activate Switch
                 activate Sending FSP
-                Note right of Receiving FSP: (4) The FSP informs the Switch that the quotation has been successfully<br>created by returning the final representation of the quotation. 
+                Note right of Receiving FSP: (4) The FSP informs the Switch that the quotation has been successfully<br>created by returning the final representation of the quotation.
                 Switch-->>Receiving FSP: HTTP 204
                 deactivate Receiving FSP
                 Switch->>Sending FSP: PUT {Callback URL} (Quotations Object)
@@ -115,7 +111,7 @@
           </template>
           <template #body>
             <p>In this diagram, the sending FSP connects directly with the receiving FSP to confirm the recipient name and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer. In this example, a quotation is not requested.</p>
-            
+
             <Mermaid>
               sequenceDiagram
                 participant Sending FSP
@@ -135,14 +131,14 @@
                 Receiving FSP->>Sending FSP: PUT {Callback URL} (Transaction Object)
                 activate Sending FSP
                 activate Receiving FSP
-                Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the transation has been succesfully completed<br>by returning the final representation of the transaction. 
+                Note right of Receiving FSP: (3) The FSP in turn informs the Sending FSP that the transation has been succesfully completed<br>by returning the final representation of the transaction.
                 Sending FSP-->>Receiving FSP: HTTP 204
                 deactivate Sending FSP
                 deactivate Receiving FSP
             </Mermaid>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             'On-us' P2P Transfer Initiated by a Third Party Provider
@@ -151,7 +147,7 @@
             <p>"'On-us' P2P Transfer Initiated by a Third Party Provider" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             P2P Transfer Failure
@@ -160,7 +156,7 @@
             <p>"P2P Transfer Failure" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             P2P Transfer Reversal
@@ -169,7 +165,7 @@
             <p>"P2P Transfer Reversal" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             Obtain an FSP Balance
@@ -178,7 +174,7 @@
             <p>"Obtain an FSP Balance" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             Retrieve Transactions for an FSP
@@ -187,7 +183,7 @@
             <p>"Retrieve Transactions for an FSP" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             P2P Transfer via Switch
@@ -196,7 +192,7 @@
             <p>"Check for Service Availability" item content will be here</p>
           </template>
         </accordion-item>
-        
+
         <accordion-item>
           <template #header>
             Retrieve a Missing API Response
@@ -205,10 +201,9 @@
             <p>"Retrieve a Missing API Response" item content will be here</p>
           </template>
         </accordion-item>
-        
+
       </accordion>
-    </div>
-  </div>
+  </TabSection>
 </template>
 
 <script>
@@ -216,6 +211,7 @@
 import accordion from '../../simple-accordion/accordion.vue';
 import accordionItem from '../../simple-accordion/accordion-item.vue';
 import Mermaid from '../../Mermaid.vue';
+import TabSection from "../../TabSection";
 
 export default {
   name: 'p2p-transfers-tab',
@@ -224,6 +220,7 @@ export default {
   ],
 
   components: {
+    TabSection,
     accordion,
     accordionItem,
     Mermaid,

@@ -1,10 +1,14 @@
 <template>
   <div class="glossary">
     <search-section
-      @on-search="setSearchebleValue"
-      :title="title"
-      :description="description"
-    />
+        @on-search="setSearchebleValue">
+      <template #title>
+        <slot name="title"></slot>
+      </template>
+      <template #description>
+        <slot name="description"></slot>
+      </template>
+    </search-section>
 
     <div class="search-results-section">
       <div class="container container--narrow">

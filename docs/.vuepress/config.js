@@ -770,6 +770,7 @@ module.exports = {
         footer: [...footerNavigation],
         sidebar: sidebarNavigation,
         smoothScroll: true,
+        searchMaxSuggestions: 10,
     },
     plugins: {
         'vuepress-plugin-code-copy': true,
