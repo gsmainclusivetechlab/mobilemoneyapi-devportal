@@ -3,22 +3,20 @@ pageClass: industry-page custom
 title: Energy & Utilities & AgriTech
 ---
 
-  <industry-hero-section
-    :title="'Energy & Utilities & AgriTech'"
-    :description="'Agritech is the use of technology and technological innovation to improve the efficiency and output of agricultural processes.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Energy & Utilities & AgriTech
+  </template>    
+  <template v-slot:description>
+  Agritech is the use of technology and technological innovation to improve the efficiency and output of agricultural processes.
+  </template>    
+</IndustryHeroSection>
 
   <use-cases-energy-utilities-agritech-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -35,10 +33,16 @@ title: Energy & Utilities & AgriTech
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
@@ -58,8 +62,3 @@ title: Energy & Utilities & AgriTech
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>Energy & Utilities & AgriTech.</p>
-    <p>Agritech is the use of technology and technological innovation to improve the efficiency and output of agricultural processes.</p>
-  </div>

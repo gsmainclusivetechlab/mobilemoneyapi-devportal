@@ -3,22 +3,20 @@ pageClass: industry-page custom
 title: FinTech Providers (Insurance Savings Loans)
 ---
 
-  <industry-hero-section
-    :title="'FinTech Providers (Insurance Savings Loans)'"
-    :description="'The term Fintech (Financial Technology) refers to software and other modern technologies used by businesses that provide automated and imporved financial services.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  FinTech Providers (Insurance Savings Loans)
+  </template>    
+  <template v-slot:description>
+  The term Fintech (Financial Technology) refers to software and other modern technologies used by businesses that provide automated and imporved financial services.
+  </template>
+</IndustryHeroSection>
 
   <use-cases-fintech-providers-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -35,13 +33,27 @@ title: FinTech Providers (Insurance Savings Loans)
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
+        {
+          image: '/images/slide-item-1.jpg',
+          description: 'Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.\n' +
+          'Scelerisque hendrerit sagittis, sit aliquet id sodales dictum pellentesque quis. Lobortis ultrices\n' +
+          'ultrices integer urna, pharetra.',
+          author: 'John Smith',
+          position: 'Developer at Porto',
+        },
         {
           image: '/images/slide-item-1.jpg',
           description: 'Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.\n' +
@@ -58,8 +70,3 @@ title: FinTech Providers (Insurance Savings Loans)
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>FinTech Providers (Insurance Savings Loans).</p>
-    <p>The term Fintech (Financial Technology) refers to software and other modern technologies used by businesses that provide automated and imporved financial services.</p>
-  </div>

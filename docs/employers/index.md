@@ -3,22 +3,20 @@ pageClass: industry-page custom
 title: Employers
 ---
 
-  <industry-hero-section
-    :title="'Employers'"
-    :description="'An employer is a person, company, or organization that employs people—pays them for work.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Employers
+  </template>    
+  <template v-slot:description>
+  An employer is a person, company, or organization that employs people—pays them for work.
+  </template>    
+</IndustryHeroSection>
 
   <use-cases-employers-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -35,10 +33,16 @@ title: Employers
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[

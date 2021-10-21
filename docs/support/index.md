@@ -10,7 +10,7 @@ title: Support
     :ctaCards="[
         {
             title: 'FAQ',
-            text: 'Seach for an answer for your question.',
+            text: 'Search for an answer for your question.',
             link: '/faq',
             linkText: 'Go to FAQ',
         },
