@@ -1,23 +1,22 @@
 ---
 pageClass: industry-page custom
+title: Mobile Money Providers
 ---
 
-  <industry-hero-section
-    :title="'Mobile Money Providers'"
-    :description="'A mobile money operator is a mobile money service provider that develops and delivers financial services through mobile phones and mobile telephone networks.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Mobile Money Providers
+  </template>    
+  <template v-slot:description>
+  A mobile money operator is a mobile money service provider that develops and delivers financial services through mobile phones and mobile telephone networks.
+  </template>    
+</IndustryHeroSection>
 
   <use-cases-mm-providers-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -34,10 +33,16 @@ pageClass: industry-page custom
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
@@ -57,8 +62,3 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>Mobile Money Providers.</p>
-    <p>A mobile money operator is a mobile money service provider that develops and delivers financial services through mobile phones and mobile telephone networks.</p>
-  </div>

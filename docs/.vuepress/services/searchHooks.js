@@ -1,4 +1,5 @@
 // /docs/.vuepress/searchHooks.js
+
 export default {
   // async processSuggestions(suggestions, queryString, queryTerms) {
   //   if (queryString) {
@@ -14,16 +15,11 @@ export default {
   //   }
   //   return suggestions
   // },
-
   async onGoToSuggestion(index, suggestion, queryString, queryTerms) {
     // e.g. create an analytics event
-
-    console.log('index: ', index);
-    console.log('suggestion: ', suggestion);
-    console.log('queryString: ', queryString);
-    console.log('queryTerms: ', queryTerms);
-
-    // return true if you want to prevent default navigation
-    // return true
+    localStorage.setItem('delayAfterSearch', 'true')
+    setTimeout(()=> {
+      localStorage.setItem('delayAfterSearch', 'false')
+    }, 500)
   },
 }

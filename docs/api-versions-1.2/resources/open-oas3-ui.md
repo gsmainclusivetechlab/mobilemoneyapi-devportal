@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 0
 pageClass: api-page
+title: Open OAS3 UI
 ---
 
 ## Open OAS3 UI

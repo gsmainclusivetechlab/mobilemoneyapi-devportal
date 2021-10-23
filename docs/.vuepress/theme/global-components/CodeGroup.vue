@@ -1,17 +1,18 @@
 <template>
   <ClientOnly>
-    <div class="theme-code-group">
+    <div class="theme-code-group" v-show="(title && provideObject.activeLanguage === title) ||
+    !title">
       <div class="theme-code-group__nav">
         <ul class="theme-code-group__ul">
           <li
             v-for="(tab, i) in codeTabs"
-            :key="tab.title"
+            :key="`${tab.title}${i}`"
             class="theme-code-group__li"
           >
             <button
               class="theme-code-group__nav-tab"
               :class="{
-                'theme-code-group__nav-tab-active': i === activeCodeTabIndex,
+                'theme-code-group__nav-tab-active': i === provideObject.activeMethodIndex,
               }"
               @click="changeCodeTab(i)"
             >
@@ -32,28 +33,43 @@
 <script>
 export default {
   name: 'CodeGroup',
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+  },
   data () {
     return {
       codeTabs: [],
-      activeCodeTabIndex: -1
     }
   },
   watch: {
-    activeCodeTabIndex (index) {
+    'provideObject.activeMethodIndex' (index) {
       this.activateCodeTab(index)
     }
+  },
+  inject: {
+    provideObject: {default: ()=>({
+        activeLanguage: '',
+        activeMethodIndex: -1
+      })}
   },
   mounted () {
     this.loadTabs()
   },
   methods: {
     changeCodeTab (index) {
-      this.activeCodeTabIndex = index
+      if(this.$parent && this.$parent.$parent) {
+        this.$parent.$parent.$emit('set-method-index', index)
+        this.activateCodeTab(index)
+      }
     },
     loadTabs () {
+      let vm = this
       this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
         if (slot.componentOptions.propsData.active === '') {
-          this.activeCodeTabIndex = index
+          vm.changeCodeTab(index)
         }
 
         return {
@@ -62,10 +78,9 @@ export default {
         }
       })
 
-      if (this.activeCodeTabIndex === -1 && this.codeTabs.length > 0) {
-        this.activeCodeTabIndex = 0
+      if (this.provideObject.activeMethodIndex === -1 && this.codeTabs.length > 0) {
+        this.changeCodeTab(0)
       }
-
       this.activateCodeTab(0)
     },
     activateCodeTab (index) {

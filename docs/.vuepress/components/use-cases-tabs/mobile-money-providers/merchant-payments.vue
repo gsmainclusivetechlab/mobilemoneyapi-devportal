@@ -1,12 +1,7 @@
 <template>
-  <div
-    class="use-case-tab tabs__item"
-    :class="{'tabs__item--active': isActive}"
-  >
-    <div class="tab-content">
-      tab content will be here (1)
-    </div>
-  </div>
+  <TabSection :isActive="isActive">
+    tab content will be here (1)
+  </TabSection>
 </template>
 
 <script>

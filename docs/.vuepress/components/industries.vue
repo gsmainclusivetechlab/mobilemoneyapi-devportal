@@ -3,11 +3,11 @@
     <div class="container">
       <div class="section-intro section-intro--two-columns">
         <div class="section-intro__column">
-          <h2 v-if="title" class="h2 section-title">{{ title }}</h2>
-          <div v-if="description" class="section-description">{{ description }}</div>
+          <h2 class="h2 section-title"><slot name="title"></slot></h2>
+          <div class="section-description"><slot name="description"></slot></div>
         </div>
         <div v-if="mainIndustry" class="section-intro__column">
-           <router-link 
+           <router-link
               v-if="!mainIndustry.target"
               :to="mainIndustry.link"
               class="industries-card"
@@ -37,7 +37,7 @@
       <div v-if="industries" class="industries-grid">
         <div class="cards-grid">
           <div class="cards-grid__item" v-for="(industry, index) in industries" :key="`industry-${index}`">
-            <router-link 
+            <router-link
               v-if="!industry.target"
               :to="industry.link"
               class="industries-card"

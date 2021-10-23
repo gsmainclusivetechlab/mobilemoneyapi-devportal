@@ -1,5 +1,6 @@
 ---
 pageClass: api-page has-code-panel
+title: Disbursements - API Service Definition
 ---
 
 <side-code-panel/>
@@ -37,26 +38,18 @@ Please note that string fields have a default maximum length of 256 characters u
 
 ### Transactions API
 
-P2P Transfers can be created,  and viewed and updated using transactions APIs. The following paths are permitted:
-
-`POST /transactions/type/transfer`. To create a P2P transfer.
-
-`GET /transactions/{transactionReference}`. To view a P2P transfer.
-
-The following paths are permitted:
+Individual disbursements can be created and viewed using transactions APIs. The following paths are permitted:
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
-
-
-<code-group>
+<code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -80,13 +73,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```php
+```json
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```php
+```json
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -95,24 +88,38 @@ Body Parameters:
 }
 ```
 </code-block>
+
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
 
-<code-group>
+<code-block title="GET">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+<code-block title="PATCH">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
 <code-block title="POST">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 11111111;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
@@ -120,14 +127,7 @@ try {
 <code-block title="GET">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 22222222;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
@@ -135,22 +135,15 @@ try {
 <code-block title="PATCH">
 ```php
 <?php 
-require_once("mm-api.php");
-try {
-  $TransferId = 33333333;
-  $Transfer = $Api->Transfers->Get($TransferId);  
-} catch(MM-API\Libraries\ResponseException $e) {
-  $e->GetErrorDetails() 
-} catch(MM-API\Libraries\Exception $e) {
-}  
+  //some PHP code here 
 ?>
 ```
 </code-block>
 
 </code-group>
-</code-block>
 
-</code-group>
+</code-block>
+</code-main-group>
 
 </div>
 <!-- end of right-side code blocks holder -->
@@ -174,34 +167,147 @@ classDiagram
     Debit Party Identifier "1..10" --* "1" Transaction
     Fee "0..20" --* "1" Transaction
     Metadata "0..20" --* "1" Transaction
+    Transaction "0..*" --* "2" Account
 </mermaid>
 
+**Figure 2‑1 Transaction UML Class Diagram**
+
 #### Transaction Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Transaction Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "originalTransactionReference": "a7d9e363-46ed-48be-a0e0-1d2d2971b86c",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "type": "merchantpay",
+  "subType": "my custom sub type",
+  "transactionStatus": "completed",
+  "amount": "123.45",
+  "currency": "GBP",
+  "descriptionText": "Client's transaction description",
+  "fees": [
+    {
+      "feeType": "addition",
+      "feeAmount": "2",
+      "feeCurrency": "GBP"
+    }
+  ],
+  "geoCode": "GB",
+  "internationalTransferInformation": {
+    "originCountry": "GBP"
+  },
+  "oneTimeCode": "12345",
+  "recipientKyc": {
+    "nationality": "GBP",
+    "emailAddress": "example@mail.com",
+    "gender": "m"
+  },
+  "senderKyc": {
+    "nationality": "GBP",
+    "emailAddress": "email@dot.com",
+    "gender": "f"
+  },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "servicingIdentity": "0123-456-789",
+  "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Transaction Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Transaction Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Transaction Object** ||||||
 |:-----|:-----|:------------|:--|:----------|:-----------|
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
-| **amount** | string | The transaction amount. | M <br> M |  | Please refer to API Fundamentals document for amount validation rules. |
-| **currency** | string | Currency of the transaction amount. | M <br> M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
-| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | M <br> M |  | Enumeration = [Transaction Types](#transaction-types) |
-| **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | O <br> O |  |  |
-| **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | NA <br> &#8592;&nbsp;M |  |  |
+| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
+| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **originalTransactionReference** | string | For reversals and refunds, this field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
+| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
+| **type** | string | The harmonised Transaction Type (not required if passed in the URL) | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [Transaction Types](#transaction-types) |
+| **subType** | string | A non-harmonised sub-classification of the type of transaction. Values are not fixed, and usage will vary according to Provider. | &#8594;&nbsp;O <br> &#8592; O |  |  |
+| **transactionStatus** | string | Indicates the status of the transaction as stored by the API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
+| **amount** | string | The transaction amount. | &#8594;&nbsp;M <br> &#8592; M |  | Please refer to API Fundamentals document for amount validation rules. |
+| **currency** | string | Currency of the transaction amount. | &#8594;&nbsp;M <br> &#8592; M |  | Enumeration = [ISO Currency Codes](#iso-currency-codes) |
 | **descriptionText** | string | Free format text description of the transaction provided by the client. This can be provided as a reference for the receiver on a notification SMS and on an account statement. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **requestDate** | date-time | The creation date and time of the transaction as supplied by the client. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](#custom-data-object) |  |
+| **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **requestingOrganisation** | object | The originating organisation of the request. | &#8594;&nbsp;O <br> &#8592; O | [Requesting Organisation Object](#requesting-organisation-object) |  |
+| **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
+| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
 | **creationDate** | date-time | Date and time when the transaction was created by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
 | **modificationDate** | date-time | Date and time when the transaction was modified by the API Provider | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
-| **transactionReference** | string | Unique reference for the transaction. This is returned in the response by API provider. | &#8594;&nbsp;NA <br> &#8592;&nbsp;M |  |  |
-| **transactionReceipt** | string | Transaction receipt number as notified to the parties. This may differ from the Transaction Reference. | &#8594;&nbsp;NA <br> &#8592;&nbsp;O |  |  |
-| **requestingOrganisationTransactionReference** | string | A reference provided by the requesting organisation that is to be associated with the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **oneTimeCode** | string | A one-time code that can be supplied in the request or can be generated in the response depending upon the use case. An authorisation code can be supplied in this field for requests that have been pre-authorised. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **geoCode** | string | Indicates the geographic location from where the transaction was initiated. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **debitParty** | array | A collection of key/value pairs that enable the debit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | debitParty must be supplied if creditParty is omitted. <br> If creditParty is supplied, then debitParty is optional. |
-| **creditParty** | array | A series of key/value pairs that enable the credit party to be identified. Keys include MSISDN and Wallet Identifier. | &#8594;&nbsp;C <br> &#8592;&nbsp;C | [Account Identifiers](#account-identifiers) | creditParty must be supplied if debitParty is omitted. If debitParty is supplied, then creditParty is optional. |
-| **senderKyc** | object | A collection of fields detailing the KYC of the transaction Sender. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
-| **recipientKyc** | object | A collection of fields detailed the KYC of the transaction Recipient. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [KYC](#kyc-information-object) |  |
-| **originalTransactionReference** | string | This field indicates the transaction which is the subject of the reversal. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
-| **servicingIdentity** | string | The field is used to identify the servicing identity for transactions, e.g. till, POS ID, assistant ID. | &#8594;&nbsp;O <br> &#8592;&nbsp;O  |  |  |
-| **fees** | array | Allows the passing and/or returning of all fees pertaining to the transaction. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Fees Object](#custom-data-object) |  |
+| **requestDate** | date-time | The creation date and time of the transaction as supplied by the client. | &#8594;&nbsp;O <br> &#8592;&nbsp;O |  |  |
+| **customData** | string | A collection of key/value pairs that can be used for provider specific fields. | &#8594;&nbsp;O <br> &#8592; O | [Custom Data Object](#custom-data-object) |  |
 | **metadata** | array | A collection of key/value pairs. These can be used to populate additional transaction fields. | &#8594;&nbsp;O <br> &#8592;&nbsp;O | [Metadata](#metadata-object) |  |
 
 ### Reversals API
@@ -209,6 +315,64 @@ classDiagram
 The Reversals API is used to reverse a P2P transfer. The originating transaction reference must be provided in the path to identify the payment to be reversed. For a partial reversal, the amount needs to be supplied. 
 
 For viewing reversals, the [Transactions API](#transactions-api) should be used.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+
+<code-main-group>
+<code-block title="View">
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters:
+{
+  "type": "reversal"
+}
+```
+</code-block>
+</code-group>
+</code-block>
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+
+```javascript
+//some JavaScript code here
+```
+
+</code-block>
+
+</code-group>
+<code-group title="PHP">
+<code-block title="POST">
+
+```php
+<?php
+  //some PHP code here
+?>
+```
+
+</code-block>
+
+</code-group>
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 The supported path is `POST /transactions/{originalTransactionReference}/reversals`.
 
@@ -226,6 +390,116 @@ classDiagram
 **Figure 2‑2 Reversal UML Class Diagram**
 
 #### Reversal Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Reversal Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "originalTransactionReference": "a7d9e363-46ed-48be-a0e0-1d2d2971b86c",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "type": "merchantpay",
+  "subType": "my custom sub type",
+  "transactionStatus": "completed",
+  "amount": "123.45",
+  "currency": "GBP",
+  "descriptionText": "Client's transaction description",
+  "fees": [
+    {
+      "feeType": "addition",
+      "feeAmount": "2",
+      "feeCurrency": "GBP"
+    }
+  ],
+  "geoCode": "GB",
+  "internationalTransferInformation": {
+    "originCountry": "GBP"
+  },
+  "oneTimeCode": "12345",
+  "recipientKyc": {
+    "nationality": "GBP",
+    "emailAddress": "example@mail.com",
+    "gender": "m"
+  },
+  "senderKyc": {
+    "nationality": "GBP",
+    "emailAddress": "email@dot.com",
+    "gender": "f"
+  },
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "servicingIdentity": "0123-456-789",
+  "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  },
+  "metadata": [
+    {
+      "customKey01": "customValue01",
+      "customKey02": "customValue02"
+    },
+  ]
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Reversal Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Reversal Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:---|:---|:---|:---|:---|:---|
@@ -262,6 +536,143 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 #### Batch Transactions Workflow
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../batchtransactions
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "transactions": [
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ]
+        },
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ]
+        }        
+    ],
+    "batchTitle": "Batch_Test",
+    "batchDescription": "Testing a Batch",
+    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../batchtransactions/Place your Batch Id here/completions
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../batchtransactions/Place your Batch Id here/rejections
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 ##### One-Shot Batch Processing
 
 **Creating a Batch**
@@ -276,9 +687,9 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 **Verifying a Batch**
 
-5. The client will be able to retrieve the batch transaction object by invoking `GET /batchtransactions`  using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the batchTransactions object to their nominated URL set in the `X-Callback-URL` header.
+1. The client will be able to retrieve the batch transaction object by invoking `GET /batchtransactions`  using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the batchTransactions object to their nominated URL set in the `X-Callback-URL` header.
 
-6. If errors are indicated, i.e. some of the transactions failed parsing, the client is able to retrieve the errors via `GET /batchtransactions/rejections`. Successfully completed transactions can be viewed via `GET /batchtransactions/completions`.
+2. If errors are indicated, i.e. some of the transactions failed parsing, the client is able to retrieve the errors via `GET /batchtransactions/rejections`. Successfully completed transactions can be viewed via `GET /batchtransactions/completions`.
 
 ##### Batch Processing with Maker/Checker
 
@@ -294,23 +705,23 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 **Verifying a Batch**
 
-5. The client will be able to retrieve the batch transaction object by invoking `GET /batchtransactions`  using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the `batchTransactions` object to their nominated URL set in the `X-Callback-URL` header.
+1. The client will be able to retrieve the batch transaction object by invoking `GET /batchtransactions`  using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the `batchTransactions` object to their nominated URL set in the `X-Callback-URL` header.
    
-6. If errors are indicated, i.e. some of the transactions failed parsing, the client is able to retrieve the errors via `GET /batchtransactions/rejections`.
+2. If errors are indicated, i.e. some of the transactions failed parsing, the client is able to retrieve the errors via `GET /batchtransactions/rejections`.
 
 **Approving a Batch**
 
-7. A client can approve the batch for posting by issuing a `PATCH /batchtransactions` in order to update the status to ‘**approved**’. 
+1. A client can approve the batch for posting by issuing a `PATCH /batchtransactions` in order to update the status to ‘**approved**’. 
 
-8. As per step 2, a `requestState` object will be returned indicating whether a callback will be provided or polling is required.
+2. As per step 2, a `requestState` object will be returned indicating whether a callback will be provided or polling is required.
 
-9. The API provider will then post the transactions in the batch considering any scheduling considerations.
+3. The API provider will then post the transactions in the batch considering any scheduling considerations.
 
-10. Once posting is completed, the API provider will set the batch status in the `batchTransactions` object to ‘**completed**’.
+4. Once posting is completed, the API provider will set the batch status in the `batchTransactions` object to ‘**completed**’.
 
-11. The client will be able to retrieve the `batchTransactions` object by invoking `GET /batchtransactions` using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the `batchTransactions` object to their nominated URL set in the `X-Callback-URL` header.
+5. The client will be able to retrieve the `batchTransactions` object by invoking `GET /batchtransactions` using the object reference provided by the `requestState` object. Alternatively, if Callback is specified, the client will receive the representation of the `batchTransactions` object to their nominated URL set in the `X-Callback-URL` header.
 
-12. The client will also be able to retrieve a list of successful transaction completions `/batchtransactions/completions` and transaction failures `/batchtransactions/rejections`.
+6. The client will also be able to retrieve a list of successful transaction completions `/batchtransactions/completions` and transaction failures `/batchtransactions/rejections`.
 
 ### Batch Transactions API
 
@@ -342,6 +753,84 @@ classDiagram
 
 #### Batch Transaction Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Batch Transaction Object">
+```json
+{
+  "batchID": "d24651c4-ef6f-4c5c-af0e-468f1dc53624",
+  "batchStatus": "approved",
+  "Transactions": [
+    {
+      //transaction 1 object...
+      },
+    {
+      //transaction 2 object...
+    }
+  ]
+  "approvalDate": "Sun, 06 Nov 1994 08:49:37 GMT", 
+  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "batchTitle": "Batch title...",
+  "batchDescription": "Batch description...",
+  "processingFlag": true,
+  "completedCount": 3,
+  "parsingSuccessCount": 2,
+  "rejectionCount": 1,
+  "requestingOrganisation": {
+    "requestingOrganisationIdentifierType": "organisationid",
+    "requestingOrganisationIdentifier": "987654321"
+  },
+  "scheduledStartDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  }
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Batch Transaction Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Batch Transaction Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Batch Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -369,6 +858,58 @@ This API enables clients to retrieve information on all transactions that have e
 
 To filter the number of records returned, the following query strings can be used:
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Batch Rejections filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Batch Rejections filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Batch Rejections filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
 | **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
@@ -393,6 +934,74 @@ classDiagram
 
 #### Batch Rejection Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Batch Rejection Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "rejectionReason": "Some rejection reason...",
+  "rejectionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  }
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Batch Rejection Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Batch Rejection Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Batch Rejection Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
 |**Name**|**Type**|**Description**|  |**Reference**|**Validation**|
@@ -409,6 +1018,58 @@ classDiagram
 This API lists all transactions that have successfully completed for a given batch. Only the GET method is supported. The path format is `batchtransactions/{batchID}/completions`.
 
 To filter the number of records returned, the following query strings can be used:
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Batch Completions filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Batch Completions filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Batch Completions filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -433,6 +1094,74 @@ classDiagram
 **Figure 2-5 Batch Completion UML Class Diagram**
 
 #### Batch Completion Object Definition
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Batch Completion Object">
+```json
+{
+  "transactionReference": "dd82cc6a-159a-4ddf-bea7-23bae38e72c5",
+  "requestingOrganisationTransactionReference": "c66e56ed-a5c2-4080-b34d-ad84d04065d4",
+  "creditParty": [
+    {
+      "key":"accountid",
+      "value":"12"
+    }
+  ],
+  "debitParty": [
+    {
+      "key":"msisdn",
+      "value":"+447911123456"
+    }
+  ],
+  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "link": "https://application.com/uuid",
+  "customData": {
+    "customKey01": "customValue01",
+    "customKey02": "customValue02"
+  }
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Batch Completion Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Batch Completion Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Batch Completion Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -478,10 +1207,64 @@ or GET `/accounts/{Account Identifiers}/transactions`
 
 To filter the number of records returned, the following query strings can be used:
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Transactions filters">
+```json
+{
+  "limit": 50,
+  "offset": 10,
+  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "transactionStatus": "completed",
+  "transactionType": "merchantpay"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Transactions filters">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Transactions filters">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Parameter** | **Type** | **Format** | **Description** |
 |:--|:--|:--|:--|
-| **lLimit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
-| **oOffset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
+| **limit** | integer | N/A | Supports pagination. If this is not supplied, then the server will apply a limit of 50 records returned for each request. |
+| **offset** | integer | N/A | Supports pagination. This value will indicate the cursor position from where to retrieve the set of records. For example, a limit of 50 and offset of 10 will return records 11 to 60. |
 | **fromDateTime** | string | date-time | Indicates the minimum date creationDate for which records should be returned. |
 | **toDateTime** | string | date-time | Indicates the maximum date creationDate for which records should be returned. |
 | **transactionStatus** | string | N/A | Indicates the status of the transactions to be returned. |
@@ -529,6 +1312,60 @@ classDiagram
 
 #### Account Balance Object Definition
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Balance Object">
+```json
+{
+  "accountStatus": "available",
+  "currentBalance": "123.45",
+  "availableBalance": "100.00",
+  "reservedBalance": "20.45",
+  "unClearedBalance": "3.00",
+  "currency": "GBP"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Balance Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Balance Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **accountStatus** | string | Indicates a harmonised representation of the account state. This will be shown as ‘available’ or ‘unavailable’. A state of ‘unavailable’ means that the account is in a state that does not allow posting of transactions. Unregistered indicates that although not available, a transaction created with the account identifier(s) will result in an unregistered voucher creation. | &#8594;&nbsp;NA <br> &#8592; O |  | Enumeration = available, unavailable, unregistered |
@@ -540,12 +1377,80 @@ classDiagram
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ## Supporting Objects
 
 
 ### Account Identifiers Object
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifier Object">
+```json
+{
+  "accountcategory":"default",
+  "bankaccountno":"1234567890",
+  "accountrank":"high",
+  "identityalias":"12345",
+  "iban":"GB24BKEN10000031510604",
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "swiftbic":"BARCGB22",
+  "sortcode":"100000"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Identifier Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Identifier Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -556,6 +1461,56 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Metadata Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Metadata Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Metadata Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **key** | string | Identifies the type of additional fields. | &#8594;&nbsp;M <br> &#8592; M |  |  |
@@ -565,6 +1520,56 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Custom Data Object">
+```json
+{
+  "customKey01": "customValue01",
+  "customKey02": "customValue02"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Custom Data Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Custom Data Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **key** | string | Identifies the type of additional fields. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  |  |
@@ -573,6 +1578,57 @@ The custom data object allows additional fields to be specified for the associat
 ### Fees Object
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Fees Object">
+```json
+{
+  "feeType": "addition",
+  "feeAmount": "2",
+  "feeCurrency": "GBP"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Fees Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Fees Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -584,10 +1640,73 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 An object that details the originating organisation of the request.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Requesting Organisation Object">
+```json
+{
+  "requestingOrganisationIdentifierType": "organisationid",
+  "requestingOrganisationIdentifier": "987654321"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Requesting Organisation Object">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Requesting Organisation Object">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
 | **requestingOrganisationIdentifierType** | string | Identifies the identifier type of the requesting organisation. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  | ‘swiftbic’, ‘lei’, ‘organisationid |
 | **requestingOrganisationIdentifier** | string | Contains the requesting organisation identifier. | &#8594;&nbsp;M <br> &#8592;&nbsp;M |  |  |
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -611,6 +1730,74 @@ A transaction type is used to classify the nature of a transaction.
 ### Account Identifiers
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="Account Identifiers">
+```json
+{
+  "accountcategory":"default",
+  "bankaccountno":"1234567890",
+  "accountrank":"high",
+  "identityalias":"12345",
+  "iban":"GB24BKEN10000031510604",
+  "accountid":"31510604",
+  "msisdn":"+1234567890",
+  "swiftbic":"BARCGB22",
+  "sortcode":"100000",
+  "organisationid":"987654321",
+  "username":"johndoe",
+  "walletid":"11111111111",
+  "linkref":"899fa8a7-7ea7-4880-87c2-e873fc22baf7",
+  "consumerno":"1122334455",
+  "serviceprovider":"serviceProvider",
+  "storeid":"9999999999",
+  "bankname":"Barclays",
+  "bankaccounttitle":"Debit",
+  "emailaddress":"example@email.com",
+  "mandatereference":"85f6196e-0557-42bd-b3c5-c4a7d5433815"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="Account Identifiers">
+```javascript
+//some JavaScript code here 
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="Account Identifiers">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

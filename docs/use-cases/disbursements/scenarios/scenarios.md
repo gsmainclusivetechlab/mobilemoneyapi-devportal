@@ -1,6 +1,7 @@
 ---
 sidebarDepth: 1
 pageClass: api-page has-code-panel
+title: Disbursements - Use Case Scenarios
 ---
 <!-- required page classes .api-page .has-code-panel -->
 
@@ -8,7 +9,7 @@ pageClass: api-page has-code-panel
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
-# About Use case scenarios
+# About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
@@ -18,6 +19,75 @@ This diagram illustrates an individual disbursement using an asynchronous flow w
 
 <div class="has-code-panel-block">
 <!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/type/disbursement
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -37,107 +107,6 @@ This diagram illustrates an individual disbursement using an asynchronous flow w
       deactivate Mobile Money Provider
 </mermaid>
 
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-language-selector>
-<code-lang title="Vue">
-
-<code-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-</code-group>
-
-</code-lang>
-
-<code-lang title="JavaScript">
-<code-group>
-
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```javascript
-function fancyAlert(arg) {
-  if (arg) {
-    $.facebox({div: '#foo'})
-  }
-}
-```
-</code-block>
-
-<code-block title="GET">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-
-<code-block title="PATCH">
-
-::: v-pre
-`{{ Some pher information  }}`
-:::
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-```php
-<?php
-echo str_word_count("PHP");
-?> 
-```
-</code-block>
-</code-group>
-
-</code-lang>
-
-</code-language-selector>
-
-</div>
-<!-- end of right-side code blocks holder -->
-
-</div>
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcFaVS" target="_blank">Open Postman Collection</a>
@@ -148,6 +117,78 @@ echo str_word_count("PHP");
 ## Individual Disbursement Failure
 
 In this example, an asynchronous flow is used with a final callback that contains the reason for failure.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/type/disbursement
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -171,6 +212,143 @@ sequenceDiagram
 ## Bulk Disbursement
 
 This diagram illustrates the flow for a ‘one-shot’ bulk disbursement.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../batchtransactions
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "transactions": [
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ]
+        },
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ]
+        }        
+    ],
+    "batchTitle": "Batch_Test",
+    "batchDescription": "Testing a Batch",
+    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../batchtransactions/Place your Batch Id here/completions
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../batchtransactions/Place your Batch Id here/rejections
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -215,6 +393,103 @@ sequenceDiagram
 ## Bulk Disbursement Failure
 
 In this example, an asynchronous flow is used with a final callback that contains the reason for failure to process the bulk request.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../batchtransactions
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "transactions": [
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ]
+        },
+        {
+            "amount": "200.00",
+            "type": "transfer",
+            "creditParty": [
+                {
+                    "key": "accountid",
+                    "value": "2999"
+                }
+            ],
+            "currency": "RWF",
+            "debitParty": [
+                {
+                    "key": "accountid",
+                    "value": "2000"
+                }
+            ]
+        }        
+    ],
+    "batchTitle": "Batch_Test",
+    "batchDescription": "Testing a Batch",
+    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 
 <mermaid>
@@ -296,6 +571,118 @@ sequenceDiagram
 
 In this diagram, an asynchronous flow is used with the polling method. The client polls against the request state object to determine the outcome of the individual disbursement request.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/type/disbursement
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+    "amount": "200.00",
+    "debitParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "creditParty": [
+        {
+            "key": "accountid",
+            "value": "2999"
+        }
+    ],
+    "currency": "RWF"
+}
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../requeststates/Place the Server Correlation Id here
+```
+</code-block>
+
+<code-block title="GET">
+```json
+GET .../transactions/Place Transaction Reference here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
+
 <mermaid>
   sequenceDiagram
       participant Disbursement Organisation
@@ -334,6 +721,65 @@ In this diagram, an asynchronous flow is used with the polling method. The clien
 
 In some failure scenarios, a organisation may need to reverse an individual disbursement transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json
+POST .../transactions/Place Reference of Txn to be Reversed here/reversals
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+  "type": "reversal"
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
       participant Disbursement Organisation
@@ -359,6 +805,53 @@ In some failure scenarios, a organisation may need to reverse an individual disb
 
 ## Obtain a Disbursement Organisation Balance
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+POST .../accounts/accountid/2000/balance
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
 sequenceDiagram
     participant Disbursement Organisation
@@ -381,6 +874,59 @@ sequenceDiagram
 ## Retrieve Transactions for a Disbursement Organisation
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a disbursement organisation via multiple requests.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../accounts/accountid/2000/transactions?offset=0&limit=20
+---
+Params: 
+{
+    "offset": 0,
+    "limit": 20
+}
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -408,6 +954,53 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.sts.
 
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../heartbeat
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
+
 <mermaid>
   sequenceDiagram
       participant Disbursement Organisation
@@ -431,6 +1024,53 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 ## Retrieve a Missing API Response
 
 This API can be used by the disbursement organisation to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
+
+<div class="has-code-panel-block">
+<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
+<div class="code-panel-block-holder">
+<!-- start of right-side code blocks holder -->
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="GET">
+```json
+GET .../responses/Please enter your UUID here
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="GET">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+
+</code-group>
+
+<code-group title="PHP">
+<code-block title="GET">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+
+</code-group>
+
+</code-block>
+</code-main-group>
+
+</div>
+<!-- end of right-side code blocks holder -->
+</div>
+<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram

@@ -1,9 +1,10 @@
 ---
 sidebarDepth: 2
 pageClass: api-page
+title: MM API Specification v1.2
 ---
 
-# GSMA Mobile Money API Specification
+# GSMA Mobile Money API Specification v1.2
 
 Welcome to the GSMA Mobile Money API Developer Portal.  The Mobile Money API is an initiative developed through collaboration between the mobile money industry and the GSMA, which provides a harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.  Using best practices from the technology industry in API design and security, it aims to simplify and accelerate integration with mobile money platforms and stimulate the growth of the ecosystem.
 

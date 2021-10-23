@@ -1,23 +1,22 @@
 ---
 pageClass: industry-page custom
+title: Payment Service Providers & Payment Aggregators
 ---
 
-  <industry-hero-section
-    :title="'Payment Service Providers & Payment Aggregators'"
-    :description="'A payment service provider offers shops online services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+<IndustryHeroSection :imageSrc="'/images/industry-hero.jpg'" :imageAlt="'image alt'">
+  <template v-slot:title>
+  Payment Service Providers & Payment Aggregators
+  </template>    
+  <template v-slot:description>
+  A payment service provider offers shops online services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking.
+  </template>    
+</IndustryHeroSection>
 
-  <use-cases-payment-service-providers-payment-aggregators-with-tabs :defaultTab="1"/>
+<use-cases-payment-service-providers-payment-aggregators-with-tabs :defaultTab="1"/>
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
+<succeed-use-case-section>
+  <succeed-use-case :image="'/images/succeed-use-case.jpg'"
+  :caseList="[
         {
           bulletColor: '#00568F',
           text: 'Increased conversion',
@@ -34,10 +33,16 @@ pageClass: industry-page custom
           bulletColor: '#FCBB2C',
           text: 'Important point',
         },
-      ]
-    },
-  ]"
-  />
+      ]"
+  >
+  <template v-slot:title>
+  Succeed case study
+  </template>
+  <template v-slot:description>
+  Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.
+  </template>
+  </succeed-use-case>
+</succeed-use-case-section>
 
   <testimonials-slider
   :slides="[
@@ -57,8 +62,3 @@ pageClass: industry-page custom
   :sectionDescription="'Find our latest API documentation.'"
   :accentLink="{text: 'Start developing', link: '/examples'}"
   />
-  
-  <div class="text-hidden">
-    <p>Payment Service Providers & Payment Aggregators.</p>
-    <p>A payment service provider offers shops online services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking.</p>
-  </div>

@@ -11,7 +11,7 @@
           :key="`tab-button-${index}`"
           type="button"
           class="btn btn-bordered"
-          :class="{ 
+          :class="{
             'btn--accent': getTabTitle(tab) === activeTabName,
             'btn--inactive': getTabTitle(tab) !== activeTabName,
           }"
@@ -64,11 +64,11 @@ export default {
       activeTabName: '',
     }
   },
-  
+
   created() {
     this.setStartActiveTab();
   },
-  
+
   methods: {
     handleTabSwitch(tabName) {
       this.activeTabName = tabName;
