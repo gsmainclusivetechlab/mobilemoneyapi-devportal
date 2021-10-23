@@ -3,114 +3,145 @@ pageClass: home-page custom
 title: Home
 ---
 
-  <home-hero-section 
-    :title="'Welcome to the GSMA Mobile Money API Developer Portal.'"
-    :description="'The Mobile Money API is an initiative developed through collaboration between the mobile money industry and the GSMA, which provides a harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.'"
+<home-hero-section
     :videoSrc="'https://www.youtube.com/watch?v=nJkWmKf6b5Q&ab_channel=MobileforDevelopment'"
     :videoThumbSrc="'/images/hero-video-thumb.png'"
     :imageSrc="'/images/hero-video-thumb.png'"
     :imageAlt="'image alt'" 
     :accentLink="{text: 'Go to API Docs', link: '/api-versions-1.2/resources/api-service-definition'}"
-    :transparentLink="{text: 'Learn more', link: '/api-versions-1.2/get-started'}"
-    />
+    :transparentLink="{text: 'Learn more', link: '/api-versions-1.2/get-started'}">
+  <template v-slot:title>
+  Welcome to the GSMA Mobile Money API Developer Portal.
+  </template>
+  <template v-slot:description>
+  The Mobile Money API is an initiative developed through collaboration between the mobile money 
+  industry and the GSMA, which provides a harmonized API Specification for all the common mobile 
+  money use cases which is both easy to use and secure.
+  </template>
+</home-hero-section>
 
-  <what-you-get/>
+<what-you-get>
+  <template v-slot:title>
+  What you’ll get
+  </template>
+  <template v-slot:description>
+  We provide access to harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.
+  </template>
+</what-you-get>
 
-  <benefits-list/>
+<benefits-list>
+  <template v-slot:title>
+  Benefits and objectives
+  </template>
+  <template v-slot:description>
+  Lobortis porta aliquam morbi eget. Duis in vitae sed eleifend hendrerit justo, vestibulum, proin.
+  </template>
+</benefits-list>
 
-  <mm-metrics/>
+<mm-metrics>
+  <template v-slot:title>
+  Mobile Money Metrics
+  </template>
+  <template v-slot:description>
+  Explore our interactive tool that provides a comprehensive set of global metrics by combining unique data sources.
+  </template>
+</mm-metrics>
 
-  <industries
-    :title="'Explore what’s possible'"
-    :description="'Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.'"
-    :mainIndustry="{
-        title: 'Mobile Money Provider',
-        description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
-        link: '/mobile-money-providers/',
-        icon: '/images/industry-1.svg',
-        iconBackground: '#DE002B',
-      }"
-    :industries="[
-        {
-          title: 'Merchants & Service Providers',
-          description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
-          link: '/merchants-and-service-providers/',
-          icon: '/images/industry-2.svg',
-          iconBackground: '#EE3772',
-        },
-        {
-          title: 'Governments',
-          description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
-          link: '/governments/',
-          icon: '/images/industry-3.svg',
-          iconBackground: '#FCBB2C',
-        },
-        {
-          title: 'Humanitarian Agencies',
-          description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
-          link: '/humanitarian-agencies/',
-          icon: '/images/industry-3.svg',
-          iconBackground: '#00A182',
-        },
-        {
-          title: 'International Transfer Organisations',
-          description: 'Fringilla egestas ut sit odio hendrerit in quis purus in. Molestie euismod cras dis neque eget urna eget amet enim.',
-          link: '/international-transfer-organisations/',
-          icon: '/images/industry-4.svg',
-          iconBackground: '#00A6C9',
-        },
-        {
-          title: 'Payment Service Providers & Payment Aggregators',
-          description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
-          link: '/payment-service-providers-and-payment-aggregators/',
-          icon: '/images/industry-5.svg',
-          iconBackground: '#FF6600',
-        },
-        {
-          title: 'Banks & Microfinance Institutions',
-          description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
-          link: '/banks-microfinance-institutions/',
-          icon: '/images/industry-1.svg',
-          iconBackground: '#95226C',
-        },
-        {
-          title: 'FinTech Providers (Insurance Savings Loans)',
-          description: 'Et vel tincidunt ipsum eleifend nisi. Ipsum sapien neque pellentesque nec nibh tellus scelerisque ut lectus.',
-          link: '/fintech-providers/',
-          icon: '/images/industry-5.svg',
-          iconBackground: '#99CCCC',
-        },
-        {
-          title: 'Employers',
-          description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
-          link: '/employers/',
-          icon: '/images/industry-1.svg',
-          iconBackground: '#00A6C9',
-        },
-        {
-          title: 'Energy & Utilities & AgriTech',
-          description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
-          link: '/energy-utilities-agritech/',
-          icon: '/images/industry-2.svg',
-          iconBackground: '#FF6600',
-        },
-        {
-          title: 'Education & Health',
-          description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
-          link: '/education-and-health/',
-          icon: '/images/industry-3.svg',
-          iconBackground: '#95226C',
-        },
-        {
-          title: 'Mobile Money Agents',
-          description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
-          link: '/mobile-money-agents/',
-          icon: '/images/industry-3.svg',
-          iconBackground: '#99CCCC',
-        },
-      ]
-    "
-  />
+<industries
+  :mainIndustry="{
+  title: 'Mobile Money Provider',
+  description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
+  link: '/mobile-money-providers/',
+  icon: '/images/industry-1.svg',
+  iconBackground: '#DE002B',
+  }"
+  :industries="[
+  {
+  title: 'Merchants & Service Providers',
+  description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
+  link: '/merchants-and-service-providers/',
+  icon: '/images/industry-2.svg',
+  iconBackground: '#EE3772',
+  },
+  {
+  title: 'Governments',
+  description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
+  link: '/governments/',
+  icon: '/images/industry-3.svg',
+  iconBackground: '#FCBB2C',
+  },
+  {
+  title: 'Humanitarian Agencies',
+  description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
+  link: '/humanitarian-agencies/',
+  icon: '/images/industry-3.svg',
+  iconBackground: '#00A182',
+  },
+  {
+  title: 'International Transfer Organisations',
+  description: 'Fringilla egestas ut sit odio hendrerit in quis purus in. Molestie euismod cras dis neque eget urna eget amet enim.',
+  link: '/international-transfer-organisations/',
+  icon: '/images/industry-4.svg',
+  iconBackground: '#00A6C9',
+  },
+  {
+  title: 'Payment Service Providers & Payment Aggregators',
+  description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
+  link: '/payment-service-providers-and-payment-aggregators/',
+  icon: '/images/industry-5.svg',
+  iconBackground: '#FF6600',
+  },
+  {
+  title: 'Banks & Microfinance Institutions',
+  description: 'At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.',
+  link: '/banks-microfinance-institutions/',
+  icon: '/images/industry-1.svg',
+  iconBackground: '#95226C',
+  },
+  {
+  title: 'FinTech Providers (Insurance Savings Loans)',
+  description: 'Et vel tincidunt ipsum eleifend nisi. Ipsum sapien neque pellentesque nec nibh tellus scelerisque ut lectus.',
+  link: '/fintech-providers/',
+  icon: '/images/industry-5.svg',
+  iconBackground: '#99CCCC',
+  },
+  {
+  title: 'Employers',
+  description: 'Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.',
+  link: '/employers/',
+  icon: '/images/industry-1.svg',
+  iconBackground: '#00A6C9',
+  },
+  {
+  title: 'Energy & Utilities & AgriTech',
+  description: 'Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.',
+  link: '/energy-utilities-agritech/',
+  icon: '/images/industry-2.svg',
+  iconBackground: '#FF6600',
+  },
+  {
+  title: 'Education & Health',
+  description: 'Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.',
+  link: '/education-and-health/',
+  icon: '/images/industry-3.svg',
+  iconBackground: '#95226C',
+  },
+  {
+  title: 'Mobile Money Agents',
+  description: 'Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.',
+  link: '/mobile-money-agents/',
+  icon: '/images/industry-3.svg',
+  iconBackground: '#99CCCC',
+  },
+  ]">
+  <template v-slot:title>
+  Explore what’s possible
+  </template>
+  <template v-slot:description>
+  Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.
+  </template>
+</industries>
+
   
   <use-case
   :sectionTitle="'Explore use cases'"
@@ -229,8 +260,3 @@ title: Home
         },
     ]"
   />
-    
-<div class="text-hidden">
-  <p>Welcome to the GSMA Mobile Money API Developer Portal.</p>
-  <p>The Mobile Money API is an initiative developed through collaboration between the mobile money industry and the GSMA, which provides a harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.</p>
-</div>

@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import SearchBox from '@SearchBox';
+import SearchBox from '../../plugins/vuepress-plugin-fulltext-search/components/SearchBox';
 import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
 import { mixin as clickaway } from 'vue-clickaway';
