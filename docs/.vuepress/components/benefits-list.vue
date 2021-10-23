@@ -2,8 +2,8 @@
   <div class="benefits-list-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro section-intro--narrow text-center">
-        <h2 class="h2 section-title">Benefits and objectives</h2>
-        <div class="section-description">Lobortis porta aliquam morbi eget. Duis in vitae sed eleifend hendrerit justo, vestibulum, proin.</div>
+        <h2 class="h2 section-title"><slot name="title"></slot></h2>
+        <div class="section-description"><slot name="description"></slot></div>
       </div>
       <div class="benefits-list-holder">
         <div v-for="(list, index) in benefitsLists" class="benefits-list" :key="`list-${index}`">

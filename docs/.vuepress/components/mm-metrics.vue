@@ -3,10 +3,10 @@
     <div class="container container--narrow">
       <div class="section-intro section-intro--two-columns">
         <div class="section-intro__column">
-          <h2 class="h2 section-title">Mobile Money Metrics</h2>
+          <h2 class="h2 section-title"><slot name="title"></slot></h2>
         </div>
         <div class="section-intro__column">
-          <div class="section-description">Explore our interactive tool that provides a comprehensive set of global metrics by combining unique data sources.</div>
+          <div class="section-description"><slot name="description"></slot></div>
         </div>
       </div>
       <div class="iframe-box">

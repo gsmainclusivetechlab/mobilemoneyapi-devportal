@@ -1,7 +1,9 @@
 <template>
   <ClientOnly>
     <div class="theme-code-group">
-      <div class="lang-select-box" :class="{'opened': isListOpened}" @click="isListOpened = !isListOpened">
+      <div class="lang-select-box" v-if="languages.length" :class="{'opened': isListOpened}"
+           @click="isListOpened =
+      !isListOpened">
         <div class="active-lang">
           <div class="text">{{ provideObject.activeLanguage }}</div>
           <div class="icon">

@@ -1650,8 +1650,8 @@ classDiagram
 <div class="code-panel-block-holder">
 <!-- start of right-side code blocks holder -->
 <code-main-group>
-<code-block title="View">
 
+<code-block title="View">
 <code-group>
 <code-block title="Account Status Object">
 ```json
@@ -1662,9 +1662,7 @@ classDiagram
 }
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
@@ -1674,7 +1672,6 @@ classDiagram
 //some JavaScript code here 
 ```
 </code-block>
-
 </code-group>
 
 <code-group title="PHP">
@@ -1685,10 +1682,9 @@ classDiagram
 ?>
 ```
 </code-block>
-
 </code-group>
-
 </code-block>
+
 </code-main-group>
 
 </div>

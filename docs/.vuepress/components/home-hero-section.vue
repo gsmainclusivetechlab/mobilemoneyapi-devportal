@@ -2,8 +2,12 @@
   <div class="hero-section section section--m-gap">
     <div class="container container--thin">
       <div class="section-intro">
-        <h1 v-if="title" class="hero-section__title text-center">{{ title }}</h1>
-        <div v-if="description" class="hero-section__description text-center">{{ description }}</div>
+        <h1 class="hero-section__title text-center">
+          <slot name="title"></slot>
+        </h1>
+        <div class="hero-section__description text-center">
+          <slot name="description"></slot>
+        </div>
       </div>
 
       <div class="buttons-holder content-center">
@@ -22,7 +26,7 @@
       </div>
       <div v-if="videoSrc" class="hero-iframe-holder">
         <div class="iframe-wrapper">
-          <iframe 
+          <iframe
             class="iframe"
             v-if="parseVideoLink(videoSrc)"
             :src="parseVideoLink(videoSrc)"
@@ -90,10 +94,10 @@ export default {
 
       if (link.indexOf('vimeo.com/') !== -1 ) {
         const startPos = link.indexOf('vimeo.com/') + 'vimeo.com/'.length;
-        const endPos = link.slice(startPos).indexOf('?') !== -1 
+        const endPos = link.slice(startPos).indexOf('?') !== -1
         ?
         link.slice(startPos).indexOf('?') + startPos : null;
-        
+
         if (!endPos) {
           videoId = link.slice(startPos);
         } else {
@@ -108,7 +112,7 @@ export default {
         videoId = match[1];
         return `https://www.youtube.com/embed/${videoId}`
       }
-      
+
       return false;
     }
   }
