@@ -2,7 +2,7 @@
   <div class="benefits-list-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro section-intro--narrow text-center">
-        <h2 class="h2 section-title"><slot name="title"></slot></h2>
+        <slot name="title"></slot>
         <div class="section-description"><slot name="description"></slot></div>
       </div>
       <div class="benefits-list-holder">
