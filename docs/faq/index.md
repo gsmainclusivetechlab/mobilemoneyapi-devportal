@@ -20,8 +20,10 @@ title: FAQ
         <h2 v-show="notFoundResults" class="no-results text-center">No results found.</h2>
         <div v-show="!notFoundResults">
           <div class="faq-results__item" v-show="!containersVisible[1]">
-            <h2 class="h2 faq-results__item-title">General</h2>
-            <accordion ref="accordion-container-1">
+
+## General
+
+<accordion ref="accordion-container-1">
               <accordion-item>
                 <template v-slot:header>
                   What is the Mobile Money API?
@@ -114,8 +116,10 @@ title: FAQ
             </accordion>
           </div>
           <div class="faq-results__item" v-show="!containersVisible[2]">
-            <h2 class="h2 faq-results__item-title">Technical</h2>
-            <accordion ref="accordion-container-2">
+
+## Technical
+
+<accordion ref="accordion-container-2">
               <accordion-item>
                 <template v-slot:header>
                   Which API Version should we implement?
@@ -216,8 +220,10 @@ title: FAQ
             </accordion>
           </div>
           <div class="faq-results__item" v-show="!containersVisible[3]">
-            <h2 class="h2 faq-results__item-title">Security</h2>
-            <accordion ref="accordion-container-3">
+
+## Security
+
+<accordion ref="accordion-container-3">
               <accordion-item>
                 <template v-slot:header>
                   Are there security recommendations to consider when implementing the Mobile Money
