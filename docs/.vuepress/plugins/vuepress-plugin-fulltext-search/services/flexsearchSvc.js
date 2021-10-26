@@ -16,7 +16,7 @@ export default {
     const pages = allPages.filter(p => !p.frontmatter || p.frontmatter.search !== false)
     const indexSettings = {
       encode: options.encode || 'simple',
-      tokenize: options.tokenize || 'forward',
+      tokenize: options.tokenize || 'full',
       split: options.split || /\W+/,
       async: true,
       doc: {
@@ -134,9 +134,12 @@ function getAdditionalInfo(page, queryString, queryTerms) {
   }
 
   // content match
-  let headerIndex = _.findLastIndex(page.headers || [], h => h.charIndex != null && h.charIndex < match.charIndex)
+  // let headerIndex = _.findLastIndex(page.headers || [], h => h.charIndex != null && h.charIndex < match.charIndex)
+  let minValue = Math.min(...(page.headers || [])
+      .filter(h => h.charIndex != null && h.charIndex < match.charIndex)
+      .map(h => match.charIndex - h.charIndex))
+  let headerIndex = (page.headers || []).findIndex(h => h.charIndex != null && h.charIndex < match.charIndex && ((match.charIndex - h.charIndex) === minValue))
   if (headerIndex === -1) headerIndex = null
-
   return {
     ...getFullHeading(page, headerIndex),
     slug: headerIndex == null ? '' : '#' + page.headers[headerIndex].slug,
@@ -153,7 +156,6 @@ function getFullHeading(page, headerIndex, match) {
     headerIndex = _.findLastIndex(page.headers, h => h.level === header.level - 1, headerIndex - 1)
     if (headerIndex === -1) headerIndex = null
   }
-
   const headingStr = headersPath.map(h => h.title).join(' > ')
   const prefixPath = headersPath.slice(0, -1)
   const prefixLength = _.sum(prefixPath.map(p => (p.title || '').length)) + prefixPath.length * 3
@@ -172,7 +174,6 @@ function getMatch(page, query, terms) {
   if (matches.every(m => m.headerIndex != null)) {
     return getHeaderMatch(page, query) || matches[0]
   }
-
   return getContentMatch(page, query) || matches.find(m => m.headerIndex == null)
 }
 

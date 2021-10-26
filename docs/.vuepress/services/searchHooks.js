@@ -16,6 +16,10 @@ export default {
   //   return suggestions
   // },
   async onGoToSuggestion(index, suggestion, queryString, queryTerms) {
+    // console.log('index: ', index);
+    // console.log('suggestion: ', suggestion);
+    // console.log('queryString: ', queryString);
+    // console.log('queryTerms: ', queryTerms);
     // e.g. create an analytics event
     localStorage.setItem('delayAfterSearch', 'true')
     setTimeout(()=> {

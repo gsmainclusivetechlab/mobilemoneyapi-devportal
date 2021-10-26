@@ -22,7 +22,9 @@ title: Home
 
 <what-you-get>
   <template v-slot:title>
-  What you’ll get
+
+  ## What you’ll get
+
   </template>
   <template v-slot:description>
   We provide access to harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.
@@ -31,7 +33,9 @@ title: Home
 
 <benefits-list>
   <template v-slot:title>
-  Benefits and objectives
+
+  ## Benefits and objectives
+
   </template>
   <template v-slot:description>
   Lobortis porta aliquam morbi eget. Duis in vitae sed eleifend hendrerit justo, vestibulum, proin.
