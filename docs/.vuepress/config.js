@@ -775,18 +775,19 @@ module.exports = {
     plugins: [
         ['@vuepress/active-header-links', false],
         require('./plugins/plugin-active-header-links/index.js'),
+        require('./plugins/vuepress-plugin-fulltext-search/index.js'),
         ['vuepress-plugin-code-copy', true],
         ['vuepress-plugin-smooth-scroll', true],
         // ['@vuepress/search', {
         //   searchMaxSuggestions: 10
         // }],
-        [
-            'fulltext-search',
-            {
-                tokenize: 'full',
-                // provide the contents of a JavaScript file
-                hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
-            },
-        ],
+        // [
+        //     'fulltext-search',
+        //     {
+        //         tokenize: 'forward',
+        //         // provide the contents of a JavaScript file
+        //         hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
+        //     },
+        // ],
     ]
 };

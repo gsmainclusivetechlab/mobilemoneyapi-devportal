@@ -1,5 +1,6 @@
 <template>
-  <div class="accordion__item" :class="{'accordion__item--active': isOpened}">
+  <div class="accordion__item" :class="{'accordion__item--active': isOpened}"
+       v-show="!showElement">
     <div class="accordion__item-wrapper">
       <div class="accordion__item-header" @click="openClose">
         <div class="title">
@@ -22,9 +23,11 @@
 export default {
   name: 'accordion-item',
 
-  props: [
-    'expanded'
-  ],
+  props: {
+    'expanded': {
+      type: Boolean
+    },
+  },
 
   data() {
     return {
@@ -32,11 +35,12 @@ export default {
       itemElement: null,
       itemElementHeig: 'auto',
       timeout: null,
+      showElement: true
     }
   },
 
   created() {
-    this.isOpened = this.expanded ? true : false;
+    this.isOpened = !!this.expanded;
   },
 
   mounted() {
@@ -47,7 +51,7 @@ export default {
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
-  
+
       this.timeout = setTimeout(()=>{
         this.detectItemHeigth();
       }, 20);
