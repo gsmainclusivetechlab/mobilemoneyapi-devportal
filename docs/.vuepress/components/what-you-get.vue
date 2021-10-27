@@ -7,8 +7,8 @@
         </div>
         <div class="content-holder">
           <div class="section-intro">
-            <slot name="title"></slot>
-            <div class="section-description"><slot name="description"></slot></div>
+            What you’ll get
+            <div class="section-description">We provide access to harmonized API Specification for all the common mobile money use cases which is both easy to use and secure.</div>
           </div>
           <ul class="what-you-get__list">
             <li class="what-you-get__list-item">

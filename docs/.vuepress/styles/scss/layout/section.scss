@@ -38,6 +38,11 @@
   &-intro {
     margin: 0 0 62px;
 
+    h2 {
+      margin: -100px 0 15px;
+      padding-top: 100px;
+    }
+
     @include media('<=tablet-lg') {
       margin: 0 0 40px;
     }
