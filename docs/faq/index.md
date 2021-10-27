@@ -260,7 +260,6 @@ title: FAQ
 
 import searchSection from '../.vuepress/components/search-section.vue';
 
-import faqData from '../.vuepress/data/faqData';
 import accordion from '../.vuepress/components/simple-accordion/accordion.vue';
 import accordionItem from '../.vuepress/components/simple-accordion/accordion-item.vue';
 
@@ -274,7 +273,6 @@ export default {
 
   data() {
     return {
-      faqDataSource: null,
       filteredDaqData: {},
       notFoundResults: false,
       notFoundResult1s: {
@@ -289,9 +287,6 @@ export default {
         3: false
       }
     }
-  },
-  created() {
-    this.faqDataSource = faqData;
   },
   mounted() {
     this.applyFilter();
