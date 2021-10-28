@@ -12,7 +12,37 @@ title: International Transfer Organisations
   </template>    
 </IndustryHeroSection>
 
-  <use-cases-international-transfer-organisations-with-tabs :defaultTab="1"/>
+<template>
+  <div class="use-cases-tabs-section tabs-section section--m-gap">
+    <div class="container container--narrow">
+      <div class="section-intro">
+
+## Use cases
+
+</div>
+      <div class="tabs-buttons">
+        <button
+            v-for="(tab, index) in tabs"
+            :key="`tab-button-${index}`"
+            type="button"
+            class="btn btn-bordered"
+            :class="{
+            'btn--accent': isActiveTab(tab),
+            'btn--inactive': !isActiveTab(tab),
+          }"
+            @click="handleTabSwitch(tab)"
+        >
+          {{ tab }}
+        </button>
+      </div>
+      <div class="tabs-holder">
+        <TabSection v-show="isActiveTab('International Transfers')">
+          tab content will be here (3)
+        </TabSection>
+      </div>
+    </div>
+  </div>
+</template>
 
 <template>
   <section class="special-grid-section section--m-gap">
@@ -123,10 +153,13 @@ title: International Transfer Organisations
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import TabSection from "../.vuepress/components/TabSection";
+import Accordion from "../.vuepress/components/simple-accordion/accordion";
+import AccordionItem from "../.vuepress/components/simple-accordion/accordion-item";
 
 export default {
   components: {
-    VueSlickCarousel
+    VueSlickCarousel, AccordionItem, Accordion, TabSection
   },
   data() {
     return {
@@ -142,9 +175,25 @@ export default {
       accentLink: {
         text: 'Start developing',
         link: '/examples'
-      }
+      },
+      tabs: [
+        'International Transfers',
+      ],
+      activeTabName: '',
     }
   },
+  created() {
+    this.activeTabName = this.tabs.length ? this.tabs[0] : ''
+  },
+
+  methods: {
+    handleTabSwitch(tabName) {
+      this.activeTabName = tabName;
+    },
+    isActiveTab(title) {
+      return title === this.activeTabName
+    },
+  }
 }
 </script>
 
