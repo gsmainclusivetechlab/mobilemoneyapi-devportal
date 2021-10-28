@@ -13,7 +13,7 @@ export default {
 
   data: function() {
     return {
-      tabTitle: 'Disbursements', // tabTitle is required (tabs buttons will be generatet with this string)
+        tabTitle: 'Disbursements', // tabTitle is required (tabs buttons will be generatet with this string)
     }
   },
 };

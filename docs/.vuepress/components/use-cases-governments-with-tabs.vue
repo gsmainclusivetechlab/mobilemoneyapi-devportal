@@ -4,73 +4,59 @@
       <div class="section-intro">
         <h2 class="h2 section-title">Use cases</h2>
       </div>
-
       <div class="tabs-buttons">
         <button
-          v-for="(tab, index) in tabs"
-          :key="`tab-button-${index}`"
-          type="button"
-          class="btn btn-bordered"
-          :class="{ 
-            'btn--accent': getTabTitle(tab) === activeTabName,
-            'btn--inactive': getTabTitle(tab) !== activeTabName,
+            v-for="(tab, index) in tabs"
+            :key="`tab-button-${index}`"
+            type="button"
+            class="btn btn-bordered"
+            :class="{
+            'btn--accent': isActiveTab(tab),
+            'btn--inactive': !isActiveTab(tab),
           }"
-          @click="handleTabSwitch(getTabTitle(tab))"
+            @click="handleTabSwitch(tab)"
         >
-          {{ getTabTitle(tab) }}
+          {{ tab }}
         </button>
       </div>
-
-      <div class="tabs-holder" v-for="(tab, index) in tabs" :key="`tab-${index}`">
-        <component :is="tab" v-if="getTabTitle(tab) === activeTabName" :isActive="getTabTitle(tab) === activeTabName"/>
+      <div class="tabs-holder">
+        <TabSection v-show="isActiveTab('Disbursements')">
+          tab content will be here (2)
+        </TabSection>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import disbursementsTab from './use-cases-tabs/mobile-money-providers/disbursements.vue';
-import p2pTransfersCaseTab from './use-cases-tabs/mobile-money-providers/p2p-transfers.vue';
-import billPaymentsTab from './use-cases-tabs/mobile-money-providers/bill-payments.vue';
-
-const tabs = {
-  disbursementsTab,
-  p2pTransfersCaseTab,
-  billPaymentsTab,
-};
+import TabSection from "./TabSection";
+import Accordion from "./simple-accordion/accordion";
+import AccordionItem from "./simple-accordion/accordion-item";
+import Mermaid from "./Mermaid";
 
 export default {
   name: 'use-cases-governments-with-tabs',
-
-  components: tabs,
-
-  props: [
-    'defaultTab',
-  ],
-
+  components: {Mermaid, AccordionItem, Accordion, TabSection},
   data() {
     return {
-      tabs: tabs,
+      tabs: [
+        'Disbursements',
+      ],
       activeTabName: '',
     }
   },
-  
+
   created() {
-    this.setStartActiveTab();
+    this.activeTabName = this.tabs.length ? this.tabs[0] : ''
   },
-  
+
   methods: {
     handleTabSwitch(tabName) {
       this.activeTabName = tabName;
     },
-
-    getTabTitle(tab) {
-      return tab.data().tabTitle;
+    isActiveTab(title) {
+      return title === this.activeTabName
     },
-
-    setStartActiveTab() {
-      this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[this.defaultTab ? this.defaultTab -1 : 0]}`]);
-    }
   }
 };
 </script>
