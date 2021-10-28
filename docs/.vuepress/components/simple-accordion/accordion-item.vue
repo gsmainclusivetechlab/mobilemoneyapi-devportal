@@ -1,6 +1,6 @@
 <template>
   <div class="accordion__item" :class="{'accordion__item--active': isOpened}"
-       v-show="!showElement">
+       v-show="!showElement || businessPage">
     <div class="accordion__item-wrapper">
       <div class="accordion__item-header" @click="openClose">
         <div class="title">
@@ -27,6 +27,9 @@ export default {
     'expanded': {
       type: Boolean
     },
+    businessPage: {
+      type: Boolean
+    }
   },
 
   data() {
