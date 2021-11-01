@@ -19,6 +19,12 @@
       filter: brightness(10);
     }
   }
+  .highlight-lines {
+    padding: 0;
+    .highlighted {
+      background-color: rgba(41, 123, 181, 0.66);
+    }
+  }
 
   .custom-block.tip .custom-block-title {
     display: none;

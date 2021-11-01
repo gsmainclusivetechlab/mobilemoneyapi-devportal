@@ -26,13 +26,13 @@ In this diagram, a switch is used by the sending FSP to (1) confirm the recipien
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/accountname
 ```
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../quotations
 ---
 Headers:
@@ -74,7 +74,7 @@ Body parameters:
 
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -264,13 +264,13 @@ In this diagram, the sending FSP connects directly with the receiving FSP to con
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/accountname
 ```
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -396,13 +396,13 @@ In this diagram, A third party provider enables a sender to transfer money to a 
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/accountname
 ```
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../quotations
 ---
 Headers:
@@ -443,7 +443,7 @@ Body parameters:
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -640,7 +640,7 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 <code-block title="View">
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -723,7 +723,7 @@ Body parameters:
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -794,7 +794,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -875,7 +875,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -946,7 +946,7 @@ This API can be used by the sending FSP to retrieve a link to the final represen
 <code-block title="View">
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

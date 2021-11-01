@@ -26,7 +26,7 @@ In this example, an asynchronous cash-out flow is used with a final callback.
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/withdrawal
 ---
 Headers:
@@ -162,7 +162,7 @@ In this example, an asynchronous cash-out flow is used with the polling method. 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/withdrawal
 ---
 Headers:
@@ -192,13 +192,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -321,7 +321,7 @@ In this example, an asynchronous cash-out flow is used with a final callback.
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/withdrawal
 ---
 Headers:
@@ -452,7 +452,7 @@ In this example the /authorisationcodes API is used to obtain a pre-authorised c
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/2000/authorisationcodes
 ---
 Headers:
@@ -472,7 +472,7 @@ Body parameters:
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/withdrawal
 ---
 Headers:
@@ -601,13 +601,13 @@ In this diagram, the agent firstly checks that the depositing customer’s name 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/accountname
 ```
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/deposit
 ---
 Headers:
@@ -726,7 +726,7 @@ In some failure scenarios, an agent may need to reverse a transaction. This diag
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -808,7 +808,7 @@ In this diagram, an agent registers a new mobile money customer on behalf of a m
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/individual
 ---
 Headers:
@@ -967,7 +967,7 @@ In this diagram, an agent verifies the physical KYC provided by the customer aga
 
 <code-group>
 <code-block title="PATCH">
-```json
+```json{1}
 PATCH .../accounts/accountid/2000/identities/105
 ---
 Headers:
@@ -1056,7 +1056,7 @@ sequenceDiagram
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -1123,7 +1123,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -1200,7 +1200,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -1268,7 +1268,7 @@ This API can be used by the agent to retrieve a link to the final representation
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

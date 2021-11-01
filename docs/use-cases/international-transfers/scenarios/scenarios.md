@@ -28,7 +28,7 @@ This flow can also be used for bilateral international transfers.
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../quotations
 ---
 Headers:
@@ -109,7 +109,7 @@ Body Parameters:
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/inttransfer
 ---
 Headers:
@@ -300,7 +300,7 @@ In this diagram, the sending FSP connects directly with the receiving FSP to obt
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../quotations
 ---
 Headers:
@@ -381,7 +381,7 @@ Body Parameters:
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/inttransfer
 ---
 Headers:
@@ -598,7 +598,7 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -682,7 +682,7 @@ sequenceDiagram
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -753,7 +753,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -833,7 +833,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -904,7 +904,7 @@ This API can be used by the sending FSP to retrieve a link to the final represen
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

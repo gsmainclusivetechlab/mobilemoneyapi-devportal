@@ -26,7 +26,7 @@ This diagram illustrates the setting-up of an account link. The requesting FSP i
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/2000/links
 ---
 Headers:
@@ -159,7 +159,7 @@ In this diagram, the requesting FSP initiates a transfer to the FSP using an est
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -280,7 +280,7 @@ In this example, an asynchronous flow is used with the polling method. The clien
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -310,13 +310,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -425,7 +425,7 @@ In some failure scenarios, a requesting FSP may need to reverse a transaction. T
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -505,7 +505,7 @@ sequenceDiagram
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -572,7 +572,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transfers for
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -649,7 +649,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -717,7 +717,7 @@ This API can be used by the requesting FSP to retrieve a link to the final repre
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

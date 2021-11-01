@@ -72,8 +72,8 @@ To filter the number of records returned, the following query string parameters 
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -149,10 +149,10 @@ classDiagram
   "amountDue": "123.45",
   "billDescription": "My custom description...",
   "currency": "GBP",
-  "dueDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "dueDate": "2017-07-21T17:32:28Z",
   "minimumAmountDue": "23.45",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -240,8 +240,8 @@ When retrieving bill payments, the following query string parameters can be used
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -338,9 +338,9 @@ classDiagram
   ],
   "serviceProviderComment": "This is SP comment...",
   "serviceProviderNotification": "This is SP notification...",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
