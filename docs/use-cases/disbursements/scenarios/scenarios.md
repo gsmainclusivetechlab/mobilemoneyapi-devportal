@@ -26,7 +26,7 @@ This diagram illustrates an individual disbursement using an asynchronous flow w
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/disbursement
 ---
 Headers:
@@ -127,7 +127,7 @@ In this example, an asynchronous flow is used with a final callback that contain
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/disbursement
 ---
 Headers:
@@ -222,7 +222,7 @@ This diagram illustrates the flow for a ‘one-shot’ bulk disbursement.
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../batchtransactions
 ---
 Headers:
@@ -278,13 +278,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/completions
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/rejections
 ```
 </code-block>
@@ -403,7 +403,7 @@ In this example, an asynchronous flow is used with a final callback that contain
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../batchtransactions
 ---
 Headers:
@@ -580,7 +580,7 @@ In this diagram, an asynchronous flow is used with the polling method. The clien
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/disbursement
 ---
 Headers:
@@ -610,13 +610,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -730,7 +730,7 @@ In some failure scenarios, a organisation may need to reverse an individual disb
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -814,7 +814,7 @@ Body parameters:
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 POST .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -884,7 +884,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all transactions 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params: 
@@ -963,7 +963,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -1034,7 +1034,7 @@ This API can be used by the disbursement organisation to retrieve a link to the 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

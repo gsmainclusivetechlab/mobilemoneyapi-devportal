@@ -26,7 +26,7 @@ This diagram illustrates the setting-up of a recurring payment via a debit manda
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/2000/debitmandates
 ---
 Headers:
@@ -160,7 +160,7 @@ In this diagram, the service provider initiates a payment request to the FSP to 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -280,7 +280,7 @@ In this example, an asynchronous payment flow is used with the polling method. T
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -310,13 +310,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -424,7 +424,7 @@ Service Providers can issue a refund to payers. In this diagram, the refund is n
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/adjustment
 ---
 Headers:
@@ -518,7 +518,7 @@ In some failure scenarios, a service provider may need to reverse a transaction.
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -599,7 +599,7 @@ This diagram illustrates how the MM API can be used by a mobile money provider t
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/2000/debitmandates
 ---
 Headers:
@@ -696,7 +696,7 @@ Body parameters:
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -762,7 +762,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -838,7 +838,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the FS
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -905,7 +905,7 @@ This API can be used by the service provider to retrieve a link to the final rep
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>

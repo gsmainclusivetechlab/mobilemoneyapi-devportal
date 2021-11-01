@@ -26,7 +26,7 @@ This diagram illustrates how a mobile money provider can retrieve bills for a gi
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/1/bills?offset=0&limit=20
 ---
 Params: 
@@ -120,7 +120,7 @@ This diagram illustrates how a mobile money provider can make a bill payment to 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/1/bills/REF-000001/payments
 ---
 Headers:
@@ -238,7 +238,7 @@ This diagram illustrates how a mobile money provider can make a bill payment to 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/1/bills/REF-000001/payments
 ---
 Headers:
@@ -256,7 +256,7 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/bills/REF-000001/payments?limit=5
 ---
 Params:
@@ -267,7 +267,7 @@ Params:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../requestStates/Place the Server Correlation Id here
 ```
 </code-block>
@@ -368,7 +368,7 @@ This diagram illustrates how a mobile money provider can retrieve payments again
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/1/bills/REF-000001/payments?offset=0&limit=20
 ---
 Params:
@@ -444,7 +444,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the Se
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>

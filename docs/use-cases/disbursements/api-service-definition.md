@@ -49,7 +49,7 @@ Individual disbursements can be created and viewed using transactions APIs. The 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -73,13 +73,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```json
+```json{1}
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -234,9 +234,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -325,7 +325,7 @@ For viewing reversals, the [Transactions API](#transactions-api) should be used.
 <code-block title="View">
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -451,9 +451,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -545,7 +545,7 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../batchtransactions
 ---
 Headers:
@@ -601,13 +601,13 @@ Body parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/completions
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/rejections
 ```
 </code-block>
@@ -774,8 +774,8 @@ classDiagram
       //transaction 2 object...
     }
   ]
-  "approvalDate": "Sun, 06 Nov 1994 08:49:37 GMT", 
-  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "approvalDate": "2017-07-21T17:32:28Z", 
+  "completionDate": "2017-07-21T17:32:28Z",
   "batchTitle": "Batch title...",
   "batchDescription": "Batch description...",
   "processingFlag": true,
@@ -786,10 +786,10 @@ classDiagram
     "requestingOrganisationIdentifierType": "organisationid",
     "requestingOrganisationIdentifier": "987654321"
   },
-  "scheduledStartDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "scheduledStartDate": "2017-07-21T17:32:28Z",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -871,8 +871,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
 }
 ```
 </code-block>
@@ -960,7 +960,7 @@ classDiagram
     }
   ],
   "rejectionReason": "Some rejection reason...",
-  "rejectionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "rejectionDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -1032,8 +1032,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
 }
 ```
 </code-block>
@@ -1120,7 +1120,7 @@ classDiagram
       "value":"+447911123456"
     }
   ],
-  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "completionDate": "2017-07-21T17:32:28Z",
   "link": "https://application.com/uuid",
   "customData": {
     "customKey01": "customValue01",
@@ -1220,8 +1220,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
   "transactionStatus": "completed",
   "transactionType": "merchantpay"
 }

@@ -774,8 +774,13 @@ module.exports = {
     },
     plugins: [
         ['@vuepress/active-header-links', false],
-        require('./plugins/plugin-active-header-links/index.js'),
-        require('./plugins/vuepress-plugin-fulltext-search/index.js'),
+        [
+            require('./plugins/vuepress-plugin-fulltext-search/index.js'), {
+            // tokenize: 'forward',
+            // provide the contents of a JavaScript file
+            hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
+        },
+        ],
         ['vuepress-plugin-code-copy', true],
         ['vuepress-plugin-smooth-scroll', true],
         // ['@vuepress/search', {
@@ -789,5 +794,18 @@ module.exports = {
         //         hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
         //     },
         // ],
-    ]
+    ],
+    // plugins: {
+    //     'vuepress-plugin-code-copy': true,
+    //     'vuepress-plugin-smooth-scroll': true,
+    //     // '@vuepress/search': {
+    //     //   searchMaxSuggestions: 10
+    //     // },
+    //     'fulltext-search':
+    //         {
+    //             tokenize: 'full',
+    //             // provide the contents of a JavaScript file
+    //             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
+    //         },
+    // },
 };
