@@ -204,7 +204,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 {
   "X-API-Key": ["a4db08b7-5729-4ba9-8c08-f2df493465a1"],
   "X-User-Bearer": ["Bearer RsT5OjbzRn430zqMLgV3Ia"],
-  "X-Date": ["Sun, 06 Nov 1994 08:49:37 GMT"],
+  "X-Date": ["2017-07-21T17:32:28Z"],
   "X-Client-Id": ["12345"],
   "X-Content-Hash": ["7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"],
   "X-CorrelationID": ["d820237c-aa97-47e7-9704-1bc6d8ecad2d"],
@@ -275,7 +275,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 <code-block title="Custom Response Headers">
 ```json
 {
-  "X-Date": ["Sun, 06 Nov 1994 08:49:37 GMT"]
+  "X-Date": ["2017-07-21T17:32:28Z"]
 }
 ```
 </code-block>
@@ -433,7 +433,7 @@ The object definition for RequestState is described below.
   "status": "pending",
   "notificationMethod": "callback",
   "pendingReason": "A textual description...",
-  "expiryTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "expiryTime": "2017-07-21T17:32:28Z",
   "pollLimit": 5,
   "errorReference": {
     "errorCategory": "BusinessRule",
@@ -760,7 +760,7 @@ With the errorParameters property, care should be taken regarding confidentially
   "errorCategory": "BusinessRule",
   "errorCode": "GenericError",
   "errorDescription": "A textual description of the error.",
-  "errorDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "errorDateTime": "2017-07-21T17:32:28Z",
   "errorParameters": [
     {
       "key": "providedValue",
@@ -940,7 +940,7 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 {
   "serviceStatus": "degraded",
   "delay": 4000,
-  "plannedRestorationTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+  "plannedRestorationTime": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>

@@ -51,7 +51,7 @@ The following paths are permitted:
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -75,13 +75,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```json
+```json{1}
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -237,9 +237,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -328,7 +328,7 @@ For viewing reversals, the [Transactions API](#transactions-api) should be used.
 <code-block title="View">
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -454,9 +454,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -579,8 +579,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
   "transactionStatus": "completed",
   "transactionType": "merchantpay"
 }
@@ -829,9 +829,9 @@ classDiagram
     "requestingOrganisationIdentifier": "987654321"
   },
   "sendingServiceProviderCountry": "GB",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -1003,7 +1003,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 ```json
 {
   "birthCountry": "GB",
-  "dateOfBirth": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "dateOfBirth": "2017-07-21T17:32:28Z",
   "contactPhone": "+1234567890",
   "emailAddress": "example@mail.com",
   "employerName": "Employer LLC",
@@ -1167,8 +1167,8 @@ As part of KYC information, identification documentation is normally required. T
 {
   "idType": "passport",
   "idNumber": "TEST123456",
-  "issueDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "expiryDate ": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "issueDate": "2017-07-21T17:32:28Z",
+  "expiryDate ": "2017-07-21T17:32:28Z",
   "issuer": "123456789",
   "issuerPlace": "London",
   "issuerCountry": "GB",
@@ -1386,7 +1386,7 @@ Quotations can consist of multiple quotes. The fields for a quote are defined in
     }
   ],
   "fxRate": "1.0000000000",
-  "quoteExpiryTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "quoteExpiryTime": "2017-07-21T17:32:28Z",
   "receivingServiceProvider": "Receiving FSP"
 }
 ```

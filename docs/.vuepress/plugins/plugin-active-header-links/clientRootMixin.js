@@ -5,6 +5,7 @@ import debounce from 'lodash.debounce'
 export default {
   mounted () {
     window.addEventListener('scroll', this.onScroll)
+    console.log('test')
   },
 
   methods: {
@@ -13,10 +14,13 @@ export default {
     }, 300),
 
     setActiveHash () {
-      const sidebarLinks = [].slice.call(document.querySelectorAll(AHL_SIDEBAR_LINK_SELECTOR))
-      const anchors = [].slice.call(document.querySelectorAll(AHL_HEADER_ANCHOR_SELECTOR))
-        .filter(anchor => sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash))
+      const sidebarLinks = [].slice.call(document.querySelectorAll('.sidebar-link'))
+      let anchors = [].slice.call(document.querySelectorAll('.header-anchor'))
 
+
+      if(sidebarLinks.length) {
+        anchors = anchors.filter(anchor => sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash))
+      }
       const scrollTop = Math.max(
         window.pageYOffset,
         document.documentElement.scrollTop,

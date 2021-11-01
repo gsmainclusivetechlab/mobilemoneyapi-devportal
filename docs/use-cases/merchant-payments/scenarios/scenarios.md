@@ -27,7 +27,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -132,7 +132,7 @@ In this example, an asynchronous payment flow is used with a final callback that
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -262,12 +262,12 @@ Body Parameters:
 ```
 </code-block>
 <code-block title="GET">
-```json
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -386,7 +386,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -490,7 +490,7 @@ In this example, an asynchronous payment flow is used with a final callback that
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -588,7 +588,7 @@ In this example the /authorisationcodes API is used to obtain a pre-authorised p
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../accounts/accountid/2000/authorisationcodes
 ---
 Headers:
@@ -608,7 +608,7 @@ Body Parameters:
 </code-block>
 
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -739,7 +739,7 @@ Merchants can issue a refund to payers. In this diagram, the refund is not linke
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/adjustment
 ---
 Headers:
@@ -838,7 +838,7 @@ In some failure scenarios, a merchant may need to reverse a transaction. This di
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -919,7 +919,7 @@ sequenceDiagram
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
 </code-block>
@@ -987,7 +987,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params: 
@@ -1064,7 +1064,7 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../heartbeat
 ```
 </code-block>
@@ -1132,7 +1132,7 @@ This API can be used by the merchant to retrieve a link to the final representat
 
 <code-group>
 <code-block title="GET">
-```json
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
 </code-block>
