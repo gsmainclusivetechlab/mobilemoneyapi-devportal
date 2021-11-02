@@ -792,10 +792,10 @@ classDiagram
     }
   ],
   "mandateStatus": "active",
-  "startDate": "2017-07-21T17:32:28Z",
+  "startDate": "2018-11-20",
   "amountLimit": "123.45",
   "currency": "GBP",
-  "endDate": "2017-07-21T17:32:28Z",
+  "endDate": "2018-11-20",
   "frequencyType": "weekly",
   "numberOfPayments": 50,
   "requestingOrganisation": {

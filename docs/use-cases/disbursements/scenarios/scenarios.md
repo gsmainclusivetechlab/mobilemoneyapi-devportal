@@ -272,7 +272,7 @@ Body parameters:
     ],
     "batchTitle": "Batch_Test",
     "batchDescription": "Testing a Batch",
-    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+    "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -453,7 +453,7 @@ Body parameters:
     ],
     "batchTitle": "Batch_Test",
     "batchDescription": "Testing a Batch",
-    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+    "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
