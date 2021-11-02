@@ -464,7 +464,7 @@ Headers:
 ---
 Body parameters: 
 {
-    "requestDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
     "currency": "GBP",
     "amount": "1000.00"
 }
@@ -893,7 +893,7 @@ Body parameters:
     }
   ],
   "registeringEntity": "ABC Agent",
-  "requestDate": "2021-02-17T15:41:45.194Z"
+  "requestDate": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>

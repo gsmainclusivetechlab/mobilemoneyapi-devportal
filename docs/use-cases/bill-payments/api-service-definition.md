@@ -149,7 +149,7 @@ classDiagram
   "amountDue": "123.45",
   "billDescription": "My custom description...",
   "currency": "GBP",
-  "dueDate": "2017-07-21T17:32:28Z",
+  "dueDate": "2018-11-20",
   "minimumAmountDue": "23.45",
   "creationDate": "2017-07-21T17:32:28Z",
   "modificationDate": "2017-07-21T17:32:28Z",
