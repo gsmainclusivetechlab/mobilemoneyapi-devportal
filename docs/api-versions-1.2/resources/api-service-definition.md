@@ -604,7 +604,7 @@ Body parameters:
     ],
     "batchTitle": "Batch_Test",
     "batchDescription": "Testing a Batch",
-    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+    "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -1441,7 +1441,7 @@ classDiagram
       "identityId": "12345",
       "identityType": "individual",
       "identityKyc": {
-        "dateOfBirth": "2017-07-21T17:32:28Z",
+        "dateOfBirth": "2000-11-20",
         "birthCountry": "GB",
         "contactPhone": "+1234567890"
       },
@@ -2148,7 +2148,7 @@ classDiagram
   "amountDue": "123.45",
   "billDescription": "My custom description...",
   "currency": "GBP",
-  "dueDate": "2017-07-21T17:32:28Z",
+  "dueDate": "2018-11-20",
   "minimumAmountDue": "23.45",
   "creationDate": "2017-07-21T17:32:28Z",
   "modificationDate": "2017-07-21T17:32:28Z",
@@ -2615,10 +2615,10 @@ classDiagram
     }
   ],
   "mandateStatus": "active",
-  "startDate": "2017-07-21T17:32:28Z",
+  "startDate": "2018-11-20",
   "amountLimit": "123.45",
   "currency": "GBP",
-  "endDate": "2017-07-21T17:32:28Z",
+  "endDate": "2018-11-20",
   "frequencyType": "weekly",
   "numberOfPayments": 50,
   "requestingOrganisation": {
@@ -3054,13 +3054,13 @@ Body Parameters:
     ],
     "requestAmount": "75.30",
     "requestCurrency": "RWF",
-  "requestDate": "2018-07-03T11:43:27.405Z",
+  "requestDate": "2017-07-21T17:32:28Z",
     "type": "inttransfer",
     "subType": "abc",
     "chosenDeliveryMethod": "agent",
     "senderKyc": {
         "nationality": "GB",
-        "dateOfBirth": "1970-07-03T11:43:27.405Z",
+        "dateOfBirth": "2000-11-20",
         "occupation": "Manager",
         "employerName": "MFX",
         "contactPhone": "+447125588999",
@@ -3071,8 +3071,8 @@ Body Parameters:
             {
                 "idType": "nationalidcard",
                 "idNumber": "1234567",
-                "issueDate": "2018-07-03T11:43:27.405Z",
-                "expiryDate": "2021-07-03T11:43:27.405Z",
+                "issueDate": "2018-11-20",
+                "expiryDate": "2018-11-20",
                 "issuer": "UKPA",
                 "issuerPlace": "GB",
                 "issuerCountry": "GB",
@@ -3432,7 +3432,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 ```json
 {
   "birthCountry": "GB",
-  "dateOfBirth": "2017-07-21T17:32:28Z",
+  "dateOfBirth": "2000-11-20",
   "contactPhone": "+1234567890",
   "emailAddress": "example@mail.com",
   "employerName": "Employer LLC",
@@ -3599,8 +3599,8 @@ As part of KYC information, identification documentation is normally required. T
 {
   "idType": "passport",
   "idNumber": "TEST123456",
-  "issueDate": "2017-07-21T17:32:28Z",
-  "expiryDate ": "2017-07-21T17:32:28Z",
+  "issueDate": "2018-11-20",
+  "expiryDate ": "2018-11-20",
   "issuer": "123456789",
   "issuerPlace": "London",
   "issuerCountry": "GB",
@@ -3810,7 +3810,7 @@ The Identity object defines the information for an identity associated with an a
   "identityType": "individual",
   "identityStatus": "Completed",
   "identityKyc": {
-    "dateOfBirth": "2017-07-21T17:32:28Z",
+    "dateOfBirth": "2000-11-20",
     "birthCountry": "GB",
     "contactPhone": "+1234567890"
   },

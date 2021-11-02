@@ -233,7 +233,7 @@ In this example, an asynchronous payment flow is used with the polling method. T
 
 <code-group>
 <code-block title="POST">
-```bash
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -262,11 +262,13 @@ Body Parameters:
 ```
 </code-block>
 <code-block title="GET">
+
 ```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 <code-block title="GET">
+
 ```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
@@ -600,7 +602,7 @@ Headers:
 ---
 Body Parameters:
 {
-    "requestDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
     "currency": "GBP",
     "amount": "1000.00"
 }

@@ -44,11 +44,11 @@ Body parameters:
       "value": "2999"
     }
   ],
-    "requestDate": "2018-07-03T10:43:27.405Z",
-    "startDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
+    "startDate": "2018-11-20",
     "currency": "GBP",
     "amountLimit": "1000.00",
-    "endDate": "2028-07-03T10:43:27.405Z",
+    "endDate": "2018-11-20",
     "numberOfPayments": "2",
     "frequencyType": "sixmonths",
     "customData": [
@@ -617,11 +617,11 @@ Body parameters:
       "value": "2999"
     }
   ],
-    "requestDate": "2018-07-03T10:43:27.405Z",
-    "startDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
+    "startDate": "2018-11-20",
     "currency": "GBP",
     "amountLimit": "1000.00",
-    "endDate": "2028-07-03T10:43:27.405Z",
+    "endDate": "2018-11-20",
     "numberOfPayments": "2",
     "frequencyType": "sixmonths",
     "customData": [

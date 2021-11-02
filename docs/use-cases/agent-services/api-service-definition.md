@@ -643,7 +643,7 @@ classDiagram
       "identityId": "12345",
       "identityType": "individual",
       "identityKyc": {
-        "dateOfBirth": "2017-07-21T17:32:28Z",
+        "dateOfBirth": "2000-11-20",
         "birthCountry": "GB",
         "contactPhone": "+1234567890"
       },
@@ -1361,7 +1361,7 @@ The Identity object defines the information for an identity associated with an a
   "identityType": "individual",
   "identityStatus": "Completed",
   "identityKyc": {
-    "dateOfBirth": "2017-07-21T17:32:28Z",
+    "dateOfBirth": "2000-11-20",
     "birthCountry": "GB",
     "contactPhone": "+1234567890"
   },

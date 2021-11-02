@@ -1003,7 +1003,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 ```json
 {
   "birthCountry": "GB",
-  "dateOfBirth": "2017-07-21T17:32:28Z",
+  "dateOfBirth": "2000-11-20",
   "contactPhone": "+1234567890",
   "emailAddress": "example@mail.com",
   "employerName": "Employer LLC",
@@ -1167,8 +1167,8 @@ As part of KYC information, identification documentation is normally required. T
 {
   "idType": "passport",
   "idNumber": "TEST123456",
-  "issueDate": "2017-07-21T17:32:28Z",
-  "expiryDate ": "2017-07-21T17:32:28Z",
+  "issueDate": "2018-11-20",
+  "expiryDate ": "2018-11-20",
   "issuer": "123456789",
   "issuerPlace": "London",
   "issuerCountry": "GB",
