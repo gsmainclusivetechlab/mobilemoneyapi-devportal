@@ -758,6 +758,10 @@ module.exports = {
     // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
+        extendMarkdown: (md) => {
+            // use more markdown-it plugins!
+            md.use(require('markdown-it-include'))
+        }
     },
     themeConfig: {
         repo: '',
