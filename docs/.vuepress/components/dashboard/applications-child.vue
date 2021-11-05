@@ -24,45 +24,67 @@
           <button class="btn btn--transparent edit-btn" type="button"
                   @click="handleEditClick()"
                   v-if="editBtnEnabled"
-          >Edit</button>
+          >Edit
+          </button>
         </div>
         <div class="fields-wrap">
-          <div class="input-group">
-            <label for="appName">App name</label>
-            <input type="text" id="appName" v-model="appNameVar" :disabled="appDetailsDisabled">
-          </div>
-          <div class="input-group input-wrapper__custom-select">
-            <label for="product">
-              Product
-              <div class="tooltip-wrap">
-                <button class="tooltip-btn"
-                        @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
-                        @focusout="tooltipPopupIsVisible = false"
-                        tabindex="0"
-                >?</button>
-                <span class="tooltip-popup"
-                      v-show="tooltipPopupIsVisible"
-                >Here you can select product version</span>
+          <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="application-details">
+            <form @submit.prevent="handleSubmit(handleUpdateClick)">
+              <ValidationProvider class="input-group"
+                                  vid="appName"
+                                  :rules="{ required: { allowFalse: false }}"
+                                  v-slot="{ errors }"
+                                  tag="div">
+                <label for="appName">
+                  App name
+                  <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
+                </label>
+                <input type="text" v-model="form.appName" id="appName" :disabled="appDetailsDisabled" placeholder="Enter app name">
+              </ValidationProvider>
+
+              <ValidationProvider class="input-group input-wrapper__custom-select"
+                                  vid="product"
+                                  :rules="{ required: { allowFalse: false }}"
+                                  v-slot="{ errors }"
+                                  tag="div">
+                <label for="product">Product
+                  <div class="tooltip-wrap">
+                    <button class="tooltip-btn"
+                            @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
+                            @focusout="tooltipPopupIsVisible = false"
+                            tabindex="0"
+                    >?
+                    </button>
+                    <span class="tooltip-popup"
+                          v-show="tooltipPopupIsVisible"
+                    >Here you can select product version</span>
+                  </div>
+                  <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
+                </label>
+                <v-select
+                    return-object
+                    v-model="form.usagePlan"
+                    id="product"
+                    name="product"
+                    :clearable="false"
+                    :options="items"
+                    :disabled="appDetailsDisabled"
+                    placeholder="Select product"
+                ></v-select>
+              </ValidationProvider>
+
+              <div class="update-btn-wrap">
+                <button class="btn btn--accent update-btn" type="submit"
+                        v-if="updateBtnEnabled"
+                        @click="handleUpdateClick()"
+                >Update
+                </button>
               </div>
-            </label>
-            <v-select
-                return-object
-                id="product"
-                name="country"
-                :clearable="false"
-                :options="items"
-                :disabled="appDetailsDisabled"
-                v-model="productBindVar"
-            ></v-select>
-          </div>
-          <div class="update-btn-wrap">
-            <button class="btn btn--accent update-btn" type="button"
-                    v-if="updateBtnEnabled"
-                    @click="handleUpdateClick()"
-            >Update</button>
-          </div>
+            </form>
+          </ValidationObserver>
           <div class="info-text">
-            <p>Below are keys you can use to access the Product (Usage Plan) associated with this application. The actual keys are capable of accessing any of the URIS defined in the Product (Usage Plan).</p>
+            <p>Below are keys you can use to access the Product (Usage Plan) associated with this application. The actual keys are capable of accessing any of the URIS defined in the Product (Usage
+              Plan).</p>
           </div>
           <div class="input-group key-group">
             <label for="consumerKey">Consumer key</label>
@@ -100,59 +122,72 @@
 
 <script>
 export default {
-    name: 'applications-child',
+  name: 'applications-child',
 
-    data() {
-        return {
-            tabTitle: 'Applications child',
-            items: ['GSMA Mobile Money API v1.2 OAuth_Simulator',
-                'GSMA Mobile Money API v1.1 OAuth_Simulator',
-                'GSMA Mobile Money API v1.0 OAuth_Simulator'],
-            appDetailsDisabled: true,
-            editBtnEnabled: true,
-            updateBtnEnabled: false,
-            appNameVar: this.appName,
-            productBindVar: this.productBind,
-            tooltipPopupIsVisible: false
-        }
-    },
-
-    props: [
-            'applicationChildItem',
-            'appName',
-            'appDefault',
-            'appCreated',
-            'appExpire',
-            'appStatus',
-            'productBind',
-            'consumerKey',
-            'consumerSecret',
-            'apiKey'
-    ],
-
-    methods: {
-        handleEditClick() {
-            this.appDetailsDisabled = !this.appDetailsDisabled;
-            this.editBtnEnabled = false;
-            this.updateBtnEnabled = true;
-        },
-        handleUpdateClick() {
-            this.$emit('update-data', this.appNameVar, this.productBindVar)
-            this.appDetailsDisabled = true;
-            this.editBtnEnabled = true;
-            this.updateBtnEnabled = false;
-        },
-        copyToClipboard(e) {
-            const text = e.currentTarget.getAttribute('data-bind');
-            navigator.clipboard.writeText(this[text]).then(function() {}, function(err) {
-                console.error('Async: Could not copy text: ', err);
-            });
-            const popup = document.querySelectorAll(`span[data-bind="${text}"]`);
-            popup[0].style.opacity = 1;
-            setTimeout(() => { popup[0].style.transition = 'opacity ease-in-out 1.5s'; }, 0);
-            setTimeout(() => { popup[0].style.opacity = 0; }, 0);
-            popup[0].style.transition = 'none';
-        }
+  data() {
+    return {
+      tabTitle: 'Applications child',
+      items: ['GSMA Mobile Money API v1.2 OAuth_Simulator',
+        'GSMA Mobile Money API v1.1 OAuth_Simulator',
+        'GSMA Mobile Money API v1.0 OAuth_Simulator'],
+      appDetailsDisabled: true,
+      editBtnEnabled: true,
+      updateBtnEnabled: false,
+      appNameVar: this.appName,
+      productBindVar: this.productBind,
+      tooltipPopupIsVisible: false,
+      form: {
+        appName: '',
+        usagePlan: ''
+      }
     }
+  },
+
+  props: [
+    'applicationChildItem',
+    'appName',
+    'appDefault',
+    'appCreated',
+    'appExpire',
+    'appStatus',
+    'productBind',
+    'consumerKey',
+    'consumerSecret',
+    'apiKey'
+  ],
+  created() {
+    this.form.appName = this.appName
+    this.form.usagePlan = this.productBind
+  },
+
+  methods: {
+    handleEditClick() {
+      this.appDetailsDisabled = !this.appDetailsDisabled;
+      this.editBtnEnabled = false;
+      this.updateBtnEnabled = true;
+    },
+    handleUpdateClick() {
+      this.$emit('update-data', this.appNameVar, this.productBindVar)
+      this.appDetailsDisabled = true;
+      this.editBtnEnabled = true;
+      this.updateBtnEnabled = false;
+    },
+    copyToClipboard(e) {
+      const text = e.currentTarget.getAttribute('data-bind');
+      navigator.clipboard.writeText(this[text]).then(function () {
+      }, function (err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+      const popup = document.querySelectorAll(`span[data-bind="${text}"]`);
+      popup[0].style.opacity = 1;
+      setTimeout(() => {
+        popup[0].style.transition = 'opacity ease-in-out 1.5s';
+      }, 0);
+      setTimeout(() => {
+        popup[0].style.opacity = 0;
+      }, 0);
+      popup[0].style.transition = 'none';
+    }
+  }
 };
 </script>

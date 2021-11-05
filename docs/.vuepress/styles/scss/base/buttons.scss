@@ -70,6 +70,15 @@
       text-decoration: none !important;
     }
   }
+
+  &:disabled {
+    //color: var(--inactive-btn-color);
+    background-color: var(--inactive-btn-color);
+    border-color: var(--inactive-btn-color);
+    &:hover {
+      cursor: default;
+    }
+  }
 }
 
 .buttons-holder {

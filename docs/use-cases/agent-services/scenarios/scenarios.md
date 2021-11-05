@@ -949,8 +949,8 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1ri" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><
-br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
 
