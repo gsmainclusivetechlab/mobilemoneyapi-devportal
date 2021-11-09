@@ -105,6 +105,7 @@ export default {
   },
   methods: {
     async signUp() {
+      console.log('sign-up')
       await this.$store.dispatch('auth/signUp', this.form)
       .then(() => {
         this.$router.push('/login/')

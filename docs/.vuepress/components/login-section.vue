@@ -69,6 +69,7 @@ export default {
       //     .catch(() => {
       //       console.log('error')
       //     })
+      console.log('sign-in')
       this.$root.$emit('log-user-in', true);
       this.$router.push({path: '/dashboard/'})
     }

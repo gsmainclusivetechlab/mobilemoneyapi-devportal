@@ -17,10 +17,7 @@ The GSMA Simulator for the Mobile Money API is a simulated API implementation de
 
 In this example, an asynchronous cash-out flow is used with a final callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -82,10 +79,7 @@ Body parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -152,10 +146,7 @@ sequenceDiagram
 
 In this example, an asynchronous cash-out flow is used with the polling method. The client polls against the request state object to determine the outcome of the cash-out request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -257,10 +248,7 @@ GET .../transactions/Place Transaction Reference here
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 
 <mermaid>
@@ -311,10 +299,7 @@ sequenceDiagram
 
 In this example, an asynchronous cash-out flow is used with a final callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -376,10 +361,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -443,10 +425,7 @@ sequenceDiagram
 
 In this example the /authorisationcodes API is used to obtain a pre-authorised code. This in turn is presented by the withdrawing customer to the ATM which then initiates the cash-out request. Both flows in the diagram result in a callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -543,10 +522,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram    
@@ -592,10 +568,7 @@ sequenceDiagram
 
 In this diagram, the agent firstly checks that the depositing customer’s name is correct and will then submit the cash-in request. The final result is returned in the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -676,10 +649,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -717,10 +687,7 @@ sequenceDiagram
 
 In some failure scenarios, an agent may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -768,10 +735,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -799,10 +763,7 @@ sequenceDiagram
 
 In this diagram, an agent registers a new mobile money customer on behalf of a mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -923,10 +884,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -949,19 +907,12 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1ri" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
 
 ## Verify a Customer’s KYC
 
 In this diagram, an agent verifies the physical KYC provided by the customer against details held by the mobile money provider and informs the provider that the KYC has been successfully verified.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1015,10 +966,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1047,10 +995,7 @@ sequenceDiagram
 
 ## Obtain an Agent Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1086,10 +1031,7 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1114,10 +1056,7 @@ sequenceDiagram
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for an agent via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1159,10 +1098,7 @@ Params:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1191,10 +1127,7 @@ sequenceDiagram
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1230,10 +1163,7 @@ GET .../heartbeat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1259,10 +1189,7 @@ sequenceDiagram
 
 This API can be used by the agent to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1298,10 +1225,7 @@ GET .../responses/Please enter your UUID here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 
 <mermaid>

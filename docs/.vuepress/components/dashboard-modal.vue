@@ -5,7 +5,7 @@
         <button class="close-btn" @click="handleModalClose"></button>
         <span class="modal-title">Create app</span>
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="create-app">
-          <form>
+          <form @submit.prevent="handleSubmit(createApp)">
             <ValidationProvider class="input-wrap"
                                 vid="app-name"
                                 :rules="{ required: { allowFalse: false }}"
@@ -46,7 +46,7 @@
             </ValidationProvider>
             <div class="btn-row">
               <button class="cancel-btn btn btn--link" type="button" @click="handleModalClose">Cancel</button>
-              <button class="btn btn btn--accent" :disabled="invalid"  type="submit">Create app</button>
+              <button class="btn btn btn--accent" :disabled="invalid" type="submit">Create app</button>
             </div>
           </form>
         </ValidationObserver>
@@ -79,6 +79,15 @@ export default {
     handleModalClose() {
       this.$emit('close-modal');
     },
+    async createApp() {
+      console.log('post-app')
+      await this.$store.dispatch('application/postApp', this.form)
+          .then(() => {
+          })
+          .catch(() => {
+            console.log('error')
+          })
+    }
   },
 }
 </script>

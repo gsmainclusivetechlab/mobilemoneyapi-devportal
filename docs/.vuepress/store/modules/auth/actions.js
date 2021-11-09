@@ -30,4 +30,16 @@ export default {
                 })
         });
     },
+    forgotPassword({commit}, payload) {
+        return new Promise((resolve, reject) => {
+            Auth.forgotPassword(payload)
+                .then(() => {
+                    console.log('1')
+                    return resolve(1);
+                })
+                .catch((e) => {
+                    return reject(e)
+                })
+        });
+    },
 };

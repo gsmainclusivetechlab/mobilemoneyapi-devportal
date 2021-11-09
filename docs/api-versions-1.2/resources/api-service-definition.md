@@ -43,10 +43,7 @@ The Transactions APIs are used to support mobile money financial transaction use
 
 The following paths are permitted:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -148,10 +145,7 @@ Body Parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
@@ -178,10 +172,7 @@ classDiagram
 
 #### Transaction Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -283,10 +274,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -323,10 +311,7 @@ The Reversals API is used to reverse, adjust or refund a financial transaction. 
 
 For viewing and updating reversals, the [Transactions API]() should be used. 
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -376,10 +361,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 The supported path is *POST /transactions/{originalTransactionReference}/reversals*.
 
@@ -399,10 +381,7 @@ classDiagram
 
 #### Reversal Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -504,10 +483,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Reversal Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -545,10 +521,7 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 #### Batch Transactions Workflow
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -677,10 +650,7 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 ##### One-Shot Batch Processing
 
@@ -769,10 +739,7 @@ classDiagram
 
 #### Batch Transaction Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -842,10 +809,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -874,10 +838,7 @@ This API enables clients to retrieve information on all transactions that have e
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -921,10 +882,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -950,10 +908,7 @@ classDiagram
 
 #### Batch Rejection Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1013,10 +968,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Rejection Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1035,10 +987,7 @@ This API lists all transactions that have successfully completed for a given bat
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1082,10 +1031,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 
 |**Parameter**|**Type**|**Format**|**Description**|
@@ -1112,10 +1058,7 @@ classDiagram
 
 #### Batch Completion Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1175,10 +1118,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Completion Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1247,10 +1187,7 @@ To update information held against an account, use one of the following paths:
 
 The following account fields can be updated:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1300,10 +1237,7 @@ The following account fields can be updated:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Field**|**PATCH Body**|**Description**|
 |:--------|:--------|:-------------|
@@ -1324,10 +1258,7 @@ To update an information held against an identity associated with an account, us
 
 The following identity fields can be updated:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1387,10 +1318,7 @@ The following identity fields can be updated:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Field**|**PATCH Body**|**Description**|
 |:--------|:--------|:-------------|
@@ -1419,10 +1347,7 @@ classDiagram
 
 #### Account Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1507,10 +1432,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Account Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1543,10 +1465,7 @@ or *GET /accounts/{Account Identifiers}/transactions*.
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1592,10 +1511,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -1645,10 +1561,7 @@ classDiagram
 
 ##### Account Status Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 
 <code-block title="View">
@@ -1687,10 +1600,7 @@ classDiagram
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Account Status Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1714,10 +1624,7 @@ classDiagram
 
 **Figure 2-9 Account Balance UML Class Diagram**
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1763,10 +1670,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Balance Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1793,10 +1697,7 @@ classDiagram
 
 ##### Account Holder Name Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1845,10 +1746,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Account Holder Name Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1871,10 +1769,7 @@ To return a range of statement entries:
 
 To filter the number of records returned, the following query string parameters can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1920,10 +1815,7 @@ To filter the number of records returned, the following query string parameters 
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -1958,10 +1850,7 @@ classDiagram
 
 ##### Account Statement Entry Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2027,10 +1916,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Account Statement Entry Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2055,10 +1941,7 @@ The Bills API are used to return all outstanding bills associated with an accoun
 
 To filter the number of records returned, the following query string parameters can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2102,10 +1985,7 @@ To filter the number of records returned, the following query string parameters 
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -2132,10 +2012,7 @@ classDiagram
 
 #### Bill Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2194,10 +2071,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Bill Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2229,10 +2103,7 @@ As per MM API standards, POST is used to create a bill payment whereas GET is us
 
 When retrieving bill payments, the following query string parameters can be used to filter the number of records returned:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2276,10 +2147,7 @@ When retrieving bill payments, the following query string parameters can be used
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -2312,10 +2180,7 @@ classDiagram
 
 #### Bill Payment Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2383,10 +2248,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Bill Payment Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2424,10 +2286,7 @@ The Bill Companies APIs are used to return a list of Service Providers that acce
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2469,10 +2328,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -2499,10 +2355,7 @@ classDiagram
 
 #### Bill Company Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2551,10 +2404,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Bill Companies Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2596,10 +2446,7 @@ classDiagram
 
 #### Debit Mandate Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2664,10 +2511,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Debit Mandate Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2721,10 +2565,7 @@ classDiagram
 
 #### Link Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2784,10 +2625,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Link Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -2830,10 +2668,7 @@ The following paths are permitted:
 
 When retrieving authorisation codes, the following query string parameters can be used to filter the number of records returned:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2878,10 +2713,7 @@ When retrieving authorisation codes, the following query string parameters can b
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -2914,10 +2746,7 @@ classDiagram
 
 #### Authorisation Code Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -2992,10 +2821,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Authorisation Codes Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3019,10 +2845,7 @@ classDiagram
 
 ### Quotations API
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3186,16 +3009,10 @@ classDiagram
 </mermaid>
 
 **Figure 2-18 Quotation UML Class Diagram**
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br>
 
 #### Quotation Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3296,10 +3113,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Quotation Object Definition** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3344,10 +3158,7 @@ classDiagram
 
 The International Transfer Information object contains details that are specific to international money transfers.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3397,10 +3208,7 @@ The International Transfer Information object contains details that are specific
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **International Transfer Information Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3420,10 +3228,7 @@ The International Transfer Information object contains details that are specific
 
 KYC refers to ‘Know your Customer’. The KYC object contains a number of fields that enable the identity of the subject to be verified. KYC can be provided with transfers for the sending identity and the receiving identity. There are no mandatory KYC object fields.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3494,10 +3299,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **KYC Information Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3518,10 +3320,7 @@ KYC refers to ‘Know your Customer’. The KYC object contains a number of fiel
 
 The name object identifies the name details for the subject identity.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3567,10 +3366,7 @@ The name object identifies the name details for the subject identity.
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3586,10 +3382,7 @@ The name object identifies the name details for the subject identity.
 
 As part of KYC information, identification documentation is normally required. The Id Document Object enables documents pertaining to a subject’s identity to be described.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3637,10 +3430,7 @@ As part of KYC information, identification documentation is normally required. T
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Id Document Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3658,10 +3448,7 @@ As part of KYC information, identification documentation is normally required. T
 
 The address object holds the postal address of the subject. Due to variability of address information in a number of mobile money markets, only the country is mandatory.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3708,10 +3495,7 @@ The address object holds the postal address of the subject. Due to variability o
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Address Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3728,10 +3512,7 @@ The address object holds the postal address of the subject. Due to variability o
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3780,10 +3561,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Account Identifier Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3795,10 +3573,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The Identity object defines the information for an identity associated with an account. Between one and twenty identities can be associated with an account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3854,10 +3629,7 @@ The Identity object defines the information for an identity associated with an a
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Identity Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3876,10 +3648,7 @@ The Identity object defines the information for an identity associated with an a
 
 Quotations can consist of multiple quotes. The fields for a quote are defined in the object.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -3935,10 +3704,7 @@ Quotations can consist of multiple quotes. The fields for a quote are defined in
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Quote Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -3958,10 +3724,7 @@ Quotations can consist of multiple quotes. The fields for a quote are defined in
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4003,10 +3766,7 @@ The metadata object allows fields to be specified to convey administrative infor
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Metadata Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4018,10 +3778,7 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4063,10 +3820,7 @@ The custom data object allows additional fields to be specified for the associat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Custom Data Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4078,10 +3832,7 @@ The custom data object allows additional fields to be specified for the associat
 
 This object enables additional payment references to be specified for a bill payment in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4122,10 +3873,7 @@ This object enables additional payment references to be specified for a bill pay
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Supplementary Bill Reference Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4137,10 +3885,7 @@ This object enables additional payment references to be specified for a bill pay
 
 This object enables multiple transaction types to be specified along with paired sub-types. This object is used where multiple transaction types need to be passed in an API.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4182,10 +3927,7 @@ This object enables multiple transaction types to be specified along with paired
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Transaction Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4197,10 +3939,7 @@ This object enables multiple transaction types to be specified along with paired
 
 This object enables multiple channel types to be specified. This object is used where multiple channel types need to be passed in an API.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4241,10 +3980,7 @@ This object enables multiple channel types to be specified. This object is used 
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Channel Type Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4255,10 +3991,7 @@ This object enables multiple channel types to be specified. This object is used 
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4301,10 +4034,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Fees Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4317,10 +4047,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 An object that enables earned commission that is calculated by the API provider to be returned.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4363,10 +4090,7 @@ An object that enables earned commission that is calculated by the API provider 
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Commission Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4379,10 +4103,7 @@ An object that enables earned commission that is calculated by the API provider 
 
 An object that details the originating organisation of the request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4424,10 +4145,7 @@ An object that details the originating organisation of the request.
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Requesting Organisation Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -4495,10 +4213,7 @@ The ID Types enumeration contains accepted identification types. Due to the wide
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -4558,10 +4273,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Code**|**Short Description**|**Type**|**Description**|
 |:--------|:--------|:--------|:--------|

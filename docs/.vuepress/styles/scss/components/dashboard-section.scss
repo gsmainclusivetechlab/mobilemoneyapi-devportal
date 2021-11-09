@@ -665,9 +665,28 @@
     padding: 3px 5px;
     border-radius: 5px;
 
+    &__active {
+      animation-duration: 1.25s;
+      animation-name: show-popup;
+    }
+
     @include media('<tablet') {
       left: unset;
       right: -30px;
+    }
+  }
+
+  @keyframes show-popup {
+    from {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 0;
     }
   }
 

@@ -58,6 +58,23 @@ class Api {
       ...config,
     });
   }
+
+  put(url, data, config) {
+    return this.request({
+      method: 'PUT',
+      url,
+      data,
+      ...config,
+    });
+  }
+
+  delete(url, config) {
+    return this.request({
+      method: 'DELETE',
+      url,
+      ...config,
+    });
+  }
 }
 
 export default Api.create();
