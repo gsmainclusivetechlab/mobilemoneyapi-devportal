@@ -26,6 +26,7 @@ export default {
             } else {
                 this.codeBlockHeight = 200;
             }
+            this.$refs['code-with-block'].querySelector('pre.language-json').style.maxHeight = `${this.codeBlockHeight}px`
         },
         isToogleHiddenClass() {
             this.visibleContent = !this.visibleContent

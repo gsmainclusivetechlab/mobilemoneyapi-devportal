@@ -39,7 +39,7 @@
               </li>
             </ul>
           </div>
-          <div class="code-with-block" ref="code-with-block" :style="{'max-height': `${codeBlockHeight}px`}">
+          <div class="code-with-block" ref="code-with-block">
             <slot/>
             <div class="code-arrow" v-if="isArrowActive"  :class="{'code-arrow__visible': visibleContent}">
               <img @click="isToogleHiddenClass" src="/images/arrow.svg" alt="">
@@ -148,7 +148,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.code-with-block {
+pre.language-json {
   overflow-y: hidden;
   transition: max-height 1s ease;
   border-radius: 8px;
