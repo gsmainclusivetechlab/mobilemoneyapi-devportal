@@ -41,8 +41,10 @@
           </div>
           <div class="code-with-block" ref="code-with-block">
             <slot/>
-            <div class="code-arrow" v-if="isArrowActive"  :class="{'code-arrow__visible': visibleContent}">
-              <img @click="isToogleHiddenClass" src="/images/arrow.svg" alt="">
+            <div class="code-arrow" v-if="isArrowActive && activeCodeTabIndex === 0"
+                 :class="{'code-arrow__visible': visibleContent}"
+                 @click="isToogleHiddenClass">
+              {{ visibleContent ? 'Hidden' : 'Show more' }}
             </div>
           </div>
           <pre
@@ -60,6 +62,7 @@ import codeBlock from "../mixins/codeBlock";
 
 export default {
   name: 'CodeMainGroup',
+  mixins: [codeBlock],
   data() {
     return {
       codeTabs: [],
@@ -72,31 +75,34 @@ export default {
       },
     }
   },
-  provide() {
-    return {
-      provideObject: this.provideObject
-    }
-  },
-  mixins: [codeBlock],
   watch: {
     activeCodeTabIndex(index) {
       this.activateCodeTab(index)
     }
   },
+  provide() {
+    return {
+      provideObject: this.provideObject
+    }
+  },
   mounted() {
     this.$on('get-code-languages', this.setActiveMethod)
+
     this.$on('set-method-index', (i) => {
       this.provideObject.activeMethodIndex = i
+      if(this.$refs['code-with-block'].querySelector('pre.language-json')) {
+        this.visibleContent = false;
+        this.getHeight();
+      }
     })
+
     this.loadTabs();
 
-    setTimeout(() => {
-      document.addEventListener('click', (event) => {
-        if (!event.target.closest('.lang-select-box')) {
-          this.isListOpened = false;
-        }
-      });
-    }, 300);
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.lang-select-box')) {
+        this.isListOpened = false;
+      }
+    });
   },
   beforeDestroy() {
     this.$off('get-code-languages')
@@ -142,7 +148,7 @@ export default {
       if (this.codeTabs[index].elm) {
         this.codeTabs[index].elm.classList.add('theme-code-block__active')
       }
-    },
+    }
   }
 }
 </script>
@@ -154,35 +160,25 @@ pre.language-json {
   border-radius: 8px;
 }
 
-
 .code-arrow {
   position: absolute;
   text-align: center;
-  line-height: 30px;
-  background-color: #323336;
   background-position: center;
   background-size: cover;
-  width: 30px;
-  height: 100%;
+  background-color: #242529;
+  border-radius: 0 0 8px 8px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: 500;
   z-index: 5;
-  top:0;
-  bottom: 10px;
-  right: calc(100% + 5px);
   color: white;
+  left: 50%;
+  //bottom: -40px;
+  transform: translateX(-50%);
 
-  img {
+  &:hover {
     cursor: pointer;
-    transform: translateX(50%) rotate(90deg);
-    left: -50%;
-    bottom: 10px;
-    background-color: #1b1b1b;
-    border-radius: 50%;
-    position: absolute;
-    transition: all 1s ease;
-  }
-
-  &__visible img{
-    transform: translateX(50%) rotate(-90deg);
   }
 }
 

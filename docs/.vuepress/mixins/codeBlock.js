@@ -9,12 +9,26 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
-            this.scrollHeight = this.$refs['code-with-block'].scrollHeight
-            if (this.$refs['code-with-block'].querySelector('pre.language-json').scrollWidth > 350) {
+            this.scrollHeight = this.$refs['code-with-block'].scrollHeight;
+            if (this.$refs['code-with-block'].querySelector('.theme-code-block__active pre.language-json').scrollWidth > 350) {
                 this.scrollHeight += 18;
             }
-            this.getHeight()
+            this.getHeight();
         })
+        //pre[class^="language-"]
+    },
+    computed: {
+      activeCodeBlock() {
+          return this.$store.state.codePanel.activeCodeBlock
+      }
+    },
+    watch: {
+        activeCodeBlock(val) {
+            if(val !== this._uid) {
+                this.visibleContent = false
+                this.getHeight()
+            }
+        }
     },
     methods: {
         getHeight() {
@@ -29,7 +43,10 @@ export default {
             this.$refs['code-with-block'].querySelector('pre.language-json').style.maxHeight = `${this.codeBlockHeight}px`
         },
         isToogleHiddenClass() {
-            this.visibleContent = !this.visibleContent
+            this.visibleContent = !this.visibleContent;
+            if(this.visibleContent) {
+                this.$store.commit('codePanel/setActiveCodeBlock', this._uid)
+            }
             this.getHeight()
         },
     }
