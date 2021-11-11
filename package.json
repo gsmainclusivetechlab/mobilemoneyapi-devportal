@@ -21,17 +21,19 @@
     "vuepress-plugin-fulltext-search": "^2.2.0"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "include-media": "^1.4.10",
     "markdown-it-code-copy": "^0.1.0",
     "markdown-it-include": "^2.0.0",
     "mermaid": "^8.9.3",
     "swagger-ui": "^3.48.0",
-    "vee-validate": "2.1.4",
+    "vee-validate": "^3.4.11",
     "vue-clickaway": "^2.2.2",
     "vue-cool-lightbox": "^2.7.4",
     "vue-select": "^3.11.2",
     "vue-slick-carousel": "^1.0.6",
     "vue-touch": "^2.0.0-beta.4",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuex": "^3.6.2"
   }
 }

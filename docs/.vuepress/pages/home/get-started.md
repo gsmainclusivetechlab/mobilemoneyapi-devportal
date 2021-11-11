@@ -11,16 +11,14 @@
       </div>
       <div class="buttons-holder content-center get-started__btn-holder">
         <router-link
-            v-if="borderedLink"
-            :to="borderedLink.link"
+            to="/api-versions-1.2/get-started"
             class="btn"
-        > {{ borderedLink.text }}
+        >Learn more
         </router-link>
         <router-link
-            v-if="accentLink"
-            :to="accentLink.link"
+            to="/api-versions-1.2/resources/api-service-definition"
             class="btn btn--accent"
-        > {{ accentLink.text }}
+        >Start developing
         </router-link>
       </div>
     </div>

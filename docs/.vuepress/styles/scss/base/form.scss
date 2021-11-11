@@ -1,0 +1,11 @@
+.form-row__error {
+  color: red;
+  text-align: center;
+  font-size: 12px !important;
+  padding: 0 5px;
+  &-checkbox {
+    &:before {
+      border: 1px solid red !important;
+    }
+  }
+}

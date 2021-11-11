@@ -46,14 +46,6 @@ export default {
         speed: 500,
         slidesToShow: 1,
       },
-      borderedLink: {
-        text: 'Learn more',
-        link: '/api-versions-1.2/get-started'
-      },
-      accentLink: {
-        text: 'Start developing',
-        link: '/api-versions-1.2/resources/api-service-definition'
-      }
     }
   }
 }

@@ -5,7 +5,6 @@ import debounce from 'lodash.debounce'
 export default {
   mounted () {
     window.addEventListener('scroll', this.onScroll)
-    console.log('test')
   },
 
   methods: {

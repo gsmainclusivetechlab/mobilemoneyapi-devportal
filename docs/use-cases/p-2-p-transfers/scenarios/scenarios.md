@@ -17,10 +17,7 @@ The GSMA Simulator for the Mobile Money API is a simulated API implementation de
 
 In this diagram, a switch is used by the sending FSP to (1) confirm the recipient name, (2) request a quotation and  and to(3) perform the transfer with the receiving FSP. A callback is provided by the receiving FSP to return confirmation of the transfer.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -177,10 +174,7 @@ Body parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
   <mermaid>
     sequenceDiagram
@@ -255,10 +249,7 @@ Body parameters:
 
 In this diagram, the sending FSP connects directly with the receiving FSP to confirm the recipient name and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer. In this example, a quotation is not requested.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -347,10 +338,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -387,10 +375,7 @@ Body parameters:
 
 In this diagram, A third party provider enables a sender to transfer money to a recipient in the same FSP. The third party provider (1) confirms the recipient name, (2) requests a quotation and (3) performs the transfer with the FSP. A callback is provided by the FSP to return confirmation of the transfer.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -545,10 +530,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -631,10 +613,7 @@ In some failure scenarios, a transfer may need to be reversed. This diagram illu
 
 In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -684,10 +663,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -714,10 +690,7 @@ Body parameters:
 
 ## Obtain an FSP Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -756,10 +729,7 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -785,10 +755,7 @@ GET .../accounts/accountid/2000/balance
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -833,10 +800,7 @@ Params:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -866,10 +830,7 @@ Params:
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -908,10 +869,7 @@ GET .../heartbeat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -937,10 +895,7 @@ GET .../heartbeat
 
 This API can be used by the sending FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the receiving FSP.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -980,10 +935,7 @@ GET .../responses/Please enter your UUID here
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram

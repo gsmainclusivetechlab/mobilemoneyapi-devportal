@@ -17,10 +17,7 @@ The GSMA Simulator for the Mobile Money API is a simulated API implementation de
 
 This diagram illustrates the setting-up of a recurring payment via a debit mandate. The service provider initiates the request which is authorised by the account holding customer. In this diagram, an asynchronous flow is used with a final callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -86,10 +83,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -151,10 +145,7 @@ sequenceDiagram
 
 In this diagram, the service provider initiates a payment request to the FSP to debit the account-holders account as per the debit mandate.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -215,10 +206,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -271,10 +259,7 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -374,10 +359,7 @@ GET .../transactions/Place Transaction Reference here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -415,10 +397,7 @@ sequenceDiagram
 
 Service Providers can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -479,10 +458,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -509,10 +485,7 @@ Body parameters:
 
 In some failure scenarios, a service provider may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -560,10 +533,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -590,10 +560,7 @@ Body parameters:
 
 This diagram illustrates how the MM API can be used by a mobile money provider to allow a payer to setup a recurring payment using a channel provided by the provider, for example, a mobile money app.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -659,10 +626,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -687,10 +651,7 @@ Body parameters:
 
 ## Obtain a Service Provider Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -726,10 +687,7 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -753,10 +711,7 @@ GET .../accounts/accountid/2000/balance
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a service provider via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -798,10 +753,7 @@ Params:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -829,10 +781,7 @@ Params:
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -868,10 +817,7 @@ GET .../heartbeat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -896,10 +842,7 @@ GET .../heartbeat
 
 This API can be used by the service provider to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the FSP.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -935,10 +878,7 @@ GET .../responses/Please enter your UUID here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram

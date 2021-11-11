@@ -17,10 +17,7 @@ The GSMA Simulator for the Mobile Money API is a simulated API implementation de
 
 In this example, an asynchronous payment flow is used with a final callback. The merchant initiates the request and will be credited when the payer approves the request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -83,10 +80,7 @@ Body Parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
   sequenceDiagram
@@ -122,10 +116,7 @@ Body Parameters:
 
 In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -188,10 +179,7 @@ Body Parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -224,10 +212,7 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -323,10 +308,7 @@ GET .../transactions/Place Transaction Reference here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -379,10 +361,7 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with a final callback. The payer initiates the request and will be debited upon successful completion of the request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -443,10 +422,7 @@ Body Parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -482,10 +458,7 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
@@ -547,10 +520,7 @@ Body Parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -581,10 +551,7 @@ sequenceDiagram
 
 In this example the /authorisationcodes API is used to obtain a pre-authorised payment code. This in turn is presented by the payer to the merchant who initiates the payment request. Both flows in the diagram result in a callback. This flow is primarily used for payment on delivery use cases.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -682,10 +649,7 @@ Body Parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -732,10 +696,7 @@ sequenceDiagram
 
 Merchants can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -797,10 +758,7 @@ Body Parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -831,10 +789,7 @@ sequenceDiagram
 
 In some failure scenarios, a merchant may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -882,10 +837,7 @@ Body Parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -912,10 +864,7 @@ sequenceDiagram
 
 ## Obtain a Merchant Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -951,10 +900,7 @@ GET .../accounts/accountid/2000/balance
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -980,10 +926,7 @@ sequenceDiagram
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a merchant via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1025,10 +968,7 @@ Params:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1057,10 +997,7 @@ sequenceDiagram
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1096,10 +1033,7 @@ GET .../heartbeat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -1125,10 +1059,7 @@ sequenceDiagram
 
 This API can be used by the merchant to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1164,10 +1095,7 @@ GET .../responses/Please enter your UUID here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 <mermaid>
 sequenceDiagram
     participant Merchant
