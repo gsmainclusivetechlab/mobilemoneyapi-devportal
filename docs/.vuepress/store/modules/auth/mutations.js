@@ -1,5 +1,5 @@
 export default {
-  setUserData(state, data) {
-    state.userData = data;
+  setTokenAccess(state) {
+    state.token_access = '123'
   },
 };

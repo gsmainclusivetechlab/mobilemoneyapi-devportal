@@ -61,14 +61,14 @@ export default {
   },
   methods: {
     async signIn() {
-      // await this.$store.dispatch('auth/signIn', this.form)
-      //     .then(() => {
-      //       this.$root.$emit('log-user-in', true);
-      //       this.$router.push({path: '/dashboard/'})
-      //     })
-      //     .catch(() => {
-      //       console.log('error')
-      //     })
+      await this.$store.dispatch('auth/signIn', this.form)
+          .then(() => {
+            this.$root.$emit('log-user-in', true);
+            this.$router.push({path: '/dashboard/'})
+          })
+          .catch(() => {
+            console.log('error')
+          })
       console.log('sign-in')
       this.$root.$emit('log-user-in', true);
       this.$router.push({path: '/dashboard/'})
