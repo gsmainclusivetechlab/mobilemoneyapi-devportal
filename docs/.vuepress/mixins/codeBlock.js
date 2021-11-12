@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         getHeight() {
-            if (this.scrollHeight < 250) {
+            if (this.scrollHeight < 300) {
                 this.isArrowActive = false;
                 this.codeBlockHeight = this.scrollHeight;
             } else if (this.visibleContent) {
