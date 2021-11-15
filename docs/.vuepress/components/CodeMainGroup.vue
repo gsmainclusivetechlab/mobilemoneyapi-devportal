@@ -165,7 +165,7 @@ pre.language-json {
   text-align: center;
   background-position: center;
   background-size: cover;
-  background-color: #242529;
+  //background-color: #242529;
   border-radius: 0 0 8px 8px;
   padding: 0 10px;
   font-size: 1.2rem;
@@ -180,6 +180,11 @@ pre.language-json {
   &:hover {
     cursor: pointer;
   }
+}
+
+.code-with-block {
+  box-shadow: 0 28px 0 0 rgba(36,37,41,.8);
+  border-radius: 8px;
 }
 
 .theme-code-group__nav {
