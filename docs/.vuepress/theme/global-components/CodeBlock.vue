@@ -3,12 +3,7 @@
     class="theme-code-block"
     :class="{ 'theme-code-block__active': active }"
   >
-    <template v-if="title!=='Code'">
       <slot/>
-    </template>
-    <template v-else>
-      <slot/>
-    </template>
   </div>
 </template>
 
@@ -38,10 +33,10 @@ export default {
 
 <style scoped>
   .theme-code-block {
-    display: none;
+    position: absolute; top: -9999px; left: -9999px;
   }
   .theme-code-block__active {
-    display: block;
+    position: relative; top: auto; left: auto;
   }
   .theme-code-block > pre {
     background-color: orange;
