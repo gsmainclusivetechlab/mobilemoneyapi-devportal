@@ -3,7 +3,7 @@
     <div class="has-code-panel-block">
       <div class="code-panel-block-holder" :style="{'z-index': visibleContent ? 5 : 4}">
         <div class="theme-code-group">
-          <div class="lang-select-box" v-if="languages.length && activeCodeTabIndex" :class="{'opened': isListOpened}"
+          <div class="lang-select-box" v-if="languages.length && provideObject.activeCodeTabIndex" :class="{'opened': isListOpened}"
                @click="isListOpened = !isListOpened">
             <div class="active-lang">
               <div class="text">{{ provideObject.activeLanguage }}</div>
@@ -30,7 +30,7 @@
                 <button
                     class="theme-code-group__nav-tab"
                     :class="{
-                'theme-code-group__nav-tab-active': i === activeCodeTabIndex,
+                'theme-code-group__nav-tab-active': i === provideObject.activeCodeTabIndex,
               }"
                     @click="changeCodeTab(i)"
                 >
@@ -39,13 +39,8 @@
               </li>
             </ul>
           </div>
-          <div class="code-with-block" ref="code-with-block">
+          <div class="code-with-block">
             <slot/>
-            <div class="code-arrow" v-if="isArrowActive && activeCodeTabIndex === 0"
-                 :class="{'code-arrow__visible': visibleContent}"
-                 @click="isToogleHiddenClass">
-              {{ visibleContent ? 'Hidden' : 'Show more' }}
-            </div>
           </div>
           <pre
               v-if="codeTabs.length < 1"
@@ -58,26 +53,30 @@
 </template>
 
 <script>
-import codeBlock from "../mixins/codeBlock";
+// import codeBlock from "../mixins/codeBlock";
 
 export default {
   name: 'CodeMainGroup',
-  mixins: [codeBlock],
+  // mixins: [codeBlock],
   data() {
     return {
       codeTabs: [],
-      activeCodeTabIndex: -1,
       languages: [],
       isListOpened: false,
       provideObject: {
         activeLanguage: '',
-        activeMethodIndex: -1
+        activeMethodIndex: -1,
+        activeCodeTabIndex: -1,
       },
+      visibleContent: false
     }
   },
   watch: {
-    activeCodeTabIndex(index) {
+    'provideObject.activeCodeTabIndex'(index) {
       this.activateCodeTab(index)
+    },
+    activeCodeBlock(val) {
+      this.visibleContent = val === this._uid;
     }
   },
   provide() {
@@ -85,15 +84,17 @@ export default {
       provideObject: this.provideObject
     }
   },
+  computed: {
+    activeCodeBlock() {
+      return this.$store.state.codePanel.activeCodeBlock
+    }
+  },
   mounted() {
     this.$on('get-code-languages', this.setActiveMethod)
 
+
     this.$on('set-method-index', (i) => {
       this.provideObject.activeMethodIndex = i
-      if(this.$refs['code-with-block'].querySelector('pre.language-json')) {
-        this.visibleContent = false;
-        this.getHeight();
-      }
     })
 
     this.loadTabs();
@@ -118,12 +119,12 @@ export default {
       this.changeCodeTab(1)
     },
     changeCodeTab(index) {
-      this.activeCodeTabIndex = index
+      this.provideObject.activeCodeTabIndex = index
     },
     loadTabs() {
       this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
         if (slot.componentOptions.propsData.active === '') {
-          this.activeCodeTabIndex = index
+          this.provideObject.activeCodeTabIndex = index
         }
 
         return {
@@ -132,8 +133,8 @@ export default {
         }
       })
 
-      if (this.activeCodeTabIndex === -1 && this.codeTabs.length > 0) {
-        this.activeCodeTabIndex = 0
+      if (this.provideObject.activeCodeTabIndex === -1 && this.codeTabs.length > 0) {
+        this.provideObject.activeCodeTabIndex = 0
       }
 
       this.activateCodeTab(0)
@@ -155,36 +156,14 @@ export default {
 
 <style lang="scss" scoped>
 pre.language-json {
-  overflow-y: hidden;
-  transition: max-height 1s ease;
-  border-radius: 8px;
-}
-
-.code-arrow {
-  position: absolute;
-  text-align: center;
-  background-position: center;
-  background-size: cover;
-  //background-color: #242529;
-  border-radius: 0 0 8px 8px;
-  padding: 0 10px;
-  font-size: 1.2rem;
-  line-height: 2;
-  font-weight: 500;
-  z-index: 5;
-  color: white;
-  left: 50%;
-  //bottom: -40px;
-  transform: translateX(-50%);
-
-  &:hover {
-    cursor: pointer;
-  }
+  //overflow-y: hidden;
+  //transition: max-height 1s ease;
+  //border-radius: 0 8px 0 0;
 }
 
 .code-with-block {
-  box-shadow: 0 28px 0 0 rgba(36,37,41,.8);
-  border-radius: 8px;
+  //box-shadow: 0 28px 0 0 rgba(36,37,41,.8);
+  //border-radius: 8px;
 }
 
 .theme-code-group__nav {
@@ -202,9 +181,6 @@ pre.language-json {
   padding-left: 0;
   display: inline-flex;
   list-style: none;
-}
-
-.theme-code-group__li {
 }
 
 .theme-code-group__nav-tab {
