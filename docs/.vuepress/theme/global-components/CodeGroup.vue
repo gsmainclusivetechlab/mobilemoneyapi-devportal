@@ -22,8 +22,8 @@
         </ul>
       </div>
       <slot/>
-      <div class="code-arrow" v-if="isButtonShow" @click="isVisibleContent = !isVisibleContent">
-        {{ isVisibleContent ? 'Hidden' : 'Show more' }} {{scrollHeight}}
+      <div class="code-arrow" v-if="isButtonShow" @click="isButtonClick()">
+        {{ isVisibleContent ? 'Hidden' : 'Show more' }}
       </div>
       <pre
           v-if="codeTabs.length < 1"
@@ -48,12 +48,16 @@ export default {
       afterInitComponent: false,
 
       scrollHeight: 200,
-      isVisibleContent: true
+      isVisibleContent: true,
+      isNonCollapse: false
     }
   },
   computed: {
     isButtonShow() {
       return this.scrollHeight >= 350
+    },
+    activeCodeBlock() {
+      return this.$store.state.codePanel.activeCodeBlock
     }
   },
   watch: {
@@ -65,12 +69,9 @@ export default {
         }
       }
     },
-    isVisibleContent(val) {
-      console.log('change')
-      if (val) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = `${this.scrollHeight}px`
-      } else {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = '200px'
+    activeCodeBlock(val) {
+      if(val !== this.$parent.$parent._uid && !this.isNonCollapse) {
+        this.isButtonClick(false)
       }
     }
   },
@@ -91,6 +92,18 @@ export default {
     })
   },
   methods: {
+    isButtonClick(param) {
+      if(param !== undefined) this.isVisibleContent = param
+      else this.isVisibleContent = !this.isVisibleContent;
+
+      if (this.isVisibleContent) {
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = `${this.scrollHeight}px`
+        this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid)
+      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')){
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = '200px'
+      }
+
+    },
     changeCodeTab(index) {
       if (this.$parent && this.$parent.$parent) {
         this.$parent.$parent.$emit('set-method-index', index)
@@ -128,10 +141,16 @@ export default {
     },
     checkScrollHeight() {
       this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollHeight
-      console.dir(this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json'));
-      if (this.scrollHeight >= 350) {
+      const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollWidth;
+
+      if (scrollWidth >= 350) {
         this.scrollHeight += 18
-        this.isVisibleContent = false
+      }
+
+      if(this.scrollHeight >= 350) {
+        this.isButtonClick(false)
+      } else {
+        this.isNonCollapse = true
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <div class="has-code-panel-block">
-      <div class="code-panel-block-holder">
+      <div class="code-panel-block-holder" :style="{'z-index': visibleContent ? 5 : 4}">
         <div class="theme-code-group">
           <div class="lang-select-box" v-if="languages.length && provideObject.activeCodeTabIndex" :class="{'opened': isListOpened}"
                @click="isListOpened = !isListOpened">
@@ -68,11 +68,15 @@ export default {
         activeMethodIndex: -1,
         activeCodeTabIndex: -1,
       },
+      visibleContent: false
     }
   },
   watch: {
     'provideObject.activeCodeTabIndex'(index) {
       this.activateCodeTab(index)
+    },
+    activeCodeBlock(val) {
+      this.visibleContent = val === this._uid;
     }
   },
   provide() {
@@ -80,8 +84,14 @@ export default {
       provideObject: this.provideObject
     }
   },
+  computed: {
+    activeCodeBlock() {
+      return this.$store.state.codePanel.activeCodeBlock
+    }
+  },
   mounted() {
     this.$on('get-code-languages', this.setActiveMethod)
+
 
     this.$on('set-method-index', (i) => {
       this.provideObject.activeMethodIndex = i
