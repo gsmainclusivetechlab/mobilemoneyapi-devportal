@@ -28,7 +28,7 @@
             <form @submit.prevent="handleSubmit(editApp)">
               <ValidationProvider class="input-group"
                                   vid="appName"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="appName">
