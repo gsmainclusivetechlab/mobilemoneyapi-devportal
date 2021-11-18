@@ -69,6 +69,11 @@ export default {
         }
       }
     },
+    'provideObject.activeCodeTabIndex'(newVal, oldVal){
+      if(oldVal) {
+        this.checkScrollHeight()
+      }
+    },
     activeCodeBlock(val) {
       if(val !== this.$parent.$parent._uid && !this.isNonCollapse) {
         this.isButtonClick(false)
@@ -146,9 +151,9 @@ export default {
       if (scrollWidth >= 350) {
         this.scrollHeight += 18
       }
-
       if(this.scrollHeight >= 350) {
         this.isButtonClick(false)
+        this.isNonCollapse = false
       } else {
         this.isNonCollapse = true
       }

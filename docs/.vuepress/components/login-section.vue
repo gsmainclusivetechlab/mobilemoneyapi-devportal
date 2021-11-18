@@ -24,7 +24,7 @@
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="password"
-                                :rules="{ required: { allowFalse: false } }"
+                                :rules="{ required: { allowFalse: false }, verify_password: true, min: 8 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="password">Password

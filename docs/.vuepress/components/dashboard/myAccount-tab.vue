@@ -18,7 +18,7 @@
             <div class="fields-wrap">
               <ValidationProvider class="input-group"
                                   vid="lastName"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="lastName">Last name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
@@ -26,7 +26,7 @@
               </ValidationProvider>
               <ValidationProvider class="input-group"
                                   vid="firstName"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="firstName">First name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
@@ -34,7 +34,7 @@
               </ValidationProvider>
               <ValidationProvider class="input-group"
                                   vid="username"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="username">Username<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
@@ -49,7 +49,7 @@
             <div class="fields-wrap">
               <ValidationProvider class="input-group"
                                   vid="email"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, email: true}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="email">E-mail<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
@@ -57,7 +57,7 @@
               </ValidationProvider>
               <ValidationProvider class="input-group"
                                   vid="password"
-                                  :rules="{ required: { allowFalse: false }}"
+                                  :rules="{ required: { allowFalse: false }, verify_password: true, min: 8}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="password">Password<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
