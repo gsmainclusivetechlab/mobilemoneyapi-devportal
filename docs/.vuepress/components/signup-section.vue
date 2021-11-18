@@ -16,7 +16,7 @@
           <form @submit.prevent="handleSubmit(signUp)">
             <ValidationProvider class="form-row"
                                 vid="first-name"
-                                :rules="{ required: { allowFalse: false }}"
+                                :rules="{ required: { allowFalse: false }, alpha: true, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="first-name">
@@ -27,7 +27,7 @@
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="last-name"
-                                :rules="{ required: { allowFalse: false } }"
+                                :rules="{ required: { allowFalse: false }, alpha: true, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="last-name">Last name
@@ -39,7 +39,7 @@
 
             <ValidationProvider class="form-row"
                                 vid="username"
-                                :rules="{ required: { allowFalse: false } }"
+                                :rules="{ required: { allowFalse: false }, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="username">Username

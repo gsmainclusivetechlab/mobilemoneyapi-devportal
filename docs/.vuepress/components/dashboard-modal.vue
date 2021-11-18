@@ -8,7 +8,7 @@
           <form @submit.prevent="handleSubmit(createApp)">
             <ValidationProvider class="input-wrap"
                                 vid="app-name"
-                                :rules="{ required: { allowFalse: false }}"
+                                :rules="{ required: { allowFalse: false }, min: 8 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="app-name">
