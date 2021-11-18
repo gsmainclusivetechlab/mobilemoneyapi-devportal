@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   description: |
-    The purpose of this schema is to specify the endpoints, fields, objects, and enumerations for Bill Payments Mobile Money APIs, which are a subset of the GSMA Mobile Money API Specification. 
+    The purpose of this schema is to specify the endpoints, fields, objects, and enumerations for Bill Payments Mobile Money APIs, which are a subset of the GSMA Mobile Money API Specification.
     The Bill Payments Mobile Money APIs allow service providers to accept bill payments from mobile money customers.
     You can find out more about what the API can do for your business at
     [https://developer.mobilemoneyapi.io]
@@ -17,7 +17,7 @@ tags:
 
       - Retrieving bills at a service provider for a given mobile money customer.
       - Allowing mobile money customers to partially or fully pay bills for a service provider.
-      - Retrieving bill payment information from a service provider for a given customer.    
+      - Retrieving bill payment information from a service provider for a given customer.
 
       Two methods are provided for identifying an account, the single identifier method and the multiple identifiers method.
 
@@ -27,14 +27,14 @@ tags:
 
       Multiple Identifiers Method:
 
-      - Where a single identifier is not sufficient to identify an account, the following path is to be used: &#39; **/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}**&#39;. The list of permitted account identifiers supported by the Mobile Money API can be found in the API documentation. As there can be multiple identifiers required to identify the target account, the path uses a &#39;$&#39; delimiter to separate each identifier, up to a limit of three account identifiers.    
+      - Where a single identifier is not sufficient to identify an account, the following path is to be used: &#39; **/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}**&#39;. The list of permitted account identifiers supported by the Mobile Money API can be found in the API documentation. As there can be multiple identifiers required to identify the target account, the path uses a &#39;$&#39; delimiter to separate each identifier, up to a limit of three account identifiers.
   - name: Supporting
     description: |
       Supporting APIs consist of the following:
 
       - **Heartbeat API:** Used for monitoring purposes and establishes whether the system of an API provider is in a state that enables a client to submit a request for processing within established SLAs.
       - **Request State API** : Used to determine the state of an asynchronous request.
-      - **Responses API** : In some circumstances, the client may not have received the final representation of the resource for which it attempted to create or update. The **Responses** API allows a client to identify and retrieve the final representation of the resource assuming that the resource was created.     
+      - **Responses API** : In some circumstances, the client may not have received the final representation of the resource for which it attempted to create or update. The **Responses** API allows a client to identify and retrieve the final representation of the resource assuming that the resource was created.
 paths:
 
   # Bills APIs. These APIs allow the viewing of bill payment companies, viewing of bills and the creation and viewing of bill payments.
@@ -61,7 +61,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represent a list of Bills
@@ -76,9 +76,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -105,7 +105,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -147,7 +147,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represent a list of Bills
@@ -162,9 +162,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -191,7 +191,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -215,7 +215,7 @@ paths:
       tags:
         - Bills
       summary: Create A Bill Payment
-      description: Provided with a valid object representation, this endpoint allows 
+      description: Provided with a valid object representation, this endpoint allows
         for a new bill payment to be created for a specific account
       operationId: "accountsAccountIdBillsBillReferencePaymentsPOST"
       parameters:
@@ -238,9 +238,9 @@ paths:
       callbacks:
         billsPaymentsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Success Callback
-              description: This callback communicates the final representation of the Bill Payment requested by the client. 
+              description: This callback communicates the final representation of the Bill Payment requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsSuccessPUT"
               parameters:
@@ -254,22 +254,22 @@ paths:
                 $ref: '#/components/requestBodies/updateBillPayment' # The callback consists of the same body as a synchronous /bills/payments response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         billsPaymentsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Failure Callback
-              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsFailurePUT"
               parameters:
@@ -283,17 +283,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Bill Payment response
@@ -339,7 +339,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -380,7 +380,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represents a list of Bill Payments
@@ -392,9 +392,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -421,7 +421,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -445,7 +445,7 @@ paths:
       tags:
         - Bills
       summary: Create A Bill Payment
-      description: Provided with a valid object representation, this endpoint allows 
+      description: Provided with a valid object representation, this endpoint allows
         for a new bill payment to be created for a specific account.
       operationId: "accountsIdentifierTypeIdentifierBillsBillReferencePaymentsPOST"
       parameters:
@@ -469,9 +469,9 @@ paths:
       callbacks:
         billsPaymentsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Success Callback
-              description: This callback communicates the final representation of the Bill Payment requested by the client. 
+              description: This callback communicates the final representation of the Bill Payment requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsIdentifierTypeIdentifierSuccessPUT"
               parameters:
@@ -485,22 +485,22 @@ paths:
                 $ref: '#/components/requestBodies/updateBillPayment' # The callback consists of the same body as a synchronous /bills/payments response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         billsPaymentsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Failure Callback
-              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsIdentifierTypeIdentifierFailurePUT"
               parameters:
@@ -514,17 +514,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Bill Payment response
@@ -570,7 +570,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -612,7 +612,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represents a list of Bill Payments
@@ -624,9 +624,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -653,7 +653,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -698,9 +698,9 @@ paths:
       callbacks:
         billsPaymentsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Success Callback
-              description: This callback communicates the final representation of the Bill Payment requested by the client. 
+              description: This callback communicates the final representation of the Bill Payment requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsReferenceSuccessPUT"
               parameters:
@@ -714,22 +714,22 @@ paths:
                 $ref: '#/components/requestBodies/updateBillPayment' # The callback consists of the same body as a synchronous /bills/payments response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         billsPaymentsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Failure Callback
-              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsReferenceFailurePUT"
               parameters:
@@ -743,17 +743,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Bill Payment response
@@ -799,7 +799,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -839,7 +839,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represents a list of Bill Payments
@@ -851,9 +851,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -880,7 +880,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -904,7 +904,7 @@ paths:
       tags:
         - Bills
       summary: Create A Bill Payment without a Bill Reference
-      description: Provided with a valid object representation, this endpoint allows 
+      description: Provided with a valid object representation, this endpoint allows
         for a new bill payment to be created for a specific account
       operationId: "accountsAccountIdBillsBillPaymentsPOST"
       parameters:
@@ -926,9 +926,9 @@ paths:
       callbacks:
         billsPaymentsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Success Callback
-              description: This callback communicates the final representation of the Bill Payment requested by the client. 
+              description: This callback communicates the final representation of the Bill Payment requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsSuccessPUT"
               parameters:
@@ -942,22 +942,22 @@ paths:
                 $ref: '#/components/requestBodies/updateBillPayment2' # The callback consists of the same body as a synchronous /bills/payments response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         billsPaymentsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Failure Callback
-              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsFailurePUT"
               parameters:
@@ -971,17 +971,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Bill Payment response
@@ -1027,7 +1027,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1067,7 +1067,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represents a list of Bill Payments
@@ -1079,9 +1079,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -1108,7 +1108,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1132,7 +1132,7 @@ paths:
       tags:
         - Bills
       summary: Create A Bill Payment without a Bill Reference
-      description: Provided with a valid object representation, this endpoint allows 
+      description: Provided with a valid object representation, this endpoint allows
         for a new bill payment to be created for a specific account.
       operationId: "accountsIdentifierTypeIdentifierBillsBillPaymentsPOST"
       parameters:
@@ -1155,9 +1155,9 @@ paths:
       callbacks:
         billsPaymentsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Success Callback
-              description: This callback communicates the final representation of the Bill Payment requested by the client. 
+              description: This callback communicates the final representation of the Bill Payment requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsIdentifierTypeIdentifierSuccessPUT"
               parameters:
@@ -1171,22 +1171,22 @@ paths:
                 $ref: '#/components/requestBodies/updateBillPayment2' # The callback consists of the same body as a synchronous /bills/payments response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         billsPaymentsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Bill Payments Failure Callback
-              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a bill payment in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "billsPaymentsIdentifierTypeIdentifierFailurePUT"
               parameters:
@@ -1200,17 +1200,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Bill Payment response
@@ -1256,7 +1256,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1297,7 +1297,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
+        - $ref: '#/components/parameters/toDateTime'
       responses:
         200:
           description: Represents a list of Bill Payments
@@ -1309,9 +1309,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -1338,7 +1338,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1407,7 +1407,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1478,7 +1478,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1549,7 +1549,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1577,7 +1577,7 @@ components:
       type: "string"
       minLength: 1
       maxLength: 23
-      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,3}[1-9])?$      
+      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,3}[1-9])?$
       example: "15.21"
     currency:
       type: "string"
@@ -1766,7 +1766,7 @@ components:
       description: The date and time of the request as supplied by the client.
     requestingOrganisationTransactionReference:
       type: "string"
-      description: A reference provided by the requesting organisation that is 
+      description: A reference provided by the requesting organisation that is
           to be associated with the transaction.
       minLength: 0
       maxLength: 256
@@ -1780,7 +1780,7 @@ components:
       description: Date and time when the object was modified by the API Provider.
     metadataArray:
       type: "array"
-      description: A collection of key/value pairs. These can be used to populate additional 
+      description: A collection of key/value pairs. These can be used to populate additional
         properties that describe administrative information regarding the resource.
       items:
         $ref: "#/components/schemas/metadata"
@@ -1831,33 +1831,33 @@ components:
     serviceProviderPaymentReference:
       type: "string"
       description: Reference for the payment generated by the service provider.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     billPaymentStatus:
       type: "string"
       description: Indicates the status of the bill payment as stored by the API provider.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     requestingOrganisationBillPay:
       type: "string"
       description: The originating mobile money provider or financial institution that holds the wallet/account of the payer.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     serviceProviderComment:
       type: "string"
       description: Allows the Service Provider to include specific information regarding the bill payment.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     serviceProviderNotification:
       type: "string"
-      description: Allows the Service Provider to include specific information that will be included on the notification to the customer 
+      description: Allows the Service Provider to include specific information that will be included on the notification to the customer
         by the mobile money provider.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     customerReference:
       type: "string"
       description: Textual reference provided by the customer paying the bill.
-      minLength: 0  
+      minLength: 0
       maxLength: 256
     paymentType:
       type: "string"
@@ -1866,7 +1866,7 @@ components:
       - "fullpayment"
     supplementaryBillReferenceDetailsArray:
       type: "array"
-      description: In some cases, a single reference is not sufficient to identify 
+      description: In some cases, a single reference is not sufficient to identify
         a bill. This key-value collection enables further reference information to be supplied.
       items:
         $ref: "#/components/schemas/supplementaryBillReferenceDetails"
@@ -1897,7 +1897,7 @@ components:
       description: Reference number for the Bill that the payer can use when making a payment.
       minLength: 0
       maxLength: 256
-    billDescription: 
+    billDescription:
       type: "string"
       description: Description of the bill that is to be paid
       minLength: 0
@@ -1935,7 +1935,7 @@ components:
       properties:
         serverCorrelationId:
           type: "string"
-          description: A unique identifier issued by the provider to enable the client 
+          description: A unique identifier issued by the provider to enable the client
              to identify the RequestState resource on subsequent polling requests. Must be supplied as a UUID.
           minLength: 1
           maxLength: 256
@@ -1966,7 +1966,7 @@ components:
         expiryTime:
           type: "string"
           format: "date-time"
-          description: Indicate the time by which the provider will fail the request if completion criteria have not been met. 
+          description: Indicate the time by which the provider will fail the request if completion criteria have not been met.
             For an example, a debit party failing to authorise within the allowed period.
         pollLimit:
           type: "number"
@@ -1977,7 +1977,7 @@ components:
         error:
           description: If the asynchronous processing failed, details of the error will be returned here.
           allOf:
-            - $ref: '#/components/schemas/errorObject' 
+            - $ref: '#/components/schemas/errorObject'
     errorObject:
       type: "object"
       required:
@@ -2036,7 +2036,7 @@ components:
           - "requestDeclined"
           - "servicingPartyAuthorisationError"
           - "requestingPartyAuthorisationError"
-        errordescription: 
+        errordescription:
           type: "string"
           description: A textual description of the error.
           minLength: 0
@@ -2048,7 +2048,7 @@ components:
         errorParameters:
           description: Diagnostic information in the form of key/value pairs relating to the error.
           allOf:
-            - $ref: '#/components/schemas/metadataArray' 
+            - $ref: '#/components/schemas/metadataArray'
     requestBillPayment:
       type: "object"
       required:
@@ -2062,11 +2062,11 @@ components:
         paymentType:
           description: Describes the type of Bill Payment, i.e. whether a full or partial payment.
           allOf:
-            - $ref: '#/components/schemas/paymentType'  
+            - $ref: '#/components/schemas/paymentType'
         amountPaid:
           description: Amount of the Bill that is being paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         currency:
           description: Currency of the amount that is being paid.
@@ -2077,9 +2077,9 @@ components:
         requestingOrganisation:
           $ref: '#/components/schemas/requestingOrganisationBillPay'
         supplementaryBillReferenceDetails:
-          $ref: '#/components/schemas/supplementaryBillReferenceDetailsArray'  
+          $ref: '#/components/schemas/supplementaryBillReferenceDetailsArray'
         requestDate:
-          $ref: '#/components/schemas/requestDate'       
+          $ref: '#/components/schemas/requestDate'
         customData:
           $ref: '#/components/schemas/customDataArray'
         metadata:
@@ -2087,7 +2087,7 @@ components:
         paidAmount:
           description: Amount of the Bill that is being paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           deprecated: true
     requestBillPayment2:
       type: "object"
@@ -2102,11 +2102,11 @@ components:
         paymentType:
           description: Describes the type of Bill Payment, i.e. whether a full or partial payment.
           allOf:
-            - $ref: '#/components/schemas/paymentType'  
+            - $ref: '#/components/schemas/paymentType'
         amountPaid:
           description: Amount of the Bill that is being paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         currency:
           description: Currency of the amount that is being paid.
@@ -2117,7 +2117,7 @@ components:
         requestingOrganisation:
           $ref: '#/components/schemas/requestingOrganisationBillPay'
         requestDate:
-          $ref: '#/components/schemas/requestDate'       
+          $ref: '#/components/schemas/requestDate'
         customData:
           $ref: '#/components/schemas/customDataArray'
         metadata:
@@ -2125,11 +2125,11 @@ components:
         paidAmount:
           description: Amount of the Bill that is being paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           deprecated: true
 
     # All the GSMA Mobile Money API Response Schemas are defined here.
- 
+
     responseBillPayment:
       type: "object"
       required:
@@ -2146,13 +2146,13 @@ components:
         paymentType:
           description: Describes the type of Bill Payment, i.e. whether a full or partial payment.
           allOf:
-            - $ref: '#/components/schemas/paymentType'  
+            - $ref: '#/components/schemas/paymentType'
         billPaymentStatus:
           $ref: '#/components/schemas/billPaymentStatus'
         amountPaid:
           description: Amount of the Bill that is being paid
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         currency:
           description: Currency of the amount that is being paid.
@@ -2161,25 +2161,25 @@ components:
         requestingOrganisation:
           $ref: '#/components/schemas/requestingOrganisationBillPay'
         supplementaryBillReferenceDetails:
-          $ref: '#/components/schemas/supplementaryBillReferenceDetailsArray'  
+          $ref: '#/components/schemas/supplementaryBillReferenceDetailsArray'
         serviceProviderComment:
           $ref: '#/components/schemas/serviceProviderComment'
         serviceProviderNotification:
           $ref: '#/components/schemas/serviceProviderNotification'
         requestDate:
-          $ref: '#/components/schemas/requestDate'       
+          $ref: '#/components/schemas/requestDate'
         creationDate:
-          $ref: '#/components/schemas/creationDate'       
+          $ref: '#/components/schemas/creationDate'
         modificationDate:
-          $ref: '#/components/schemas/modificationDate'        
+          $ref: '#/components/schemas/modificationDate'
         customData:
-          $ref: '#/components/schemas/customDataArray'  
+          $ref: '#/components/schemas/customDataArray'
         metadata:
           $ref: '#/components/schemas/metadataArray'
         paidAmount:
           description: Amount of the Bill that is being paid
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           deprecated: true
     responseBillPayment2:
       type: "object"
@@ -2197,13 +2197,13 @@ components:
         paymentType:
           description: Describes the type of Bill Payment, i.e. whether a full or partial payment.
           allOf:
-            - $ref: '#/components/schemas/paymentType'  
+            - $ref: '#/components/schemas/paymentType'
         billPaymentStatus:
           $ref: '#/components/schemas/billPaymentStatus'
         amountPaid:
           description: Amount of the Bill that is being paid
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         currency:
           description: Currency of the amount that is being paid.
@@ -2216,55 +2216,55 @@ components:
         serviceProviderNotification:
           $ref: '#/components/schemas/serviceProviderNotification'
         requestDate:
-          $ref: '#/components/schemas/requestDate'       
+          $ref: '#/components/schemas/requestDate'
         creationDate:
-          $ref: '#/components/schemas/creationDate'       
+          $ref: '#/components/schemas/creationDate'
         modificationDate:
-          $ref: '#/components/schemas/modificationDate'        
+          $ref: '#/components/schemas/modificationDate'
         customData:
-          $ref: '#/components/schemas/customDataArray'  
+          $ref: '#/components/schemas/customDataArray'
         metadata:
           $ref: '#/components/schemas/metadataArray'
         paidAmount:
           description: Amount of the Bill that is being paid
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           deprecated: true
     responseBills:
       type: "object"
       properties:
         billReference:
-          $ref: '#/components/schemas/billReference'  
+          $ref: '#/components/schemas/billReference'
         billStatus:
           description: Identifies the status of the Bill.
           allOf:
-            - $ref: '#/components/schemas/billStatus'  
+            - $ref: '#/components/schemas/billStatus'
         amountDue:
           description: Amount outstanding on the bill to be paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         currency:
           description: Currency of the bill to be paid.
           allOf:
             - $ref: '#/components/schemas/currency'
-        billdescription: 
-          $ref: '#/components/schemas/billDescription'  
+        billdescription:
+          $ref: '#/components/schemas/billDescription'
         dueDate:
           $ref: '#/components/schemas/dueDate'
         minimumAmountDue:
           description: The minimum amount that is outstanding on the bill to be paid.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         creationDate:
           $ref: '#/components/schemas/creationDate'
         modificationDate:
           $ref: '#/components/schemas/modificationDate'
         customData:
-          $ref: '#/components/schemas/customDataArray'  
+          $ref: '#/components/schemas/customDataArray'
         metadata:
-          $ref: '#/components/schemas/metadataArray'  
+          $ref: '#/components/schemas/metadataArray'
     responseHeartbeat:
       type: "object"
       required:
@@ -2300,28 +2300,28 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/requestBillPayment'  
+            $ref: '#/components/schemas/requestBillPayment'
     requestBillPayment2:
       required: true
       description: Represents the request body of a bill payment.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/requestBillPayment2'  
+            $ref: '#/components/schemas/requestBillPayment2'
     updateBillPayment:
       required: true
       description: Represents the request body of a bill payment callback.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/responseBillPayment'  
+            $ref: '#/components/schemas/responseBillPayment'
     updateBillPayment2:
       required: true
       description: Represents the request body of a bill payment callback.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/responseBillPayment2'  
+            $ref: '#/components/schemas/responseBillPayment2'
 
   # All the GSMA Mobile Money API Response Headers are defined here.
 
@@ -2337,7 +2337,7 @@ components:
         type: "integer"
         format: "int32"
     X-Records-Returned-Count:
-      description: Integer containing number of records that are returned.  
+      description: Integer containing number of records that are returned.
       schema:
         type: "integer"
         format: "int32"
@@ -2354,62 +2354,62 @@ components:
       schema:
         type: "string"
         pattern: "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
-    X-Date:  
+    X-Date:
       name: "X-Date"
       in: "header"
-      description: Header parameter to indicate the date and time that the message 
-         was originated. It is used for basic message integrity checks, to ensure the request is not stale. 
+      description: Header parameter to indicate the date and time that the message
+         was originated. It is used for basic message integrity checks, to ensure the request is not stale.
          Note that the header was previously referenced as 'Date' in version 1.0 of the Mobile Money API.
       required: false
       schema:
         type: "string"
-        format: "date-time"      
+        format: "date-time"
     X-API-Key:
       name: "X-API-Key"
       in: "header"
       description: Used to pass pre-shared client's API key to the server.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-User-Bearer:
       name: "X-User-Bearer"
       in: "header"
       description: Used to pass user’s access token when OAuth 2.0/OIDC authorisation framework is used for end-user authentication
       required: false
       schema:
-        type: "string"        
-    X-Client-Id:    
+        type: "string"
+    X-Client-Id:
       name: "X-Client-Id"
       in: "header"
       description: Used to pass pre-shared client's identifier to the server.
       required: false
       schema:
-        type: "string"    
+        type: "string"
         maxLength: 256
     X-Content-Hash:
       name: "X-Content-Hash"
       in: "header"
-      description: SHA-256 hex digest of the request content (encrypted or plain). 
+      description: SHA-256 hex digest of the request content (encrypted or plain).
         Applicable only if basic data integrity checking is to be performed.
       required: false
       schema:
-        type: "string"          
+        type: "string"
     X-User-Credential-1:
       name: "X-User-Credential-1"
       in: "header"
-      description: The end-users encrypted security credential. 
+      description: The end-users encrypted security credential.
          Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-User-Credential-2:
       name: "X-User-Credential-2"
       in: "header"
-      description: The end-users encrypted security credential 
+      description: The end-users encrypted security credential
          Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-Channel:
       name: "X-Channel"
       in: "header"
@@ -2418,26 +2418,26 @@ components:
       schema:
         type: "string"
         maxLength: 256
-    limit:  
+    limit:
       name: "limit"
       in: "query"
-      description: Supports pagination. If this is not supplied, then the server 
+      description: Supports pagination. If this is not supplied, then the server
          will apply a limit of 50 records returned for each request.
       required: false
       schema:
         type: "integer"
         format: "int32"
-    offset:  
+    offset:
       name: "offset"
       in: "query"
-      description: Supports pagination. This value will indicate the cursor position 
-         from where to retrieve the set of records. For example, a limit of 50 
+      description: Supports pagination. This value will indicate the cursor position
+         from where to retrieve the set of records. For example, a limit of 50
          and offset of 10 will return records 11 to 60.
       required: false
       schema:
         type: "integer"
         format: "int32"
-    fromDateTime:  
+    fromDateTime:
       name: "fromDateTime"
       in: "query"
       description: Indicates the minimum creation date for which records should be returned.
@@ -2456,7 +2456,7 @@ components:
     accountId:
       name: "accountId"
       in: "path"
-      description: "Path variable to uniquely identify an account. Up to three account identifiers can be supplied. 
+      description: "Path variable to uniquely identify an account. Up to three account identifiers can be supplied.
          Identifiers are delimited by $ and values are delimited by @. Example: organisationid@1234$accountid@3333.
          Valid account identifiers are accountcategory, bankaccountno, accountrank, identityalias, iban, accountid,
          msisdn, swiftbic, sortcode, organisationid, username, walletid, linkref, consumerno, serviceprovider, storeid,
@@ -2482,7 +2482,7 @@ components:
       schema:
         type: "string"
         maxLength: 256
-        minLength: 1        
+        minLength: 1
     serverCorrelationId:
       name: "serverCorrelationId"
       in: "path"
@@ -2505,9 +2505,8 @@ components:
       description: The URL supplied by the client that will be used to return the callback in the form of a HTTP PUT.
       required: false
       schema:
-        type: "string" 
+        type: "string"
         format: uri
-        example: https://myserver.com/send/callback/here
     paymentReference:
       name: "paymentReference"
       in: "path"
@@ -2557,8 +2556,8 @@ components:
     X-Account-Holding-Institution-Identifier-Type:
       name: "X-Account-Holding-Institution-Identifier-Type"
       in: "header"
-      description: A header variable that identifies the type of the account holding institution. 
-         This header is used to support request routing and should be used in conjunction with 
+      description: A header variable that identifies the type of the account holding institution.
+         This header is used to support request routing and should be used in conjunction with
          the X-Account-Holding-Institution-Identifier header.
       required: false
       schema:
@@ -2570,8 +2569,8 @@ components:
     X-Account-Holding-Institution-Identifier:
       name: "X-Account-Holding-Institution-Identifier"
       in: "header"
-      description: A header variable that identifies the account holding institution. 
-         This header is used to support request routing and should be used in conjunction with 
+      description: A header variable that identifies the account holding institution.
+         This header is used to support request routing and should be used in conjunction with
          the X-Account-Holding-Institution-Identifier-Type header.
       required: false
       schema:
