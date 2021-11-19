@@ -2278,7 +2278,7 @@ The Bill Companies APIs are used to return a list of Service Providers that acce
 
   - Use *GET /billcompanies* to return a list of all bill payment service providers.
 
-  - se *GET /billcompanies/{serviceProvider}* to return a specific bill payment service provider.
+  - Use *GET /billcompanies/{serviceProvider}* to return a specific bill payment service provider.
 
 - Bill Companies for a given account:
 
@@ -2422,6 +2422,72 @@ The Debit Mandates APIs allow a mobile money customer to provide prior approval 
 Mandates can be created, viewed, and modified. The request to create a debit mandate will be typically initiated by the service provider (payee) but can also be requested by the customer (payer).
 
 The permitted paths are as follows. Note that the payer account is identified in the path whereas the payee account is identified in the request body. 
+
+<code-main-group>
+<code-block title="View">
+
+<code-group>
+<code-block title="POST">
+```json{1}
+POST .../accounts/accountid/2000/debitmandates
+---
+Headers:
+{
+   "X-CorrelationID": ["Please enter your UUID here"],
+   "X-Callback-URL": ["Please enter your callback URL here"],
+   "Content-Type": ["application/json"]
+}
+---
+Body parameters: 
+{
+   "payee": [
+    {
+      "key": "accountid",
+      "value": "2999"
+    }
+  ],
+    "requestDate": "2017-07-21T17:32:28Z",
+    "startDate": "2018-11-20",
+    "currency": "GBP",
+    "amountLimit": "1000.00",
+    "endDate": "2018-11-20",
+    "numberOfPayments": "2",
+    "frequencyType": "sixmonths",
+    "customData": [
+        {
+        "key": "keytest",
+        "value": "keyvalue"
+        }
+    ]        
+}
+```
+</code-block>
+</code-group>
+
+</code-block>
+
+<code-block title="Code">
+<code-group title="JavaScript">
+<code-block title="POST">
+```javascript
+//some JavaScript code here
+```
+</code-block>
+</code-group>
+
+<code-group title="PHP">
+<code-block title="POST">
+```php
+<?php 
+  //some PHP code here 
+?>
+```
+</code-block>
+</code-group>
+
+</code-block>
+</code-main-group>
+
 
 - **Creation**: *POST /accounts/{identifierType}/{identifier}/debitmandates* or *POST /accounts/{Account Identifiers}/debitmandates*.
 

@@ -147,9 +147,9 @@ export default {
     checkScrollHeight() {
       this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollHeight
       const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollWidth;
-
+      this.scrollHeight += 18; // code copy
       if (scrollWidth >= 350) {
-        this.scrollHeight += 18
+        this.scrollHeight += 8
       }
       if(this.scrollHeight >= 350) {
         this.isButtonClick(false)
