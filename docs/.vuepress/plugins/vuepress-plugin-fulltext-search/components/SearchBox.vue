@@ -71,11 +71,10 @@ export default {
   computed: {
     queryTerms() {
       if (!this.query) return []
-      const result = flexsearchSvc
+      return flexsearchSvc
           .normalizeString(this.query)
           .split(/[^\p{L}\p{N}_]+/iu)
           .filter(t => t)
-      return result
     },
     showSuggestions() {
       return this.focused && this.suggestions && this.suggestions.length

@@ -1,30 +1,33 @@
 <template>
   <ClientOnly>
     <div class="theme-code-group" v-show="(title && provideObject.activeLanguage === title) ||
-    !title">
+    !title" :style="{'padding': isButtonShow ? '8px 0 0' : '8px 0'}">
       <div class="theme-code-group__nav">
         <ul class="theme-code-group__ul">
           <li
-            v-for="(tab, i) in codeTabs"
-            :key="`${tab.title}${i}`"
-            class="theme-code-group__li"
+              v-for="(tab, i) in codeTabs"
+              :key="`${tab.title}${i}`"
+              class="theme-code-group__li"
           >
             <button
-              class="theme-code-group__nav-tab"
-              :class="{
+                class="theme-code-group__nav-tab"
+                :class="{
                 'theme-code-group__nav-tab-active': i === provideObject.activeMethodIndex,
               }"
-              @click="changeCodeTab(i)"
+                @click="changeCodeTab(i)"
             >
               {{ tab.title }}
             </button>
           </li>
         </ul>
       </div>
-      <slot />
+      <slot/>
+      <div class="code-arrow" v-if="isButtonShow" @click="isButtonClick()">
+        {{ isVisibleContent ? 'Hidden' : 'Show more' }}
+      </div>
       <pre
-        v-if="codeTabs.length < 1"
-        class="pre-blank"
+          v-if="codeTabs.length < 1"
+          class="pre-blank"
       >// Make sure to add code blocks to your code group</pre>
     </div>
   </ClientOnly>
@@ -39,33 +42,80 @@ export default {
       default: ''
     },
   },
-  data () {
+  data() {
     return {
       codeTabs: [],
+      afterInitComponent: false,
+
+      scrollHeight: 200,
+      isVisibleContent: true,
+      isNonCollapse: false
+    }
+  },
+  computed: {
+    isButtonShow() {
+      return this.scrollHeight >= 350
+    },
+    activeCodeBlock() {
+      return this.$store.state.codePanel.activeCodeBlock
     }
   },
   watch: {
-    'provideObject.activeMethodIndex' (index) {
+    'provideObject.activeMethodIndex'(index) {
       this.activateCodeTab(index)
+      if (this.provideObject.activeCodeTabIndex === 0 && !this.title) {
+        if (this.afterInitComponent) {
+          this.checkScrollHeight()
+        }
+      }
+    },
+    'provideObject.activeCodeTabIndex'(newVal, oldVal){
+      if(oldVal) {
+        this.checkScrollHeight()
+      }
+    },
+    activeCodeBlock(val) {
+      if(val !== this.$parent.$parent._uid && !this.isNonCollapse) {
+        this.isButtonClick(false)
+      }
     }
   },
   inject: {
-    provideObject: {default: ()=>({
+    provideObject: {
+      default: () => ({
         activeLanguage: '',
-        activeMethodIndex: -1
-      })}
+        activeMethodIndex: -1,
+        activeCodeTabIndex: -1,
+      })
+    }
   },
-  mounted () {
+  mounted() {
     this.loadTabs()
+    this.$nextTick(() => {
+      this.afterInitComponent = true
+      this.checkScrollHeight()
+    })
   },
   methods: {
-    changeCodeTab (index) {
-      if(this.$parent && this.$parent.$parent) {
+    isButtonClick(param) {
+      if(param !== undefined) this.isVisibleContent = param
+      else this.isVisibleContent = !this.isVisibleContent;
+
+      if (this.isVisibleContent) {
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = `${this.scrollHeight}px`
+        this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid)
+      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')){
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = '200px'
+      }
+
+    },
+    changeCodeTab(index) {
+      if (this.$parent && this.$parent.$parent) {
         this.$parent.$parent.$emit('set-method-index', index)
         this.activateCodeTab(index)
       }
     },
-    loadTabs () {
+    loadTabs() {
       let vm = this
       this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
         if (slot.componentOptions.propsData.active === '') {
@@ -83,7 +133,7 @@ export default {
       }
       this.activateCodeTab(0)
     },
-    activateCodeTab (index) {
+    activateCodeTab(index) {
       this.codeTabs.forEach(tab => {
         if (tab.elm) {
           tab.elm.classList.remove('theme-code-block__active')
@@ -94,42 +144,86 @@ export default {
         this.codeTabs[index].elm.classList.add('theme-code-block__active')
       }
     },
+    checkScrollHeight() {
+      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollHeight
+      const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollWidth;
+      this.scrollHeight += 18; // code copy
+      if (scrollWidth >= 350) {
+        this.scrollHeight += 8
+      }
+      if(this.scrollHeight >= 350) {
+        this.isButtonClick(false)
+        this.isNonCollapse = false
+      } else {
+        this.isNonCollapse = true
+      }
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  .theme-code-group {}
-  .theme-code-group__nav {
-    margin-bottom: -35px;
-    background-color: $codeBgColor;
-    padding-bottom: 22px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    padding-left: 10px;
-    padding-top: 10px;
-  }
-  .theme-code-group__ul {
-    margin: auto 0;
-    padding-left: 0;
-    display: inline-flex;
-    list-style: none;
-  }
-  .theme-code-group__li {}
-  .theme-code-group__nav-tab {
-    border: 0;
-    padding: 5px;
+.code-arrow {
+  //position: absolute;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  background-color: #242529;
+  border-radius: 0 0 8px 8px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: 500;
+  z-index: 5;
+  color: white;
+  //left: 0;
+  //right: 0;
+  border-bottom: 3px solid #525356;
+
+  &:hover {
     cursor: pointer;
-    background-color: transparent;
-    font-size: 0.85em;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
   }
-  .theme-code-group__nav-tab-active {
-    border-bottom: #42b983 1px solid;
-  }
-  .pre-blank {
-    color: #42b983;
-  }
+}
+
+.theme-code-group {
+}
+
+.theme-code-group__nav {
+  margin-bottom: -35px;
+  background-color: $codeBgColor;
+  padding-bottom: 22px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.theme-code-group__ul {
+  margin: auto 0;
+  padding-left: 0;
+  display: inline-flex;
+  list-style: none;
+}
+
+.theme-code-group__li {
+}
+
+.theme-code-group__nav-tab {
+  border: 0;
+  padding: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 0.85em;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.theme-code-group__nav-tab-active {
+  border-bottom: #42b983 1px solid;
+}
+
+.pre-blank {
+  color: #42b983;
+}
 </style>

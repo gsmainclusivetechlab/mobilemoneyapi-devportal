@@ -17,10 +17,6 @@ The GSMA Simulator for the Mobile Money API is a simulated API implementation de
 
 This diagram illustrates how a mobile money provider can retrieve bills for a given service provider customer account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
@@ -61,11 +57,6 @@ Params:
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -111,10 +102,6 @@ sequenceDiagram
 
 This diagram illustrates how a mobile money provider can make a bill payment to a service provider using the asynchronous callback method. To illustrate the end to end flow, a leg has been added to describe how a third payment provider can initiate a bill payment request to a mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
@@ -163,10 +150,6 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -229,10 +212,6 @@ sequenceDiagram
 
 This diagram illustrates how a mobile money provider can make a bill payment to a service provider using the asynchronous polling method.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
@@ -325,11 +304,6 @@ GET .../requestStates/Place the Server Correlation Id here
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
-
 <mermaid>
 sequenceDiagram
     participant Mobile Money Provider
@@ -359,10 +333,6 @@ sequenceDiagram
 
 This diagram illustrates how a mobile money provider can retrieve payments against a given bill for a given service provider customer account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
@@ -404,10 +374,7 @@ Params:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram
@@ -435,10 +402,7 @@ sequenceDiagram
 
 The Heartbeat API is used for monitoring purposes and establishes whether the Service Provider is in a state that enables an FSP to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -474,10 +438,7 @@ GET .../heartbeat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 <mermaid>
 sequenceDiagram

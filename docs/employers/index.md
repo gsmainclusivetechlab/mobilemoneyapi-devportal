@@ -9,7 +9,6 @@ title: Employers
 !!!include(./docs/.vuepress/pages/business/employers/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/employers/start-developing.md)!!!
 
-
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';

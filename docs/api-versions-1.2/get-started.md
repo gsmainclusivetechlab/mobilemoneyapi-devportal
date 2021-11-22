@@ -70,10 +70,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Standard Request Headers
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -118,10 +115,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Header**          | **Value**            | **Optionality**  | **Notes**  |
 |:--------------- |:-----------------|--------------|--------|
@@ -134,10 +128,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Standard Response Headers
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -179,10 +170,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Header**          | **Value**                           | **Optionality**  | **Notes**                                                   |
 |:--------------- |:--------------------------------|--------------|---------------------------------------------------------|
@@ -191,10 +179,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Custom Request Headers
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -244,10 +229,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
@@ -264,10 +246,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 
 ###### Custom Response Headers
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -308,10 +287,7 @@ For the security headers, please also refer to the Mobile Money API Security Des
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Header**          | **Value**                            | **Optionality**  | **Notes**                                                   |
 |:--------------- |:---------------------------------|--------------|---------------------------------------------------------|
@@ -417,10 +393,7 @@ Asynchronous flows involve a callback mechanism or a polling mechanism to enable
 
 The object definition for RequestState is described below.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -471,10 +444,7 @@ The object definition for RequestState is described below.
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **RequestState Object Properties**                                                   ||||||
 |:--------------- |:--------------|------------------|----------------|----------------|---|
@@ -746,10 +716,7 @@ The mobile money API uses the errors object to provide error details to API clie
 
 With the errorParameters property, care should be taken regarding confidentially of information. Confidential parameter information should only be disclosed to trusted clients.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -799,10 +766,7 @@ With the errorParameters property, care should be taken regarding confidentially
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Errors Object Properties**                                                   ||||||
 |:--------------- |:--------------|:-----------------|-----|:---------------|:---------------|
@@ -817,10 +781,7 @@ With the errorParameters property, care should be taken regarding confidentially
 
 Allows error parameter properties to be specified in the form of key/value pairs. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -866,10 +827,7 @@ Allows error parameter properties to be specified in the form of key/value pairs
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Error Parameters Object Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
@@ -927,10 +885,7 @@ The Heartbeat can be requested using the following path:
 
 Only synchronous API Heartbeat requests are supported. The HTTP response contains the following properties.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -973,10 +928,7 @@ Only synchronous API Heartbeat requests are supported. The HTTP response contain
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Heartbeat Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|----|:---------------|:---------------|
@@ -991,10 +943,7 @@ In some circumstances, the client may not have received the final representation
 
 The response object for /responses is detailed below.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1035,10 +984,7 @@ The response object for /responses is detailed below.
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Responses Response Properties**                                           ||||||
 |:--------------- |:--------------|:-----------------|---|:---------------|:---------------|
