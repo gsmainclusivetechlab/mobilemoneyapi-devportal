@@ -201,6 +201,7 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //This is JavaScript
 require_once("mm-api.php");
@@ -211,7 +212,24 @@ try {
   $e->GetErrorDetails() 
 } catch(MM-API\Libraries\Exception $e) {
 }  
+
+try {
+  $TransferId = 22222222;
+  $Transfer = $Api->Transfers->Get($TransferId);  
+} catch(MM-API\Libraries\ResponseException $e) {
+  $e->GetErrorDetails() 
+} catch(MM-API\Libraries\Exception $e) {
+}
+
+try {
+    $TransferId = 22222222;
+    $Transfer = $Api->Transfers->Get($TransferId);
+} catch(MM-API\Libraries\ResponseException $e) {
+    $e->GetErrorDetails()
+} catch(MM-API\Libraries\Exception $e) {
+}  
 ```
+
 </code-block>
 
 </code-group>

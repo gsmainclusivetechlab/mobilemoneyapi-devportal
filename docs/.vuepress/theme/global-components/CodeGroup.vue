@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
-    <div class="theme-code-group" v-show="(title && provideObject.activeLanguage === title) ||
-    !title" :style="{'padding': isButtonShow ? '8px 0 0' : '8px 0'}">
+    <div class="theme-code-group" :class="{'theme-code-group__hidden': !((title && provideObject.activeLanguage === title) ||
+    !title)}" :style="{'padding': isButtonShow ? '8px 0 0' : '8px 0'}">
       <div class="theme-code-group__nav">
         <ul class="theme-code-group__ul">
           <li
@@ -77,6 +77,11 @@ export default {
         this.checkScrollHeight()
       }
     },
+    'provideObject.activeLanguage'(newVal, oldVal) {
+      if (oldVal) {
+        this.checkScrollHeight()
+      }
+    },
     activeCodeBlock(val) {
       if (val !== this.$parent.$parent._uid && !this.isNonCollapse) {
         this.isButtonClick(false)
@@ -105,15 +110,15 @@ export default {
       const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]')
       const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')
 
-      for(let el of elements) {
-        if(value === 200) {
-          el.style.minHeight = `${value+23}px`
+      for (let el of elements) {
+        if (value === 200) {
+          el.style.minHeight = `${value + 23}px`
         } else {
           el.style.minHeight = `${value}px`
         }
       }
 
-      for(let el of elementsActive) {
+      for (let el of elementsActive) {
         el.style.minHeight = `${value}px`
       }
     },
@@ -122,10 +127,10 @@ export default {
       else this.isVisibleContent = !this.isVisibleContent;
 
       if (this.isVisibleContent) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = `${this.scrollHeight}px`
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = `${this.scrollHeight}px`
         this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid)
-      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = '200px'
+      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')) {
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = '200px'
       }
     },
     changeCodeTab(index) {
@@ -164,9 +169,10 @@ export default {
       }
     },
     checkScrollHeight() {
-      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollHeight
+      console.log('1')
+      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollHeight
 
-      const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollWidth;
+      const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollWidth;
 
       this.scrollHeight += 31; // code copy
 
@@ -210,7 +216,11 @@ export default {
   }
 }
 
-.theme-code-group {
+
+.theme-code-group__hidden {
+  height: 0;
+  padding: 0 !important;
+  visibility: hidden;
 }
 
 .theme-code-group__nav {
