@@ -20,6 +20,16 @@ export default {
       default: false
     }
   },
+  inject: {
+    provideObject: {
+      default: () => ({
+        activeLanguage: '',
+        activeMethodIndex: -1,
+        activeCodeTabIndex: -1,
+        heightOfCodeGroup: 200
+      })
+    }
+  },
   mounted () {
     if (this.$parent && this.$parent.loadTabs) {
       this.$parent.loadTabs()
