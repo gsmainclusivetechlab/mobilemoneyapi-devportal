@@ -24,6 +24,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -52,6 +53,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -60,19 +62,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -123,6 +129,7 @@ In this example, an asynchronous payment flow is used with a final callback that
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -151,6 +158,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -159,19 +167,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -218,6 +230,7 @@ In this example, an asynchronous payment flow is used with the polling method. T
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -245,6 +258,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 <code-block title="GET">
 
@@ -265,43 +279,55 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -367,6 +393,7 @@ In this example, an asynchronous payment flow is used with a final callback. The
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -395,6 +422,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -403,19 +431,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -465,6 +497,7 @@ In this example, an asynchronous payment flow is used with a final callback that
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -493,6 +526,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -501,19 +535,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here 
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -557,6 +595,7 @@ In this example the /authorisationcodes API is used to obtain a pre-authorised p
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../accounts/accountid/2000/authorisationcodes
 ---
@@ -574,9 +613,11 @@ Body Parameters:
     "amount": "1000.00"
 }
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/merchantpay
 ---
@@ -607,6 +648,7 @@ Body Parameters:
     "oneTimeCode": "Place your Authorisation Code here"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -615,33 +657,41 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -702,6 +752,7 @@ Merchants can issue a refund to payers. In this diagram, the refund is not linke
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/adjustment
 ---
@@ -730,6 +781,7 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -738,19 +790,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -795,6 +851,7 @@ In some failure scenarios, a merchant may need to reverse a transaction. This di
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
@@ -810,6 +867,7 @@ Body Parameters:
     "type": "reversal"
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -818,19 +876,23 @@ Body Parameters:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="POST">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -870,9 +932,11 @@ sequenceDiagram
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 </code-group>
 
@@ -881,19 +945,23 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -932,6 +1000,7 @@ This diagram illustrates use of a cursor mechanism to retrieve all payments for 
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
@@ -941,6 +1010,7 @@ Params:
     "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
@@ -949,19 +1019,23 @@ Params:
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -1003,9 +1077,11 @@ The Heartbeat API is used for monitoring purposes and establishes whether the mo
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
@@ -1014,19 +1090,23 @@ GET .../heartbeat
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 
@@ -1065,9 +1145,11 @@ This API can be used by the merchant to retrieve a link to the final representat
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 </code-group>
 
@@ -1076,19 +1158,23 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 <code-group title="JavaScript">
 <code-block title="GET">
+
 ```javascript
 //some JavaScript code here
 ```
+
 </code-block>
 </code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
+
 ```php
 <?php 
   //some PHP code here 
 ?>
 ```
+
 </code-block>
 </code-group>
 

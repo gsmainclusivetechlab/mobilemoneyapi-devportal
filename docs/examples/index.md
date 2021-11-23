@@ -42,16 +42,12 @@ This will require a single group use as per VuePress documentation, or as per th
 
 In a few word just use `<code-group>` tag as a wrapper for a View `<code-block>` and inside the View add the other combination of `<code-group>` and `<code-block>` to include the Object name and info.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -59,6 +55,12 @@ Body Parameters:
   "amount":"5.00",
   "currency":"GBP",
   "debitParty":[
+  {
+    "key":"msisdn",
+    "value":"+447911123456"
+  }
+  ],
+"debitParty":[
   {
     "key":"msisdn",
     "value":"+447911123456"
@@ -75,13 +77,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```php
+```json
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```php
+```json
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -148,11 +150,6 @@ try {
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
-
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
 | **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
@@ -169,17 +166,12 @@ E.g. a **single method/object** needs to be described in **one or few languages*
 
 Just use the default 2 groups View and Code, where Code will include a group of two blocks are named as languages, e.g. PHP and JavaScript. 
 
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -246,11 +238,6 @@ try {
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
-
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
 | **POST**          | POST <br> */transactions/type/{transactiontype}* | To be used for transaction creation when the provider’s API Gateway requires that the transaction type be identified in the URL. |
@@ -264,17 +251,12 @@ This is an example of how multiple methods/objects and languages can be supporte
 
 E.g. we need 2 methods and code examples in two languages for them as separate tabs / `<code-group>`s.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -298,7 +280,7 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```php
+```json
 GET .../transactions/36125b528237
 ```
 </code-block>
@@ -371,11 +353,6 @@ try {
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|
@@ -392,19 +369,12 @@ E.g. we need 2 methods and code examples in two languages for them.
 
 This will require adding methods and code examples for all languages wrapping them into `<code-language-selector>` tags.
 
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```php
+```json
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -428,7 +398,7 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```php
+```json
 GET .../transactions/36125b528237
 ```
 </code-block>
@@ -501,11 +471,6 @@ try {
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 | **Operation**     | **Path**         | **Description**  |
 | ------------- |:-------------|------|

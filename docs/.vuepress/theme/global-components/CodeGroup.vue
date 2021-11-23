@@ -23,7 +23,7 @@
       </div>
       <slot/>
       <div class="code-arrow" v-if="isButtonShow" @click="isButtonClick()">
-        {{ isVisibleContent ? 'Hidden' : 'Show more' }}
+        {{ isVisibleContent ? 'Show less' : 'Show more' }}
       </div>
       <pre
           v-if="codeTabs.length < 1"
@@ -69,13 +69,16 @@ export default {
         }
       }
     },
-    'provideObject.activeCodeTabIndex'(newVal, oldVal){
-      if(oldVal) {
+    'provideObject.heightOfCodeGroup'(value) {
+      this.setMinHeight(value)
+    },
+    'provideObject.activeCodeTabIndex'(newVal, oldVal) {
+      if (oldVal) {
         this.checkScrollHeight()
       }
     },
     activeCodeBlock(val) {
-      if(val !== this.$parent.$parent._uid && !this.isNonCollapse) {
+      if (val !== this.$parent.$parent._uid && !this.isNonCollapse) {
         this.isButtonClick(false)
       }
     }
@@ -86,6 +89,7 @@ export default {
         activeLanguage: '',
         activeMethodIndex: -1,
         activeCodeTabIndex: -1,
+        heightOfCodeGroup: 200
       })
     }
   },
@@ -97,17 +101,32 @@ export default {
     })
   },
   methods: {
+    setMinHeight(value) {
+      const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]')
+      const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')
+
+      for(let el of elements) {
+        if(value === 200) {
+          el.style.minHeight = `${value+23}px`
+        } else {
+          el.style.minHeight = `${value}px`
+        }
+      }
+
+      for(let el of elementsActive) {
+        el.style.minHeight = `${value}px`
+      }
+    },
     isButtonClick(param) {
-      if(param !== undefined) this.isVisibleContent = param
+      if (param !== undefined) this.isVisibleContent = param
       else this.isVisibleContent = !this.isVisibleContent;
 
       if (this.isVisibleContent) {
         this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = `${this.scrollHeight}px`
         this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid)
-      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')){
+      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')) {
         this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json').style.maxHeight = '200px'
       }
-
     },
     changeCodeTab(index) {
       if (this.$parent && this.$parent.$parent) {
@@ -146,16 +165,22 @@ export default {
     },
     checkScrollHeight() {
       this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollHeight
+
       const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')?.scrollWidth;
-      this.scrollHeight += 18; // code copy
+
+      this.scrollHeight += 31; // code copy
+
       if (scrollWidth >= 350) {
         this.scrollHeight += 8
       }
-      if(this.scrollHeight >= 350) {
+
+      if (this.scrollHeight >= 350) {
         this.isButtonClick(false)
         this.isNonCollapse = false
+        this.$parent.$parent.$emit('set-code-height', 200)
       } else {
         this.isNonCollapse = true
+        this.$parent.$parent.$emit('set-code-height', this.scrollHeight)
       }
     }
   }
