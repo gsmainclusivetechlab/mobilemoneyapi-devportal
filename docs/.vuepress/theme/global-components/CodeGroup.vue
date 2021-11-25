@@ -70,7 +70,7 @@ export default {
       }
     },
     'provideObject.heightOfCodeGroup'(value) {
-      this.setMinHeight(value)
+      // this.setMinHeight(value)
     },
     'provideObject.activeCodeTabIndex'(newVal, oldVal) {
       if (oldVal) {
