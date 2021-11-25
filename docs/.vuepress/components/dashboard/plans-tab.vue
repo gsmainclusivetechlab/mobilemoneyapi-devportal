@@ -1,103 +1,80 @@
 <template>
-  <div class="dashboard-content">
-    <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="edit-profile">
-      <form @submit.prevent="handleSubmit(updateAccountData)">
-        <div class="account-flex-container">
-          <div class="account-title-info-wrap">
-            <h3 class="content-title">My account</h3>
-          </div>
-          <div class="account-info-container">
-            <div class="account-info-title-wrap">
-              <span class="account-info-title">Personal information</span>
-              <button class="btn btn--transparent edit-btn" type="button"
-                      @click="accountEdit = true"
-                      v-if="!accountEdit"
-              >Edit
-              </button>
-            </div>
-            <div class="fields-wrap">
-              <ValidationProvider class="input-group"
-                                  vid="lastName"
-                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="lastName">Last name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.lastName" id="lastName" placeholder="Enter last name" :disabled="!accountEdit">
-              </ValidationProvider>
-              <ValidationProvider class="input-group"
-                                  vid="firstName"
-                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="firstName">First name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.firstName" id="firstName" placeholder="Enter first name" :disabled="!accountEdit">
-              </ValidationProvider>
-              <ValidationProvider class="input-group"
-                                  vid="username"
-                                  :rules="{ required: { allowFalse: false }, min: 2}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="username">Username<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.username" id="username" placeholder="Enter username" :disabled="!accountEdit">
-              </ValidationProvider>
-            </div>
-          </div>
-          <div class="account-info-container">
-            <div class="account-info-title-wrap">
-              <span class="account-info-title">Security</span>
-            </div>
-            <div class="fields-wrap">
-              <ValidationProvider class="input-group"
-                                  vid="email"
-                                  :rules="{ required: { allowFalse: false }, email: true}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="email">E-mail<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="email" v-model="accountDB.email" id="email" placeholder="Enter email" :disabled="!accountEdit">
-              </ValidationProvider>
-              <ValidationProvider class="input-group"
-                                  vid="password"
-                                  :rules="{ required: { allowFalse: false }, verify_password: true, min: 8}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="password">Password<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input v-if="accountEdit" type="password" v-model="accountDB.password" id="password" placeholder="Enter password" :disabled="!accountEdit">
-                <input v-else type="password" value="••••••••" placeholder="••••••••" :disabled="!accountEdit">
-              </ValidationProvider>
-              <div class="update-btn-wrap">
-                <button class="btn btn--accent update-btn" type="submit"
-                        v-if="accountEdit">
-                  Update
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </ValidationObserver>
+  <div class="dashboard-content dashboard-content__table dashboard-content__table-plans">
+    <h3>All registered users</h3>
+    <div class="table-block">
+      <dashboard-table-top hide-filter/>
+      <table class="dashboard-table">
+        <tr class="dashboard-table__row">
+          <th class="dashboard-table__cell" :class="{'dashboard-table__cell--center': index === 1}" v-for="(title, index) of allPlansHeaderTitles" :key="index">
+            {{ title }}
+          </th>
+          <th class="dashboard-table__cell">
+          </th>
+        </tr>
+        <tr class="dashboard-table__row" v-for="plan of plans" :key="plan.id">
+          <td class="dashboard-table__cell">
+            {{ plan.planName }}
+          </td>
+          <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state" >
+            <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>
+          </td>
+          <td class="dashboard-table__cell dashboard-table__cell--options">
+            <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
+              <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
+                <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
+                <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
+              </svg>
+            </button>
+            <user-options-block v-on-clickaway="hideUserOptions" v-if="plan.id === activeOptionsPlanId"/>
+          </td>
+        </tr>
+      </table>
+      <dashboard-table-bottom/>
+    </div>
   </div>
 </template>
 
 <script>
+import {allPlansHeaderTitles} from "../../constants";
+import plans from '../../api/mocks/plans.json';
+import UserOptionsBlock from "../user-options-block";
+import { mixin as clickaway } from 'vue-clickaway';
+import DashboardTableTop from "../dashboard-table/dashboard-table-top";
+import DashboardTableBottom from "../dashboard-table/dashboard-table-bottom";
+
 export default {
   name: "plans-tab",
 
+  components: {DashboardTableBottom, DashboardTableTop, UserOptionsBlock},
+
   data() {
     return {
-      accountEdit: false,
-      accountDB: {
-        firstName: 'Thomas',
-        lastName: 'Ride',
-        username: 'thomasride-96',
-        email: 'thomas.ride@mail.com',
-        password: '',
-      }
+      allPlansHeaderTitles,
+      plans,
+      activeOptionsPlanId: -1
     }
   },
 
+  mixins: [clickaway],
+
   methods: {
-    updateAccountData() {
-      this.accountEdit = false
+    getPlanStatusLabelClass(state) {
+      if (state === 0) return 'dashboard-table__state-label--inactive'
+      return 'dashboard-table__state-label--active'
+    },
+
+    getPlanStatus(state) {
+      if (state === 0) return 'Unpublish'
+      return 'Publish'
+    },
+
+    showUserOptions(id) {
+      this.activeOptionsPlanId = id
+    },
+
+    hideUserOptions() {
+      this.activeOptionsPlanId = -1
     }
   }
 }

@@ -697,4 +697,9 @@ export const allUsersHeaderTitles = [
     'ROLE'
 ]
 
+export const allPlansHeaderTitles = [
+  'PLAN',
+  'STATE'
+]
+
 export const URL = 'http://localhost:8080';
