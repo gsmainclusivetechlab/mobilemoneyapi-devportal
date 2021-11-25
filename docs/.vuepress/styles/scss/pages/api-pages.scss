@@ -409,10 +409,6 @@
           margin: 0;
           padding: 8px 0 0;
 
-          & > .theme-code-block {
-            min-height: 210px;
-          }
-
           .theme-code-group__nav {
 
             .theme-code-group__li {
@@ -462,12 +458,11 @@
 
           pre[class*="language-"] {
             padding: 0;
-            //min-height: 169px;
+            min-height: 200px;
           }
 
           .theme-code-block {
             padding: 8px 8px 2px 8px;
-            min-height: 210px;
             color: #fff;
           }
         }
@@ -491,6 +486,7 @@
         pre[class*="language-"] {
           margin: 0;
           padding: 8px 8px 15px 14px;
+          min-height: 200px;
         }
 
         code {
