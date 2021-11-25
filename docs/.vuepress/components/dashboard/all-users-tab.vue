@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-content dashboard-content__table dashboard-content__table-users">
-    <h3>All plans</h3>
+    <h3>All registered users</h3>
     <div class="table-block">
       <dashboard-table-top/>
       <table class="dashboard-table">
