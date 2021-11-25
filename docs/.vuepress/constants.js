@@ -689,4 +689,12 @@ export const COUNTRIES = [
   { name: 'Zimbabwe', code: 'ZW' },
 ];
 
+export const allUsersHeaderTitles = [
+    'NAME',
+    'EMAIL',
+    'COMPANY',
+    'STATUS',
+    'ROLE'
+]
+
 export const URL = 'http://localhost:8080';

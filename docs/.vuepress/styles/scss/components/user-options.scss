@@ -1,0 +1,57 @@
+.user-options, .sort-by-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px rgba(36, 37, 41, 0.1);
+  z-index: 20;
+  right: 10%;
+  padding: 14px 18px;
+  // FIXME problem with last row
+
+  &__button {
+    border: none;
+    background: none;
+    position: relative;
+    display: flex;
+    margin: 5px 0;
+    cursor: pointer;
+
+    .user-options & {
+      &:before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: 8px;
+      }
+
+      &--delete {
+        &:before {
+          background-image: url('/images/delete-icon.svg');
+        }
+      }
+
+      &--change {
+        &:before {
+          background-image: url('/images/change-role-icon.svg');
+        }
+      }
+
+      &--edit {
+        &:before {
+          background-image: url('/images/edit-icon.svg');
+        }
+      }
+
+      &--unblock {
+        &:before {
+          background-image: url('/images/unblock-icon.svg');
+        }
+      }
+    }
+  }
+}
