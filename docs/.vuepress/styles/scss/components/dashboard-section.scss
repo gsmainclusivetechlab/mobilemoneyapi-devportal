@@ -755,12 +755,16 @@
       .table-block {
         box-shadow: 0px 1px 4px rgba(36,37,41, .1);
         border-radius: 3px;
+        margin-top: 0 !important;
       }
     }
   }
 
   &-table {
     margin: 0 !important;
+    font-size: 14px;
+    line-height: 150%;
+    overflow: visible;
 
     &-top {
       display: flex;
@@ -830,8 +834,16 @@
     }
 
     &__pagination {
-      &-item {}
+      &-item {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
       &-arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+
         &--left {}
         &--right {}
         &--inactive {
@@ -878,7 +890,7 @@
 
       text-overflow: ellipsis;
       white-space: nowrap;
-      // FIXME overflow-hidden for text
+      overflow: hidden;
 
       &:last-child {
         padding-left: 0;
@@ -887,6 +899,9 @@
       &--status {
         display: flex;
         align-items: center;
+      }
+      &--options {
+        overflow: visible;
       }
     }
 

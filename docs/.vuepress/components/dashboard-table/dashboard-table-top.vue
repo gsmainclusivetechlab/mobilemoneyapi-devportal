@@ -6,7 +6,7 @@
 
     <div class="dashboard-table__select-block">
       Filter:
-      <v-select v-model="filterSelected" :options="filterOptions" class="vs-custom-style" :clearable="false">
+      <v-select v-model="filterSelected" :options="filterOptions" :reduce="item => item.code" class="vs-custom-style" :clearable="false">
         <template #open-indicator="{ attributes }">
           <img class="expand-arrow" v-bind="attributes" src="/images/expand_arrow.svg" alt="">
         </template>
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       activeSortOptions: false,
-      filterSelected: '',
+      filterSelected: 'company',
       filterOptions: [
         {
           label: 'Name',

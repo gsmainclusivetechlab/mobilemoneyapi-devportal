@@ -30,7 +30,7 @@
             {{ getUserRole(user.role) }}
           </span>
           </td>
-          <td class="dashboard-table__cell">
+          <td class="dashboard-table__cell dashboard-table__cell--options">
             <button type="button" class="dashboard-table__button" @click="showUserOptions(user.id)">
               <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
