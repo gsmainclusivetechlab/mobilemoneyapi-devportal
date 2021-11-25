@@ -838,6 +838,13 @@
         background: none;
         border: none;
         cursor: pointer;
+
+        &--active {
+          background: #DE002B;
+          border-radius: 2px;
+          color: #fff;
+          padding: 5px 6px;
+        }
       }
       &-arrow {
         background: none;
@@ -849,14 +856,6 @@
         &--inactive {
           color: #A7A8A9;
         }
-      }
-    }
-    &__pagination-item {
-      &--active {
-        background: #DE002B;
-        border-radius: 2px;
-        color: #fff;
-        padding: 5px 6px;
       }
     }
 
@@ -894,14 +893,25 @@
 
       &:last-child {
         padding-left: 0;
+
+        .dashboard-content__table-plans & {
+          text-align: right;
+          padding-right: 10px;
+        }
       }
 
       &--status {
         display: flex;
         align-items: center;
       }
+
       &--options {
         overflow: visible;
+      }
+
+      &--center {
+        margin: 0 auto;
+        text-align: center;
       }
     }
 
@@ -925,11 +935,36 @@
       }
     }
 
+    &__state-label {
+      font-size: 12px;
+      line-height: 150%;
+      font-weight: 600;
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 0;
+      width: 77px;
+      display: block;
+
+      &--inactive {
+        background-color: #DE002B;
+      }
+
+      &--active {
+        background-color: #9CB227;
+      }
+    }
+
     &__row {
       border: none;
       text-align: left;
       display: grid;
-      grid-template-columns: repeat(2, 1fr) 200px 100px 150px 20px;
+
+      .dashboard-content__table-users & {
+        grid-template-columns: repeat(2, 1fr) 200px 100px 150px 20px;
+      }
+      .dashboard-content__table-plans & {
+        grid-template-columns: 1fr 160px 1fr;
+      }
 
       &:nth-child(2n) {
         background-color: rgba(222, 222, 223, .2);

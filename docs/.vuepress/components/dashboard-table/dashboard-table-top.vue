@@ -4,7 +4,7 @@
       <input type="text" class="search-block__input" placeholder="Search">
     </div>
 
-    <div class="dashboard-table__select-block">
+    <div class="dashboard-table__select-block" v-if="!hideFilter">
       Filter:
       <v-select v-model="filterSelected" :options="filterOptions" :reduce="item => item.code" class="vs-custom-style" :clearable="false">
         <template #open-indicator="{ attributes }">
@@ -30,6 +30,12 @@ import {mixin as clickaway} from 'vue-clickaway';
 export default {
   name: "dashboard-table-top",
   components: {SortByBlock},
+  props: {
+    hideFilter: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       activeSortOptions: false,
