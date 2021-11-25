@@ -91,7 +91,7 @@ export default {
   mounted() {
     this.$on('get-code-languages', this.setActiveMethod)
 
-    // this.$once('set-code-height', value => (this.provideObject.heightOfCodeGroup = value))
+    this.$once('set-code-height', value => (this.provideObject.heightOfCodeGroup = value))
 
     this.$on('set-method-index', (i) => {
       this.provideObject.activeMethodIndex = i

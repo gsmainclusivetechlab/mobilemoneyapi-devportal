@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <div class="theme-code-group" :class="{'theme-code-group__hidden': !((title && provideObject.activeLanguage === title) ||
-    !title)}">
+    !title)}" :style="{'padding': isButtonShow ? '8px 0 0' : '8px 0'}">
       <div class="theme-code-group__nav">
         <ul class="theme-code-group__ul">
           <li
@@ -22,7 +22,7 @@
         </ul>
       </div>
       <slot/>
-      <div class="code-arrow" :class="{'code-arrow--active': isButtonShow}" @click="isButtonClick()">
+      <div class="code-arrow" v-if="isButtonShow" @click="isButtonClick()">
         {{ isVisibleContent ? 'Show less' : 'Show more' }}
       </div>
       <pre
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     isButtonShow() {
-      return this.scrollHeight > 200
+      return this.scrollHeight >= 350
     },
     activeCodeBlock() {
       return this.$store.state.codePanel.activeCodeBlock
@@ -69,9 +69,9 @@ export default {
         }
       }
     },
-    // 'provideObject.heightOfCodeGroup'(value) {
-    //   this.setMinHeight(value)
-    // },
+    'provideObject.heightOfCodeGroup'(value) {
+      this.setMinHeight(value)
+    },
     'provideObject.activeCodeTabIndex'(newVal, oldVal) {
       if (oldVal) {
         this.checkScrollHeight()
@@ -106,22 +106,22 @@ export default {
     })
   },
   methods: {
-    // setMinHeight(value) {
-    //   const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]')
-    //   const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')
-    //
-    //   for (let el of elements) {
-    //     if (value === 200) {
-    //       el.style.minHeight = `${value + 23}px`
-    //     } else {
-    //       el.style.minHeight = `${value}px`
-    //     }
-    //   }
-    //
-    //   for (let el of elementsActive) {
-    //     el.style.minHeight = `${value}px`
-    //   }
-    // },
+    setMinHeight(value) {
+      const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]')
+      const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')
+
+      for (let el of elements) {
+        if (value === 200) {
+          el.style.minHeight = `${value + 23}px`
+        } else {
+          el.style.minHeight = `${value}px`
+        }
+      }
+
+      for (let el of elementsActive) {
+        el.style.minHeight = `${value}px`
+      }
+    },
     isButtonClick(param) {
       if (param !== undefined) this.isVisibleContent = param
       else this.isVisibleContent = !this.isVisibleContent;
@@ -169,6 +169,7 @@ export default {
       }
     },
     checkScrollHeight() {
+      console.log('1')
       this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollHeight
 
       const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollWidth;
@@ -179,14 +180,14 @@ export default {
         this.scrollHeight += 8
       }
 
-      // if (this.scrollHeight >= 350) {
+      if (this.scrollHeight >= 350) {
         this.isButtonClick(false)
         this.isNonCollapse = false
-        // this.$parent.$parent.$emit('set-code-height', 200)
-      // } else {
-      //   this.isNonCollapse = true
-      //   this.$parent.$parent.$emit('set-code-height', this.scrollHeight)
-      // }
+        this.$parent.$parent.$emit('set-code-height', 200)
+      } else {
+        this.isNonCollapse = true
+        this.$parent.$parent.$emit('set-code-height', this.scrollHeight)
+      }
     }
   }
 }
@@ -199,23 +200,19 @@ export default {
   background-position: center;
   background-size: cover;
   background-color: #242529;
-  color: #242529;
   border-radius: 0 0 8px 8px;
   padding: 5px 10px;
   font-size: 1.2rem;
   line-height: 2;
   font-weight: 500;
   z-index: 5;
+  color: white;
   //left: 0;
   //right: 0;
   border-bottom: 3px solid #525356;
 
-  &.code-arrow--active {
-    color: white;
-
-    &:hover {
-      cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
   }
 }
 
