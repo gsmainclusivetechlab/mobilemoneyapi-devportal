@@ -750,7 +750,20 @@
   &-content {
     .dashboard-section &__table {
       padding-right: 88px;
-      max-width: none;
+      //max-width: none;
+      //&-applications {
+        max-width: calc(100% - 380px);
+
+        @include media('<desktop') {
+          max-width: calc(100% - 300px);
+          padding-right: 40px;
+        }
+        @include media('<tablet-lg') {
+          max-width: none;
+          //padding-right: ;
+        }
+      //}
+
 
       .table-block {
         box-shadow: 0px 1px 4px rgba(36,37,41, .1);
@@ -764,7 +777,25 @@
     margin: 0 !important;
     font-size: 14px;
     line-height: 150%;
-    overflow: visible;
+    overflow: auto;
+
+    .dashboard-content__table-applications & {
+      /* width */
+      &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #fff;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #BEBEBF;
+      }
+    }
 
     &-top {
       display: flex;
@@ -881,8 +912,8 @@
 
     &__cell {
       border: none;
-      padding: 0 0 0 16px;
-      line-height: 37px;
+      padding: 8px 0 8px 16px;
+      line-height: 21px;
       text-align: left;
       position: relative;
       font-weight: 400;
@@ -890,6 +921,15 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+
+      &--heading {
+        line-height: 18px;
+        background-color: rgba(222, 222, 223, .4);
+      }
+
+      .dashboard-content__table-applications & {
+        padding: 8px 0 8px 30px;
+      }
 
       &:last-child {
         padding-left: 0;
@@ -908,6 +948,7 @@
       &--state {
         display: flex;
         align-items: center;
+        justify-content: center;
       }
 
       &--options {
@@ -915,7 +956,7 @@
       }
 
       &--center {
-        margin: 0 auto;
+        //margin: 0 auto;
         text-align: center;
       }
     }
@@ -964,19 +1005,30 @@
       text-align: left;
       display: grid;
 
+      .dashboard-table & {
+        background-color: transparent;
+      }
+
       .dashboard-content__table-users & {
         grid-template-columns: repeat(2, 1fr) 200px 100px 150px 20px;
       }
+
       .dashboard-content__table-plans & {
         grid-template-columns: 1fr 160px 1fr;
       }
 
+      .dashboard-content__table-applications & {
+        grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr) minmax(150px, 1fr) minmax(170px, 1fr) minmax(150px, 1fr) minmax(155px, 1fr) minmax(150px, 1fr) 20px;
+      }
+
       &:nth-child(2n) {
-        background-color: rgba(222, 222, 223, .2);
+        .dashboard-table__cell {
+          background-color: rgba(222, 222, 223, .2);
+        }
       }
 
       &:first-child {
-        background-color: rgba(222, 222, 223, 0.4);
+        //background-color: rgba(222, 222, 223, 0.4);
         color: #505154;
         font-size: 12px;
         line-height: 150%;
