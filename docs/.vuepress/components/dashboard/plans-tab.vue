@@ -5,10 +5,10 @@
       <dashboard-table-top hide-filter/>
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
-          <th class="dashboard-table__cell" :class="{'dashboard-table__cell--center': index === 1}" v-for="(title, index) of allPlansHeaderTitles" :key="index">
+          <th class="dashboard-table__cell dashboard-table__cell--heading" :class="{'dashboard-table__cell--center': index === 1}" v-for="(title, index) of allPlansHeaderTitles" :key="index">
             {{ title }}
           </th>
-          <th class="dashboard-table__cell">
+          <th class="dashboard-table__cell dashboard-table__cell--heading">
           </th>
         </tr>
         <tr class="dashboard-table__row" v-for="plan of plans" :key="plan.id">

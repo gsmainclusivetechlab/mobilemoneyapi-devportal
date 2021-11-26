@@ -5,10 +5,10 @@
       <dashboard-table-top/>
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
-          <th class="dashboard-table__cell" v-for="(title, index) of allUsersHeaderTitles" :key="index">
+          <th class="dashboard-table__cell dashboard-table__cell--heading" v-for="(title, index) of allUsersHeaderTitles" :key="index">
             {{ title }}
           </th>
-          <th class="dashboard-table__cell">
+          <th class="dashboard-table__cell dashboard-table__cell--heading">
           </th>
         </tr>
         <tr class="dashboard-table__row" v-for="user of users" :key="user.id">
