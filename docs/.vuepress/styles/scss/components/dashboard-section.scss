@@ -844,6 +844,7 @@
           padding: 0 40px 0 16px;
           background: url(/images/search.svg) right 16px center no-repeat;
           //color: #BEBEBF;
+          background-size: 15px;
           font-size: 14px;
           line-height: 180%;
           &::placeholder {
@@ -936,7 +937,7 @@
 
         .dashboard-content__table-plans & {
           text-align: right;
-          padding-right: 10px;
+          padding-right: 16px;
         }
       }
 
@@ -1010,7 +1011,7 @@
       }
 
       .dashboard-content__table-users & {
-        grid-template-columns: repeat(2, 1fr) 200px 100px 150px 20px;
+        grid-template-columns: repeat(2, 1fr) 200px 100px 150px 30px;
       }
 
       .dashboard-content__table-plans & {
@@ -1018,7 +1019,7 @@
       }
 
       .dashboard-content__table-applications & {
-        grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr) minmax(150px, 1fr) minmax(170px, 1fr) minmax(150px, 1fr) minmax(155px, 1fr) minmax(150px, 1fr) 20px;
+        grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr) minmax(150px, 1fr) minmax(170px, 1fr) minmax(150px, 1fr) minmax(155px, 1fr) minmax(150px, 1fr) 30px;
       }
 
       &:nth-child(2n) {
