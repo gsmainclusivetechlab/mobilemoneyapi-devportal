@@ -764,6 +764,13 @@
         }
       //}
 
+      &-applications {
+        .btn__create {
+          padding: 10px 45px;
+          margin-top: -6px;
+        }
+      }
+
 
       .table-block {
         box-shadow: 0px 1px 4px rgba(36,37,41, .1);
@@ -1024,15 +1031,19 @@
       }
 
       .dashboard-content__table-users & {
-        grid-template-columns: repeat(2, 1fr) 200px 100px 150px 30px;
+        grid-template-columns: minmax(209px, 1fr) minmax(256px, 1fr) minmax(177px, 1fr) minmax(114px, 1fr) minmax(154px, 1fr) 30px;
       }
 
       .dashboard-content__table-plans & {
-        grid-template-columns: 1fr 160px 1fr;
+        grid-template-columns: 1fr 160px 308px;
+
+        @include media('<desktop') {
+          grid-template-columns: 1fr 160px 1fr;
+        }
       }
 
       .dashboard-content__table-applications & {
-        grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr) minmax(150px, 1fr) minmax(170px, 1fr) minmax(150px, 1fr) minmax(155px, 1fr) minmax(150px, 1fr) 30px;
+        grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(186px, 1fr) 30px;
       }
 
       &:nth-child(2n) {
