@@ -809,6 +809,10 @@
         column-gap: 10px;
       }
 
+      .dashboard-content__table-plans & {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       & > div {
         height: 34px;
       }
