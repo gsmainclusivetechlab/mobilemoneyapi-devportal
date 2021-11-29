@@ -798,18 +798,23 @@
     }
 
     &-top {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 46px;
       align-items: center;
       height: 60px;
       padding: 0 16px;
+
+      @include media("<desktop-lg") {
+        column-gap: 10px;
+      }
 
       & > div {
         height: 34px;
       }
 
       .v-select {
-        margin-left: 20px;
+        margin-left: 10px;
 
         .vs__dropdown-toggle {
           width: 276px;
@@ -893,6 +898,7 @@
 
     &__sort-by {
       position: relative;
+      text-align: right;
 
       .expand-arrow {
         &--revert {
@@ -904,6 +910,8 @@
     &__select {
       &-block {
         display: flex;
+        align-items: center;
+        font-size: 14px;
       }
 
       border: 1px solid #DEDEDF;
