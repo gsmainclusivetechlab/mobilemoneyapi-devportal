@@ -2,8 +2,10 @@
   <dashboard-table
       table-title="All applications"
       table-class="dashboard-content__table-applications"
-      :tableHeadersData="allApplicationsHeaderTitles">
-    <tr class="dashboard-table__row" v-for="app of applications" :key="app.id">
+      :tableHeadersData="allApplicationsHeaderTitles"
+      @search-value="setSearchValue"
+  >
+    <tr class="dashboard-table__row" v-for="app of getSortedTableData" :key="app.id">
       <td class="dashboard-table__cell">
         {{ app.appName }}
       </td>
@@ -11,7 +13,7 @@
         {{ app.authorName }}
       </td>
       <td class="dashboard-table__cell">
-        {{ app.usagePlan.name }}
+        {{ app.usagePlan }}
       </td>
       <td class="dashboard-table__cell">
         {{ app.consumerKey }}
@@ -41,24 +43,26 @@
 
 <script>
 import {allApplicationsHeaderTitles} from "../../constants";
-import applications from '../../api/mocks/applications.json';
+import tableData from '../../api/mocks/applications.json';
 import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
+import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
 
 export default {
   name: "all-applications-tab",
 
   components: {DashboardTable, UserOptionsBlock},
+
   data() {
     return {
       allApplicationsHeaderTitles,
-      applications,
-      activeOptionsUserId: -1
+      tableData,
+      activeOptionsUserId: -1,
     }
   },
 
-  mixins: [clickaway],
+  mixins: [clickaway, dashboardSearch],
 
   methods: {
     showUserOptions(id) {

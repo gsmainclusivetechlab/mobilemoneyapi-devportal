@@ -2,8 +2,13 @@
   <dashboard-table
       table-title="All registered users"
       table-class="dashboard-content__table-users"
-      :table-headers-data="allUsersHeaderTitles">
-    <tr class="dashboard-table__row" v-for="user of users" :key="user.id">
+      :table-headers-data="allUsersHeaderTitles"
+      :filter-data="getCompanies"
+      @search-value="setSearchValue"
+      @filter-value="setFilterValue"
+      @sort-value="setSortValue"
+  >
+    <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.id">
       <td class="dashboard-table__cell">
         {{ user.name }}
       </td>
@@ -38,9 +43,10 @@
 
 <script>
 import {allUsersHeaderTitles} from "../../constants";
-import users from '../../api/mocks/users.json';
+import tableData from '../../api/mocks/users.json';
 import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
+import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
 
 export default {
@@ -49,12 +55,18 @@ export default {
   data() {
     return {
       allUsersHeaderTitles,
-      users,
-      activeOptionsUserId: -1
+      tableData,
+      activeOptionsUserId: -1,
     }
   },
 
-  mixins: [clickaway],
+  computed: {
+    getCompanies() {
+      return new Set(this.tableData.map(el=>el.company))
+    }
+  },
+
+  mixins: [clickaway, dashboardSearch],
 
   methods: {
     getUserStatusLabelClass(status) {

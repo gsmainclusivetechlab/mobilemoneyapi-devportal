@@ -2,7 +2,13 @@
   <div class="dashboard-content dashboard-content__table" :class="[tableClass]">
     <h3>{{ tableTitle }}</h3>
     <div class="table-block">
-      <dashboard-table-top :hideFilter="hideFilter"/>
+      <dashboard-table-top
+          :hideFilter="hideFilter"
+          :filterData="filterData"
+          @search-value="$emit('search-value', $event)"
+          @filter-value="$emit('filter-value', $event)"
+          @sort-value="$emit('sort-value', $event)"
+      />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
           <th class="dashboard-table__cell dashboard-table__cell--heading"
@@ -51,6 +57,9 @@ export default {
     hideFilter: {
       type: Boolean,
       default: false
+    },
+    filterData: {
+      type: Set,
     }
   }
 }

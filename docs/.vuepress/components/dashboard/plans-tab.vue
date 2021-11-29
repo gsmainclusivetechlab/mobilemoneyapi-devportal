@@ -5,8 +5,10 @@
       table-title="All plans"
       table-class="dashboard-content__table-plans"
       :indexCenter="1"
-      :table-headers-data="allPlansHeaderTitles">
-    <tr class="dashboard-table__row" v-for="plan of plans" :key="plan.id">
+      :table-headers-data="allPlansHeaderTitles"
+      @search-value="setSearchValue"
+  >
+    <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
       <td class="dashboard-table__cell">
         {{ plan.planName }}
       </td>
@@ -29,10 +31,11 @@
 
 <script>
 import {allPlansHeaderTitles} from "../../constants";
-import plans from '../../api/mocks/plans.json';
+import tableData from '../../api/mocks/plans.json';
 import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import DashboardTable from "../dashboard-table";
+import dashboardSearch from "../../mixins/dashboardSearch";
 
 export default {
   name: "plans-tab",
@@ -42,12 +45,12 @@ export default {
   data() {
     return {
       allPlansHeaderTitles,
-      plans,
+      tableData,
       activeOptionsPlanId: -1
     }
   },
 
-  mixins: [clickaway],
+  mixins: [clickaway, dashboardSearch],
 
   methods: {
     getPlanStatusLabelClass(state) {

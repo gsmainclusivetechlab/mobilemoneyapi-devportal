@@ -14,7 +14,7 @@
     background: none;
     position: relative;
     display: flex;
-    margin: 5px 0;
+    padding: 5px 0;
     cursor: pointer;
 
     .user-options & {
@@ -55,6 +55,14 @@
     }
   }
 }
+
 .sort-by-options {
-  padding: 14px 47px 14px 18px;
+  padding: 14px 0px 14px 0px;
+
+  &__button {
+    padding: 5px 47px 5px 18px;
+    &--active {
+      background-color: #b6ff88;
+    }
+  }
 }

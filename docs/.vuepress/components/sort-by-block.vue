@@ -1,26 +1,40 @@
 <template>
   <div class="sort-by-options">
-    <button class="sort-by-options__button" type="button">
-      Newest
-    </button>
-    <button class="sort-by-options__button" type="button">
-      Oldest
-    </button>
-    <button class="sort-by-options__button" type="button">
-      Active
-    </button>
-    <button class="sort-by-options__button" type="button">
-      Inactive
-    </button>
-    <button class="sort-by-options__button" type="button">
-      Blocked
+    <button
+        class="sort-by-options__button"
+        type="button"
+        v-for="item of values"
+        :key="item"
+        :class="{'sort-by-options__button--active': item === value}"
+        @click="$emit('input', item)"
+    >
+      {{ item }}
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "sort-by-block"
+  name: "sort-by-block",
+
+  props: {
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+
+  data() {
+    return {
+      values: [
+          'Newest',
+          'Oldest',
+          'Active',
+          'Inactive',
+          'Blocked'
+      ]
+    }
+  }
 }
 </script>
 
