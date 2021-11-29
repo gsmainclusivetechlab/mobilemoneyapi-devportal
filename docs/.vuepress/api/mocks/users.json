@@ -5,7 +5,8 @@
     "email": "sara.cruz@example.com",
     "company": "Starbucks",
     "status": 2,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 1,
@@ -13,7 +14,8 @@
     "email": "tim.jennings@example.com",
     "company": "eBay",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-05-24T14:01:23.000Z"
   },
   {
     "id": 2,
@@ -21,7 +23,8 @@
     "email": "tanya.hill@example.com",
     "company": "Apple",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 3,
@@ -29,7 +32,8 @@
     "email": "tim.jennings@example.com",
     "company": "Louis Vuitton",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-05-24T14:01:23.000Z"
   },
   {
     "id": 4,
@@ -37,7 +41,8 @@
     "email": "felicia.reid@example.com",
     "company": "Apple",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 5,
@@ -45,7 +50,8 @@
     "email": "tim.jennings@example.com",
     "company": "Johnson & Johnson",
     "status": 1,
-    "role": 1
+    "role": 1,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 6,
@@ -53,7 +59,8 @@
     "email": "tanya.hill@example.com",
     "company": "Louis Vuitton",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-05-24T14:01:23.000Z"
   },
   {
     "id": 7,
@@ -61,7 +68,8 @@
     "email": "felicia.reid@example.com",
     "company": "Apple",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-08-24T14:01:23.000Z"
   },
   {
     "id": 8,
@@ -69,7 +77,8 @@
     "email": "tim.jennings@example.com",
     "company": "Johnson & Johnson",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 9,
@@ -77,7 +86,8 @@
     "email": "tanya.hill@example.com",
     "company": "Apple",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-08-24T14:01:23.000Z"
   },
   {
     "id": 10,
@@ -85,7 +95,8 @@
     "email": "jackson.graham@example.com",
     "company": "eBay",
     "status": 0,
-    "role": 2
+    "role": 2,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 11,
@@ -93,7 +104,8 @@
     "email": "tim.jennings@example.com",
     "company": "Louis Vuitton",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-08-24T14:01:23.000Z"
   },
   {
     "id": 12,
@@ -101,7 +113,8 @@
     "email": "tanya.hill@example.com",
     "company": "eBay",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 13,
@@ -109,7 +122,8 @@
     "email": "felicia.reid@example.com",
     "company": "Apple",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-10-11T14:01:23.000Z"
   },
   {
     "id": 14,
@@ -117,7 +131,8 @@
     "email": "tim.jennings@example.com",
     "company": "Johnson & Johnson",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-10-11T14:01:23.000Z"
   },
   {
     "id": 15,
@@ -125,7 +140,8 @@
     "email": "tanya.hill@example.com",
     "company": "eBay",
     "status": 0,
-    "role": 0
+    "role": 0,
+    "registerDate": "2021-10-11T14:01:23.000Z"
   },
   {
     "id": 16,
@@ -133,7 +149,8 @@
     "email": "felicia.reid@example.com",
     "company": "Apple",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 17,
@@ -141,7 +158,8 @@
     "email": "tim.jennings@example.com",
     "company": "Louis Vuitton",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-05-24T14:01:23.000Z"
   },
   {
     "id": 18,
@@ -149,14 +167,16 @@
     "email": "tanya.hill@example.com",
     "company": "Louis Vuitton",
     "status": 1,
-    "role": 0
+    "role": 0,
+    "registerDate": "2020-05-24T14:01:23.000Z"
   },
   {
     "id": 19,
     "name": "Jenny Wilson",
     "email": "tim.jennings@example.com",
     "company": "eBay",
-    "status": 1,
-    "role": 0
+    "status": 2,
+    "role": 0,
+    "registerDate": "2021-10-11T14:01:23.000Z"
   }
 ]

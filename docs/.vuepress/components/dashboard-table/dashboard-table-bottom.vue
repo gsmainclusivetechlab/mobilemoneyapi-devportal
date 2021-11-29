@@ -1,17 +1,30 @@
 <template>
 <div class="dashboard-table-bottom">
-  <span>Showing 1 to 11 of 120 entries</span>
+  <span>Showing {{ perPage * (currentPage - 1) + 1 }} to {{ currentPage === pagesCount ? dataLength : perPage * currentPage }} of {{ dataLength }} entries</span>
 
   <div>
-    <button type="button" class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left dashboard-table__pagination-arrow--inactive">
+    <button
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
+        :class="{'dashboard-table__pagination-arrow--inactive': currentPage === 1}"
+        @click="$emit('set-current-page', currentPage - 1)"
+    >
       < Prev
     </button>
-    <button type="button" class="dashboard-table__pagination-item dashboard-table__pagination-item--active">1</button>
-    <button type="button" class="dashboard-table__pagination-item">2</button>
-    <button type="button" class="dashboard-table__pagination-item">3</button>
-    <button type="button" class="dashboard-table__pagination-item">4</button>
-    <button type="button" class="dashboard-table__pagination-item">5</button>
-    <button type="button" class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right">
+    <button
+        type="button"
+        v-for="page of pagesCount"
+        :key="page"
+        class="dashboard-table__pagination-item"
+        :class="{'dashboard-table__pagination-item--active': page === currentPage}"
+        @click="$emit('set-current-page', page)"
+    >{{page}}</button>
+    <button
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
+        :class="{'dashboard-table__pagination-arrow--inactive': currentPage === pagesCount}"
+        @click="$emit('set-current-page', currentPage + 1)"
+    >
       Next >
     </button>
   </div>
@@ -20,7 +33,25 @@
 
 <script>
 export default {
-  name: "dashboard-table-bottom"
+  name: "dashboard-table-bottom",
+  props: {
+    dataLength: {
+      type: Number,
+      default: 1
+    },
+    pagesCount: {
+      type: Number,
+      default: 1
+    },
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    perPage: {
+      type: Number,
+      default: 1
+    }
+  }
 }
 </script>
 

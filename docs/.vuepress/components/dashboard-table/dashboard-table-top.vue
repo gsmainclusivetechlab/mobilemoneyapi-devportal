@@ -1,12 +1,17 @@
 <template>
   <div class="dashboard-table-top">
     <div class="search-block">
-      <input type="text" class="search-block__input" placeholder="Search">
+      <input type="text" class="search-block__input"  placeholder="Search" v-model="searchValue">
     </div>
 
     <div class="dashboard-table__select-block" v-if="!hideFilter">
       Filter:
-      <v-select v-model="filterSelected" :options="filterOptions" :reduce="item => item.code" class="vs-custom-style" :clearable="false">
+      <v-select v-model="filterSelected"
+                :options="getFilterData"
+                class="vs-custom-style"
+                placeholder="Company name"
+                :reduce="item => item.label"
+                :clearable="false">
         <template #open-indicator="{ attributes }">
           <img class="expand-arrow" v-bind="attributes" src="/images/expand_arrow.svg" alt="">
         </template>
@@ -18,7 +23,11 @@
         Sort by
         <img class="expand-arrow" :class="{'expand-arrow--revert': activeSortOptions}" src="/images/expand_arrow.svg" alt="">
       </button>
-      <sort-by-block v-on-clickaway="hideSortByOptions" v-if="activeSortOptions"/>
+      <sort-by-block
+          v-on-clickaway="hideSortByOptions"
+          v-if="activeSortOptions"
+          v-model="sortValue"
+      />
     </div>
   </div>
 </template>
@@ -34,34 +43,40 @@ export default {
     hideFilter: {
       type: Boolean,
       default: false
+    },
+    filterData: {
+      type: Set,
     }
   },
   data() {
     return {
       activeSortOptions: false,
-      filterSelected: 'company',
-      filterOptions: [
-        {
-          label: 'Name',
-          code: 'name'
-        },
-        {
-          label: 'Email',
-          code: 'email'
-        },
-        {
-          label: 'Company name',
-          code: 'company'
-        },
-        {
-          label: 'Status',
-          code: 'status'
-        },
-        {
-          label: 'Role',
-          code: 'role'
-        },
-      ]
+      filterSelected: '',
+      searchValue: '',
+      sortValue: ''
+    }
+  },
+
+  watch: {
+    searchValue(val) {
+      this.$emit('search-value', val)
+    },
+    filterSelected(val) {
+      this.$emit('filter-value', val)
+    },
+    sortValue(val) {
+      this.$emit('sort-value', val)
+    }
+  },
+
+  computed: {
+    getFilterData() {
+      if (this.filterData) {
+        return ['All Companies', ...this.filterData].map(el => {
+          return {label: el}
+        })
+      }
+      return []
     }
   },
 
