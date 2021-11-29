@@ -1,6 +1,11 @@
 <template>
   <div class="dashboard-content dashboard-content__table" :class="[tableClass]">
-    <h3>{{ tableTitle }}</h3>
+    <div style="display: flex; justify-content: space-between">
+      <h3>{{ tableTitle }}</h3>
+      <div v-if="isCreateButton" class="btn-row">
+        <button class="btn btn--accent btn__create" @click="toggleModal" type="button">Create</button>
+      </div>
+    </div>
     <div class="table-block">
       <dashboard-table-top
           :hideFilter="hideFilter"
@@ -30,15 +35,17 @@
           @set-current-page="$emit('set-current-page', $event)"
       />
     </div>
+    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
   </div>
 </template>
 
 <script>
 import DashboardTableBottom from "./dashboard-table-bottom";
 import DashboardTableTop from "./dashboard-table-top";
+import DashboardModal from "../dashboard-modal";
 export default {
   name: "dashboard-table",
-  components: {DashboardTableTop, DashboardTableBottom},
+  components: {DashboardModal, DashboardTableTop, DashboardTableBottom},
   props: {
     tableHeadersData: {
       type: Array,
@@ -82,7 +89,21 @@ export default {
     perPage: {
       type: Number,
       default: 1
+    },
+    isCreateButton: {
+      type: Boolean,
+      default: false
     }
+  },
+  data () {
+    return {
+      modalIsVisible: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.modalIsVisible = !this.modalIsVisible;
+    },
   }
 }
 </script>

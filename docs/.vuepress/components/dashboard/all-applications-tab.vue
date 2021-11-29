@@ -7,6 +7,7 @@
       :pages-count="getPages"
       :current-page="currentPage"
       :per-page="perPage"
+      is-create-button
       @search-value="setSearchValue"
       @set-current-page="setCurrentPage"
   >
