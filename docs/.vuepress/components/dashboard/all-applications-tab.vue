@@ -3,9 +3,14 @@
       table-title="All applications"
       table-class="dashboard-content__table-applications"
       :tableHeadersData="allApplicationsHeaderTitles"
+      :data-length="getSortedTableData.length"
+      :pages-count="getPages"
+      :current-page="currentPage"
+      :per-page="perPage"
       @search-value="setSearchValue"
+      @set-current-page="setCurrentPage"
   >
-    <tr class="dashboard-table__row" v-for="app of getSortedTableData" :key="app.id">
+    <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.id">
       <td class="dashboard-table__cell">
         {{ app.appName }}
       </td>

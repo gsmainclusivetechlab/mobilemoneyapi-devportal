@@ -22,7 +22,13 @@
         </tr>
         <slot></slot>
       </table>
-      <dashboard-table-bottom/>
+      <dashboard-table-bottom
+          :dataLength="dataLength"
+          :pages-count="pagesCount"
+          :current-page="currentPage"
+          :per-page="perPage"
+          @set-current-page="$emit('set-current-page', $event)"
+      />
     </div>
   </div>
 </template>
@@ -60,6 +66,22 @@ export default {
     },
     filterData: {
       type: Set,
+    },
+    dataLength: {
+      type: Number,
+      default: 1
+    },
+    pagesCount: {
+      type: Number,
+      default: 1
+    },
+    currentPage: {
+      type: Number,
+      default: 1
+    },
+    perPage: {
+      type: Number,
+      default: 1
     }
   }
 }

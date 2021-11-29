@@ -5,7 +5,10 @@ export default {
         return {
             searchValue: '',
             filterValue: '',
-            sortValue: ''
+            sortValue: '',
+
+            perPage: 10,
+            currentPage: 1
         }
     },
 
@@ -38,6 +41,12 @@ export default {
 
                 return el.company === this.filterValue;
             })
+        },
+        getTableData() {
+            return this.getSortedTableData.slice((this.currentPage-1) * this.perPage, this.currentPage * this.perPage)
+        },
+        getPages() {
+            return Math.ceil(this.getSortedTableData.length / this.perPage)
         }
     },
 
@@ -50,6 +59,9 @@ export default {
         },
         setSortValue(value) {
             this.sortValue = value
+        },
+        setCurrentPage(page) {
+            this.currentPage = page
         }
     }
 }

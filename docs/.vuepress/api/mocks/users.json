@@ -50,7 +50,8 @@
     "email": "tim.jennings@example.com",
     "company": "Johnson & Johnson",
     "status": 1,
-    "role": 1
+    "role": 1,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 6,
@@ -94,7 +95,8 @@
     "email": "jackson.graham@example.com",
     "company": "eBay",
     "status": 0,
-    "role": 2
+    "role": 2,
+    "registerDate": "2020-03-24T14:01:23.000Z"
   },
   {
     "id": 11,

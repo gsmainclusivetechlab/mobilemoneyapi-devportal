@@ -6,9 +6,14 @@
       table-class="dashboard-content__table-plans"
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
+      :data-length="getSortedTableData.length"
+      :pages-count="getPages"
+      :current-page="currentPage"
+      :per-page="perPage"
       @search-value="setSearchValue"
+      @set-current-page="setCurrentPage"
   >
-    <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
+    <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
       <td class="dashboard-table__cell">
         {{ plan.planName }}
       </td>

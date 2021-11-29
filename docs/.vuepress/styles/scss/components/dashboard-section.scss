@@ -896,6 +896,7 @@
         &--right {}
         &--inactive {
           color: #A7A8A9;
+          pointer-events: none;
         }
       }
     }

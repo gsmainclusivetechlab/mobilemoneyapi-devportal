@@ -4,11 +4,16 @@
       table-class="dashboard-content__table-users"
       :table-headers-data="allUsersHeaderTitles"
       :filter-data="getCompanies"
+      :data-length="getSortedTableData.length"
+      :pages-count="getPages"
+      :current-page="currentPage"
+      :per-page="perPage"
       @search-value="setSearchValue"
       @filter-value="setFilterValue"
       @sort-value="setSortValue"
+      @set-current-page="setCurrentPage"
   >
-    <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.id">
+    <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.id">
       <td class="dashboard-table__cell">
         {{ user.name }}
       </td>
