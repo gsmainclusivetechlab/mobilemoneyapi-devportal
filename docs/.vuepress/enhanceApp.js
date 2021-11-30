@@ -29,13 +29,24 @@ export default async ({
   Vue.component("v-select", vSelect);
   Vue.component('CodeBlock', CodeBlock)
   Vue.component('CodeGroup', CodeGroup)
+
   for (const [name, component] of Object.entries(pageComponents)) {
     Vue.component(name, component)
   }
 
+  //
+  // router.afterEach((to) => {
+  //   console.log('after navigation')
+  // })
+
   if (!isServer) {
     await import('vue-touch').then(module => {
       Vue.use(module.default);
+    })
+
+    router.beforeEach((to, from, next) => {
+      if(to.path === "/dashboard/" && !localStorage.getItem('token_access')) next({path: '/login/'})
+      else next();
     })
   }
   // ...apply enhancements for the site.

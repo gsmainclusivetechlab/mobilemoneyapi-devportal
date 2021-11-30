@@ -1,4 +1,5 @@
 import Auth from "../../../api/Auth";
+import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../../../api/constants";
 
 export default {
     signUp({commit}, payload) {
@@ -15,8 +16,20 @@ export default {
         });
     },
     signIn({commit}, payload) {
-        localStorage.setItem('token_access', '123')
-        commit('setTokenAccess');
+        let role = ''
+        if(payload.userId === USER_EMAIL) {
+            role = 'USER'
+        }
+        if(payload.userId === ADMIN_EMAIL) {
+            role = 'ADMIN'
+        }
+        if(payload.userId === SUPERADMIN_EMAIL) {
+            role = 'SUPERADMIN'
+        }
+        window.localStorage.setItem('token_access', role)
+
+        commit('setTokenAccess', role);
+
         return new Promise((resolve, reject) => {
             Auth.signIn(payload)
                 .then(() => {

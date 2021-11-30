@@ -6,3 +6,9 @@ export const LOGOUT = '/logout';
 export const FORGOT_PASSWORD = '/forgot-password';
 
 export const APPS = '/apps';
+
+// temporary users data
+
+export const USER_EMAIL = 'user@example.com';
+export const ADMIN_EMAIL = 'admin@example.com';
+export const SUPERADMIN_EMAIL = 'superadmin@example.com';
