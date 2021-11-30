@@ -29,7 +29,23 @@ export default {
 
                 for (let key in el) {
                     if (key === 'id') continue
-                    if (el[key].toString().toLowerCase().includes(this.searchValue.toLowerCase())) return true
+
+                    let value = el[key]
+                    if(key === 'status') {
+                        if(el[key] === 0) value = 'Inactive';
+                        if(el[key] === 1) value = 'Active';
+                        if(el[key] === 2) value = 'Blocked';
+                    }
+                    if(key === 'role') {
+                        if(el[key] === 0) value = 'User';
+                        if(el[key] === 1) value = 'Admin';
+                        if(el[key] === 2) value = 'Superadmin';
+                    }
+                    if(key === 'state') {
+                        if(el[key] === 0) value = 'Unpublish';
+                        if(el[key] === 1) value = 'Publish';
+                    }
+                    if (value.toString().toLowerCase().includes(this.searchValue.toLowerCase())) return true
                 }
 
                 return false
