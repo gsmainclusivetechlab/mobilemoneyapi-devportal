@@ -28,9 +28,22 @@
         {{ getUserStatus(user.status) }}
       </td>
       <td class="dashboard-table__cell">
-          <span class="dashboard-table__role" :class="{'dashboard-table__role--red': user.role === 0}">
+        <template v-if="isAdminRole">
+          <span
+              class="dashboard-table__role"
+              :class="{'dashboard-table__role--red': user.role === 0}">
             {{ getUserRole(user.role) }}
           </span>
+        </template>
+        <template v-if="isSuperAdminRole">
+          <button
+              @dblclick="changeUserRole(user.id)"
+              class="dashboard-table__role dashboard-table__role--button"
+              :class="{'dashboard-table__role--red': user.role === 0}">
+            {{ getUserRole(user.role) }}
+          </button>
+        </template>
+
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--options">
         <button type="button" class="dashboard-table__button" @click="showUserOptions(user.id)">
@@ -40,7 +53,13 @@
             <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
           </svg>
         </button>
-        <user-options-block v-on-clickaway="hideUserOptions" v-if="user.id === activeOptionsUserId"/>
+        <user-options-block
+            v-on-clickaway="hideUserOptions"
+            v-if="user.id === activeOptionsUserId"
+            :userStatus="user.status"
+            @deleteUser="deleteUser(user.id)"
+            @changeStatus="changeStatus(user.id, $event)"
+        />
       </td>
     </tr>
   </dashboard-table>
@@ -67,7 +86,16 @@ export default {
 
   computed: {
     getCompanies() {
-      return new Set(this.tableData.map(el=>el.company))
+      return new Set(this.tableData.map(el => el.company))
+    },
+    getUserAccessToken() {
+      return this.$store.state.auth.token_access
+    },
+    isAdminRole() {
+      return this.getUserAccessToken === 'ADMIN'
+    },
+    isSuperAdminRole() {
+      return this.getUserAccessToken === 'SUPERADMIN'
     }
   },
 
@@ -94,6 +122,24 @@ export default {
     },
     hideUserOptions() {
       this.activeOptionsUserId = -1
+    },
+    deleteUser(id) {
+      const index = this.tableData.findIndex(el => el.id === id)
+      this.tableData.splice(index, 1)
+    },
+    changeStatus(id, status) {
+      this.tableData.forEach(el => {
+        if (el.id === id) {
+          el.status = status
+        }
+      })
+    },
+    changeUserRole(id) {
+      this.tableData.forEach(el => {
+        if (el.id === id && el.role !== 2) {
+          el.role = el.role === 0 ? 1 : 0
+        }
+      })
     }
   }
 }

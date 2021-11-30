@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../api/constants";
+
 export default {
   name: 'login-section',
   data() {
@@ -63,15 +65,17 @@ export default {
     async signIn() {
       await this.$store.dispatch('auth/signIn', this.form)
           .then(() => {
-            this.$root.$emit('log-user-in', true);
             this.$router.push({path: '/dashboard/'})
           })
           .catch(() => {
             console.log('error')
           })
       console.log('sign-in')
-      this.$root.$emit('log-user-in', true);
-      this.$router.push({path: '/dashboard/'})
+      const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
+      if(userEmails.includes(this.form.userId)) {
+        this.$root.$emit('log-user-in', true);
+        this.$router.push({path: '/dashboard/'})
+      }
     }
   }
 };
