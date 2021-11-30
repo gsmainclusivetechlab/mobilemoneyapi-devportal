@@ -26,7 +26,7 @@ export default {
         if(payload.userId === SUPERADMIN_EMAIL) {
             role = 'SUPERADMIN'
         }
-        localStorage.setItem('token_access', role)
+        window.localStorage.setItem('token_access', role)
 
         commit('setTokenAccess', role);
 

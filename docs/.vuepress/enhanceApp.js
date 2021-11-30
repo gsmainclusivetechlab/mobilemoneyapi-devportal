@@ -34,10 +34,6 @@ export default async ({
     Vue.component(name, component)
   }
 
-  router.beforeEach((to, from, next) => {
-    if(to.path === "/dashboard/" && !localStorage.getItem('token_access')) next({path: '/login/'})
-    else next();
-  })
   //
   // router.afterEach((to) => {
   //   console.log('after navigation')
@@ -46,6 +42,11 @@ export default async ({
   if (!isServer) {
     await import('vue-touch').then(module => {
       Vue.use(module.default);
+    })
+
+    router.beforeEach((to, from, next) => {
+      if(to.path === "/dashboard/" && !localStorage.getItem('token_access')) next({path: '/login/'})
+      else next();
     })
   }
   // ...apply enhancements for the site.

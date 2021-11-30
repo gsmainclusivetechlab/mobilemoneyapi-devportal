@@ -21,9 +21,9 @@ export default {
     // console.log('queryString: ', queryString);
     // console.log('queryTerms: ', queryTerms);
     // e.g. create an analytics event
-    localStorage.setItem('delayAfterSearch', 'true')
+    window.localStorage.setItem('delayAfterSearch', 'true')
     setTimeout(()=> {
-      localStorage.setItem('delayAfterSearch', 'false')
+      window.localStorage.setItem('delayAfterSearch', 'false')
     }, 500)
   },
 }
