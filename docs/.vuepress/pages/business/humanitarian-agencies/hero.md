@@ -3,6 +3,6 @@
   Humanitarian Agencies
   </template>    
   <template v-slot:description>
-  Humanitarian organisations help to ensure that there is swift, efficient humanitarian assistance available when sudden natural disasters strike or wars occur or in connection with long-term conflicts.
+  <p>Humanitarian agencies such as non-governmental organisations (NGOs) can use the GSMA Mobile Money API specification to increase the speed, efficiency, accountability and transparency on how cash disbursements are delivered.</p>
   </template>    
 </IndustryHeroSection>

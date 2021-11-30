@@ -23,7 +23,7 @@
       </div>
       <div class="tabs-holder">
         <TabSection v-show="isActiveTab('International Transfers')">
-          tab content will be here (3)
+!!!include(../../use-cases/internal-transfers.md)!!!
         </TabSection>
       </div>
     </div>

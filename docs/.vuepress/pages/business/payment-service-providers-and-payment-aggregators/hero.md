@@ -3,6 +3,7 @@
   Payment Service Providers & Payment Aggregators
   </template>    
   <template v-slot:description>
-  A payment service provider offers shops online services for accepting electronic payments by a variety of payment methods including credit card, bank-based payments such as direct debit, bank transfer, and real-time bank transfer based on online banking.
+  <p>Providers of payment services such as aggregators and hub that act as mediators. They help connect organisations with many other organisations using a single connection point.</p>
+  <p>The GSMA API Specification can be used by payment  aggregators and hubs to speed up the integration time and simplify the complexity when working at large scale with multiple APIs.</p>
   </template>    
 </IndustryHeroSection>

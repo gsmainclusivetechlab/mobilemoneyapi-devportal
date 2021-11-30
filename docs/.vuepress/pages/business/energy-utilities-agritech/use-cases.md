@@ -23,10 +23,10 @@
       </div>
       <div class="tabs-holder">
         <TabSection v-show="isActiveTab('Recurring Payments')">
-          tab content will be here (5)
+!!!include(../../use-cases/recurring-payments.md)!!!
         </TabSection>
         <TabSection v-show="isActiveTab('Bill Payments')">
-          tab content will be here (7)
+!!!include(../../use-cases/bill-payments.md)!!!
         </TabSection>
       </div>
     </div>

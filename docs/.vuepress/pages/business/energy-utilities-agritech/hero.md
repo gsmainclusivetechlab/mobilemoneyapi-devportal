@@ -3,6 +3,8 @@
   Energy & Utilities & AgriTech
   </template>    
   <template v-slot:description>
-  Agritech is the use of technology and technological innovation to improve the efficiency and output of agricultural processes.
+  <p>Companies in the energy, Utilities and Agritech industries can use the GSMA API specification to support their customers save time by automating the bill payment process.
+  As an example, monthly utility payments can be set up which saves time for customers and resources for companies as this type of set up removes the need for manual payment processing.
+  </p>
   </template>    
 </IndustryHeroSection>

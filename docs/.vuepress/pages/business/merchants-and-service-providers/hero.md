@@ -3,8 +3,7 @@
   Merchants & Service Providers
   </template>    
   <template v-slot:description>
-  A merchant service provider or merchant account provider is a 
-  company or 
-  service that gives you access to all the tools you need to handle those all-important transactions.
+  <p>Merchants are typically stores selling products or services in a physical location or online.</p>
+  <p>Merchants can use the GSMA API specification to accept online payments from customers using Mobile Money as a payment method. As well as one-off payments, furthermore, there is the option to set up recurring payments.</p>
   </template>    
 </IndustryHeroSection>
