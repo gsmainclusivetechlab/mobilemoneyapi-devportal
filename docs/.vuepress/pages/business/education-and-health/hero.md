@@ -3,7 +3,7 @@
   Education & Health
   </template>    
   <template v-slot:description>
-  Investing in Africa’s education sector today will return sizable social and economic dividends 
-  tomorrow, helping the continent better compete—and succeed—in an increasingly globalized world.
+  <p>Education and Health are two sectors where these institutions can simplify the way they accept payments from clients.</p>
+  <p>Institutions such as school, colleges, universities, hospitals and clinics can set up online payment portal where clients can make one-off payments online or set up recurring payment which can be deducted from their mobile money account automatically on a regular basis.</p>
   </template>    
 </IndustryHeroSection>
