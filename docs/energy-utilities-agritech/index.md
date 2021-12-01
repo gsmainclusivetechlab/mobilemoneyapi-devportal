@@ -6,7 +6,6 @@ title: Energy & Utilities & AgriTech
 !!!include(./docs/.vuepress/pages/business/energy-utilities-agritech/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/energy-utilities-agritech/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/energy-utilities-agritech/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/energy-utilities-agritech/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/energy-utilities-agritech/start-developing.md)!!!
 
 <script>

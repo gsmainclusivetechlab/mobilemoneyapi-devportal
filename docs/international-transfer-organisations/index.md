@@ -6,7 +6,6 @@ title: International Transfer Organisations
 !!!include(./docs/.vuepress/pages/business/international-transfer-organisations/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/international-transfer-organisations/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/international-transfer-organisations/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/international-transfer-organisations/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/international-transfer-organisations/start-developing.md)!!!
 
 <script>
