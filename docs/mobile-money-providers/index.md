@@ -6,7 +6,6 @@ title: Mobile Money Providers
 !!!include(./docs/.vuepress/pages/business/mobile-money-providers/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-providers/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-providers/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-providers/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-providers/start-developing.md)!!!
 
 <script>

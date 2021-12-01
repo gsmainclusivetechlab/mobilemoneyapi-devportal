@@ -6,7 +6,6 @@ title: Humanitarian Agencies
 !!!include(./docs/.vuepress/pages/business/humanitarian-agencies/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/humanitarian-agencies/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/humanitarian-agencies/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/humanitarian-agencies/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/humanitarian-agencies/start-developing.md)!!!
 
 <script>

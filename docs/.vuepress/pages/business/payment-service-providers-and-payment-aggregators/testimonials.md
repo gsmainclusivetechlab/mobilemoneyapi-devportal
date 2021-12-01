@@ -13,28 +13,27 @@
           <div>
             <div class="testimonials__slide">
               <div class="testimonials__content-holder">
-                <div class="testimonials__description">
-                  <p>Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.
-                    Scelerisque hendrerit sagittis, sit aliquet id sodales dictum pellentesque quis. Lobortis ultrices
-                    ultrices integer urna, pharetra.</p>
-                </div>
-                <div class="testimonials__author">
-                  <span class="testimonials__author--name">
-                    John Smith
-                  </span>
-                  <span class="testimonials__author--position">
-                    Developer at Porto
-                  </span>
-                </div>
-              </div>
-              <div class="testimonials__image-holder">
-                <div class="testimonials__image-holder--container">
-                  <div class="testimonials__icon-holder">
-                    <svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M35.9646 46V26.7143C35.9646 17.5714 38.1357 10.9048 42.4779 6.71428C46.9145 2.42857 53.4749 0.190479 62.1593 0L64 9C53.9941 9.95238 49.3687 14.6667 50.1239 23.1429H58.9027V46H35.9646ZM0 46V26.7143C0 17.5714 2.17109 10.9048 6.51328 6.71428C10.9499 2.42857 17.5103 0.190479 26.1947 0L28.0354 9C18.0295 9.95238 13.4041 14.6667 14.1593 23.1429H22.9381V46H0Z" fill="#99CCCC"/>
                     </svg>
+                <div class="testimonials__description">
+                  <p>As a payment service provider that is directly integrated with over 35 MNO partners, we understand the importance of Standardised APIs to save time on development work, resources and keeping integrations up to date.</p>
+                </div>
+<svg width="64" height="46" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M35.9646 46V26.7143C35.9646 17.5714 38.1357 10.9048 42.4779 6.71428C46.9145 2.42857 53.4749 0.190479 62.1593 0L64 9C53.9941 9.95238 49.3687 14.6667 50.1239 23.1429H58.9027V46H35.9646ZM0 46V26.7143C0 17.5714 2.17109 10.9048 6.51328 6.71428C10.9499 2.42857 17.5103 0.190479 26.1947 0L28.0354 9C18.0295 9.95238 13.4041 14.6667 14.1593 23.1429H22.9381V46H0Z" fill="#99CCCC"/>
+                    </svg>
+              </div>
+              <div class="testimonials__info-holder">
+                <div class="testimonials__info-holder--container">
+                  <div>
+                    <p class="testimonials__info-holder--company">Cellulant</p>
+                    <p class="testimonials__info-holder--organisation">Payment Service Provider</p>
                   </div>
-                  <img src="/images/slide-item-1.jpg" alt="John Smith">
+                  <div>
+                    <p><router-link to="/use-cases/merchant-payments/">Merchant Payments</router-link></p>
+                    <p><router-link to="/use-cases/international-transfers/">International Transfers</router-link></p>
+                    <p><router-link to="/use-cases/p-2-p-transfers/">P2P transfers</router-link></p>
+                  </div>
                 </div>
               </div>
             </div>

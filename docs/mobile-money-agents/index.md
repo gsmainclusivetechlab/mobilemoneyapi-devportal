@@ -6,7 +6,6 @@ title: Mobile Money Agents
 !!!include(./docs/.vuepress/pages/business/mobile-money-agents/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-agents/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-agents/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-agents/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/mobile-money-agents/start-developing.md)!!!
 
 <script>
