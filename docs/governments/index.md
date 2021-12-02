@@ -5,7 +5,6 @@ title: Governments
 
 !!!include(./docs/.vuepress/pages/business/governments/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/governments/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/governments/succeed-case.md)!!!
 !!!include(./docs/.vuepress/pages/business/governments/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/governments/start-developing.md)!!!
 

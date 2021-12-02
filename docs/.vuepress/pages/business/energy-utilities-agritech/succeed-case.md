@@ -1,43 +1,35 @@
 <template>
   <section class="special-grid-section section--m-gap">
     <div class="container container--narrow">
-      <div class="special-grid__container">
-        <div class="special-grid__block">
-          <div class="special-grid__image-holder">
-            <img src="/images/succeed-use-case.jpg" alt="image alt">
-          </div>
-          <div class="special-grid__content-holder">
-            <div class="section-intro__column">
+      <div class="section-intro section-intro--one-column">
 
 ## Succeed case study
 
-<div class="section-description">
-                Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere
-                amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et
-                neque.
-              </div>
-              <ul class="case-list">
-                <li class="case-list__item">
-                  <div class="bullet" style="color: #00568F"></div>
-                  Increased conversion
-                </li>
-                <li class="case-list__item">
-                  <div class="bullet" style="color: #FF6600"></div>
-                  Important point
-                </li>
-                <li class="case-list__item">
-                  <div class="bullet" style="color: #00A182"></div>
-                  Reduced errors
-                </li>
-                <li class="case-list__item">
-                  <div class="bullet" style="color: #FCBB2C"></div>
-                  Important point
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+</div>
+      <case-study imageLink="/images/test.jpg">
+        <template v-slot:main-description>
+As an energy provider whose business is mainly in rural areas, partnerships with MNOs are of extreme importance to its operations. Mobile Money is regarded an enabler of its business.
+Most of the third-party service provider’s consumers are pay-as-you go customers and by being directly integrated with over 10 MNO partners, it facilitates faster and smoother payments.
+        </template>
+        <template v-slot:first-description>
+Although the process of direct integrations has improved since its first integration over seven years ago, the provider are still experiences some challenges when integrating with new partners, particularly the length of integration.
+The energy provider has previously considered using aggregators; however, the costs proved to be significantly high.
+        </template>
+        <template v-slot:second-description>
+The business has stated it would be beneficial to use a Standardised API, as will allow the provider to connect with more MNOs and expand services it offers at a faster rate. One of the provider’s struggles has been maintaining the multiple MNO API connections, which can be minimised by using a Standard API. 
+        </template>
+        <template v-slot:title>
+Engie
+        </template>
+        <template v-slot:org-type>
+Energy Provider
+        </template>
+        <template v-slot:use-case-links>
+          <p><router-link to="/use-cases/bill-payments/">Bill Payments</router-link></p>
+          <p><router-link to="/use-cases/recurring-payments/">Recurring Payments</router-link></p>
+          <p><router-link to="/use-cases/disbursements/">Disbursements</router-link></p>
+        </template>
+      </case-study>
     </div>
   </section>
 </template>

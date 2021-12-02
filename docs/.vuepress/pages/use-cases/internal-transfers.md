@@ -6,8 +6,8 @@ The International Transfer Mobile Money APIs allow financial service providers t
 
 For further reading, please refer to the following:
 
-- Getting Started. Specifies the design principles, behaviours, and error handling of the Mobile Money API.
-- API Service Definition. Documents all Mobile Money API endpoints, fields, objects, and enumerations.
+- **Getting Started.** Specifies the design principles, behaviours, and error handling of the Mobile Money API.
+- **API Service Definition.** Documents all Mobile Money API endpoints, fields, objects, and enumerations.
 
 All documentation can be found on the [GSMA Mobile Money API Developer Portal](../../api-versions-1.2/).
 
@@ -21,5 +21,7 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 | | - To understand how to implement the Mobile Money API to send international remittances to Mobile Money Providers. | API Consumer |
 | **International Transfer Hubs** | - To understand how to implement the Mobile Money APIs to receive international transfers from FSPs. | API Provider |
 | | - To understand how to implement the Mobile Money APIs to send international transfers to FSPs. | API Consumer |
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita facilis harum hic molestiae nemo reiciendis suscipit veritatis vero voluptates voluptatum!
 
 </template>

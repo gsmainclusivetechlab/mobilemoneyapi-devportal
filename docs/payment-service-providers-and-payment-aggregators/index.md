@@ -5,7 +5,6 @@ title: Payment Service Providers & Payment Aggregators
 
 !!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/succeed-case.md)!!!
 !!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/start-developing.md)!!!
 
