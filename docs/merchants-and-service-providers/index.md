@@ -5,7 +5,6 @@ title: Merchants & Service Providers
 
 !!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/succeed-case.md)!!!
 !!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/start-developing.md)!!!
 
 <script>

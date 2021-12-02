@@ -36,7 +36,7 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 
 | **Audience** | **Usage** | **Role** |
 |:--------|:------|:-----|
-| **Mobile Money Providers** | TTo understand how to implement the Mobile Money API to allow agents to perform cash-in, cash-out, customer registration and customer KYC verification services on behalf of mobile money customers. | API Provider |
+| **Mobile Money Providers** | To understand how to implement the Mobile Money API to allow agents to perform cash-in, cash-out, customer registration and customer KYC verification services on behalf of mobile money customers. | API Provider |
 | **Agents** | To understand how to implement the Mobile Money API to service customer requests for cash-in, cash-out, registration and KYC verification. | API Consumer |
 
 </template>

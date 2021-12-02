@@ -5,7 +5,6 @@ title: Banks & Microfinance Institutions
 
 !!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/succeed-case.md)!!!
 !!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/start-developing.md)!!!
 
