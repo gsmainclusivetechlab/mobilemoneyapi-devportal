@@ -20,7 +20,22 @@
         {{ plan.planName }}
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
-        <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>
+<!--        <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>-->
+        <template v-if="isAdminRole">
+          <span
+              class="dashboard-table__state-label"
+              :class="[getPlanStatusLabelClass(plan.state)]">
+            {{ getPlanStatus(plan.state) }}
+          </span>
+        </template>
+        <template v-if="isSuperAdminRole">
+          <button
+              @dblclick="changeState(plan.id)"
+              class="dashboard-table__state-label dashboard-table__state-button"
+              :class="[getPlanStatusLabelClass(plan.state)]">
+            {{ getPlanStatus(plan.state) }}
+          </button>
+        </template>
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--options">
         <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
@@ -57,6 +72,18 @@ export default {
     }
   },
 
+  computed: {
+    getUserAccessToken() {
+      return this.$store.state.auth.token_access
+    },
+    isAdminRole() {
+      return this.getUserAccessToken === 'ADMIN'
+    },
+    isSuperAdminRole() {
+      return this.getUserAccessToken === 'SUPERADMIN'
+    }
+  },
+
   mixins: [clickaway, dashboardSearch],
 
   methods: {
@@ -76,6 +103,14 @@ export default {
 
     hideUserOptions() {
       this.activeOptionsPlanId = -1
+    },
+
+    changeState(id) {
+      this.tableData.forEach(el => {
+        if (el.id === id) {
+          el.state = el.state === 0 ? 1 : 0
+        }
+      })
     }
   }
 }
