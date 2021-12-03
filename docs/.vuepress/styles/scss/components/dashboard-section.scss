@@ -752,16 +752,19 @@
       padding-right: 88px;
       //max-width: none;
       //&-applications {
-        max-width: calc(100% - 380px);
+      max-width: calc(100% - 380px);
 
-        @include media('<desktop') {
-          max-width: calc(100% - 300px);
-          padding-right: 40px;
-        }
-        @include media('<tablet-lg') {
-          max-width: none;
-          //padding-right: ;
-        }
+      @include media('<desktop') {
+        max-width: calc(100% - 300px);
+        padding-right: 40px;
+      }
+      @include media('<tablet-lg') {
+        max-width: none;
+        //padding-right: ;
+      }
+      @include media('<tablet') {
+        padding: 30px 15px;
+      }
       //}
 
       &-applications {
@@ -773,7 +776,7 @@
 
 
       .table-block {
-        box-shadow: 0px 1px 4px rgba(36,37,41, .1);
+        box-shadow: 0px 1px 4px rgba(36, 37, 41, .1);
         border-radius: 3px;
         margin-top: 0 !important;
       }
@@ -816,6 +819,14 @@
         column-gap: 10px;
       }
 
+      @include media('<tablet') {
+        grid-template-columns: 1fr !important;
+        justify-items: end;
+        height: auto;
+        row-gap: 10px;
+        padding: 10px;
+      }
+
       .dashboard-content__table-plans & {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -837,6 +848,10 @@
           color: #BEBEBF;
           font-size: 14px;
           line-height: 180%;
+
+          @include media('<desktop') {
+            width: 200px;
+          }
         }
 
         .vs__actions {
@@ -857,6 +872,10 @@
 
       .search-block {
         width: 276px;
+
+        @include media('<desktop') {
+          width: 200px;
+        }
 
         &__input {
           width: 100%;
@@ -885,6 +904,12 @@
       line-height: 150%;
       color: #505154;
       padding: 14px 16px;
+
+      @include media('<tablet-xs') {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+      }
     }
 
     &__pagination {
@@ -900,13 +925,18 @@
           padding: 5px 6px;
         }
       }
+
       &-arrow {
         background: none;
         border: none;
         cursor: pointer;
 
-        &--left {}
-        &--right {}
+        &--left {
+        }
+
+        &--right {
+        }
+
         &--inactive {
           color: #A7A8A9;
           pointer-events: none;
@@ -917,6 +947,10 @@
     &__sort-by {
       position: relative;
       text-align: right;
+
+      @include media('<tablet') {
+        text-align: left;
+      }
 
       .expand-arrow {
         &--revert {
@@ -1044,7 +1078,7 @@
         grid-template-columns: 1fr 160px 308px;
 
         @include media('<desktop') {
-          grid-template-columns: 1fr 160px 1fr;
+          grid-template-columns: minmax(230px, 1fr) 160px 100px
         }
       }
 
@@ -1088,6 +1122,7 @@
       background: none;
       border: none;
       cursor: pointer;
+      height: 100%;
     }
   }
 }
