@@ -10,8 +10,10 @@
       :pages-count="getPages"
       :current-page="currentPage"
       :per-page="perPage"
+      page-type="plans"
       @search-value="setSearchValue"
       @set-current-page="setCurrentPage"
+      @sort-value="setSortValue"
   >
     <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
       <td class="dashboard-table__cell">

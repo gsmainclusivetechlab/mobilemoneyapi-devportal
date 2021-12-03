@@ -16,3 +16,8 @@ export const sortByStatus = (array, status) => {
     const statusValue = status === 'Inactive' ? 0 : status === 'Active' ? 1 : 2;
     return [...array].sort(a => a.status === statusValue ? -1 : 1)
 }
+
+export const sortByState = (array, state) => {
+    const stateValue = state === 'Unpublish' ? 0 : 1;
+    return [...array].sort(a => a.state === stateValue ? -1 : 1)
+}

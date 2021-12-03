@@ -1,4 +1,4 @@
-import {sortByDate, sortByStatus} from "../helpers/filtrationFunctions";
+import {sortByDate, sortByState, sortByStatus} from "../helpers/filtrationFunctions";
 
 export default {
     data() {
@@ -20,6 +20,9 @@ export default {
             }
             if (this.sortValue === 'Active' || this.sortValue === 'Inactive' || this.sortValue === 'Blocked') {
                 return sortByStatus(this.getTableDataWithSearch, this.sortValue)
+            }
+            if(this.sortValue === 'Unpublish' || this.sortValue === 'Publish') {
+                return sortByState(this.getTableDataWithSearch, this.sortValue)
             }
             return this.getTableDataWithSearch
         },

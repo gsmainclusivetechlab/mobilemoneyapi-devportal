@@ -8,6 +8,7 @@
       :pages-count="getPages"
       :current-page="currentPage"
       :per-page="perPage"
+      page-type="users"
       @search-value="setSearchValue"
       @filter-value="setFilterValue"
       @sort-value="setSortValue"
@@ -15,15 +16,15 @@
   >
     <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.id">
       <td class="dashboard-table__cell">
-        {{ user.name }}
+        <span>{{ user.name }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ user.email }}
+        <span>{{ user.email }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ user.company }}
+        <span>{{ user.company }}</span>
       </td>
-      <td class="dashboard-table__cell dashboard-table__cell--status">
+      <td class="dashboard-table__cell">
         <span class="dashboard-table__status-label" :class="[getUserStatusLabelClass(user.status)]"></span>
         {{ getUserStatus(user.status) }}
       </td>
