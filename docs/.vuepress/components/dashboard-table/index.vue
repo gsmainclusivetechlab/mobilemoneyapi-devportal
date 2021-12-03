@@ -10,6 +10,7 @@
       <dashboard-table-top
           :hideFilter="hideFilter"
           :filterData="filterData"
+          :pageType="pageType"
           @search-value="$emit('search-value', $event)"
           @filter-value="$emit('filter-value', $event)"
           @sort-value="$emit('sort-value', $event)"
@@ -93,6 +94,10 @@ export default {
     isCreateButton: {
       type: Boolean,
       default: false
+    },
+    pageType: {
+      type: String,
+      default: ''
     }
   },
   data () {

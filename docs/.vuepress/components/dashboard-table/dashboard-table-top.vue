@@ -24,7 +24,9 @@
         <img class="expand-arrow" :class="{'expand-arrow--revert': activeSortOptions}" src="/images/expand_arrow.svg" alt="">
       </button>
       <sort-by-block
+          :pageType="pageType"
           v-on-clickaway="hideSortByOptions"
+          @hide-sort-block="hideSortByOptions"
           v-if="activeSortOptions"
           v-model="sortValue"
       />
@@ -46,6 +48,10 @@ export default {
     },
     filterData: {
       type: Set,
+    },
+    pageType: {
+      type: String,
+      default: ''
     }
   },
   data() {

@@ -973,30 +973,37 @@
 
     &__cell {
       border: none;
-      padding: 8px 0 8px 16px;
+      padding: 8px 0 7px 16px;
       line-height: 21px;
       text-align: left;
       position: relative;
       font-weight: 400;
+      display: flex;
+      align-items: center;
 
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
+      .dashboard-content__table-applications & {
+        padding: 8px 0 8px 30px;
+      }
+      .dashboard-content__table-plans & {
+        padding: 10px 0 3px 30px;
+      }
+
+      span {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
 
       &--heading {
         line-height: 18px;
         background-color: rgba(222, 222, 223, .4);
       }
 
-      .dashboard-content__table-applications & {
-        padding: 8px 0 8px 30px;
-      }
-
       &:last-child {
         padding-left: 0;
 
         .dashboard-content__table-plans & {
-          text-align: right;
+          justify-content: flex-end;
           padding-right: 16px;
         }
       }
@@ -1010,6 +1017,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+
       }
 
       &--options {
@@ -1019,6 +1028,7 @@
       &--center {
         //margin: 0 auto;
         text-align: center;
+        justify-content: center;
       }
     }
 
@@ -1059,6 +1069,11 @@
       &--active {
         background-color: #9CB227;
       }
+    }
+
+    &__state-button {
+      cursor: pointer;
+      border: none;
     }
 
     &__row {

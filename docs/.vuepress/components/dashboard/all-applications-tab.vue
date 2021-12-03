@@ -7,31 +7,32 @@
       :pages-count="getPages"
       :current-page="currentPage"
       :per-page="perPage"
+      page-type="applications"
       is-create-button
       @search-value="setSearchValue"
       @set-current-page="setCurrentPage"
   >
     <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.id">
       <td class="dashboard-table__cell">
-        {{ app.appName }}
+        <span>{{ app.appName }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.authorName }}
+        <span>{{ app.authorName }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.usagePlan }}
+        <span>{{ app.usagePlan }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.consumerKey }}
+        <span>{{ app.consumerKey }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.consumerSecret }}
+        <span>{{ app.consumerSecret }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.apiKey }}
+        <span>{{ app.apiKey }}</span>
       </td>
       <td class="dashboard-table__cell">
-        {{ app.keyIssuedDate }}
+        <span>{{ app.keyIssuedDate }}</span>
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--options">
         <button type="button" class="dashboard-table__button" @click="showUserOptions(app.id)">
