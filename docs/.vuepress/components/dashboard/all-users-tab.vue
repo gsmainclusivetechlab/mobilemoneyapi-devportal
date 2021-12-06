@@ -47,20 +47,24 @@
 
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--options">
-        <button type="button" class="dashboard-table__button" @click="showUserOptions(user.id)">
-          <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
-            <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
-            <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
-          </svg>
-        </button>
-        <user-options-block
-            v-on-clickaway="hideUserOptions"
-            v-if="user.id === activeOptionsUserId"
-            :userStatus="user.status"
-            @deleteUser="deleteUser(user.id)"
-            @changeStatus="changeStatus(user.id, $event)"
-        />
+        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
+          <template v-slot:trigger>
+            <button type="button" class="dashboard-table__button" @click="showUserOptions(user.id)">
+              <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
+                <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
+                <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
+              </svg>
+            </button>
+          </template>
+
+          <user-options-block
+              :allowOptions="['delete', 'block']"
+              :userStatus="user.status"
+              @deleteUser="deleteUser(user.id)"
+              @changeStatus="changeStatus(user.id, $event)"
+          />
+        </tippy>
       </td>
     </tr>
   </dashboard-table>

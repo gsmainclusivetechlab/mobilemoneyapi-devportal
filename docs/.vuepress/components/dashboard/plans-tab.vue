@@ -20,7 +20,7 @@
         {{ plan.planName }}
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
-<!--        <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>-->
+        <!--        <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>-->
         <template v-if="isAdminRole">
           <span
               class="dashboard-table__state-label"
@@ -38,14 +38,22 @@
         </template>
       </td>
       <td class="dashboard-table__cell dashboard-table__cell--options">
-        <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
-          <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
-            <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
-            <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
-          </svg>
-        </button>
-        <user-options-block v-on-clickaway="hideUserOptions" v-if="plan.id === activeOptionsPlanId"/>
+        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
+          <template v-slot:trigger>
+            <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
+              <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
+                <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
+                <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
+              </svg>
+            </button>
+          </template>
+
+          <user-options-block
+              :allowOptions="['delete']"
+              @deleteUser="deletePlan(plan.id)"
+          />
+        </tippy>
       </td>
     </tr>
   </dashboard-table>
@@ -87,6 +95,10 @@ export default {
   mixins: [clickaway, dashboardSearch],
 
   methods: {
+    deletePlan(id) {
+      const index = this.tableData.findIndex(el => el.id === id)
+      this.tableData.splice(index, 1)
+    },
     getPlanStatusLabelClass(state) {
       if (state === 0) return 'dashboard-table__state-label--inactive'
       return 'dashboard-table__state-label--active'
