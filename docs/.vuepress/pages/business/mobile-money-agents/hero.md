@@ -3,6 +3,6 @@
   Mobile Money Agents
   </template>    
   <template v-slot:description>
-  The mobile money agent is the provider's retail arm, supporting cash-in/cash-out transactions as well as person-to-person fund transfers, mobile phone airtime purchases, and bill payments.
+  <p>Mobile money agents are the primary point of contact for mobile money account holders. Agents provide a support service where account holders can register for the mobile money service, cash-in and cash-out from their account.</p>
   </template>    
 </IndustryHeroSection>

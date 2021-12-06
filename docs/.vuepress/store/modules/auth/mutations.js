@@ -1,5 +1,5 @@
 export default {
-  setTokenAccess(state) {
-    state.token_access = '123'
+  setTokenAccess(state, role) {
+    state.token_access = role
   },
 };

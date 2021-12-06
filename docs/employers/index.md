@@ -5,8 +5,6 @@ title: Employers
 
 !!!include(./docs/.vuepress/pages/business/employers/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/employers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/employers/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/employers/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/employers/start-developing.md)!!!
 
 <script>

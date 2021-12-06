@@ -6,7 +6,6 @@ title: FinTech Providers (Insurance Savings Loans)
 !!!include(./docs/.vuepress/pages/business/fintech-providers/hero.md)!!!
 !!!include(./docs/.vuepress/pages/business/fintech-providers/use-cases.md)!!!
 !!!include(./docs/.vuepress/pages/business/fintech-providers/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/fintech-providers/testimonials.md)!!!
 !!!include(./docs/.vuepress/pages/business/fintech-providers/start-developing.md)!!!
 
 <script>

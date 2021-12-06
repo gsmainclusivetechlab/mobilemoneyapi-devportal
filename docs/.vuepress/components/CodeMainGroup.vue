@@ -53,11 +53,9 @@
 </template>
 
 <script>
-// import codeBlock from "../mixins/codeBlock";
 
 export default {
   name: 'CodeMainGroup',
-  // mixins: [codeBlock],
   data() {
     return {
       codeTabs: [],
@@ -67,8 +65,9 @@ export default {
         activeLanguage: '',
         activeMethodIndex: -1,
         activeCodeTabIndex: -1,
+        heightOfCodeGroup: 0
       },
-      visibleContent: false
+      visibleContent: false,
     }
   },
   watch: {
@@ -92,6 +91,7 @@ export default {
   mounted() {
     this.$on('get-code-languages', this.setActiveMethod)
 
+    this.$once('set-code-height', value => (this.provideObject.heightOfCodeGroup = value))
 
     this.$on('set-method-index', (i) => {
       this.provideObject.activeMethodIndex = i
@@ -155,17 +155,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-pre.language-json {
-  //overflow-y: hidden;
-  //transition: max-height 1s ease;
-  //border-radius: 0 8px 0 0;
-}
-
-.code-with-block {
-  //box-shadow: 0 28px 0 0 rgba(36,37,41,.8);
-  //border-radius: 8px;
-}
-
 .theme-code-group__nav {
   margin-bottom: -35px;
   background-color: #282c34;
