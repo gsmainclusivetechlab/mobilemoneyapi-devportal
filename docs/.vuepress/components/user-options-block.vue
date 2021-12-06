@@ -1,9 +1,9 @@
 <template>
   <div class="user-options">
-    <button class="user-options__button user-options__button--delete" type="button" @click="$emit('deleteUser')">
+    <button v-if="isAllowOption('delete')" class="user-options__button user-options__button--delete" type="button" @click="$emit('deleteUser')">
       Delete
     </button>
-    <button class="user-options__button user-options__button--unblock" type="button" @click="changeStatus">
+    <button v-if="isAllowOption('block')" class="user-options__button user-options__button--unblock" type="button" @click="changeStatus">
       {{ userStatus === 2 ? 'Unblock' : 'Block' }}
     </button>
   </div>
@@ -17,6 +17,10 @@ export default {
     userStatus: {
       type: Number,
       default: 0
+    },
+    allowOptions: {
+      type: Array,
+      default: () => ([])
     }
   },
 
@@ -28,11 +32,14 @@ export default {
 
   methods: {
     changeStatus() {
-      if(this.userStatus !== 2) {
+      if (this.userStatus !== 2) {
         this.tempStatus = this.userStatus
       }
 
       this.$emit('changeStatus', this.userStatus === 2 ? this.tempStatus : 2)
+    },
+    isAllowOption(option) {
+      return this.allowOptions.includes(option)
     }
   }
 }

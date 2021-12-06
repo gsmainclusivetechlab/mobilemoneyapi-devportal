@@ -6,7 +6,14 @@
 import './styles/scss/styles.scss';
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
-import './plugins/veevalidate'
+import './plugins/veevalidate';
+
+import VueTippy, { TippyComponent } from "vue-tippy";
+import "tippy.js/themes/light.css";
+import "tippy.js/themes/light-border.css";
+import "tippy.js/themes/google.css";
+import "tippy.js/themes/translucent.css";
+
 import CodeBlock from "./theme/global-components/CodeBlock.vue"
 import CodeGroup from "./theme/global-components/CodeGroup.vue"
 import pageComponents from '@internal/page-components'
@@ -29,6 +36,9 @@ export default async ({
   Vue.component("v-select", vSelect);
   Vue.component('CodeBlock', CodeBlock)
   Vue.component('CodeGroup', CodeGroup)
+
+  Vue.use(VueTippy);
+  Vue.component("tippy", TippyComponent);
 
   for (const [name, component] of Object.entries(pageComponents)) {
     Vue.component(name, component)

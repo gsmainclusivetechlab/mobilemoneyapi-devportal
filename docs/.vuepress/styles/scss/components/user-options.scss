@@ -5,6 +5,7 @@
   background: #FFFFFF;
   box-shadow: 0px 1px 4px rgba(36, 37, 41, 0.1);
   z-index: 20;
+  top: 100%;
   right: 20px;
   padding: 14px 18px;
   // FIXME problem with last row
@@ -58,7 +59,6 @@
 
 .sort-by-options {
   padding: 14px 0px 14px 0px;
-  right: 20px;
 
   &__button {
     padding: 5px 47px 5px 18px;
@@ -66,4 +66,12 @@
       background-color: #b6ff88;
     }
   }
+}
+
+.tippy-tooltip {
+  background: none;
+}
+
+.tippy-arrow {
+  border: none !important;
 }
