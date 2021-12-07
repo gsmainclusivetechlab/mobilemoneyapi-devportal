@@ -1,4 +1,4 @@
-import {sortByDate, sortByState, sortByStatus} from "../helpers/filtrationFunctions";
+import {sortByDate, sortByProp, sortByState, sortByStatus} from "../helpers/filtrationFunctions";
 
 export default {
     data() {
@@ -23,6 +23,15 @@ export default {
             }
             if(this.sortValue === 'Unpublish' || this.sortValue === 'Publish') {
                 return sortByState(this.getTableDataWithSearch, this.sortValue)
+            }
+            if(this.sortValue === 'Date') {
+                return sortByDate(this.getTableDataWithSearch, 'Newest')
+            }
+            if(this.sortValue === 'Author') {
+                return sortByProp(this.getTableDataWithSearch, 'authorName')
+            }
+            if(this.sortValue === 'Usage plan') {
+                return sortByProp(this.getTableDataWithSearch, 'usagePlan')
             }
             return this.getTableDataWithSearch
         },

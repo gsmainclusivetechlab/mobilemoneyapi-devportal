@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonials__slide">
+  <div class="testimonials__slide testimonials__slide--study">
     <div class="testimonials__content-holder">
       <p><slot name="main-description"></slot></p>
       <div class="testimonials__content--grid">
@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="testimonials__info-holder">
+      <img class="testimonials__info-image" :src="imageLink" alt="Mobile Money API Developer Portal">
       <div class="testimonials__info-holder--container">
-        <img class="testimonials__info-image" :src="imageLink" alt="Mobile Money API Developer Portal">
         <div>
           <p class="testimonials__info-holder--company"><slot name="title"></slot></p>
           <p class="testimonials__info-holder--organisation"><slot name="org-type"></slot></p>

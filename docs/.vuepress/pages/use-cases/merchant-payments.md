@@ -21,4 +21,6 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 | **Mobile Money Providers** | To understand how to implement the Mobile Money API to receive payments from merchants. | API Provider |
 | **Merchants** | To understand how to implement the Mobile Money API to accept mobile money payments. | API Consumer |
 
+<router-link class="btn btn--transparent" to="/use-cases/merchant-payments/">Start developing</router-link>
+
 </template>

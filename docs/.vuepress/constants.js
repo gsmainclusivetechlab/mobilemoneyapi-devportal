@@ -705,6 +705,7 @@ export const allPlansHeaderTitles = [
 export const allApplicationsHeaderTitles = [
     'NAME',
     'AUTHOR',
+    'COMPANY',
     'USAGE PLAN',
     'CONSUMER KEY',
     'CONSUMER SECRET',
