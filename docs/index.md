@@ -23,14 +23,10 @@ title: Home
 
 <script>
 import useCaseCard from './.vuepress/components/use-case-card';
-import VueSlickCarousel from 'vue-slick-carousel';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 
 export default {
   components: {
     useCaseCard,
-    VueSlickCarousel
   },
   data () {
     return {
@@ -38,14 +34,6 @@ export default {
       link: '/mobile-money-providers/',
       icon: '/images/industry-1.svg',
       iconBackground: '#DE002B',
-      options: {
-        dots: true,
-        arrows: true,
-        dotsClass: 'testimonials__dots',
-        infinite: false,
-        speed: 500,
-        slidesToShow: 1,
-      },
     }
   }
 }

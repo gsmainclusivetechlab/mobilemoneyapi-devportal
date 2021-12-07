@@ -18,4 +18,6 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 | **Mobile Money Providers** | To understand how to implement the Mobile Money API to make bill payments to service providers. | API Consumer |
 | **Service Providers** | To understand how to implement the Mobile Money API to accept bill payments from Mobile Money Providers. | API Provider |
 
+<router-link class="btn btn--transparent" to="/use-cases/bill-payments/">Start developing</router-link>
+
 </template>

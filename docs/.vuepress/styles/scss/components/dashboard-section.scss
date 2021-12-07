@@ -789,7 +789,6 @@
     line-height: 150%;
     overflow: auto;
 
-    .dashboard-content__table-applications & {
       /* width */
       &::-webkit-scrollbar {
         height: 8px;
@@ -805,7 +804,6 @@
       &::-webkit-scrollbar-thumb {
         background: #BEBEBF;
       }
-    }
 
     &-top {
       display: grid;
@@ -984,11 +982,12 @@
       .dashboard-content__table-applications & {
         padding: 8px 0 8px 30px;
       }
+
       .dashboard-content__table-plans & {
-        padding: 10px 0 3px 30px;
+        //padding: 10px 0 3px 30px;
       }
 
-      span {
+      &-content {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
@@ -1098,7 +1097,7 @@
       }
 
       .dashboard-content__table-applications & {
-        grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(186px, 1fr) 30px;
+        grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(186px, 1fr) 30px;
       }
 
       &:nth-child(2n) {

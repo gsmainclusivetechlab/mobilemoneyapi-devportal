@@ -12,6 +12,15 @@ export const sortByDate = (array, type) => {
     });
 }
 
+export const sortByProp = (array, prop) => {
+    return [...array].sort(function (a, b) {
+        return a[prop].localeCompare(b[prop], [], {
+            numeric: true,
+            caseFirst: 'upper'
+        })
+    });
+}
+
 export const sortByStatus = (array, status) => {
     const statusValue = status === 'Inactive' ? 0 : status === 'Active' ? 1 : 2;
     return [...array].sort(a => a.status === statusValue ? -1 : 1)

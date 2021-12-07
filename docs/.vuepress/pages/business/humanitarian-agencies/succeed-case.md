@@ -19,11 +19,8 @@ The pandemic intensified the need for MNO integrations, for instance, it was eas
 Overall, the process is fast and secure. 
 The organisation favours API integrations is it feels it lowers the security risk associated with physical distribution, for both the beneficiary and the humanitarian worker. As an organisation that response to global crises, it would benefit from a Standard API which can allow it to connect to more MNOs in various regions globally.
         </template>
-        <template v-slot:title>
-Cellulant
-        </template>
         <template v-slot:org-type>
-Payment Service Provider
+Humanitarian Agency
         </template>
         <template v-slot:use-case-links>
           <p>
