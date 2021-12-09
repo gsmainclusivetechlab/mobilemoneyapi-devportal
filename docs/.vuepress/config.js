@@ -1,5 +1,6 @@
 const fs = require('fs');
 const {path} = require('@vuepress/shared-utils');
+const iterator = require('markdown-it-for-inline')
 
 const md = require('markdown-it')()
     .use(require('markdown-it-code-copy'));
@@ -754,15 +755,44 @@ module.exports = {
         ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black'}],
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
+    cache: false,
     extend: '@vuepress/theme-default',
     // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
         extendMarkdown: (md) => {
             // use more markdown-it plugins!
-            md.use(require('markdown-it-include'))
+            md.use(require('./plugins/markdown-it-include'))
+
+            // const INCLUDE_RE = /!{3}\s*include(.+?)!{3}/i;
+            // const BRACES_RE = /\((.+?)\)/i;
+
+            // md.use(iterator, 'include_replace', 'text', function (tokens, idx) {
+            //     if(tokens[idx].content.includes('!!!include')) {
+            //         let cap = INCLUDE_RE.exec(tokens[idx].content);
+            //         let includePath = cap[1].trim();
+            //         const sansBracesMatch = BRACES_RE.exec(includePath);
+            //         includePath = sansBracesMatch[1].trim();
+            //         let filePath = path.resolve('.', includePath);
+            //         let mdSrc
+            //         try {
+            //             mdSrc = fs.readFileSync(filePath, 'utf8');
+            //         } catch (err) {
+            //
+            //         }
+            //         if(mdSrc) {
+            //             tokens[idx].content = tokens[idx].content.slice(0, cap.index) + mdSrc + tokens[idx].content.slice(cap.index + cap[0].length, tokens[idx].content.length);
+            //         }
+            //     }
+            // })
+
         }
     },
+    extraWatchFiles: [
+        '.vuepress/**/*.md',
+        '.vuepress/plugins/include-markdown/index.js',
+        '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
+    ],
     themeConfig: {
         repo: '',
         editLinks: false,
@@ -785,6 +815,9 @@ module.exports = {
             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
         },
         ],
+        // [
+        //     require('./plugins/include-markdown/index.js'), true
+        // ],
         ['vuepress-plugin-code-copy', true],
         ['vuepress-plugin-smooth-scroll', true],
         // ['@vuepress/search', {
