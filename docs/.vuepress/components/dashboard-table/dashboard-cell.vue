@@ -9,9 +9,9 @@
             <div class="dashboard-table__cell-content">{{ value }}</div>
           </template>
 
-          <span>
+          <span @click="copyToClipboard">
             {{value}}
-                  <button @click='copyToClipboard' @blur="buttonText = 'Copy'" class='btn-tippy-copy'>{{ buttonText }}</button>
+<!--                  <button @click='copyToClipboard' @blur="buttonText = 'Copy'" class='btn-tippy-copy'>{{ buttonText }}</button>-->
           </span>
         </tippy>
       </td>
