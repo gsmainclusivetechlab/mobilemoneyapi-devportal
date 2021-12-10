@@ -789,21 +789,21 @@
     line-height: 150%;
     overflow: auto;
 
-      /* width */
-      &::-webkit-scrollbar {
-        height: 8px;
-        width: 8px;
-      }
+    /* width */
+    &::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
 
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: #fff;
-      }
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
 
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background: #BEBEBF;
-      }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #BEBEBF;
+    }
 
     &-top {
       display: grid;
@@ -1089,7 +1089,9 @@
       }
 
       .dashboard-content__table-plans & {
-        grid-template-columns: 1fr 160px 308px;
+        grid-template-columns: 380px 1fr 214px;
+        //grid-template-columns: 360px 1fr 308px;
+
 
         @include media('<desktop') {
           grid-template-columns: minmax(230px, 1fr) 160px 100px
@@ -1139,4 +1141,28 @@
       height: 100%;
     }
   }
+}
+
+.tooltip-text {
+  cursor: pointer;
+
+  &--copied {
+    animation-duration: .5s;
+    animation-name: copied;
+  }
+
+  @keyframes copied {
+    from {
+      color: white;
+    }
+
+    50% {
+      color: #5df15d;
+    }
+
+    to {
+      color: white;
+    }
+  }
+
 }

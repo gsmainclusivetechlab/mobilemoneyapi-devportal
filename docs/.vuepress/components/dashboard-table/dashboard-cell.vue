@@ -1,20 +1,18 @@
 <template>
-      <td class="dashboard-table__cell">
-        <tippy
-            interactive
-            style="width: 100%"
-            delay="600"
-        >
-          <template v-slot:trigger>
-            <div class="dashboard-table__cell-content">{{ value }}</div>
-          </template>
-
-          <span>
-            {{value}}
-                  <button @click='copyToClipboard' @blur="buttonText = 'Copy'" class='btn-tippy-copy'>{{ buttonText }}</button>
+  <td class="dashboard-table__cell">
+    <tippy
+        interactive
+        style="width: 100%"
+        delay="600"
+    >
+      <template v-slot:trigger>
+        <div class="dashboard-table__cell-content">{{ value }}</div>
+      </template>
+      <span class="tooltip-text" @click="copyToClipboard" :class="{'tooltip-text--copied': isCopied}">
+            {{ value }}
           </span>
-        </tippy>
-      </td>
+    </tippy>
+  </td>
 </template>
 
 <script>
@@ -23,17 +21,26 @@ export default {
   props: ['value'],
   data() {
     return {
-      buttonText: 'Copy'
+      isCopied: false,
+      successTimeout: undefined
     }
   },
   methods: {
     copyToClipboard() {
-      this.buttonText = 'Copied!';
-
       navigator.clipboard.writeText(this.value)
+          .then(() => {
+            this.setSuccessCopy()
+          })
           .catch((err) => {
             console.error('Async: Could not copy text: ', err);
           })
+    },
+    setSuccessCopy() {
+      clearTimeout(this.successTimeout);
+      this.isCopied = true;
+      this.successTimeout = setTimeout(() => {
+        this.isCopied = false;
+      }, 500);
     }
   }
 }

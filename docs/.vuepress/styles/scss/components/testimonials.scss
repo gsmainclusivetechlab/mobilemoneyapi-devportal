@@ -31,7 +31,7 @@
 
     font-size: 1.8rem;
     line-height: 1.8 !important;
-    padding: 0 10px;
+    padding: 0 10px 20px;
 
     @include media('<tablet-lg') {
       font-size: 1.6rem;
@@ -40,6 +40,10 @@
     @include media('<tablet') {
       flex-direction: column-reverse;
       display: flex;
+    }
+
+    .slick-list & {
+      padding: 0 10px;
     }
 
     &--study {
@@ -182,7 +186,7 @@
 
     @include media('<tablet') {
       max-width: none;
-      margin-bottom: 15px;
+      //margin-bottom: 15px;
     }
 
     p {

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const {path} = require('@vuepress/shared-utils');
+const iterator = require('markdown-it-for-inline')
 
 const md = require('markdown-it')()
     .use(require('markdown-it-code-copy'));
@@ -754,15 +755,20 @@ module.exports = {
         ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black'}],
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
+    cache: false,
     extend: '@vuepress/theme-default',
     // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
-        extendMarkdown: (md) => {
-            // use more markdown-it plugins!
-            md.use(require('markdown-it-include'))
-        }
+        plugins: [
+            'markdown-it-include'
+        ],
     },
+    extraWatchFiles: [
+        '.vuepress/**/*.md',
+        '.vuepress/plugins/include-markdown/index.js',
+        '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
+    ],
     themeConfig: {
         repo: '',
         editLinks: false,
@@ -785,6 +791,9 @@ module.exports = {
             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
         },
         ],
+        // [
+        //     require('./plugins/include-markdown/index.js'), true
+        // ],
         ['vuepress-plugin-code-copy', true],
         ['vuepress-plugin-smooth-scroll', true],
         // ['@vuepress/search', {
