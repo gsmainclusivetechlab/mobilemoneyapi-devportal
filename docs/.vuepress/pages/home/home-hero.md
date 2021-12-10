@@ -6,7 +6,7 @@
 :accentLink="{text: 'Go to API Docs', link: '/api-versions-1.2/resources/api-service-definition'}"
 :transparentLink="{text: 'Learn more', link: '/api-versions-1.2/get-started'}">
 <template v-slot:title>
-Welcome to the TEST Mobile Money API Developer Portal.
+Welcome to the GSMA Mobile Money API Developer Portal.
 </template>
 <template v-slot:description>
 The Mobile Money API is an initiative developed through collaboration between the mobile money
