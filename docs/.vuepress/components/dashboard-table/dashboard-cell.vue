@@ -2,7 +2,7 @@
   <td class="dashboard-table__cell">
     <tippy
         interactive
-        style="width: 100%"
+        style="max-width: 100%"
         delay="600"
     >
       <template v-slot:trigger>
