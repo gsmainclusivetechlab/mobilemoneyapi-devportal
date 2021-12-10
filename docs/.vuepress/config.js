@@ -755,7 +755,6 @@ module.exports = {
         ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black'}],
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
-    cache: false,
     extend: '@vuepress/theme-default',
     // render all <h> tags that exist in .md page
     markdown: {
