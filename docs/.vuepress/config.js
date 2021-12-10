@@ -755,7 +755,6 @@ module.exports = {
         ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black'}],
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
-    cache: false,
     extend: '@vuepress/theme-default',
     // render all <h> tags that exist in .md page
     markdown: {
@@ -764,15 +763,7 @@ module.exports = {
             'markdown-it-include'
         ],
     },
-    chainWebpack: (config) => {
-        config.module.rule('vue').uses.delete('cache-loader');
-        config.module.rule('js').uses.delete('cache-loader');
-        config.module.rule('ts').uses.delete('cache-loader');
-        config.module.rule('tsx').uses.delete('cache-loader');
-        config.module.rule('md').uses.delete('cache-loader');
-    },
     extraWatchFiles: [
-        '.vuepress/**/*.md',
         '.vuepress/plugins/include-markdown/index.js',
         '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
     ],
