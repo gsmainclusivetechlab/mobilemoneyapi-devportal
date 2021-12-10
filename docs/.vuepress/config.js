@@ -764,6 +764,13 @@ module.exports = {
             'markdown-it-include'
         ],
     },
+    chainWebpack: (config) => {
+        config.module.rule('vue').uses.delete('cache-loader');
+        config.module.rule('js').uses.delete('cache-loader');
+        config.module.rule('ts').uses.delete('cache-loader');
+        config.module.rule('tsx').uses.delete('cache-loader');
+        config.module.rule('md').uses.delete('cache-loader');
+    },
     extraWatchFiles: [
         '.vuepress/**/*.md',
         '.vuepress/plugins/include-markdown/index.js',
