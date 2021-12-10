@@ -760,33 +760,9 @@ module.exports = {
     // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
-        extendMarkdown: (md) => {
-            // use more markdown-it plugins!
-            md.use(require('./plugins/markdown-it-include'))
-
-            // const INCLUDE_RE = /!{3}\s*include(.+?)!{3}/i;
-            // const BRACES_RE = /\((.+?)\)/i;
-
-            // md.use(iterator, 'include_replace', 'text', function (tokens, idx) {
-            //     if(tokens[idx].content.includes('!!!include')) {
-            //         let cap = INCLUDE_RE.exec(tokens[idx].content);
-            //         let includePath = cap[1].trim();
-            //         const sansBracesMatch = BRACES_RE.exec(includePath);
-            //         includePath = sansBracesMatch[1].trim();
-            //         let filePath = path.resolve('.', includePath);
-            //         let mdSrc
-            //         try {
-            //             mdSrc = fs.readFileSync(filePath, 'utf8');
-            //         } catch (err) {
-            //
-            //         }
-            //         if(mdSrc) {
-            //             tokens[idx].content = tokens[idx].content.slice(0, cap.index) + mdSrc + tokens[idx].content.slice(cap.index + cap[0].length, tokens[idx].content.length);
-            //         }
-            //     }
-            // })
-
-        }
+        plugins: [
+            'markdown-it-include'
+        ],
     },
     extraWatchFiles: [
         '.vuepress/**/*.md',
