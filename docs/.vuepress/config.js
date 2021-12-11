@@ -119,6 +119,39 @@ const mainNavigation = [
         ]
     },
     {
+        text: 'SDKs',
+        items: [
+            {
+                text: 'Getting Started',
+                link: '/sdks/getting-started/introduction',
+            },
+            {
+                text: 'Authentication',
+                link: '/sdks/auth',
+            },
+            {
+                text: 'Android',
+                link: '/sdks/android/introduction',
+            },
+            {
+                text: 'NodeJs',
+                link: '/sdks/nodejs/introduction',
+            },
+            {
+                text: 'PHP',
+                link: '/sdks/php/introduction',
+            },
+            {
+                text: 'JavaScript',
+                link: '/sdks/javascript/introduction',
+            },
+            {
+                text: 'Java',
+                link: '/sdks/java/introduction',
+            },
+        ]
+    },
+    {
         text: 'Resources',
         items: [
             {
@@ -282,6 +315,233 @@ const sidebarNavigation = {
                         },
                     ]
                 }
+            ]
+        }
+    ],
+    '/sdks/': [
+        {
+            title: 'SDKs',
+            collapsable: false,
+            sidebarDepth: 2,
+            backLink: {
+                title: 'SDKs',
+                path: '/sdks/',
+            },
+            children: [
+                {
+                    title: 'Getting Started',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/getting-started/introduction',
+                            sidebarDepth: 2,
+                        },
+                        {
+                            title: 'SDKs',
+                            path: '/sdks/getting-started/sdks',
+                            sidebarDepth: 2,
+                        }
+                    ]
+                },
+                {
+                    title: 'Authentication',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'API Service Definition',
+                            path: '/sdks/auth/client-authentication',
+                            collapsable: true,
+                            sidebarDepth: 2,
+                        },
+                        {
+                            title: 'API Authorisation',
+                            path: '/sdks/auth/api-authorization',
+                            collapsable: true,
+                            sidebarDepth: 2,
+                        },
+                    ]
+                },
+                {
+                    title: 'Android',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/android/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/android/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/android/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/android/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: '/sdks/android/github',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'NodeJs',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/nodejs/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/nodejs/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/nodejs/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/nodejs/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: '/sdks/nodejs/github',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'PHP',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/php/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/php/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/php/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/php/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: '/sdks/php/github',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'JavaScript',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/javascript/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/javascript/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/javascript/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/javascript/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: '/sdks/javascript/github',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'Java',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/java/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/java/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/java/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/java/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: '/sdks/java/github',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
             ]
         }
     ],
@@ -763,7 +1023,9 @@ module.exports = {
             'markdown-it-include'
         ],
     },
+    cache: false,
     extraWatchFiles: [
+        '.vuepress/**/*.md',
         '.vuepress/plugins/include-markdown/index.js',
         '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
     ],
