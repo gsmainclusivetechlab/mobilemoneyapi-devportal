@@ -3,6 +3,12 @@ pageClass: home-page custom
 title: Home
 ---
 
+<div-box></div-box>
+
+::: slot test
+Hello World!
+:::
+
 !!!include(./docs/.vuepress/pages/home/home-hero.md)!!!
 
 !!!include(./docs/.vuepress/pages/home/what-you-get.md)!!!
@@ -23,10 +29,12 @@ title: Home
 
 <script>
 import useCaseCard from './.vuepress/components/use-case-card';
+import divBox from './.vuepress/components/DivBox';
 
 export default {
   components: {
     useCaseCard,
+    divBox
   },
   data () {
     return {
