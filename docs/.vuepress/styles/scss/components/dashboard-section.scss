@@ -1145,6 +1145,7 @@
 
 .tooltip-text {
   cursor: pointer;
+  font-size: 1.2rem;
 
   &--copied {
     animation-duration: .5s;
@@ -1165,4 +1166,7 @@
     }
   }
 
+}
+.tippy-backdrop {
+  background: #a2a2a2;
 }
