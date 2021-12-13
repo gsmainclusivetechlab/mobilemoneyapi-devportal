@@ -127,7 +127,7 @@ const mainNavigation = [
             },
             {
                 text: 'Authentication',
-                link: '/sdks/auth',
+                link: '/sdks/auth/client-authentication',
             },
             {
                 text: 'Android',
@@ -323,10 +323,10 @@ const sidebarNavigation = {
             title: 'SDKs',
             collapsable: false,
             sidebarDepth: 2,
-            backLink: {
-                title: 'SDKs',
-                path: '/sdks/',
-            },
+            // backLink: {
+            //     title: 'SDKs',
+            //     path: '/sdks/',
+            // },
             children: [
                 {
                     title: 'Getting Started',
@@ -347,11 +347,11 @@ const sidebarNavigation = {
                 {
                     title: 'Authentication',
                     sidebarDepth: 2,
+                    // collapsable: false, - можно ли сворачивать
                     children: [
                         {
-                            title: 'API Service Definition',
+                            title: 'Client Authentication',
                             path: '/sdks/auth/client-authentication',
-                            collapsable: true,
                             sidebarDepth: 2,
                         },
                         {
