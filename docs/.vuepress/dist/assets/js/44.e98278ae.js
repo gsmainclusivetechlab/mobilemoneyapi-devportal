@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[44],{469:function(t,e,n){"use strict";n.r(e);var s={name:"DivBox"},o=n(15),l=Object(o.a)(s,(function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("Content",{attrs:{"slot-key":"test"}},[this._v("\n    Hello World!\n  ")])],1)}),[],!1,null,"0e0179ae",null);e.default=l.exports}}]);
