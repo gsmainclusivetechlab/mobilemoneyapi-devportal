@@ -392,7 +392,7 @@ const sidebarNavigation = {
                         },
                         {
                             title: 'GitHub',
-                            path: '/sdks/android/github',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-android-sdk/tree/develop#readme',
                             sidebarDepth: 2,
                             collapsable: true,
                         },
@@ -428,7 +428,7 @@ const sidebarNavigation = {
                         },
                         {
                             title: 'GitHub',
-                            path: '/sdks/nodejs/github',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-nodejs-sdk/tree/develop#readme',
                             sidebarDepth: 2,
                             collapsable: true,
                         },
@@ -464,7 +464,7 @@ const sidebarNavigation = {
                         },
                         {
                             title: 'GitHub',
-                            path: '/sdks/php/github',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-php-sdk/tree/develop#readme',
                             sidebarDepth: 2,
                             collapsable: true,
                         },
@@ -500,7 +500,7 @@ const sidebarNavigation = {
                         },
                         {
                             title: 'GitHub',
-                            path: '/sdks/javascript/github',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/development#readme',
                             sidebarDepth: 2,
                             collapsable: true,
                         },
@@ -536,7 +536,7 @@ const sidebarNavigation = {
                         },
                         {
                             title: 'GitHub',
-                            path: '/sdks/java/github',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-java-sdk/tree/develop#readme',
                             sidebarDepth: 2,
                             collapsable: true,
                         },
@@ -1020,14 +1020,13 @@ module.exports = {
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
         plugins: [
-            'markdown-it-include'
+            'markdown-it-include',
         ],
     },
-    cache: false,
     extraWatchFiles: [
-        '.vuepress/**/*.md',
-        '.vuepress/plugins/include-markdown/index.js',
-        '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
+        // '.vuepress/**/*.md',
+        // '.vuepress/plugins/include-markdown/index.js',
+        // '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
     ],
     themeConfig: {
         repo: '',
@@ -1051,9 +1050,6 @@ module.exports = {
             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
         },
         ],
-        // [
-        //     require('./plugins/include-markdown/index.js'), true
-        // ],
         ['vuepress-plugin-code-copy', true],
         ['vuepress-plugin-smooth-scroll', true],
         // ['@vuepress/search', {

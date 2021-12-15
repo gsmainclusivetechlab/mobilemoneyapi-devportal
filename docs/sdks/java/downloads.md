@@ -56,13 +56,20 @@ Standard query string parameters and response headers have been included to enab
 
 Also added a ‘_codestate_’ filter to return authorisation codes for a given state.
 
-## Mobile Money Customer Account Creation
-
-Added new endpoints and associated objects to allow account creation for mobile money customers:
-
-*   _POST /accounts/{identityType}_. Allows for account creation. The identity type initially supports ‘individual’ only, but in future could be extended to support creation of other types such as ‘merchant’.
-*   _GET /accounts/{accountIdentifierType}/{identifier}_. Allows for a specific account and associated identities to be retrieved for a given account.
-*   _GET /accounts/{Account Identifiers}_. As per above, but supports identification of the account using one, two or three identifiers.
+<template>
+      <div class="buttons-holder content-center get-started__btn-holder">
+        <router-link
+            to="/"
+            class="btn"
+        > Get information
+        </router-link>
+        <router-link
+            to="/"
+            class="btn btn--accent"
+        > Download
+        </router-link>
+      </div>
+</template>
 
 ## Mobile Money Customer Account Modification
 

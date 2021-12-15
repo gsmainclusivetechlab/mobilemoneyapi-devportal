@@ -3,12 +3,6 @@ pageClass: home-page custom
 title: Home
 ---
 
-<div-box></div-box>
-
-::: slot test
-Hello World!
-:::
-
 !!!include(./docs/.vuepress/pages/home/home-hero.md)!!!
 
 !!!include(./docs/.vuepress/pages/home/what-you-get.md)!!!

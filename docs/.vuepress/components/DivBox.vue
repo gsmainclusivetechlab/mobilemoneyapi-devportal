@@ -1,9 +1,7 @@
 <template>
-<div>
-  <Content slot-key="test">
-    Hello World!
-  </Content>
-</div>
+  <div>
+    Test Content
+  </div>
 </template>
 
 <script>
