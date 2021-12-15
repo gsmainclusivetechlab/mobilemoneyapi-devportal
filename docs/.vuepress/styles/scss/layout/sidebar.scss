@@ -82,7 +82,7 @@ html {
       height: auto;
     }
 
-    &:hover  {
+    &:hover {
       .nav-dropdown {
         @include media('<=tablet-lg') {
           display: none !important;
@@ -90,7 +90,7 @@ html {
       }
     }
 
-    &.open  {
+    &.open {
       .nav-dropdown {
         @include media('<=tablet-lg') {
           display: block !important;
@@ -177,7 +177,7 @@ html {
 
     & > a:not(.external) {
       &:hover,
-      &.router-link-active{
+      &.router-link-active {
         border-bottom: none;
         margin-bottom: 0;
         color: var(--base-accent-btn-bg-color);
@@ -185,7 +185,7 @@ html {
     }
   }
 
-  .theme-container{
+  .theme-container {
     .sidebar.sidebar {
       @include animate(transform);
       transform: translateX(-100%);
@@ -199,13 +199,13 @@ html {
         width: 230px;
       }
 
-      @include media('>=tablet'){
+      @include media('>=tablet') {
         display: block;
       }
     }
 
 
-    &:not(.no-sidebar){
+    &:not(.no-sidebar) {
       .sidebar.sidebar {
         background: var(--base-light-background-color);
         border-right: none;
@@ -217,7 +217,7 @@ html {
           transform: none;
         }
 
-        @include media('>tablet-lg','<1200px') {
+        @include media('>tablet-lg', '<1200px') {
           max-width: 280px;
           padding: 45px 20px 64px 23px;
         }
@@ -234,11 +234,11 @@ html {
       .sidebar {
         background: #fff;
 
-        @include media('>=tablet'){
+        @include media('>=tablet') {
           display: block;
         }
 
-        @include media('>tablet-lg'){
+        @include media('>tablet-lg') {
           display: none !important;
         }
       }
@@ -251,7 +251,7 @@ html {
           transform: translateX(0);
         }
 
-        @include media('>=tablet'){
+        @include media('>=tablet') {
           display: block;
         }
       }
@@ -299,7 +299,7 @@ html {
       }
 
       .sidebar-heading {
-        &.open{
+        &.open {
           .arrow {
             transform: scaleY(-1);
           }
@@ -361,6 +361,12 @@ html {
       padding-bottom: 5px;
       font-size: 1.4rem;
       line-height: 1.5;
+
+      --base-accent-color: #aaa;
+
+      &:hover {
+        --base-accent-color: #DE002B;
+      }
     }
 
     .sidebar-sub-headers a.sidebar-link {

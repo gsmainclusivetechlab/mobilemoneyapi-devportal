@@ -1,4 +1,4 @@
-const { path } = require('@vuepress/shared-utils')
+const { path, parseVueFrontmatter: { parse: parseVueFrontmatter } } = require('@vuepress/shared-utils')
 const { htmlToText } = require('html-to-text')
 const _ = require('lodash')
 
@@ -9,7 +9,6 @@ module.exports = (options, ctx, globalCtx) => ({
     try {
       const { html } = $page._context.markdown.render($page._strippedContent || '')
       if (!customTitles) customTitles = getCustomTitles(globalCtx)
-
       const plaintext = htmlToText(html, {
         wordwrap: null,
         hideLinkHrefIfSameAsText: true,
@@ -18,13 +17,14 @@ module.exports = (options, ctx, globalCtx) => ({
         uppercaseHeadings: false,
         tables: true,
       })
-
       for (const h of $page.headers || []) {
         const titlePlaintext = $page._context.markdown.renderInline(h.title)
         h.normalizedTitle = normalizeText(titlePlaintext)
         h.charIndex = plaintext.indexOf(`# ${titlePlaintext}`)
         if (h.charIndex === -1) h.charIndex = null
       }
+
+
       $page.headersStr = $page.headers ? $page.headers.map(h => h.title).join(' ') : null
       $page.content = plaintext
       $page.normalizedContent = normalizeText(plaintext)

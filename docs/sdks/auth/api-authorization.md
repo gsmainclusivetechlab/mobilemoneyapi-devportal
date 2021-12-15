@@ -56,13 +56,24 @@ Standard query string parameters and response headers have been included to enab
 
 Also added a ‘_codestate_’ filter to return authorisation codes for a given state.
 
-## Mobile Money Customer Account Creation
+## Test diagram
 
-Added new endpoints and associated objects to allow account creation for mobile money customers:
+<mermaid>
+sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider
+    participant Payer
+    Merchant->>+Mobile Money Provider: POST /transactions/type/merchantpay <b>important</b> <a href='http://google.com'>link</a>
+    Note right of Mobile Money Provider: (1) The merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is "pending".
+    Mobile Money Provider-->>-Merchant: HTTP 202 (Request State Object)
+    Mobile Money Provider->>+Payer: Obtain Customer Authorisation 
+    Note right of Payer: (2) The Payer is requested by the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer<br>authorisation. 
+    Payer-->>-Mobile Money Provider: (Authorised)
+    Mobile Money Provider->>+Merchant: PUT (Callback URL) (transctions Object)
+    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
+    Merchant-->>-Mobile Money Provider: HTTP 204
 
-*   _POST /accounts/{identityType}_. Allows for account creation. The identity type initially supports ‘individual’ only, but in future could be extended to support creation of other types such as ‘merchant’.
-*   _GET /accounts/{accountIdentifierType}/{identifier}_. Allows for a specific account and associated identities to be retrieved for a given account.
-*   _GET /accounts/{Account Identifiers}_. As per above, but supports identification of the account using one, two or three identifiers.
+</mermaid>
 
 ## Mobile Money Customer Account Modification
 

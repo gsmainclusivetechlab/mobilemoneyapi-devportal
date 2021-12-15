@@ -23,10 +23,12 @@ title: Home
 
 <script>
 import useCaseCard from './.vuepress/components/use-case-card';
+import divBox from './.vuepress/components/DivBox';
 
 export default {
   components: {
     useCaseCard,
+    divBox
   },
   data () {
     return {

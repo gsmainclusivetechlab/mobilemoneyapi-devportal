@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "start": "nodemon --watch 'docs/.vuepress/pages/**/*' -e md --exec vuepress dev docs --temp .temp --no-cache"
   },
   "keywords": [
     "documentation"
@@ -15,10 +16,12 @@
   "devDependencies": {
     "@vuepress/plugin-search": "^1.8.2",
     "node-sass": "^6.0.0",
+    "nodemon": "^2.0.15",
     "sass-loader": "^10",
     "vue2-collapse": "^1.0.15",
     "vuepress": "^1.8.2",
-    "vuepress-plugin-fulltext-search": "^2.2.0"
+    "vuepress-plugin-fulltext-search": "^2.2.0",
+    "watchpack": "^1.7.5"
   },
   "dependencies": {
     "axios": "^0.24.0",

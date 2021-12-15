@@ -1,102 +1,81 @@
+// Replacing the default htmlBlock rule to allow using custom components at
+// root level
 
-const path = require('path');
-const fs = require('fs');
+const blockNames = require('markdown-it/lib/common/html_blocks')
+const HTML_OPEN_CLOSE_TAG_RE = require('markdown-it/lib/common/html_re').HTML_OPEN_CLOSE_TAG_RE
 
-const INCLUDE_RE = /!{3}\s*include(.+?)!{3}/i;
-const BRACES_RE = /\((.+?)\)/i;
+// An array of opening and corresponding closing sequences for html tags,
+// last argument defines whether it can terminate a paragraph or not
+const HTML_SEQUENCES = [
+  [/^<(script|pre|style)(?=(\s|>|$))/i, /<\/(script|pre|style)>/i, true],
+  [/^<!--/, /-->/, true],
+  [/^<\?/, /\?>/, true],
+  [/^<![A-Z]/, />/, true],
+  [/^<!\[CDATA\[/, /\]\]>/, true],
+  // PascalCase Components
+  [/^<[A-Z]/, />/, true],
+  // custom elements with hyphens
+  [/^<\w+\-/, />/, true],
+  [new RegExp('^</?(' + blockNames.join('|') + ')(?=(\\s|/?>|$))', 'i'), /^$/, true],
+  [new RegExp(HTML_OPEN_CLOSE_TAG_RE.source + '\\s*$'), /^$/, false]
+]
 
-const include_plugin = (md, options) => {
-  const defaultOptions = {
-    root: '.',
-    getRootDir: (pluginOptions/*, state, startLine, endLine*/) => pluginOptions.root,
-    includeRe: INCLUDE_RE,
-    throwError: true,
-    bracesAreOptional: false,
-    notFoundMessage: 'File \'{{FILE}}\' not found.',
-    circularMessage: 'Circular reference between \'{{FILE}}\' and \'{{PARENT}}\'.'
-  };
+module.exports = md => {
+  md.block.ruler.at('html_block', htmlBlock)
+}
 
-  if (typeof options === 'string') {
-    options = {
-      ...defaultOptions,
-      root: options
-    };
-  } else {
-    options = {
-      ...defaultOptions,
-      ...options
-    };
+function htmlBlock (state, startLine, endLine, silent) {
+  let i, nextLine, lineText
+  let pos = state.bMarks[startLine] + state.tShift[startLine]
+  let max = state.eMarks[startLine]
+
+  // if it's indented more than 3 spaces, it should be a code block
+  if (state.sCount[startLine] - state.blkIndent >= 4) { return false }
+
+  if (!state.md.options.html) { return false }
+
+  if (state.src.charCodeAt(pos) !== 0x3C/* < */) { return false }
+
+  lineText = state.src.slice(pos, max)
+
+  for (i = 0; i < HTML_SEQUENCES.length; i++) {
+    if (HTML_SEQUENCES[i][0].test(lineText)) { break }
   }
 
-  const _replaceIncludeByContent = (src, rootdir, parentFilePath, filesProcessed) => {
-    filesProcessed = filesProcessed ? filesProcessed.slice() : []; // making a copy
-    let cap, filePath, mdSrc, errorMessage;
+  if (i === HTML_SEQUENCES.length) {
+    return false
+  }
 
-    // store parent file path to check circular references
-    if (parentFilePath) {
-      filesProcessed.push(parentFilePath);
+  if (silent) {
+    // true if this sequence can be a terminator, false otherwise
+    return HTML_SEQUENCES[i][2]
+  }
+
+  nextLine = startLine + 1
+
+  // If we are here - we detected HTML block.
+  // Let's roll down till block end.
+  if (!HTML_SEQUENCES[i][1].test(lineText)) {
+    for (; nextLine < endLine; nextLine++) {
+      if (state.sCount[nextLine] < state.blkIndent) { break }
+
+      pos = state.bMarks[nextLine] + state.tShift[nextLine]
+      max = state.eMarks[nextLine]
+      lineText = state.src.slice(pos, max)
+
+      if (HTML_SEQUENCES[i][1].test(lineText)) {
+        if (lineText.length !== 0) { nextLine++ }
+        break
+      }
     }
-    while ((cap = options.includeRe.exec(src))) {
-      let includePath = cap[1].trim();
-      const sansBracesMatch = BRACES_RE.exec(includePath);
+  }
 
-      if (!sansBracesMatch && !options.bracesAreOptional) {
-        errorMessage = `INCLUDE statement '${src.trim()}' MUST have '()' braces around the include path ('${includePath}')`;
-      } else if (sansBracesMatch) {
-        includePath = sansBracesMatch[1].trim();
-      } else if (!/^\s/.test(cap[1])) {
-        // path SHOULD have been preceeded by at least ONE whitespace character!
-        /* eslint max-len: "off" */
-        errorMessage = `INCLUDE statement '${src.trim()}': when not using braces around the path ('${includePath}'), it MUST be preceeded by at least one whitespace character to separate the include keyword and the include path.`;
-      }
+  state.line = nextLine
 
-      if (!errorMessage) {
-        filePath = path.resolve(rootdir, includePath);
+  const token = state.push('html_block', '', 0)
+  token.map = [startLine, nextLine]
+  token.content = state.getLines(startLine, nextLine, state.blkIndent, true)
+  console.log(token.content)
 
-        // check if child file exists or if there is a circular reference
-        if (!fs.existsSync(filePath)) {
-          // child file does not exist
-          errorMessage = options.notFoundMessage.replace('{{FILE}}', filePath);
-        } else if (filesProcessed.indexOf(filePath) !== -1) {
-          // reference would be circular
-          errorMessage = options.circularMessage.replace('{{FILE}}', filePath).replace('{{PARENT}}', parentFilePath);
-        }
-      }
-
-      // check if there were any errors
-      if (errorMessage) {
-        if (options.throwError) {
-          throw new Error(errorMessage);
-        }
-        mdSrc = `\n\n# INCLUDE ERROR: ${errorMessage}\n\n`;
-      } else {
-        // get content of child file
-        mdSrc = fs.readFileSync(filePath, 'utf8');
-        // check if child file also has includes
-        mdSrc = _replaceIncludeByContent(mdSrc, path.dirname(filePath), filePath, filesProcessed);
-        // remove one trailing newline, if it exists: that way, the included content does NOT
-        // automatically terminate the paragraph it is in due to the writer of the included
-        // part having terminated the content with a newline.
-        // However, when that snippet writer terminated with TWO (or more) newlines, these, minus one,
-        // will be merged with the newline after the #include statement, resulting in a 2-NL paragraph
-        // termination.
-        const len = mdSrc.length;
-        if (mdSrc[len - 1] === '\n') {
-          mdSrc = mdSrc.substring(0, len - 1);
-        }
-      }
-
-      // replace include by file content
-      src = src.slice(0, cap.index) + mdSrc + src.slice(cap.index + cap[0].length, src.length);
-    }
-    return src;
-  };
-
-  const _includeFileParts = (state, startLine, endLine/*, silent*/) => {
-    state.src = _replaceIncludeByContent(state.src, options.getRootDir(options, state, startLine, endLine));
-  };
-
-  md.core.ruler.before('normalize', 'include', _includeFileParts);
-};
-
-module.exports = include_plugin;
+  return true
+}
