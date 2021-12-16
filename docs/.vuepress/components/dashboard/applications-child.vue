@@ -149,7 +149,7 @@ export default {
       console.log('put-app')
       let developerId = '123'
       let appId = '456'
-      await this.$store.dispatch('application/updateAppByID', {data: this.form, developerId, appId})
+      await this.$store.dispatch('application/updateAppById', {data: this.form, developerId, appId})
           .then(() => {
           })
           .catch(() => {

@@ -7,6 +7,10 @@ export const FORGOT_PASSWORD = '/forgot-password';
 
 export const APPS = '/apps';
 
+export const ALL_PLANS = '/all-plans'
+export const ALL_APPLICATIONS = '/all-applications'
+export const ALL_USERS = '/all-users'
+
 // temporary users data
 
 export const USER_EMAIL = 'user@example.com';

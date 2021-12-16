@@ -2,10 +2,8 @@
   <section class="contact-us-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro section-intro--narrow text-center">
-        <h1 class="h1 section-title">Contact us</h1>
-        <div
-            class="section-description">If you have any comments or you have found any issues please let us know by filling in the fields below.
-        </div>
+        <h1 class="h1 section-title"><slot name="title"></slot></h1>
+        <div class="section-description"><slot name="description"></slot></div>
       </div>
       <div class="contact-form__wrapper  input-wrapper__with-error-mark">
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="form-contact-us">
