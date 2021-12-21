@@ -6,7 +6,6 @@ export default {
             searchValue: '',
             filterValue: '',
             sortValue: '',
-
             perPage: 12,
             currentPage: 1
         }
@@ -38,6 +37,7 @@ export default {
             }
             return this.getTableDataWithSearch
         },
+
         getTableDataWithSearch() {
             return this.getTableDataWithFilter.filter(el => {
                 if (this.searchValue === '') return true
@@ -66,6 +66,7 @@ export default {
                 return false
             })
         },
+
         getTableDataWithFilter() {
             return this.tableData.filter(el => {
                 if (this.filterValue === '' || this.filterValue === 'All Companies') return true
@@ -73,9 +74,11 @@ export default {
                 return el.company === this.filterValue;
             })
         },
+
         getTableData() {
             return this.getSortedTableData.slice((this.currentPage-1) * this.perPage, this.currentPage * this.perPage)
         },
+
         getPages() {
             return Math.ceil(this.getSortedTableData.length / this.perPage)
         }
@@ -85,12 +88,15 @@ export default {
         setSearchValue(value) {
             this.searchValue = value
         },
+
         setFilterValue(value) {
             this.filterValue = value
         },
+
         setSortValue(value) {
             this.sortValue = value
         },
+
         setCurrentPage(page) {
             this.currentPage = page
         }

@@ -10,15 +10,15 @@ export default class Application {
         return Api.post(APPS, payload);
     }
 
-    static getAppByID(developerId, appId) {
+    static getAppById(developerId, appId) {
         return Api.get(`/${developerId}${APPS}/${appId}`);
     }
 
-    static updateAppByID(developerId, appId, payload) {
+    static updateAppById(developerId, appId, payload) {
         return Api.put(`/${developerId}${APPS}/${appId}`, payload);
     }
 
-    static deleteAppByID(developerId, appId) {
+    static deleteAppById(developerId, appId) {
         return Api.delete(`/${developerId}${APPS}/${appId}`);
     }
 }

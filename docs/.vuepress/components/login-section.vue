@@ -14,13 +14,13 @@
           <form @submit.prevent="handleSubmit(signIn)">
             <ValidationProvider class="form-row"
                                 vid="email"
-                                :rules="{ required: { allowFalse: false }, email: true }"
+                                :rules="{ required: { allowFalse: false } }"
                                 v-slot="{ errors }"
                                 tag="div">
-              <label for="email">E-mail
+              <label for="email">Username
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="email" v-model="form.userId" id="email" placeholder="Enter e-mail">
+              <input type="text" v-model="form.userName" id="email" placeholder="Enter username">
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="password"
@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       form: {
-        userId: "",
+        userName: "",
         password: ""
       }
     }
@@ -70,12 +70,11 @@ export default {
           .catch(() => {
             console.log('error')
           })
-      console.log('sign-in')
-      const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
-      if(userEmails.includes(this.form.userId)) {
-        this.$root.$emit('log-user-in', true);
-        this.$router.push({path: '/dashboard/'})
-      }
+      // const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
+      // if(userEmails.includes(this.form.userName)) {
+      //   this.$root.$emit('log-user-in', true);
+      //   this.$router.push({path: '/dashboard/'})
+      // }
     }
   }
 };

@@ -25,9 +25,9 @@ export default {
                 })
         });
     },
-    getAppByID(ctx, {developerId, appId}) {
+    getAppById(ctx, {developerId, appId}) {
         return new Promise((resolve, reject) => {
-            Application.getAppByID(developerId, appId)
+            Application.getAppById(developerId, appId)
                 .then(() => {
                     console.log('1')
                     return resolve(1);
@@ -37,9 +37,9 @@ export default {
                 })
         });
     },
-    updateAppByID(ctx, {developerId, appId, data}) {
+    updateAppById(ctx, {developerId, appId, data}) {
         return new Promise((resolve, reject) => {
-            Application.updateAppByID(developerId, appId, data)
+            Application.updateAppById(developerId, appId, data)
                 .then(() => {
                     console.log('1')
                     return resolve(1);
@@ -49,9 +49,9 @@ export default {
                 })
         });
     },
-    deleteAppByID(ctx, {developerId, appId}) {
+    deleteAppById(ctx, {developerId, appId}) {
         return new Promise((resolve, reject) => {
-            Application.deleteAppByID(developerId, appId)
+            Application.deleteAppById(developerId, appId)
                 .then(() => {
                     console.log('1')
                     return resolve(1);
