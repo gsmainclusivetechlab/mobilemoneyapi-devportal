@@ -12,6 +12,27 @@ export const sortByDate = (array, type) => {
     });
 }
 
+export const sortByProp = (array, prop) => {
+    return [...array].sort(function (a, b) {
+        return a[prop].localeCompare(b[prop], [], {
+            numeric: true,
+            caseFirst: 'upper'
+        })
+    });
+}
+
+export const sortByKeyIssueDate = (array) => {
+    return [...array].sort(function (a, b) {
+        if (new Date(a.keyIssuedDate) < new Date(b.keyIssuedDate)) {
+            return -1;
+        }
+        if (new Date(a.keyIssuedDate) > new Date(b.keyIssuedDate)) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
 export const sortByStatus = (array, status) => {
     const statusValue = status === 'Inactive' ? 0 : status === 'Active' ? 1 : 2;
     return [...array].sort(a => a.status === statusValue ? -1 : 1)

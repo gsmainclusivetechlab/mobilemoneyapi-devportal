@@ -125,3 +125,15 @@
     display: block;
   }
 }
+
+.btn-tippy-copy {
+  background: #d7d7d7;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: 600;
+
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+}

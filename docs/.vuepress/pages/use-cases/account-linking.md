@@ -19,4 +19,5 @@ For further reading, please refer to the following:
 | **FSP Banks and Microfinance Institutions** | - To understand how to implement the Mobile Money API to accept account linking requests mobile money providers. | API Provider |
 |  | - To understand how to implement the Mobile Money API to request linking of accounts to mobile money providers. | API Consumer |
 
+
 </template>

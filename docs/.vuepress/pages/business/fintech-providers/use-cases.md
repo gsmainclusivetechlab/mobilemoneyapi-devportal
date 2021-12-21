@@ -24,9 +24,11 @@
       <div class="tabs-holder">
         <TabSection v-show="isActiveTab('Recurring Payments')">
 !!!include(../../use-cases/recurring-payments.md)!!!
+<router-link class="btn btn--transparent" to="/use-cases/recurring-payments/">Start developing</router-link>
         </TabSection>
         <TabSection v-show="isActiveTab('Bill Payments')">
 !!!include(../../use-cases/bill-payments.md)!!!
+<router-link class="btn btn--transparent" to="/use-cases/bill-payments/">Start developing</router-link>
         </TabSection>
       </div>
     </div>

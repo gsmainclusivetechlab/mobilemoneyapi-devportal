@@ -16,11 +16,8 @@
       @sort-value="setSortValue"
   >
     <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
-      <td class="dashboard-table__cell">
-        {{ plan.planName }}
-      </td>
+      <dashboard-cell :value="plan.planName"/>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
-        <!--        <span class="dashboard-table__state-label" :class="[getPlanStatusLabelClass(plan.state)]">{{ getPlanStatus(plan.state) }}</span>-->
         <template v-if="isAdminRole">
           <span
               class="dashboard-table__state-label"
@@ -37,8 +34,8 @@
           </button>
         </template>
       </td>
-      <td class="dashboard-table__cell dashboard-table__cell--options">
-        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
+      <td class="dashboard-table__cell dashboard-table__cell--options" >
+        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="isSuperAdminRole">
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
               <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,11 +63,12 @@ import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import DashboardTable from "../dashboard-table";
 import dashboardSearch from "../../mixins/dashboardSearch";
+import DashboardCell from "../dashboard-table/dashboard-cell";
 
 export default {
   name: "plans-tab",
 
-  components: {DashboardTable, UserOptionsBlock},
+  components: {DashboardCell, DashboardTable, UserOptionsBlock},
 
   data() {
     return {

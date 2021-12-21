@@ -18,4 +18,5 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 | **Government Departments** | To understand how to implement the Mobile Money API to provide social credit payments to mobile money recipients. | API Consumer |
 | **Employers** | To understand how to implement the Mobile Money API to provide salary payments to mobile money recipients. | API Consumer |
 
+
 </template>

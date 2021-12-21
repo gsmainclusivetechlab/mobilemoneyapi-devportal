@@ -10,30 +10,18 @@
       page-type="applications"
       is-create-button
       @search-value="setSearchValue"
+      @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
   >
     <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.id">
-      <td class="dashboard-table__cell">
-        <span>{{ app.appName }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.authorName }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.usagePlan }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.consumerKey }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.consumerSecret }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.apiKey }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ app.keyIssuedDate }}</span>
-      </td>
+      <dashboard-cell :value="app.appName"/>
+      <dashboard-cell :value="app.authorName"/>
+      <dashboard-cell :value="app.company"/>
+      <dashboard-cell :value="app.usagePlan"/>
+      <dashboard-cell :value="app.consumerKey"/>
+      <dashboard-cell :value="app.consumerSecret"/>
+      <dashboard-cell :value="app.apiKey"/>
+      <dashboard-cell :value="app.keyIssuedDate"/>
       <td class="dashboard-table__cell dashboard-table__cell--options">
         <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
           <template v-slot:trigger>
@@ -63,11 +51,12 @@ import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
+import DashboardCell from "../dashboard-table/dashboard-cell";
 
 export default {
   name: "all-applications-tab",
 
-  components: {DashboardTable, UserOptionsBlock},
+  components: {DashboardCell, DashboardTable, UserOptionsBlock},
 
   data() {
     return {

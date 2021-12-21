@@ -59,6 +59,10 @@
       padding: 20px 0;
       font-size: 1.8rem;
 
+      @include media('<tablet-lg') {
+        font-size: 1.6rem;
+      }
+
       h1, .h1 {
         font-size: 2.4rem;
         font-weight: 700;
@@ -68,6 +72,7 @@
         font-weight: var(--base-h2-font-weight);
         font-size: 2rem;
         margin-top: 40px;
+        padding-top: 0;
       }
 
       h3, .h3 {
@@ -134,7 +139,7 @@
         line-height: 1.8;
 
         @include media('<tablet') {
-          //font-size: 1.2rem;
+          font-size: 1.4rem;
         }
 
         thead {
@@ -191,7 +196,8 @@
 
   }
 
+
   .btn--transparent {
-    padding: 0;
+    padding: 10px 0 30px;
   }
 }

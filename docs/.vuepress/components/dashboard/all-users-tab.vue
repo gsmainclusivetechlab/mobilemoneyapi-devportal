@@ -15,15 +15,9 @@
       @set-current-page="setCurrentPage"
   >
     <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.id">
-      <td class="dashboard-table__cell">
-        <span>{{ user.name }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ user.email }}</span>
-      </td>
-      <td class="dashboard-table__cell">
-        <span>{{ user.company }}</span>
-      </td>
+      <dashboard-cell :value="user.name"/>
+      <dashboard-cell :value="user.email"/>
+      <dashboard-cell :value="user.company"/>
       <td class="dashboard-table__cell">
         <span class="dashboard-table__status-label" :class="[getUserStatusLabelClass(user.status)]"></span>
         {{ getUserStatus(user.status) }}
@@ -31,16 +25,14 @@
       <td class="dashboard-table__cell">
         <template v-if="isAdminRole">
           <span
-              class="dashboard-table__role"
-              :class="{'dashboard-table__role--red': user.role === 0}">
+              class="dashboard-table__role dashboard-table__role--red">
             {{ getUserRole(user.role) }}
           </span>
         </template>
         <template v-if="isSuperAdminRole">
           <button
               @dblclick="changeUserRole(user.id)"
-              class="dashboard-table__role dashboard-table__role--button"
-              :class="{'dashboard-table__role--red': user.role === 0}">
+              class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button">
             {{ getUserRole(user.role) }}
           </button>
         </template>
@@ -77,10 +69,11 @@ import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
+import DashboardCell from "../dashboard-table/dashboard-cell";
 
 export default {
   name: "all-users-tab",
-  components: {DashboardTable, UserOptionsBlock},
+  components: {DashboardCell, DashboardTable, UserOptionsBlock},
   data() {
     return {
       allUsersHeaderTitles,

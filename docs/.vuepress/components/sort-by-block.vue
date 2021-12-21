@@ -47,7 +47,9 @@ export default {
           'Blocked'
       ],
       valuesApplications: [
-
+          'Key Issue Date',
+          'Author',
+          'Usage plan'
       ],
       valuesPlans: [
           'Unpublish',

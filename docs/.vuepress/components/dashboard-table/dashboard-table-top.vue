@@ -88,6 +88,12 @@ export default {
 
   mixins: [clickaway],
 
+  created() {
+    if(this.pageType === 'applications') {
+      this.sortValue = 'Key Issue Date'
+    }
+  },
+
   methods: {
     showSortByOptions() {
       this.activeSortOptions = true
