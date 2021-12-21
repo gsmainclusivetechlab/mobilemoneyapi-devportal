@@ -1,10 +1,10 @@
 <template>
-    <header class="navbar main-header" :class="{'mobile-search-opened':isMobileSearchOpened}">
+    <header class="navbar main-header" :class="{'mobile-search-opened': isMobileSearchOpened}">
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
       <div class="main-header__box">
         <div class="logo-holder">
           <RouterLink
-              :to="$localePath"
+              to="/"
               class="home-link"
           >
             <img
@@ -24,10 +24,12 @@
 
         <SearchBox/>
         <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
+
         <div class="login-links" v-if="!loggedInUser">
-          <a href="/signup/" class="btn btn--transparent btn--register">Sign up</a>
-          <a href="/login/" class="btn btn--accent">Log in</a>
+          <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
+          <router-link to="/login/" class="btn btn--accent">Log in</router-link>
         </div>
+
         <div class="logged-in-links" v-if="loggedInUser">
           <span class="logged-in-name">Thomas Ride</span>
           <button class="logged-in-account-btn" @click="goToDashboard">
@@ -58,13 +60,13 @@
 
 <script>
 import SearchBox from '../../plugins/vuepress-plugin-fulltext-search/components/SearchBox';
-// import SearchBox from '@SearchBox';
 import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
 import {mixin as clickaway} from 'vue-clickaway';
 
 export default {
   name: "Navbar",
+
   components: {
     SearchBox,
     NavLinks,
@@ -100,9 +102,9 @@ export default {
 
     window.addEventListener('resize', handleLinksWrapWidth, false)
 
-    this.$root.$on('log-user-in', val => {
-      this.loggedInUser = val
-    })
+    // this.$root.$on('log-user-in', val => {
+    //   this.loggedInUser = val
+    // })
     const token_access = localStorage.getItem('token_access')
     if (token_access) {
       this.loggedInUser = true;

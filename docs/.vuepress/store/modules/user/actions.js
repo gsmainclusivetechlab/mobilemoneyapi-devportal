@@ -1,5 +1,6 @@
 import Auth from "../../../api/Auth";
 import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../../../api/constants";
+import CookieManager from "../../../helpers/CookieManager";
 
 export default {
     signUp({commit}, payload) {
@@ -53,4 +54,13 @@ export default {
                 })
         });
     },
+
+    getUserData({state}) {
+        const [x_user_token, id_token] = CookieManager.getValues('x_user_token', 'id_token');
+        const userName = state.userData.userName;
+
+
+    },
+    updateUserData(ctx, payload) {},
+    logout() {}
 };

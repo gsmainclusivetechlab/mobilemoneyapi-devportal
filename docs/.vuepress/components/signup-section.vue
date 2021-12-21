@@ -25,6 +25,7 @@
               </label>
               <input type="text" v-model="form.firstName" id="first-name" placeholder="Enter first name">
             </ValidationProvider>
+
             <ValidationProvider class="form-row"
                                 vid="last-name"
                                 :rules="{ required: { allowFalse: false }, alpha: true, min: 2 }"
@@ -38,14 +39,36 @@
             </ValidationProvider>
 
             <ValidationProvider class="form-row"
-                                vid="username"
+                                vid="userName"
                                 :rules="{ required: { allowFalse: false }, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
-              <label for="username">Username
+              <label for="userName">Username
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="text" v-model="form.username" id="username" placeholder="Enter username">
+              <input type="text" v-model="form.userName" id="userName" placeholder="Enter username">
+            </ValidationProvider>
+
+            <ValidationProvider class="form-row"
+                                vid="companyName"
+                                :rules="{ required: { allowFalse: false }, min: 2 }"
+                                v-slot="{ errors }"
+                                tag="div">
+              <label for="companyName">Company name
+                <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
+              </label>
+              <input type="text" v-model="form.companyName" id="companyName" placeholder="Enter company name">
+            </ValidationProvider>
+
+            <ValidationProvider class="form-row"
+                                vid="timeZone"
+                                :rules="{ required: { allowFalse: false }, min: 2 }"
+                                v-slot="{ errors }"
+                                tag="div">
+              <label for="timeZone">Time zone
+                <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
+              </label>
+              <input type="text" v-model="form.timeZone" id="timeZone" placeholder="Enter time zone">
             </ValidationProvider>
 
             <ValidationProvider class="form-row"
@@ -95,22 +118,24 @@ export default {
   data() {
     return {
       form: {
-        username: "",
         email: "",
         firstName: "",
-        lastName: ""
+        lastName: "",
+        "userName": "",
+        "companyName": "",
+        "timeZone": ""
       },
       privacyCheckbox: false
     }
   },
   methods: {
     async signUp() {
-      console.log('sign-up')
       await this.$store.dispatch('auth/signUp', this.form)
       .then(() => {
         this.$router.push('/login/')
       })
       .catch(() => {
+        // TODO add validation error or other messages
         console.log('error')
       })
     }

@@ -20,7 +20,7 @@
               <label for="email">E-mail
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="email" v-model="form.userId" id="email" placeholder="Enter e-mail">
+              <input type="email" v-model="form.userName" id="email" placeholder="Enter e-mail">
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="password"
@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       form: {
-        userId: "",
+        userName: "",
         password: ""
       }
     }
@@ -70,12 +70,11 @@ export default {
           .catch(() => {
             console.log('error')
           })
-      console.log('sign-in')
-      const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
-      if(userEmails.includes(this.form.userId)) {
-        this.$root.$emit('log-user-in', true);
-        this.$router.push({path: '/dashboard/'})
-      }
+      // const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
+      // if(userEmails.includes(this.form.userName)) {
+      //   this.$root.$emit('log-user-in', true);
+      //   this.$router.push({path: '/dashboard/'})
+      // }
     }
   }
 };

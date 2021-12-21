@@ -10,6 +10,13 @@ paths:
   /apps:
     post:
       summary: "Creates an developer app"
+      parameters:
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
       operationId: registerApps
       requestBody:
         required: true
@@ -31,6 +38,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
         "500":
           description: "Internal Server Error"
           content:
@@ -43,9 +62,15 @@ paths:
       summary: "Get Developer apps"
       operationId: getDeveloperApps
       parameters:
-      - name: developerId
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
         in: query
-        description: "developer username or email id"
+        description: "the username of developer"
         required: false
         schema:
           type: string
@@ -69,6 +94,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
         "500":
           description: "Internal Server Error"
           content:
@@ -77,12 +108,18 @@ paths:
                 $ref: "#/components/schemas/ErrorBasic"
       security:
         - bearerAuth: []
-  /{developerId}/apps/{appId}:
+  /{userName}/apps/{appId}:
     get:
       summary: "Get App By ID"
       operationId: getAppById
       parameters:
-      - name: developerId
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
         in: path
         description: "the username of developer"
         required: true
@@ -114,6 +151,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "404":
+          description: "No App found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
         "500":
           description: "Internal Server Error"
           content:
@@ -126,7 +175,13 @@ paths:
       summary: "Update App By Id"
       operationId: updateAppById
       parameters:
-      - name: developerId
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
         in: path
         description: "the username of developer"
         required: true
@@ -158,8 +213,20 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
         "401":
           description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "404":
+          description: "Not_Found"
           content:
             application/json:
               schema:
@@ -176,7 +243,13 @@ paths:
       summary: "Delete App By Id"
       operationId: deleteApprById
       parameters:
-      - name: developerId
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
         in: path
         description: "the username of developer"
         required: true
@@ -200,6 +273,18 @@ paths:
                 $ref: "#/components/schemas/ErrorBasic"
         "401":
           description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "404":
+          description: "Not_Found"
           content:
             application/json:
               schema:
@@ -247,9 +332,15 @@ components:
       description: app details
       type: object
       properties:
+        appId:
+          type: string
+          description: name of user
+        userName:
+          type: string
+          description: name of user
         appName:
           type: string
-          description: name of name
+          description: name of app
         consumerKey:
           type: string
           description: consumer key
@@ -259,6 +350,9 @@ components:
         apiKey:
           type: string
           description: API key of the app
+        descriptionApiKey:
+          type: string
+          description: Description of API Key
         usagePlan:
           type: string
           description: Usage Plan of the App
