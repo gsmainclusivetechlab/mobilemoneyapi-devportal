@@ -1,0 +1,783 @@
+openapi: 3.0.1
+info:
+  title: Admin API for Mobile Money Portal
+  description: This describes the Admin API which would be called from Portal UI
+  version: "1.0"
+servers:
+  - url: "https:/sanbox.mobilemoneyapi.io/portal/admin/v1"
+    description: Admin API v1
+paths:
+  /register:
+    post:
+      summary: "Creates an account for portal(can be developer/admin/superadmin)"
+      operationId: register
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      security:
+        - bearerAuth: []
+      responses: 
+        "201":
+          description: "Created response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+  /{userName}:
+    get:
+      summary: "Get User By Name"
+      operationId: getUserByName
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+                  
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Update User By Name"
+      operationId: updateUserByName
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+                  
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserUpdateRequest"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+    delete:
+      summary: "Delete User By Name"
+      operationId: deleteUserByName
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+                  
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessBasic"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /{userName}/reset-password:
+    put:
+      summary: "Update Password Request"
+      operationId: resetPassword
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessBasic"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /developers:
+    get:
+      summary: "Get Developers"
+      operationId: getDevelopers
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+                  
+      responses: 
+        "200":
+          description: "Developer List Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeveloperList"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /profile:
+    get:
+      summary: "Get Admin's profile"
+      operationId: getUserByAdminName
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+                 
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminUserResponse"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+    put:
+      summary: "Update admin's account"
+      operationId: updateAdmin
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+                  
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserUpdateRequest"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /searchbykeyword:
+    post:
+      summary: "Get results on keywords searched"
+      operationId: searchByKeyword
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+                  
+      responses: 
+        "200":
+          description: "Search Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+        "400":
+          description: "Bad Request. i.e. when there is no proper values passed in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /role/{userName}:
+    put:
+      summary: "Update user role"
+      operationId: updateRole
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRoleRequest'
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessBasic"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /disable-enable-user/{userName}:
+    post:
+      summary: "Enable/disable user"
+      operationId: Enable/disable user
+      parameters:
+      - name: x_user_token
+        in: header
+        description: "the x_user_token from the login response "
+        required: true
+        schema:
+          type: string
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: userName
+        in: path
+        description: "the userName"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEnableDisableFlagRequest'
+      responses: 
+        "200":
+          description: "User Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessBasic"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden/ Not authorised"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+  schemas:
+
+          
+    # Wrapper request object for Bank Account creation
+    UserRequest:
+      title: The wrapper request object for User Account
+      type: object
+      required:
+       - userName
+       - email
+       - firstName
+       - lastName
+       - companyName
+       - timeZone
+       - role
+       - password
+       - confirmPassword
+      properties:
+        userName:
+          type: string
+          description: Unique userName.
+        email:
+          type: string
+          description: Email id of the user
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        timeZone:
+          type: string
+        role:
+          type: string
+        password:
+          type: string
+        confirmPassword:
+          type: string
+    UserUpdateRequest:
+      title: The wrapper request object for User Account
+      type: object
+      required:
+       - companyName
+       - email
+       - firstName
+       - lastName
+       - timeZone
+      properties:
+        companyName:
+          type: string
+          description: Unique userName.
+        email:
+          type: string
+          description: Email id of the user
+        firstName:
+          type: string
+        lastName:
+          type: string
+        timeZone:
+          type: string
+    SearchRequest:
+      title: The wrapper request object for Search By Keyword
+      type: object
+      required:
+       - searchField
+       - keyWord
+      properties:
+        searchField:
+          type: string
+          description: Unique userName.
+        keyWord:
+          type: string
+          description: Email id of the user
+    UpdatePasswordRequest:
+      title: The wrapper request object for Update Password
+      type: object
+      required:
+      - newPassword
+      properties:
+        newPassword:
+          type: string
+          description: New password of the user
+    UpdateRoleRequest:
+      title: The wrapper request object for Update role
+      type: object
+      required:
+       - role
+      properties:
+        role:
+          type: string
+          description: New role of the user
+    UpdateEnableDisableFlagRequest:
+      title: The wrapper request object for Update role
+      type: object
+      required:
+       - disableUser
+      properties:
+        disableUser:
+          type: boolean
+          description: New role of the user
+          
+    # wrapper object of 201 Create  
+    UserResponse:
+      title: "User Response"
+      description: "This wraps the User response"
+      type: object
+      properties:
+        userName:
+          type: string
+          description: Unique userName of uer.
+        email:
+          type: string
+          description: Email id of the user
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        timeZone:
+          type: string
+        userId:
+          type: string
+    AdminUserResponse:
+      title: "User Response"
+      description: "This wraps the User response"
+      type: object
+      properties:
+        userName:
+          type: string
+          description: Unique userName of uer.
+        email:
+          type: string
+          description: Email id of the user
+        firstName:
+          type: string
+        lastName:
+          type: string
+        companyName:
+          type: string
+        timeZone:
+          type: string
+        userId:
+          type: string
+        role:
+          type: string
+    
+    DeveloperList:
+      title: developer list
+      description: returns list of developers
+      type: array
+      items:
+        type: object
+        $ref: "#/components/schemas/UserResponse"
+        
+    # wrapper abstract object of error  
+    ErrorBasic:
+      title: Generic error
+      description: Primary error object with minimum properties
+      type: object
+      properties:
+        error:
+          type: string
+        errorDescription:
+          type: string
+    SuccessBasic:
+      title: Successfully operation performed
+      description: Primary success message
+      type: object
+      properties:
+        success:
+          type: string
