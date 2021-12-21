@@ -15,28 +15,14 @@ export default {
         });
     },
     signIn({commit}, payload) {
-        let role = ''
-        if(payload.userId === USER_EMAIL) {
-            role = 'USER'
-        }
-        if(payload.userId === ADMIN_EMAIL) {
-            role = 'ADMIN'
-        }
-        if(payload.userId === SUPERADMIN_EMAIL) {
-            role = 'SUPERADMIN'
-        }
-        window.localStorage.setItem('token_access', role)
-
-        commit('setTokenAccess', role);
-
         return new Promise((resolve, reject) => {
             Auth.signIn(payload)
-                .then(() => {
-                    console.log('1');
+                .then((res) => {
+                    console.log(res);
                     return resolve(1);
                 })
                 .catch((e) => {
-                    // console.log(e)
+                    console.log(e)
                     return reject(e)
                 })
         });

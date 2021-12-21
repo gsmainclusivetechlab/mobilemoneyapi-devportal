@@ -1,4 +1,4 @@
-export const BASE_URL = 'https:/sandbox.mobilemoneyapi.io/portal/users/v1'; // FIXME env need
+export const BASE_URL = 'https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/users/v1'; // FIXME env need
 
 export const LOGIN = '/login';
 export const REGISTER = '/register';
