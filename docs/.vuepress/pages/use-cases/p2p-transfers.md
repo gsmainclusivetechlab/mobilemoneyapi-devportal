@@ -11,7 +11,6 @@ For further reading, please refer to the following:
 
 All documentation can be found on the [GSMA Mobile Money API Developer Portal](../../api-versions-1.2/).
 
-<router-link class="btn btn--transparent" to="/use-cases/p-2-p-transfers/">Start developing</router-link>
 <h3 class="h3">Use case scenarios</h3>
 <accordion>
             <accordion-item businessPage>

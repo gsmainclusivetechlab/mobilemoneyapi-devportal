@@ -1,4 +1,4 @@
-import {sortByDate, sortByProp, sortByState, sortByStatus} from "../helpers/filtrationFunctions";
+import {sortByDate, sortByKeyIssueDate, sortByProp, sortByState, sortByStatus} from "../helpers/filtrationFunctions";
 
 export default {
     data() {
@@ -32,6 +32,9 @@ export default {
             }
             if(this.sortValue === 'Usage plan') {
                 return sortByProp(this.getTableDataWithSearch, 'usagePlan')
+            }
+            if(this.sortValue === 'Key Issue Date') {
+                return sortByKeyIssueDate(this.getTableDataWithSearch)
             }
             return this.getTableDataWithSearch
         },

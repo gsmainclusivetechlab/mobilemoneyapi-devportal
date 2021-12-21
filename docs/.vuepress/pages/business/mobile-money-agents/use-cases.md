@@ -24,6 +24,7 @@
       <div class="tabs-holder">
         <TabSection v-show="isActiveTab('Agent Services')">
 !!!include(../../use-cases/agent-services.md)!!!
+<router-link class="btn btn--transparent" to="/use-cases/agent-services/">Start developing</router-link>
         </TabSection>
       </div>
     </div>

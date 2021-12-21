@@ -22,6 +22,5 @@ All documentation can be found on the [GSMA Mobile Money API Developer Portal](.
 | **International Transfer Hubs** | - To understand how to implement the Mobile Money APIs to receive international transfers from FSPs. | API Provider |
 | | - To understand how to implement the Mobile Money APIs to send international transfers to FSPs. | API Consumer |
 
-<router-link class="btn btn--transparent" to="/use-cases/international-transfers/">Start developing</router-link>
 
 </template>
