@@ -49,8 +49,6 @@
 </template>
 
 <script>
-import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../api/constants";
-
 export default {
   name: 'login-section',
   data() {
@@ -70,11 +68,7 @@ export default {
           .catch(() => {
             console.log('error')
           })
-      // const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
-      // if(userEmails.includes(this.form.userName)) {
       //   this.$root.$emit('log-user-in', true);
-      //   this.$router.push({path: '/dashboard/'})
-      // }
     }
   }
 };

@@ -61,17 +61,6 @@
             </ValidationProvider>
 
             <ValidationProvider class="form-row"
-                                vid="timeZone"
-                                :rules="{ required: { allowFalse: false }, min: 2 }"
-                                v-slot="{ errors }"
-                                tag="div">
-              <label for="timeZone">Time zone
-                <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
-              </label>
-              <input type="text" v-model="form.timeZone" id="timeZone" placeholder="Enter time zone">
-            </ValidationProvider>
-
-            <ValidationProvider class="form-row"
                                 vid="email"
                                 :rules="{ required: { allowFalse: false }, email: true }"
                                 v-slot="{ errors }"
@@ -113,6 +102,8 @@
 </template>
 
 <script>
+import Auth from "../api/Auth";
+
 export default {
   name: 'signup-section',
   data() {
@@ -121,23 +112,22 @@ export default {
         email: "",
         firstName: "",
         lastName: "",
-        "userName": "",
-        "companyName": "",
-        "timeZone": ""
+        userName: "",
+        companyName: "",
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
       },
       privacyCheckbox: false
     }
   },
   methods: {
     async signUp() {
-      await this.$store.dispatch('auth/signUp', this.form)
-      .then(() => {
-        this.$router.push('/login/')
-      })
-      .catch(() => {
-        // TODO add validation error or other messages
-        console.log('error')
-      })
+      await Auth.signUp(this.form)
+          .then(() => {
+            this.$router.push({path: '/login/'})
+          })
+          .catch((e) => {
+            console.log(e)
+          })
     }
   }
 };

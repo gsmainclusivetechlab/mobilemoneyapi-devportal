@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import {SECONDS_IN_DAY} from "../api/constants";
 
 export default {
     getValue(name) {
@@ -14,7 +15,7 @@ export default {
     },
 
     setValueWithExpires(name, value, expires) {
-        Cookies.set(name, value, {expires})
+        Cookies.set(name, value, {expires: expires / SECONDS_IN_DAY})
     },
 
     removeValue(name) {
