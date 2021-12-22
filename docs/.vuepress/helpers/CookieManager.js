@@ -7,7 +7,7 @@ export default {
     },
 
     getValues(...names) {
-        return names.map(name=> this.getValue(name))
+        return names.map(name => this.getValue(name))
     },
 
     setValue(name, value) {
@@ -18,7 +18,9 @@ export default {
         Cookies.set(name, value, {expires: expires / SECONDS_IN_DAY})
     },
 
-    removeValue(name) {
-        Cookies.remove(name)
+    removeValues(...names) {
+        names.forEach((name) => {
+            Cookies.remove(name)
+        })
     }
 }

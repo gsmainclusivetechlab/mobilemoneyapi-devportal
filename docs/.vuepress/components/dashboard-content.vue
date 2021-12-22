@@ -29,9 +29,9 @@
             <div class="icon-wrap" v-html="tab.tabIcon"></div>
             <span class="sidebar-item-text">{{ tab.tabTitle }}</span>
           </div>
-          <ul class="sidebar-child-list" v-if="tab.children">
+          <ul class="sidebar-child-list" v-if="tab.tabTitle === 'Applications' && tab.children">
             <li class="sidebar-child-item"
-                v-for="child in tab.dashboardApplicationsDB"
+                v-for="child in applications"
                 ref="sidebarChildItem"
                 @click="toggleApplicationChildTab(true, $event, child)"
             >{{ child.appName }}
@@ -72,6 +72,8 @@ import allApplications from './dashboard/all-applications-tab.vue';
 import allUsers from './dashboard/all-users-tab.vue';
 import allPlans from './dashboard/plans-tab.vue';
 import {mixin as clickaway} from 'vue-clickaway';
+
+import {mapState} from 'vuex';
 
 const myAccountIcon = `
   <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -116,19 +118,33 @@ const plansIcon = `
 
 export default {
   name: 'dashboard-section',
+
   components: {
     applicationsChild
   },
+
   mixins: [
     clickaway
   ],
+
   data() {
     return {
       activeTabName: '',
       sidebarOpened: false,
       applicationsChildActive: false,
       applicationChildItem: {},
-      tabs: [
+    }
+  },
+
+  computed: {
+    isAdminRole() {
+      return this.$store.state.auth.token_access === 'ADMIN' || this.$store.state.auth.token_access === 'SUPERADMIN'
+    },
+    getTabsForUser() {
+      return this.isAdminRole ? this.tabs : this.tabs.slice(0, 3)
+    },
+    tabs() {
+      return [
         {
           tabTitle: 'Dashboard',
           tabIcon: dashboardIcon,
@@ -139,8 +155,7 @@ export default {
           tabTitle: 'Applications',
           tabIcon: applicationsIcon,
           component: applicationsTab,
-          children: true,
-          dashboardApplicationsDB: this.$store.state.application.applications
+          children: this.applications.length
         },
         {
           tabTitle: 'My account',
@@ -168,23 +183,21 @@ export default {
           children: false
         },
       ]
-    }
-  },
-  computed: {
-    isAdminRole() {
-      return this.$store.state.auth.token_access === 'ADMIN' || this.$store.state.auth.token_access === 'SUPERADMIN'
     },
-    getTabsForUser() {
-      return this.isAdminRole ? this.tabs : this.tabs.slice(0, 3)
-    }
+    ...mapState('application', ['applications'])
   },
+
   created() {
     this.setStartActiveTab();
+    this.getUserData();// TODO fix because double getting userdata when you sign in
   },
+
   methods: {
     handleTabSwitch(tabName, e, isChildMenu) {
       this.activeTabName = tabName;
+
       this.toggleApplicationChildTab(false);
+
       if (isChildMenu && e.target.closest('li').classList.contains('item-closed')) {
         setTimeout(() => {
           e.target.closest('li').classList.remove('item-closed')
@@ -193,20 +206,28 @@ export default {
       } else if (isChildMenu) {
         e.target.closest('li').classList.add('item-closed');
       }
+
       if (!isChildMenu) this.closeSidebar();
-      this.$refs.sidebarChildItem.forEach((element) => {
-        element.classList.remove('active');
-      });
+
+      if (this.$refs.sidebarChildItem) {
+        this.$refs.sidebarChildItem.forEach((element) => {
+          element.classList.remove('active');
+        });
+      }
     },
+
     setStartActiveTab() {
       this.activeTabName = this.tabs[0].tabTitle
     },
+
     openSidebar() {
       this.sidebarOpened = true;
     },
+
     closeSidebar() {
       this.sidebarOpened = false;
     },
+
     toggleApplicationChildTab(show, e, item) {
       if (e) {
         e.stopPropagation();
@@ -221,6 +242,7 @@ export default {
         this.closeSidebar();
       }
     },
+
     handleAppClick(key, tabTitle) {
       this.$refs.sidebarChildItem[key].click();
       this.$refs.sidebarListItem.forEach(element => {
@@ -229,8 +251,13 @@ export default {
         }
       });
     },
+
     handleUpdateClick(appName) {
       this.applicationChildItem.appName = appName;
+    },
+
+    getUserData() {
+      this.$store.dispatch('user/getUserData')
     }
   }
 }

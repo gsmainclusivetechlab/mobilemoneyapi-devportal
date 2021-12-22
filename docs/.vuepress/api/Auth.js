@@ -11,7 +11,7 @@ export default class Auth {
   }
 
   static setNewPassword(userName, payload) {
-    return Api.post(SET_NEW_PASSWORD.replace('{userName}', userName), payload);
+    return Api.put(SET_NEW_PASSWORD.replace('{userName}', userName), payload);
   }
 
   static forgotPassword(payload) {

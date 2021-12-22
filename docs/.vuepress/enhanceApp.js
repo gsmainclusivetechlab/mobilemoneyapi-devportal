@@ -21,6 +21,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 
 
 import store from './store'
+import CookieManager from "./helpers/CookieManager";
 export default async ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
@@ -44,18 +45,13 @@ export default async ({
     Vue.component(name, component)
   }
 
-  //
-  // router.afterEach((to) => {
-  //   console.log('after navigation')
-  // })
-
   if (!isServer) {
     await import('vue-touch').then(module => {
       Vue.use(module.default);
     })
 
     router.beforeEach((to, from, next) => {
-      if(to.path === "/dashboard/" && !localStorage.getItem('token_access')) next({path: '/login/'})
+      if(to.path === "/dashboard/" && !CookieManager.getValue('x_user_token')) next({path: '/login/'})
       else next();
     })
   }

@@ -4,7 +4,7 @@ info:
   description: This describes the User Middleware API which would be called from Portal UI
   version: "1.0"
 servers:
-  - url: "https:/sanbox.mobilemoneyapi.io/portal/users/v1"
+  - url: "https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/users/v1"
     description: User API v1
 paths:
   /register:
@@ -17,8 +17,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserRequest'
-                  
-      responses: 
+
+      responses:
         "201":
           description: "Created response"
           content:
@@ -60,8 +60,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -116,8 +116,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserUpdateRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -166,8 +166,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -211,7 +211,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdatePasswordRequest'
-      responses: 
+      responses:
         "200":
           description: "Success"
           content:
@@ -240,8 +240,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/LoginRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Login response"
           content:
@@ -270,8 +270,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ForgotPasswordRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Success"
           content:
@@ -313,8 +313,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/LogoutRequest'
-                  
-      responses: 
+
+      responses:
         "204":
           description: "No Content"
         "400":
@@ -341,8 +341,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ResetPasswordBasic'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Success"
           content:
@@ -362,7 +362,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
 
- 
+
 
 components:
   securitySchemes:
@@ -372,7 +372,7 @@ components:
       bearerFormat: JWT    # optional, arbitrary value for documentation purposes
   schemas:
 
-          
+
     # Wrapper request object for Bank Account creation
     UserRequest:
       title: The wrapper request object for User Account
@@ -454,7 +454,7 @@ components:
           description: Expiry of the Token
         id_token:
           type: string
-          description: For authentication in further API calls. 
+          description: For authentication in further API calls.
     ForgotPasswordRequest:
       title: The wrapper request object for Forgot Password
       type: object
@@ -473,8 +473,8 @@ components:
         newPassword:
           type: string
           description: New password of the user
-          
-    # wrapper object of 201 Create  
+
+    # wrapper object of 201 Create
     UserResponse:
       title: "User Response"
       description: "This wraps the User response"
@@ -496,8 +496,8 @@ components:
           type: string
         userId:
           type: string
-        
-    # wrapper abstract object of error  
+
+    # wrapper abstract object of error
     ErrorBasic:
       title: Generic error
       description: Primary error object with minimum properties

@@ -1,11 +1,11 @@
 export default {
   userData: {
     "userName": "",
-    "email": "",
+    "timeZone": "",
     "firstName": "",
     "lastName": "",
-    "companyName": "",
-    "timeZone": "",
-    "userId": ""
+    "email": "",
+    "userId": "",
+    "companyName": ""
   }
 };

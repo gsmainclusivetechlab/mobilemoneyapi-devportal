@@ -22,7 +22,7 @@
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="lastName">Last name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.lastName" id="lastName" placeholder="Enter last name" :disabled="!accountEdit">
+                <input type="text" v-model="user.lastName" id="lastName" placeholder="Enter last name" :disabled="!accountEdit">
               </ValidationProvider>
               <ValidationProvider class="input-group"
                                   vid="firstName"
@@ -30,15 +30,15 @@
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="firstName">First name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.firstName" id="firstName" placeholder="Enter first name" :disabled="!accountEdit">
+                <input type="text" v-model="user.firstName" id="firstName" placeholder="Enter first name" :disabled="!accountEdit">
               </ValidationProvider>
               <ValidationProvider class="input-group"
-                                  vid="username"
+                                  vid="companyName"
                                   :rules="{ required: { allowFalse: false }, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
-                <label for="username">Username<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="text" v-model="accountDB.username" id="username" placeholder="Enter username" :disabled="!accountEdit">
+                <label for="companyName">Company<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
+                <input type="text" v-model="user.companyName" id="companyName" placeholder="Enter company name" :disabled="!accountEdit">
               </ValidationProvider>
             </div>
           </div>
@@ -53,21 +53,13 @@
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="email">E-mail<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="email" v-model="accountDB.email" id="email" placeholder="Enter email" :disabled="!accountEdit">
-              </ValidationProvider>
-              <ValidationProvider class="input-group"
-                                  vid="password"
-                                  :rules="{ required: { allowFalse: false }, verify_password: true, min: 8}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="password">Password<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input v-if="accountEdit" type="password" v-model="accountDB.password" id="password" placeholder="Enter password" :disabled="!accountEdit">
-                <input v-else type="password" value="••••••••" placeholder="••••••••" :disabled="!accountEdit">
+                <input type="email" v-model="user.email" id="email" placeholder="Enter email" :disabled="!accountEdit">
               </ValidationProvider>
               <div class="update-btn-wrap">
                 <button class="btn btn--accent update-btn" type="submit"
                         v-if="accountEdit">
-                  Update
+                  <span v-if="!waitingResponse">Update</span>
+                  <spinner-component v-else></spinner-component>
                 </button>
               </div>
             </div>
@@ -79,25 +71,47 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import SpinnerComponent from "../helpers/spinner-component";
+
 export default {
   name: 'my-account-tab',
-
+  components: {SpinnerComponent},
   data() {
     return {
       accountEdit: false,
-      accountDB: {
-        firstName: 'Thomas',
-        lastName: 'Ride',
-        username: 'thomasride-96',
-        email: 'thomas.ride@mail.com',
-        password: '',
+      waitingResponse: false,
+      user: {
+        "timeZone": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "companyName": ""
       }
     }
   },
 
+  computed: {
+    ...mapState('user', ['userData'])
+  },
+
+  created() {
+    this.user = {
+      ...this.userData,
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+    }
+  },
+
   methods: {
-    updateAccountData() {
-      this.accountEdit = false
+    async updateAccountData() {
+      this.waitingResponse = true
+      await this.$store.dispatch('user/updateUserData', this.user)
+          .then(() => {
+            this.accountEdit = false
+          })
+          .finally(() => {
+            this.waitingResponse = false
+          })
     }
   }
 };

@@ -1,11 +1,17 @@
 import Api from './Api';
+import CookieManager from "../helpers/CookieManager";
+import {USER} from "./constants";
 
-export default class Application {
-    static getData(userName) {
-        return Api.get(`/${userName}`);
+export default class User {
+    static getData() {
+        const userName = CookieManager.getValue('userName');
+
+        return Api.get(USER.replace('{userName}', userName));
     }
 
-    static updateData(userName, payload) {
-        return Api.put(`/${userName}`, payload)
+    static updateData(payload) {
+        const userName = CookieManager.getValue('userName');
+
+        return Api.put(USER.replace('{userName}', userName), payload);
     }
 }

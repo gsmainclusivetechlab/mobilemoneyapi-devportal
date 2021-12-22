@@ -1,64 +1,55 @@
 import Application from "../../../api/Application";
 
 export default {
-    getApps() {
-        return new Promise((resolve, reject) => {
-            Application.getApps()
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+    getApps({commit}) {
+        Application.getApps()
+            .then(({data}) => {
+                commit('setApplications', data)
+            })
+            .catch((e) => {
+                if (e.response.data.description === "No App Data present") {
+                    commit('setApplications', [])
+                }
+            })
     },
-    postApp(ctx, payload) {
-        return new Promise((resolve, reject) => {
-            Application.postApp(payload)
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+
+    postApp({dispatch}, payload) {
+        Application.postApp(payload)
+            .then(() => {
+                dispatch('getApps')
+            })
+            .catch((e) => {
+                console.log(e);
+            })
     },
-    getAppById(ctx, {developerId, appId}) {
-        return new Promise((resolve, reject) => {
-            Application.getAppById(developerId, appId)
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+
+    getAppById({dispatch}, {appId}) {
+        Application.getAppById(appId)
+            .then(() => {
+                dispatch('getApps')
+            })
+            .catch((e) => {
+                return reject(e)
+            })
     },
-    updateAppById(ctx, {developerId, appId, data}) {
-        return new Promise((resolve, reject) => {
-            Application.updateAppById(developerId, appId, data)
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+
+    updateAppById({dispatch}, {appId, data}) {
+        Application.updateAppById(appId, data)
+            .then(() => {
+                dispatch('getApps')
+            })
+            .catch((e) => {
+                console.log(e);
+            })
     },
-    deleteAppById(ctx, {developerId, appId}) {
-        return new Promise((resolve, reject) => {
-            Application.deleteAppById(developerId, appId)
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+
+    deleteAppById({dispatch}, {appId}) {
+        Application.deleteAppById(appId)
+            .then(() => {
+                dispatch('getApps')
+            })
+            .catch((e) => {
+                console.log(e);
+            })
     },
 };

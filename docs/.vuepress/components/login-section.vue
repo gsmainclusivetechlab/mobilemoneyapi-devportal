@@ -36,7 +36,10 @@
               <router-link to="/forgot-password" class="btn-forgot-password">Forgot password?</router-link>
             </div>
             <div class="button-holder">
-              <button class="btn btn--accent" type="submit" :disabled="invalid">Log in</button>
+              <button class="btn btn--accent" type="submit" :disabled="invalid || waitingResponse">
+                <span v-if="!waitingResponse">Log in</span>
+                <spinner-component v-else/>
+              </button>
               <span class="bottom-row">
               <router-link to="/signup">Sign up</router-link> instead?
             </span>
@@ -49,18 +52,24 @@
 </template>
 
 <script>
+import SpinnerComponent from "./helpers/spinner-component";
+
 export default {
   name: 'login-section',
+  components: {SpinnerComponent},
   data() {
     return {
       form: {
         userName: "",
         password: ""
-      }
+      },
+      waitingResponse: false
     }
   },
   methods: {
     async signIn() {
+      this.waitingResponse = true
+
       await this.$store.dispatch('auth/signIn', this.form)
           .then(() => {
             this.$router.push({path: '/dashboard/'})
@@ -68,7 +77,9 @@ export default {
           .catch(() => {
             console.log('error')
           })
-      //   this.$root.$emit('log-user-in', true);
+          .finally(() => {
+            this.waitingResponse = false
+          })
     }
   }
 };
