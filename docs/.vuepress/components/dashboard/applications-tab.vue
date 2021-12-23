@@ -47,7 +47,6 @@ export default {
   },
 
   created() {
-    this.getApps()
   },
 
   methods: {
@@ -57,9 +56,6 @@ export default {
     handleAppClick(key) {
       this.$emit('app-click', key, this.tabTitle);
     },
-    getApps() {
-      this.$store.dispatch('application/getApps')
-    }
   }
 };
 </script>

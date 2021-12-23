@@ -40,13 +40,17 @@
                   id="product-name"
                   name="country"
                   :clearable="false"
-                  :options="items"
+                  :options="getPublishedUsagePlans"
                   placeholder="Select product"
+                  :reduce="item => item.value"
               ></v-select>
             </ValidationProvider>
             <div class="btn-row">
               <button class="cancel-btn btn btn--link" type="button" @click="handleModalClose">Cancel</button>
-              <button class="btn btn btn--accent" :disabled="invalid" type="submit">Create app</button>
+              <button class="btn btn btn--accent" :disabled="invalid || waitingResponse" type="submit">
+                <span v-if="!waitingResponse">Create app</span>
+                <spinner-component v-else/>
+              </button>
             </div>
           </form>
         </ValidationObserver>
@@ -56,23 +60,28 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+import SpinnerComponent from "./helpers/spinner-component";
+
 export default {
-
   name: 'dashboard-modal',
-
+  components: {SpinnerComponent},
   data() {
     return {
       tooltipPopupIsVisible: false,
-      items: [
-        'GSMA Mobile Money API v1.2 OAuth_Simulator',
-        'GSMA Mobile Money API v1.1 OAuth_Simulator',
-        'GSMA Mobile Money API v1.0 OAuth_Simulator'
-      ],
+      waitingResponse: false,
       form: {
-        appName: '',
-        usagePlan: ''
+        "appName": "",
+        "usagePlan": ""
       }
     }
+  },
+
+  computed: {
+    ...mapGetters('usagePlans', ['getPublishedUsagePlans'])
+  },
+
+  created () {
   },
 
   methods: {
@@ -80,12 +89,17 @@ export default {
       this.$emit('close-modal');
     },
     async createApp() {
-      console.log('post-app')
+      this.waitingResponse = true
+
       await this.$store.dispatch('application/postApp', this.form)
           .then(() => {
+            this.handleModalClose() // TODO ask about actions after creating application
           })
           .catch(() => {
             console.log('error')
+          })
+          .finally(() => {
+            this.waitingResponse = false
           })
     }
   },

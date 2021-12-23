@@ -6,6 +6,7 @@ export default {
     "lastName": "",
     "email": "",
     "userId": "",
-    "companyName": ""
+    "companyName": "",
+    "role": ""
   }
 };

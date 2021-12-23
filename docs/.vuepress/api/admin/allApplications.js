@@ -1,9 +1,9 @@
 import Api from '../Api';
-import {ALL_APPLICATIONS} from "../constants";
+import {ALL_APPLICATIONS, CREATE_APP} from "../constants";
 
-export default class Application {
+export default class AllApplications {
     static get() {
-        return Api.get(ALL_APPLICATIONS);
+        return Api.get(CREATE_APP);
     }
 
     static deleteById(appId) {

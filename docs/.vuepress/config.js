@@ -340,6 +340,12 @@ const sidebarNavigation = {
                             title: 'SDKs',
                             path: '/sdks/getting-started/sdks',
                             sidebarDepth: 2,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-sdk-docs',
+                            sidebarDepth: 2,
+                            collapsable: true,
                         }
                     ]
                 },
