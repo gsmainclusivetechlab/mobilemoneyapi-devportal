@@ -23,10 +23,10 @@ export const sortByProp = (array, prop) => {
 
 export const sortByKeyIssueDate = (array) => {
     return [...array].sort(function (a, b) {
-        if (new Date(a.keyIssuedDate) < new Date(b.keyIssuedDate)) {
+        if (new Date(a.keyIssued) < new Date(b.keyIssued)) {
             return -1;
         }
-        if (new Date(a.keyIssuedDate) > new Date(b.keyIssuedDate)) {
+        if (new Date(a.keyIssued) > new Date(b.keyIssued)) {
             return 1;
         }
         return 0;

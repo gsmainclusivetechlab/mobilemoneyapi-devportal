@@ -7,17 +7,19 @@
       :pages-count="getPages"
       :current-page="currentPage"
       :per-page="perPage"
+      :filter-data="getCompanies"
       page-type="applications"
       is-create-button
       @search-value="setSearchValue"
       @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
+      @filter-value="setFilterValue"
   >
     <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.appId">
       <dashboard-cell :value="app.appName"/>
       <dashboard-cell :value="app.userName"/>
-      <dashboard-cell :value="getCompanyByUsername(app.userName)"/>
-      <dashboard-cell :value="getUsagePlanTitle(app.usagePlan)"/>
+      <dashboard-cell :value="app.company"/>
+      <dashboard-cell :value="app.usagePlan"/>
       <dashboard-cell :value="app.consumerKey"/>
       <dashboard-cell :value="app.consumerSecret"/>
       <dashboard-cell :value="app.apiKey"/>
@@ -36,7 +38,7 @@
 
           <user-options-block
               :allowOptions="['delete']"
-              @deleteUser="deleteApplication(app.appId)"
+              @deleteUser="deleteApplication(app.userName, app.appId)"
           />
         </tippy>
       </td>
@@ -51,7 +53,7 @@ import {mixin as clickaway} from 'vue-clickaway';
 import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
 import DashboardCell from "../dashboard-table/dashboard-cell";
-import {mapState, mapGetters} from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   name: "all-applications-tab",
@@ -66,29 +68,25 @@ export default {
   },
 
   computed: {
-    ...mapState('admin', {
-      tableData: 'allApplications'
-    }),
-    ...mapState('usagePlans', ['usagePlans']),
-    ...mapGetters('admin', ['getCompanyByUsername'])
+    getCompanies() {
+      return new Set(this.tableData.map(el => el.company))
+    },
+    ...mapGetters('admin', {
+      getCompanyByUsername: 'getCompanyByUsername',
+      tableData: 'getAllApplications'})
   },
 
   mixins: [clickaway, dashboardSearch],
 
   methods: {
-    getUsagePlanTitle(id) {
-      if(!this.usagePlans.length) return ''
-      return this.usagePlans.find(el => el.id === id).name
-    },
     showUserOptions(id) {
       this.activeOptionsUserId = id
     },
     hideUserOptions() {
       this.activeOptionsUserId = -1
     },
-    deleteApplication(id) {
-      const index = this.tableData.findIndex(el => el.id === id)
-      this.tableData.splice(index, 1)
+    deleteApplication(userName, appId) {
+      this.$store.dispatch('admin/deleteApplicationByUser', {userName, appId})
     },
   }
 }

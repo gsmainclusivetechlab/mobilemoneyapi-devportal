@@ -21,7 +21,6 @@ export default {
                     return resolve(true);
                 })
                 .catch((e) => {
-                    console.log(e)
                     return reject(e)
                 })
         });

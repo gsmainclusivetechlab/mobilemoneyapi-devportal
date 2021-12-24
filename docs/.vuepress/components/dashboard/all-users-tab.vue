@@ -14,10 +14,10 @@
       @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
   >
-    <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.id">
-      <dashboard-cell :value="user.name"/>
+    <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.userId">
+      <dashboard-cell :value="`${user.firstName} ${user.lastName}`"/>
       <dashboard-cell :value="user.email"/>
-      <dashboard-cell :value="user.company"/>
+      <dashboard-cell :value="user.companyName"/>
       <td class="dashboard-table__cell">
         <span class="dashboard-table__status-label" :class="[getUserStatusLabelClass(user.status)]"></span>
         {{ getUserStatus(user.status) }}
@@ -31,7 +31,7 @@
         </template>
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeUserRole(user.id)"
+              @dblclick="changeUserRole(user.userId)"
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button">
             {{ getUserRole(user.role) }}
           </button>
@@ -41,7 +41,7 @@
       <td class="dashboard-table__cell dashboard-table__cell--options">
         <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
           <template v-slot:trigger>
-            <button type="button" class="dashboard-table__button" @click="showUserOptions(user.id)">
+            <button type="button" class="dashboard-table__button" @click="showUserOptions(user.userId)">
               <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
                 <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
@@ -53,8 +53,8 @@
           <user-options-block
               :allowOptions="['delete', 'block']"
               :userStatus="user.status"
-              @deleteUser="deleteUser(user.id)"
-              @changeStatus="changeStatus(user.id, $event)"
+              @deleteUser="deleteUser(user.userName)"
+              @changeStatus="changeStatus(user.userId, $event)"
           />
         </tippy>
       </td>
@@ -64,12 +64,12 @@
 
 <script>
 import {allUsersHeaderTitles} from "../../constants";
-import tableData from '../../api/mocks/users.json';
 import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardTable from "../dashboard-table";
 import DashboardCell from "../dashboard-table/dashboard-cell";
+import {mapGetters, mapState} from 'vuex'
 
 export default {
   name: "all-users-tab",
@@ -77,24 +77,25 @@ export default {
   data() {
     return {
       allUsersHeaderTitles,
-      tableData,
       activeOptionsUserId: -1,
     }
   },
 
   computed: {
     getCompanies() {
-      return new Set(this.tableData.map(el => el.company))
-    },
-    getUserAccessToken() {
-      return this.$store.state.auth.token_access
+      return new Set(this.tableData.map(el => el.companyName))
     },
     isAdminRole() {
-      return this.getUserAccessToken === 'ADMIN'
+      return this.userData.role === 'admin'
     },
     isSuperAdminRole() {
-      return this.getUserAccessToken === 'SUPERADMIN'
-    }
+      return this.userData.role === 'superadmin'
+    },
+    ...mapGetters('admin', {
+      tableData: 'getAllUsers'
+    }),
+    ...mapState('user', ['userData'])
+
   },
 
   mixins: [clickaway, dashboardSearch],
@@ -110,10 +111,8 @@ export default {
       if (status === 1) return 'Active'
       return 'Blocked'
     },
-    getUserRole(status) {
-      if (status === 0) return 'USER'
-      if (status === 1) return 'ADMIN'
-      return 'SUPERADMIN'
+    getUserRole(role) {
+      return role.toUpperCase()
     },
     showUserOptions(id) {
       this.activeOptionsUserId = id
@@ -121,20 +120,19 @@ export default {
     hideUserOptions() {
       this.activeOptionsUserId = -1
     },
-    deleteUser(id) {
-      const index = this.tableData.findIndex(el => el.id === id)
-      this.tableData.splice(index, 1)
+    deleteUser(userName) {
+      this.$store.dispatch('admin/deleteUserByUsername', userName)
     },
     changeStatus(id, status) {
       this.tableData.forEach(el => {
-        if (el.id === id) {
+        if (el.userId === id) {
           el.status = status
         }
       })
     },
     changeUserRole(id) {
       this.tableData.forEach(el => {
-        if (el.id === id && el.role !== 2) {
+        if (el.userId === id && el.role !== 2) {
           el.role = el.role === 0 ? 1 : 0
         }
       })
@@ -142,7 +140,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

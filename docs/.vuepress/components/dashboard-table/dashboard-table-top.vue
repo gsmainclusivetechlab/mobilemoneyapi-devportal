@@ -90,7 +90,7 @@ export default {
 
   created() {
     if(this.pageType === 'applications') {
-      this.sortValue = 'Key Issue Date'
+      this.sortValue = 'keyIssued'
     }
   },
 

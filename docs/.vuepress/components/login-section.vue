@@ -32,6 +32,8 @@
               </label>
               <input type="password" v-model="form.password" id="password" placeholder="Enter password">
             </ValidationProvider>
+            <p class="form-row__error" v-if="errorMessage">{{errorMessage}}</p>
+
             <div class="form-row forgot-password-row">
               <router-link to="/forgot-password" class="btn-forgot-password">Forgot password?</router-link>
             </div>
@@ -63,19 +65,23 @@ export default {
         userName: "",
         password: ""
       },
-      waitingResponse: false
+      waitingResponse: false,
+      errorMessage: ''
     }
   },
   methods: {
     async signIn() {
       this.waitingResponse = true
+      this.errorMessage = ''
 
       await this.$store.dispatch('auth/signIn', this.form)
           .then(() => {
             this.$router.push({path: '/dashboard/'})
           })
-          .catch(() => {
-            console.log('error')
+          .catch((e) => {
+            if(e === 'NotAuthorizedException') {
+              this.errorMessage = 'User credentials are not valid'
+            }
           })
           .finally(() => {
             this.waitingResponse = false

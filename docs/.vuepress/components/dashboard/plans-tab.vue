@@ -16,25 +16,25 @@
       @sort-value="setSortValue"
   >
     <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
-      <dashboard-cell :value="plan.planName"/>
+      <dashboard-cell :value="plan.name"/>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
         <template v-if="isAdminRole">
           <span
               class="dashboard-table__state-label"
-              :class="[getPlanStatusLabelClass(plan.state)]">
-            {{ getPlanStatus(plan.state) }}
+              :class="[getPlanStatusLabelClass(plan.published)]">
+            {{ getPlanStatus(plan.published) }}
           </span>
         </template>
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeState(plan.id)"
+              @dblclick="changeState(plan.id, plan.published)"
               class="dashboard-table__state-label dashboard-table__state-button"
-              :class="[getPlanStatusLabelClass(plan.state)]">
-            {{ getPlanStatus(plan.state) }}
+              :class="[getPlanStatusLabelClass(plan.published)]">
+            {{ getPlanStatus(plan.published) }}
           </button>
         </template>
       </td>
-      <td class="dashboard-table__cell dashboard-table__cell--options" >
+      <td class="dashboard-table__cell dashboard-table__cell--options">
         <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="isSuperAdminRole">
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
@@ -58,12 +58,12 @@
 
 <script>
 import {allPlansHeaderTitles} from "../../constants";
-import tableData from '../../api/mocks/plans.json';
 import UserOptionsBlock from "../user-options-block";
 import {mixin as clickaway} from 'vue-clickaway';
 import DashboardTable from "../dashboard-table";
 import dashboardSearch from "../../mixins/dashboardSearch";
 import DashboardCell from "../dashboard-table/dashboard-cell";
+import {mapState} from 'vuex'
 
 export default {
   name: "plans-tab",
@@ -73,7 +73,6 @@ export default {
   data() {
     return {
       allPlansHeaderTitles,
-      tableData,
       activeOptionsPlanId: -1
     }
   },
@@ -83,11 +82,15 @@ export default {
       return this.$store.state.auth.token_access
     },
     isAdminRole() {
-      return this.getUserAccessToken === 'ADMIN'
+      return this.userData.role === 'admin'
     },
     isSuperAdminRole() {
-      return this.getUserAccessToken === 'SUPERADMIN'
-    }
+      return this.userData.role === 'superadmin'
+    },
+    ...mapState('usagePlans', {
+      tableData: 'usagePlans'
+    }),
+    ...mapState('user', ['userData'])
   },
 
   mixins: [clickaway, dashboardSearch],
@@ -98,13 +101,11 @@ export default {
       this.tableData.splice(index, 1)
     },
     getPlanStatusLabelClass(state) {
-      if (state === 0) return 'dashboard-table__state-label--inactive'
-      return 'dashboard-table__state-label--active'
+      return state ? 'dashboard-table__state-label--active' : 'dashboard-table__state-label--inactive'
     },
 
     getPlanStatus(state) {
-      if (state === 0) return 'Unpublish'
-      return 'Publish'
+      return state ? 'Publish' : 'Unpublish'
     },
 
     showUserOptions(id) {
@@ -115,12 +116,12 @@ export default {
       this.activeOptionsPlanId = -1
     },
 
-    changeState(id) {
-      this.tableData.forEach(el => {
-        if (el.id === id) {
-          el.state = el.state === 0 ? 1 : 0
-        }
-      })
+    changeState(id, published) {
+      // this.tableData.forEach(el => {
+      //   if (el.id === id) {
+      //     el.state = el.state === 0 ? 1 : 0
+      //   }
+      // })
     }
   }
 }

@@ -7,20 +7,37 @@ export default {
             .then(({data}) => {
                 commit('setAllApplications', data)
             })
-            .catch((e) => {
-                console.log(e)
-            })
+            .catch(console.log)
     },
+
+    deleteApplicationByUser({dispatch}, {userName, appId}) {
+        AllApplications.deleteById(userName, appId)
+            .then(() => {
+                dispatch('getAllApplications')
+            })
+            .catch(console.log)
+    },
+
     getAllUsers({commit}) {
-        //ALL_DEVELOPERS
         AllUsers.get()
             .then(({data}) => {
                 commit('setAllUsers', data)
             })
-            .catch((e) => {
-                console.log(e)
-            })
+            .catch(console.log)
     },
+
+    deleteUserByUsername({dispatch}, userName) {
+        AllUsers.deleteByUsername(userName)
+            .then(() => {
+                dispatch('getAllUsers')
+            })
+            .catch(console.log)
+    },
+
+    publishUsagePlan({dispatch}, {planId, published}) {
+
+    }
+
 
     // updateUserData({commit}, payload) {
     //     return new Promise((resolve, reject) => {

@@ -26,15 +26,12 @@ export default {
             if(this.sortValue === 'Date') {
                 return sortByDate(this.getTableDataWithSearch, 'Newest')
             }
-            if(this.sortValue === 'Author') {
-                return sortByProp(this.getTableDataWithSearch, 'authorName')
+            if(this.sortValue) {
+                return sortByProp(this.getTableDataWithSearch, this.sortValue)
             }
-            if(this.sortValue === 'Usage plan') {
-                return sortByProp(this.getTableDataWithSearch, 'usagePlan')
-            }
-            if(this.sortValue === 'Key Issue Date') {
-                return sortByKeyIssueDate(this.getTableDataWithSearch)
-            }
+            // if(this.sortValue === 'Key Issue Date') {
+            //     return sortByKeyIssueDate(this.getTableDataWithSearch)
+            // }
             return this.getTableDataWithSearch
         },
 
@@ -71,7 +68,7 @@ export default {
             return this.tableData.filter(el => {
                 if (this.filterValue === '' || this.filterValue === 'All Companies') return true
 
-                return el.company === this.filterValue;
+                return el.companyName === this.filterValue;
             })
         },
 

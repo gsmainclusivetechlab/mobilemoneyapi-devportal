@@ -1,12 +1,16 @@
 import Api from '../Api';
-import {ALL_APPLICATIONS, CREATE_APP} from "../constants";
+import {APP_BY_ID, CREATE_APP} from "../constants";
 
 export default class AllApplications {
     static get() {
         return Api.get(CREATE_APP);
     }
 
-    static deleteById(appId) {
-        return Api.delete(`${ALL_APPLICATIONS}/${appId}`);
+    static deleteById(userName, appId) {
+        return Api.delete(
+            APP_BY_ID
+                .replace('{userName}', userName)
+                .replace('{appId}', appId)
+        );
     }
 }
