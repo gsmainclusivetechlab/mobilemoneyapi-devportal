@@ -81,9 +81,6 @@ export default {
     ...mapGetters('usagePlans', ['getPublishedUsagePlans'])
   },
 
-  created () {
-  },
-
   methods: {
     handleModalClose() {
       this.$emit('close-modal');

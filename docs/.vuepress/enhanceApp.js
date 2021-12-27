@@ -19,7 +19,6 @@ import CodeGroup from "./theme/global-components/CodeGroup.vue"
 import pageComponents from '@internal/page-components'
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
 
-
 import store from './store'
 import CookieManager from "./helpers/CookieManager";
 export default async ({
@@ -54,6 +53,12 @@ export default async ({
       if(to.path === "/dashboard/" && !CookieManager.getValue('x_user_token')) next({path: '/login/'})
       else next();
     })
+    // get user data
+    // TODO maybe fix it
+    if(CookieManager.getValue('x_user_token')) {
+      store.dispatch('user/getUserData')
+    }
+
   }
   // ...apply enhancements for the site.
   // prevent ReferenceError: window is not defined during production build

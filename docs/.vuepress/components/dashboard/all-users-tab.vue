@@ -131,11 +131,7 @@ export default {
       })
     },
     changeUserRole(id) {
-      this.tableData.forEach(el => {
-        if (el.userId === id && el.role !== 2) {
-          el.role = el.role === 0 ? 1 : 0
-        }
-      })
+      this.$store.dispatch('admin/updateRole', id)
     }
   }
 }
