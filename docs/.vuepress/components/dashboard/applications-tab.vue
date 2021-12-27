@@ -46,9 +46,6 @@ export default {
     ...mapState('application', ['applications'])
   },
 
-  created() {
-  },
-
   methods: {
     toggleModal() {
       this.modalIsVisible = !this.modalIsVisible;

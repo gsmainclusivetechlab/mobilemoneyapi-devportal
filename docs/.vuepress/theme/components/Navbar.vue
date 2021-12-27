@@ -89,13 +89,10 @@ export default {
     ...mapGetters('user', ['getFullName'])
   },
 
-  created() {
+  mounted() {
     if(CookieManager.getValue('x_user_token')) {
       this.$store.commit('auth/setLoggedUser', true)
     }
-  },
-
-  mounted() {
     const MOBILE_DESKTOP_BREAKPOINT = 979 // refer to config.styl
 
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))

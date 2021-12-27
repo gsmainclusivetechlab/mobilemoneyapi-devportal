@@ -26,6 +26,23 @@ export default {
             .catch(console.log)
     },
 
+    updateRole({dispatch, state}, userId) {
+        const {role, userName} = state.allUsers.find(user => user.userId === userId)
+        const roles = [
+            'user', 'admin', 'superadmin'
+        ]
+        const roleIndex = roles.indexOf(role) + 1
+        const data = {
+            role: roles[roleIndex] ? roles[roleIndex] : roles[0]
+        }
+
+        AllUsers.updateRole(userName, data)
+            .then(() => {
+                dispatch('getAllUsers')
+            })
+            .catch(console.log)
+    },
+
     deleteUserByUsername({dispatch}, userName) {
         AllUsers.deleteByUsername(userName)
             .then(() => {

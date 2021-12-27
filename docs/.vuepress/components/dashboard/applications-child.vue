@@ -72,10 +72,10 @@
 
               <div class="update-btn-wrap">
                 <button class="btn btn--accent update-btn" type="submit"
-                        :disabled="waitingResponse"
+                        :disabled="waitingResponseUpdate"
                         v-if="!editBtnEnabled"
                 >
-                  <span v-if="!waitingResponse">Update</span>
+                  <span v-if="!waitingResponseUpdate">Update</span>
                   <spinner-component v-else/>
                 </button>
               </div>
@@ -105,8 +105,8 @@
         </div>
       </div>
       <div class="application-control-buttons">
-        <button class="delete-btn btn btn--accent" type="button" @click="deleteApplication" :disabled="waitingResponse">
-          <span v-if="!waitingResponse">Delete</span>
+        <button class="delete-btn btn btn--accent" type="button" @click="deleteApplication" :disabled="waitingResponseDelete">
+          <span v-if="!waitingResponseDelete">Delete</span>
           <spinner-component v-else/>
         </button>
       </div>
@@ -131,7 +131,8 @@ export default {
         appName: '',
         usagePlan: ''
       },
-      waitingResponse: false
+      waitingResponseUpdate: false,
+      waitingResponseDelete: false,
     }
   },
   computed: {
@@ -148,7 +149,7 @@ export default {
 
   methods: {
     editApp() {
-      this.waitingResponse = true
+      this.waitingResponseUpdate = true
 
       this.$store.dispatch('application/updateAppById', this.form)
           .then(() => {
@@ -158,7 +159,7 @@ export default {
             console.log('error')
           })
           .finally(() => {
-            this.waitingResponse = false
+            this.waitingResponseUpdate = false
           })
     },
     handleEditClick() {
@@ -181,14 +182,14 @@ export default {
       popup[0].style.transition = 'none';
     },
     deleteApplication(e) {
-      this.waitingResponse = true
+      this.waitingResponseDelete = true
       this.$store.dispatch('application/deleteAppById')
           .then(() => {
             this.$emit('close-application', e)
           })
           .catch(console.log)
           .finally(() => {
-            this.waitingResponse = false
+            this.waitingResponseDelete = false
           })
     }
   }
