@@ -184,8 +184,12 @@ export default {
   },
 
   mounted() {
+    this.$notify({
+      title: 'Important message',
+      text: 'Hello user!',
+      position: 'bottom right'
+    });
     this.setStartActiveTab();
-    // this.getUserData();// TODO fix because double getting userdata when you sign in
     // TODO should load in the beginning
     this.getApps();
     this.getUsagePlans();

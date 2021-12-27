@@ -1,6 +1,7 @@
 import Auth from "../../../api/Auth";
 import CookieManager from "../../../helpers/CookieManager";
 import Api from "../../../api/Api";
+import {notification} from "../../../helpers/NotificationManager";
 
 export default {
     signIn({dispatch, commit}, payload) {
@@ -8,6 +9,8 @@ export default {
             Auth.signIn(payload)
                 .then((res) => {
                     const {x_user_token, id_token, expires_in} = res.data
+
+                    notification('Authorization', 'You have been logged in!')
 
                     CookieManager.setValueWithExpires('x_user_token', x_user_token, expires_in)
                     CookieManager.setValueWithExpires('id_token', id_token, expires_in)
@@ -25,8 +28,9 @@ export default {
                 })
         });
     },
+
     logOut({commit}, payload) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             Auth.logOut(payload)
                 .then(() => {
                     CookieManager.removeValues('x_user_token', 'id_token', 'userName')
@@ -38,10 +42,7 @@ export default {
 
                     return resolve(true);
                 })
-                .catch((e) => {
-                    console.log(e)
-                    return reject(e)
-                })
+                .catch(console.log)
         });
     },
 };

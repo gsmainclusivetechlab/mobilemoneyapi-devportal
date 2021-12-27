@@ -13,16 +13,4 @@ export default class AllUsers {
     static deleteByUsername(userName) {
         return Api.delete(DELETE_USER.replace('{userName}', userName))
     }
-
-    // static updateRoleById(userId, role) {
-    //     return Api.put(`${ALL_USERS}/${userId}`, role);
-    // }
-    //
-    // static updateBlockById(userId, value) {
-    //     return Api.put(`${ALL_USERS}/${userId}`, value);
-    // }
-    //
-    // static deleteById(userId) {
-    //     return Api.delete(`${ALL_USERS}/${userId}`);
-    // }
 }

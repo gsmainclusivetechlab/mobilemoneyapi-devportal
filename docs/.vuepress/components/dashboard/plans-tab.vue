@@ -116,12 +116,8 @@ export default {
       this.activeOptionsPlanId = -1
     },
 
-    changeState(id, published) {
-      // this.tableData.forEach(el => {
-      //   if (el.id === id) {
-      //     el.state = el.state === 0 ? 1 : 0
-      //   }
-      // })
+    changeState(planId, published) {
+      this.$store.dispatch('admin/changePublishedState', {planId, published})
     }
   }
 }

@@ -13,12 +13,6 @@ export default class Application {
         return Api.post(CREATE_APP, payload);
     }
 
-    static getAppById(appId) {
-        const userName = CookieManager.getValue('userName');
-
-        return Api.get(APP_BY_ID.replace('{userName}', userName).replace('{appId}', appId));
-    }
-
     static updateAppById(appId, payload) {
         const userName = CookieManager.getValue('userName');
 

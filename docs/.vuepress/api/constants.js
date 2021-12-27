@@ -27,6 +27,4 @@ export const ALL_DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers')
 export const DELETE_USER = ADMIN_API.replace('{endpoint}', '{userName}')
 export const UPDATE_ROLE = ADMIN_API.replace('{endpoint}', 'role/{userName}')
 
-export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish') // TODO implement it!
-
-export const ALL_PLANS = '/all-plans'
+export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish')

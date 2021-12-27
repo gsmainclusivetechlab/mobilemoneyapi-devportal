@@ -12,21 +12,16 @@ export default {
                     dispatch('usagePlans/getUsagePlans', null, {root: true})
                 }
             })
-            .catch((e) => {
-                console.log(e)
-            })
+            .catch(console.log)
     },
     updateUserData({commit}, payload) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             User.updateData(payload)
                 .then(({data}) => {
                     commit('setUserData', data)
                     return resolve(true)
                 })
-                .catch(err => {
-                    console.log(err);
-                    return reject(false)
-                })
+                .catch(console.log)
         })
     }
 };

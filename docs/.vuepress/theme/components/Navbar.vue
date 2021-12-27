@@ -127,7 +127,6 @@ export default {
             this.toggleLoginDropdown()
             this.$router.push({path: '/login/'})
           })
-          .catch(console.dir)
     },
     goToDashboard() {
       this.$router.push({path: '/dashboard'}).catch(() => {

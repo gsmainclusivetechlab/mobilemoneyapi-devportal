@@ -18,6 +18,7 @@ import CodeBlock from "./theme/global-components/CodeBlock.vue"
 import CodeGroup from "./theme/global-components/CodeGroup.vue"
 import pageComponents from '@internal/page-components'
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import Notifications from 'vue-notification'
 
 import store from './store'
 import CookieManager from "./helpers/CookieManager";
@@ -36,6 +37,8 @@ export default async ({
   Vue.component("v-select", vSelect);
   Vue.component('CodeBlock', CodeBlock)
   Vue.component('CodeGroup', CodeGroup)
+
+  Vue.use(Notifications)
 
   Vue.use(VueTippy);
   Vue.component("tippy", TippyComponent);

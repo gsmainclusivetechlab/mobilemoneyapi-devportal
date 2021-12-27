@@ -50,7 +50,6 @@ class Api {
 
         this.client.interceptors.response.use(
             function (response) {
-                //"NotAuthorizedException"
                 if(response.data.error) return Promise.reject(response.data?.errorDescription?.name)
                 return response;
             },
