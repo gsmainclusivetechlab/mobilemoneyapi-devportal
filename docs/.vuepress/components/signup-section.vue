@@ -89,7 +89,10 @@
             </ValidationProvider>
 
             <div class="button-holder">
-              <button type="submit" :disabled="invalid" class="btn btn--accent">Sign up</button>
+              <button type="submit" :disabled="invalid || waitingResponse" class="btn btn--accent">
+                <span v-if="!waitingResponse">Sign up</span>
+                <spinner-component v-else/>
+              </button>
               <span class="bottom-row">
               <router-link to="/login">Log in</router-link> instead?
             </span>
@@ -103,9 +106,11 @@
 
 <script>
 import Auth from "../api/Auth";
+import SpinnerComponent from "./helpers/spinner-component";
 
 export default {
   name: 'signup-section',
+  components: {SpinnerComponent},
   data() {
     return {
       form: {
@@ -116,17 +121,23 @@ export default {
         companyName: "",
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
       },
-      privacyCheckbox: false
+      privacyCheckbox: false,
+      waitingResponse: false
     }
   },
   methods: {
     async signUp() {
+      this.waitingResponse = true
+
       await Auth.signUp(this.form)
           .then(() => {
             this.$router.push({path: '/login/'})
           })
           .catch((e) => {
             console.log(e)
+          })
+          .finally(() => {
+            this.waitingResponse = false
           })
     }
   }
