@@ -14,13 +14,13 @@
           <form @submit.prevent="handleSubmit(signIn)">
             <ValidationProvider class="form-row"
                                 vid="email"
-                                :rules="{ required: { allowFalse: false }, email: true }"
+                                :rules="{ required: { allowFalse: false } }"
                                 v-slot="{ errors }"
                                 tag="div">
-              <label for="email">E-mail
+              <label for="email">Username
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="email" v-model="form.userId" id="email" placeholder="Enter e-mail">
+              <input type="text" v-model="form.userName" id="email" placeholder="Enter username">
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="password"
@@ -32,11 +32,16 @@
               </label>
               <input type="password" v-model="form.password" id="password" placeholder="Enter password">
             </ValidationProvider>
+            <p class="form-row__error" v-if="errorMessage">{{errorMessage}}</p>
+
             <div class="form-row forgot-password-row">
               <router-link to="/forgot-password" class="btn-forgot-password">Forgot password?</router-link>
             </div>
             <div class="button-holder">
-              <button class="btn btn--accent" type="submit" :disabled="invalid">Log in</button>
+              <button class="btn btn--accent" type="submit" :disabled="invalid || waitingResponse">
+                <span v-if="!waitingResponse">Log in</span>
+                <spinner-component v-else/>
+              </button>
               <span class="bottom-row">
               <router-link to="/signup">Sign up</router-link> instead?
             </span>
@@ -49,33 +54,38 @@
 </template>
 
 <script>
-import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../api/constants";
+import SpinnerComponent from "./helpers/spinner-component";
 
 export default {
   name: 'login-section',
+  components: {SpinnerComponent},
   data() {
     return {
       form: {
-        userId: "",
+        userName: "",
         password: ""
-      }
+      },
+      waitingResponse: false,
+      errorMessage: ''
     }
   },
   methods: {
     async signIn() {
+      this.waitingResponse = true
+      this.errorMessage = ''
+
       await this.$store.dispatch('auth/signIn', this.form)
           .then(() => {
             this.$router.push({path: '/dashboard/'})
           })
-          .catch(() => {
-            console.log('error')
+          .catch((e) => {
+            if(e === 'NotAuthorizedException') {
+              this.errorMessage = 'User credentials are not valid'
+            }
           })
-      console.log('sign-in')
-      const userEmails = [USER_EMAIL, ADMIN_EMAIL, SUPERADMIN_EMAIL]
-      if(userEmails.includes(this.form.userId)) {
-        this.$root.$emit('log-user-in', true);
-        this.$router.push({path: '/dashboard/'})
-      }
+          .finally(() => {
+            this.waitingResponse = false
+          })
     }
   }
 };

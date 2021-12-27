@@ -6,6 +6,7 @@
     >
       <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
     </v-touch>
+
     <div class="dashboard-sidebar"
          v-on-clickaway="closeSidebar"
          :class="{ 'show-sidebar': sidebarOpened }"
@@ -20,7 +21,7 @@
             ref="sidebarListItem"
             :class="{
                 'active' : tab.tabTitle === activeTabName,
-                'children item-closed': tab.children,
+                'children item-closed': tab.children
 
             }"
             @click="handleTabSwitch(tab.tabTitle, $event, tab.children)"
@@ -29,17 +30,18 @@
             <div class="icon-wrap" v-html="tab.tabIcon"></div>
             <span class="sidebar-item-text">{{ tab.tabTitle }}</span>
           </div>
-          <ul class="sidebar-child-list" v-if="tab.children">
+          <ul class="sidebar-child-list" v-if="tab.tabTitle === 'Applications' && tab.children">
             <li class="sidebar-child-item"
-                v-for="child in tab.dashboardApplicationsDB"
+                v-for="app in getApplicationsList"
                 ref="sidebarChildItem"
-                @click="toggleApplicationChildTab(true, $event, child)"
-            >{{ child.appName }}
+                @click="toggleApplicationChildTab(true, $event, app.appId)"
+            >{{ app.appName }}
             </li>
           </ul>
         </li>
       </ul>
     </div>
+
     <template v-for="(tab, index) in tabs">
       <component :is="tab.component"
                  v-if="tab.tabTitle === activeTabName && !applicationsChildActive"
@@ -48,16 +50,10 @@
                  :key="index"
       />
     </template>
+
     <applications-child
         v-if="applicationsChildActive"
-        :app-name="applicationChildItem.appName"
-        :key-issue="applicationChildItem.keyIssue"
-        :expires="applicationChildItem.expires"
-        :usage-plan="applicationChildItem.usagePlan"
-        :consumer-key="applicationChildItem.consumerKey"
-        :consumer-secret="applicationChildItem.consumerSecret"
-        :api-key="applicationChildItem.apiKey"
-        @update-data="handleUpdateClick"
+        @close-application="handleTabSwitch('Applications', $event)"
     />
   </div>
 </template>
@@ -72,6 +68,8 @@ import allApplications from './dashboard/all-applications-tab.vue';
 import allUsers from './dashboard/all-users-tab.vue';
 import allPlans from './dashboard/plans-tab.vue';
 import {mixin as clickaway} from 'vue-clickaway';
+
+import {mapGetters, mapState} from 'vuex';
 
 const myAccountIcon = `
   <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -116,19 +114,32 @@ const plansIcon = `
 
 export default {
   name: 'dashboard-section',
+
   components: {
     applicationsChild
   },
+
   mixins: [
     clickaway
   ],
+
   data() {
     return {
       activeTabName: '',
       sidebarOpened: false,
       applicationsChildActive: false,
-      applicationChildItem: {},
-      tabs: [
+    }
+  },
+
+  computed: {
+    isAdminRole() {
+      return this.userData.role === 'admin' || this.userData.role === 'superadmin'
+    },
+    getTabsForUser() {
+      return this.isAdminRole ? this.tabs : this.tabs.slice(0, 3)
+    },
+    tabs() {
+      return [
         {
           tabTitle: 'Dashboard',
           tabIcon: dashboardIcon,
@@ -139,8 +150,7 @@ export default {
           tabTitle: 'Applications',
           tabIcon: applicationsIcon,
           component: applicationsTab,
-          children: true,
-          dashboardApplicationsDB: this.$store.state.application.applications
+          children: this.getApplicationsList.length
         },
         {
           tabTitle: 'My account',
@@ -168,23 +178,25 @@ export default {
           children: false
         },
       ]
-    }
-  },
-  computed: {
-    isAdminRole() {
-      return this.$store.state.auth.token_access === 'ADMIN' || this.$store.state.auth.token_access === 'SUPERADMIN'
     },
-    getTabsForUser() {
-      return this.isAdminRole ? this.tabs : this.tabs.slice(0, 3)
-    }
+    ...mapGetters('application', ['getApplicationsList']),
+    ...mapState('user', ['userData'])
   },
+
   created() {
     this.setStartActiveTab();
+    this.getUserData();// TODO fix because double getting userdata when you sign in
+    // TODO should load in the beginning
+    this.getApps();
+    this.getUsagePlans();
   },
+
   methods: {
     handleTabSwitch(tabName, e, isChildMenu) {
       this.activeTabName = tabName;
+
       this.toggleApplicationChildTab(false);
+
       if (isChildMenu && e.target.closest('li').classList.contains('item-closed')) {
         setTimeout(() => {
           e.target.closest('li').classList.remove('item-closed')
@@ -193,45 +205,66 @@ export default {
       } else if (isChildMenu) {
         e.target.closest('li').classList.add('item-closed');
       }
+
       if (!isChildMenu) this.closeSidebar();
-      this.$refs.sidebarChildItem.forEach((element) => {
-        element.classList.remove('active');
-      });
+
+      if (this.$refs.sidebarChildItem) {
+        this.$refs.sidebarChildItem.forEach((element) => {
+          element.classList.remove('active');
+        });
+      }
     },
+
     setStartActiveTab() {
       this.activeTabName = this.tabs[0].tabTitle
     },
+
     openSidebar() {
       this.sidebarOpened = true;
     },
+
     closeSidebar() {
       this.sidebarOpened = false;
     },
-    toggleApplicationChildTab(show, e, item) {
+
+    toggleApplicationChildTab(show, e, id) {
       if (e) {
         e.stopPropagation();
         this.$refs.sidebarChildItem.forEach((element) => {
           element.classList.remove('active');
         });
         e.target.classList.add('active')
-        this.applicationChildItem = item;
+        this.$store.commit('application/setSelectedApplication', id)
       }
+
       this.applicationsChildActive = show;
+
       if (this.applicationsChildActive) {
         this.closeSidebar();
       }
     },
+
     handleAppClick(key, tabTitle) {
       this.$refs.sidebarChildItem[key].click();
+
       this.$refs.sidebarListItem.forEach(element => {
         if (element.getAttribute('data-name') === tabTitle) {
           element.classList.remove('item-closed')
         }
       });
     },
-    handleUpdateClick(appName) {
-      this.applicationChildItem.appName = appName;
-    }
+
+    getUserData() {
+      this.$store.dispatch('user/getUserData')
+    },
+
+    getApps() {
+      this.$store.dispatch('application/getApps')
+    },
+
+    getUsagePlans() {
+      this.$store.dispatch('usagePlans/getUsagePlans')
+    },
   }
 }
 </script>

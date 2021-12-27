@@ -1,64 +1,83 @@
 import Application from "../../../api/Application";
+import CookieManager from "../../../helpers/CookieManager";
 
 export default {
-    getApps() {
-        return new Promise((resolve, reject) => {
-            Application.getApps()
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+    getApps({commit, state}) {
+        Application.getApps()
+            .then(({data}) => {
+                commit('setApplications', data)
+
+                if (state.selectedApplication) {
+                    commit('setSelectedApplication', state.selectedApplication.appId)
+                }
+            })
+            .catch((e) => {
+                if (e.response.data.description === "No App Data present") {
+                    commit('setApplications', [])
+                }
+            })
     },
-    postApp(ctx, payload) {
+
+    postApp({dispatch}, payload) {
+        const userName = CookieManager.getValue('userName');
+
+        const data = {
+            ...payload,
+            userName
+        }
+
         return new Promise((resolve, reject) => {
-            Application.postApp(payload)
+            Application.postApp(data)
                 .then(() => {
-                    console.log('1')
-                    return resolve(1);
+                    dispatch('getApps');
+                    return resolve(true);
                 })
                 .catch((e) => {
-                    return reject(e)
+                    console.log(e);
+                    return reject(false)
                 })
-        });
+        })
     },
-    getAppByID(ctx, {developerId, appId}) {
-        return new Promise((resolve, reject) => {
-            Application.getAppByID(developerId, appId)
-                .then(() => {
-                    console.log('1')
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    return reject(e)
-                })
-        });
+
+    getAppById({dispatch}, {appId}) {
+        Application.getAppById(appId)
+            .then(() => {
+                dispatch('getApps')
+            })
+            .catch((e) => {
+                return reject(e)
+            })
     },
-    updateAppByID(ctx, {developerId, appId, data}) {
+
+    updateAppById({dispatch, state}, payload) {
+        const appId = state.selectedApplication.appId
         return new Promise((resolve, reject) => {
-            Application.updateAppByID(developerId, appId, data)
+            Application.updateAppById(appId, payload)
                 .then(() => {
-                    console.log('1')
-                    return resolve(1);
+                    dispatch('getApps')
+                    resolve(true)
                 })
                 .catch((e) => {
-                    return reject(e)
+                    console.log(e);
+                    return reject(false)
                 })
-        });
+        })
     },
-    deleteAppByID(ctx, {developerId, appId}) {
-        return new Promise((resolve, reject) => {
-            Application.deleteAppByID(developerId, appId)
+
+    deleteAppById({dispatch, state}) {
+        const appId = state.selectedApplication.appId
+
+        return new Promise ((resolve, reject) => {
+            Application.deleteAppById(appId)
                 .then(() => {
-                    console.log('1')
-                    return resolve(1);
+                    dispatch('getApps')
+                    return resolve();
                 })
                 .catch((e) => {
-                    return reject(e)
+                    console.log(e);
+                    return reject()
                 })
-        });
+        })
+
     },
 };

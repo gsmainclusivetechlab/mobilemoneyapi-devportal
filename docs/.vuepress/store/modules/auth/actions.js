@@ -1,58 +1,45 @@
 import Auth from "../../../api/Auth";
-import {ADMIN_EMAIL, SUPERADMIN_EMAIL, USER_EMAIL} from "../../../api/constants";
+import CookieManager from "../../../helpers/CookieManager";
+import Api from "../../../api/Api";
 
 export default {
-    signUp({commit}, payload) {
-        return new Promise((resolve, reject) => {
-            Auth.signUp(payload)
-                .then(() => {
-                    console.log('1');
-                    return resolve(1);
-                })
-                .catch((e) => {
-                    // console.log(e)
-                    return reject(e);
-                })
-        });
-    },
-    signIn({commit}, payload) {
-        let role = ''
-        if(payload.userId === USER_EMAIL) {
-            role = 'USER'
-        }
-        if(payload.userId === ADMIN_EMAIL) {
-            role = 'ADMIN'
-        }
-        if(payload.userId === SUPERADMIN_EMAIL) {
-            role = 'SUPERADMIN'
-        }
-        window.localStorage.setItem('token_access', role)
-
-        commit('setTokenAccess', role);
-
+    signIn({dispatch, commit}, payload) {
         return new Promise((resolve, reject) => {
             Auth.signIn(payload)
-                .then(() => {
-                    console.log('1');
-                    // localStorage.setItem('access_token', data.access_token);
-                    // localStorage.setItem('token_type', data.token_type);
-                    // localStorage.setItem('expires_in', data.expires_in);
-                    return resolve(1);
+                .then((res) => {
+                    const {x_user_token, id_token, expires_in} = res.data
+
+                    CookieManager.setValueWithExpires('x_user_token', x_user_token, expires_in)
+                    CookieManager.setValueWithExpires('id_token', id_token, expires_in)
+                    CookieManager.setValueWithExpires('userName', payload.userName, expires_in)
+
+                    Api.setTokens()
+
+                    commit('setLoggedUser', true)
+                    dispatch('user/getUserData', null, {root: true})
+
+                    return resolve(true);
                 })
                 .catch((e) => {
-                    // console.log(e)
                     return reject(e)
                 })
         });
     },
-    forgotPassword({commit}, payload) {
+    logOut({commit}, payload) {
         return new Promise((resolve, reject) => {
-            Auth.forgotPassword(payload)
+            Auth.logOut(payload)
                 .then(() => {
-                    console.log('1')
-                    return resolve(1);
+                    CookieManager.removeValues('x_user_token', 'id_token', 'userName')
+
+                    Api.removeTokens()
+
+                    commit('setLoggedUser', false)
+                    commit('user/clearUserData', null, {root: true})
+
+                    return resolve(true);
                 })
                 .catch((e) => {
+                    console.log(e)
                     return reject(e)
                 })
         });

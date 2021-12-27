@@ -4,7 +4,7 @@
     <div class="applications-list-wrap">
       <ul class="applications-list">
         <li class="applications-list-item"
-            v-for="(item, key) in dashboardApplicationsDB"
+            v-for="(item, key) in applications"
             @click="handleAppClick(key)"
         >
           <div class="info-box">
@@ -28,39 +28,27 @@
 <script>
 import dashboardModal from "../dashboard-modal.vue";
 import cardLinksSection from "./card-links-section.vue";
+import {mapState} from 'vuex'
 
 export default {
   name: 'applications-tab',
+
   components: {dashboardModal, cardLinksSection},
+
   data() {
     return {
       tabTitle: 'Applications',
       modalIsVisible: false,
-      dashboardApplicationsDB: {
-        0: {
-          appName: 'Application 1',
-          keyIssue: 'Jan 19, 2021',
-          expires: 'Never',
-          usagePlan: 'GSMA Mobile Money API v1.0 OAuth_Simulator',
-          consumerKey: 'jhfpq8934frtp8g534rft',
-          consumerSecret: '098213jufvn8930',
-          apiKey: '4jb5089gh324f'
-        },
-        1: {
-          appName: 'Application 2',
-          keyIssue: 'Jun 05, 2021',
-          expires: 'Jan 19, 2023',
-          usagePlan: 'GSMA Mobile Money API v1.2 OAuth_Simulator',
-          consumerKey: '7bg4568fb2384bh',
-          consumerSecret: 'vfbhsk478fg597e',
-          apiKey: '153cd623df76gvbf4578g'
-        }
-      }
     }
   },
-  created() {
-    this.getApps()
+
+  computed: {
+    ...mapState('application', ['applications'])
   },
+
+  created() {
+  },
+
   methods: {
     toggleModal() {
       this.modalIsVisible = !this.modalIsVisible;
@@ -68,15 +56,6 @@ export default {
     handleAppClick(key) {
       this.$emit('app-click', key, this.tabTitle);
     },
-    async getApps() {
-      console.log('get-apps')
-      await this.$store.dispatch('application/getApps')
-          .then(() => {
-          })
-          .catch(() => {
-            console.log('error')
-          })
-    }
   }
 };
 </script>

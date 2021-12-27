@@ -6,7 +6,6 @@ export default {
             searchValue: '',
             filterValue: '',
             sortValue: '',
-
             perPage: 12,
             currentPage: 1
         }
@@ -27,17 +26,15 @@ export default {
             if(this.sortValue === 'Date') {
                 return sortByDate(this.getTableDataWithSearch, 'Newest')
             }
-            if(this.sortValue === 'Author') {
-                return sortByProp(this.getTableDataWithSearch, 'authorName')
+            if(this.sortValue) {
+                return sortByProp(this.getTableDataWithSearch, this.sortValue)
             }
-            if(this.sortValue === 'Usage plan') {
-                return sortByProp(this.getTableDataWithSearch, 'usagePlan')
-            }
-            if(this.sortValue === 'Key Issue Date') {
-                return sortByKeyIssueDate(this.getTableDataWithSearch)
-            }
+            // if(this.sortValue === 'Key Issue Date') {
+            //     return sortByKeyIssueDate(this.getTableDataWithSearch)
+            // }
             return this.getTableDataWithSearch
         },
+
         getTableDataWithSearch() {
             return this.getTableDataWithFilter.filter(el => {
                 if (this.searchValue === '') return true
@@ -66,16 +63,19 @@ export default {
                 return false
             })
         },
+
         getTableDataWithFilter() {
             return this.tableData.filter(el => {
                 if (this.filterValue === '' || this.filterValue === 'All Companies') return true
 
-                return el.company === this.filterValue;
+                return el.companyName === this.filterValue;
             })
         },
+
         getTableData() {
             return this.getSortedTableData.slice((this.currentPage-1) * this.perPage, this.currentPage * this.perPage)
         },
+
         getPages() {
             return Math.ceil(this.getSortedTableData.length / this.perPage)
         }
@@ -85,12 +85,15 @@ export default {
         setSearchValue(value) {
             this.searchValue = value
         },
+
         setFilterValue(value) {
             this.filterValue = value
         },
+
         setSortValue(value) {
             this.sortValue = value
         },
+
         setCurrentPage(page) {
             this.currentPage = page
         }

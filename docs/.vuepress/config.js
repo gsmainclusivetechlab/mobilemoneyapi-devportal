@@ -1,6 +1,5 @@
 const fs = require('fs');
 const {path} = require('@vuepress/shared-utils');
-const iterator = require('markdown-it-for-inline')
 
 const md = require('markdown-it')()
     .use(require('markdown-it-code-copy'));
@@ -341,6 +340,12 @@ const sidebarNavigation = {
                             title: 'SDKs',
                             path: '/sdks/getting-started/sdks',
                             sidebarDepth: 2,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-sdk-docs',
+                            sidebarDepth: 2,
+                            collapsable: true,
                         }
                     ]
                 },
@@ -1016,18 +1021,12 @@ module.exports = {
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
     extend: '@vuepress/theme-default',
-    // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
         plugins: [
             'markdown-it-include',
         ],
     },
-    extraWatchFiles: [
-        // '.vuepress/**/*.md',
-        // '.vuepress/plugins/include-markdown/index.js',
-        // '.vuepress/plugins/vuepress-plugin-fulltext-search/index.js'
-    ],
     themeConfig: {
         repo: '',
         editLinks: false,
@@ -1043,38 +1042,12 @@ module.exports = {
     },
     plugins: [
         ['@vuepress/active-header-links', false],
+        ['vuepress-plugin-code-copy', true],
+        ['vuepress-plugin-smooth-scroll', true],
         [
             require('./plugins/vuepress-plugin-fulltext-search/index.js'), {
-            // tokenize: 'forward',
-            // provide the contents of a JavaScript file
             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
         },
         ],
-        ['vuepress-plugin-code-copy', true],
-        ['vuepress-plugin-smooth-scroll', true],
-        // ['@vuepress/search', {
-        //   searchMaxSuggestions: 10
-        // }],
-        // [
-        //     'fulltext-search',
-        //     {
-        //         tokenize: 'forward',
-        //         // provide the contents of a JavaScript file
-        //         hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
-        //     },
-        // ],
     ],
-    // plugins: {
-    //     'vuepress-plugin-code-copy': true,
-    //     'vuepress-plugin-smooth-scroll': true,
-    //     // '@vuepress/search': {
-    //     //   searchMaxSuggestions: 10
-    //     // },
-    //     'fulltext-search':
-    //         {
-    //             tokenize: 'full',
-    //             // provide the contents of a JavaScript file
-    //             hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
-    //         },
-    // },
 };

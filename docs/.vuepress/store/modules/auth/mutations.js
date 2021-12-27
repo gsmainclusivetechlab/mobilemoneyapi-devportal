@@ -1,5 +1,5 @@
 export default {
-  setTokenAccess(state, role) {
-    state.token_access = role
+  setLoggedUser(state, status) {
+    state.isLoggedUser = status
   },
 };
