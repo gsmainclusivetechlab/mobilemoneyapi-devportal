@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[62],{385:function(n,e,s){"use strict";s.r(e);var t={name:"spinner-component"},a=s(19),c=Object(a.a)(t,(function(){var n=this.$createElement;return(this._self._c||n)("span",{staticClass:"icon-spinner"})}),[],!1,null,null,null);e.default=c.exports}}]);

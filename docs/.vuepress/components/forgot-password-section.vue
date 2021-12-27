@@ -20,7 +20,10 @@
               <input type="text" v-model="form.userName" id="userName" placeholder="Enter username">
             </ValidationProvider>
             <div class="button-holder">
-              <button type="submit" :disabled="invalid" class="btn btn--accent">Recover password</button>
+              <button type="submit" :disabled="invalid || waitingResponse" class="btn btn--accent">
+                <span v-if="!waitingResponse">Recover password</span>
+                <spinner-component v-else/>
+              </button>
               <span class="bottom-row">
               <router-link to="/login" class="bold-grey-link">Go back to Sign in page</router-link>
             </span>
@@ -34,24 +37,32 @@
 
 <script>
 import Auth from "../api/Auth";
+import SpinnerComponent from "./helpers/spinner-component";
 
 export default {
   name: 'forgot-password-section',
+  components: {SpinnerComponent},
   data() {
     return {
       form: {
         userName: ''
-      }
+      },
+      waitingResponse: false
     }
   },
   methods: {
     async forgotPassword() {
+      this.waitingResponse = true
+
       await Auth.forgotPassword(this.form)
           .then(() => {
-            this.$router.push({path: '/forgot-password/confirmation', query: {userName: this.form.userName}})
+            window.location.replace(`/forgot-password/confirmation.html?userName=${this.form.userName}`);
           })
           .catch((e) => {
             console.log(e)
+          })
+          .finally(() => {
+            this.waitingResponse = false
           })
     }
   }

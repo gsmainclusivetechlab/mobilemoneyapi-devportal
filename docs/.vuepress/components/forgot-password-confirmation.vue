@@ -42,7 +42,10 @@
               <input type="password" v-model="form.confirmPassword" id="confirmPassword" placeholder="Enter password confirmation">
             </ValidationProvider>
             <div class="button-holder">
-              <button type="submit" :disabled="invalid" class="btn btn--accent">Set new password</button>
+              <button type="submit" :disabled="invalid || waitingResponse" class="btn btn--accent">
+                <span v-if="!waitingResponse">Set new password</span>
+                <spinner-component v-else/>
+              </button>
               <span class="bottom-row">
             </span>
             </div>
@@ -55,10 +58,11 @@
 
 <script>
 import Auth from "../api/Auth";
+import SpinnerComponent from "./helpers/spinner-component";
 
 export default {
   name: "forgot-password-confirmation",
-
+  components: {SpinnerComponent},
   data() {
     return {
       form: {
@@ -66,18 +70,24 @@ export default {
         "verificationCode": "",
         "newPassword": "",
         "confirmPassword": ""
-      }
+      },
+      waitingResponse: false
     }
   },
 
   methods: {
     async forgotPasswordConfirmation() {
+      this.waitingResponse = true
+
       await Auth.forgotPasswordConfirmation(this.form)
           .then(() => {
             this.$router.push({path: '/login/'})
           })
           .catch((e) => {
             console.log(e)
+          })
+          .finally(() => {
+            this.waitingResponse = false
           })
     }
   }
