@@ -1,7 +1,6 @@
 import Auth from "../../../api/Auth";
 import CookieManager from "../../../helpers/CookieManager";
 import Api from "../../../api/Api";
-import {notification} from "../../../helpers/NotificationManager";
 
 export default {
     signIn({dispatch, commit}, payload) {
@@ -10,7 +9,6 @@ export default {
                 .then((res) => {
                     const {x_user_token, id_token, expires_in} = res.data
 
-                    notification('Authorization', 'You have been logged in!')
 
                     CookieManager.setValueWithExpires('x_user_token', x_user_token, expires_in)
                     CookieManager.setValueWithExpires('id_token', id_token, expires_in)

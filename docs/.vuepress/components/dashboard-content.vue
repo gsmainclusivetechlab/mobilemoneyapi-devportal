@@ -184,11 +184,6 @@ export default {
   },
 
   mounted() {
-    this.$notify({
-      title: 'Important message',
-      text: 'Hello user!',
-      position: 'bottom right'
-    });
     this.setStartActiveTab();
     // TODO should load in the beginning
     this.getApps();
