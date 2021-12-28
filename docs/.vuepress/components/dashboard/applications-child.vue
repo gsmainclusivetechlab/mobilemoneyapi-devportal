@@ -155,9 +155,6 @@ export default {
           .then(() => {
             this.editBtnEnabled = true
           })
-          .catch(() => {
-            console.log('error')
-          })
           .finally(() => {
             this.waitingResponseUpdate = false
           })
@@ -187,7 +184,6 @@ export default {
           .then(() => {
             this.$emit('close-application', e)
           })
-          .catch(console.log)
           .finally(() => {
             this.waitingResponseDelete = false
           })

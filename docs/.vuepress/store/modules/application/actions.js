@@ -26,57 +26,38 @@ export default {
             userName
         }
 
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             Application.postApp(data)
                 .then(() => {
                     dispatch('getApps');
                     return resolve(true);
                 })
-                .catch((e) => {
-                    console.log(e);
-                    return reject(false)
-                })
+                .catch(console.log)
         })
-    },
-
-    getAppById({dispatch}, {appId}) {
-        Application.getAppById(appId)
-            .then(() => {
-                dispatch('getApps')
-            })
-            .catch((e) => {
-                return reject(e)
-            })
     },
 
     updateAppById({dispatch, state}, payload) {
         const appId = state.selectedApplication.appId
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             Application.updateAppById(appId, payload)
                 .then(() => {
                     dispatch('getApps')
                     resolve(true)
                 })
-                .catch((e) => {
-                    console.log(e);
-                    return reject(false)
-                })
+                .catch(console.log)
         })
     },
 
     deleteAppById({dispatch, state}) {
         const appId = state.selectedApplication.appId
 
-        return new Promise ((resolve, reject) => {
+        return new Promise ((resolve) => {
             Application.deleteAppById(appId)
                 .then(() => {
                     dispatch('getApps')
                     return resolve();
                 })
-                .catch((e) => {
-                    console.log(e);
-                    return reject()
-                })
+                .catch(console.log)
         })
 
     },

@@ -92,9 +92,6 @@ export default {
           .then(() => {
             this.handleModalClose() // TODO ask about actions after creating application
           })
-          .catch(() => {
-            console.log('error')
-          })
           .finally(() => {
             this.waitingResponse = false
           })

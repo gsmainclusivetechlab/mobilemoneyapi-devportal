@@ -1,5 +1,6 @@
 import AllApplications from "../../../api/admin/allApplications";
 import AllUsers from "../../../api/admin/allUsers";
+import AllPlans from "../../../api/admin/allPlans";
 
 export default {
     getAllApplications({commit}) {
@@ -21,7 +22,7 @@ export default {
     getAllUsers({commit}) {
         AllUsers.get()
             .then(({data}) => {
-                commit('setAllUsers', data)
+                commit('setAllUsers', data.users)
             })
             .catch(console.log)
     },
@@ -51,22 +52,14 @@ export default {
             .catch(console.log)
     },
 
-    publishUsagePlan({dispatch}, {planId, published}) {
-
+    changePublishedState({dispatch}, {planId, published}) {
+        AllPlans.updateStateById({
+            planId,
+            published: !published
+        })
+            .then(() => {
+                dispatch('usagePlans/getUsagePlans', null, {root: true})
+            })
+            .catch(console.log)
     }
-
-
-    // updateUserData({commit}, payload) {
-    //     return new Promise((resolve, reject) => {
-    //         User.updateData(payload)
-    //             .then(({data}) => {
-    //                 commit('setUserData', data)
-    //                 return resolve(true)
-    //             })
-    //             .catch(err => {
-    //                 console.log(err);
-    //                 return reject(false)
-    //             })
-    //     })
-    // }
 };

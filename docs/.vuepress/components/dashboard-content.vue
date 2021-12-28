@@ -185,7 +185,6 @@ export default {
 
   mounted() {
     this.setStartActiveTab();
-    // this.getUserData();// TODO fix because double getting userdata when you sign in
     // TODO should load in the beginning
     this.getApps();
     this.getUsagePlans();
