@@ -1,17 +1,17 @@
 <template>
   <div class="lightbox-holder">
-    <CoolLightBox 
-      :items="items"
-      :index="index"
-      @close="index = null">
+    <CoolLightBox
+        :items="items"
+        :index="index"
+        @close="index = null">
     </CoolLightBox>
 
     <div class="images-wrapper">
       <div
-        class="image"
-        v-for="(image, imageIndex) in items"
-        :key="imageIndex"
-        @click="index = imageIndex"
+          class="image"
+          v-for="(image, imageIndex) in items"
+          :key="imageIndex"
+          @click="index = imageIndex"
       >
         <img :src="image.thumb">
       </div>
@@ -39,12 +39,12 @@ export default {
       items: [
         {
           title: '',
-          description: "",
+          description: '',
           thumb: this.videoThumbSrc,
           src: this.videoSrc,
         },
       ]
-    }
+    };
   },
 };
 </script>

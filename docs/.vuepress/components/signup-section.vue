@@ -40,7 +40,7 @@
 
             <ValidationProvider class="form-row"
                                 vid="userName"
-                                :rules="{ required: { allowFalse: false }, min: 2 }"
+                                :rules="{ required: { allowFalse: false }, min: 3, without_space: true }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="userName">Username
@@ -105,40 +105,40 @@
 </template>
 
 <script>
-import Auth from "../api/Auth";
-import SpinnerComponent from "./helpers/spinner-component";
+import Auth from '../api/Auth';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
   name: 'signup-section',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       form: {
-        email: "",
-        firstName: "",
-        lastName: "",
-        userName: "",
-        companyName: "",
+        email: '',
+        firstName: '',
+        lastName: '',
+        userName: '',
+        companyName: '',
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
       },
       privacyCheckbox: false,
       waitingResponse: false
-    }
+    };
   },
   methods: {
     async signUp() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await Auth.signUp(this.form)
           .then(() => {
-            this.$router.push({path: '/login/'})
+            this.$router.push({ path: '/login/' });
           })
           .catch((e) => {
-            console.log(e)
+            console.log(e);
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
 };

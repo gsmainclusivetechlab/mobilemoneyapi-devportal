@@ -31,6 +31,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
+        "409":
+          description: "Conflicted requested when username and email already exists."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
         "500":
           description: "Internal Server Error"
           content:
@@ -361,7 +367,30 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorBasic"
-
+  /refresh-token:
+    post:
+      summary: "Update user's access token and id token."
+      operationId: UpdateToken
+      parameters:
+        - name: refresh_token
+          in: header
+          description: "the refresh_token from the login response "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RefreshTokenSuccessBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
 
 
 components:
@@ -450,7 +479,7 @@ components:
           type: string
           description: Allowed Value - Bearer
         expires_in:
-          type: string
+          type: number
           description: Expiry of the Token
         id_token:
           type: string
@@ -523,6 +552,19 @@ components:
       properties:
         success:
           type: string
+    RefreshTokenSuccessBasic:
+      title: authorization toen updated
+      description: Primary success message
+      type: object
+      properties:
+        AccessToken:
+          type: string
+        TokenType:
+          type: string
+        IdToken:
+          type: string
+        ExpiresIn:
+          type: number
     ResetPasswordBasic:
       title: Password Request Body
       description: The wrapper request for password reset

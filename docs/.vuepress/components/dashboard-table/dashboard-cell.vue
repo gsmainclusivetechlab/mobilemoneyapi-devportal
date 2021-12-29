@@ -17,23 +17,23 @@
 
 <script>
 export default {
-  name: "dashboard-cell",
+  name: 'dashboard-cell',
   props: ['value'],
   data() {
     return {
       isCopied: false,
       successTimeout: undefined
-    }
+    };
   },
   methods: {
     copyToClipboard() {
       navigator.clipboard.writeText(this.value)
           .then(() => {
-            this.setSuccessCopy()
+            this.setSuccessCopy();
           })
           .catch((err) => {
             console.error('Async: Could not copy text: ', err);
-          })
+          });
     },
     setSuccessCopy() {
       clearTimeout(this.successTimeout);
@@ -43,7 +43,7 @@ export default {
       }, 500);
     }
   }
-}
+};
 </script>
 
 <style scoped>

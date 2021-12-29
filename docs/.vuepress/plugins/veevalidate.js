@@ -29,4 +29,11 @@ extend('verify_password', {
         return strongRegex.test(value);
     }
 });
+extend('without_space', {
+    validate: value => {
+        let reg = new RegExp("^[^\\s]+$")
+        return reg.test(value)
+    },
+    message: 'The field cannot contain spaces'
+});
 

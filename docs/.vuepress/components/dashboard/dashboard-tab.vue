@@ -30,23 +30,23 @@
 </template>
 
 <script>
-import dashboardModal from "../dashboard-modal.vue";
-import cardLinksSection from "./card-links-section.vue";
+import dashboardModal from '../dashboard-modal.vue';
+import cardLinksSection from './card-links-section.vue';
 
 export default {
   name: 'dashboard-tab',
 
-  components: {dashboardModal, cardLinksSection},
+  components: { dashboardModal, cardLinksSection },
 
   data: function () {
     return {
       modalIsVisible: false,
-    }
+    };
   },
 
   methods: {
     toggleModal() {
-      this.modalIsVisible = !this.modalIsVisible;
+      this.modalIsVisible = ! this.modalIsVisible;
     },
 
     handleMenuClose() {

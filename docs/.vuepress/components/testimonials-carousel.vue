@@ -26,7 +26,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 
 export default {
-  name: "testimonials-carousel",
+  name: 'testimonials-carousel',
   components: {
     VueSlickCarousel
   },
@@ -40,9 +40,9 @@ export default {
         speed: 500,
         slidesToShow: 1,
       },
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>

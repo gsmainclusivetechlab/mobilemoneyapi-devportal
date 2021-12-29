@@ -4,7 +4,7 @@ info:
   description: This describes the Admin API which would be called from Portal UI
   version: "1.0"
 servers:
-  - url: "https:/sanbox.mobilemoneyapi.io/portal/admin/v1"
+  - url: "https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/admin/v1"
     description: Admin API v1
 paths:
   /register:
@@ -32,7 +32,7 @@ paths:
               $ref: '#/components/schemas/UserRequest'
       security:
         - bearerAuth: []
-      responses: 
+      responses:
         "201":
           description: "Created response"
           content:
@@ -41,6 +41,12 @@ paths:
                 $ref: "#/components/schemas/UserResponse"
         "400":
           description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "409":
+          description: "Conflicted requested when username and email already exists."
           content:
             application/json:
               schema:
@@ -80,8 +86,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -142,8 +148,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserUpdateRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -158,6 +164,12 @@ paths:
                 $ref: "#/components/schemas/ErrorBasic"
         "401":
           description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "409":
+          description: "Conflicted requested when username and email already exists."
           content:
             application/json:
               schema:
@@ -198,8 +210,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -261,7 +273,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdatePasswordRequest'
-      responses: 
+      responses:
         "200":
           description: "User Response"
           content:
@@ -305,8 +317,14 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+      - name: PaginationToken
+        in: header
+        description: "the PaginationToken from the get developer response"
+        required: true
+        schema:
+          type: string
+
+      responses:
         "200":
           description: "Developer List Response"
           content:
@@ -356,8 +374,8 @@ paths:
         required: true
         schema:
           type: string
-                 
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -406,8 +424,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UserUpdateRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -422,6 +440,12 @@ paths:
                 $ref: "#/components/schemas/ErrorBasic"
         "401":
           description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "409":
+          description: "Conflicted requested when username and email already exists."
           content:
             application/json:
               schema:
@@ -451,14 +475,20 @@ paths:
         required: true
         schema:
           type: string
+      - name: PaginationToken
+        in: header
+        description: "the PaginationToken from the search response"
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SearchRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Search Response"
           content:
@@ -520,7 +550,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateRoleRequest'
-      responses: 
+      responses:
         "200":
           description: "User Response"
           content:
@@ -576,7 +606,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateEnableDisableFlagRequest'
-      responses: 
+      responses:
         "200":
           description: "User Response"
           content:
@@ -611,7 +641,7 @@ components:
       bearerFormat: JWT    # optional, arbitrary value for documentation purposes
   schemas:
 
-          
+
     # Wrapper request object for Bank Account creation
     UserRequest:
       title: The wrapper request object for User Account
@@ -709,8 +739,8 @@ components:
         disableUser:
           type: boolean
           description: New role of the user
-          
-    # wrapper object of 201 Create  
+
+    # wrapper object of 201 Create
     UserResponse:
       title: "User Response"
       description: "This wraps the User response"
@@ -755,7 +785,7 @@ components:
           type: string
         role:
           type: string
-    
+
     DeveloperList:
       title: developer list
       description: returns list of developers
@@ -763,8 +793,8 @@ components:
       items:
         type: object
         $ref: "#/components/schemas/UserResponse"
-        
-    # wrapper abstract object of error  
+
+    # wrapper abstract object of error
     ErrorBasic:
       title: Generic error
       description: Primary error object with minimum properties

@@ -7,12 +7,12 @@
 <script>
 export default {
   beforeMount() {
-    import("mermaid/dist/mermaid").then(m => {
+    import('mermaid/dist/mermaid').then(m => {
       m.initialize({
         startOnLoad: true,
         securityLevel: 'loose',
-        er:{
-          useMaxWidth:false,
+        er: {
+          useMaxWidth: false,
         },
       });
       m.init();

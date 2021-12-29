@@ -36,34 +36,34 @@
 </template>
 
 <script>
-import Auth from "../api/Auth";
-import SpinnerComponent from "./helpers/spinner-component";
+import Auth from '../api/Auth';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
   name: 'forgot-password-section',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       form: {
         userName: ''
       },
       waitingResponse: false
-    }
+    };
   },
   methods: {
     async forgotPassword() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await Auth.forgotPassword(this.form)
           .then(() => {
             window.location.replace(`/forgot-password/confirmation.html?userName=${this.form.userName}`);
           })
           .catch((e) => {
-            console.log(e)
+            console.log(e);
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
 };

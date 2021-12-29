@@ -31,9 +31,9 @@
 
 <script>
 export default {
-  name: "use-case-card",
+  name: 'use-case-card',
   props: [
     'cardItem',
   ],
-}
+};
 </script>

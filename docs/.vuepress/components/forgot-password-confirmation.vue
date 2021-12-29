@@ -57,41 +57,41 @@
 </template>
 
 <script>
-import Auth from "../api/Auth";
-import SpinnerComponent from "./helpers/spinner-component";
+import Auth from '../api/Auth';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
-  name: "forgot-password-confirmation",
-  components: {SpinnerComponent},
+  name: 'forgot-password-confirmation',
+  components: { SpinnerComponent },
   data() {
     return {
       form: {
-        "userName": this.$route.query.userName,
-        "verificationCode": "",
-        "newPassword": "",
-        "confirmPassword": ""
+        'userName': this.$route.query.userName,
+        'verificationCode': '',
+        'newPassword': '',
+        'confirmPassword': ''
       },
       waitingResponse: false
-    }
+    };
   },
 
   methods: {
     async forgotPasswordConfirmation() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await Auth.forgotPasswordConfirmation(this.form)
           .then(() => {
-            this.$router.push({path: '/login/'})
+            this.$router.push({ path: '/login/' });
           })
           .catch((e) => {
-            console.log(e)
+            console.log(e);
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
-}
+};
 </script>
 
 <style scoped>

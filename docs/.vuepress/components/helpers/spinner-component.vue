@@ -1,9 +1,9 @@
 <template>
-<span class="icon-spinner"></span>
+  <span class="icon-spinner"></span>
 </template>
 
 <script>
 export default {
-  name: "spinner-component"
-}
+  name: 'spinner-component'
+};
 </script>

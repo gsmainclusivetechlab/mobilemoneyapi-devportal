@@ -8,7 +8,7 @@
 <script>
 import Layout from '@vuepress/theme-default/layouts/Layout.vue';
 import Footer from '../components/Footer.vue';
-import clientRootMixin from "../../plugins/plugin-active-header-links/clientRootMixin";
+import clientRootMixin from '../../plugins/plugin-active-header-links/clientRootMixin';
 
 export default {
   components: {
@@ -16,5 +16,5 @@ export default {
     Footer,
   },
   mixins: [clientRootMixin]
-}
+};
 </script>

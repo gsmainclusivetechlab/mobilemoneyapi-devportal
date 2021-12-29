@@ -60,21 +60,21 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
-import SpinnerComponent from "./helpers/spinner-component";
+import { mapGetters } from 'vuex';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
   name: 'dashboard-modal',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       tooltipPopupIsVisible: false,
       waitingResponse: false,
       form: {
-        "appName": "",
-        "usagePlan": ""
+        'appName': '',
+        'usagePlan': ''
       }
-    }
+    };
   },
 
   computed: {
@@ -86,16 +86,16 @@ export default {
       this.$emit('close-modal');
     },
     async createApp() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await this.$store.dispatch('application/postApp', this.form)
           .then(() => {
-            this.handleModalClose() // TODO ask about actions after creating application
+            this.handleModalClose(); // TODO ask about actions after creating application
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   },
-}
+};
 </script>

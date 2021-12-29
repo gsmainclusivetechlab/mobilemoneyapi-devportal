@@ -4,12 +4,13 @@
       <ul class="nav-links can-hide">
         <li class="nav-item" v-for="item in $site.themeConfig.footer">
           <router-link
-            v-if="!item.target"
-            :to="item.link"
-            class="nav-link"
-          >{{item.text}}</router-link>
+              v-if="!item.target"
+              :to="item.link"
+              class="nav-link"
+          >{{ item.text }}
+          </router-link>
           <a v-else :href="item.link" class="nav-link" target="_blank">
-            {{item.text}}
+            {{ item.text }}
           </a>
         </li>
       </ul>
@@ -20,8 +21,8 @@
 
 <script>
 export default {
-  name: "Footer",
-}
+  name: 'Footer',
+};
 </script>
 
 <style>

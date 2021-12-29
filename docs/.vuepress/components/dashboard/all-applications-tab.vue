@@ -47,47 +47,48 @@
 </template>
 
 <script>
-import {allApplicationsHeaderTitles} from "../../constants";
-import UserOptionsBlock from "../user-options-block";
-import {mixin as clickaway} from 'vue-clickaway';
-import dashboardSearch from "../../mixins/dashboardSearch";
-import DashboardTable from "../dashboard-table";
-import DashboardCell from "../dashboard-table/dashboard-cell";
-import {mapGetters} from 'vuex'
+import { allApplicationsHeaderTitles } from '../../constants';
+import UserOptionsBlock from '../user-options-block';
+import { mixin as clickaway } from 'vue-clickaway';
+import dashboardSearch from '../../mixins/dashboardSearch';
+import DashboardTable from '../dashboard-table';
+import DashboardCell from '../dashboard-table/dashboard-cell';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "all-applications-tab",
+  name: 'all-applications-tab',
 
-  components: {DashboardCell, DashboardTable, UserOptionsBlock},
+  components: { DashboardCell, DashboardTable, UserOptionsBlock },
 
   data() {
     return {
       allApplicationsHeaderTitles,
       activeOptionsUserId: -1,
-    }
+    };
   },
 
   computed: {
     getCompanies() {
-      return new Set(this.tableData.map(el => el.company))
+      return new Set(this.tableData.map(el => el.company));
     },
     ...mapGetters('admin', {
       getCompanyByUsername: 'getCompanyByUsername',
-      tableData: 'getAllApplications'})
+      tableData: 'getAllApplications'
+    })
   },
 
   mixins: [clickaway, dashboardSearch],
 
   methods: {
     showUserOptions(id) {
-      this.activeOptionsUserId = id
+      this.activeOptionsUserId = id;
     },
     hideUserOptions() {
-      this.activeOptionsUserId = -1
+      this.activeOptionsUserId = -1;
     },
     deleteApplication(userName, appId) {
-      this.$store.dispatch('admin/deleteApplicationByUser', {userName, appId})
+      this.$store.dispatch('admin/deleteApplicationByUser', { userName, appId });
     },
   }
-}
+};
 </script>

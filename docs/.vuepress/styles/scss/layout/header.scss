@@ -18,6 +18,7 @@
   &__box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     min-height: 48px;
 
     @include media('<tablet') {

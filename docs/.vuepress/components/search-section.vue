@@ -11,11 +11,11 @@
       </div>
       <div class="search-input-holder">
         <input
-          type="text"
-          class="input input--search"
-          v-model="filterInput"
-          @input="handleSearch"
-          placeholder="Search"
+            type="text"
+            class="input input--search"
+            v-model="filterInput"
+            @input="handleSearch"
+            placeholder="Search"
         />
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       filterInput: '',
-    }
+    };
   },
 
   methods: {
@@ -42,5 +42,5 @@ export default {
       this.$emit('on-search', this.filterInput);
     }
   }
-}
+};
 </script>

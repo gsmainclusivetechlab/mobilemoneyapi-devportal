@@ -9,11 +9,11 @@
 
 <script>
 export default {
-  name: "DashboardCopyButton",
+  name: 'DashboardCopyButton',
   data() {
     return {
       copyActive: false
-    }
+    };
   },
   props: ['value'],
   methods: {
@@ -22,13 +22,13 @@ export default {
           .then(() => {
             this.copyActive = true;
             setTimeout(() => {
-              this.copyActive = false
-            }, 1000)
+              this.copyActive = false;
+            }, 1000);
           })
           .catch((err) => {
             console.error('Async: Could not copy text: ', err);
-          })
+          });
     }
   }
-}
+};
 </script>

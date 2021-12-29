@@ -71,24 +71,24 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import SpinnerComponent from "../helpers/spinner-component";
+import { mapState } from 'vuex';
+import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
   name: 'my-account-tab',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       accountEdit: false,
       waitingResponse: false,
       user: {
-        "timeZone": "",
-        "firstName": "",
-        "lastName": "",
-        "email": "",
-        "companyName": ""
+        'timeZone': '',
+        'firstName': '',
+        'lastName': '',
+        'email': '',
+        'companyName': ''
       }
-    }
+    };
   },
 
   computed: {
@@ -99,19 +99,19 @@ export default {
     this.user = {
       ...this.userData,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-    }
+    };
   },
 
   methods: {
     async updateAccountData() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
       await this.$store.dispatch('user/updateUserData', this.user)
           .then(() => {
-            this.accountEdit = false
+            this.accountEdit = false;
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
 };

@@ -63,33 +63,33 @@
 </template>
 
 <script>
-import {allUsersHeaderTitles} from "../../constants";
-import UserOptionsBlock from "../user-options-block";
-import {mixin as clickaway} from 'vue-clickaway';
-import dashboardSearch from "../../mixins/dashboardSearch";
-import DashboardTable from "../dashboard-table";
-import DashboardCell from "../dashboard-table/dashboard-cell";
-import {mapGetters, mapState} from 'vuex'
+import { allUsersHeaderTitles } from '../../constants';
+import UserOptionsBlock from '../user-options-block';
+import { mixin as clickaway } from 'vue-clickaway';
+import dashboardSearch from '../../mixins/dashboardSearch';
+import DashboardTable from '../dashboard-table';
+import DashboardCell from '../dashboard-table/dashboard-cell';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
-  name: "all-users-tab",
-  components: {DashboardCell, DashboardTable, UserOptionsBlock},
+  name: 'all-users-tab',
+  components: { DashboardCell, DashboardTable, UserOptionsBlock },
   data() {
     return {
       allUsersHeaderTitles,
       activeOptionsUserId: -1,
-    }
+    };
   },
 
   computed: {
     getCompanies() {
-      return new Set(this.tableData.map(el => el.companyName))
+      return new Set(this.tableData.map(el => el.companyName));
     },
     isAdminRole() {
-      return this.userData.role === 'admin'
+      return this.userData.role === 'admin';
     },
     isSuperAdminRole() {
-      return this.userData.role === 'superadmin'
+      return this.userData.role === 'superadmin';
     },
     ...mapGetters('admin', {
       tableData: 'getAllUsers'
@@ -102,37 +102,37 @@ export default {
 
   methods: {
     getUserStatusLabelClass(status) {
-      if (status === 0) return 'dashboard-table__status-label--inactive'
-      if (status === 1) return 'dashboard-table__status-label--active'
-      return 'dashboard-table__status-label--blocked'
+      if (status === 0) return 'dashboard-table__status-label--inactive';
+      if (status === 1) return 'dashboard-table__status-label--active';
+      return 'dashboard-table__status-label--blocked';
     },
     getUserStatus(status) {
-      if (status === 0) return 'Inactive'
-      if (status === 1) return 'Active'
-      return 'Blocked'
+      if (status === 0) return 'Inactive';
+      if (status === 1) return 'Active';
+      return 'Blocked';
     },
     getUserRole(role) {
-      return role.toUpperCase()
+      return role.toUpperCase();
     },
     showUserOptions(id) {
-      this.activeOptionsUserId = id
+      this.activeOptionsUserId = id;
     },
     hideUserOptions() {
-      this.activeOptionsUserId = -1
+      this.activeOptionsUserId = -1;
     },
     deleteUser(userName) {
-      this.$store.dispatch('admin/deleteUserByUsername', userName)
+      this.$store.dispatch('admin/deleteUserByUsername', userName);
     },
     changeStatus(id, status) {
       this.tableData.forEach(el => {
         if (el.userId === id) {
-          el.status = status
+          el.status = status;
         }
-      })
+      });
     },
     changeUserRole(id) {
-      this.$store.dispatch('admin/updateRole', id)
+      this.$store.dispatch('admin/updateRole', id);
     }
   }
-}
+};
 </script>

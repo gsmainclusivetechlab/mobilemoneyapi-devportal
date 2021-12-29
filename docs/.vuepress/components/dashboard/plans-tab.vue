@@ -57,35 +57,35 @@
 </template>
 
 <script>
-import {allPlansHeaderTitles} from "../../constants";
-import UserOptionsBlock from "../user-options-block";
-import {mixin as clickaway} from 'vue-clickaway';
-import DashboardTable from "../dashboard-table";
-import dashboardSearch from "../../mixins/dashboardSearch";
-import DashboardCell from "../dashboard-table/dashboard-cell";
-import {mapState} from 'vuex'
+import { allPlansHeaderTitles } from '../../constants';
+import UserOptionsBlock from '../user-options-block';
+import { mixin as clickaway } from 'vue-clickaway';
+import DashboardTable from '../dashboard-table';
+import dashboardSearch from '../../mixins/dashboardSearch';
+import DashboardCell from '../dashboard-table/dashboard-cell';
+import { mapState } from 'vuex';
 
 export default {
-  name: "plans-tab",
+  name: 'plans-tab',
 
-  components: {DashboardCell, DashboardTable, UserOptionsBlock},
+  components: { DashboardCell, DashboardTable, UserOptionsBlock },
 
   data() {
     return {
       allPlansHeaderTitles,
       activeOptionsPlanId: -1
-    }
+    };
   },
 
   computed: {
     getUserAccessToken() {
-      return this.$store.state.auth.token_access
+      return this.$store.state.auth.token_access;
     },
     isAdminRole() {
-      return this.userData.role === 'admin'
+      return this.userData.role === 'admin';
     },
     isSuperAdminRole() {
-      return this.userData.role === 'superadmin'
+      return this.userData.role === 'superadmin';
     },
     ...mapState('usagePlans', {
       tableData: 'usagePlans'
@@ -97,30 +97,30 @@ export default {
 
   methods: {
     deletePlan(id) {
-      const index = this.tableData.findIndex(el => el.id === id)
-      this.tableData.splice(index, 1)
+      const index = this.tableData.findIndex(el => el.id === id);
+      this.tableData.splice(index, 1);
     },
     getPlanStatusLabelClass(state) {
-      return state ? 'dashboard-table__state-label--active' : 'dashboard-table__state-label--inactive'
+      return state ? 'dashboard-table__state-label--active' : 'dashboard-table__state-label--inactive';
     },
 
     getPlanStatus(state) {
-      return state ? 'Publish' : 'Unpublish'
+      return state ? 'Publish' : 'Unpublish';
     },
 
     showUserOptions(id) {
-      this.activeOptionsPlanId = id
+      this.activeOptionsPlanId = id;
     },
 
     hideUserOptions() {
-      this.activeOptionsPlanId = -1
+      this.activeOptionsPlanId = -1;
     },
 
     changeState(planId, published) {
-      this.$store.dispatch('admin/changePublishedState', {planId, published})
+      this.$store.dispatch('admin/changePublishedState', { planId, published });
     }
   }
-}
+};
 </script>
 
 <style scoped>

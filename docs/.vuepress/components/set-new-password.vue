@@ -33,41 +33,41 @@
 </template>
 
 <script>
-import Auth from "../api/Auth";
-import SpinnerComponent from "./helpers/spinner-component";
+import Auth from '../api/Auth';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
-  name: "set-new-password",
-  components: {SpinnerComponent},
+  name: 'set-new-password',
+  components: { SpinnerComponent },
   data() {
     return {
       form: {
         newPassword: ''
       },
       waitingResponse: false
-    }
+    };
   },
 
   methods: {
     async setNewPassword() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await Auth.setNewPassword(this.$route.query.userName, this.form)
-          .then(({data}) => {
+          .then(({ data }) => {
             if (data.name && data.code) {
-              return Promise.reject(false) // TODO add error message or global error handler
+              return Promise.reject(false); // TODO add error message or global error handler
             }
-            this.$router.push({path: '/login/'})
+            this.$router.push({ path: '/login/' });
           })
           .catch((e) => {
-            console.log(e)
+            console.log(e);
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
-}
+};
 </script>
 
 <style scoped>

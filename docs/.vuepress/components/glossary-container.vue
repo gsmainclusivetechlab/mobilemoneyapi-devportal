@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: "glossary-container"
-}
+  name: 'glossary-container'
+};
 </script>
 
 <style scoped>

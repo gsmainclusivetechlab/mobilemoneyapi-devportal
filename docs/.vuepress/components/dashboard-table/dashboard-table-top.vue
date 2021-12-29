@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-table-top">
     <div class="search-block">
-      <input type="text" class="search-block__input"  placeholder="Search" v-model="searchValue">
+      <input type="text" class="search-block__input" placeholder="Search" v-model="searchValue">
     </div>
 
     <div class="dashboard-table__select-block" v-if="!hideFilter">
@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import SortByBlock from "../sort-by-block";
-import {mixin as clickaway} from 'vue-clickaway';
+import SortByBlock from '../sort-by-block';
+import { mixin as clickaway } from 'vue-clickaway';
 
 export default {
-  name: "dashboard-table-top",
-  components: {SortByBlock},
+  name: 'dashboard-table-top',
+  components: { SortByBlock },
   props: {
     hideFilter: {
       type: Boolean,
@@ -60,18 +60,18 @@ export default {
       filterSelected: '',
       searchValue: '',
       sortValue: ''
-    }
+    };
   },
 
   watch: {
     searchValue(val) {
-      this.$emit('search-value', val)
+      this.$emit('search-value', val);
     },
     filterSelected(val) {
-      this.$emit('filter-value', val)
+      this.$emit('filter-value', val);
     },
     sortValue(val) {
-      this.$emit('sort-value', val)
+      this.$emit('sort-value', val);
     }
   },
 
@@ -79,30 +79,30 @@ export default {
     getFilterData() {
       if (this.filterData) {
         return ['All Companies', ...this.filterData].map(el => {
-          return {label: el}
-        })
+          return { label: el };
+        });
       }
-      return []
+      return [];
     }
   },
 
   mixins: [clickaway],
 
   created() {
-    if(this.pageType === 'applications') {
-      this.sortValue = 'keyIssued'
+    if (this.pageType === 'applications') {
+      this.sortValue = 'keyIssued';
     }
   },
 
   methods: {
     showSortByOptions() {
-      this.activeSortOptions = true
+      this.activeSortOptions = true;
     },
     hideSortByOptions() {
-      this.activeSortOptions = false
+      this.activeSortOptions = false;
     }
   }
-}
+};
 </script>
 
 <style scoped>

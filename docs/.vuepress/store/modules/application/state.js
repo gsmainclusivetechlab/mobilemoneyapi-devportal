@@ -1,4 +1,4 @@
 export default {
-    applications: [],
-    selectedApplication: null
+  applications: [],
+  selectedApplication: null
 };

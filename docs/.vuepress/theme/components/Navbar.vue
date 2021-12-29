@@ -62,12 +62,13 @@
 import SearchBox from '../../plugins/vuepress-plugin-fulltext-search/components/SearchBox';
 import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
-import {mixin as clickaway} from 'vue-clickaway';
-import {mapState, mapGetters} from 'vuex';
-import CookieManager from "../../helpers/CookieManager";
+import { mixin as clickaway } from 'vue-clickaway';
+import { mapState, mapGetters } from 'vuex';
+import CookieManager from '../../helpers/CookieManager';
+import { X_USER_TOKEN } from '../../api/constants';
 
 export default {
-  name: "Navbar",
+  name: 'Navbar',
 
   components: {
     SearchBox,
@@ -81,7 +82,7 @@ export default {
       linksWrapMaxWidth: null,
       isMobileSearchOpened: false,
       loggedInDropdownOpened: false,
-    }
+    };
   },
 
   computed: {
@@ -90,55 +91,52 @@ export default {
   },
 
   mounted() {
-    if(CookieManager.getValue('x_user_token')) {
-      this.$store.commit('auth/setLoggedUser', true)
-    }
-    const MOBILE_DESKTOP_BREAKPOINT = 979 // refer to config.styl
+    const MOBILE_DESKTOP_BREAKPOINT = 979; // refer to config.styl
 
-    const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
+    const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'));
 
     const handleLinksWrapWidth = () => {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-        this.linksWrapMaxWidth = null
+        this.linksWrapMaxWidth = null;
       } else {
         this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-            - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
+            - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0);
       }
-    }
+    };
 
-    handleLinksWrapWidth()
+    handleLinksWrapWidth();
 
-    window.addEventListener('resize', handleLinksWrapWidth, false)
+    window.addEventListener('resize', handleLinksWrapWidth, false);
   },
 
   methods: {
     toggleMobileSearch() {
-      this.isMobileSearchOpened = !this.isMobileSearchOpened;
+      this.isMobileSearchOpened = ! this.isMobileSearchOpened;
     },
     closeLoginDropdown() {
       this.loggedInDropdownOpened = false;
     },
     toggleLoginDropdown() {
-      this.loggedInDropdownOpened = !this.loggedInDropdownOpened
+      this.loggedInDropdownOpened = ! this.loggedInDropdownOpened;
     },
     async handleLogOut() {
       await this.$store.dispatch('auth/logOut')
           .then(() => {
-            this.toggleLoginDropdown()
-            this.$router.push({path: '/login/'})
-          })
+            this.toggleLoginDropdown();
+            this.$router.push({ path: '/login/' });
+          });
     },
     goToDashboard() {
-      this.$router.push({path: '/dashboard'}).catch(() => {
+      this.$router.push({ path: '/dashboard' }).catch(() => {
       });
     }
   }
-}
+};
 
 function css(el, property) {
   // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  const win = el.ownerDocument.defaultView
+  const win = el.ownerDocument.defaultView;
   // null means not to return pseudo styles
-  return win.getComputedStyle(el, null)[property]
+  return win.getComputedStyle(el, null)[property];
 }
 </script>

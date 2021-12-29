@@ -38,12 +38,12 @@
 
 <script>
 export default {
-  name: "testimonials-slide",
+  name: 'testimonials-slide',
   props: {
     imageLink: {
       type: String,
       default: ''
     }
   }
-}
+};
 </script>
