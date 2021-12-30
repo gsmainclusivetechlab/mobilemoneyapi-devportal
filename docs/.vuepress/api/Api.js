@@ -24,7 +24,7 @@ class Api {
   getHeaders() {
     return this.headers;
   }
-
+  // TODO fix setting headers - need set headers for every request
   onAccessTokenFetched() {
     const [id_token, x_user_token] = CookieManager.getValues([ID_TOKEN], [X_USER_TOKEN]);
     this.requestsQueue.forEach((callback) => callback(id_token, x_user_token));

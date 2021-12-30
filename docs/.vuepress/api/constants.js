@@ -32,5 +32,6 @@ export const ADMIN_PROFILE = ADMIN_API.replace('{endpoint}', 'profile');
 export const ALL_DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers');
 export const DELETE_USER = ADMIN_API.replace('{endpoint}', '{userName}');
 export const UPDATE_ROLE = ADMIN_API.replace('{endpoint}', 'role/{userName}');
+export const SET_USER_STATUS = ADMIN_API.replace('{endpoint}', 'disable-enable-user/{userName}');
 
 export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish');

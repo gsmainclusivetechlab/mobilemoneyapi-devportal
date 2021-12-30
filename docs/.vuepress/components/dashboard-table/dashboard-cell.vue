@@ -2,8 +2,10 @@
   <td class="dashboard-table__cell">
     <tippy
         interactive
+        trigger="click"
         style="max-width: 100%"
         delay="600"
+        zIndex="1"
     >
       <template v-slot:trigger>
         <div class="dashboard-table__cell-content">{{ value }}</div>

@@ -16,6 +16,8 @@
       background: var(--base-light-background-color);
       padding: 62px 30px 30px 88px;
       flex-shrink: 0;
+      position: relative;
+      z-index: 5;
 
       @include media('<tablet-lg') {
         position: absolute;
@@ -1126,6 +1128,12 @@
       &--button {
         background: none;
         cursor: pointer;
+
+        &:disabled {
+          border-color: var(--inactive-btn-color);
+          color: var(--inactive-btn-color);
+          cursor: auto;
+        }
       }
 
       &--red {
