@@ -27,17 +27,33 @@ export default {
       .catch(console.log);
   },
 
-  updateRole({ dispatch, state }, userId) {
+  async updateRole({ dispatch, state }, userId) {
     const { role, userName } = state.allUsers.find(user => user.userId === userId);
+
     const roles = [
       'user', 'admin', 'superadmin'
     ];
+
     const roleIndex = roles.indexOf(role) + 1;
+
     const data = {
       role: roles[roleIndex] ? roles[roleIndex] : roles[0]
     };
 
     AllUsers.updateRole(userName, data)
+      .then(() => {
+        dispatch('getAllUsers');
+      })
+      .catch(console.log)
+      .finally(() => {
+        // TODO request is very quickly, maybe need set promise for getAllUsers
+        return Promise.resolve();
+      });
+  },
+
+  setUserStatus({ dispatch, state }, userName) {
+    const { userEnabled } = state.allUsers.find(user => user.userName === userName);
+    AllUsers.setUserStatus(userName, userEnabled)
       .then(() => {
         dispatch('getAllUsers');
       })

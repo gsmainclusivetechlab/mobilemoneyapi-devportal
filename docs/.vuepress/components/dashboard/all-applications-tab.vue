@@ -49,7 +49,6 @@
 <script>
 import { allApplicationsHeaderTitles } from '../../constants';
 import UserOptionsBlock from '../user-options-block';
-import { mixin as clickaway } from 'vue-clickaway';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
@@ -77,7 +76,7 @@ export default {
     })
   },
 
-  mixins: [clickaway, dashboardSearch],
+  mixins: [dashboardSearch],
 
   methods: {
     showUserOptions(id) {
