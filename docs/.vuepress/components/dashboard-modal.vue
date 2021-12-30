@@ -8,7 +8,7 @@
           <form @submit.prevent="handleSubmit(createApp)">
             <ValidationProvider class="input-wrap"
                                 vid="app-name"
-                                :rules="{ required: { allowFalse: false }, min: 2 }"
+                                :rules="{ required: { allowFalse: false }, min: 2, check_same_name: getApplicationsList }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="app-name">
@@ -78,7 +78,8 @@ export default {
   },
 
   computed: {
-    ...mapGetters('usagePlans', ['getPublishedUsagePlans'])
+    ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
+    ...mapGetters('application', ['getApplicationsList']),
   },
 
   methods: {

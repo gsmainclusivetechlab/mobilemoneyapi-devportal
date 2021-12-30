@@ -36,4 +36,10 @@ extend('without_space', {
     },
     message: 'The field cannot contain spaces'
 });
+extend('check_same_name', {
+    validate: (value, params) => {
+        return !params.some(app => app.appName === value)
+    },
+    message: 'The application with the same name already exists.'
+});
 

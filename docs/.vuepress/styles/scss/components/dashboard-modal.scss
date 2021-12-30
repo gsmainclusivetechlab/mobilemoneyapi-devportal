@@ -104,8 +104,9 @@
     }
 
     input {
-      padding-left: 15px;
-      height: 40px;
+      padding: 11px 0 11px 15px;
+      line-height: 1;
+      font-size: 14px;
 
       &::placeholder {
         font-size: 14px;

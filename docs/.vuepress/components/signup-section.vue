@@ -87,6 +87,7 @@
                   href="https://www.gsma.com/aboutus/legal/privacy" target="_blank">GSMA Privacy
                 Statement</a>.</label>
             </ValidationProvider>
+            <p class="form-row__error" v-if="errorMessage">{{ errorMessage }}</p>
 
             <div class="button-holder">
               <button type="submit" :disabled="invalid || waitingResponse" class="btn btn--accent">
@@ -122,19 +123,23 @@ export default {
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
       },
       privacyCheckbox: false,
-      waitingResponse: false
+      waitingResponse: false,
+      errorMessage: ''
     };
   },
   methods: {
     async signUp() {
       this.waitingResponse = true;
+      this.errorMessage = ''
 
       await Auth.signUp(this.form)
           .then(() => {
             this.$router.push({ path: '/login/' });
           })
           .catch((e) => {
-            console.log(e);
+            if(e?.response?.data?.error) {
+              this.errorMessage = e.response.data.errorDescription
+            }
           })
           .finally(() => {
             this.waitingResponse = false;
