@@ -4,7 +4,7 @@
         class="sort-by-options__button"
         type="button"
         v-for="item of getValues"
-        :key="item"
+        :key="item.title"
         :class="{'sort-by-options__button--active': item.value === value}"
         @click="setSortValue(item.value)"
     >
