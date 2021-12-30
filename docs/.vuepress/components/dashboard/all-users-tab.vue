@@ -63,6 +63,7 @@
 </template>
 
 <script>
+// TODO user properties userEnabled and userStatus for setting user's status
 import { allUsersHeaderTitles } from '../../constants';
 import UserOptionsBlock from '../user-options-block';
 import { mixin as clickaway } from 'vue-clickaway';
@@ -131,6 +132,7 @@ export default {
       });
     },
     changeUserRole(id) {
+      // TODO set disabled and loading when we waiting for response
       this.$store.dispatch('admin/updateRole', id);
     }
   }

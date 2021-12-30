@@ -117,6 +117,7 @@ export default {
     },
 
     changeState(planId, published) {
+      // TODO set disabled and loading when we waiting for response
       this.$store.dispatch('admin/changePublishedState', { planId, published });
     }
   }
