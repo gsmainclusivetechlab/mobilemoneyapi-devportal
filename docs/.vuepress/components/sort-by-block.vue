@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "sort-by-block",
+  name: 'sort-by-block',
 
   props: {
     value: {
@@ -30,10 +30,10 @@ export default {
 
   computed: {
     getValues() {
-      if(this.pageType === 'users') return this.valuesUsers
-      if(this.pageType === 'applications') return this.valuesApplications
-      if(this.pageType === 'plans') return this.valuesPlans
-      return []
+      if (this.pageType === 'users') return this.valuesUsers;
+      if (this.pageType === 'applications') return this.valuesApplications;
+      if (this.pageType === 'plans') return this.valuesPlans;
+      return [];
     }
   },
 
@@ -85,14 +85,14 @@ export default {
           value: 'Publish'
         }
       ]
-    }
+    };
   },
 
   methods: {
     setSortValue(item) {
-      this.$emit('input', item)
-      this.$emit('hide-sort-block')
+      this.$emit('input', item);
+      this.$emit('hide-sort-block');
     }
   }
-}
+};
 </script>

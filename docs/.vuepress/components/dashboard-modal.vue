@@ -8,7 +8,7 @@
           <form @submit.prevent="handleSubmit(createApp)">
             <ValidationProvider class="input-wrap"
                                 vid="app-name"
-                                :rules="{ required: { allowFalse: false }, min: 2 }"
+                                :rules="{ required: { allowFalse: false }, min: 2, check_same_name: getApplicationsList }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="app-name">
@@ -60,25 +60,26 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
-import SpinnerComponent from "./helpers/spinner-component";
+import { mapGetters } from 'vuex';
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
   name: 'dashboard-modal',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       tooltipPopupIsVisible: false,
       waitingResponse: false,
       form: {
-        "appName": "",
-        "usagePlan": ""
+        'appName': '',
+        'usagePlan': ''
       }
-    }
+    };
   },
 
   computed: {
-    ...mapGetters('usagePlans', ['getPublishedUsagePlans'])
+    ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
+    ...mapGetters('application', ['getApplicationsList']),
   },
 
   methods: {
@@ -86,16 +87,16 @@ export default {
       this.$emit('close-modal');
     },
     async createApp() {
-      this.waitingResponse = true
+      this.waitingResponse = true;
 
       await this.$store.dispatch('application/postApp', this.form)
           .then(() => {
-            this.handleModalClose() // TODO ask about actions after creating application
+            this.handleModalClose(); // TODO ask about actions after creating application
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   },
-}
+};
 </script>

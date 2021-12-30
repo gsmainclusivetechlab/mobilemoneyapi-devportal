@@ -4,7 +4,7 @@ info:
   description: This describes the Developer Apps API which would be called from Portal UI
   version: "1.0"
 servers:
-  - url: "https:/sanbox.mobilemoneyapi.io/portal/developers/v1"
+  - url: "https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/developers/v1"
     description: Apps API v1
 paths:
   /apps:
@@ -24,8 +24,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AppRequest'
-                  
-      responses: 
+
+      responses:
         "201":
           description: "Created response"
           content:
@@ -74,8 +74,8 @@ paths:
         required: false
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Apps List Response"
           content:
@@ -131,8 +131,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "App Response"
           content:
@@ -199,8 +199,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AppRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "User Response"
           content:
@@ -261,8 +261,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "204":
           description: "No Content"
         "400":
@@ -299,7 +299,7 @@ paths:
         - bearerAuth: []
 
 
- 
+
 
 components:
   securitySchemes:
@@ -309,8 +309,8 @@ components:
       bearerFormat: JWT    # optional, arbitrary value for documentation purposes
   schemas:
 
-        
-    # wrapper abstract object of error  
+
+    # wrapper abstract object of error
     ErrorBasic:
       title: Generic error
       description: Primary error object with minimum properties
@@ -380,5 +380,5 @@ components:
 
 
 
-          
+
 

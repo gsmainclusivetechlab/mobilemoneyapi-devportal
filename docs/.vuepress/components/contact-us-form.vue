@@ -2,8 +2,12 @@
   <section class="contact-us-section section--m-gap">
     <div class="container container--narrow">
       <div class="section-intro section-intro--narrow text-center">
-        <h1 class="h1 section-title"><slot name="title"></slot></h1>
-        <div class="section-description"><slot name="description"></slot></div>
+        <h1 class="h1 section-title">
+          <slot name="title"></slot>
+        </h1>
+        <div class="section-description">
+          <slot name="description"></slot>
+        </div>
       </div>
       <div class="contact-form__wrapper  input-wrapper__with-error-mark">
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="form-contact-us">
@@ -140,7 +144,7 @@
 </template>
 
 <script>
-import {COUNTRIES} from '../constants.js';
+import { COUNTRIES } from '../constants.js';
 import Modal from './modal.vue';
 
 export default {
@@ -155,7 +159,7 @@ export default {
       mailSend: false,
       country: null,
       submit: false,
-    }
+    };
   },
   methods: {
     send() {
@@ -181,7 +185,7 @@ export default {
           });
     },
     showSuccessModal() {
-      this.mailSend = !this.mailSend;
+      this.mailSend = ! this.mailSend;
     },
   },
   created() {
@@ -192,5 +196,5 @@ export default {
       };
     });
   },
-}
+};
 </script>

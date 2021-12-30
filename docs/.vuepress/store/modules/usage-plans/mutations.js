@@ -1,5 +1,5 @@
 export default {
-    setUsagePlans(state, data) {
-        state.usagePlans = data
-    }
+  setUsagePlans(state, data) {
+    state.usagePlans = data;
+  }
 };

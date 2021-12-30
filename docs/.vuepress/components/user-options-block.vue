@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "user-options-block",
+  name: 'user-options-block',
 
   props: {
     userStatus: {
@@ -27,20 +27,20 @@ export default {
   data() {
     return {
       tempStatus: 1
-    }
+    };
   },
 
   methods: {
     changeStatus() {
       if (this.userStatus !== 2) {
-        this.tempStatus = this.userStatus
+        this.tempStatus = this.userStatus;
       }
 
-      this.$emit('changeStatus', this.userStatus === 2 ? this.tempStatus : 2)
+      this.$emit('changeStatus', this.userStatus === 2 ? this.tempStatus : 2);
     },
     isAllowOption(option) {
-      return this.allowOptions.includes(option)
+      return this.allowOptions.includes(option);
     }
   }
-}
+};
 </script>

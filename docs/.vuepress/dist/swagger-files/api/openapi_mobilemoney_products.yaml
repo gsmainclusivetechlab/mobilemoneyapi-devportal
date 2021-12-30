@@ -4,7 +4,7 @@ info:
   description: This describes the Usage Plans API which would be called from Portal UI
   version: "1.0"
 servers:
-  - url: "https:/sanbox.mobilemoneyapi.io/portal/usage-plans/v1"
+  - url: "https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/usage-plans/v1"
     description: Usage Plans API v1
 paths:
   /plans:
@@ -24,7 +24,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AppRequest'
-      responses: 
+      responses:
         "200":
           description: "Plan List Response"
           content:
@@ -73,8 +73,8 @@ paths:
         required: false
         schema:
           type: boolean
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Plan List Response"
           content:
@@ -125,8 +125,8 @@ paths:
         required: true
         schema:
           type: string
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Plan Response"
           content:
@@ -182,8 +182,8 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PublishRequest'
-                  
-      responses: 
+
+      responses:
         "200":
           description: "Publish Response"
           content:
@@ -224,7 +224,7 @@ components:
       scheme: bearer
       bearerFormat: JWT    # optional, arbitrary value for documentation purposes
   schemas:
-    # wrapper abstract object of error  
+    # wrapper abstract object of error
     ErrorBasic:
       title: Generic error
       description: Primary error object with minimum properties
@@ -269,10 +269,10 @@ components:
               type: number
             offSet:
               type: number
-            period: 
+            period:
               type: string
 
-    
+
     PublishRequest:
       title: Plan list for publishing
       description: list for publishing plans

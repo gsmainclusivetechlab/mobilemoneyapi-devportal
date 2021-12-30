@@ -6,4 +6,4 @@ title: Open OAS3 UI
 
 ## Open OAS3 UI
 
-<SwaggerComponent :url="'/swagger-files/api/openapi_mobilemoney_users.yaml'"/>
+<SwaggerComponent :url="'/swagger-files/api/openapi_mobilemoney_admin.yaml'"/>

@@ -20,10 +20,10 @@ export default {
         contentArr = lastActiveChildNode.getElementsByTagName('span');
       } else contentArr = lastActiveChildNode.getElementsByTagName('code')[0];
       contentArr.forEach((element) => {
-        console.log('element', element.innerHTML)
-        console.log('element length', element.innerHTML.length)
+        console.log('element', element.innerHTML);
+        console.log('element length', element.innerHTML.length);
       });
     }
   }
-}
+};
 </script>

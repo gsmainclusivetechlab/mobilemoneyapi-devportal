@@ -1,5 +1,5 @@
 export default {
-    setActiveCodeBlock (state, uid) {
-        state.activeCodeBlock = uid
-    }
+  setActiveCodeBlock(state, uid) {
+    state.activeCodeBlock = uid;
+  }
 };

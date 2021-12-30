@@ -41,12 +41,13 @@
 </template>
 
 <script>
-import DashboardTableBottom from "./dashboard-table-bottom";
-import DashboardTableTop from "./dashboard-table-top";
-import DashboardModal from "../dashboard-modal";
+import DashboardTableBottom from './dashboard-table-bottom';
+import DashboardTableTop from './dashboard-table-top';
+import DashboardModal from '../dashboard-modal';
+
 export default {
-  name: "dashboard-table",
-  components: {DashboardModal, DashboardTableTop, DashboardTableBottom},
+  name: 'dashboard-table',
+  components: { DashboardModal, DashboardTableTop, DashboardTableBottom },
   props: {
     tableHeadersData: {
       type: Array,
@@ -100,17 +101,17 @@ export default {
       default: ''
     }
   },
-  data () {
+  data() {
     return {
       modalIsVisible: false
-    }
+    };
   },
   methods: {
     toggleModal() {
-      this.modalIsVisible = !this.modalIsVisible;
+      this.modalIsVisible = ! this.modalIsVisible;
     },
   }
-}
+};
 </script>
 
 <style scoped>

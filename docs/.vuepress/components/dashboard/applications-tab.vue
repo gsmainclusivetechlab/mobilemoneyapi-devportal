@@ -26,20 +26,20 @@
 </template>
 
 <script>
-import dashboardModal from "../dashboard-modal.vue";
-import cardLinksSection from "./card-links-section.vue";
-import {mapState} from 'vuex'
+import dashboardModal from '../dashboard-modal.vue';
+import cardLinksSection from './card-links-section.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'applications-tab',
 
-  components: {dashboardModal, cardLinksSection},
+  components: { dashboardModal, cardLinksSection },
 
   data() {
     return {
       tabTitle: 'Applications',
       modalIsVisible: false,
-    }
+    };
   },
 
   computed: {
@@ -48,7 +48,7 @@ export default {
 
   methods: {
     toggleModal() {
-      this.modalIsVisible = !this.modalIsVisible;
+      this.modalIsVisible = ! this.modalIsVisible;
     },
     handleAppClick(key) {
       this.$emit('app-click', key, this.tabTitle);

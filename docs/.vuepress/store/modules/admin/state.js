@@ -1,4 +1,4 @@
 export default {
-    allApplications: [],
-    allUsers: []
+  allApplications: [],
+  allUsers: []
 };

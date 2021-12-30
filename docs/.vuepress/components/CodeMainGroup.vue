@@ -68,11 +68,11 @@ export default {
         heightOfCodeGroup: 0
       },
       visibleContent: false,
-    }
+    };
   },
   watch: {
     'provideObject.activeCodeTabIndex'(index) {
-      this.activateCodeTab(index)
+      this.activateCodeTab(index);
     },
     activeCodeBlock(val) {
       this.visibleContent = val === this._uid;
@@ -81,77 +81,77 @@ export default {
   provide() {
     return {
       provideObject: this.provideObject
-    }
+    };
   },
   computed: {
     activeCodeBlock() {
-      return this.$store.state.codePanel.activeCodeBlock
+      return this.$store.state.codePanel.activeCodeBlock;
     }
   },
   mounted() {
-    this.$on('get-code-languages', this.setActiveMethod)
+    this.$on('get-code-languages', this.setActiveMethod);
 
-    this.$once('set-code-height', value => (this.provideObject.heightOfCodeGroup = value))
+    this.$once('set-code-height', value => (this.provideObject.heightOfCodeGroup = value));
 
     this.$on('set-method-index', (i) => {
-      this.provideObject.activeMethodIndex = i
-    })
+      this.provideObject.activeMethodIndex = i;
+    });
 
     this.loadTabs();
 
     document.addEventListener('click', (event) => {
-      if (!event.target.closest('.lang-select-box')) {
+      if (! event.target.closest('.lang-select-box')) {
         this.isListOpened = false;
       }
     });
   },
   beforeDestroy() {
-    this.$off('get-code-languages')
-    this.$off('set-method-index')
+    this.$off('get-code-languages');
+    this.$off('set-method-index');
   },
   methods: {
     setActiveMethod(languages) {
-      this.languages.push(...languages)
-      this.provideObject.activeLanguage = languages[0]
+      this.languages.push(...languages);
+      this.provideObject.activeLanguage = languages[0];
     },
     changeLanguage(lang) {
       this.provideObject.activeLanguage = lang;
-      this.changeCodeTab(1)
+      this.changeCodeTab(1);
     },
     changeCodeTab(index) {
-      this.provideObject.activeCodeTabIndex = index
+      this.provideObject.activeCodeTabIndex = index;
     },
     loadTabs() {
       this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
         if (slot.componentOptions.propsData.active === '') {
-          this.provideObject.activeCodeTabIndex = index
+          this.provideObject.activeCodeTabIndex = index;
         }
 
         return {
           title: slot.componentOptions.propsData.title,
           elm: slot.elm
-        }
-      })
+        };
+      });
 
       if (this.provideObject.activeCodeTabIndex === -1 && this.codeTabs.length > 0) {
-        this.provideObject.activeCodeTabIndex = 0
+        this.provideObject.activeCodeTabIndex = 0;
       }
 
-      this.activateCodeTab(0)
+      this.activateCodeTab(0);
     },
     activateCodeTab(index) {
       this.codeTabs.forEach(tab => {
         if (tab.elm) {
-          tab.elm.classList.remove('theme-code-block__active')
+          tab.elm.classList.remove('theme-code-block__active');
         }
-      })
+      });
 
       if (this.codeTabs[index].elm) {
-        this.codeTabs[index].elm.classList.add('theme-code-block__active')
+        this.codeTabs[index].elm.classList.add('theme-code-block__active');
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

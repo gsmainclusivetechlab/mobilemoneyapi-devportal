@@ -1,5 +1,5 @@
 import Api from './Api';
-import {LOGIN, REGISTER, LOGOUT, FORGOT_PASSWORD, SET_NEW_PASSWORD, RESET_PASSWORD_CONFIRMATION} from './constants';
+import { LOGIN, REGISTER, LOGOUT, FORGOT_PASSWORD, SET_NEW_PASSWORD, RESET_PASSWORD_CONFIRMATION, UPDATE_REFRESH_TOKEN } from './constants';
 
 export default class Auth {
   static signUp(payload) {

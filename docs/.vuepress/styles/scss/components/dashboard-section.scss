@@ -877,14 +877,14 @@
 
         &__input {
           width: 100%;
-          height: 100%;
-          padding: 0 40px 0 16px;
+          //height: 100%;
           background: url(/images/search.svg) right 16px center no-repeat;
           //color: #BEBEBF;
           background-size: 15px;
           font-size: 14px;
-          line-height: 180%;
           font-family: var(--base-font-family);
+          padding: 9px 40px 6px 16px;
+          line-height: 1;
 
           &::placeholder {
             color: #BEBEBF;

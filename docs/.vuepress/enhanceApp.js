@@ -21,6 +21,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 
 import store from './store'
 import CookieManager from "./helpers/CookieManager";
+import {X_USER_TOKEN} from "./api/constants";
 export default async ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
@@ -50,12 +51,12 @@ export default async ({
     })
 
     router.beforeEach((to, from, next) => {
-      if(to.path === "/dashboard/" && !CookieManager.getValue('x_user_token')) next({path: '/login/'})
+      if(to.path === "/dashboard/" && !CookieManager.getValue(X_USER_TOKEN)) next({path: '/login/'})
       else next();
     })
     // get user data
     // TODO maybe fix it
-    if(CookieManager.getValue('x_user_token')) {
+    if(CookieManager.getValue(X_USER_TOKEN)) {
       store.dispatch('user/getUserData')
     }
 

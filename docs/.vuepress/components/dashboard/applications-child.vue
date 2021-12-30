@@ -115,13 +115,13 @@
 </template>
 
 <script>
-import DashboardCopyButton from "./DashboardCopyButton";
-import {mapGetters, mapState} from 'vuex'
-import SpinnerComponent from "../helpers/spinner-component";
+import DashboardCopyButton from './DashboardCopyButton';
+import { mapGetters, mapState } from 'vuex';
+import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
   name: 'applications-child',
-  components: {SpinnerComponent, DashboardCopyButton},
+  components: { SpinnerComponent, DashboardCopyButton },
   data() {
     return {
       tabTitle: 'Applications child',
@@ -133,31 +133,31 @@ export default {
       },
       waitingResponseUpdate: false,
       waitingResponseDelete: false,
-    }
+    };
   },
   computed: {
     ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
     ...mapState('application', ['selectedApplication'])
   },
   created() {
-    this.form.appName = this.selectedApplication.appName
-    this.form.usagePlan = this.selectedApplication.usagePlan
+    this.form.appName = this.selectedApplication.appName;
+    this.form.usagePlan = this.selectedApplication.usagePlan;
   },
   beforeDestroy() {
-    this.$store.commit('application/clearSelectedApplication')
+    this.$store.commit('application/clearSelectedApplication');
   },
 
   methods: {
     editApp() {
-      this.waitingResponseUpdate = true
+      this.waitingResponseUpdate = true;
 
       this.$store.dispatch('application/updateAppById', this.form)
           .then(() => {
-            this.editBtnEnabled = true
+            this.editBtnEnabled = true;
           })
           .finally(() => {
-            this.waitingResponseUpdate = false
-          })
+            this.waitingResponseUpdate = false;
+          });
     },
     handleEditClick() {
       this.editBtnEnabled = false;
@@ -179,14 +179,14 @@ export default {
       popup[0].style.transition = 'none';
     },
     deleteApplication(e) {
-      this.waitingResponseDelete = true
+      this.waitingResponseDelete = true;
       this.$store.dispatch('application/deleteAppById')
           .then(() => {
-            this.$emit('close-application', e)
+            this.$emit('close-application', e);
           })
           .finally(() => {
-            this.waitingResponseDelete = false
-          })
+            this.waitingResponseDelete = false;
+          });
     }
   }
 };

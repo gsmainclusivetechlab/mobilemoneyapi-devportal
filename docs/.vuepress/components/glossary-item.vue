@@ -11,10 +11,10 @@
 
 export default {
   name: 'glossary-item',
-  data () {
+  data() {
     return {
       showElement: true
-    }
+    };
   },
-}
+};
 </script>

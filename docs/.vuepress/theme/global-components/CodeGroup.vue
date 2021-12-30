@@ -50,41 +50,41 @@ export default {
       scrollHeight: 130,
       isVisibleContent: true,
       isNonCollapse: false
-    }
+    };
   },
   computed: {
     isButtonShow() {
-      return this.scrollHeight >= 220
+      return this.scrollHeight >= 220;
     },
     activeCodeBlock() {
-      return this.$store.state.codePanel.activeCodeBlock
+      return this.$store.state.codePanel.activeCodeBlock;
     }
   },
   watch: {
     'provideObject.activeMethodIndex'(index) {
-      this.activateCodeTab(index)
-      if (this.provideObject.activeCodeTabIndex === 0 && !this.title) {
+      this.activateCodeTab(index);
+      if (this.provideObject.activeCodeTabIndex === 0 && ! this.title) {
         if (this.afterInitComponent) {
-          this.checkScrollHeight()
+          this.checkScrollHeight();
         }
       }
     },
     'provideObject.heightOfCodeGroup'(value) {
-      this.setMinHeight(value)
+      this.setMinHeight(value);
     },
     'provideObject.activeCodeTabIndex'(newVal, oldVal) {
       if (oldVal) {
-        this.checkScrollHeight()
+        this.checkScrollHeight();
       }
     },
     'provideObject.activeLanguage'(newVal, oldVal) {
       if (oldVal) {
-        this.checkScrollHeight()
+        this.checkScrollHeight();
       }
     },
     activeCodeBlock(val) {
-      if (val !== this.$parent.$parent._uid && !this.isNonCollapse) {
-        this.isButtonClick(false)
+      if (val !== this.$parent.$parent._uid && ! this.isNonCollapse) {
+        this.isButtonClick(false);
       }
     }
   },
@@ -99,97 +99,97 @@ export default {
     }
   },
   mounted() {
-    this.loadTabs()
+    this.loadTabs();
     this.$nextTick(() => {
-      this.afterInitComponent = true
-      this.checkScrollHeight()
-    })
+      this.afterInitComponent = true;
+      this.checkScrollHeight();
+    });
   },
   methods: {
     setMinHeight(value) {
-      const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]')
-      const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json')
+      const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]');
+      const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json');
 
       for (let el of elements) {
         if (value === 130) {
-          el.style.minHeight = `${value + 23}px`
+          el.style.minHeight = `${value + 23}px`;
         } else {
-          el.style.minHeight = `${value}px`
+          el.style.minHeight = `${value}px`;
         }
       }
 
       for (let el of elementsActive) {
-        el.style.minHeight = `${value}px`
+        el.style.minHeight = `${value}px`;
       }
     },
     isButtonClick(param) {
-      if (param !== undefined) this.isVisibleContent = param
-      else this.isVisibleContent = !this.isVisibleContent;
+      if (param !== undefined) this.isVisibleContent = param;
+      else this.isVisibleContent = ! this.isVisibleContent;
 
       if (this.isVisibleContent) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = `${this.scrollHeight}px`
-        this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid)
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = `${this.scrollHeight}px`;
+        this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid);
       } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = '130px'
+        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = '130px';
       }
     },
     changeCodeTab(index) {
       if (this.$parent && this.$parent.$parent) {
-        this.$parent.$parent.$emit('set-method-index', index)
-        this.activateCodeTab(index)
+        this.$parent.$parent.$emit('set-method-index', index);
+        this.activateCodeTab(index);
       }
     },
     loadTabs() {
-      let vm = this
+      let vm = this;
       this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
         if (slot.componentOptions.propsData.active === '') {
-          vm.changeCodeTab(index)
+          vm.changeCodeTab(index);
         }
 
         return {
           title: slot.componentOptions.propsData.title,
           elm: slot.elm
-        }
-      })
+        };
+      });
 
       if (this.provideObject.activeMethodIndex === -1 && this.codeTabs.length > 0) {
-        this.changeCodeTab(0)
+        this.changeCodeTab(0);
       }
-      this.activateCodeTab(0)
+      this.activateCodeTab(0);
     },
     activateCodeTab(index) {
       this.codeTabs.forEach(tab => {
         if (tab.elm) {
-          tab.elm.classList.remove('theme-code-block__active')
+          tab.elm.classList.remove('theme-code-block__active');
         }
-      })
+      });
 
       if (this.codeTabs[index].elm) {
-        this.codeTabs[index].elm.classList.add('theme-code-block__active')
+        this.codeTabs[index].elm.classList.add('theme-code-block__active');
       }
     },
     checkScrollHeight() {
-      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollHeight
+      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollHeight;
 
       const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollWidth;
 
       this.scrollHeight += 31; // code copy
 
       if (scrollWidth >= 350) {
-        this.scrollHeight += 8
+        this.scrollHeight += 8;
       }
 
       if (this.scrollHeight >= 220) {
-        this.isButtonClick(false)
-        this.isNonCollapse = false
-        this.$parent.$parent.$emit('set-code-height', 130)
+        this.isButtonClick(false);
+        this.isNonCollapse = false;
+        this.$parent.$parent.$emit('set-code-height', 130);
       } else {
-        this.isNonCollapse = true
-        this.$parent.$parent.$emit('set-code-height', this.scrollHeight)
+        this.isNonCollapse = true;
+        this.$parent.$parent.$emit('set-code-height', this.scrollHeight);
       }
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

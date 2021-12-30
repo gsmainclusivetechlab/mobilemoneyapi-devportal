@@ -24,7 +24,7 @@
             </ValidationProvider>
             <ValidationProvider class="form-row"
                                 vid="password"
-                                :rules="{ required: { allowFalse: false }, verify_password: true, min: 8 }"
+                                :rules="{ required: { allowFalse: false } }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="password">Password
@@ -32,7 +32,7 @@
               </label>
               <input type="password" v-model="form.password" id="password" placeholder="Enter password">
             </ValidationProvider>
-            <p class="form-row__error" v-if="errorMessage">{{errorMessage}}</p>
+            <p class="form-row__error" v-if="errorMessage">{{ errorMessage }}</p>
 
             <div class="form-row forgot-password-row">
               <router-link to="/forgot-password" class="btn-forgot-password">Forgot password?</router-link>
@@ -54,38 +54,38 @@
 </template>
 
 <script>
-import SpinnerComponent from "./helpers/spinner-component";
+import SpinnerComponent from './helpers/spinner-component';
 
 export default {
   name: 'login-section',
-  components: {SpinnerComponent},
+  components: { SpinnerComponent },
   data() {
     return {
       form: {
-        userName: "",
-        password: ""
+        userName: '',
+        password: ''
       },
       waitingResponse: false,
       errorMessage: ''
-    }
+    };
   },
   methods: {
     async signIn() {
-      this.waitingResponse = true
-      this.errorMessage = ''
+      this.waitingResponse = true;
+      this.errorMessage = '';
 
       await this.$store.dispatch('auth/signIn', this.form)
           .then(() => {
-            this.$router.push({path: '/dashboard/'})
+            this.$router.push({ path: '/dashboard/' });
           })
           .catch((e) => {
-            if(e === 'NotAuthorizedException') {
-              this.errorMessage = 'User credentials are not valid'
+            if (e === 'NotAuthorizedException') {
+              this.errorMessage = 'User credentials are not valid';
             }
           })
           .finally(() => {
-            this.waitingResponse = false
-          })
+            this.waitingResponse = false;
+          });
     }
   }
 };
