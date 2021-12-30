@@ -10,7 +10,7 @@ export default {
       return {
         ...app,
         company: getters.getCompanyByUsername(app.userName),
-        usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name : ''
+        usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name || '' : ''
       };
     });
   },

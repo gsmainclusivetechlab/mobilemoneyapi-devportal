@@ -12,8 +12,8 @@ export default class TokensManager {
       this.updateTokens(refresh_token)
         .then(({ data }) => {
           const { AccessToken, ExpiresIn, IdToken, refreshToken } = data;
-          CookieManager.setValueWithExpires(ID_TOKEN, IdToken, ExpiresIn);
-          CookieManager.setValueWithExpires(X_USER_TOKEN, AccessToken, ExpiresIn);
+          CookieManager.setValueWithExpires(ID_TOKEN, IdToken, 60);
+          CookieManager.setValueWithExpires(X_USER_TOKEN, AccessToken, 60);
           CookieManager.setValueWithExpires(REFRESH_TOKEN, refreshToken, ExpiresIn*2); // TODO asked about time of expiring refresh token
           Api.setTokens();
           return resolve();

@@ -1,26 +1,26 @@
 import Cookies from 'js-cookie';
-import {SECONDS_IN_DAY} from "../api/constants";
+import { SECONDS_IN_DAY } from '../api/constants';
 
 export default {
-    getValue(name) {
-        return Cookies.get(name)
-    },
+  getValue(name) {
+    return Cookies.get(name);
+  },
 
-    getValues(...names) {
-        return names.map(name => this.getValue(name))
-    },
+  getValues(...names) {
+    return names.map(name => this.getValue(name));
+  },
 
-    setValue(name, value) {
-        Cookies.set(name, value)
-    },
+  setValue(name, value) {
+    Cookies.set(name, value, { sameSite: 'strict' });
+  },
 
-    setValueWithExpires(name, value, expires) {
-        Cookies.set(name, value, {expires: expires / SECONDS_IN_DAY})
-    },
+  setValueWithExpires(name, value, expires) {
+    Cookies.set(name, value, { expires: expires / SECONDS_IN_DAY, sameSite: 'strict' });
+  },
 
-    removeValues(...names) {
-        names.forEach((name) => {
-            Cookies.remove(name)
-        })
-    }
-}
+  removeValues(...names) {
+    names.forEach((name) => {
+      Cookies.remove(name);
+    });
+  }
+};
