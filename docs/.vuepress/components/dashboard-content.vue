@@ -185,9 +185,7 @@ export default {
 
   mounted() {
     this.setStartActiveTab();
-    // TODO should load in the beginning
     this.getApps();
-    // this.getUsagePlans(); TODO fix it - double request when I am admin/superadmin
   },
 
   methods: {

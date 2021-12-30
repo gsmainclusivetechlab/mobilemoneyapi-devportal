@@ -83,9 +83,6 @@ export default {
     showUserOptions(id) {
       this.activeOptionsUserId = id;
     },
-    hideUserOptions() {
-      this.activeOptionsUserId = -1;
-    },
     deleteApplication(userName, appId) {
       this.$store.dispatch('admin/deleteApplicationByUser', { userName, appId });
     },
