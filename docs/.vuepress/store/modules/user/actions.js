@@ -11,8 +11,9 @@ export default {
         if (data.role === 'admin' || data.role === 'superadmin') {
           dispatch('admin/getAllApplications', null, { root: true });
           dispatch('admin/getAllUsers', null, { root: true });
-          dispatch('usagePlans/getUsagePlans', null, { root: true });
         }
+        dispatch('usagePlans/getUsagePlans', null, { root: true });
+
       })
       .catch(console.log);
   },

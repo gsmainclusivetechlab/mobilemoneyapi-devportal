@@ -258,10 +258,6 @@ export default {
     getApps() {
       this.$store.dispatch('application/getApps');
     },
-
-    getUsagePlans() {
-      this.$store.dispatch('usagePlans/getUsagePlans');
-    },
   }
 };
 </script>
