@@ -1,3 +1,5 @@
+import { CONFIRMED } from '../../../api/constants';
+
 export default {
   getCompanyByUsername(state) {
     return (username) => {
@@ -15,6 +17,12 @@ export default {
     });
   },
   getAllUsers(state) {
-    return state.allUsers;
+    return state.allUsers.map(user => {
+      const status = ! user.userEnabled ? 'Blocked' : user.userStatus === CONFIRMED ? 'Active' : 'Inactive';
+      return {
+        ...user,
+        status
+      };
+    });
   }
 };

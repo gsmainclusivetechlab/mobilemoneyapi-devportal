@@ -20,7 +20,7 @@
       <dashboard-cell :value="user.companyName"/>
       <td class="dashboard-table__cell">
         <span class="dashboard-table__status-label" :class="[getUserStatusLabelClass(user.userId)]"></span>
-        {{ getUserStatus(user.userId) }}
+        {{ user.status }}
       </td>
       <td class="dashboard-table__cell">
         <template v-if="isAdminRole">
@@ -109,16 +109,10 @@ export default {
 
   methods: {
     getUserStatusLabelClass(id) {
-      const { userEnabled } = this.tableData.find(user => user.userId === id);
-      // if (status === 0) return 'dashboard-table__status-label--inactive';
-      if (userEnabled) return 'dashboard-table__status-label--active';
+      const { status } = this.tableData.find(user => user.userId === id);
+      if (status === 'Active') return 'dashboard-table__status-label--active';
+      if (status === 'Inactive') return 'dashboard-table__status-label--inactive';
       return 'dashboard-table__status-label--blocked';
-    },
-
-    getUserStatus(id) {
-      const { userEnabled } = this.tableData.find(user => user.userId === id);
-      if (userEnabled) return 'Active';
-      return 'Blocked';
     },
 
     deleteUser(userName) {
