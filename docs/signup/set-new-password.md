@@ -1,5 +1,5 @@
 ---
-pageClass: dashboard-page
+pageClass: auth-page
 ---
 
 <set-new-password/>
