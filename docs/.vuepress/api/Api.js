@@ -7,7 +7,6 @@ class Api {
   constructor() {
     this.headers = {
       Accept: 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
     };
     this.setTokens();
     this.requestWait = false;
