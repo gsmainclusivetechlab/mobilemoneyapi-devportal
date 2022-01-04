@@ -6,7 +6,7 @@ export default {
             searchValue: '',
             filterValue: '',
             sortValue: '',
-            perPage: 12,
+            perPage: 25,
             currentPage: 1
         }
     },

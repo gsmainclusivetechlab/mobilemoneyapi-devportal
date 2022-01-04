@@ -8,7 +8,6 @@ export const ADMIN_API = '/admin/v1/{endpoint}';
 export const ID_TOKEN = 'id_token';
 export const REFRESH_TOKEN = 'refresh_token';
 export const X_USER_TOKEN = 'x_user_token';
-export const USER_NAME = 'userName';
 
 export const CONFIRMED = 'CONFIRMED';
 export const UNCONFIRMED = 'UNCONFIRMED';

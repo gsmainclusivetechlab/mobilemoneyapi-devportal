@@ -1,9 +1,10 @@
 import Application from '../../../api/Application';
-import CookieManager from '../../../helpers/CookieManager';
 
 export default {
-  getApps({ commit, state }) {
-    Application.getApps()
+  getApps({ commit, state, rootGetters }) {
+    const userName = rootGetters['user/getUserName']
+
+    Application.getApps(userName)
       .then(({ data }) => {
         commit('setApplications', data);
 
@@ -18,8 +19,8 @@ export default {
       });
   },
 
-  postApp({ dispatch }, payload) {
-    const userName = CookieManager.getValue('userName');
+  postApp({ dispatch, rootGetters }, payload) {
+    const userName = rootGetters['user/getUserName']
 
     const data = {
       ...payload,
@@ -36,10 +37,12 @@ export default {
     });
   },
 
-  updateAppById({ dispatch, state }, payload) {
+  updateAppById({ dispatch, state, rootGetters }, payload) {
     const appId = state.selectedApplication.appId;
+    const userName = rootGetters['user/getUserName']
+
     return new Promise((resolve) => {
-      Application.updateAppById(appId, payload)
+      Application.updateAppById(appId, payload, userName)
         .then(() => {
           dispatch('getApps');
           resolve(true);
@@ -48,11 +51,12 @@ export default {
     });
   },
 
-  deleteAppById({ dispatch, state }) {
+  deleteAppById({ dispatch, state, rootGetters }) {
     const appId = state.selectedApplication.appId;
+    const userName = rootGetters['user/getUserName']
 
     return new Promise((resolve) => {
-      Application.deleteAppById(appId)
+      Application.deleteAppById(appId, userName)
         .then(() => {
           dispatch('getApps');
           return resolve();
