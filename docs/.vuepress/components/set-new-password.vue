@@ -8,14 +8,25 @@
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="set-new-password">
           <form @submit.prevent="handleSubmit(setNewPassword)">
             <ValidationProvider class="form-row"
-                                vid="password"
+                                vid="newPassword"
                                 :rules="{ required: { allowFalse: false }, verify_password: true, min: 8 }"
                                 v-slot="{ errors }"
                                 tag="div">
-              <label for="password">Password
+              <label for="newPassword">Password
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="password" v-model="form.newPassword" id="password" placeholder="Enter password">
+              <input type="password" v-model="form.newPassword" id="newPassword" placeholder="Enter password">
+            </ValidationProvider>
+            <ValidationProvider class="form-row"
+                                vid="confirmPassword"
+                                :rules="{ required: { allowFalse: false }, verify_password: true, min: 8, confirmed: 'newPassword'}"
+                                v-slot="{ errors }"
+                                tag="div">
+              <label for="confirmPassword">
+                Password confirmation
+                <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
+              </label>
+              <input type="password" v-model="confirmPassword" id="confirmPassword" placeholder="Enter password confirmation">
             </ValidationProvider>
             <div class="button-holder">
               <button class="btn btn--accent" type="submit" :disabled="invalid || waitingResponse">
@@ -44,6 +55,7 @@ export default {
       form: {
         newPassword: ''
       },
+      confirmPassword: '',
       waitingResponse: false
     };
   },

@@ -2,7 +2,6 @@
   <td class="dashboard-table__cell">
     <tippy
         interactive
-        trigger="click"
         style="max-width: 100%"
         delay="600"
         zIndex="1"

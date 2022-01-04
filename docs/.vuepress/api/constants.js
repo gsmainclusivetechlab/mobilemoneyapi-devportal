@@ -10,6 +10,9 @@ export const REFRESH_TOKEN = 'refresh_token';
 export const X_USER_TOKEN = 'x_user_token';
 export const USER_NAME = 'userName';
 
+export const CONFIRMED = 'CONFIRMED';
+export const UNCONFIRMED = 'UNCONFIRMED';
+
 export const SECONDS_IN_DAY = 86400;
 
 export const LOGIN = USER_API.replace('{endpoint}', 'login');

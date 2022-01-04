@@ -2,10 +2,10 @@ export const sortByDate = (array, type) => {
     const firstCondition = type === 'Newest' ? 1 : -1;
     const secondCondition = type === 'Newest' ? -1 : 1;
     return [...array].sort(function (a, b) {
-        if (new Date(a.registerDate) < new Date(b.registerDate)) {
+        if (new Date(a.createdDate) < new Date(b.createdDate)) {
             return firstCondition;
         }
-        if (new Date(a.registerDate) > new Date(b.registerDate)) {
+        if (new Date(a.createdDate) > new Date(b.createdDate)) {
             return secondCondition;
         }
         return 0;
@@ -34,8 +34,7 @@ export const sortByKeyIssueDate = (array) => {
 }
 
 export const sortByStatus = (array, status) => {
-    const statusValue = status === 'Inactive' ? 0 : status === 'Active' ? 1 : 2;
-    return [...array].sort(a => a.status === statusValue ? -1 : 1)
+    return [...array].sort(a => a.status === status ? -1 : 1)
 }
 
 export const sortByState = (array, state) => {
