@@ -11,8 +11,8 @@ export default {
           const { x_user_token, id_token, expires_in, refresh_token } = res.data;
 
 
-          CookieManager.setValueWithExpires(X_USER_TOKEN, x_user_token, 60);
-          CookieManager.setValueWithExpires(ID_TOKEN, id_token, 60);
+          CookieManager.setValueWithExpires(X_USER_TOKEN, x_user_token, expires_in);
+          CookieManager.setValueWithExpires(ID_TOKEN, id_token, expires_in);
           CookieManager.setValueWithExpires(USER_NAME, payload.userName, expires_in);
           CookieManager.setValueWithExpires(REFRESH_TOKEN, refresh_token, expires_in * 2);
 
