@@ -20,7 +20,7 @@ export default {
             if (this.sortValue === 'Active' || this.sortValue === 'Inactive' || this.sortValue === 'Blocked') {
                 return sortByStatus(this.getTableDataWithSearch, this.sortValue)
             }
-            if(this.sortValue === 'Unpublish' || this.sortValue === 'Publish') {
+            if(this.sortValue === 'unpublished' || this.sortValue === 'published') {
                 return sortByState(this.getTableDataWithSearch, this.sortValue)
             }
             if(this.sortValue === 'Date') {

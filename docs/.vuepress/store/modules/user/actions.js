@@ -13,6 +13,7 @@ export default {
           dispatch('admin/getAllUsers', null, { root: true });
         }
         dispatch('usagePlans/getUsagePlans', null, { root: true });
+        dispatch('application/getApps', null, { root: true });
 
       })
       .catch(console.log);

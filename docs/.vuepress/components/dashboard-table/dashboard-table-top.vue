@@ -92,6 +92,12 @@ export default {
     if (this.pageType === 'applications') {
       this.sortValue = 'keyIssued';
     }
+    if (this.pageType === 'plans') {
+      this.sortValue = 'published';
+    }
+    if (this.pageType === 'users') {
+      this.sortValue = 'Active';
+    }
   },
 
   methods: {

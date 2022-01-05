@@ -18,7 +18,7 @@
     <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.appId">
       <dashboard-cell :value="app.appName"/>
       <dashboard-cell :value="app.userName"/>
-      <dashboard-cell :value="app.company"/>
+      <dashboard-cell :value="app.companyName"/>
       <dashboard-cell :value="app.usagePlan"/>
       <dashboard-cell :value="app.consumerKey"/>
       <dashboard-cell :value="app.consumerSecret"/>
@@ -68,7 +68,7 @@ export default {
 
   computed: {
     getCompanies() {
-      return new Set(this.tableData.map(el => el.company));
+      return new Set(this.tableData.map(el => el.companyName));
     },
     ...mapGetters('admin', {
       getCompanyByUsername: 'getCompanyByUsername',

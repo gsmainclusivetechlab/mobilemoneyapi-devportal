@@ -3,6 +3,7 @@ import Application from '../../../api/Application';
 export default {
   getApps({ commit, state, rootGetters }) {
     const userName = rootGetters['user/getUserName']
+    console.log(userName)
 
     Application.getApps(userName)
       .then(({ data }) => {
