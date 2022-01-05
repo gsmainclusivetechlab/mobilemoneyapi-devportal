@@ -57,6 +57,7 @@
               </ValidationProvider>
               <div class="update-btn-wrap">
                 <button class="btn btn--accent update-btn" type="submit"
+                        :disabled="invalid || waitingResponse"
                         v-if="accountEdit">
                   <span v-if="!waitingResponse">Update</span>
                   <spinner-component v-else></spinner-component>

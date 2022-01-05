@@ -1,5 +1,5 @@
 import CookieManager from '../helpers/CookieManager';
-import { ID_TOKEN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, USER_NAME, X_USER_TOKEN } from './constants';
+import { ID_TOKEN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, X_USER_TOKEN } from './constants';
 import Api from './Api';
 
 export default class TokensManager {
@@ -19,7 +19,7 @@ export default class TokensManager {
           return resolve();
         })
         .catch(e => {
-          CookieManager.removeValues(REFRESH_TOKEN, USER_NAME);
+          CookieManager.removeValues(REFRESH_TOKEN);
           return reject(e);
         });
     });

@@ -13,13 +13,16 @@ export default {
           dispatch('admin/getAllUsers', null, { root: true });
         }
         dispatch('usagePlans/getUsagePlans', null, { root: true });
+        dispatch('application/getApps', null, { root: true });
 
       })
       .catch(console.log);
   },
-  updateUserData({ commit }, payload) {
+  updateUserData({ commit, rootGetters }, payload) {
+    const userName = rootGetters['user/getUserName']
+
     return new Promise((resolve) => {
-      User.updateData(payload)
+      User.updateData(payload, userName)
         .then(({ data }) => {
           commit('setUserData', data);
           return resolve(true);

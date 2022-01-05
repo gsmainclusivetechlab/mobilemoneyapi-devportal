@@ -185,7 +185,6 @@ export default {
 
   mounted() {
     this.setStartActiveTab();
-    this.getApps();
   },
 
   methods: {
@@ -249,14 +248,6 @@ export default {
           element.classList.remove('item-closed');
         }
       });
-    },
-
-    getUserData() {
-      this.$store.dispatch('user/getUserData');
-    },
-
-    getApps() {
-      this.$store.dispatch('application/getApps');
     },
   }
 };
