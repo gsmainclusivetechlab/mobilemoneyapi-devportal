@@ -30,31 +30,29 @@ Payee-Initiated Merchant Payment
 </template>
 <template v-slot:body>
 <p>In this example, an asynchronous payment flow is used with a final callback. The merchant initiates the request and will be credited when the payer approves the request.</p>
-  
 <mermaid>
-    sequenceDiagram
-      participant Merchant
-      participant Mobile Money Provider 
-      participant Payer  
-      Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
-      activate Merchant
-      activate Mobile Money Provider
-      Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
-      Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
-      deactivate Merchant
-      Mobile Money Provider->>Payer: Obtain Customer Authorisation
-      activate Payer
-      Note right of Payer: (2) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer authorisation.
-      Payer-->>Mobile Money Provider: (Authorised)
-      deactivate Payer
-      activate Merchant
-      Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
-      Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
-      Merchant-->>Mobile Money Provider: HTTP 204
-      deactivate Merchant
-      deactivate Mobile Money Provider
-  </mermaid>
-
+  sequenceDiagram
+    participant Merchant
+    participant Mobile Money Provider 
+    participant Payer  
+    Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
+    activate Merchant
+    activate Mobile Money Provider
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing <br> to the MMP. The MMP will return the Request State object <br> to indicate that the request is 'pending'.
+    Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
+    deactivate Merchant
+    Mobile Money Provider->>Payer: Obtain Customer Authorisation
+    activate Payer
+    Note right of Payer: (2) The Payer is requested to the MMP to <br> authorise the payment. This can be <br> achieved through a number of means <br> including USSD Push and One Time Code. <br> OpenId can also be used for Payer authorisation.
+    Payer-->>Mobile Money Provider: (Authorised)
+    deactivate Payer
+    activate Merchant
+    Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
+    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the <br> transaction has been successfully completed <br> by returning the final representation of the <br> transaction.
+    Merchant-->>Mobile Money Provider: HTTP 204
+    deactivate Merchant
+    deactivate Mobile Money Provider
+</mermaid>
   </template>
 </accordion-item>
 <accordion-item businessPage>
@@ -71,17 +69,17 @@ sequenceDiagram
     Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
     activate Merchant
     activate Mobile Money Provider
-    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing <br> to the MMP. The MMP will return the Request State object <br> to indicate that the request is 'pending'.
     Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
     deactivate Merchant
     Mobile Money Provider->>Payer: Obtain Customer Authorisation
     activate Payer
-    Note right of Payer: (2) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer authorisation.
+    Note right of Payer: (2) The Payer is requested to the MMP to <br> authorise the payment. This can be <br> achieved through a number of means <br> including USSD Push and One Time Code. <br> OpenId can also be used for Payer authorisation.
     Payer-->>Mobile Money Provider: (Authorised)
     deactivate Payer
     activate Merchant
     Mobile Money Provider->>Merchant: PUT {Callback URL} (Transactions Object)
-    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the<br>transaction has been successfully completed<br>by returning the final representation of the<br>transaction.
+    Note right of Mobile Money Provider: (3) The MMP informs the Merchant that the <br> transaction has been successfully completed <br> by returning the final representation of the <br> transaction.
     Merchant-->>Mobile Money Provider: HTTP 204
     deactivate Merchant
     deactivate Mobile Money Provider
@@ -102,20 +100,20 @@ sequenceDiagram
     Merchant->>Mobile Money Provider: POST /transactions/type/merchantpay
     activate Merchant
     activate Mobile Money Provider
-    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing<br>to the MMP. The MMP will return the Request State object<br>to indicate that the request is 'pending'.
+    Note right of Mobile Money Provider: (1) The Merchant submits the payment request for processing <br> to the MMP. The MMP will return the Request State object <br> to indicate that the request is 'pending'.
     Mobile Money Provider-->>Merchant: HTTP 202 (Request State Object)
     deactivate Merchant      
     par
         loop 
             activate Merchant
             Merchant->>Mobile Money Provider: GET /requeststates/{serverCorrelationId}
-            Note right of Mobile Money Provider: (2) The Merchant polls the MMP for the Request State until the<br>transaction is authorised or declined or until the polling limit<br>is reached.
+            Note right of Mobile Money Provider: (2) The Merchant polls the MMP for the Request State until the <br> transaction is authorised or declined or until the polling limit <br> is reached.
             Mobile Money Provider-->>Merchant: HTTP 200 (Request State Object)
         end
     and
         Mobile Money Provider->>Payer: Obtain Customer Authorisation
         activate Payer
-        Note right of Payer: (3) The Payer is requested to the MMP to<br>authorise the payment. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used for Payer<br>authorisation.
+        Note right of Payer: (3) The Payer is requested to the MMP to <br> authorise the payment. This can be <br> achieved through a number of means <br> including USSD Push and One Time Code. <br> OpenId can also be used for Payer <br> authorisation.
         Payer-->>Mobile Money Provider: (Authorised)
     end
     deactivate Merchant
@@ -125,7 +123,7 @@ sequenceDiagram
         activate Mobile Money Provider
         activate Merchant
         Merchant->>Mobile Money Provider: GET /transactions/transactionsReference
-        Note right of Mobile Money Provider: (4) The Merchant can use the objectReference returned in the<br>Request State to retrieve a representation of the complete<br>payment transaction.
+        Note right of Mobile Money Provider: (4) The Merchant can use the objectReference returned in the <br> Request State to retrieve a representation of the complete <br> payment transaction.
         Mobile Money Provider-->>Merchant: HTTP 200 (Transactions Object)
     end    
     deactivate Merchant

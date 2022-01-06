@@ -84,7 +84,7 @@ html {
 
     &:hover {
       .nav-dropdown {
-        @include media('<=desktop') {
+        @include media('<=tablet-lg') {
           display: none !important;
         }
       }

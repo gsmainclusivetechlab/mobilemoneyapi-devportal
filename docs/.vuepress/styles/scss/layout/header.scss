@@ -6,6 +6,10 @@
       padding: 24px 40px;
     }
 
+    @media (max-width: 1140px) and (min-width: 1025px){
+      padding: 24px 10px;
+    }
+
     @include media('<=tablet') {
       padding-left: 40px;
     }
