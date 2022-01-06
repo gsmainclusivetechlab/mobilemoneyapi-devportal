@@ -18,6 +18,7 @@ export default {
       })
       .catch(console.log);
   },
+
   updateUserData({ commit, rootGetters }, payload) {
     const userName = rootGetters['user/getUserName']
 

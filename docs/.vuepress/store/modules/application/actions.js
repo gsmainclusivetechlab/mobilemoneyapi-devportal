@@ -2,12 +2,11 @@ import Application from '../../../api/Application';
 
 export default {
   getApps({ commit, state, rootGetters }) {
-    const userName = rootGetters['user/getUserName']
-    console.log(userName)
+    const userName = rootGetters['user/getUserName'];
 
     Application.getApps(userName)
-      .then(({ data }) => {
-        commit('setApplications', data);
+      .then(({ data: { appData } }) => {
+        commit('setApplications', appData);
 
         if (state.selectedApplication) {
           commit('setSelectedApplication', state.selectedApplication.appId);
@@ -21,7 +20,8 @@ export default {
   },
 
   postApp({ dispatch, rootGetters }, payload) {
-    const userName = rootGetters['user/getUserName']
+    const userName = rootGetters['user/getUserName'];
+    const userRole = rootGetters['user/getUserRole'];
 
     const data = {
       ...payload,
@@ -32,6 +32,11 @@ export default {
       Application.postApp(data)
         .then(() => {
           dispatch('getApps');
+
+          if(userRole === 'admin' || userRole === 'superadmin') {
+            dispatch('admin/getAllApplications', null, { root: true });
+          }
+
           return resolve(true);
         })
         .catch(console.log);
@@ -40,7 +45,7 @@ export default {
 
   updateAppById({ dispatch, state, rootGetters }, payload) {
     const appId = state.selectedApplication.appId;
-    const userName = rootGetters['user/getUserName']
+    const userName = rootGetters['user/getUserName'];
 
     return new Promise((resolve) => {
       Application.updateAppById(appId, payload, userName)
@@ -54,7 +59,7 @@ export default {
 
   deleteAppById({ dispatch, state, rootGetters }) {
     const appId = state.selectedApplication.appId;
-    const userName = rootGetters['user/getUserName']
+    const userName = rootGetters['user/getUserName'];
 
     return new Promise((resolve) => {
       Application.deleteAppById(appId, userName)

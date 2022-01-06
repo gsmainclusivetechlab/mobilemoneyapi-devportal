@@ -15,6 +15,7 @@ export default {
     AllApplications.deleteById(userName, appId)
       .then(() => {
         dispatch('getAllApplications');
+        dispatch('application/getApps', null, { root: true });
       })
       .catch(console.log);
   },
@@ -24,14 +25,17 @@ export default {
       .then(({ data }) => {
         commit('setAllUsers', data.users);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => {
+        return Promise.resolve();
+      });
   },
 
   async updateRole({ dispatch, state }, userId) {
     const { role, userName } = state.allUsers.find(user => user.userId === userId);
 
     const roles = [
-      'user', 'admin', 'superadmin'
+      'user', 'admin'
     ];
 
     const roleIndex = roles.indexOf(role) + 1;
@@ -40,15 +44,14 @@ export default {
       role: roles[roleIndex] ? roles[roleIndex] : roles[0]
     };
 
-    AllUsers.updateRole(userName, data)
-      .then(() => {
-        dispatch('getAllUsers');
-      })
-      .catch(console.log)
-      .finally(() => {
-        // TODO request is very quickly, maybe need set promise for getAllUsers
-        return Promise.resolve();
-      });
+    try {
+      await AllUsers.updateRole(userName, data);
+      await dispatch('getAllUsers');
+    } catch (error) {
+      console.log(error);
+    }
+
+    return Promise.resolve();
   },
 
   setUserStatus({ dispatch, state }, userName) {
@@ -68,14 +71,14 @@ export default {
       .catch(console.log);
   },
 
-  changePublishedState({ dispatch }, { planId, published }) {
-    AllPlans.updateStateById({
-      planId,
-      published: ! published
-    })
-      .then(() => {
-        dispatch('usagePlans/getUsagePlans', null, { root: true });
-      })
-      .catch(console.log);
+  async changePublishedState({ dispatch }, { planId, published }) {
+    try {
+      await AllPlans.updateStateById({ planId, published: ! published });
+      await dispatch('usagePlans/getUsagePlans', null, { root: true });
+    } catch (error) {
+      console.log(error);
+    }
+
+    return Promise.resolve();
   }
 };

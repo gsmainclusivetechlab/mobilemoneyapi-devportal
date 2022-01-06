@@ -985,10 +985,6 @@
         padding: 8px 0 8px 30px;
       }
 
-      .dashboard-content__table-plans & {
-        //padding: 10px 0 3px 30px;
-      }
-
       &-content {
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -1004,7 +1000,7 @@
         padding-left: 0;
 
         .dashboard-content__table-plans & {
-          justify-content: flex-end;
+          justify-content: space-around;
           padding-right: 16px;
         }
       }
@@ -1075,6 +1071,13 @@
     &__state-button {
       cursor: pointer;
       border: none;
+
+      &:disabled {
+        background: none;
+        border: 1px solid var(--inactive-btn-color);
+        color: var(--inactive-btn-color);
+        cursor: auto;
+      }
     }
 
     &__row {
@@ -1091,12 +1094,11 @@
       }
 
       .dashboard-content__table-plans & {
-        grid-template-columns: 380px 1fr 214px;
-        //grid-template-columns: 360px 1fr 308px;
+        grid-template-columns: 380px 1fr;
 
 
         @include media('<desktop') {
-          grid-template-columns: minmax(230px, 1fr) 160px 100px
+          grid-template-columns: minmax(230px, 1fr) 160px;
         }
       }
 
@@ -1175,6 +1177,7 @@
   }
 
 }
+
 .tippy-backdrop {
   background: #a2a2a2;
 }

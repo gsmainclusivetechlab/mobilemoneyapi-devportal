@@ -6,6 +6,9 @@ export default {
       .then(({ data }) => {
         commit('setUsagePlans', data);
       })
-      .catch(console.log);
+      .catch(console.log)
+      .finally(() => {
+        return Promise.resolve();
+      })
   }
 };

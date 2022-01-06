@@ -15,13 +15,17 @@
       @set-current-page="setCurrentPage"
   >
     <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.userId">
-      <dashboard-cell :value="`${user.firstName} ${user.lastName}`"/>
+      <dashboard-cell :value="getFullName(user)"/>
+
       <dashboard-cell :value="user.email"/>
+
       <dashboard-cell :value="user.companyName"/>
+
       <td class="dashboard-table__cell">
         <span class="dashboard-table__status-label" :class="[getUserStatusLabelClass(user.userId)]"></span>
         {{ user.status }}
       </td>
+
       <td class="dashboard-table__cell">
         <template v-if="isAdminRole">
           <span
@@ -29,19 +33,20 @@
             {{ user.role.toUpperCase() }}
           </span>
         </template>
+
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeUserRole(user.userId)"
+              @dblclick="changeUserRole(user.userId, user.userName)"
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button"
               :disabled="waitingUserId === user.userId"
           >
             {{ user.role.toUpperCase() }}
           </button>
         </template>
-
       </td>
+
       <td class="dashboard-table__cell dashboard-table__cell--options">
-        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
+        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="user.userName !== getUserName">
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button">
               <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,6 +106,8 @@ export default {
       tableData: 'getAllUsers'
     }),
 
+    ...mapGetters('user', ['getUserName']),
+
     ...mapState('user', ['userData'])
 
   },
@@ -115,6 +122,13 @@ export default {
       return 'dashboard-table__status-label--blocked';
     },
 
+    getFullName(user) {
+      // if (user.userName === this.getUserName) {
+      //   return `(you) ${user.firstName} ${user.lastName}`;
+      // }
+      return `${user.firstName} ${user.lastName}`;
+    },
+
     deleteUser(userName) {
       this.$store.dispatch('admin/deleteUserByUsername', userName);
       document.body.click(); // for hide tippy
@@ -125,14 +139,13 @@ export default {
       document.body.click(); // for hide tippy
     },
 
-    changeUserRole(id) {
+    async changeUserRole(id, userName) {
       // TODO set disabled and loading when we waiting for response
-      this.waitingUserId = id;
-      this.$store.dispatch('admin/updateRole', id)
-          .then(() => {
-            this.waitingUserId = '';
-          });
-
+      if (userName !== this.getUserName) {
+        this.waitingUserId = id;
+        await this.$store.dispatch('admin/updateRole', id);
+        this.waitingUserId = '';
+      }
     }
   }
 };

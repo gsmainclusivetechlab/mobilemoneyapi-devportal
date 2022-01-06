@@ -23,7 +23,7 @@
               :key="index">
             {{ title }}
           </th>
-          <th class="dashboard-table__cell dashboard-table__cell--heading">
+          <th class="dashboard-table__cell dashboard-table__cell--heading" v-if="pageType !== 'plans'">
           </th>
         </tr>
         <slot></slot>

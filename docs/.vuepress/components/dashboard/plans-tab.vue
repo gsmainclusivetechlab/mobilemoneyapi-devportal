@@ -29,28 +29,12 @@
           <button
               @dblclick="changeState(plan.id, plan.published)"
               class="dashboard-table__state-label dashboard-table__state-button"
-              :class="[getPlanStatusLabelClass(plan.published)]">
+              :class="[getPlanStatusLabelClass(plan.published)]"
+              :disabled="waitingPlanId === plan.id"
+          >
             {{ getPlanStatus(plan.published) }}
           </button>
         </template>
-      </td>
-      <td class="dashboard-table__cell dashboard-table__cell--options">
-        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="isSuperAdminRole">
-          <template v-slot:trigger>
-            <button type="button" class="dashboard-table__button" @click="showUserOptions(plan.id)">
-              <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="1" cy="1" r="1" transform="rotate(90 1 1)" fill="#7C7C7F"/>
-                <circle cx="1" cy="5" r="1" transform="rotate(90 1 5)" fill="#7C7C7F"/>
-                <circle cx="1" cy="9" r="1" transform="rotate(90 1 9)" fill="#7C7C7F"/>
-              </svg>
-            </button>
-          </template>
-
-          <user-options-block
-              :allowOptions="['delete']"
-              @deleteUser="deletePlan(plan.id)"
-          />
-        </tippy>
       </td>
     </tr>
   </dashboard-table>
@@ -73,7 +57,8 @@ export default {
   data() {
     return {
       allPlansHeaderTitles,
-      activeOptionsPlanId: -1
+      activeOptionsPlanId: -1,
+      waitingPlanId: ''
     };
   },
 
@@ -96,10 +81,6 @@ export default {
   mixins: [clickaway, dashboardSearch],
 
   methods: {
-    deletePlan(id) {
-      const index = this.tableData.findIndex(el => el.id === id);
-      this.tableData.splice(index, 1);
-    },
     getPlanStatusLabelClass(state) {
       return state ? 'dashboard-table__state-label--active' : 'dashboard-table__state-label--inactive';
     },
@@ -112,13 +93,10 @@ export default {
       this.activeOptionsPlanId = id;
     },
 
-    hideUserOptions() {
-      this.activeOptionsPlanId = -1;
-    },
-
-    changeState(planId, published) {
-      // TODO set disabled and loading when we waiting for response
-      this.$store.dispatch('admin/changePublishedState', { planId, published });
+    async changeState(planId, published) {
+      this.waitingPlanId = planId;
+      await this.$store.dispatch('admin/changePublishedState', { planId, published });
+      this.waitingPlanId = '';
     }
   }
 };
