@@ -1,6 +1,6 @@
 html {
   .sidebar {
-    @include media('<=desktop') {
+    @include media('<=tablet-lg') {
       padding-top: 96px;
       top: 0;
     }
@@ -10,7 +10,7 @@ html {
     }
 
     &-button {
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         display: block;
       }
     }
@@ -19,7 +19,7 @@ html {
       padding: 15px 0;
       font-size: 1.6rem;
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         display: block;
       }
     }
@@ -40,7 +40,7 @@ html {
       line-height: 1.5;
       font-weight: 700;
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         margin-top: 20px;
         margin-bottom: 0px;
       }
@@ -71,28 +71,28 @@ html {
     }
 
     .nav-dropdown {
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         white-space: normal;
       }
     }
   }
 
   .dropdown-wrapper {
-    @include media('<=desktop') {
+    @include media('<=tablet-lg') {
       height: auto;
     }
 
     &:hover {
       .nav-dropdown {
-        //@include media('<=desktop') {
-        //  display: none !important;
-        //}
+        @include media('<=tablet-lg') {
+          display: none !important;
+        }
       }
     }
 
     &.open {
       .nav-dropdown {
-        @include media('<=desktop') {
+        @include media('<=tablet-lg') {
           display: block !important;
           padding-bottom: 0;
         }
@@ -106,7 +106,7 @@ html {
     }
 
     .nav-dropdown {
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         padding-top: 5px;
         border: none;
         position: static;
@@ -142,7 +142,7 @@ html {
     }
 
     .dropdown-title {
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         display: none;
       }
     }
@@ -152,7 +152,7 @@ html {
       line-height: 1.5;
       color: var(--base-text-color);
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         display: block;
       }
 
@@ -190,11 +190,11 @@ html {
       @include animate(transform);
       transform: translateX(-100%);
 
-      @include media('>desktop') {
+      @include media('>tablet-lg') {
         top: 95px;
       }
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         display: block;
         width: 230px;
       }
@@ -210,14 +210,14 @@ html {
         background: var(--base-light-background-color);
         border-right: none;
 
-        @include media('>desktop') {
+        @include media('>tablet-lg') {
           width: 100%;
           max-width: 380px;
           padding: 45px 20px 64px 73px;
           transform: none;
         }
 
-        @include media('>desktop', '<1200px') {
+        @include media('>tablet-lg', '<1200px') {
           max-width: 280px;
           padding: 45px 20px 64px 23px;
         }
@@ -238,7 +238,7 @@ html {
           display: block;
         }
 
-        @include media('>desktop') {
+        @include media('>tablet-lg') {
           display: none !important;
         }
       }
@@ -246,7 +246,7 @@ html {
 
     &.sidebar-open {
       .sidebar {
-        @include media('<=desktop') {
+        @include media('<=tablet-lg') {
           display: block;
           transform: translateX(0);
         }
@@ -267,7 +267,7 @@ html {
     & > li {
       padding: 0 20px 15px 73px;
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         padding: 0 20px 5px 73px;
       }
     }
@@ -290,7 +290,7 @@ html {
               cursor: pointer;
               width: fit-content;
 
-              @include media('<=desktop') {
+              @include media('<=tablet-lg') {
                 margin: 0 0 5px;
               }
             }

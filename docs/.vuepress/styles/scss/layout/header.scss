@@ -2,8 +2,12 @@
   padding: 24px 88px;
 
   &.main-header {
-    @include media('<desktop-lg')  {
+    @include media('<desktop')  {
       padding: 24px 40px;
+    }
+
+    @media (max-width: 1140px) and (min-width: 1025px){
+      padding: 24px 10px;
     }
 
     @include media('<=tablet') {
@@ -51,7 +55,7 @@
       align-items: center;
       margin-right: 18px;
 
-      @include media('<=desktop') {
+      @include media('<=tablet-lg') {
         margin-left: 35px;
       }
 
@@ -65,7 +69,7 @@
     display: block;
     margin: 0 30px 0 0;
 
-    @include media('<desktop-lg') {
+    @include media('<desktop') {
       margin: 0 10px 0 0;
     }
 
@@ -87,7 +91,7 @@
     line-height: 1;
     letter-spacing: -1px;
 
-    @include media('<desktop-lg') {
+    @include media('<desktop') {
       margin-top: 5px;
       font-size: 1.2rem;
     }
@@ -122,7 +126,7 @@
   }
 
   .sidebar-button {
-    @include media('<=desktop') {
+    @include media('<=tablet-lg') {
       width: 30px;
       height: 30px;
       top: 32px;
