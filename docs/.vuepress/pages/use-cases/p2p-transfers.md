@@ -242,7 +242,7 @@ sequenceDiagram
                 Retrieve Transactions for an FSP
               </template>
               <template v-slot:body>
-                <p>"This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.</p>
+                <p>This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending requesting FSP via multiple requests.</p>
 <mermaid>
   sequenceDiagram
     participant Requesting FSP

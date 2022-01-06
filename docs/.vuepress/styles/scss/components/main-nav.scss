@@ -20,7 +20,7 @@ html {
     border: none;
     box-shadow: 0 4px 30px -2px rgba(36, 37, 41, 0.05);
 
-    @include media('<=desktop') {
+    @include media('<=tablet-lg') {
       background: var(--base-light-background-color);
       border-bottom: 1px solid #eaecef;
     }
@@ -74,7 +74,7 @@ html {
   }
 
   .nav-links {
-    @include media('<=desktop'){
+    @include media('<=tablet-lg'){
       display: none;
     }
 
@@ -92,6 +92,10 @@ html {
 
       > a {
         font-size: 1.4rem;
+
+        //@media (max-width: 1370px) {
+        //  font-size: 1.2rem;
+        //}
       }
 
       & > a:not(.external) {
@@ -120,7 +124,15 @@ html {
         padding: 15px 18px 17px;
       }
 
-      @include media('<desktop-lg') {
+      @media (max-width: 1370px) {
+        padding: 15px 10px 17px;
+      }
+
+      @media (max-width: 1110px) {
+        padding: 15px 5px 17px;
+      }
+
+      @include media('<desktop') {
         padding: 15px 10px 17px;
       }
 
@@ -137,6 +149,10 @@ html {
         font-weight: 400;
         color: var(--base-text-color);
         padding: 0;
+
+        //@media (max-width: 1110px) {
+        //  font-size: 1.2rem;
+        //}
 
         .arrow {
           width: 8px;
