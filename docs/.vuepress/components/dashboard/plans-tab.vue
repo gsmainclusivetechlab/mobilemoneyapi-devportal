@@ -32,7 +32,8 @@
               :class="[getPlanStatusLabelClass(plan.published)]"
               :disabled="waitingPlanId === plan.id"
           >
-            {{ getPlanStatus(plan.published) }}
+            <spinner-component table v-if="waitingPlanId === plan.id"/>
+            <span v-else>{{ getPlanStatus(plan.published) }}</span>
           </button>
         </template>
       </td>
@@ -48,11 +49,12 @@ import DashboardTable from '../dashboard-table';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState } from 'vuex';
+import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
   name: 'plans-tab',
 
-  components: { DashboardCell, DashboardTable, UserOptionsBlock },
+  components: { SpinnerComponent, DashboardCell, DashboardTable, UserOptionsBlock },
 
   data() {
     return {

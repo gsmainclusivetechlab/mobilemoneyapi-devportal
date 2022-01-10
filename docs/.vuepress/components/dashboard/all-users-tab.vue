@@ -40,7 +40,7 @@
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button"
               :disabled="waitingUserId === user.userId"
           >
-            <spinner-component v-if="waitingUserId === user.userId"/>
+            <spinner-component table v-if="waitingUserId === user.userId"/>
             <span v-else>{{ user.role.toUpperCase() }}</span>
           </button>
         </template>
