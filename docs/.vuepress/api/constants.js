@@ -10,7 +10,6 @@ export const REFRESH_TOKEN = 'refresh_token';
 export const X_USER_TOKEN = 'x_user_token';
 
 export const CONFIRMED = 'CONFIRMED';
-export const UNCONFIRMED = 'UNCONFIRMED';
 
 export const SECONDS_IN_DAY = 86400;
 

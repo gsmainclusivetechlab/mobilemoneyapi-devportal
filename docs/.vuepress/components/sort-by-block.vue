@@ -49,6 +49,10 @@ export default {
           value: 'Oldest'
         },
         {
+          title: 'First name',
+          value: 'firstName'
+        },
+        {
           title: 'Active',
           value: 'Active'
         },

@@ -11,5 +11,5 @@ export default {
   codePanel,
   user,
   usagePlans,
-  admin
+  admin,
 };
