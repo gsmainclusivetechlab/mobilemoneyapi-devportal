@@ -51,7 +51,7 @@ sequenceDiagram
     deactivate FSP 
 </mermaid>
 
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -80,7 +80,7 @@ sequenceDiagram
     deactivate Requesting FPS
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -105,7 +105,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -130,7 +130,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -164,8 +164,8 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
- </accordion-item>
+</template>
+</accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
 Perform a Transfer Reversal
@@ -187,7 +187,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -206,7 +206,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -230,7 +230,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -251,7 +251,7 @@ sequenceDiagram
     deactivate Requesting FSP
     deactivate FSP
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>
@@ -280,4 +280,3 @@ sequenceDiagram
           </accordion>
 
 </template>
-
