@@ -40,7 +40,8 @@
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button"
               :disabled="waitingUserId === user.userId"
           >
-            {{ user.role.toUpperCase() }}
+            <spinner-component v-if="waitingUserId === user.userId"/>
+            <span v-else>{{ user.role.toUpperCase() }}</span>
           </button>
         </template>
       </td>
@@ -76,11 +77,12 @@ import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapState } from 'vuex';
+import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
   name: 'all-users-tab',
 
-  components: { DashboardCell, DashboardTable, UserOptionsBlock },
+  components: { SpinnerComponent, DashboardCell, DashboardTable, UserOptionsBlock },
 
   data() {
     return {
@@ -123,9 +125,6 @@ export default {
     },
 
     getFullName(user) {
-      // if (user.userName === this.getUserName) {
-      //   return `(you) ${user.firstName} ${user.lastName}`;
-      // }
       return `${user.firstName} ${user.lastName}`;
     },
 

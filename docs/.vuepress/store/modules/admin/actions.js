@@ -1,23 +1,29 @@
 import AllApplications from '../../../api/admin/allApplications';
 import AllUsers from '../../../api/admin/allUsers';
 import AllPlans from '../../../api/admin/allPlans';
+import ModalWindow from '../../../services/ModalWindow';
 
 export default {
   getAllApplications({ commit }) {
     AllApplications.get()
-      .then(({ data }) => {
-        commit('setAllApplications', data);
+      .then(({ data: { appData } }) => {
+        commit('setAllApplications', appData);
       })
       .catch(console.log);
   },
 
-  deleteApplicationByUser({ dispatch }, { userName, appId }) {
-    AllApplications.deleteById(userName, appId)
-      .then(() => {
-        dispatch('getAllApplications');
-        dispatch('application/getApps', null, { root: true });
-      })
-      .catch(console.log);
+  async deleteApplicationByUser({ dispatch }, { userName, appId }) {
+    try {
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        await AllApplications.deleteById(userName, appId);
+        await dispatch('getAllApplications');
+        await dispatch('application/getApps', null, { root: true });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   getAllUsers({ commit }) {
@@ -45,8 +51,12 @@ export default {
     };
 
     try {
-      await AllUsers.updateRole(userName, data);
-      await dispatch('getAllUsers');
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        await AllUsers.updateRole(userName, data);
+        await dispatch('getAllUsers');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -54,27 +64,42 @@ export default {
     return Promise.resolve();
   },
 
-  setUserStatus({ dispatch, state }, userName) {
-    const { userEnabled } = state.allUsers.find(user => user.userName === userName);
-    AllUsers.setUserStatus(userName, userEnabled)
-      .then(() => {
-        dispatch('getAllUsers');
-      })
-      .catch(console.log);
+  async setUserStatus({ dispatch, state }, userName) {
+    try {
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        const { userEnabled } = state.allUsers.find(user => user.userName === userName);
+
+        await AllUsers.setUserStatus(userName, userEnabled);
+        await dispatch('getAllUsers');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 
-  deleteUserByUsername({ dispatch }, userName) {
-    AllUsers.deleteByUsername(userName)
-      .then(() => {
-        dispatch('getAllUsers');
-      })
-      .catch(console.log);
+  async deleteUserByUsername({ dispatch }, userName) {
+    try {
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        await AllUsers.deleteByUsername(userName);
+        await dispatch('getAllUsers');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   async changePublishedState({ dispatch }, { planId, published }) {
     try {
-      await AllPlans.updateStateById({ planId, published: ! published });
-      await dispatch('usagePlans/getUsagePlans', null, { root: true });
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        await AllPlans.updateStateById({ planId, published: ! published });
+        await dispatch('usagePlans/getUsagePlans', null, { root: true });
+      }
     } catch (error) {
       console.log(error);
     }

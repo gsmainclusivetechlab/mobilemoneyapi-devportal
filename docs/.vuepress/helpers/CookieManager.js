@@ -14,8 +14,11 @@ export default {
     Cookies.set(name, value, { sameSite: 'strict' });
   },
 
-  setValueWithExpires(name, value, expires) {
-    Cookies.set(name, value, { expires: expires / SECONDS_IN_DAY, sameSite: 'strict' });
+  setValueWithExpires(name, value, expires, days = 0) {
+    Cookies.set(name, value, {
+      expires: days ? days : expires / SECONDS_IN_DAY,
+      sameSite: 'strict'
+    });
   },
 
   removeValues(...names) {

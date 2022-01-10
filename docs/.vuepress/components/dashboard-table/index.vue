@@ -37,6 +37,7 @@
       />
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
+<!--    <confirmation-modal/>-->
   </div>
 </template>
 
@@ -103,7 +104,8 @@ export default {
   },
   data() {
     return {
-      modalIsVisible: false
+      modalIsVisible: false,
+      confirmationModal: false
     };
   },
   methods: {

@@ -84,6 +84,7 @@ export default {
     },
     deleteApplication(userName, appId) {
       this.$store.dispatch('admin/deleteApplicationByUser', { userName, appId });
+      document.body.click(); // for hide tippy
     },
   }
 };
