@@ -22,37 +22,37 @@
         </button>
       </div>
       <div class="tabs-holder">
-        <TabSection v-show="isActiveTab('P2P Transfers')">
+        <TabSection v-if="isActiveTab('P2P Transfers')" key="1">
 !!!include(../../use-cases/p2p-transfers.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/p-2-p-transfers/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Merchant Payments')">
+        <TabSection v-if="isActiveTab('Merchant Payments')" key="2">
 !!!include(../../use-cases/merchant-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/merchant-payments/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Disbursements')">
+        <TabSection  v-if="isActiveTab('Disbursements')" key="3">
 !!!include(../../use-cases/disbursements.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/disbursements/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('International Transfers')">
+        <TabSection  v-if="isActiveTab('International Transfers')" key="4">
 !!!include(../../use-cases/internal-transfers.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/international-transfers/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Recurring Payments')">
+        <TabSection  v-if="isActiveTab('Recurring Payments')" key="5">
 !!!include(../../use-cases/recurring-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/recurring-payments/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Account Linking')">
+        <TabSection  v-if="isActiveTab('Account Linking')" key="6">
 !!!include(../../use-cases/account-linking.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/account-linking/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Bill Payments')">
+        <TabSection  v-if="isActiveTab('Bill Payments')" key="7">
 !!!include(../../use-cases/bill-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/bill-payments/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Agent Services')">
+        <TabSection  v-if="isActiveTab('Agent Services')" key="8">
 !!!include(../../use-cases/agent-services.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/agent-services/">Start developing</router-link>
+<router-link class="btn btn--transparent" to="/use-cases/agent-services/" key="9">Start developing</router-link>
         </TabSection>
       </div>
     </div>

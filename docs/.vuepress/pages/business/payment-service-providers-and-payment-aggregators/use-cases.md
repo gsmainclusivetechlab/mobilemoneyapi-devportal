@@ -22,15 +22,15 @@
         </button>
       </div>
       <div class="tabs-holder">
-        <TabSection v-show="isActiveTab('P2P Transfers')">
+        <TabSection  v-if="isActiveTab('P2P Transfers')" key="1">
 !!!include(../../use-cases/p2p-transfers.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/p-2-p-transfers/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('International Transfers')">
+        <TabSection  v-if="isActiveTab('International Transfers')" key="2">
 !!!include(../../use-cases/internal-transfers.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/international-transfers/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Merchant Payments')">
+        <TabSection  v-if="isActiveTab('Merchant Payments')" key="3">
 !!!include(../../use-cases/merchant-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/merchant-payments/">Start developing</router-link>
         </TabSection>

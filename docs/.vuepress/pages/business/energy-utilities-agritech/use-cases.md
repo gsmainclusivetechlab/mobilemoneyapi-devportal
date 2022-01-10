@@ -22,11 +22,11 @@
         </button>
       </div>
       <div class="tabs-holder">
-        <TabSection v-show="isActiveTab('Recurring Payments')">
+        <TabSection v-if="isActiveTab('Recurring Payments')" key="1">
 !!!include(../../use-cases/recurring-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/recurring-payments/">Start developing</router-link>
         </TabSection>
-        <TabSection v-show="isActiveTab('Bill Payments')">
+        <TabSection v-if="isActiveTab('Bill Payments')" key="2">
 !!!include(../../use-cases/bill-payments.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/bill-payments/">Start developing</router-link>
         </TabSection>
