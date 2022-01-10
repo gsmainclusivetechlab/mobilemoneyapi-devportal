@@ -45,7 +45,6 @@ export default {
 
   created() {
     this.isOpened = !! this.expanded;
-    console.log('sdfsdfdsf');
   },
 
   mounted() {
