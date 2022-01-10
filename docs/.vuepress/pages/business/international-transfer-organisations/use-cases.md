@@ -22,7 +22,7 @@
         </button>
       </div>
       <div class="tabs-holder">
-        <TabSection v-show="isActiveTab('International Transfers')">
+        <TabSection  v-if="isActiveTab('International Transfers')">
 !!!include(../../use-cases/internal-transfers.md)!!!
 <router-link class="btn btn--transparent" to="/use-cases/international-transfers/">Start developing</router-link>
         </TabSection>

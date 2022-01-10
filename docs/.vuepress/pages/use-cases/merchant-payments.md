@@ -159,7 +159,7 @@ sequenceDiagram
     deactivate Mobile Money Provider
     deactivate Merchant
 </mermaid>
-  </template>
+</template>
 </accordion-item>
 <accordion-item businessPage>
 <template v-slot:header>

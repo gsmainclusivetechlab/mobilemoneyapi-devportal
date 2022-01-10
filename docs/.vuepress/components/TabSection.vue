@@ -9,5 +9,8 @@
 <script>
 export default {
   name: 'TabSection',
+  created() {
+    console.log('created')
+  }
 };
 </script>
