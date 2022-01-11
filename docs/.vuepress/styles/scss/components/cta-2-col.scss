@@ -23,7 +23,7 @@
     &__title {
       margin: -100px 0 7px;
 
-      .api-page.api-page.api-page.theme-container .theme-default-content & {
+      .api-page.api-page.api-page.theme-container .content__default & {
         margin: -100px 0 7px;
       }
     }
@@ -40,7 +40,7 @@
       line-height: 1.5;
       text-decoration: none;
 
-      .api-page.api-page.api-page.theme-container .theme-default-content & {
+      .api-page.api-page.api-page.theme-container .content__default & {
         text-decoration: none;
       }
     }
