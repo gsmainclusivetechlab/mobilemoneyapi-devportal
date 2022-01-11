@@ -1,6 +1,6 @@
 html {
   .theme-container:not(.custom):not(.api-page) {
-    .theme-default-content {
+    .content__default {
       &:not(.custom) {
         max-width: 100%;
         padding: 73px 40px 184px;
@@ -106,7 +106,7 @@ html {
     }
 
     &.no-sidebar {
-      .theme-default-content:not(.custom){
+      .content__default:not(.custom){
         max-width: 916px;
       }
     }

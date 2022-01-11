@@ -1,4 +1,4 @@
-.api-page.api-page.api-page.theme-container .theme-default-content {
+.api-page.api-page.api-page.theme-container .content__default {
   .swagger-ui.swagger-ui {
     div {
       max-width: 100%;
@@ -76,7 +76,7 @@
     .parameters,
     .responses-table {
       display: table;
-      
+
       thead {
         tr {
           background: none;
@@ -141,7 +141,7 @@
       .renderedMarkdown.renderedMarkdown {
         color: #3b4151;
         background: none;
-        
+
         p {
           font-style: normal;
           font-size: 1.2rem;
