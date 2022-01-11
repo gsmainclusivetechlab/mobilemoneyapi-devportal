@@ -12,11 +12,14 @@ title: Energy & Utilities & AgriTech
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import TabSection from "../.vuepress/components/TabSection";
+import Accordion from "../.vuepress/components/simple-accordion/accordion";
+import AccordionItem from "../.vuepress/components/simple-accordion/accordion-item";
 import useCasesTab from "../.vuepress/mixins/useCasesTab.js";
 
 export default {
   components: {
-    VueSlickCarousel
+    VueSlickCarousel, AccordionItem, Accordion, TabSection
   },
   data() {
     return {
