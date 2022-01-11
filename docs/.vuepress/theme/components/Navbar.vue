@@ -22,7 +22,7 @@
 
       <NavLinks class="can-hide"/>
 
-      <SearchBox/>
+      <SearchBox @set-active-search="isActiveSearch = $event"/>
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">
@@ -31,7 +31,9 @@
       </div>
 
       <div class="logged-in-links" v-if="isLoggedUser">
-        <span class="logged-in-name">{{ getFullName }}</span>
+        <transition name="fade-name">
+          <span class="logged-in-name" v-show="!isActiveSearch">{{ getFullName }}</span>
+        </transition>
         <button class="logged-in-account-btn" @click="goToDashboard">
           <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -82,6 +84,7 @@ export default {
       linksWrapMaxWidth: null,
       isMobileSearchOpened: false,
       loggedInDropdownOpened: false,
+      isActiveSearch: false
     };
   },
 
@@ -140,3 +143,12 @@ function css(el, property) {
   return win.getComputedStyle(el, null)[property];
 }
 </script>
+
+<style lang="scss">
+.fade-name-enter-active, .fade-name-leave-active {
+  transition: font-size .5s;
+}
+.fade-name-enter, .fade-name-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  font-size: 0 !important;
+}
+</style>

@@ -9,8 +9,8 @@
         autocomplete="off"
         spellcheck="false"
         @input="query = $event.target.value"
-        @focus="focused = true"
-        @blur="focused = false"
+        @focus="setFocus(true)"
+        @blur="setFocus(false)"
         @keyup.enter="go(focusIndex)"
         @keyup.up="onUp"
         @keyup.down="onDown"
@@ -51,10 +51,10 @@
 </template>
 
 <script>
-import flexsearchSvc from '../services/flexsearchSvc'
+import flexsearchSvc from '../services/flexsearchSvc';
 
 // see https://vuepress.vuejs.org/plugin/option-api.html#clientdynamicmodules
-import hooks from '@dynamic/hooks'
+import hooks from '@dynamic/hooks';
 
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS, SEARCH_HOTKEYS */
 export default {
@@ -66,186 +66,190 @@ export default {
       focusIndex: 0,
       placeholder: undefined,
       suggestions: null,
-    }
+    };
   },
   computed: {
     queryTerms() {
-      if (!this.query) return []
+      if (! this.query) return [];
       return flexsearchSvc
           .normalizeString(this.query)
           .split(/[^\p{L}\p{N}_]+/iu)
-          .filter(t => t)
+          .filter(t => t);
     },
     showSuggestions() {
-      return this.focused && this.suggestions && this.suggestions.length
+      return this.focused && this.suggestions && this.suggestions.length;
     },
 
     // make suggestions align right when there are not enough items
     alignRight() {
-      const navCount = (this.$site.themeConfig.nav || []).length
-      const repo = this.$site.repo ? 1 : 0
-      return navCount + repo <= 2
+      const navCount = (this.$site.themeConfig.nav || []).length;
+      const repo = this.$site.repo ? 1 : 0;
+      return navCount + repo <= 2;
     },
   },
   watch: {
     query() {
-      this.getSuggestions()
+      this.getSuggestions();
     },
   },
   /* global OPTIONS */
   created() {
-   this.$router.options.scrollBehavior = (to, from, savedPosition) => {
-     const test = this.$vuepress.$get('disableScrollBehavior')
-     if (to.hash && !test) {
-       return new Promise((resolve, reject) => {
-         setTimeout(() => {
-           resolve({selector: to.hash, behavior: 'smooth'})
-         }, 500)
-       })
-     }
+    this.$router.options.scrollBehavior = (to, from, savedPosition) => {
+      const test = this.$vuepress.$get('disableScrollBehavior');
+      if (to.hash && ! test) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({ selector: to.hash, behavior: 'smooth' });
+          }, 500);
+        });
+      }
 
-    }
+    };
   },
   mounted() {
-    const options = OPTIONS || {}
-    flexsearchSvc.buildIndex(this.$site.pages, options)
-    this.placeholder = this.$site.themeConfig.searchPlaceholder || ''
-    document.addEventListener('keydown', this.onHotkey)
+    const options = OPTIONS || {};
+    flexsearchSvc.buildIndex(this.$site.pages, options);
+    this.placeholder = this.$site.themeConfig.searchPlaceholder || '';
+    document.addEventListener('keydown', this.onHotkey);
 
     // set query from URL
-    const params = this.urlParams()
+    const params = this.urlParams();
     if (params) {
-      const query = params.get('query')
+      const query = params.get('query');
       if (query) {
-        this.query = decodeURI(query)
-        this.focused = true
+        this.query = decodeURI(query);
+        this.focused = true;
       }
     }
   },
   beforeDestroy() {
-    document.removeEventListener('keydown', this.onHotkey)
+    document.removeEventListener('keydown', this.onHotkey);
   },
   methods: {
     async getSuggestions() {
-      if (!this.query || !this.queryTerms.length) {
-        this.suggestions = []
-        return
+      if (! this.query || ! this.queryTerms.length) {
+        this.suggestions = [];
+        return;
       }
       let suggestions = await flexsearchSvc.match(
           this.query,
           this.queryTerms,
           this.$site.themeConfig.searchMaxSuggestions || SEARCH_MAX_SUGGESTIONS,
-      )
+      );
       if (hooks.processSuggestions) {
         // augment suggestions with user-provided function
-        suggestions = await hooks.processSuggestions(suggestions, this.query, this.queryTerms)
+        suggestions = await hooks.processSuggestions(suggestions, this.query, this.queryTerms);
       }
       this.suggestions = suggestions.map(s => ({
         ...s,
         headingDisplay: highlight(s.headingStr, s.headingHighlight),
         contentDisplay: highlight(s.contentStr, s.contentHighlight),
-      }))
+      }));
     },
     getPageLocalePath(page) {
       for (const localePath in this.$site.locales || {}) {
         if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
-          return localePath
+          return localePath;
         }
       }
-      return '/'
+      return '/';
     },
     isSearchable(page) {
-      let searchPaths = SEARCH_PATHS
+      let searchPaths = SEARCH_PATHS;
       // all paths searchables
       if (searchPaths === null) {
-        return true
+        return true;
       }
-      searchPaths = Array.isArray(searchPaths) ? searchPaths : new Array(searchPaths)
+      searchPaths = Array.isArray(searchPaths) ? searchPaths : new Array(searchPaths);
       return (
           searchPaths.filter(path => {
-            return page.path.match(path)
+            return page.path.match(path);
           }).length > 0
-      )
+      );
     },
     onHotkey(event) {
       if (event.srcElement === document.body && SEARCH_HOTKEYS.includes(event.key)) {
-        this.$refs.input.focus()
-        event.preventDefault()
+        this.$refs.input.focus();
+        event.preventDefault();
       }
     },
     onUp() {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
-          this.focusIndex--
+          this.focusIndex--;
         } else {
-          this.focusIndex = this.suggestions.length - 1
+          this.focusIndex = this.suggestions.length - 1;
         }
       }
     },
     onDown() {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
-          this.focusIndex++
+          this.focusIndex++;
         } else {
-          this.focusIndex = 0
+          this.focusIndex = 0;
         }
       }
     },
     go(i) {
-      if (!this.showSuggestions) {
-        return
+      if (! this.showSuggestions) {
+        return;
       }
       if (hooks.onGoToSuggestion) {
-        const result = hooks.onGoToSuggestion(i, this.suggestions[i], this.query, this.queryTerms)
-        if (result === true) return
+        const result = hooks.onGoToSuggestion(i, this.suggestions[i], this.query, this.queryTerms);
+        if (result === true) return;
       }
       if (this.suggestions[i].external) {
-        window.open(this.suggestions[i].path + this.suggestions[i].slug, '_blank')
+        window.open(this.suggestions[i].path + this.suggestions[i].slug, '_blank');
       } else {
         this.$router.push(this.suggestions[i].path + this.suggestions[i].slug).catch(error => {
-          if (error.name !== "NavigationDuplicated") {
+          if (error.name !== 'NavigationDuplicated') {
             throw error;
           }
         });
-        this.query = ''
-        this.focusIndex = 0
+        this.query = '';
+        this.focusIndex = 0;
         // this.focused = false
 
         // reset query param
-        const params = this.urlParams()
+        const params = this.urlParams();
         if (params) {
-          params.delete('query')
-          const paramsString = params.toString()
-          const newState = window.location.pathname + (paramsString ? `?${paramsString}` : '')
-          history.pushState(null, '', newState)
+          params.delete('query');
+          const paramsString = params.toString();
+          const newState = window.location.pathname + (paramsString ? `?${paramsString}` : '');
+          history.pushState(null, '', newState);
         }
       }
     },
     focus(i) {
-      this.focusIndex = i
+      this.focusIndex = i;
     },
     unfocus() {
-      this.focusIndex = -1
+      this.focusIndex = -1;
     },
     urlParams() {
-      if (!window.location.search) {
-        return null
+      if (! window.location.search) {
+        return null;
       }
-      return new URLSearchParams(window.location.search)
+      return new URLSearchParams(window.location.search);
     },
+    setFocus(value) {
+      this.focused = value;
+      this.$emit('set-active-search', value)
+    }
   },
-}
+};
 
 function highlight(str, strHighlight) {
-  if (!str) return {}
-  if (!strHighlight) return {prefix: str}
-  const [start, length] = strHighlight
-  const end = start + length
+  if (! str) return {};
+  if (! strHighlight) return { prefix: str };
+  const [start, length] = strHighlight;
+  const end = start + length;
 
-  const prefix = str.slice(0, start)
-  const highlightedContent = str.slice(start, end)
-  const suffix = str.slice(end)
-  return {prefix, highlightedContent, suffix}
+  const prefix = str.slice(0, start);
+  const highlightedContent = str.slice(start, end);
+  const suffix = str.slice(end);
+  return { prefix, highlightedContent, suffix };
 
   // return `${prefix}<span class="highlight">${highlightedContent}</span>${suffix}`
 }
