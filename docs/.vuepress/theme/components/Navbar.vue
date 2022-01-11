@@ -145,10 +145,13 @@ function css(el, property) {
 </script>
 
 <style lang="scss">
-.fade-name-enter-active, .fade-name-leave-active {
+.fade-name-enter-active {
   transition: font-size .5s;
 }
-.fade-name-enter, .fade-name-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+.fade-name-enter /* .fade-leave-active до версии 2.1.8 */ {
   font-size: 0 !important;
+}
+.fade-name-leave-active {
+  display: none;
 }
 </style>

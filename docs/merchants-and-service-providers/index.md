@@ -14,6 +14,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import TabSection from "../.vuepress/components/TabSection";
 import Accordion from "../.vuepress/components/simple-accordion/accordion";
 import AccordionItem from "../.vuepress/components/simple-accordion/accordion-item";
+import useCasesTab from "../.vuepress/mixins/useCasesTab.js";
 
 export default {
   components: {
@@ -44,7 +45,7 @@ export default {
   created() {
     this.activeTabName = this.tabs.length ? this.tabs[0] : ''
   },
-
+  mixins: [useCasesTab],
   methods: {
     handleTabSwitch(tabName) {
       this.activeTabName = tabName;
