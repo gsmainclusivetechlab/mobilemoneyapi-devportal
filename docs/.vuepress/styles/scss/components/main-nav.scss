@@ -122,10 +122,6 @@ html {
       }
 
       @include media('<desktop-lg') {
-        padding: 15px 12px 17px;
-      }
-
-      @include media('<desktop') {
         padding: 15px 10px 17px;
       }
 
