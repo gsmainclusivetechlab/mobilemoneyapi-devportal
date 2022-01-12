@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from './constants';
+import { BASE_URL, ID_TOKEN, LOGIN, REFRESH_TOKEN, X_USER_TOKEN } from './constants';
 import CookieManager from '../helpers/CookieManager';
 import TokensManager from './TokensManager';
 
@@ -11,6 +11,7 @@ class Api {
     this.setTokens();
     this.requestWait = false;
     this.requestsQueue = [];
+    this.headersForOneRequest = {};
   }
 
   static create() {
@@ -23,6 +24,20 @@ class Api {
   getHeaders() {
     return this.headers;
   }
+
+  setHeadersForOneRequest(headers) {
+    this.headersForOneRequest = {
+      ...this.headersForOneRequest,
+      ...headers
+    };
+
+    return this;
+  }
+
+  clearHeadersForOneRequest() {
+    this.headersForOneRequest = {};
+  }
+
   // TODO fix setting headers - need set headers for every request
   onAccessTokenFetched() {
     const [id_token, x_user_token] = CookieManager.getValues([ID_TOKEN], [X_USER_TOKEN]);
@@ -57,12 +72,13 @@ class Api {
       baseURL: BASE_URL,
       headers: {
         ...this.getHeaders(),
+        ...this.headersForOneRequest
       },
     });
 
     this.client.interceptors.response.use(
       (response) => {
-        if (response.data.error) return Promise.reject(response.data?.errorDescription?.name);
+        if (response.data.error) return Promise.reject(response?.data?.errorDescription?.name);
         return response;
       },
       (error) => {
@@ -98,11 +114,11 @@ class Api {
 
           return retryOriginalRequest;
 
-        } else if (error.response.status === 401) {
-          return window.location.replace('/login/');
+        } else if (error.response.status === 401 && error.config.url !== LOGIN) {
+          window.location.replace('/login/');
         }
 
-        return Promise.reject(error)
+        return Promise.reject(error);
       });
 
     return this.client;
@@ -110,6 +126,7 @@ class Api {
 
   request(config = {}) {
     this.initClient();
+    this.clearHeadersForOneRequest();
 
     return this.client.request(config);
   }

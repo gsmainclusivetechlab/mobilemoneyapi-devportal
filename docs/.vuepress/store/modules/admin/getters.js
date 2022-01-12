@@ -7,7 +7,7 @@ export default {
     };
   },
   getAllApplications(state, getters, rootState) {
-    return state.allApplications.map(app => {
+    return state.allApplications.appData.map(app => {
       const usagePlans = rootState.usagePlans.usagePlans;
       return {
         ...app,
@@ -15,6 +15,9 @@ export default {
         usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name || '' : ''
       };
     });
+  },
+  getPaginationForAllApps(state) {
+    return state.allApplications.paginationToken
   },
   getAllUsers(state) {
     return state.allUsers.map(user => {

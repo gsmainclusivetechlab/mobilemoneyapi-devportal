@@ -20,11 +20,19 @@
           @click="$emit('set-current-page', page)"
       >{{ page }}
       </button>
+<!--      <button-->
+<!--          type="button"-->
+<!--          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow&#45;&#45;right"-->
+<!--          :class="{'dashboard-table__pagination-arrow&#45;&#45;inactive': currentPage === pagesCount}"-->
+<!--          @click="$emit('set-current-page', currentPage + 1)"-->
+<!--      >-->
+<!--        Next >-->
+<!--      </button>-->
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': currentPage === pagesCount}"
-          @click="$emit('set-current-page', currentPage + 1)"
+          :class="{'dashboard-table__pagination-arrow--inactive': !paginationToken}"
+          @click="$emit('next-page', paginationToken)"
       >
         Next >
       </button>
@@ -51,6 +59,9 @@ export default {
     perPage: {
       type: Number,
       default: 1
+    },
+    paginationToken: {
+      type: Object
     }
   }
 };

@@ -844,7 +844,7 @@
           width: 276px;
           height: 100%;
           border-radius: 0;
-
+          border: 1px solid var(--base-border-color);
           color: #BEBEBF;
           font-size: 14px;
           line-height: 180%;
@@ -885,8 +885,9 @@
           background-size: 15px;
           font-size: 14px;
           font-family: var(--base-font-family);
-          padding: 9px 40px 6px 16px;
-          line-height: 1;
+          padding-left: 16px;
+          height: 34px;
+          padding-right: 40px;
 
           &::placeholder {
             color: #BEBEBF;

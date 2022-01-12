@@ -79,8 +79,8 @@ export default {
             this.$router.push({ path: '/dashboard/' });
           })
           .catch((e) => {
-            if (e === 'NotAuthorizedException') {
-              this.errorMessage = 'User credentials are not valid';
+            if(e?.response?.data?.error) {
+              this.errorMessage = e.response.data.errorDescription
             }
           })
           .finally(() => {

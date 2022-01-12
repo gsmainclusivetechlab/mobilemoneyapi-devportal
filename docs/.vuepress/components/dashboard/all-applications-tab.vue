@@ -8,11 +8,13 @@
       :current-page="currentPage"
       :per-page="perPage"
       :filter-data="getCompanies"
+      :paginationToken="paginationToken"
       page-type="applications"
       is-create-button
       @search-value="setSearchValue"
       @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
+      @next-page="nextPage"
       @filter-value="setFilterValue"
   >
     <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.appId">
@@ -72,7 +74,8 @@ export default {
     },
     ...mapGetters('admin', {
       getCompanyByUsername: 'getCompanyByUsername',
-      tableData: 'getAllApplications'
+      tableData: 'getAllApplications',
+      paginationToken: 'getPaginationForAllApps'
     })
   },
 

@@ -108,6 +108,7 @@
 <script>
 import Auth from '../api/Auth';
 import SpinnerComponent from './helpers/spinner-component';
+import { USERNAME_ALREADY_REGISTERED, EMAIL_ALREADY_REGISTERED } from '../api/constants';
 
 export default {
   name: 'signup-section',
@@ -130,20 +131,31 @@ export default {
   methods: {
     async signUp() {
       this.waitingResponse = true;
-      this.errorMessage = ''
+      this.errorMessage = '';
 
       await Auth.signUp(this.form)
           .then(() => {
             this.$router.push({ path: '/login/' });
           })
           .catch((e) => {
-            if(e?.response?.data?.error) {
-              this.errorMessage = e.response.data.errorDescription
+            if (e?.response?.data?.error) {
+              if (e.response.data.error === USERNAME_ALREADY_REGISTERED) {
+                this.$refs.form.setErrors({
+                  userName: e.response.data.errorDescription.replaceAll('.', '')
+                });
+              } else if (e.response.data.error === EMAIL_ALREADY_REGISTERED) {
+                this.$refs.form.setErrors({
+                  email: e.response.data.errorDescription.replaceAll('.', '')
+                });
+              } else {
+                this.errorMessage = e.response.data.errorDescription;
+              }
             }
           })
           .finally(() => {
             this.waitingResponse = false;
           });
+
     }
   }
 };

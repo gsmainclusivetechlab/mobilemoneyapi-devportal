@@ -40,6 +40,15 @@
     @include media('<tablet-xs') {
       padding: 35px 15px;
     }
+
+    &__confirmation {
+      max-width: 762px;
+      padding: 54px 0 36px;
+
+      @include media('<tablet') {
+        padding: 54px 0 36px;
+      }
+    }
   }
 
   .close-btn {
@@ -51,6 +60,11 @@
     padding: 15px;
     margin: 0;
     cursor: pointer;
+
+    @include media('<tablet') {
+      right: 15px;
+      top: 15px;
+    }
 
     &:before,
     &:after {
@@ -75,6 +89,10 @@
     display: block;
     margin-bottom: 35px;
     text-align: center;
+
+    @include media('<tablet') {
+      font-size: 1.8rem;
+    }
   }
 
   .input-wrap {
@@ -145,15 +163,24 @@
 
   .btn-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 64px;
+
+    .modal-container__confirmation & {
+      margin-top: 0;
+    }
 
     .btn {
       &.btn--accent, &.btn--accent-close {
         min-width: 184px;
 
-        @include media('<phone') {
-          min-width: 120px;
+        @include media('<tablet') {
+          min-width: 150px;
+          font-size: 1.4rem;
+        }
+
+        @include media('<tablet-xs') {
+          min-width: 110px;
         }
       }
     }

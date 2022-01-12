@@ -33,7 +33,9 @@
           :pages-count="pagesCount"
           :current-page="currentPage"
           :per-page="perPage"
+          :paginationToken="paginationToken"
           @set-current-page="$emit('set-current-page', $event)"
+          @next-page="$emit('next-page', $event)"
       />
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
@@ -100,6 +102,9 @@ export default {
     pageType: {
       type: String,
       default: ''
+    },
+    paginationToken: {
+      type: Object
     }
   },
   data() {

@@ -10,7 +10,6 @@ export default {
         .then((res) => {
           const { x_user_token, id_token, expires_in, refresh_token } = res.data;
 
-
           CookieManager.setValueWithExpires(X_USER_TOKEN, x_user_token, expires_in);
           CookieManager.setValueWithExpires(ID_TOKEN, id_token, expires_in);
           CookieManager.setValueWithExpires(REFRESH_TOKEN, refresh_token, 0, 30);

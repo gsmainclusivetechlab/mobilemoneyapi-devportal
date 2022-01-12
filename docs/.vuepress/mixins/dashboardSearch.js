@@ -96,6 +96,10 @@ export default {
 
         setCurrentPage(page) {
             this.currentPage = page
+        },
+
+        nextPage(paginationToken) {
+            this.$store.dispatch('admin/getAllApplications', paginationToken)
         }
     }
 }
