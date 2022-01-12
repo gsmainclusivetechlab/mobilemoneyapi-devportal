@@ -57,10 +57,12 @@
 }
 
 .sort-by-options {
-  padding: 14px 0px 14px 0px;
+  padding: 14px 0;
 
   &__button {
     padding: 5px 47px 5px 18px;
+    white-space: nowrap;
+
     &--active {
       background-color: #BEBEBF;
     }

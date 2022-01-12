@@ -47,7 +47,7 @@
       </td>
 
       <td class="dashboard-table__cell dashboard-table__cell--options">
-        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="user.userName !== getUserName">
+        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30" v-if="user.userName !== getUserName && !isUserAdminOrSuperadmin(user)">
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button">
               <svg width="2" height="10" viewBox="0 0 2 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,6 +117,9 @@ export default {
   mixins: [dashboardSearch],
 
   methods: {
+    isUserAdminOrSuperadmin(user) {
+      return (user.role === 'admin' || user.role === 'superadmin') && this.isAdminRole
+    },
     getUserStatusLabelClass(id) {
       const { status } = this.tableData.find(user => user.userId === id);
       if (status === 'Active') return 'dashboard-table__status-label--active';

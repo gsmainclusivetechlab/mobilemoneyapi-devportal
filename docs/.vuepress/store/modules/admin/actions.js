@@ -4,10 +4,10 @@ import AllPlans from '../../../api/admin/allPlans';
 import ModalWindow from '../../../services/ModalWindow';
 
 export default {
-  getAllApplications({ commit }) {
-    AllApplications.get()
-      .then(({ data: { appData } }) => {
-        commit('setAllApplications', appData);
+  getAllApplications({ commit }, paginationToken = null) {
+    AllApplications.get(paginationToken)
+      .then(({ data }) => {
+        commit('setAllApplications', data);
       })
       .catch(console.log);
   },

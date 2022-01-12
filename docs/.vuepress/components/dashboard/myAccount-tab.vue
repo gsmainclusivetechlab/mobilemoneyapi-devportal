@@ -53,7 +53,7 @@
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="email">E-mail<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>
-                <input type="email" v-model="user.email" id="email" placeholder="Enter email" :disabled="!accountEdit">
+                <input type="email" v-model="user.email" id="email" placeholder="Enter email" disabled>
               </ValidationProvider>
               <div class="update-btn-wrap">
                 <button class="btn btn--accent update-btn" type="submit"
