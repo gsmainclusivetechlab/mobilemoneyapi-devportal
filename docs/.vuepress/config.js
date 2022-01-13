@@ -1,6 +1,8 @@
 const fs = require('fs');
 const {path} = require('@vuepress/shared-utils');
 
+const Dotenv = require('dotenv-webpack');
+
 const md = require('markdown-it')()
     .use(require('markdown-it-code-copy'));
 
@@ -1039,6 +1041,11 @@ module.exports = {
         sidebar: sidebarNavigation,
         smoothScroll: true,
         searchMaxSuggestions: 10,
+    },
+    configureWebpack: {
+        plugins: [
+          new Dotenv()
+        ]
     },
     plugins: [
         ['@vuepress/active-header-links', false],
