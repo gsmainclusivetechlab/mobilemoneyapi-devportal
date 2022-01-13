@@ -104,7 +104,7 @@ export default {
       default: ''
     },
     paginationToken: {
-      type: Object
+      type: String
     }
   },
   data() {
