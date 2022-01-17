@@ -26,7 +26,9 @@
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">
-        <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
+        <transition name="fade-name">
+          <router-link to="/signup/" class="btn btn--transparent btn--register" v-show="!isActiveSearch">Sign up</router-link>
+        </transition>
         <router-link to="/login/" class="btn btn--accent">Log in</router-link>
       </div>
 

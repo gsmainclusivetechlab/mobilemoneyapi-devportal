@@ -26,10 +26,10 @@ export default {
     }
   },
 
-  getAllUsers({ commit }) {
-    AllUsers.get()
+  getAllUsers({ commit }, paginationToken = null) {
+    AllUsers.get(paginationToken)
       .then(({ data }) => {
-        commit('setAllUsers', data.users);
+        commit('setAllUsers', data);
       })
       .catch(console.log)
       .finally(() => {
@@ -38,7 +38,7 @@ export default {
   },
 
   async updateRole({ dispatch, state }, userId) {
-    const { role, userName } = state.allUsers.find(user => user.userId === userId);
+    const { role, userName } = state.allUsers.users.find(user => user.userId === userId);
 
     const roles = [
       'user', 'admin'
@@ -69,7 +69,7 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        const { userEnabled } = state.allUsers.find(user => user.userName === userName);
+        const { userEnabled } = state.allUsers.users.find(user => user.userName === userName);
 
         await AllUsers.setUserStatus(userName, userEnabled);
         await dispatch('getAllUsers');

@@ -18,7 +18,7 @@
         <div class="application-info-title-wrap">
           <span class="application-info-title">Application details</span>
           <button class="btn btn--transparent edit-btn" type="button"
-                  @click="handleEditClick()"
+                  @click="handleEditClick(false)"
                   v-if="editBtnEnabled"
           >Edit
           </button>
@@ -118,10 +118,13 @@
 import DashboardCopyButton from './DashboardCopyButton';
 import { mapGetters, mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
+import ModalWindow from '../../services/ModalWindow';
 
 export default {
   name: 'applications-child',
+
   components: { SpinnerComponent, DashboardCopyButton },
+
   data() {
     return {
       tabTitle: 'Applications child',
@@ -135,33 +138,40 @@ export default {
       waitingResponseDelete: false,
     };
   },
+
   computed: {
     ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
     ...mapState('application', ['selectedApplication'])
   },
+
   created() {
     this.form.appName = this.selectedApplication.appName;
     this.form.usagePlan = this.selectedApplication.usagePlan;
   },
+
   beforeDestroy() {
     this.$store.commit('application/clearSelectedApplication');
   },
 
   methods: {
-    editApp() {
+    async editApp() {
       this.waitingResponseUpdate = true;
 
-      this.$store.dispatch('application/updateAppById', this.form)
-          .then(() => {
-            this.editBtnEnabled = true;
-          })
-          .finally(() => {
-            this.waitingResponseUpdate = false;
-          });
+      try {
+        this.waitingResponseUpdate = true;
+        await this.$store.dispatch('application/updateAppById', this.form);
+        this.handleEditClick(true);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.waitingResponseUpdate = false;
+      }
     },
-    handleEditClick() {
-      this.editBtnEnabled = false;
+
+    handleEditClick(status) {
+      this.editBtnEnabled = status;
     },
+
     copyToClipboard(e) {
       const text = e.currentTarget.getAttribute('data-bind');
       navigator.clipboard.writeText(this[text]).then(function () {
@@ -178,15 +188,17 @@ export default {
       }, 0);
       popup[0].style.transition = 'none';
     },
-    deleteApplication(e) {
+
+    async deleteApplication(event) {
       this.waitingResponseDelete = true;
-      this.$store.dispatch('application/deleteAppById')
-          .then(() => {
-            this.$emit('close-application', e);
-          })
-          .finally(() => {
-            this.waitingResponseDelete = false;
-          });
+      const confirm = await ModalWindow.openDialog();
+
+      if (confirm) {
+        await this.$store.dispatch('application/deleteAppById');
+        this.$emit('close-application', event);
+      }
+
+      this.waitingResponseDelete = false;
     }
   }
 };

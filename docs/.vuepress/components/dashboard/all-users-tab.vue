@@ -5,16 +5,18 @@
       :table-headers-data="allUsersHeaderTitles"
       :filter-data="getCompanies"
       :data-length="getSortedTableData.length"
-      :pages-count="getPages"
+      :pages-count="1"
       :current-page="currentPage"
       :per-page="perPage"
+      :paginationToken="paginationToken"
       page-type="users"
       @search-value="setSearchValue"
       @filter-value="setFilterValue"
       @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
+      @next-page="nextPage"
   >
-    <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.userId">
+    <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)"/>
 
       <dashboard-cell :value="user.email"/>
@@ -105,7 +107,8 @@ export default {
     },
 
     ...mapGetters('admin', {
-      tableData: 'getAllUsers'
+      tableData: 'getAllUsers',
+      paginationToken: 'getPaginationForAllUsers'
     }),
 
     ...mapGetters('user', ['getUserName']),
@@ -125,6 +128,7 @@ export default {
         return (user.role === 'superadmin')
       }
     },
+
     getUserStatusLabelClass(id) {
       const { status } = this.tableData.find(user => user.userId === id);
       if (status === 'Active') return 'dashboard-table__status-label--active';
@@ -152,6 +156,10 @@ export default {
         await this.$store.dispatch('admin/updateRole', user.userId);
         this.waitingUserId = '';
       }
+    },
+
+    nextPage(paginationToken) {
+      this.$store.dispatch('admin/getAllUsers', paginationToken);
     }
   }
 };

@@ -16,51 +16,21 @@ export default {
     getSortedTableData() {
       // TODO need to refactor
       if (this.sortValue === 'Newest' || this.sortValue === 'Oldest') {
-        return sortByDate(this.getTableDataWithSearch, this.sortValue);
+        return sortByDate(this.getTableDataWithFilter, this.sortValue);
       }
       if (this.sortValue === 'Active' || this.sortValue === 'Inactive' || this.sortValue === 'Blocked') {
-        return sortByStatus(this.getTableDataWithSearch, this.sortValue);
+        return sortByStatus(this.getTableDataWithFilter, this.sortValue);
       }
       if (this.sortValue === 'Publish' || this.sortValue === 'Unpublish') {
-        return sortByState(this.getTableDataWithSearch, this.sortValue);
+        return sortByState(this.getTableDataWithFilter, this.sortValue);
       }
       if (this.sortValue === 'Date') {
-        return sortByDate(this.getTableDataWithSearch, 'Newest');
+        return sortByDate(this.getTableDataWithFilter, 'Newest');
       }
       if (this.sortValue) {
-        return sortByProp(this.getTableDataWithSearch, this.sortValue);
+        return sortByProp(this.getTableDataWithFilter, this.sortValue);
       }
-      return this.getTableDataWithSearch;
-    },
-
-    getTableDataWithSearch() {
-      // TODO need to refactor
-      return this.getTableDataWithFilter.filter(el => {
-        if (this.searchValue === '') return true;
-
-        for (let key in el) {
-          if (key === 'id') continue;
-
-          let value = el[key];
-          if (key === 'status') {
-            if (el[key] === 0) value = 'Inactive';
-            if (el[key] === 1) value = 'Active';
-            if (el[key] === 2) value = 'Blocked';
-          }
-          if (key === 'role') {
-            if (el[key] === 0) value = 'User';
-            if (el[key] === 1) value = 'Admin';
-            if (el[key] === 2) value = 'Superadmin';
-          }
-          if (key === 'state') {
-            if (el[key] === 0) value = 'Unpublish';
-            if (el[key] === 1) value = 'Publish';
-          }
-          if (value.toString().toLowerCase().includes(this.searchValue.toLowerCase())) return true;
-        }
-
-        return false;
-      });
+      return this.getTableDataWithFilter;
     },
 
     getTableDataWithFilter() {
@@ -70,14 +40,6 @@ export default {
         return el.companyName === this.filterValue;
       });
     },
-
-    getTableData() {
-      return this.getSortedTableData.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
-    },
-
-    getPages() {
-      return Math.ceil(this.getSortedTableData.length / this.perPage);
-    }
   },
 
   methods: {
@@ -95,10 +57,6 @@ export default {
 
     setCurrentPage(page) {
       this.currentPage = page;
-    },
-
-    nextPage(paginationToken) {
-      this.$store.dispatch('admin/getAllApplications', paginationToken);
     }
   }
 };

@@ -7,7 +7,7 @@
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
       :data-length="getSortedTableData.length"
-      :pages-count="getPages"
+      :pages-count="1"
       :current-page="currentPage"
       :per-page="perPage"
       page-type="plans"
@@ -15,7 +15,7 @@
       @set-current-page="setCurrentPage"
       @sort-value="setSortValue"
   >
-    <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
+    <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
       <dashboard-cell :value="plan.name"/>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
         <template v-if="isAdminRole">

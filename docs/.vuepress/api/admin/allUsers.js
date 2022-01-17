@@ -2,8 +2,10 @@ import Api from '../Api';
 import { ALL_DEVELOPERS, DELETE_USER, SET_USER_STATUS, UPDATE_ROLE } from '../constants';
 
 export default class AllUsers {
-  static get() {
-    return Api.get(ALL_DEVELOPERS);
+  static get(paginationToken) {
+    return Api.setHeadersForOneRequest({
+      paginationToken: paginationToken ? paginationToken : null
+    }).get(ALL_DEVELOPERS);
   }
 
   static updateRole(userName, data) {
@@ -13,7 +15,7 @@ export default class AllUsers {
   static setUserStatus(userName, status) {
     return Api.post(SET_USER_STATUS.replace('{userName}', userName), {
       disableUser: status
-    })
+    });
   }
 
   static deleteByUsername(userName) {
