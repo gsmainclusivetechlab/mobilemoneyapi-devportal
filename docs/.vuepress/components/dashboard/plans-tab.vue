@@ -48,7 +48,7 @@ import { mixin as clickaway } from 'vue-clickaway';
 import DashboardTable from '../dashboard-table';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
@@ -65,17 +65,14 @@ export default {
   },
 
   computed: {
-    getUserAccessToken() {
-      return this.$store.state.auth.token_access;
-    },
     isAdminRole() {
       return this.userData.role === 'admin';
     },
     isSuperAdminRole() {
       return this.userData.role === 'superadmin';
     },
-    ...mapState('usagePlans', {
-      tableData: 'usagePlans'
+    ...mapGetters('usagePlans', {
+      tableData: 'getUsagePlans'
     }),
     ...mapState('user', ['userData'])
   },

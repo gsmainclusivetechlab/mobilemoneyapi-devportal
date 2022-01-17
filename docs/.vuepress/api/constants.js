@@ -17,6 +17,8 @@ export const X_USER_TOKEN = 'x_user_token';
 export const CONFIRMED = 'CONFIRMED';
 export const SECONDS_IN_DAY = 86400;
 export const PAGINATION_TOKEN_TEMPLATE = '{"userName":"{userName}","appId":"{appId}"}'
+export const USER_STATUS = ['Active', 'Inactive', 'Blocked']
+export const PLAN_STATE = ['Publish', 'Unpublish']
 
 // ENDPOINTS
 

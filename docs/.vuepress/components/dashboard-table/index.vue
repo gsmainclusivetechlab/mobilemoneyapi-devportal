@@ -39,7 +39,6 @@
       />
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
-<!--    <confirmation-modal/>-->
   </div>
 </template>
 

@@ -162,6 +162,20 @@
     }
   }
 
+  .fade-name {
+    &-enter {
+      font-size: 0 !important;
+    }
+
+    &-enter-active {
+      transition: font-size .5s;
+    }
+
+    &-leave-active {
+      display: none;
+    }
+  }
+
   .logged-in-name {
     font-size: 12px;
     font-weight: 500;

@@ -140,7 +140,8 @@
       @extend %listreset;
 
       font-size: 14px;
-      padding-left: 12px;
+      //padding-left: 12px;
+      padding-left: 37px;
       margin: 17px 0 0;
     }
 
@@ -393,17 +394,9 @@
       }
 
       .link-text {
-        position: absolute;
-        right: 31px;
-        top: 48%;
-        transform: translateY(-50%);
         font-size: 16px;
         font-weight: bold;
         color: var(--base-accent-color);
-
-        @include media('<tablet-xs') {
-          top: 70%;
-        }
       }
     }
 

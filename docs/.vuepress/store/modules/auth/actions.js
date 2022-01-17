@@ -2,6 +2,7 @@ import Auth from '../../../api/Auth';
 import CookieManager from '../../../helpers/CookieManager';
 import Api from '../../../api/Api';
 import { ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from '../../../api/constants';
+import ModalWindow from '../../../services/ModalWindow';
 
 export default {
   signIn({ dispatch, commit }, payload) {
@@ -27,20 +28,23 @@ export default {
     });
   },
 
-  logOut({ commit }, payload) {
-    return new Promise((resolve) => {
-      Auth.logOut(payload)
-        .then(() => {
-          CookieManager.removeValues(X_USER_TOKEN, ID_TOKEN, REFRESH_TOKEN);
+  async logOut({ commit }, payload) {
+    try {
+      const confirm = await ModalWindow.openDialog();
 
-          Api.removeTokens();
+      if (confirm) {
+        await Auth.logOut(payload);
 
-          commit('setLoggedUser', false);
-          commit('user/clearUserData', null, { root: true });
+        CookieManager.removeValues(X_USER_TOKEN, ID_TOKEN, REFRESH_TOKEN);
+        Api.removeTokens();
 
-          return resolve(true);
-        })
-        .catch(console.log);
-    });
+        commit('setLoggedUser', false);
+        commit('user/clearUserData', null, { root: true });
+
+        window.location.replace('/login/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

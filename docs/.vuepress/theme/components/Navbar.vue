@@ -122,12 +122,9 @@ export default {
     toggleLoginDropdown() {
       this.loggedInDropdownOpened = ! this.loggedInDropdownOpened;
     },
-    async handleLogOut() {
-      await this.$store.dispatch('auth/logOut')
-          .then(() => {
-            this.toggleLoginDropdown();
-            this.$router.push({ path: '/login/' });
-          });
+    handleLogOut() {
+      this.$store.dispatch('auth/logOut');
+      this.closeLoginDropdown();
     },
     goToDashboard() {
       this.$router.push({ path: '/dashboard' }).catch(() => {
@@ -143,15 +140,3 @@ function css(el, property) {
   return win.getComputedStyle(el, null)[property];
 }
 </script>
-
-<style lang="scss">
-.fade-name-enter-active {
-  transition: font-size .5s;
-}
-.fade-name-enter /* .fade-leave-active до версии 2.1.8 */ {
-  font-size: 0 !important;
-}
-.fade-name-leave-active {
-  display: none;
-}
-</style>

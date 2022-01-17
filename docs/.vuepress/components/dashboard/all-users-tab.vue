@@ -36,7 +36,7 @@
 
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeUserRole(user.userId, user.userName)"
+              @click="changeUserRole(user)"
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button"
               :disabled="waitingUserId === user.userId"
           >
@@ -118,7 +118,12 @@ export default {
 
   methods: {
     isUserAdminOrSuperadmin(user) {
-      return (user.role === 'admin' || user.role === 'superadmin') && this.isAdminRole
+      if(this.isAdminRole) {
+        return (user.role === 'admin' || user.role === 'superadmin')
+      }
+      if(this.isSuperAdminRole) {
+        return (user.role === 'superadmin')
+      }
     },
     getUserStatusLabelClass(id) {
       const { status } = this.tableData.find(user => user.userId === id);
@@ -141,11 +146,10 @@ export default {
       document.body.click(); // for hide tippy
     },
 
-    async changeUserRole(id, userName) {
-      // TODO set disabled and loading when we waiting for response
-      if (userName !== this.getUserName) {
-        this.waitingUserId = id;
-        await this.$store.dispatch('admin/updateRole', id);
+    async changeUserRole(user) {
+      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperadmin(user)) {
+        this.waitingUserId = user.userId;
+        await this.$store.dispatch('admin/updateRole', user.userId);
         this.waitingUserId = '';
       }
     }
