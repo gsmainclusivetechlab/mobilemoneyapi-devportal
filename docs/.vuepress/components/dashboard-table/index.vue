@@ -39,7 +39,6 @@
       />
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
-<!--    <confirmation-modal/>-->
   </div>
 </template>
 
@@ -104,7 +103,7 @@ export default {
       default: ''
     },
     paginationToken: {
-      type: Object
+      type: String
     }
   },
   data() {

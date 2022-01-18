@@ -7,7 +7,8 @@ export default {
   getAllApplications({ commit }, paginationToken = null) {
     AllApplications.get(paginationToken)
       .then(({ data }) => {
-        commit('setAllApplications', data);
+        commit('setAllApplications', data.appData);
+        commit('setPaginationTokenAllApplications', data.paginationToken)
       })
       .catch(console.log);
   },
@@ -26,10 +27,11 @@ export default {
     }
   },
 
-  getAllUsers({ commit }) {
-    AllUsers.get()
+  getAllUsers({ commit }, paginationToken = null) {
+    AllUsers.get(paginationToken)
       .then(({ data }) => {
         commit('setAllUsers', data.users);
+        commit('setPaginationTokenAllUsers', data.PaginationToken)
       })
       .catch(console.log)
       .finally(() => {

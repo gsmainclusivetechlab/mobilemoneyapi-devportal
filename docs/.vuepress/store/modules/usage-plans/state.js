@@ -1,3 +1,4 @@
 export default {
-  usagePlans: []
+  usagePlans: [],
+  paginationToken: null
 };

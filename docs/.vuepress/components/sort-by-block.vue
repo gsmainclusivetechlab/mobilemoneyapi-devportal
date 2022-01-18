@@ -82,11 +82,11 @@ export default {
       valuesPlans: [
         {
           title: 'Unpublish',
-          value: 'unpublished'
+          value: 'Unpublish'
         },
         {
           title: 'Publish',
-          value: 'published'
+          value: 'Publish'
         }
       ]
     };

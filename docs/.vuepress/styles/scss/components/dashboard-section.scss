@@ -140,7 +140,8 @@
       @extend %listreset;
 
       font-size: 14px;
-      padding-left: 12px;
+      //padding-left: 12px;
+      padding-left: 37px;
       margin: 17px 0 0;
     }
 
@@ -274,11 +275,6 @@
       }
     }
 
-    .links-cards-title {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
     .cards-wrap {
       margin-top: 19px;
       display: flex;
@@ -324,6 +320,12 @@
 
       .btn.btn--accent {
         min-width: 184px;
+      }
+
+      .dashboard-table-bottom {
+        margin-top: 10px;
+        border-radius: 10px;
+        align-items: center;
       }
     }
 
@@ -393,17 +395,9 @@
       }
 
       .link-text {
-        position: absolute;
-        right: 31px;
-        top: 48%;
-        transform: translateY(-50%);
         font-size: 16px;
         font-weight: bold;
         color: var(--base-accent-color);
-
-        @include media('<tablet-xs') {
-          top: 70%;
-        }
       }
     }
 
@@ -750,10 +744,14 @@
   }
 
   &-content {
+    &__title-block {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
     .dashboard-section &__table {
       padding-right: 88px;
-      //max-width: none;
-      //&-applications {
       max-width: calc(100% - 380px);
 
       @include media('<desktop') {
@@ -762,12 +760,10 @@
       }
       @include media('<tablet-lg') {
         max-width: none;
-        //padding-right: ;
       }
       @include media('<tablet') {
         padding: 30px 15px;
       }
-      //}
 
       &-applications {
         .btn__create {

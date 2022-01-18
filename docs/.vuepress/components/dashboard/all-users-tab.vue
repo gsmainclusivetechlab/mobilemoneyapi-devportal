@@ -5,16 +5,18 @@
       :table-headers-data="allUsersHeaderTitles"
       :filter-data="getCompanies"
       :data-length="getSortedTableData.length"
-      :pages-count="getPages"
+      :pages-count="1"
       :current-page="currentPage"
       :per-page="perPage"
+      :paginationToken="paginationToken"
       page-type="users"
       @search-value="setSearchValue"
       @filter-value="setFilterValue"
       @sort-value="setSortValue"
       @set-current-page="setCurrentPage"
+      @next-page="nextPage"
   >
-    <tr class="dashboard-table__row" v-for="user of getTableData" :key="user.userId">
+    <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)"/>
 
       <dashboard-cell :value="user.email"/>
@@ -36,7 +38,7 @@
 
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeUserRole(user.userId, user.userName)"
+              @click="changeUserRole(user)"
               class="dashboard-table__role dashboard-table__role--red dashboard-table__role--button"
               :disabled="waitingUserId === user.userId"
           >
@@ -105,7 +107,11 @@ export default {
     },
 
     ...mapGetters('admin', {
-      tableData: 'getAllUsers'
+      tableData: 'getAllUsers',
+    }),
+
+    ...mapState('admin', {
+      paginationToken: 'paginationTokenAllUsers'
     }),
 
     ...mapGetters('user', ['getUserName']),
@@ -118,8 +124,14 @@ export default {
 
   methods: {
     isUserAdminOrSuperadmin(user) {
-      return (user.role === 'admin' || user.role === 'superadmin') && this.isAdminRole
+      if (this.isAdminRole) {
+        return (user.role === 'admin' || user.role === 'superadmin');
+      }
+      if (this.isSuperAdminRole) {
+        return (user.role === 'superadmin');
+      }
     },
+
     getUserStatusLabelClass(id) {
       const { status } = this.tableData.find(user => user.userId === id);
       if (status === 'Active') return 'dashboard-table__status-label--active';
@@ -141,13 +153,16 @@ export default {
       document.body.click(); // for hide tippy
     },
 
-    async changeUserRole(id, userName) {
-      // TODO set disabled and loading when we waiting for response
-      if (userName !== this.getUserName) {
-        this.waitingUserId = id;
-        await this.$store.dispatch('admin/updateRole', id);
+    async changeUserRole(user) {
+      if (user.userName !== this.getUserName && ! this.isUserAdminOrSuperadmin(user)) {
+        this.waitingUserId = user.userId;
+        await this.$store.dispatch('admin/updateRole', user.userId);
         this.waitingUserId = '';
       }
+    },
+
+    nextPage(paginationToken) {
+      this.$store.dispatch('admin/getAllUsers', paginationToken);
     }
   }
 };

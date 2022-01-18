@@ -93,7 +93,7 @@ export default {
       this.sortValue = 'keyIssued';
     }
     if (this.pageType === 'plans') {
-      this.sortValue = 'published';
+      this.sortValue = 'Publish';
     }
     if (this.pageType === 'users') {
       this.sortValue = 'Active';

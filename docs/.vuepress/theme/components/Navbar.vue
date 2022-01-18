@@ -26,7 +26,9 @@
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">
-        <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
+        <transition name="fade-name">
+          <router-link to="/signup/" class="btn btn--transparent btn--register" v-show="!isActiveSearch">Sign up</router-link>
+        </transition>
         <router-link to="/login/" class="btn btn--accent">Log in</router-link>
       </div>
 
@@ -122,12 +124,9 @@ export default {
     toggleLoginDropdown() {
       this.loggedInDropdownOpened = ! this.loggedInDropdownOpened;
     },
-    async handleLogOut() {
-      await this.$store.dispatch('auth/logOut')
-          .then(() => {
-            this.toggleLoginDropdown();
-            this.$router.push({ path: '/login/' });
-          });
+    handleLogOut() {
+      this.$store.dispatch('auth/logOut');
+      this.closeLoginDropdown();
     },
     goToDashboard() {
       this.$router.push({ path: '/dashboard' }).catch(() => {
@@ -143,15 +142,3 @@ function css(el, property) {
   return win.getComputedStyle(el, null)[property];
 }
 </script>
-
-<style lang="scss">
-.fade-name-enter-active {
-  transition: font-size .5s;
-}
-.fade-name-enter /* .fade-leave-active до версии 2.1.8 */ {
-  font-size: 0 !important;
-}
-.fade-name-leave-active {
-  display: none;
-}
-</style>

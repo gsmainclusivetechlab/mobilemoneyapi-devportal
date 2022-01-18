@@ -1,6 +1,6 @@
 <template>
   <div class="links-cards">
-    <span class="links-cards-title">Useful links</span>
+    <h3 class="links-cards-title">Useful links</h3>
     <div class="cards-wrap">
       <div class="card">
         <span class="card-title">Getting started</span>

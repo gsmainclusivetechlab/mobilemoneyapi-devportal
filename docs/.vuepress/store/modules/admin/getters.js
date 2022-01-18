@@ -6,8 +6,9 @@ export default {
       return state.allUsers.find(el => el.userName.toLowerCase() === username.toLowerCase())?.companyName;
     };
   },
+
   getAllApplications(state, getters, rootState) {
-    return state.allApplications.appData.map(app => {
+    return state.allApplications.map(app => {
       const usagePlans = rootState.usagePlans.usagePlans;
       return {
         ...app,
@@ -16,9 +17,7 @@ export default {
       };
     });
   },
-  getPaginationForAllApps(state) {
-    return state.allApplications.paginationToken
-  },
+
   getAllUsers(state) {
     return state.allUsers.map(user => {
       const status = ! user.userEnabled ? 'Blocked' : user.userStatus === CONFIRMED ? 'Active' : 'Inactive';
@@ -27,5 +26,5 @@ export default {
         status
       };
     });
-  }
+  },
 };

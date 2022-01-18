@@ -4,7 +4,7 @@
       table-class="dashboard-content__table-applications"
       :tableHeadersData="allApplicationsHeaderTitles"
       :data-length="getSortedTableData.length"
-      :pages-count="getPages"
+      :pages-count="1"
       :current-page="currentPage"
       :per-page="perPage"
       :filter-data="getCompanies"
@@ -17,7 +17,7 @@
       @next-page="nextPage"
       @filter-value="setFilterValue"
   >
-    <tr class="dashboard-table__row" v-for="app of getTableData" :key="app.appId">
+    <tr class="dashboard-table__row" v-for="app of getSortedTableData" :key="app.appId">
       <dashboard-cell :value="app.appName"/>
       <dashboard-cell :value="app.userName"/>
       <dashboard-cell :value="app.companyName"/>
@@ -54,7 +54,7 @@ import UserOptionsBlock from '../user-options-block';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'all-applications-tab',
@@ -72,10 +72,14 @@ export default {
     getCompanies() {
       return new Set(this.tableData.map(el => el.companyName));
     },
+
     ...mapGetters('admin', {
       getCompanyByUsername: 'getCompanyByUsername',
       tableData: 'getAllApplications',
-      paginationToken: 'getPaginationForAllApps'
+    }),
+
+    ...mapState('admin', {
+      paginationToken: 'paginationTokenAllApplications'
     })
   },
 
@@ -85,10 +89,15 @@ export default {
     showUserOptions(id) {
       this.activeOptionsUserId = id;
     },
+
     deleteApplication(userName, appId) {
       this.$store.dispatch('admin/deleteApplicationByUser', { userName, appId });
       document.body.click(); // for hide tippy
     },
+
+    nextPage(paginationToken) {
+      this.$store.dispatch('admin/getAllApplications', paginationToken);
+    }
   }
 };
 </script>

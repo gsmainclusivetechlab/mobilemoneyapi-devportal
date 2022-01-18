@@ -1,6 +1,6 @@
 // BASE URL
 
-export const BASE_URL = 'https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal';
+export const BASE_URL = process.env.BASE_URL;
 
 // ROUTES
 
@@ -16,7 +16,8 @@ export const REFRESH_TOKEN = 'refresh_token';
 export const X_USER_TOKEN = 'x_user_token';
 export const CONFIRMED = 'CONFIRMED';
 export const SECONDS_IN_DAY = 86400;
-export const PAGINATION_TOKEN_TEMPLATE = '{"userName":"{userName}","appId":"{appId}"}'
+export const USER_STATUS = ['Active', 'Inactive', 'Blocked'];
+export const PLAN_STATE = ['Publish', 'Unpublish'];
 
 // ENDPOINTS
 
@@ -40,5 +41,5 @@ export const SET_USER_STATUS = ADMIN_API.replace('{endpoint}', 'disable-enable-u
 export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish');
 
 // ERRORS
-export const USERNAME_ALREADY_REGISTERED = 'USERNAME_ALREADY_REGISTERED'
-export const EMAIL_ALREADY_REGISTERED = 'EMAIL_ALREADY_REGISTERED'
+export const USERNAME_ALREADY_REGISTERED = 'USERNAME_ALREADY_REGISTERED';
+export const EMAIL_ALREADY_REGISTERED = 'EMAIL_ALREADY_REGISTERED';

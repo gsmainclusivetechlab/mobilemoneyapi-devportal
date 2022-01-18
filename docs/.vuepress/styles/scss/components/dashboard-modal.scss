@@ -84,15 +84,12 @@
   }
 
   .modal-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-weight: var(--base-h3-font-weight);
+    font-size: var(--h3-font-size);
     display: block;
     margin-bottom: 35px;
     text-align: center;
 
-    @include media('<tablet') {
-      font-size: 1.8rem;
-    }
   }
 
   .input-wrap {
@@ -110,6 +107,7 @@
     label {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       font-size: 14px;
       font-weight: 500;
       margin-bottom: 2px;

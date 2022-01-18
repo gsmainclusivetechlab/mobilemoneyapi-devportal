@@ -2,8 +2,10 @@ import Api from './Api';
 import { APP_BY_ID, APPS, CREATE_APP } from './constants';
 
 export default class Application {
-  static getApps(userName) {
-    return Api.get(APPS.replace('{userName}', userName));
+  static getApps(userName, paginationToken) {
+    return Api.setHeadersForOneRequest({
+      paginationToken: paginationToken ? paginationToken : ''
+    }).get(APPS.replace('{userName}', userName));
   }
 
   static postApp(payload) {

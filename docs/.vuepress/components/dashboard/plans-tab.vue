@@ -7,7 +7,7 @@
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
       :data-length="getSortedTableData.length"
-      :pages-count="getPages"
+      :pages-count="1"
       :current-page="currentPage"
       :per-page="perPage"
       page-type="plans"
@@ -15,7 +15,7 @@
       @set-current-page="setCurrentPage"
       @sort-value="setSortValue"
   >
-    <tr class="dashboard-table__row" v-for="plan of getTableData" :key="plan.id">
+    <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
       <dashboard-cell :value="plan.name"/>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
         <template v-if="isAdminRole">
@@ -48,7 +48,7 @@ import { mixin as clickaway } from 'vue-clickaway';
 import DashboardTable from '../dashboard-table';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
 
 export default {
@@ -65,17 +65,14 @@ export default {
   },
 
   computed: {
-    getUserAccessToken() {
-      return this.$store.state.auth.token_access;
-    },
     isAdminRole() {
       return this.userData.role === 'admin';
     },
     isSuperAdminRole() {
       return this.userData.role === 'superadmin';
     },
-    ...mapState('usagePlans', {
-      tableData: 'usagePlans'
+    ...mapGetters('usagePlans', {
+      tableData: 'getUsagePlans'
     }),
     ...mapState('user', ['userData'])
   },

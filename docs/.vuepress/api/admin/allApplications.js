@@ -1,9 +1,11 @@
 import Api from '../Api';
-import { APP_BY_ID, CREATE_APP, PAGINATION_TOKEN_TEMPLATE } from '../constants';
+import { APP_BY_ID, CREATE_APP } from '../constants';
 
 export default class AllApplications {
-  static get() {
-    return Api.get(CREATE_APP);
+  static get(paginationToken) {
+    return Api.setHeadersForOneRequest({
+      paginationToken: paginationToken ? paginationToken : ''
+    }).get(CREATE_APP);
   }
 
   static deleteById(userName, appId) {

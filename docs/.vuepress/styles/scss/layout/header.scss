@@ -1,5 +1,5 @@
 .main-header {
-  padding: 24px 88px;
+  padding: 24px 70px;
 
   &.main-header {
     @include media('<desktop')  {
@@ -107,7 +107,7 @@
     }
 
     .btn {
-      margin-left: 17px;
+      margin-left: 10px;
       padding: 6px 22px;
 
 
@@ -159,6 +159,20 @@
           opacity: 0.7;
         }
       }
+    }
+  }
+
+  .fade-name {
+    &-enter {
+      font-size: 0 !important;
+    }
+
+    &-enter-active {
+      transition: font-size .5s;
+    }
+
+    &-leave-active {
+      display: none;
     }
   }
 

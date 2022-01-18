@@ -1,8 +1,13 @@
 .form-row__error {
   color: red;
-  text-align: center;
+  //text-align: center;
   font-size: 12px !important;
   padding: 0 5px;
+
+  @include media('<tablet') {
+    font-size: 10px !important;
+  }
+
   &-checkbox {
     &:before {
       border: 1px solid red !important;

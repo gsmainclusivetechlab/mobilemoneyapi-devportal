@@ -61,7 +61,7 @@ export default {
       default: 1
     },
     paginationToken: {
-      type: Object
+      type: String
     }
   }
 };

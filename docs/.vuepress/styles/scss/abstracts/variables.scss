@@ -100,6 +100,10 @@ $media-expressions: (
     --h4-font-size: 1.8rem;
     --h5-font-size: 1.6rem;
   }
+
+  @include media("<tablet-xs") {
+    --h3-font-size: 1.8rem;
+  }
   // Breakpoints
   --phone: #{map-get($breakpoints, "phone")};
   --tablet: #{map-get($breakpoints, "tablet")};
