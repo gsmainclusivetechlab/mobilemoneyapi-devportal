@@ -76,7 +76,7 @@ import { mapGetters, mapState, mapActions } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
 import { ALL_USERS, USER } from '../../store/modules/module-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../../store/modules/action-types';
-import { GET_USER_NAME } from '../../store/modules/getter-types';
+import { GET_ALL_USERS, GET_USER_NAME } from '../../store/modules/getter-types';
 
 export default {
   name: 'all-users-tab',
@@ -104,11 +104,13 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
-    ...mapGetters(this.module, {
-      tableData: GET_DATA,
+    ...mapGetters(ALL_USERS, {
+      tableData: GET_ALL_USERS,
     }),
 
-    ...mapGetters(USER, [GET_USER_NAME]),
+    ...mapGetters(USER, {
+      getUserName: GET_USER_NAME
+    }),
 
     ...mapState(USER, ['userData'])
   },
@@ -116,7 +118,7 @@ export default {
   mixins: [dashboardSearch],
 
   methods: {
-    ...mapActions(this.module, {
+    ...mapActions(ALL_USERS, {
       getData: GET_DATA,
       deleteUserByUsername: REMOVE_ITEM,
       setUserStatus: SET_USER_STATUS,

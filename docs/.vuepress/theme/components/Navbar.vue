@@ -94,7 +94,9 @@ export default {
 
   computed: {
     ...mapState(AUTH, ['isLoggedUser']),
-    ...mapGetters(USER, [GET_FULL_NAME])
+    ...mapGetters(USER, {
+      getFullName: GET_FULL_NAME
+    })
   },
 
   mounted() {

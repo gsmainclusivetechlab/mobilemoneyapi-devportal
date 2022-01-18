@@ -49,8 +49,8 @@ import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapActions } from 'vuex';
-import { ALL_APPS, USER } from '../../store/modules/module-types';
-import { GET_COMPANY_BY_USERNAME } from '../../store/modules/getter-types';
+import { ALL_APPS } from '../../store/modules/module-types';
+import { GET_ALL_APPS } from '../../store/modules/getter-types';
 import { GET_DATA, REMOVE_ITEM } from '../../store/modules/action-types';
 
 export default {
@@ -71,17 +71,15 @@ export default {
       return new Set(this.tableData.map(el => el.companyName));
     },
 
-    ...mapGetters(USER, [GET_COMPANY_BY_USERNAME]),
-
-    ...mapGetters(this.module, {
-      tableData: GET_DATA,
+    ...mapGetters(ALL_APPS, {
+      tableData: GET_ALL_APPS,
     }),
   },
 
   mixins: [dashboardSearch],
 
   methods: {
-    ...mapActions(this.module, {
+    ...mapActions(ALL_APPS, {
       getData: GET_DATA,
       deleteApplicationByUser: REMOVE_ITEM
     }),

@@ -4,7 +4,7 @@
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage[module] === 1}"
+          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage(module) === 1}"
           @click="$emit('prev-page')"
       >
         < Prev
@@ -12,7 +12,7 @@
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage[module]}"
+          :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage(module)}"
           @click="$emit('next-page')"
       >
         Next >
@@ -38,11 +38,11 @@ export default {
   },
 
   computed: {
-    ...mapGetters(PAGINATION, [
-      GET_TOKEN_NEXT_PAGE,
-      GET_TOKEN_PREV_PAGE,
-      GET_CURRENT_PAGE
-    ])
+    ...mapGetters(PAGINATION, {
+      getTokenNextPage: GET_TOKEN_NEXT_PAGE,
+      getTokenPrevPage: GET_TOKEN_PREV_PAGE,
+      getCurrentPage: GET_CURRENT_PAGE
+    })
   },
 
   methods: {

@@ -1,14 +1,14 @@
 import { GET_ALL_APPS, GET_COMPANY_BY_USERNAME } from '../getter-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
-import { USER } from '../module-types';
+import { ALL_PLANS, ALL_USERS } from '../module-types';
 
 export default {
-  [GET_ALL_APPS](state, rootGetters, rootState) {
+  [GET_ALL_APPS](state, getters, rootState, rootGetters) {
     return state.data.map(app => {
-      const usagePlans = rootState.usagePlans.usagePlans;
+      const usagePlans = rootState[ALL_PLANS].usagePlans;
       return {
         ...app,
-        company: rootGetters[nameWithSlash(USER, GET_COMPANY_BY_USERNAME)](app.userName),
+        company: rootGetters[nameWithSlash(ALL_USERS, GET_COMPANY_BY_USERNAME)](app.userName),
         usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name || '' : ''
       };
     });

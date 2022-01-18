@@ -183,7 +183,9 @@ export default {
         },
       ];
     },
-    ...mapGetters(MY_APPS, [GET_ALL_MY_APPS]),
+    ...mapGetters(MY_APPS, {
+      getApplicationsList: GET_ALL_MY_APPS
+    }),
     ...mapState(USER, ['userData'])
   },
 

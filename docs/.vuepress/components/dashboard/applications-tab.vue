@@ -52,7 +52,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters(this.module, [GET_ALL_MY_APPS]),
+    ...mapGetters(MY_APPS, {
+      getApplicationsList: GET_ALL_MY_APPS
+    }),
   },
 
   methods: {

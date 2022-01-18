@@ -49,6 +49,7 @@ import SpinnerComponent from '../helpers/spinner-component';
 import { ALL_PLANS, USER } from '../../store/modules/module-types';
 import { nameWithSlash } from '../../helpers/vuexHelper';
 import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../../store/modules/action-types';
+import { GET_PLANS_WITH_STATE } from '../../store/modules/getter-types';
 
 export default {
   name: 'plans-tab',
@@ -73,8 +74,8 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
-    ...mapGetters(this.module, {
-      tableData: GET_DATA
+    ...mapGetters(ALL_PLANS, {
+      tableData: GET_PLANS_WITH_STATE
     }),
 
     ...mapState(USER, ['userData'])
@@ -97,13 +98,9 @@ export default {
 
     async changeState(planId, published) {
       this.waitingPlanId = planId;
-      await this.$store.dispatch(nameWithSlash(this.module, CHANGE_PUBLISHED_STATE), { planId, published });
+      await this.$store.dispatch(nameWithSlash(ALL_PLANS, CHANGE_PUBLISHED_STATE), { planId, published });
       this.waitingPlanId = '';
     }
   }
 };
 </script>
-
-<style scoped>
-
-</style>
