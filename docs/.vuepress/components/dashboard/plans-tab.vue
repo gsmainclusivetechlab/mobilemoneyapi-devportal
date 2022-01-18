@@ -23,7 +23,7 @@
         </template>
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeState(plan.id, plan.published)"
+              @click="changeState(plan.id, plan.published)"
               class="dashboard-table__state-label dashboard-table__state-button"
               :class="[getPlanStatusLabelClass(plan.published)]"
               :disabled="waitingPlanId === plan.id"

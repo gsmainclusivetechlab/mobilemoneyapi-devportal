@@ -145,7 +145,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters(ALL_PLANS, [GET_PUBLISHED_USAGE_PLANS]),
+    ...mapGetters(ALL_PLANS, {
+      getPublishedUsagePlans: GET_PUBLISHED_USAGE_PLANS
+    }),
     ...mapState(MY_APPS, ['selectedApplication'])
   },
 

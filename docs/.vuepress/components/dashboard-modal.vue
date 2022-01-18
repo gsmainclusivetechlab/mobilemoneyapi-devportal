@@ -64,6 +64,8 @@ import { mapGetters } from 'vuex';
 import SpinnerComponent from './helpers/spinner-component';
 import { ALL_PLANS, MY_APPS } from '../store/modules/module-types';
 import { GET_ALL_MY_APPS, GET_PUBLISHED_USAGE_PLANS } from '../store/modules/getter-types';
+import { nameWithSlash } from '../helpers/vuexHelper';
+import { POST_APP } from '../store/modules/action-types';
 
 export default {
   name: 'dashboard-modal',
@@ -80,18 +82,24 @@ export default {
   },
 
   computed: {
-    ...mapGetters(ALL_PLANS, [GET_PUBLISHED_USAGE_PLANS]),
-    ...mapGetters(MY_APPS, [GET_ALL_MY_APPS]),
+    ...mapGetters(ALL_PLANS, {
+      getPublishedUsagePlans: GET_PUBLISHED_USAGE_PLANS
+    }),
+
+    ...mapGetters(MY_APPS, {
+      getApplicationsList: GET_ALL_MY_APPS
+    }),
   },
 
   methods: {
     handleModalClose() {
       this.$emit('close-modal');
     },
+
     async createApp() {
       this.waitingResponse = true;
       // TODO maybe refactor this
-      await this.$store.dispatch('application/postApp', this.form)
+      await this.$store.dispatch(nameWithSlash(MY_APPS, POST_APP), this.form)
           .then(() => {
             this.handleModalClose();
           })

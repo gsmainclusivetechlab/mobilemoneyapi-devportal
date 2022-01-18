@@ -5,7 +5,7 @@
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
           :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage(module) === 1}"
-          @click="$emit('prev-page')"
+          @click="prevPage"
       >
         < Prev
       </button>
@@ -13,7 +13,7 @@
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
           :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage(module)}"
-          @click="$emit('next-page')"
+          @click="nextPage"
       >
         Next >
       </button>
@@ -22,11 +22,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 import { nameWithSlash } from '../../helpers/vuexHelper';
 import { GET_DATA } from '../../store/modules/action-types';
 import { PAGINATION } from '../../store/modules/module-types';
 import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../../store/modules/getter-types';
+import { SET_CURRENT_PAGE } from '../../store/modules/mutation-types';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -46,14 +47,18 @@ export default {
   },
 
   methods: {
+    ...mapMutations(PAGINATION, {
+      setCurrentPage: SET_CURRENT_PAGE
+    }),
+
     nextPage() {
       this.getData(this.getTokenNextPage(this.module));
-      this.setCurrentPage(this.getCurrentPage(this.module) - 1);
+      this.setCurrentPage({ page: this.getCurrentPage(this.module) - 1, module: this.module });
     },
 
     prevPage() {
       this.getData(this.getTokenPrevPage(this.module));
-      this.setCurrentPage(this.getCurrentPage(this.module) + 1);
+      this.setCurrentPage({ page: this.getCurrentPage(this.module) + 1, module: this.module });
     },
 
     getData(token) {
