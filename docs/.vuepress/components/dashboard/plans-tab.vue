@@ -6,13 +6,9 @@
       table-class="dashboard-content__table-plans"
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
-      :data-length="getSortedTableData.length"
-      :pages-count="1"
-      :current-page="currentPage"
-      :per-page="perPage"
+      :module="module"
       page-type="plans"
       @search-value="setSearchValue"
-      @set-current-page="setCurrentPage"
       @sort-value="setSortValue"
   >
     <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
@@ -27,7 +23,7 @@
         </template>
         <template v-if="isSuperAdminRole">
           <button
-              @dblclick="changeState(plan.id, plan.published)"
+              @click="changeState(plan.id, plan.published)"
               class="dashboard-table__state-label dashboard-table__state-button"
               :class="[getPlanStatusLabelClass(plan.published)]"
               :disabled="waitingPlanId === plan.id"
@@ -50,6 +46,10 @@ import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
+import { ALL_PLANS, USER } from '../../store/modules/module-types';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../../store/modules/action-types';
+import { GET_PLANS_WITH_STATE } from '../../store/modules/getter-types';
 
 export default {
   name: 'plans-tab',
@@ -60,7 +60,8 @@ export default {
     return {
       allPlansHeaderTitles,
       activeOptionsPlanId: -1,
-      waitingPlanId: ''
+      waitingPlanId: '',
+      module: ALL_PLANS
     };
   },
 
@@ -68,13 +69,16 @@ export default {
     isAdminRole() {
       return this.userData.role === 'admin';
     },
+
     isSuperAdminRole() {
       return this.userData.role === 'superadmin';
     },
-    ...mapGetters('usagePlans', {
-      tableData: 'getUsagePlans'
+
+    ...mapGetters(ALL_PLANS, {
+      tableData: GET_PLANS_WITH_STATE
     }),
-    ...mapState('user', ['userData'])
+
+    ...mapState(USER, ['userData'])
   },
 
   mixins: [clickaway, dashboardSearch],
@@ -94,13 +98,9 @@ export default {
 
     async changeState(planId, published) {
       this.waitingPlanId = planId;
-      await this.$store.dispatch('admin/changePublishedState', { planId, published });
+      await this.$store.dispatch(nameWithSlash(ALL_PLANS, CHANGE_PUBLISHED_STATE), { planId, published });
       this.waitingPlanId = '';
     }
   }
 };
 </script>
-
-<style scoped>
-
-</style>

@@ -22,6 +22,9 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import store from './store'
 import CookieManager from "./helpers/CookieManager";
 import { REFRESH_TOKEN, X_USER_TOKEN } from './api/constants';
+import { USER } from './store/modules/module-types';
+import { GET_DATA } from './store/modules/action-types';
+import { nameWithSlash } from './helpers/vuexHelper';
 export default async ({
   Vue, // the version of Vue being used in the VuePress app
   options, // the options for the root Vue instance
@@ -58,7 +61,7 @@ export default async ({
 
     // TODO maybe fix it
     if(CookieManager.getValue(X_USER_TOKEN) || CookieManager.getValue(REFRESH_TOKEN)) {
-      store.dispatch('user/getUserData')
+      store.dispatch(nameWithSlash(USER, GET_DATA))
     }
 
   }

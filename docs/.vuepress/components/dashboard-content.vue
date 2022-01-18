@@ -70,6 +70,10 @@ import allPlans from './dashboard/plans-tab.vue';
 import { mixin as clickaway } from 'vue-clickaway';
 
 import { mapGetters, mapState } from 'vuex';
+import { nameWithSlash } from '../helpers/vuexHelper';
+import { MY_APPS, USER } from '../store/modules/module-types';
+import { SET_SELECTED_APPLICATION } from '../store/modules/mutation-types';
+import { GET_ALL_MY_APPS } from '../store/modules/getter-types';
 
 const myAccountIcon = `
   <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -179,8 +183,10 @@ export default {
         },
       ];
     },
-    ...mapGetters('application', ['getApplicationsList']),
-    ...mapState('user', ['userData'])
+    ...mapGetters(MY_APPS, {
+      getApplicationsList: GET_ALL_MY_APPS
+    }),
+    ...mapState(USER, ['userData'])
   },
 
   mounted() {
@@ -230,7 +236,7 @@ export default {
           element.classList.remove('active');
         });
         e.target.classList.add('active');
-        this.$store.commit('application/setSelectedApplication', id);
+        this.$store.commit(nameWithSlash(MY_APPS, SET_SELECTED_APPLICATION), id);
       }
 
       this.applicationsChildActive = show;

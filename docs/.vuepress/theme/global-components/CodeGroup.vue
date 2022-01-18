@@ -34,6 +34,10 @@
 </template>
 
 <script>
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { CODE_PANEL } from '../../store/modules/module-types';
+import { SET_ACTIVE_CODE_BLOCK } from '../../store/modules/mutation-types';
+
 export default {
   name: 'CodeGroup',
   props: {
@@ -128,7 +132,7 @@ export default {
 
       if (this.isVisibleContent) {
         this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = `${this.scrollHeight}px`;
-        this.$store.commit('codePanel/setActiveCodeBlock', this.$parent.$parent._uid);
+        this.$store.commit(nameWithSlash(CODE_PANEL, SET_ACTIVE_CODE_BLOCK), this.$parent.$parent._uid);
       } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')) {
         this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = '130px';
       }

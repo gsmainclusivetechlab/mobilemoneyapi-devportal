@@ -1,11 +1,11 @@
 import Api from '../Api';
-import { ALL_DEVELOPERS, DELETE_USER, SET_USER_STATUS, UPDATE_ROLE } from '../constants';
+import { DEVELOPERS, DELETE_USER, SET_USER_STATUS, UPDATE_ROLE } from '../constants';
 
 export default class AllUsers {
   static get(paginationToken) {
     return Api.setHeadersForOneRequest({
       paginationToken: paginationToken ? paginationToken : ''
-    }).get(ALL_DEVELOPERS);
+    }).get(DEVELOPERS);
   }
 
   static updateRole(userName, data) {

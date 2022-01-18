@@ -68,8 +68,10 @@ import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
 import { mixin as clickaway } from 'vue-clickaway';
 import { mapState, mapGetters } from 'vuex';
-import CookieManager from '../../helpers/CookieManager';
-import { X_USER_TOKEN } from '../../api/constants';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { AUTH, USER } from '../../store/modules/module-types';
+import { LOG_OUT } from '../../store/modules/action-types';
+import { GET_FULL_NAME } from '../../store/modules/getter-types';
 
 export default {
   name: 'Navbar',
@@ -91,8 +93,10 @@ export default {
   },
 
   computed: {
-    ...mapState('auth', ['isLoggedUser']),
-    ...mapGetters('user', ['getFullName'])
+    ...mapState(AUTH, ['isLoggedUser']),
+    ...mapGetters(USER, {
+      getFullName: GET_FULL_NAME
+    })
   },
 
   mounted() {
@@ -125,7 +129,7 @@ export default {
       this.loggedInDropdownOpened = ! this.loggedInDropdownOpened;
     },
     handleLogOut() {
-      this.$store.dispatch('auth/logOut');
+      this.$store.dispatch(nameWithSlash(AUTH, LOG_OUT));
       this.closeLoginDropdown();
     },
     goToDashboard() {

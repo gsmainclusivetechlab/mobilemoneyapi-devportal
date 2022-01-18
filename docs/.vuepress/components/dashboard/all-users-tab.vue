@@ -4,17 +4,11 @@
       table-class="dashboard-content__table-users"
       :table-headers-data="allUsersHeaderTitles"
       :filter-data="getCompanies"
-      :data-length="getSortedTableData.length"
-      :pages-count="1"
-      :current-page="currentPage"
-      :per-page="perPage"
-      :paginationToken="paginationToken"
+      :module="module"
       page-type="users"
       @search-value="setSearchValue"
       @filter-value="setFilterValue"
       @sort-value="setSortValue"
-      @set-current-page="setCurrentPage"
-      @next-page="nextPage"
   >
     <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)"/>
@@ -78,8 +72,11 @@ import UserOptionsBlock from '../user-options-block';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapState, mapActions } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
+import { ALL_USERS, USER } from '../../store/modules/module-types';
+import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../../store/modules/action-types';
+import { GET_ALL_USERS, GET_USER_NAME } from '../../store/modules/getter-types';
 
 export default {
   name: 'all-users-tab',
@@ -89,7 +86,8 @@ export default {
   data() {
     return {
       allUsersHeaderTitles,
-      waitingUserId: ''
+      waitingUserId: '',
+      module: ALL_USERS
     };
   },
 
@@ -106,23 +104,27 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
-    ...mapGetters('admin', {
-      tableData: 'getAllUsers',
+    ...mapGetters(ALL_USERS, {
+      tableData: GET_ALL_USERS,
     }),
 
-    ...mapState('admin', {
-      paginationToken: 'paginationTokenAllUsers'
+    ...mapGetters(USER, {
+      getUserName: GET_USER_NAME
     }),
 
-    ...mapGetters('user', ['getUserName']),
-
-    ...mapState('user', ['userData'])
-
+    ...mapState(USER, ['userData'])
   },
 
   mixins: [dashboardSearch],
 
   methods: {
+    ...mapActions(ALL_USERS, {
+      getData: GET_DATA,
+      deleteUserByUsername: REMOVE_ITEM,
+      setUserStatus: SET_USER_STATUS,
+      updateRole: UPDATE_ROLE
+    }),
+
     isUserAdminOrSuperadmin(user) {
       if (this.isAdminRole) {
         return (user.role === 'admin' || user.role === 'superadmin');
@@ -144,26 +146,22 @@ export default {
     },
 
     deleteUser(userName) {
-      this.$store.dispatch('admin/deleteUserByUsername', userName);
+      this.deleteUserByUsername(userName);
       document.body.click(); // for hide tippy
     },
 
     changeStatus(userName) {
-      this.$store.dispatch('admin/setUserStatus', userName);
+      this.setUserStatus(userName);
       document.body.click(); // for hide tippy
     },
 
     async changeUserRole(user) {
       if (user.userName !== this.getUserName && ! this.isUserAdminOrSuperadmin(user)) {
         this.waitingUserId = user.userId;
-        await this.$store.dispatch('admin/updateRole', user.userId);
+        await this.updateRole(user.userId);
         this.waitingUserId = '';
       }
     },
-
-    nextPage(paginationToken) {
-      this.$store.dispatch('admin/getAllUsers', paginationToken);
-    }
   }
 };
 </script>

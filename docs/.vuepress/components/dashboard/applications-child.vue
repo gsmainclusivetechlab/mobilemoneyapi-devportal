@@ -119,6 +119,11 @@ import DashboardCopyButton from './DashboardCopyButton';
 import { mapGetters, mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
 import ModalWindow from '../../services/ModalWindow';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { ALL_PLANS, MY_APPS } from '../../store/modules/module-types';
+import { CLEAR_SELECTED_APPLICATION } from '../../store/modules/mutation-types';
+import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '../../store/modules/action-types';
+import { GET_PUBLISHED_USAGE_PLANS } from '../../store/modules/getter-types';
 
 export default {
   name: 'applications-child',
@@ -140,8 +145,10 @@ export default {
   },
 
   computed: {
-    ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
-    ...mapState('application', ['selectedApplication'])
+    ...mapGetters(ALL_PLANS, {
+      getPublishedUsagePlans: GET_PUBLISHED_USAGE_PLANS
+    }),
+    ...mapState(MY_APPS, ['selectedApplication'])
   },
 
   created() {
@@ -150,7 +157,7 @@ export default {
   },
 
   beforeDestroy() {
-    this.$store.commit('application/clearSelectedApplication');
+    this.$store.commit(nameWithSlash(MY_APPS, CLEAR_SELECTED_APPLICATION));
   },
 
   methods: {
@@ -159,7 +166,7 @@ export default {
 
       try {
         this.waitingResponseUpdate = true;
-        await this.$store.dispatch('application/updateAppById', this.form);
+        await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), this.form);
         this.handleEditClick(true);
       } catch (error) {
         console.log(error);
@@ -194,7 +201,7 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        await this.$store.dispatch('application/deleteAppById');
+        await this.$store.dispatch(nameWithSlash(MY_APPS, REMOVE_ITEM));
         this.$emit('close-application', event);
       }
 

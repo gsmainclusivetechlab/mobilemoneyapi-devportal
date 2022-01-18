@@ -1,9 +1,7 @@
+import { SET_DATA } from '../mutation-types';
+
 export default {
-  setUsagePlans(state, data) {
+  [SET_DATA](state, data) {
     state.usagePlans = data;
   },
-
-  setPaginationToken(state, token) {
-    state.paginationToken = token;
-  }
 };

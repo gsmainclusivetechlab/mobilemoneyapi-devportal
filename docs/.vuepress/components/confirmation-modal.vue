@@ -9,12 +9,14 @@
               class="btn btn--accent-close"
               type="button"
               @click="() => $emit('close', false)"
-          >Cancel</button>
+          >Cancel
+          </button>
           <button
               class="btn btn--accent"
               type="button"
               @click="() => $emit('close', true)"
-          >Confirm</button>
+          >Confirm
+          </button>
         </div>
       </div>
     </div>

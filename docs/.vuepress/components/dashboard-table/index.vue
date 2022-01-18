@@ -28,15 +28,7 @@
         </tr>
         <slot></slot>
       </table>
-      <dashboard-table-bottom
-          :dataLength="dataLength"
-          :pages-count="pagesCount"
-          :current-page="currentPage"
-          :per-page="perPage"
-          :paginationToken="paginationToken"
-          @set-current-page="$emit('set-current-page', $event)"
-          @next-page="$emit('next-page', $event)"
-      />
+      <dashboard-table-bottom :module="module"/>
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
   </div>
@@ -78,22 +70,6 @@ export default {
     filterData: {
       type: Set,
     },
-    dataLength: {
-      type: Number,
-      default: 1
-    },
-    pagesCount: {
-      type: Number,
-      default: 1
-    },
-    currentPage: {
-      type: Number,
-      default: 1
-    },
-    perPage: {
-      type: Number,
-      default: 1
-    },
     isCreateButton: {
       type: Boolean,
       default: false
@@ -102,7 +78,7 @@ export default {
       type: String,
       default: ''
     },
-    paginationToken: {
+    module: {
       type: String
     }
   },

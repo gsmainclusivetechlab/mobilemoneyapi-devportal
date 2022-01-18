@@ -55,6 +55,9 @@
 
 <script>
 import SpinnerComponent from './helpers/spinner-component';
+import { nameWithSlash } from '../helpers/vuexHelper';
+import { AUTH } from '../store/modules/module-types';
+import { SIGN_IN } from '../store/modules/action-types';
 
 export default {
   name: 'login-section',
@@ -74,13 +77,13 @@ export default {
       this.waitingResponse = true;
       this.errorMessage = '';
 
-      await this.$store.dispatch('auth/signIn', this.form)
+      await this.$store.dispatch(nameWithSlash(AUTH, SIGN_IN), this.form)
           .then(() => {
             this.$router.push({ path: '/dashboard/' });
           })
           .catch((e) => {
-            if(e?.response?.data?.error) {
-              this.errorMessage = e.response.data.errorDescription
+            if (e?.response?.data?.error) {
+              this.errorMessage = e.response.data.errorDescription;
             }
           })
           .finally(() => {
