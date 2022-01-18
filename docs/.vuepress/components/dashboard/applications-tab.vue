@@ -22,13 +22,7 @@
       </ul>
       <dashboard-table-bottom
           v-if="getApplicationsList.length"
-          :dataLength="getApplicationsList.length"
-          :pages-count="1"
-          :current-page="1"
-          :per-page="10"
-          :paginationToken="paginationToken"
-          @set-current-page="$emit('set-current-page', $event)"
-          @next-page="nextPage"
+          :module="module"
       />
     </div>
     <card-links-section/>
@@ -39,8 +33,10 @@
 <script>
 import dashboardModal from '../dashboard-modal.vue';
 import cardLinksSection from './card-links-section.vue';
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
+import { MY_APPS } from '../../store/modules/module-types';
+import { GET_ALL_MY_APPS } from '../../store/modules/getter-types';
 
 export default {
   name: 'applications-tab',
@@ -51,13 +47,12 @@ export default {
     return {
       tabTitle: 'Applications',
       modalIsVisible: false,
+      module: MY_APPS
     };
   },
 
   computed: {
-    ...mapGetters('application', ['getApplicationsList']),
-
-    ...mapState('application', ['paginationToken'])
+    ...mapGetters(this.module, [GET_ALL_MY_APPS]),
   },
 
   methods: {
@@ -67,10 +62,6 @@ export default {
 
     handleAppClick(key) {
       this.$emit('app-click', key, this.tabTitle);
-    },
-
-    nextPage(paginationToken) {
-      this.$store.dispatch('application/getApps', paginationToken)
     }
   }
 };

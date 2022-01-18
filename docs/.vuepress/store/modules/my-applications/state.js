@@ -1,5 +1,4 @@
 export default {
-  applications: [],
-  paginationToken: null,
+  data: [],
   selectedApplication: null
 };

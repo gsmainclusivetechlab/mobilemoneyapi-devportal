@@ -74,6 +74,9 @@
 <script>
 import { mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
+import { USER } from '../../store/modules/module-types';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { UPDATE_USER_DATA } from '../../store/modules/action-types';
 
 export default {
   name: 'my-account-tab',
@@ -106,7 +109,7 @@ export default {
   methods: {
     async updateAccountData() {
       this.waitingResponse = true;
-      await this.$store.dispatch('user/updateUserData', this.user)
+      await this.$store.dispatch(nameWithSlash(USER, UPDATE_USER_DATA), this.user)
           .then(() => {
             this.accountEdit = false;
           })

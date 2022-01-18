@@ -6,13 +6,9 @@
       table-class="dashboard-content__table-plans"
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
-      :data-length="getSortedTableData.length"
-      :pages-count="1"
-      :current-page="currentPage"
-      :per-page="perPage"
+      :module="module"
       page-type="plans"
       @search-value="setSearchValue"
-      @set-current-page="setCurrentPage"
       @sort-value="setSortValue"
   >
     <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
@@ -50,6 +46,9 @@ import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
+import { ALL_PLANS, USER } from '../../store/modules/module-types';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../../store/modules/action-types';
 
 export default {
   name: 'plans-tab',
@@ -60,7 +59,8 @@ export default {
     return {
       allPlansHeaderTitles,
       activeOptionsPlanId: -1,
-      waitingPlanId: ''
+      waitingPlanId: '',
+      module: ALL_PLANS
     };
   },
 
@@ -68,13 +68,16 @@ export default {
     isAdminRole() {
       return this.userData.role === 'admin';
     },
+
     isSuperAdminRole() {
       return this.userData.role === 'superadmin';
     },
-    ...mapGetters('usagePlans', {
-      tableData: 'getUsagePlans'
+
+    ...mapGetters(this.module, {
+      tableData: GET_DATA
     }),
-    ...mapState('user', ['userData'])
+
+    ...mapState(USER, ['userData'])
   },
 
   mixins: [clickaway, dashboardSearch],
@@ -94,7 +97,7 @@ export default {
 
     async changeState(planId, published) {
       this.waitingPlanId = planId;
-      await this.$store.dispatch('admin/changePublishedState', { planId, published });
+      await this.$store.dispatch(nameWithSlash(this.module, CHANGE_PUBLISHED_STATE), { planId, published });
       this.waitingPlanId = '';
     }
   }

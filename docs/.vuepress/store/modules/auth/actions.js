@@ -3,9 +3,13 @@ import CookieManager from '../../../helpers/CookieManager';
 import Api from '../../../api/Api';
 import { ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from '../../../api/constants';
 import ModalWindow from '../../../services/ModalWindow';
+import { nameWithSlash } from '../../../helpers/vuexHelper';
+import { USER } from '../module-types';
+import { GET_DATA, LOG_OUT, SIGN_IN } from '../action-types';
+import { CLEAR_USER_DATA, SET_LOGGED_USER } from '../mutation-types';
 
 export default {
-  signIn({ dispatch, commit }, payload) {
+  [SIGN_IN]({ dispatch, commit }, payload) {
     return new Promise((resolve, reject) => {
       Auth.signIn(payload)
         .then((res) => {
@@ -17,8 +21,8 @@ export default {
 
           Api.setTokens();
 
-          commit('setLoggedUser', true);
-          dispatch('user/getUserData', null, { root: true });
+          commit(SET_LOGGED_USER, true);
+          dispatch(nameWithSlash(USER, GET_DATA), null, { root: true });
 
           return resolve(true);
         })
@@ -28,7 +32,7 @@ export default {
     });
   },
 
-  async logOut({ commit }, payload) {
+  async [LOG_OUT]({ commit }, payload) {
     try {
       const confirm = await ModalWindow.openDialog();
 
@@ -38,8 +42,8 @@ export default {
         CookieManager.removeValues(X_USER_TOKEN, ID_TOKEN, REFRESH_TOKEN);
         Api.removeTokens();
 
-        commit('setLoggedUser', false);
-        commit('user/clearUserData', null, { root: true });
+        commit(SET_LOGGED_USER, false);
+        commit(nameWithSlash(USER, CLEAR_USER_DATA), null, { root: true });
 
         window.location.replace('/login/');
       }

@@ -3,18 +3,12 @@
       table-title="All applications"
       table-class="dashboard-content__table-applications"
       :tableHeadersData="allApplicationsHeaderTitles"
-      :data-length="getSortedTableData.length"
-      :pages-count="1"
-      :current-page="currentPage"
-      :per-page="perPage"
       :filter-data="getCompanies"
-      :paginationToken="paginationToken"
+      :module="module"
       page-type="applications"
       is-create-button
       @search-value="setSearchValue"
       @sort-value="setSortValue"
-      @set-current-page="setCurrentPage"
-      @next-page="nextPage"
       @filter-value="setFilterValue"
   >
     <tr class="dashboard-table__row" v-for="app of getSortedTableData" :key="app.appId">
@@ -54,7 +48,10 @@ import UserOptionsBlock from '../user-options-block';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+import { ALL_APPS, USER } from '../../store/modules/module-types';
+import { GET_COMPANY_BY_USERNAME } from '../../store/modules/getter-types';
+import { GET_DATA, REMOVE_ITEM } from '../../store/modules/action-types';
 
 export default {
   name: 'all-applications-tab',
@@ -65,6 +62,7 @@ export default {
     return {
       allApplicationsHeaderTitles,
       activeOptionsUserId: -1,
+      module: ALL_APPS
     };
   },
 
@@ -73,31 +71,29 @@ export default {
       return new Set(this.tableData.map(el => el.companyName));
     },
 
-    ...mapGetters('admin', {
-      getCompanyByUsername: 'getCompanyByUsername',
-      tableData: 'getAllApplications',
-    }),
+    ...mapGetters(USER, [GET_COMPANY_BY_USERNAME]),
 
-    ...mapState('admin', {
-      paginationToken: 'paginationTokenAllApplications'
-    })
+    ...mapGetters(this.module, {
+      tableData: GET_DATA,
+    }),
   },
 
   mixins: [dashboardSearch],
 
   methods: {
+    ...mapActions(this.module, {
+      getData: GET_DATA,
+      deleteApplicationByUser: REMOVE_ITEM
+    }),
+
     showUserOptions(id) {
       this.activeOptionsUserId = id;
     },
 
     deleteApplication(userName, appId) {
-      this.$store.dispatch('admin/deleteApplicationByUser', { userName, appId });
+      this.deleteApplicationByUser({ userName, appId });
       document.body.click(); // for hide tippy
     },
-
-    nextPage(paginationToken) {
-      this.$store.dispatch('admin/getAllApplications', paginationToken);
-    }
   }
 };
 </script>

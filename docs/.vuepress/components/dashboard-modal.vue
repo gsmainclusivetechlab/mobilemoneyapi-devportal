@@ -62,6 +62,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import SpinnerComponent from './helpers/spinner-component';
+import { ALL_PLANS, MY_APPS } from '../store/modules/module-types';
+import { GET_ALL_MY_APPS, GET_PUBLISHED_USAGE_PLANS } from '../store/modules/getter-types';
 
 export default {
   name: 'dashboard-modal',
@@ -78,8 +80,8 @@ export default {
   },
 
   computed: {
-    ...mapGetters('usagePlans', ['getPublishedUsagePlans']),
-    ...mapGetters('application', ['getApplicationsList']),
+    ...mapGetters(ALL_PLANS, [GET_PUBLISHED_USAGE_PLANS]),
+    ...mapGetters(MY_APPS, [GET_ALL_MY_APPS]),
   },
 
   methods: {
@@ -88,10 +90,10 @@ export default {
     },
     async createApp() {
       this.waitingResponse = true;
-
+      // TODO maybe refactor this
       await this.$store.dispatch('application/postApp', this.form)
           .then(() => {
-            this.handleModalClose(); // TODO ask about actions after creating application
+            this.handleModalClose();
           })
           .finally(() => {
             this.waitingResponse = false;

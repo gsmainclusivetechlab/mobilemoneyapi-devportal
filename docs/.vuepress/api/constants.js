@@ -34,12 +34,13 @@ export const CREATE_APP = DEVELOPERS_API.replace('{endpoint}', 'apps');
 export const APP_BY_ID = DEVELOPERS_API.replace('{endpoint}', '{userName}/apps/{appId}');
 export const PLANS = USAGE_PLANS.replace('{endpoint}', 'plans');
 export const ADMIN_PROFILE = ADMIN_API.replace('{endpoint}', 'profile');
-export const ALL_DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers');
+export const DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers');
 export const DELETE_USER = ADMIN_API.replace('{endpoint}', '{userName}');
 export const UPDATE_ROLE = ADMIN_API.replace('{endpoint}', 'role/{userName}');
 export const SET_USER_STATUS = ADMIN_API.replace('{endpoint}', 'disable-enable-user/{userName}');
 export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish');
 
 // ERRORS
+
 export const USERNAME_ALREADY_REGISTERED = 'USERNAME_ALREADY_REGISTERED';
 export const EMAIL_ALREADY_REGISTERED = 'EMAIL_ALREADY_REGISTERED';

@@ -1,38 +1,19 @@
 <template>
   <div class="dashboard-table-bottom">
-    <span>Showing {{ perPage * (currentPage - 1) + 1 }} to {{ currentPage === pagesCount ? dataLength : perPage * currentPage }} of {{ dataLength }} entries</span>
-
     <div>
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-          :class="{'dashboard-table__pagination-arrow--inactive': currentPage === 1}"
-          @click="$emit('set-current-page', currentPage - 1)"
+          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage[module] === 1}"
+          @click="$emit('prev-page')"
       >
         < Prev
       </button>
       <button
           type="button"
-          v-for="page of pagesCount"
-          :key="page"
-          class="dashboard-table__pagination-item"
-          :class="{'dashboard-table__pagination-item--active': page === currentPage}"
-          @click="$emit('set-current-page', page)"
-      >{{ page }}
-      </button>
-<!--      <button-->
-<!--          type="button"-->
-<!--          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow&#45;&#45;right"-->
-<!--          :class="{'dashboard-table__pagination-arrow&#45;&#45;inactive': currentPage === pagesCount}"-->
-<!--          @click="$emit('set-current-page', currentPage + 1)"-->
-<!--      >-->
-<!--        Next >-->
-<!--      </button>-->
-      <button
-          type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': !paginationToken}"
-          @click="$emit('next-page', paginationToken)"
+          :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage[module]}"
+          @click="$emit('next-page')"
       >
         Next >
       </button>
@@ -41,32 +22,43 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import { nameWithSlash } from '../../helpers/vuexHelper';
+import { GET_DATA } from '../../store/modules/action-types';
+import { PAGINATION } from '../../store/modules/module-types';
+import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../../store/modules/getter-types';
+
 export default {
   name: 'dashboard-table-bottom',
+
   props: {
-    dataLength: {
-      type: Number,
-      default: 1
-    },
-    pagesCount: {
-      type: Number,
-      default: 1
-    },
-    currentPage: {
-      type: Number,
-      default: 1
-    },
-    perPage: {
-      type: Number,
-      default: 1
-    },
-    paginationToken: {
+    module: {
       type: String
+    }
+  },
+
+  computed: {
+    ...mapGetters(PAGINATION, [
+      GET_TOKEN_NEXT_PAGE,
+      GET_TOKEN_PREV_PAGE,
+      GET_CURRENT_PAGE
+    ])
+  },
+
+  methods: {
+    nextPage() {
+      this.getData(this.getTokenNextPage(this.module));
+      this.setCurrentPage(this.getCurrentPage(this.module) - 1);
+    },
+
+    prevPage() {
+      this.getData(this.getTokenPrevPage(this.module));
+      this.setCurrentPage(this.getCurrentPage(this.module) + 1);
+    },
+
+    getData(token) {
+      this.$store.dispatch(nameWithSlash(this.module, GET_DATA), token);
     }
   }
 };
 </script>
-
-<style scoped>
-
-</style>

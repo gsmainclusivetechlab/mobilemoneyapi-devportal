@@ -11,7 +11,6 @@ export default {
     };
   },
 
-
   computed: {
     getSortedTableData() {
       // TODO need to refactor
