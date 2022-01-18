@@ -7,7 +7,8 @@ export default {
   getAllApplications({ commit }, paginationToken = null) {
     AllApplications.get(paginationToken)
       .then(({ data }) => {
-        commit('setAllApplications', data);
+        commit('setAllApplications', data.appData);
+        commit('setPaginationTokenAllApplications', data.paginationToken)
       })
       .catch(console.log);
   },
@@ -29,7 +30,8 @@ export default {
   getAllUsers({ commit }, paginationToken = null) {
     AllUsers.get(paginationToken)
       .then(({ data }) => {
-        commit('setAllUsers', data);
+        commit('setAllUsers', data.users);
+        commit('setPaginationTokenAllUsers', data.PaginationToken)
       })
       .catch(console.log)
       .finally(() => {
@@ -38,7 +40,7 @@ export default {
   },
 
   async updateRole({ dispatch, state }, userId) {
-    const { role, userName } = state.allUsers.users.find(user => user.userId === userId);
+    const { role, userName } = state.allUsers.find(user => user.userId === userId);
 
     const roles = [
       'user', 'admin'
@@ -69,7 +71,7 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        const { userEnabled } = state.allUsers.users.find(user => user.userName === userName);
+        const { userEnabled } = state.allUsers.find(user => user.userName === userName);
 
         await AllUsers.setUserStatus(userName, userEnabled);
         await dispatch('getAllUsers');

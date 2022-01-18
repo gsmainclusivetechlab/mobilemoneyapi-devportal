@@ -26,7 +26,7 @@
           :pages-count="1"
           :current-page="1"
           :per-page="10"
-          :paginationToken="getPaginationToken"
+          :paginationToken="paginationToken"
           @set-current-page="$emit('set-current-page', $event)"
           @next-page="nextPage"
       />
@@ -39,7 +39,7 @@
 <script>
 import dashboardModal from '../dashboard-modal.vue';
 import cardLinksSection from './card-links-section.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
 
 export default {
@@ -55,7 +55,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters('application', ['getApplicationsList', 'getPaginationToken']),
+    ...mapGetters('application', ['getApplicationsList']),
+
+    ...mapState('application', ['paginationToken'])
   },
 
   methods: {

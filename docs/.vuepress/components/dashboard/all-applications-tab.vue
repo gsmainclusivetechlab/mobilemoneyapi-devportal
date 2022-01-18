@@ -54,7 +54,7 @@ import UserOptionsBlock from '../user-options-block';
 import dashboardSearch from '../../mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'all-applications-tab',
@@ -76,7 +76,10 @@ export default {
     ...mapGetters('admin', {
       getCompanyByUsername: 'getCompanyByUsername',
       tableData: 'getAllApplications',
-      paginationToken: 'getPaginationForAllApps'
+    }),
+
+    ...mapState('admin', {
+      paginationToken: 'paginationTokenAllApplications'
     })
   },
 

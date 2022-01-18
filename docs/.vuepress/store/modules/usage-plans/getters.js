@@ -1,5 +1,3 @@
-import { CONFIRMED } from '../../../api/constants';
-
 export default {
   getPublishedUsagePlans(state) {
     return state.usagePlans
@@ -12,6 +10,7 @@ export default {
         });
       });
   },
+
   getUsagePlans(state) {
     return state.usagePlans.map(plan => {
       const state = plan.published ? 'Publish' : 'Unpublish';

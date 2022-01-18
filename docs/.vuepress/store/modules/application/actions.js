@@ -6,16 +6,15 @@ export default {
 
     try {
       const { data } = await Application.getApps(userName, paginationToken);
-      commit('setApplications', data);
+      commit('setApplications', data.appData);
+      commit('setPaginationToken', data.paginationToken);
       if (state.selectedApplication) {
         commit('setSelectedApplication', state.selectedApplication.appId);
       }
     } catch (error) {
       if (error?.response?.data?.description === 'No App Data present') {
-        commit('setApplications', {
-          paginationToken: null,
-          appData: []
-        });
+        commit('setApplications', []);
+        commit('setPaginationToken', null);
       }
     }
   },

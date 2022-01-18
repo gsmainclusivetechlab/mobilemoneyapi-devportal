@@ -4,7 +4,7 @@ import { ALL_DEVELOPERS, DELETE_USER, SET_USER_STATUS, UPDATE_ROLE } from '../co
 export default class AllUsers {
   static get(paginationToken) {
     return Api.setHeadersForOneRequest({
-      paginationToken: paginationToken ? paginationToken : null
+      paginationToken: paginationToken ? paginationToken : ''
     }).get(ALL_DEVELOPERS);
   }
 

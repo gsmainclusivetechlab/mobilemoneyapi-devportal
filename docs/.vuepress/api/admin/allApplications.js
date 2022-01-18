@@ -4,7 +4,7 @@ import { APP_BY_ID, CREATE_APP } from '../constants';
 export default class AllApplications {
   static get(paginationToken) {
     return Api.setHeadersForOneRequest({
-      paginationToken: paginationToken ? paginationToken : null
+      paginationToken: paginationToken ? paginationToken : ''
     }).get(CREATE_APP);
   }
 

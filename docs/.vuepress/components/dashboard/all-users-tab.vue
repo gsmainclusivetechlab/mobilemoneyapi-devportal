@@ -108,7 +108,10 @@ export default {
 
     ...mapGetters('admin', {
       tableData: 'getAllUsers',
-      paginationToken: 'getPaginationForAllUsers'
+    }),
+
+    ...mapState('admin', {
+      paginationToken: 'paginationTokenAllUsers'
     }),
 
     ...mapGetters('user', ['getUserName']),
@@ -121,11 +124,11 @@ export default {
 
   methods: {
     isUserAdminOrSuperadmin(user) {
-      if(this.isAdminRole) {
-        return (user.role === 'admin' || user.role === 'superadmin')
+      if (this.isAdminRole) {
+        return (user.role === 'admin' || user.role === 'superadmin');
       }
-      if(this.isSuperAdminRole) {
-        return (user.role === 'superadmin')
+      if (this.isSuperAdminRole) {
+        return (user.role === 'superadmin');
       }
     },
 
@@ -151,7 +154,7 @@ export default {
     },
 
     async changeUserRole(user) {
-      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperadmin(user)) {
+      if (user.userName !== this.getUserName && ! this.isUserAdminOrSuperadmin(user)) {
         this.waitingUserId = user.userId;
         await this.$store.dispatch('admin/updateRole', user.userId);
         this.waitingUserId = '';
