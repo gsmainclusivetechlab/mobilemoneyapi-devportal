@@ -3,7 +3,7 @@
     <div class="create-app-banner">
       <div class="flex-container">
         <div class="content-box">
-          <span class="create-app-banner-title">Create an app</span>
+          <span class="h3 create-app-banner-title">Create an app</span>
           <div class="create-app-banner-text">
             <span>Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span>
             <ol class="create-app-banner-list">

@@ -22,7 +22,7 @@
 
       <NavLinks class="can-hide"/>
 
-      <SearchBox @set-active-search="isActiveSearch = $event"/>
+      <SearchBox @set-active-search="setActiveSearch"/>
       <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">
@@ -73,6 +73,9 @@ import { AUTH, USER } from '../../store/modules/module-types';
 import { LOG_OUT } from '../../store/modules/action-types';
 import { GET_FULL_NAME } from '../../store/modules/getter-types';
 
+const MOBILE_DESKTOP_BREAKPOINT = 979; // refer to config.styl
+const TABLET_DESKTOP_BREAKPOINT = 1024;
+
 export default {
   name: 'Navbar',
 
@@ -100,7 +103,7 @@ export default {
   },
 
   mounted() {
-    const MOBILE_DESKTOP_BREAKPOINT = 979; // refer to config.styl
+
 
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'));
 
@@ -108,6 +111,9 @@ export default {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.linksWrapMaxWidth = null;
       } else {
+        if(document.documentElement.clientWidth > TABLET_DESKTOP_BREAKPOINT) {
+          this.isMobileSearchOpened = false
+        }
         this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
             - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0);
       }
@@ -135,6 +141,14 @@ export default {
     goToDashboard() {
       this.$router.push({ path: '/dashboard' }).catch(() => {
       });
+    },
+    setActiveSearch(value) {
+
+      if(document.documentElement.clientWidth <= TABLET_DESKTOP_BREAKPOINT) {
+        this.isActiveSearch = false
+      } else {
+        this.isActiveSearch = value
+      }
     }
   }
 };
