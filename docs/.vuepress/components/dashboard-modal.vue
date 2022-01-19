@@ -3,7 +3,7 @@
     <div class="content-wrap">
       <div class="modal-container">
         <button class="close-btn" @click="handleModalClose"></button>
-        <span class="modal-title">Create app</span>
+        <span class="h3 modal-title">Create app</span>
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="create-app">
           <form @submit.prevent="handleSubmit(createApp)">
             <ValidationProvider class="input-wrap"
