@@ -34,7 +34,6 @@ export default async ({
 
 }) => {
   Vue.mixin({store})
-  // initValidation()
   Vue.component('ValidationProvider', ValidationProvider);
   Vue.component('ValidationObserver', ValidationObserver);
   Vue.component("v-select", vSelect);
