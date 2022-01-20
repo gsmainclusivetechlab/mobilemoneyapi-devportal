@@ -86,7 +86,7 @@ const mainNavigation = [
         ]
     },
     {
-        text: 'API version',
+        text: 'API',
         items: [
             {
                 text: 'Version 1.2',
