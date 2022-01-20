@@ -25,12 +25,12 @@
         <TabSection  v-if="isActiveTab('Disbursements')" key="1">
 !!!include(../../use-cases/disbursements.md)!!!
 !!!include(../../use-cases/disbursements-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/disbursements/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/disbursements/">Start developing</router-link>
         </TabSection>
         <TabSection  v-if="isActiveTab('P2P Transfers')" key="2">
 !!!include(../../use-cases/p2p-transfers.md)!!!
 !!!include(../../use-cases/p2p-transfers-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/p-2-p-transfers/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/p-2-p-transfers/">Start developing</router-link>
         </TabSection>
       </div>
     </div>

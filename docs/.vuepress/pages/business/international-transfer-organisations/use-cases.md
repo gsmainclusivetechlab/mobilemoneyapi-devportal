@@ -25,7 +25,7 @@
         <TabSection  v-if="isActiveTab('International Transfers')" key="1">
 !!!include(../../use-cases/internal-transfers.md)!!!
 !!!include(../../use-cases/internal-transfers-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/international-transfers/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/international-transfers/">Start developing</router-link>
         </TabSection>
       </div>
     </div>

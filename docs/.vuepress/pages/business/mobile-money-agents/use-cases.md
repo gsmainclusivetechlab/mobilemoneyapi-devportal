@@ -25,7 +25,7 @@
         <TabSection  v-if="isActiveTab('Agent Services')" key="1">
 !!!include(../../use-cases/agent-services.md)!!!
 !!!include(../../use-cases/agent-services-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/agent-services/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/agent-services/">Start developing</router-link>
         </TabSection>
       </div>
     </div>
