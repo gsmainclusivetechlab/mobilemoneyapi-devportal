@@ -146,14 +146,6 @@ export default {
         contentDisplay: highlight(s.contentStr, s.contentHighlight),
       }));
     },
-    getPageLocalePath(page) {
-      for (const localePath in this.$site.locales || {}) {
-        if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
-          return localePath;
-        }
-      }
-      return '/';
-    },
     isSearchable(page) {
       let searchPaths = SEARCH_PATHS;
       // all paths searchables

@@ -25,12 +25,12 @@
         <TabSection v-if="isActiveTab('Recurring Payments')" key="1">
 !!!include(../../use-cases/recurring-payments.md)!!!
 !!!include(../../use-cases/recurring-payments-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/recurring-payments/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/recurring-payments/">Start developing</router-link>
         </TabSection>
         <TabSection v-if="isActiveTab('Bill Payments')" key="2">
 !!!include(../../use-cases/bill-payments.md)!!!
 !!!include(../../use-cases/bill-payments-scenarios.md)!!!
-<router-link class="btn btn--transparent" to="/use-cases/bill-payments/">Start developing</router-link>
+<router-link class="btn btn--transparent btn--tab-link" to="/use-cases/bill-payments/">Start developing</router-link>
         </TabSection>
       </div>
     </div>

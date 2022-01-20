@@ -12,9 +12,9 @@
     .dashboard-sidebar {
       @include animate(transform);
 
-      width: 380px;
+      width: 300px;
       background: var(--base-light-background-color);
-      padding: 62px 30px 30px 88px;
+      padding: 62px 30px 30px 70px;
       flex-shrink: 0;
       position: relative;
       z-index: 5;
@@ -745,8 +745,8 @@
     }
 
     .dashboard-section &__table {
-      padding-right: 88px;
-      max-width: calc(100% - 380px);
+      padding-right: 70px;
+      max-width: calc(100% - 300px);
 
       @include media('<desktop') {
         max-width: calc(100% - 300px);
@@ -1094,7 +1094,7 @@
       }
 
       .dashboard-content__table-applications & {
-        grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(186px, 1fr) 30px;
+        grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(155px, 1fr) 30px;
       }
 
       &:nth-child(2n) {

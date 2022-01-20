@@ -200,5 +200,10 @@
 
   .btn--transparent {
     padding: 10px 0 30px;
+
+    &.btn--tab-link {
+      font-size: var(--h6-font-size);
+      font-weight: var(--base-h6-font-weight);
+    }
   }
 }
