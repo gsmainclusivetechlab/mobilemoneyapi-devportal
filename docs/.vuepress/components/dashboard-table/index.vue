@@ -79,13 +79,13 @@ export default {
       default: ''
     },
     module: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   data() {
     return {
       modalIsVisible: false,
-      confirmationModal: false
     };
   },
   methods: {

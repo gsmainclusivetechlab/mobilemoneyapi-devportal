@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-table-bottom">
+  <div class="dashboard-table-bottom" v-if="getTokenNextPage(this.module)">
     <div>
       <button
           type="button"
