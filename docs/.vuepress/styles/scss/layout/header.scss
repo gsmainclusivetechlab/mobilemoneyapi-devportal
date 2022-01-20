@@ -6,7 +6,7 @@
       padding: 24px 40px;
     }
 
-    @media (max-width: 1140px) and (min-width: 1025px){
+    @media (max-width: 1155px) and (min-width: 1046px){
       padding: 24px 10px;
     }
 
@@ -179,6 +179,15 @@
   .logged-in-name {
     font-size: 12px;
     font-weight: 500;
+    margin: 0;
+
+    @include media('<=tablet-lg') {
+      display: inline;
+    }
+
+    &__block {
+      text-align: center;
+    }
   }
 
   .logged-in-account-btn {

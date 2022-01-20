@@ -27,15 +27,18 @@
 
       <div class="login-links" v-if="!isLoggedUser">
         <transition name="fade-name">
-          <router-link to="/signup/" class="btn btn--transparent btn--register" v-show="!isActiveSearch">Sign up</router-link>
+          <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
         </transition>
         <router-link to="/login/" class="btn btn--accent">Log in</router-link>
       </div>
 
       <div class="logged-in-links" v-if="isLoggedUser">
-        <transition name="fade-name">
-          <span class="logged-in-name" v-show="!isActiveSearch">{{ getFullName }}</span>
-        </transition>
+<!--        <transition name="fade-name">-->
+        <div class="logged-in-name__block">
+          <p class="logged-in-name">{{ userData.firstName }}</p>
+          <p class="logged-in-name">{{ userData.lastName }}</p>
+        </div>
+<!--        </transition>-->
         <button class="logged-in-account-btn" @click="goToDashboard">
           <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -67,14 +70,13 @@ import SearchBox from '../../plugins/vuepress-plugin-fulltext-search/components/
 import SidebarButton from '@theme/components/SidebarButton.vue';
 import NavLinks from '@theme/components/NavLinks.vue';
 import { mixin as clickaway } from 'vue-clickaway';
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import { nameWithSlash } from '../../helpers/vuexHelper';
 import { AUTH, USER } from '../../store/modules/module-types';
 import { LOG_OUT } from '../../store/modules/action-types';
-import { GET_FULL_NAME } from '../../store/modules/getter-types';
 
 const MOBILE_DESKTOP_BREAKPOINT = 979; // refer to config.styl
-const TABLET_DESKTOP_BREAKPOINT = 1024;
+const TABLET_DESKTOP_BREAKPOINT = 1045;
 
 export default {
   name: 'Navbar',
@@ -97,14 +99,10 @@ export default {
 
   computed: {
     ...mapState(AUTH, ['isLoggedUser']),
-    ...mapGetters(USER, {
-      getFullName: GET_FULL_NAME
-    })
+    ...mapState(USER, ['userData']),
   },
 
   mounted() {
-
-
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'));
 
     const handleLinksWrapWidth = () => {
