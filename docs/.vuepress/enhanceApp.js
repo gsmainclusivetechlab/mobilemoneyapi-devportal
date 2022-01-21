@@ -48,7 +48,7 @@ export default async ({
   }
 
   if (!isServer) {
-    await import('vue-touch').then(module => {
+    await import('vue2-touch-events').then(module => {
       Vue.use(module.default);
     })
 

@@ -18,7 +18,7 @@
             <div class="fields-wrap">
               <ValidationProvider class="input-group"
                                   vid="lastName"
-                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
+                                  :rules="{ required: { allowFalse: false }, alpha_with_dash: true, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="lastName">Last name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>

@@ -1,11 +1,9 @@
 <template>
   <div class="dashboard-section">
-    <v-touch
-        @swiperight="openSidebar"
-        @swipeleft="closeSidebar"
-    >
-      <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
-    </v-touch>
+      <div
+          v-touch:swipe.right="openSidebar"
+          v-touch:swipe.left="closeSidebar"
+          class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
 
     <div class="dashboard-sidebar"
          v-on-clickaway="closeSidebar"

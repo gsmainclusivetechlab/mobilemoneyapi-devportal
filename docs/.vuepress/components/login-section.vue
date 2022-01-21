@@ -10,7 +10,7 @@
         <h1 class="auth-section__title">Log in</h1>
       </div>
       <div class="form-wrap">
-        <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="form">
+        <ValidationObserver v-slot="{ invalid, dirty, handleSubmit }" ref="form">
           <form @submit.prevent="handleSubmit(signIn)">
             <ValidationProvider class="form-row"
                                 vid="email"
@@ -38,7 +38,7 @@
               <router-link to="/forgot-password" class="btn-forgot-password">Forgot password?</router-link>
             </div>
             <div class="button-holder">
-              <button class="btn btn--accent" type="submit" :disabled="invalid || waitingResponse">
+              <button class="btn btn--accent" type="submit" :disabled="(invalid && dirty) || waitingResponse">
                 <span v-if="!waitingResponse">Log in</span>
                 <spinner-component v-else/>
               </button>

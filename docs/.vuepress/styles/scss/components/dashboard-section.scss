@@ -147,6 +147,14 @@
 
     .sidebar-child-item {
       color: var(--primaty-dark-color);
+      //max-width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include media('<=tablet-lg') {
+        max-width: 120px;
+      }
 
       @include media('hover') {
         &:hover {

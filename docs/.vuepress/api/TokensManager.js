@@ -26,11 +26,8 @@ export default class TokensManager {
   }
 
   static updateTokens(refresh_token) {
-    return Api.post(UPDATE_REFRESH_TOKEN, null, {
-      headers: {
-        ...Api.getHeaders(),
-        refresh_token
-      }
-    });
+    return Api.setHeadersForOneRequest({
+      refresh_token
+    }).post(UPDATE_REFRESH_TOKEN);
   }
 }

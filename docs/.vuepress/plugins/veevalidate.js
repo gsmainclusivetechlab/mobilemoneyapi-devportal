@@ -13,9 +13,12 @@ extend('required', {
     ...required,
     message: 'This field is required',
 });
-extend('alpha', {
-    ...alpha,
-    message: 'This field may only contain alphabetic characters',
+extend('alpha_with_dash', {
+    validate: value => {
+        let alphaWithDashRegex = new RegExp(/^[A-Z-]*$/i)
+        return alphaWithDashRegex.test(value);
+    },
+    message: 'This field may only contain alphabetic characters and dash',
 });
 extend('min', {
     ...min,

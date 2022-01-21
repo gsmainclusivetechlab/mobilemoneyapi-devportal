@@ -28,7 +28,7 @@
 
             <ValidationProvider class="form-row"
                                 vid="last-name"
-                                :rules="{ required: { allowFalse: false }, alpha: true, min: 2 }"
+                                :rules="{ required: { allowFalse: false }, alpha_with_dash: true, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="last-name">Last name
