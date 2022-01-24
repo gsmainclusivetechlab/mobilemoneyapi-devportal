@@ -4,7 +4,6 @@
   "description": "API documentation",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "start": "nodemon --watch 'docs/.vuepress/pages/**/*' -e md --exec vuepress dev docs --temp .temp --no-cache"
   },

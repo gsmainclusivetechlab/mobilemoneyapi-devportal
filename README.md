@@ -2,17 +2,11 @@
 ```npm
 npm i
 ```
-2. Development
-If you want to use !!!include()!!! for including some md files in other md files, you have to use the following command:
+2. run start
 ```npm
 npm run start
 ```
-
-To develop without including files, you can just use dev command:
-```npm
-npm run dev
-```
-VuePress will start a hot-reloading development server at http://localhost:8080 if any of above commands is executed.
+VuePress will start a hot-reloading development server at http://localhost:8080
 
 
 For build project run:
