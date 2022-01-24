@@ -62,10 +62,6 @@ export default {
       type: String,
       default: '',
     },
-    videoThumbSrc: {
-      type: String,
-      default: '',
-    },
     imageSrc: {
       type: String,
       default: '',

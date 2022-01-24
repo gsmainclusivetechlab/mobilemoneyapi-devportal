@@ -3,9 +3,9 @@ pageClass: industry-page custom
 title: Employers
 ---
 
-!!!include(./docs/.vuepress/pages/business/employers/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/employers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/employers/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/employers/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/employers/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/employers/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

@@ -3,9 +3,9 @@ pageClass: industry-page custom
 title: Mobile Money Agents
 ---
 
-!!!include(./docs/.vuepress/pages/business/mobile-money-agents/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-agents/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-agents/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-agents/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-agents/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-agents/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

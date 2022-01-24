@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: Education & Health
 ---
 
-!!!include(./docs/.vuepress/pages/business/education-and-health/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/education-and-health/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/education-and-health/testimonials.md)!!!
-!!!include(./docs/.vuepress/pages/business/education-and-health/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/education-and-health/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/education-and-health/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/education-and-health/testimonials.md)!!!
+!!!include(docs/.vuepress/pages/business/education-and-health/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

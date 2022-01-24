@@ -3,9 +3,9 @@ pageClass: industry-page custom
 title: Merchants & Service Providers
 ---
 
-!!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/merchants-and-service-providers/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/merchants-and-service-providers/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/merchants-and-service-providers/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/merchants-and-service-providers/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

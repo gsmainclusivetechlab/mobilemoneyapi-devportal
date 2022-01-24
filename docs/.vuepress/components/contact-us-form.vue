@@ -130,8 +130,9 @@
         </ValidationObserver>
       </div>
     </div>
-    <modal :show-modal="mailSend"
-           @close="showSuccessModal">
+    <contact-us-modal
+        :show-modal="mailSend"
+        @close="showSuccessModal">
       <template slot="header">
         <h2 class="h2 modal_title">Thank you!</h2>
       </template>
@@ -139,18 +140,18 @@
         Your enquiry has been successfully sent to our administrators.
         We'll get back to you within the next 24 hours.
       </template>
-    </modal>
+    </contact-us-modal>
   </section>
 </template>
 
 <script>
 import { COUNTRIES } from '../constants.js';
-import Modal from './modal.vue';
+import ContactUsModal from './contact-us-modal.vue';
 
 export default {
   name: 'contact-us-from',
   comments: {
-    Modal,
+    ContactUsModal,
   },
   data: function () {
     return {

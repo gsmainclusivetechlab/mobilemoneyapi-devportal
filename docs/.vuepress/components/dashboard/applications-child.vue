@@ -151,9 +151,14 @@ export default {
     ...mapState(MY_APPS, ['selectedApplication'])
   },
 
-  created() {
-    this.form.appName = this.selectedApplication.appName;
-    this.form.usagePlan = this.selectedApplication.usagePlan;
+  watch: {
+    selectedApplication: {
+      handler (value) {
+        this.setSelectedAppInForm(value)
+      },
+      deep: true,
+      immediate: true
+    }
   },
 
   beforeDestroy() {
@@ -196,13 +201,18 @@ export default {
       popup[0].style.transition = 'none';
     },
 
+    setSelectedAppInForm(app) {
+      this.form.appName = app?.appName ?? '';
+      this.form.usagePlan = app?.usagePlan ?? '';
+    },
+
     async deleteApplication(event) {
       this.waitingResponseDelete = true;
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        await this.$store.dispatch(nameWithSlash(MY_APPS, REMOVE_ITEM));
         this.$emit('close-application', event);
+        await this.$store.dispatch(nameWithSlash(MY_APPS, REMOVE_ITEM));
       }
 
       this.waitingResponseDelete = false;

@@ -19,14 +19,8 @@
 </template>
 
 <script>
-import lightbox from './lightbox.vue';
-
 export default {
   name: 'IndustryHeroSection',
-
-  components: {
-    lightbox,
-  },
 
   props: [
     'imageSrc',

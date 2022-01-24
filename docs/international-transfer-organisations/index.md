@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: International Transfer Organisations
 ---
 
-!!!include(./docs/.vuepress/pages/business/international-transfer-organisations/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/international-transfer-organisations/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/international-transfer-organisations/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/international-transfer-organisations/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/succeed-case.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

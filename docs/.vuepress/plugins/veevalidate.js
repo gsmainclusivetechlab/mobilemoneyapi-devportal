@@ -20,6 +20,10 @@ extend('alpha_with_dash', {
     },
     message: 'This field may only contain alphabetic characters and dash',
 });
+extend('alpha', {
+    ...alpha,
+    message: 'This field may only contain alphabetic characters',
+});
 extend('min', {
     ...min,
     message: (val, params) => `This field must be at least ${params.length} characters`,

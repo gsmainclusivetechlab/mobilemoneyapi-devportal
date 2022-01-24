@@ -148,9 +148,11 @@
     .sidebar-child-item {
       color: var(--primaty-dark-color);
       //max-width: 120px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      //white-space: nowrap;
+      //overflow: hidden;
+      //text-overflow: ellipsis;
+
+      word-wrap: break-word;
 
       @include media('<=tablet-lg') {
         max-width: 120px;

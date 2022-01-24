@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: Banks & Microfinance Institutions
 ---
 
-!!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/testimonials.md)!!!
-!!!include(./docs/.vuepress/pages/business/banks-microfinance-institutions/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/banks-microfinance-institutions/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/banks-microfinance-institutions/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/banks-microfinance-institutions/testimonials.md)!!!
+!!!include(docs/.vuepress/pages/business/banks-microfinance-institutions/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

@@ -1,6 +1,5 @@
 <home-hero-section
 videoSrc="https://www.youtube.com/watch?v=nJkWmKf6b5Q&ab_channel=MobileforDevelopment"
-videoThumbSrc="/images/hero-video-thumb.png"
 imageSrc="/images/hero-video-thumb.png"
 imageAlt="image alt"
 :accentLink="{text: 'Go to API Docs', link: '/api-versions-1.2/resources/api-service-definition'}"

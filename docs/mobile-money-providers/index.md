@@ -3,9 +3,9 @@ pageClass: industry-page custom
 title: Mobile Money Providers
 ---
 
-!!!include(./docs/.vuepress/pages/business/mobile-money-providers/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-providers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/mobile-money-providers/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-providers/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-providers/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/mobile-money-providers/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

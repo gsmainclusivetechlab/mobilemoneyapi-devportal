@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: Payment Service Providers & Payment Aggregators
 ---
 
-!!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/testimonials.md)!!!
-!!!include(./docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/testimonials.md)!!!
+!!!include(docs/.vuepress/pages/business/payment-service-providers-and-payment-aggregators/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

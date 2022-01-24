@@ -4,4 +4,4 @@ pageClass: api-page
 title: Account Linking
 ---
 
-!!!include(./docs/.vuepress/pages/use-cases/account-linking.md)!!!
+!!!include(docs/.vuepress/pages/use-cases/account-linking.md)!!!

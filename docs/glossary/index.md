@@ -5,7 +5,7 @@ title: Glossary
 
 <template>
   <div class="glossary">
-    !!!include(./docs/.vuepress/pages/glossary/search-section.md)!!!
+    !!!include(docs/.vuepress/pages/glossary/search-section.md)!!!
     <div class="search-results-section">
       <div class="container container--narrow">
         <div class="alphabet-box">
@@ -27,7 +27,7 @@ title: Glossary
           </select>
         </div>
         <h2 v-show="!visibleResults" class="no-results text-center">No results found.</h2>
-        !!!include(./docs/.vuepress/pages/glossary/glossary-container.md)!!!
+        !!!include(docs/.vuepress/pages/glossary/glossary-container.md)!!!
       </div>
     </div>
   </div>

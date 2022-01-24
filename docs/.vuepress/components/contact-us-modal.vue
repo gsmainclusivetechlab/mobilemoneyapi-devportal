@@ -21,7 +21,7 @@
 
 <script lang="js">
 export default {
-  name: 'Modal',
+  name: 'contact-us-modal',
   props: {
     showModal: Boolean,
     classModification: String,

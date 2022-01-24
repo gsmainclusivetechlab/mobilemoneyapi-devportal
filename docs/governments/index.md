@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: Governments
 ---
 
-!!!include(./docs/.vuepress/pages/business/governments/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/governments/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/governments/testimonials.md)!!!
-!!!include(./docs/.vuepress/pages/business/governments/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/governments/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/governments/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/governments/testimonials.md)!!!
+!!!include(docs/.vuepress/pages/business/governments/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

@@ -4,4 +4,4 @@ pageClass: api-page
 title: Recurring Payments
 ---
 
-!!!include(./docs/.vuepress/pages/use-cases/recurring-payments.md)!!!
+!!!include(docs/.vuepress/pages/use-cases/recurring-payments.md)!!!

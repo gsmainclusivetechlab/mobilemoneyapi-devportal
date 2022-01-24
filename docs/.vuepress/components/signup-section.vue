@@ -16,7 +16,7 @@
           <form @submit.prevent="handleSubmit(signUp)">
             <ValidationProvider class="form-row"
                                 vid="first-name"
-                                :rules="{ required: { allowFalse: false }, alpha: true, min: 2 }"
+                                :rules="{ required: { allowFalse: false }, alpha_with_dash: true, min: 2 }"
                                 v-slot="{ errors }"
                                 tag="div">
               <label for="first-name">

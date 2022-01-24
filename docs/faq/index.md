@@ -5,14 +5,14 @@ title: FAQ
 
 <template>
   <div class="faq">
-    !!!include(./docs/.vuepress/pages/faq/search-section.md)!!!
+    !!!include(docs/.vuepress/pages/faq/search-section.md)!!!
     <div class="search-results-section">
       <div class="container container--narrow">
         <h2 v-show="notFoundResults" class="no-results text-center">No results found.</h2>
         <div v-show="!notFoundResults">
-          !!!include(./docs/.vuepress/pages/faq/general.md)!!!
-          !!!include(./docs/.vuepress/pages/faq/technical.md)!!!
-          !!!include(./docs/.vuepress/pages/faq/security.md)!!!
+          !!!include(docs/.vuepress/pages/faq/general.md)!!!
+          !!!include(docs/.vuepress/pages/faq/technical.md)!!!
+          !!!include(docs/.vuepress/pages/faq/security.md)!!!
         </div>
       </div>
     </div>

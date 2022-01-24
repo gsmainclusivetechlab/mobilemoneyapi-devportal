@@ -26,7 +26,7 @@
               </ValidationProvider>
               <ValidationProvider class="input-group"
                                   vid="firstName"
-                                  :rules="{ required: { allowFalse: false }, alpha: true, min: 2}"
+                                  :rules="{ required: { allowFalse: false }, alpha_with_dash: true, min: 2}"
                                   v-slot="{ errors }"
                                   tag="div">
                 <label for="firstName">First name<span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span></label>

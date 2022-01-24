@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: FinTech Providers (Insurance Savings Loans)
 ---
 
-!!!include(./docs/.vuepress/pages/business/fintech-providers/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/fintech-providers/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/fintech-providers/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/fintech-providers/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/fintech-providers/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/fintech-providers/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/fintech-providers/succeed-case.md)!!!
+!!!include(docs/.vuepress/pages/business/fintech-providers/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

@@ -3,10 +3,10 @@ pageClass: industry-page custom
 title: Humanitarian Agencies
 ---
 
-!!!include(./docs/.vuepress/pages/business/humanitarian-agencies/hero.md)!!!
-!!!include(./docs/.vuepress/pages/business/humanitarian-agencies/use-cases.md)!!!
-!!!include(./docs/.vuepress/pages/business/humanitarian-agencies/succeed-case.md)!!!
-!!!include(./docs/.vuepress/pages/business/humanitarian-agencies/start-developing.md)!!!
+!!!include(docs/.vuepress/pages/business/humanitarian-agencies/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/humanitarian-agencies/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/humanitarian-agencies/succeed-case.md)!!!
+!!!include(docs/.vuepress/pages/business/humanitarian-agencies/start-developing.md)!!!
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel';

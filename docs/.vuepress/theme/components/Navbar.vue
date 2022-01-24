@@ -23,22 +23,15 @@
       <NavLinks class="can-hide"/>
 
       <SearchBox @set-active-search="setActiveSearch"/>
-      <button @click="toggleMobileSearch()" class="mobile-search-opener" type="button"></button>
+      <button @click="toggleMobileSearch" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">
-        <transition name="fade-name">
-          <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
-        </transition>
+        <router-link to="/signup/" class="btn btn--transparent btn--register">Sign up</router-link>
         <router-link to="/login/" class="btn btn--accent">Log in</router-link>
       </div>
 
       <div class="logged-in-links" v-if="isLoggedUser">
-<!--        <transition name="fade-name">-->
-        <div class="logged-in-name__block">
-          <p class="logged-in-name">{{ userData.firstName }}</p>
-          <p class="logged-in-name">{{ userData.lastName }}</p>
-        </div>
-<!--        </transition>-->
+        <p class="logged-in-name">{{ userData.firstName }} {{ userData.lastName }}</p>
         <button class="logged-in-account-btn" @click="goToDashboard">
           <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -109,9 +102,9 @@ export default {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.linksWrapMaxWidth = null;
       } else {
-        if(document.documentElement.clientWidth > TABLET_DESKTOP_BREAKPOINT) {
-          this.isMobileSearchOpened = false
-        }
+        // if (document.documentElement.clientWidth > TABLET_DESKTOP_BREAKPOINT) {
+        //   this.isMobileSearchOpened = false;
+        // }
         this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
             - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0);
       }
@@ -142,10 +135,10 @@ export default {
     },
     setActiveSearch(value) {
 
-      if(document.documentElement.clientWidth <= TABLET_DESKTOP_BREAKPOINT) {
-        this.isActiveSearch = false
+      if (document.documentElement.clientWidth <= TABLET_DESKTOP_BREAKPOINT) {
+        this.isActiveSearch = false;
       } else {
-        this.isActiveSearch = value
+        this.isActiveSearch = value;
       }
     }
   }

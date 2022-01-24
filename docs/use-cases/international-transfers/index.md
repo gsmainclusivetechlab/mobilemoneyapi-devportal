@@ -4,4 +4,4 @@ pageClass: api-page
 title: International Transfers
 ---
 
-!!!include(./docs/.vuepress/pages/use-cases/internal-transfers.md)!!!
+!!!include(docs/.vuepress/pages/use-cases/internal-transfers.md)!!!
