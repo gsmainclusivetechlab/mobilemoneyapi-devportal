@@ -14,7 +14,7 @@
           </a>
         </li>
       </ul>
-      <div class="copyright"> Copyright &copy; 2021 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div>
+      <div class="copyright"> Copyright &copy; {{ getCurrentYear }} GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div>
     </div>
   </footer>
 </template>
@@ -22,6 +22,12 @@
 <script>
 export default {
   name: 'Footer',
+
+  computed: {
+    getCurrentYear() {
+      return new Date().getFullYear();
+    }
+  }
 };
 </script>
 
