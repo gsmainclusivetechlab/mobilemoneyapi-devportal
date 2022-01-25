@@ -348,10 +348,13 @@
       box-shadow: 0 0 30px -2px rgba(36, 37, 41, 0.1);
       cursor: pointer;
       border: 1px solid transparent;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: relative;
+
+      @include media('>tablet-lg') {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 10px;
+      }
 
       & + .applications-list-item {
         margin-top: 14px;
@@ -375,6 +378,7 @@
       .application-title {
         font-size: 16px;
         font-weight: 500;
+        word-break: break-all;
       }
 
       .creation-date {
