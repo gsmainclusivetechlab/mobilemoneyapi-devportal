@@ -102,9 +102,6 @@ export default {
       if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
         this.linksWrapMaxWidth = null;
       } else {
-        // if (document.documentElement.clientWidth > TABLET_DESKTOP_BREAKPOINT) {
-        //   this.isMobileSearchOpened = false;
-        // }
         this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
             - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0);
       }
