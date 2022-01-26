@@ -121,6 +121,7 @@ export default {
         this.focused = true;
       }
     }
+    this.$refs.input.focus()
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.onHotkey);

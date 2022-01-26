@@ -55,7 +55,7 @@ html {
     }
   }
 
-  .mobile-search-opened {
+  //.mobile-search-opened {
     .search-box {
       opacity: 1;
       visibility: visible;
@@ -65,7 +65,7 @@ html {
         border-color: var(--base-accent-color);
       }
     }
-  }
+  //}
 }
 
 .mobile-search-opener {

@@ -3,12 +3,11 @@ import { ID_TOKEN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, X_USER_TOKEN } from './c
 import Api from './Api';
 
 export default class TokensManager {
-  static async updateRefreshToken() {
+  static updateRefreshToken() {
     return new Promise((resolve, reject) => {
       const refresh_token = CookieManager.getValue(REFRESH_TOKEN);
       CookieManager.removeValues(ID_TOKEN, X_USER_TOKEN);
       Api.removeTokens();
-      // TODO refresh_token not removed after 401
       this.updateTokens(refresh_token)
         .then(({ data }) => {
           const { AccessToken, ExpiresIn, IdToken, refreshToken } = data;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, ID_TOKEN, LOGIN, REFRESH_TOKEN, X_USER_TOKEN } from './constants';
+import { BASE_URL, ID_TOKEN, LOGIN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, X_USER_TOKEN } from './constants';
 import CookieManager from '../helpers/CookieManager';
 import TokensManager from './TokensManager';
 
@@ -82,11 +82,14 @@ class Api {
         return response;
       },
       (error) => {
-        if (error.response.status === 401 && CookieManager.getValue(REFRESH_TOKEN)) {
+        const responseURL = error.request.responseURL;
+
+        if (error.response.status === 401 && CookieManager.getValue(REFRESH_TOKEN) && ! responseURL.includes(UPDATE_REFRESH_TOKEN)) {
           const { config } = error;
           const originalRequest = { ...config };
 
           if (! this.requestWait) {
+            console.log(4);
             this.requestWait = true;
             TokensManager.updateRefreshToken(originalRequest)
               .then(() => {
