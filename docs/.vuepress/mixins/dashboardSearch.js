@@ -1,4 +1,6 @@
 import { sortByDate, sortByProp, sortByState, sortByStatus } from '../helpers/filtrationFunctions';
+import { GET_DATA, GET_DATA_WITH_SEARCH } from '../store/modules/action-types';
+import { nameWithSlash } from '../helpers/vuexHelper';
 
 export default {
   data() {
@@ -6,7 +8,8 @@ export default {
       searchValue: '',
       filterValue: '',
       sortValue: '',
-      currentPage: 1
+      currentPage: 1,
+      timer: null
     };
   },
 
@@ -41,8 +44,33 @@ export default {
   },
 
   methods: {
-    setSearchValue(value) {
-      this.searchValue = value;
+    // setSearchValue(value) {
+    //   this.searchValue = value;
+    // },
+
+    setSearchValue(search) {
+      this.searchValue = search
+      if (!this.searchRequest) {
+        this.searchRequest = true
+        this.timer = setTimeout(() => {
+          this.makeSearch(this.searchValue)
+          this.searchRequest = false
+        }, 700)
+      } else {
+        this.searchRequest = false
+        clearInterval(this.timer)
+        this.setSearchValue(search)
+      }
+    },
+
+    makeSearch(value) {
+      if(value) {
+        console.log('make search', value)
+        this.$store.dispatch(nameWithSlash(this.module, GET_DATA_WITH_SEARCH), value);
+      } else {
+        console.log('make usually request')
+        this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
+      }
     },
 
     setFilterValue(value) {

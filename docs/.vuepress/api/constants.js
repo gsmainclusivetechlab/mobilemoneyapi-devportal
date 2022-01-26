@@ -40,6 +40,9 @@ export const UPDATE_ROLE = ADMIN_API.replace('{endpoint}', 'role/{userName}');
 export const SET_USER_STATUS = ADMIN_API.replace('{endpoint}', 'disable-enable-user/{userName}');
 export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish');
 
+export const PLANS_WITH_SEARCH = DEVELOPERS_API.replace('{endpoint}', 'usage-plan/searchbykeyword?searchValue={value}')
+export const ALL_APPS_WITH_SEARCH = DEVELOPERS_API.replace('{endpoint}', 'apps/searchbykeyword?searchField={field}&searchValue={value}')
+
 // ERRORS
 
 export const USERNAME_ALREADY_REGISTERED = 'USERNAME_ALREADY_REGISTERED';

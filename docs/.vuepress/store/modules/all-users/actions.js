@@ -7,11 +7,11 @@ import { SET_DATA, ADD_TOKEN } from '../mutation-types';
 
 export default {
 
-  async [GET_DATA]({ commit }, paginationToken = null) {
+  async [GET_DATA]({ commit }) {
     try {
-      const { data } = await AllUsers.get(paginationToken);
+      const { data } = await AllUsers.get();
       commit(SET_DATA, data.users);
-      commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.PaginationToken, module: ALL_USERS }, { root: true });
+      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_USERS }, { root: true });
     } catch (error) {
       console.log(error);
     }

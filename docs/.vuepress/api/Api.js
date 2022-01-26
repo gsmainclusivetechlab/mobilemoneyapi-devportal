@@ -89,7 +89,6 @@ class Api {
           const originalRequest = { ...config };
 
           if (! this.requestWait) {
-            console.log(4);
             this.requestWait = true;
             TokensManager.updateRefreshToken(originalRequest)
               .then(() => {

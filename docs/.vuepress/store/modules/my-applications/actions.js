@@ -6,13 +6,13 @@ import { ADD_TOKEN, SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types
 import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
 
 export default {
-  async [GET_DATA]({ commit, state, rootGetters }, paginationToken = null) {
+  async [GET_DATA]({ commit, state, rootGetters }) {
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
-      const { data } = await Application.getApps(userName, paginationToken);
+      const { data } = await Application.getApps(userName);
 
       commit(SET_DATA, data.appData);
-      commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: MY_APPS }, { root: true });
+      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: MY_APPS }, { root: true });
 
       if (state.selectedApplication) {
         commit(SET_SELECTED_APPLICATION, state.selectedApplication.appId);
@@ -20,7 +20,7 @@ export default {
     } catch (error) {
       if (error?.response?.data?.description === 'No App Data present') {
         commit(SET_DATA, []);
-        commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: null, module: MY_APPS }, { root: true });
+        // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: null, module: MY_APPS }, { root: true });
       }
     }
   },

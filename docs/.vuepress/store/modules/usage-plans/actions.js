@@ -3,7 +3,7 @@ import { ALL_PLANS, PAGINATION } from '../module-types';
 import ModalWindow from '../../../services/ModalWindow';
 import AllPlans from '../../../api/admin/allPlans';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
-import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../action-types';
+import { CHANGE_PUBLISHED_STATE, GET_DATA, GET_DATA_WITH_SEARCH } from '../action-types';
 import { ADD_TOKEN, SET_DATA } from '../mutation-types';
 
 export default {
@@ -11,13 +11,24 @@ export default {
     try {
       const { data } = await Plans.getPlans();
       commit(SET_DATA, data.planData);
-      commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_PLANS }, { root: true });
+      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_PLANS }, { root: true });
     } catch (error) {
       console.log(error);
     }
 
     return Promise.resolve();
   },
+
+  async [GET_DATA_WITH_SEARCH] ({commit}, value) {
+    try {
+      const { data } = await AllPlans.getPlansWithSearch(value);
+      commit(SET_DATA, data);
+      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_PLANS }, { root: true });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
 
   async [CHANGE_PUBLISHED_STATE]({ dispatch }, { planId, published }) {
     try {
