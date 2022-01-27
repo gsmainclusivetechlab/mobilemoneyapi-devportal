@@ -1,6 +1,10 @@
 <template>
   <div class="dashboard-section">
-    <v-touch @click.prevent.stop v-on:swiperight="openSidebar">
+    <v-touch
+        @click.prevent.stop
+        v-on:swiperight="openSidebar"
+        v-on:swipeleft="closeSidebar"
+    >
       <div
           class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
     </v-touch>
@@ -191,9 +195,6 @@ export default {
   },
 
   methods: {
-    log(e) {
-      console.log(e);
-    },
     handleTabSwitch(tabName, e, isChildMenu) {
       this.activeTabName = tabName;
 
@@ -222,7 +223,7 @@ export default {
     },
 
     openSidebar(e) {
-      e.srcEvent.stopPropagation()
+      // e.srcEvent.stopPropagation()
       this.sidebarOpened = true;
     },
 
