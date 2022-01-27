@@ -1,12 +1,11 @@
 <template>
   <div class="dashboard-section">
+    <v-touch @click.prevent.stop v-on:swiperight="openSidebar">
       <div
-          v-touch:swipe.right="openSidebar"
-          v-touch:swipe.left="closeSidebar"
           class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
+    </v-touch>
 
     <div class="dashboard-sidebar"
-         v-on-clickaway="closeSidebar"
          :class="{ 'show-sidebar': sidebarOpened }"
     >
       <span class="dashboard-title">Developer Portal</span>
@@ -192,6 +191,9 @@ export default {
   },
 
   methods: {
+    log(e) {
+      console.log(e);
+    },
     handleTabSwitch(tabName, e, isChildMenu) {
       this.activeTabName = tabName;
 
@@ -219,12 +221,15 @@ export default {
       this.activeTabName = this.tabs[0].tabTitle;
     },
 
-    openSidebar() {
+    openSidebar(e) {
+      e.srcEvent.stopPropagation()
       this.sidebarOpened = true;
     },
 
     closeSidebar() {
-      this.sidebarOpened = false;
+      if(this.sidebarOpened) {
+        this.sidebarOpened = false;
+      }
     },
 
     toggleApplicationChildTab(show, e, id) {

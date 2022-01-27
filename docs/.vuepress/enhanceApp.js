@@ -48,8 +48,8 @@ export default async ({
   }
 
   if (!isServer) {
-    await import('vue2-touch-events').then(module => {
-      Vue.use(module.default);
+    await import('vue-touch').then(module => {
+      Vue.use(module.default, {name: 'v-touch'});
     })
 
     router.beforeEach((to, from, next) => {
