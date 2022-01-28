@@ -1,8 +1,8 @@
-import Application from '../../../api/Application';
-import { ALL_APPS, MY_APPS, PAGINATION, USER } from '../module-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import Application from '@/api/Application';
+import { ALL_APPS, USER } from '../module-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP, REMOVE_ITEM, UPDATE_APP_BY_ID } from '../action-types';
-import { ADD_TOKEN, SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
+import { SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
 import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
 
 export default {

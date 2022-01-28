@@ -43,15 +43,15 @@
 </template>
 
 <script>
-import { allApplicationsHeaderTitles } from '../../constants';
+import { allApplicationsHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
-import dashboardSearch from '../../mixins/dashboardSearch';
+import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapActions } from 'vuex';
-import { ALL_APPS } from '../../store/modules/module-types';
-import { GET_ALL_APPS } from '../../store/modules/getter-types';
-import { GET_DATA, REMOVE_ITEM } from '../../store/modules/action-types';
+import { ALL_APPS } from '@/store/modules/module-types';
+import { GET_ALL_APPS } from '@/store/modules/getter-types';
+import { GET_DATA, REMOVE_ITEM } from '@/store/modules/action-types';
 
 export default {
   name: 'all-applications-tab',

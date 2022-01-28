@@ -1,6 +1,6 @@
-import { sortByDate, sortByProp, sortByState, sortByStatus } from '../helpers/filtrationFunctions';
-import { GET_DATA, GET_DATA_WITH_SEARCH } from '../store/modules/action-types';
-import { nameWithSlash } from '../helpers/vuexHelper';
+import { sortByDate, sortByProp, sortByState, sortByStatus } from '@/helpers/filtrationFunctions';
+import { GET_DATA, GET_DATA_WITH_SEARCH } from '@/store/modules/action-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 
 export default {
   data() {

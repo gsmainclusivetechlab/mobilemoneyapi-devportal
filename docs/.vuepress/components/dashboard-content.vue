@@ -71,10 +71,10 @@ import allPlans from './dashboard/plans-tab.vue';
 import { mixin as clickaway } from 'vue-clickaway';
 
 import { mapGetters, mapState } from 'vuex';
-import { nameWithSlash } from '../helpers/vuexHelper';
-import { CODE_PANEL, MY_APPS, USER } from '../store/modules/module-types';
-import { SET_ACTIVE_CODE_BLOCK, SET_SELECTED_APPLICATION } from '../store/modules/mutation-types';
-import { GET_ALL_MY_APPS } from '../store/modules/getter-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { CODE_PANEL, MY_APPS, USER } from '@/store/modules/module-types';
+import { SET_SELECTED_APPLICATION } from '@/store/modules/mutation-types';
+import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
 
 const myAccountIcon = `
   <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +131,6 @@ export default {
   data() {
     return {
       activeTabName: '',
-      sidebarOpened: false,
       applicationsChildActive: false,
     };
   },
@@ -223,17 +222,12 @@ export default {
       this.activeTabName = this.tabs[0].tabTitle;
     },
 
-    openSidebar(e) {
-      // e.srcEvent.stopPropagation()
-      // this.sidebarOpened = true;
+    openSidebar() {
       this.$store.commit(nameWithSlash(CODE_PANEL, 'setActiveSidebar'), 'dashboard')
     },
 
     closeSidebar() {
       this.$store.commit(nameWithSlash(CODE_PANEL, 'setInactiveSidebar'), 'dashboard')
-      // if(this.sidebarOpened) {
-      //   this.sidebarOpened = false;
-      // }
     },
 
     toggleApplicationChildTab(show, e, id) {

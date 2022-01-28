@@ -35,8 +35,8 @@ import dashboardModal from '../dashboard-modal.vue';
 import cardLinksSection from './card-links-section.vue';
 import { mapGetters } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
-import { MY_APPS } from '../../store/modules/module-types';
-import { GET_ALL_MY_APPS } from '../../store/modules/getter-types';
+import { MY_APPS } from '@/store/modules/module-types';
+import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
 
 export default {
   name: 'applications-tab',

@@ -20,8 +20,8 @@
       z-index: 5;
 
       @include media('<tablet-lg') {
-        position: absolute;
-        top: 30px;
+        position: fixed;
+        top: 70px;
         left: 0;
         height: 100%;
         transform: translateX(-100%);

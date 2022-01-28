@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, ID_TOKEN, LOGIN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, X_USER_TOKEN } from './constants';
-import CookieManager from '../helpers/CookieManager';
+import CookieManager from '@/helpers/CookieManager';
 import TokensManager from './TokensManager';
 
 class Api {

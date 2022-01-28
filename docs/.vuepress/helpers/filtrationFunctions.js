@@ -1,4 +1,4 @@
-import { PLAN_STATE, USER_STATUS } from '../api/constants';
+import { PLAN_STATE, USER_STATUS } from '@/api/constants';
 
 export const sortByDate = (array, type) => {
   const firstCondition = type === 'Newest' ? 1 : -1;

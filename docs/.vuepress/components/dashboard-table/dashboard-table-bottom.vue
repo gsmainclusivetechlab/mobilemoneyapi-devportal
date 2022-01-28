@@ -23,11 +23,11 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { GET_DATA } from '../../store/modules/action-types';
-import { PAGINATION } from '../../store/modules/module-types';
-import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../../store/modules/getter-types';
-import { SET_CURRENT_PAGE } from '../../store/modules/mutation-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { GET_DATA } from '@/store/modules/action-types';
+import { PAGINATION } from '@/store/modules/module-types';
+import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
+import { SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'dashboard-table-bottom',

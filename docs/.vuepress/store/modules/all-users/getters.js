@@ -1,4 +1,4 @@
-import { CONFIRMED } from '../../../api/constants';
+import { CONFIRMED } from '@/api/constants';
 import { GET_ALL_USERS, GET_COMPANY_BY_USERNAME } from '../getter-types';
 
 export default {

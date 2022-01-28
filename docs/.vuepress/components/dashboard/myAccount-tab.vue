@@ -74,9 +74,9 @@
 <script>
 import { mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { USER } from '../../store/modules/module-types';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { UPDATE_USER_DATA } from '../../store/modules/action-types';
+import { USER } from '@/store/modules/module-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { UPDATE_USER_DATA } from '@/store/modules/action-types';
 
 export default {
   name: 'my-account-tab',

@@ -1,9 +1,7 @@
-import AllUsers from '../../../api/admin/allUsers';
-import ModalWindow from '../../../services/ModalWindow';
-import { ALL_USERS, PAGINATION } from '../module-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import AllUsers from '@/api/admin/allUsers';
+import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
-import { SET_DATA, ADD_TOKEN } from '../mutation-types';
+import { SET_DATA } from '../mutation-types';
 
 export default {
 
@@ -11,7 +9,6 @@ export default {
     try {
       const { data } = await AllUsers.get();
       commit(SET_DATA, data.users);
-      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_USERS }, { root: true });
     } catch (error) {
       console.log(error);
     }

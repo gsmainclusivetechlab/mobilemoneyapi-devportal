@@ -1045,7 +1045,13 @@ module.exports = {
     configureWebpack: {
         plugins: [
           new Dotenv()
-        ]
+        ],
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, './'),
+                '@theme': path.resolve(__dirname, '../../node_modules/@vuepress/theme-default')
+            }
+        }
     },
     plugins: [
         ['@vuepress/active-header-links', false],

@@ -67,16 +67,16 @@
 </template>
 
 <script>
-import { allUsersHeaderTitles } from '../../constants';
+import { allUsersHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
-import dashboardSearch from '../../mixins/dashboardSearch';
+import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapState, mapActions } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { ALL_USERS, USER } from '../../store/modules/module-types';
-import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../../store/modules/action-types';
-import { GET_ALL_USERS, GET_USER_NAME } from '../../store/modules/getter-types';
+import { ALL_USERS, USER } from '@/store/modules/module-types';
+import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '@/store/modules/action-types';
+import { GET_ALL_USERS, GET_USER_NAME } from '@/store/modules/getter-types';
 
 export default {
   name: 'all-users-tab',

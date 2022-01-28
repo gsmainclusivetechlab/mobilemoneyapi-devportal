@@ -1,9 +1,9 @@
-import AllApplications from '../../../api/admin/allApplications';
-import ModalWindow from '../../../services/ModalWindow';
-import { ALL_APPS, MY_APPS, PAGINATION } from '../module-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import AllApplications from '@/api/admin/allApplications';
+import ModalWindow from '@/services/ModalWindow';
+import { MY_APPS } from '../module-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, GET_DATA_WITH_SEARCH, REMOVE_ITEM } from '../action-types';
-import { SET_DATA, ADD_TOKEN } from '../mutation-types';
+import { SET_DATA } from '../mutation-types';
 import _ from 'lodash';
 
 export default {
@@ -11,7 +11,6 @@ export default {
     try {
       const { data } = await AllApplications.get();
       commit(SET_DATA, data.appData);
-      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_APPS }, { root: true });
     } catch (error) {
       console.log(error);
     }
@@ -36,8 +35,6 @@ export default {
           commit(SET_DATA, _.uniqBy(apps, 'appId'));
         });
 
-      // commit(SET_DATA, data);
-      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_PLANS }, { root: true });
     } catch (error) {
       console.log(error);
     }

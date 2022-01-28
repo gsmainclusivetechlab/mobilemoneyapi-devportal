@@ -106,9 +106,9 @@
 </template>
 
 <script>
-import Auth from '../api/Auth';
+import Auth from '@/api/Auth';
 import SpinnerComponent from './helpers/spinner-component';
-import { USERNAME_ALREADY_REGISTERED, EMAIL_ALREADY_REGISTERED } from '../api/constants';
+import { USERNAME_ALREADY_REGISTERED, EMAIL_ALREADY_REGISTERED } from '@/api/constants';
 
 export default {
   name: 'signup-section',

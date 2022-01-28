@@ -1,5 +1,5 @@
 import { GET_ALL_APPS, GET_COMPANY_BY_USERNAME } from '../getter-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 import { ALL_PLANS, ALL_USERS } from '../module-types';
 
 export default {

@@ -118,12 +118,12 @@
 import DashboardCopyButton from './DashboardCopyButton';
 import { mapGetters, mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import ModalWindow from '../../services/ModalWindow';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { ALL_PLANS, MY_APPS } from '../../store/modules/module-types';
-import { CLEAR_SELECTED_APPLICATION } from '../../store/modules/mutation-types';
-import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '../../store/modules/action-types';
-import { GET_PUBLISHED_USAGE_PLANS } from '../../store/modules/getter-types';
+import ModalWindow from '@/services/ModalWindow';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
+import { CLEAR_SELECTED_APPLICATION } from '@/store/modules/mutation-types';
+import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '@/store/modules/action-types';
+import { GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 
 export default {
   name: 'applications-child',

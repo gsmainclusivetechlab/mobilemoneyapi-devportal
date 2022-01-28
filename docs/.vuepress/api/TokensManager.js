@@ -1,4 +1,4 @@
-import CookieManager from '../helpers/CookieManager';
+import CookieManager from '@/helpers/CookieManager';
 import { ID_TOKEN, REFRESH_TOKEN, UPDATE_REFRESH_TOKEN, X_USER_TOKEN } from './constants';
 import Api from './Api';
 

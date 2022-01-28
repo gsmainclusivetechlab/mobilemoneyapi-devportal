@@ -1,5 +1,5 @@
 import Api from '../Api';
-import { ALL_APPS_WITH_SEARCH, APP_BY_ID, CREATE_APP, PLANS_WITH_SEARCH } from '../constants';
+import { ALL_APPS_WITH_SEARCH, APP_BY_ID, CREATE_APP } from '../constants';
 
 export default class AllApplications {
   static get(paginationToken) {

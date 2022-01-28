@@ -145,7 +145,7 @@
 </template>
 
 <script>
-import { COUNTRIES } from '../constants.js';
+import { COUNTRIES } from '@/constants';
 import ContactUsModal from './contact-us-modal.vue';
 
 export default {

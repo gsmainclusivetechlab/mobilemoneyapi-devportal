@@ -1,6 +1,6 @@
-import User from '../../../api/User';
-import { Admin } from '../../../api/admin';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import User from '@/api/User';
+import { Admin } from '@/api/admin';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 import { ALL_APPS, ALL_USERS, AUTH, MY_APPS, ALL_PLANS, USER } from '../module-types';
 import { SET_DATA, SET_LOGGED_USER } from '../mutation-types';
 import { GET_DATA, UPDATE_USER_DATA } from '../action-types';

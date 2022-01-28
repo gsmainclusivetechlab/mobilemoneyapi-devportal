@@ -55,9 +55,9 @@
 
 <script>
 import SpinnerComponent from './helpers/spinner-component';
-import { nameWithSlash } from '../helpers/vuexHelper';
-import { AUTH } from '../store/modules/module-types';
-import { SIGN_IN } from '../store/modules/action-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { AUTH } from '@/store/modules/module-types';
+import { SIGN_IN } from '@/store/modules/action-types';
 
 export default {
   name: 'login-section',

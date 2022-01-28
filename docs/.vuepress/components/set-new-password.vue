@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import Auth from '../api/Auth';
+import Auth from '@/api/Auth';
 import SpinnerComponent from './helpers/spinner-component';
 
 export default {

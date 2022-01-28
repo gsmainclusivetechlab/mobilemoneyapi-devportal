@@ -1,9 +1,9 @@
-import Auth from '../../../api/Auth';
-import CookieManager from '../../../helpers/CookieManager';
-import Api from '../../../api/Api';
-import { ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from '../../../api/constants';
-import ModalWindow from '../../../services/ModalWindow';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import Auth from '@/api/Auth';
+import CookieManager from '@/helpers/CookieManager';
+import Api from '@/api/Api';
+import { ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from '@/api/constants';
+import ModalWindow from '@/services/ModalWindow';
+import { nameWithSlash } from '@/helpers/vuexHelper';
 import { USER } from '../module-types';
 import { GET_DATA, LOG_OUT, SIGN_IN } from '../action-types';
 import { CLEAR_USER_DATA, SET_LOGGED_USER } from '../mutation-types';

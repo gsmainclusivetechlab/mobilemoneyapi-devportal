@@ -38,18 +38,18 @@
 </template>
 
 <script>
-import { allPlansHeaderTitles } from '../../constants';
+import { allPlansHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
 import { mixin as clickaway } from 'vue-clickaway';
 import DashboardTable from '../dashboard-table';
-import dashboardSearch from '../../mixins/dashboardSearch';
+import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { ALL_PLANS, USER } from '../../store/modules/module-types';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../../store/modules/action-types';
-import { GET_PLANS_WITH_STATE } from '../../store/modules/getter-types';
+import { ALL_PLANS, USER } from '@/store/modules/module-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { CHANGE_PUBLISHED_STATE, GET_DATA } from '@/store/modules/action-types';
+import { GET_PLANS_WITH_STATE } from '@/store/modules/getter-types';
 
 export default {
   name: 'plans-tab',
