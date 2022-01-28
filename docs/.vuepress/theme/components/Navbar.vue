@@ -1,6 +1,6 @@
 <template>
   <header class="navbar main-header" :class="{'mobile-search-opened': isMobileSearchOpened}">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <SidebarButton @toggle-sidebar="toggleSidebar"/>
     <div class="main-header__box">
       <div class="logo-holder">
         <RouterLink
@@ -113,6 +113,10 @@ export default {
   },
 
   methods: {
+    toggleSidebar(e) {
+      this.$emit('open-main-sidebar')
+      this.$emit('toggle-sidebar')
+    },
     toggleMobileSearch() {
       this.isMobileSearchOpened = ! this.isMobileSearchOpened;
     },

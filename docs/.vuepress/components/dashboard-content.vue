@@ -10,7 +10,7 @@
     </v-touch>
 
     <div class="dashboard-sidebar"
-         :class="{ 'show-sidebar': sidebarOpened }"
+         :class="{ 'show-sidebar': dashboardSidebarOpen }"
     >
       <span class="dashboard-title">Developer Portal</span>
       <ul class="sidebar-list">
@@ -46,7 +46,7 @@
     <template v-for="(tab, index) in tabs">
       <component :is="tab.component"
                  v-if="tab.tabTitle === activeTabName && !applicationsChildActive"
-                 @close-menu="sidebarOpened = false"
+                 @close-menu="closeSidebar"
                  @app-click="handleAppClick"
                  :key="index"
       />
@@ -72,8 +72,8 @@ import { mixin as clickaway } from 'vue-clickaway';
 
 import { mapGetters, mapState } from 'vuex';
 import { nameWithSlash } from '../helpers/vuexHelper';
-import { MY_APPS, USER } from '../store/modules/module-types';
-import { SET_SELECTED_APPLICATION } from '../store/modules/mutation-types';
+import { CODE_PANEL, MY_APPS, USER } from '../store/modules/module-types';
+import { SET_ACTIVE_CODE_BLOCK, SET_SELECTED_APPLICATION } from '../store/modules/mutation-types';
 import { GET_ALL_MY_APPS } from '../store/modules/getter-types';
 
 const myAccountIcon = `
@@ -187,7 +187,8 @@ export default {
     ...mapGetters(MY_APPS, {
       getApplicationsList: GET_ALL_MY_APPS
     }),
-    ...mapState(USER, ['userData'])
+    ...mapState(USER, ['userData']),
+    ...mapState(CODE_PANEL, ['dashboardSidebarOpen']),
   },
 
   mounted() {
@@ -224,13 +225,15 @@ export default {
 
     openSidebar(e) {
       // e.srcEvent.stopPropagation()
-      this.sidebarOpened = true;
+      // this.sidebarOpened = true;
+      this.$store.commit(nameWithSlash(CODE_PANEL, 'setActiveSidebar'), 'dashboard')
     },
 
     closeSidebar() {
-      if(this.sidebarOpened) {
-        this.sidebarOpened = false;
-      }
+      this.$store.commit(nameWithSlash(CODE_PANEL, 'setInactiveSidebar'), 'dashboard')
+      // if(this.sidebarOpened) {
+      //   this.sidebarOpened = false;
+      // }
     },
 
     toggleApplicationChildTab(show, e, id) {

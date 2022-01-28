@@ -200,7 +200,6 @@ export default {
             throw error;
           }
         });
-        this.query = '';
         this.focusIndex = 0;
         // this.focused = false
 

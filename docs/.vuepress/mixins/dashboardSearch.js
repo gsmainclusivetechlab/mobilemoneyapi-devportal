@@ -65,10 +65,8 @@ export default {
 
     makeSearch(value) {
       if(value) {
-        console.log('make search', value)
         this.$store.dispatch(nameWithSlash(this.module, GET_DATA_WITH_SEARCH), value);
       } else {
-        console.log('make usually request')
         this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
       }
     },
