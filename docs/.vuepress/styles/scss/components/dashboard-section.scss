@@ -814,7 +814,7 @@
     &-top {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      column-gap: 46px;
+      //column-gap: 46px;
       align-items: center;
       height: 60px;
       padding: 0 16px;
@@ -845,7 +845,7 @@
         font-family: var(--base-font-family);
 
         .vs__dropdown-toggle {
-          width: 276px;
+          width: 170px;
           height: 100%;
           border-radius: 0;
           border: 1px solid var(--base-border-color);

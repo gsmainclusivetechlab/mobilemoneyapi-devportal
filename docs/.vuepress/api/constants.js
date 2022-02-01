@@ -31,18 +31,15 @@ export const UPDATE_REFRESH_TOKEN = USER_API.replace('{endpoint}', 'refresh-toke
 export const USER = USER_API.replace('{endpoint}', '{userName}');
 export const APPS = DEVELOPERS_API.replace('{endpoint}', 'apps?userName={userName}');
 export const CREATE_APP = DEVELOPERS_API.replace('{endpoint}', 'apps');
+export const ALL_APPS = DEVELOPERS_API.replace('{endpoint}', 'apps?searchField{searchField}&searchValue{searchValue}&sortType{sortType}');
 export const APP_BY_ID = DEVELOPERS_API.replace('{endpoint}', '{userName}/apps/{appId}');
-export const PLANS = USAGE_PLANS.replace('{endpoint}', 'plans');
+export const PLANS = USAGE_PLANS.replace('{endpoint}', 'plans?planId&searchValue{searchValue}&sortType{sortType}');
 export const ADMIN_PROFILE = ADMIN_API.replace('{endpoint}', 'profile');
-export const DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers');
+export const DEVELOPERS = ADMIN_API.replace('{endpoint}', 'developers?userName{userName}&searchField{searchField}&searchValue{searchValue}&sortType{sortType}');
 export const DELETE_USER = ADMIN_API.replace('{endpoint}', '{userName}');
 export const UPDATE_ROLE = ADMIN_API.replace('{endpoint}', 'role/{userName}');
 export const SET_USER_STATUS = ADMIN_API.replace('{endpoint}', 'disable-enable-user/{userName}');
 export const PUBLISH_PLAN = USAGE_PLANS.replace('{endpoint}', 'plans/publish');
-
-export const PLANS_WITH_SEARCH = DEVELOPERS_API.replace('{endpoint}', 'usage-plan/searchbykeyword?searchValue={value}')
-export const ALL_APPS_WITH_SEARCH = DEVELOPERS_API.replace('{endpoint}', 'apps/searchbykeyword?searchField={field}&searchValue={value}')
-
 // ERRORS
 
 export const USERNAME_ALREADY_REGISTERED = 'USERNAME_ALREADY_REGISTERED';

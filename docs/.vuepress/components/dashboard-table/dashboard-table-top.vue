@@ -1,16 +1,22 @@
 <template>
   <div class="dashboard-table-top">
     <div class="search-block">
-      <input type="text" class="search-block__input" placeholder="Search" v-model="searchValue">
+      <input
+          type="text"
+          class="search-block__input"
+          placeholder="Search"
+          :value="searchValue"
+          @input="setSearchValue($event.target.value)">
     </div>
 
     <div class="dashboard-table__select-block" v-if="!hideFilter">
-      Filter:
-      <v-select v-model="filterSelected"
-                :options="getFilterData"
+      Search by:
+      <v-select :value="searchField"
+                @input="setSearchField"
+                :options="searchBy"
                 class="vs-custom-style"
                 placeholder="Company name"
-                :reduce="item => item.label"
+                :reduce="item => item.value"
                 :clearable="false">
         <template #open-indicator="{ attributes }">
           <img class="expand-arrow" v-bind="attributes" src="/images/expand_arrow.svg" alt="">
@@ -28,7 +34,8 @@
           v-on-clickaway="hideSortByOptions"
           @hide-sort-block="hideSortByOptions"
           v-if="activeSortOptions"
-          v-model="sortValue"
+          :value="sortValue"
+          @input="setSortValue"
       />
     </div>
   </div>
@@ -37,6 +44,8 @@
 <script>
 import SortByBlock from '../sort-by-block';
 import { mixin as clickaway } from 'vue-clickaway';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { GET_DATA } from '@/store/modules/action-types';
 
 export default {
   name: 'dashboard-table-top',
@@ -46,10 +55,15 @@ export default {
       type: Boolean,
       default: false
     },
-    filterData: {
-      type: Set,
+    searchBy: {
+      type: Array,
+      default: () => ([])
     },
     pageType: {
+      type: String,
+      default: ''
+    },
+    module: {
       type: String,
       default: ''
     }
@@ -57,32 +71,22 @@ export default {
   data() {
     return {
       activeSortOptions: false,
-      filterSelected: '',
-      searchValue: '',
-      sortValue: ''
+      searchRequest: false,
+      timer: null
     };
   },
 
-  watch: {
-    searchValue(val) {
-      this.$emit('search-value', val);
-    },
-    filterSelected(val) {
-      this.$emit('filter-value', val);
-    },
-    sortValue(val) {
-      this.$emit('sort-value', val);
-    }
-  },
-
   computed: {
-    getFilterData() {
-      if (this.filterData) {
-        return ['All Companies', ...this.filterData].map(el => {
-          return { label: el };
-        });
-      }
-      return [];
+    sortValue() {
+      return this.$store.state[this.module].sortValue;
+    },
+
+    searchField() {
+      return this.$store.state[this.module].searchField;
+    },
+
+    searchValue() {
+      return this.$store.state[this.module].searchValue;
     }
   },
 
@@ -90,22 +94,63 @@ export default {
 
   created() {
     if (this.pageType === 'applications') {
-      this.sortValue = 'keyIssued';
+      this.setSortValue('keyIssued', false);
     }
     if (this.pageType === 'plans') {
-      this.sortValue = 'Publish';
+      this.setSortValue('publish', false);
     }
     if (this.pageType === 'users') {
-      this.sortValue = 'Active';
+      this.setSortValue('firstName', false);
     }
+    this.$store.commit(nameWithSlash(this.module, 'clearPaginationTokens'));
+    this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), 0);
+
+    this.setSearchField(this.searchBy[0].value);
+
+    this.getData();
   },
 
   methods: {
     showSortByOptions() {
       this.activeSortOptions = true;
     },
+
     hideSortByOptions() {
       this.activeSortOptions = false;
+    },
+
+    setSortValue(value, withGet = true) {
+      this.$store.commit(nameWithSlash(this.module, 'setSortValue'), value);
+      if(withGet) {
+        this.$store.commit(nameWithSlash(this.module, 'removePaginationToken'), true);
+        this.getData();
+      }
+    },
+
+    setSearchValue(value) {
+      this.$store.commit(nameWithSlash(this.module, 'setSearchValue'), value);
+
+      if (! this.searchRequest) {
+        this.searchRequest = true;
+        this.timer = setTimeout(() => {
+          this.$store.commit(nameWithSlash(this.module, 'clearPaginationTokens'));
+          this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), 0);
+          this.getData();
+          this.searchRequest = false;
+        }, 700);
+      } else {
+        this.searchRequest = false;
+        clearInterval(this.timer);
+        this.setSearchValue(value);
+      }
+    },
+
+    setSearchField(value) {
+      this.$store.commit(nameWithSlash(this.module, 'setSearchField'), value);
+    },
+
+    getData() {
+      this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };

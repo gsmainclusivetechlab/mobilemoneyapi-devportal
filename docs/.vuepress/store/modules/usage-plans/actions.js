@@ -5,24 +5,31 @@ import { CHANGE_PUBLISHED_STATE, GET_DATA, GET_DATA_WITH_SEARCH } from '../actio
 import { SET_DATA } from '../mutation-types';
 
 export default {
-  async [GET_DATA]({ commit }) {
+  async [GET_DATA]({ commit, state, dispatch, getters }) {
     try {
-      const { data } = await Plans.getPlans();
+      const { data } = await AllPlans.get({
+        sortValue: state.sortValue,
+        searchValue: state.searchValue,
+        searchField: state.searchField,
+        paginationToken: state.paginationTokens[state.currentPage]
+      });
+
+      if(!data.planData.length && state.currentPage) {
+        commit('setCurrentPage', state.currentPage - 1)
+        commit('removePaginationToken')
+        return dispatch(GET_DATA);
+      }
+
       commit(SET_DATA, data.planData);
+
+      if(getters['getNextPageToken'] !== 'last') {
+        commit('addPaginationToken', data.paginationToken)
+      }
     } catch (error) {
       console.log(error);
     }
 
     return Promise.resolve();
-  },
-
-  async [GET_DATA_WITH_SEARCH] ({commit}, value) {
-    try {
-      const { data } = await AllPlans.getPlansWithSearch(value);
-      commit(SET_DATA, data);
-    } catch (error) {
-      console.log(error);
-    }
   },
 
 

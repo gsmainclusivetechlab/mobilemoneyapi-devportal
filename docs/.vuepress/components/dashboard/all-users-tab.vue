@@ -3,14 +3,11 @@
       table-title="All registered users"
       table-class="dashboard-content__table-users"
       :table-headers-data="allUsersHeaderTitles"
-      :filter-data="getCompanies"
+      :search-by="getSearchBy"
       :module="module"
       page-type="users"
-      @search-value="setSearchValue"
-      @filter-value="setFilterValue"
-      @sort-value="setSortValue"
   >
-    <tr class="dashboard-table__row" v-for="user of getSortedTableData" :key="user.userId">
+    <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)"/>
 
       <dashboard-cell :value="user.email"/>
@@ -92,8 +89,11 @@ export default {
   },
 
   computed: {
-    getCompanies() {
-      return new Set(this.tableData.map(el => el.companyName));
+    getSearchBy() {
+      return [
+        {label: 'Username', value: 'username'},
+        {label: 'Email', value: 'email'},
+      ]
     },
 
     isAdminRole() {
@@ -119,7 +119,6 @@ export default {
 
   methods: {
     ...mapActions(ALL_USERS, {
-      getData: GET_DATA,
       deleteUserByUsername: REMOVE_ITEM,
       setUserStatus: SET_USER_STATUS,
       updateRole: UPDATE_ROLE

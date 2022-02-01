@@ -9,11 +9,9 @@
     <div class="table-block">
       <dashboard-table-top
           :hideFilter="hideFilter"
-          :filterData="filterData"
+          :searchBy="searchBy"
           :pageType="pageType"
-          @search-value="$emit('search-value', $event)"
-          @filter-value="$emit('filter-value', $event)"
-          @sort-value="$emit('sort-value', $event)"
+          :module="module"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
@@ -38,10 +36,13 @@
 import DashboardTableBottom from './dashboard-table-bottom';
 import DashboardTableTop from './dashboard-table-top';
 import DashboardModal from '../dashboard-modal';
+import dashboardSearch from '@/mixins/dashboardSearch';
 
 export default {
   name: 'dashboard-table',
+
   components: { DashboardModal, DashboardTableTop, DashboardTableBottom },
+
   props: {
     tableHeadersData: {
       type: Array,
@@ -67,8 +68,9 @@ export default {
       type: Boolean,
       default: false
     },
-    filterData: {
-      type: Set,
+    searchBy: {
+      type: Array,
+      default: () => ([])
     },
     isCreateButton: {
       type: Boolean,
@@ -83,11 +85,15 @@ export default {
       default: ''
     }
   },
+
   data() {
     return {
       modalIsVisible: false,
     };
   },
+
+  mixins: [dashboardSearch],
+
   methods: {
     toggleModal() {
       this.modalIsVisible = ! this.modalIsVisible;

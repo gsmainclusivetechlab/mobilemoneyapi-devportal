@@ -21,5 +21,13 @@ export default {
         state
       };
     });
+  },
+
+  getNextPageToken(state) {
+    return state.paginationTokens[state.currentPage + 1];
+  },
+
+  getPrevPageToken(state) {
+    return state.paginationTokens[state.currentPage - 1];
   }
 };
