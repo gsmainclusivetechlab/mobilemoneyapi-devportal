@@ -5,10 +5,26 @@ import { SET_DATA } from '../mutation-types';
 
 export default {
 
-  async [GET_DATA]({ commit }) {
+  async [GET_DATA]({ commit, state, dispatch, getters }) {
     try {
-      const { data } = await AllUsers.get();
+      const { data } = await AllUsers.get({
+        sortValue: state.sortValue,
+        searchValue: state.searchValue,
+        searchField: state.searchField,
+        paginationToken: state.paginationTokens[state.currentPage]
+      });
+
+      if(!data.users.length && state.currentPage) {
+        commit('setCurrentPage', state.currentPage - 1)
+        commit('removePaginationToken')
+        return dispatch(GET_DATA);
+      }
+
       commit(SET_DATA, data.users);
+
+      if(getters['getNextPageToken'] !== 'last') {
+        commit('addPaginationToken', data.paginationToken)
+      }
     } catch (error) {
       console.log(error);
     }

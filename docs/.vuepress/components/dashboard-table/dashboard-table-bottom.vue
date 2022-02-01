@@ -1,10 +1,10 @@
 <template>
-  <div class="dashboard-table-bottom" v-if="getTokenNextPage(this.module)">
+  <div class="dashboard-table-bottom">
     <div>
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage(module) === 1}"
+          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0}"
           @click="prevPage"
       >
         < Prev
@@ -12,7 +12,7 @@
       <button
           type="button"
           class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage(module)}"
+          :class="{'dashboard-table__pagination-arrow--inactive': (!getTokenNextPage || getTokenNextPage === 'last')}"
           @click="nextPage"
       >
         Next >
@@ -22,12 +22,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
-import { PAGINATION } from '@/store/modules/module-types';
-import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
-import { SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -39,30 +35,33 @@ export default {
   },
 
   computed: {
-    ...mapGetters(PAGINATION, {
-      getTokenNextPage: GET_TOKEN_NEXT_PAGE,
-      getTokenPrevPage: GET_TOKEN_PREV_PAGE,
-      getCurrentPage: GET_CURRENT_PAGE
-    })
+    getTokenNextPage() {
+      return this.$store.getters[nameWithSlash(this.module, 'getNextPageToken')];
+    },
+
+    getTokenPrevPage() {
+      return this.$store.getters[nameWithSlash(this.module, 'getPrevPageToken')];
+    },
+
+    getCurrentPage() {
+      return this.$store.state[this.module].currentPage;
+    }
   },
 
   methods: {
-    ...mapMutations(PAGINATION, {
-      setCurrentPage: SET_CURRENT_PAGE
-    }),
-
     nextPage() {
-      this.getData(this.getTokenNextPage(this.module));
-      this.setCurrentPage({ page: this.getCurrentPage(this.module) - 1, module: this.module });
+      this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), this.getCurrentPage + 1);
+      this.getData();
     },
 
     prevPage() {
-      this.getData(this.getTokenPrevPage(this.module));
-      this.setCurrentPage({ page: this.getCurrentPage(this.module) + 1, module: this.module });
+      this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), this.getCurrentPage - 1);
+      this.$store.commit(nameWithSlash(this.module, 'removePaginationToken'));
+      this.getData();
     },
 
-    getData(token) {
-      this.$store.dispatch(nameWithSlash(this.module, GET_DATA), token);
+    getData() {
+      this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };

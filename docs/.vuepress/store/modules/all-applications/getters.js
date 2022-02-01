@@ -9,8 +9,16 @@ export default {
       return {
         ...app,
         company: rootGetters[nameWithSlash(ALL_USERS, GET_COMPANY_BY_USERNAME)](app.userName),
-        usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name || '' : ''
+        // usagePlan: usagePlans.length ? usagePlans.find(el => el.id === app.usagePlan)?.name || '' : ''
       };
     });
   },
+
+  getNextPageToken(state) {
+    return state.paginationTokens[state.currentPage + 1];
+  },
+
+  getPrevPageToken(state) {
+    return state.paginationTokens[state.currentPage - 1];
+  }
 };

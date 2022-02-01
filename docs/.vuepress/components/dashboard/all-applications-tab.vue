@@ -3,15 +3,12 @@
       table-title="All applications"
       table-class="dashboard-content__table-applications"
       :tableHeadersData="allApplicationsHeaderTitles"
-      :filter-data="getCompanies"
+      :search-by="getSearchBy"
       :module="module"
       page-type="applications"
       is-create-button
-      @search-value="setSearchValue"
-      @sort-value="setSortValue"
-      @filter-value="setFilterValue"
   >
-    <tr class="dashboard-table__row" v-for="app of getSortedTableData" :key="app.appId">
+    <tr class="dashboard-table__row" v-for="app of tableData" :key="app.appId">
       <dashboard-cell :value="app.appName"/>
       <dashboard-cell :value="app.userName"/>
       <dashboard-cell :value="app.companyName"/>
@@ -67,8 +64,13 @@ export default {
   },
 
   computed: {
-    getCompanies() {
-      return new Set(this.tableData.map(el => el.companyName));
+    getSearchBy() {
+      return [
+        { label: 'App Name', value: 'appName' },
+        { label: 'Company Name', value: 'companyName' },
+        { label: 'Key Issued Date', value: 'keyIssued' },
+        { label: 'Author', value: 'userName' },
+      ];
     },
 
     ...mapGetters(ALL_APPS, {
@@ -80,7 +82,6 @@ export default {
 
   methods: {
     ...mapActions(ALL_APPS, {
-      getData: GET_DATA,
       deleteApplicationByUser: REMOVE_ITEM
     }),
 

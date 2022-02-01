@@ -6,12 +6,11 @@
       table-class="dashboard-content__table-plans"
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
+      :search-by="getSearchBy"
       :module="module"
       page-type="plans"
-      @search-value="setSearchValue"
-      @sort-value="setSortValue"
   >
-    <tr class="dashboard-table__row" v-for="plan of getSortedTableData" :key="plan.id">
+    <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
       <dashboard-cell :value="plan.name"/>
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
         <template v-if="isAdminRole">
@@ -59,13 +58,18 @@ export default {
   data() {
     return {
       allPlansHeaderTitles,
-      activeOptionsPlanId: -1,
       waitingPlanId: '',
       module: ALL_PLANS
     };
   },
 
   computed: {
+    getSearchBy() {
+      return [
+        {label: 'Plan name', value: 'planname'},
+      ]
+    },
+
     isAdminRole() {
       return this.userData.role === 'admin';
     },
@@ -90,10 +94,6 @@ export default {
 
     getPlanStatus(state) {
       return state ? 'Publish' : 'Unpublish';
-    },
-
-    showUserOptions(id) {
-      this.activeOptionsPlanId = id;
     },
 
     async changeState(planId, published) {

@@ -1,18 +1,16 @@
 import Api from '../Api';
-import { ALL_APPS_WITH_SEARCH, APP_BY_ID, CREATE_APP } from '../constants';
+import { ALL_APPS, APP_BY_ID } from '../constants';
 
 export default class AllApplications {
-  static get(paginationToken) {
+  static get({ sortValue, searchValue, searchField, paginationToken }) {
+    const route = ALL_APPS
+      .replace('{userName}', '')
+      .replace('{searchField}', searchValue ? `=${searchField}` : '')
+      .replace('{searchValue}', searchValue ? `=${searchValue}` : '')
+      .replace('{sortType}', `=${sortValue}`);
     return Api.setHeadersForOneRequest({
-      paginationToken: paginationToken ? paginationToken : ''
-    }).get(CREATE_APP);
-  }
-
-  static getWithSearch(field, value) {
-    return Api.get(ALL_APPS_WITH_SEARCH
-      .replace('{field}', field)
-      .replace('{value}', value)
-    );
+      paginationToken: (paginationToken !== 'first' ) ? paginationToken : ''
+    }).get(route);
   }
 
   static deleteById(userName, appId) {
