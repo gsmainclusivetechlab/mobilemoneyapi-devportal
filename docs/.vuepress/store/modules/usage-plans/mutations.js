@@ -1,4 +1,4 @@
-import { SET_DATA } from '../mutation-types';
+import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SEARCH_FIELD, SET_SEARCH_VALUE } from '../mutation-types';
 
 export default {
   [SET_DATA](state, data) {
@@ -9,35 +9,35 @@ export default {
     state.sortValue = value;
   },
 
-  setSearchValue(state, value) {
+  [SET_SEARCH_VALUE](state, value) {
     state.searchValue = value;
   },
 
-  setSearchField(state, value) {
+  [SET_SEARCH_FIELD](state, value) {
     state.searchField = value;
   },
 
-  setCurrentPage(state, value) {
+  [SET_CURRENT_PAGE](state, value) {
     state.oldPageValue = state.currentPage;
     state.currentPage = value;
   },
 
-  addPaginationToken(state, value) {
-    if (! value && (state.currentPage !== 0 || state.searchValue)) {
+  [ADD_PAGINATION_TOKEN](state, value) {
+    if (! value) {
       state.paginationTokens.push('last');
     } else {
       state.paginationTokens.push(value);
     }
   },
 
-  removePaginationToken(state, once = false) {
+  [REMOVE_PAGINATION_TOKEN](state, once = false) {
     state.paginationTokens.pop();
     if(!once) {
       state.paginationTokens.pop();
     }
   },
 
-  clearPaginationTokens(state) {
+  [CLEAR_PAGINATION_TOKENS](state) {
     state.paginationTokens = ['first'];
   }
 };
