@@ -1,11 +1,11 @@
-import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SEARCH_FIELD, SET_SEARCH_VALUE } from '../mutation-types';
+import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SEARCH_FIELD, SET_SEARCH_VALUE, SET_SORT_VALUE } from '../mutation-types';
 
 export default {
   [SET_DATA](state, data) {
     state.usagePlans = data;
   },
 
-  setSortValue(state, value) {
+  [SET_SORT_VALUE](state, value) {
     state.sortValue = value;
   },
 

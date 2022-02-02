@@ -109,10 +109,10 @@ export default {
 
     this.setSearchField(this.searchBy[0].value);
 
-    this.$emit('start-getting-data')
+    this.$emit('start-getting-data');
 
-    this.getData().then(res => {
-      this.$emit('end-getting-data')
+    this.getData().then(() => {
+      this.$emit('end-getting-data');
     });
   },
 
@@ -127,7 +127,7 @@ export default {
 
     setSortValue(value, withGet = true) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
-      if(withGet) {
+      if (withGet) {
         this.$store.commit(nameWithSlash(this.module, REMOVE_PAGINATION_TOKEN), true);
         this.getData();
       }
