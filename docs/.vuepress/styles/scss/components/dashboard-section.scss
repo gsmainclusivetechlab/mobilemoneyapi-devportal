@@ -1111,6 +1111,16 @@
         grid-template-columns: minmax(107px, 1fr) minmax(174px, 1fr) minmax(174px, 1fr) minmax(146px, 1fr) minmax(163px, 1fr) minmax(168px, 1fr) minmax(164px, 1fr) minmax(155px, 1fr) 30px;
       }
 
+      .dashboard-table &.dashboard-table__row--not-found {
+        display: block;
+
+        .dashboard-table__cell {
+          display: block;
+          text-align: center;
+          background-color: transparent;
+        }
+      }
+
       &:nth-child(2n) {
         .dashboard-table__cell {
           background-color: rgba(222, 222, 223, .2);

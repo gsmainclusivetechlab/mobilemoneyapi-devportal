@@ -7,6 +7,7 @@
       :indexCenter="1"
       :table-headers-data="allPlansHeaderTitles"
       :search-by="getSearchBy"
+      :is-data-not-found="!tableData.length"
       :module="module"
       page-type="plans"
   >

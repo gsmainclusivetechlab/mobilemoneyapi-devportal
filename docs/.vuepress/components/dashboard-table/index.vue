@@ -12,6 +12,8 @@
           :searchBy="searchBy"
           :pageType="pageType"
           :module="module"
+          @start-getting-data="isGettingData = true"
+          @end-getting-data="isGettingData = false"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
@@ -23,6 +25,14 @@
           </th>
           <th class="dashboard-table__cell dashboard-table__cell--heading" v-if="pageType !== 'plans'">
           </th>
+        </tr>
+        <tr class="dashboard-table__row dashboard-table__row--not-found" v-if="isDataNotFound && isGettingData">
+          <td class="dashboard-table__cell">
+            <spinner-component/>
+          </td>
+        </tr>
+        <tr class="dashboard-table__row dashboard-table__row--not-found" v-else-if="isDataNotFound">
+          <td class="dashboard-table__cell">Data not found</td>
         </tr>
         <slot></slot>
       </table>
@@ -37,11 +47,12 @@ import DashboardTableBottom from './dashboard-table-bottom';
 import DashboardTableTop from './dashboard-table-top';
 import DashboardModal from '../dashboard-modal';
 import dashboardSearch from '@/mixins/dashboardSearch';
+import SpinnerComponent from '@/components/helpers/spinner-component';
 
 export default {
   name: 'dashboard-table',
 
-  components: { DashboardModal, DashboardTableTop, DashboardTableBottom },
+  components: { SpinnerComponent, DashboardModal, DashboardTableTop, DashboardTableBottom },
 
   props: {
     tableHeadersData: {
@@ -76,6 +87,7 @@ export default {
       type: Boolean,
       default: false
     },
+    // TODO remove pageType, and use module instead
     pageType: {
       type: String,
       default: ''
@@ -83,12 +95,17 @@ export default {
     module: {
       type: String,
       default: ''
+    },
+    isDataNotFound: {
+      type: Boolean,
+      default: false
     }
   },
 
   data() {
     return {
       modalIsVisible: false,
+      isGettingData: false
     };
   },
 

@@ -104,10 +104,15 @@ export default {
     }
     this.$store.commit(nameWithSlash(this.module, 'clearPaginationTokens'));
     this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), 0);
+    this.$store.commit(nameWithSlash(this.module, 'setSearchValue'), '');
 
     this.setSearchField(this.searchBy[0].value);
 
-    this.getData();
+    this.$emit('start-getting-data')
+
+    this.getData().then(res => {
+      this.$emit('end-getting-data')
+    });
   },
 
   methods: {
@@ -150,7 +155,7 @@ export default {
     },
 
     getData() {
-      this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
+      return this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };

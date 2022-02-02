@@ -1,7 +1,6 @@
-import Plans from '@/api/Plans';
 import ModalWindow from '@/services/ModalWindow';
 import AllPlans from '@/api/admin/allPlans';
-import { CHANGE_PUBLISHED_STATE, GET_DATA, GET_DATA_WITH_SEARCH } from '../action-types';
+import { CHANGE_PUBLISHED_STATE, GET_DATA } from '../action-types';
 import { SET_DATA } from '../mutation-types';
 
 export default {
