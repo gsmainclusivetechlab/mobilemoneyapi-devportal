@@ -5,6 +5,7 @@
       :tableHeadersData="allApplicationsHeaderTitles"
       :search-by="getSearchBy"
       :module="module"
+      :is-data-not-found="!tableData.length"
       page-type="applications"
       is-create-button
   >

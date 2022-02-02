@@ -5,6 +5,7 @@
       :table-headers-data="allUsersHeaderTitles"
       :search-by="getSearchBy"
       :module="module"
+      :is-data-not-found="!tableData.length"
       page-type="users"
   >
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">

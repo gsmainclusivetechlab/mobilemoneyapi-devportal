@@ -31,6 +31,8 @@ export default {
 
       console.log(error);
     }
+
+    return Promise.resolve();
   },
 
   async [REMOVE_ITEM]({ dispatch }, { userName, appId }) {
