@@ -65,7 +65,7 @@ import SpinnerComponent from './helpers/spinner-component';
 import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS, GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { POST_APP } from '@/store/modules/action-types';
+import { GET_DATA, POST_APP } from '@/store/modules/action-types';
 
 export default {
   name: 'dashboard-modal',
@@ -91,6 +91,10 @@ export default {
     }),
   },
 
+  created() {
+    this.getData();
+  },
+
   methods: {
     handleModalClose() {
       this.$emit('close-modal');
@@ -106,6 +110,10 @@ export default {
           .finally(() => {
             this.waitingResponse = false;
           });
+    },
+
+    getData() {
+      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA));
     }
   },
 };

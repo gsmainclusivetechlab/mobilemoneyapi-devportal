@@ -36,7 +36,8 @@
         </tr>
         <slot></slot>
       </table>
-      <dashboard-table-bottom :module="module"/>
+      <dashboard-table-bottom
+          :module="module"/>
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
   </div>
