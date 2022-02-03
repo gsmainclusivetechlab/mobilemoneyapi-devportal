@@ -1,6 +1,6 @@
 export default {
   data: [],
-  sortValue: '',
+  sortValue: 'keyIssued',
   searchValue: '',
   searchField: '',
   currentPage: 0,

@@ -94,15 +94,6 @@ export default {
   mixins: [clickaway],
 
   created() {
-    if (this.pageType === 'applications') {
-      this.setSortValue('keyIssued', false);
-    }
-    if (this.pageType === 'plans') {
-      this.setSortValue('publish', false);
-    }
-    if (this.pageType === 'users') {
-      this.setSortValue('firstName', false);
-    }
     this.$store.commit(nameWithSlash(this.module, CLEAR_PAGINATION_TOKENS));
     this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), 0);
     this.$store.commit(nameWithSlash(this.module, SET_SEARCH_VALUE), '');
@@ -125,12 +116,9 @@ export default {
       this.activeSortOptions = false;
     },
 
-    setSortValue(value, withGet = true) {
+    setSortValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
-      if (withGet) {
-        this.$store.commit(nameWithSlash(this.module, REMOVE_PAGINATION_TOKEN), true);
-        this.getData();
-      }
+      this.getData();
     },
 
     setSearchValue(value) {

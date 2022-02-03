@@ -1,6 +1,6 @@
 export default {
   usagePlans: [],
-  sortValue: '',
+  sortValue: 'publish',
   searchValue: '',
   searchField: '',
   currentPage: 0,
