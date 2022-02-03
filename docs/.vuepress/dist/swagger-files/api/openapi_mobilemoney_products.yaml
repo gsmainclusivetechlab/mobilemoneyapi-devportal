@@ -1,0 +1,305 @@
+openapi: 3.0.1
+info:
+  title: Usage Plans API for Mobile Money Portal
+  description: This describes the Usage Plans API which would be called from Portal UI
+  version: "1.0"
+servers:
+  - url: "https://ius2ab8yjf.execute-api.eu-west-2.amazonaws.com/portal/usage-plans/v1"
+    description: Usage Plans API v1
+paths:
+  /plans:
+    post:
+      summary: "Get Usage Plans"
+      operationId: createPlan
+      parameters:
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRequest'
+      responses:
+        "200":
+          description: "Plan List Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanList"
+        "400":
+          description: "Bad Request. i.e. when there is no bank account number in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+    get:
+      summary: "Get Usage Plans"
+      operationId: getPlans
+      parameters:
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: published
+        in: query
+        description: "Usage plan published or not published"
+        required: false
+        schema:
+          type: boolean
+
+      responses:
+        "200":
+          description: "Plan List Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanList"
+        "400":
+          description: "Bad Request. i.e. when there is no bank account number in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+
+  /plans/{planId}:
+    get:
+      summary: "Get Plan By ID"
+      operationId: getPlanById
+      parameters:
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      - name: planId
+        in: path
+        description: "the id of usage plan"
+        required: true
+        schema:
+          type: string
+
+      responses:
+        "200":
+          description: "Plan Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanResponse"
+        "400":
+          description: "Bad Request. i.e. when there is no bank account number in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+  /plans/publish:
+    put:
+      summary: "Publish the Plan"
+      operationId: publishPlan
+      parameters:
+      - name: id_token
+        in: header
+        description: "the id_token from the login response in the format of Bearer id_token_value"
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishRequest'
+
+      responses:
+        "200":
+          description: "Publish Response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublishListResponse"
+        "400":
+          description: "Bad Request. i.e. when there is no bank account number in the request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "401":
+          description: "Unauthorized"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "403":
+          description: "Forbidden"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+        "500":
+          description: "Internal Server Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBasic"
+      security:
+        - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+  schemas:
+    # wrapper abstract object of error
+    ErrorBasic:
+      title: Generic error
+      description: Primary error object with minimum properties
+      type: object
+      properties:
+        error:
+          type: string
+        error_description:
+          type: string
+    PlanList:
+      title: Plan list
+      description: returns list of usage plans
+      type: array
+      items:
+        $ref: "#/components/schemas/PlanResponse"
+    PlanResponse:
+      title: plan object
+      description: plan details
+      type: object
+      properties:
+        planId:
+          type: string
+          description: id of plan
+        planName:
+          type: string
+          description: name of plan
+        published:
+          type: boolean
+          description: if published or not
+        description:
+          type: string
+          description: description
+        throttle:
+          properties:
+            burstLimit:
+              type: number
+            rateLimit:
+              type: number
+        quota:
+           properties:
+            limit:
+              type: number
+            offSet:
+              type: number
+            period:
+              type: string
+
+
+    PublishRequest:
+      title: Plan list for publishing
+      description: list for publishing plans
+      type: object
+      properties:
+        planId:
+          type: string
+          description: id of the plan
+        published:
+          type: boolean
+          description: if published or not
+    PublishListResponse:
+      title: Plan list for Response
+      description: list for publishing plans
+      type: object
+      properties:
+        planId:
+          type: string
+          description: id of the plan
+        published:
+          type: boolean
+          description: if published or not
+    AppRequest:
+      title: app object
+      description: app details
+      type: object
+      properties:
+        usagePlanName:
+          type: string
+          description: name of name
