@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Merchant Payments - Open OAS UI | Mobile Money API Developer Portal</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script src="/js/fix-scroll-to-hash.js"></script>
+    <meta name="description" content="Mobile Money API documentation">
+    <meta name="theme-color" content="red">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.7fc1f8c8.css" as="style"><link rel="preload" href="/assets/js/app.609526d3.js" as="script"><link rel="preload" href="/assets/js/6.9452e948.js" as="script"><link rel="preload" href="/assets/js/4.a565b9be.js" as="script"><link rel="preload" href="/assets/js/142.b26ad841.js" as="script"><link rel="preload" href="/assets/js/49.baa7b4cb.js" as="script"><link rel="prefetch" href="/assets/js/1.3566a8cc.js"><link rel="prefetch" href="/assets/js/10.67bcdbe9.js"><link rel="prefetch" href="/assets/js/100.3969cf4c.js"><link rel="prefetch" href="/assets/js/101.9a8a0f66.js"><link rel="prefetch" href="/assets/js/102.673896c1.js"><link rel="prefetch" href="/assets/js/103.fe36f393.js"><link rel="prefetch" href="/assets/js/104.6618cc71.js"><link rel="prefetch" href="/assets/js/105.c3a5cf8a.js"><link rel="prefetch" href="/assets/js/106.4d7925ac.js"><link rel="prefetch" href="/assets/js/107.5965afc4.js"><link rel="prefetch" href="/assets/js/108.7118eb4a.js"><link rel="prefetch" href="/assets/js/109.3eb3d357.js"><link rel="prefetch" href="/assets/js/11.6d988afa.js"><link rel="prefetch" href="/assets/js/110.76095d74.js"><link rel="prefetch" href="/assets/js/111.7ea4eb62.js"><link rel="prefetch" href="/assets/js/112.764dfb4a.js"><link rel="prefetch" href="/assets/js/113.923eb362.js"><link rel="prefetch" href="/assets/js/114.d5ef52b4.js"><link rel="prefetch" href="/assets/js/115.a49b9ec9.js"><link rel="prefetch" href="/assets/js/116.1aa678d7.js"><link rel="prefetch" href="/assets/js/117.698aacd0.js"><link rel="prefetch" href="/assets/js/118.46dd85e0.js"><link rel="prefetch" href="/assets/js/119.9e291798.js"><link rel="prefetch" href="/assets/js/12.78ed9efb.js"><link rel="prefetch" href="/assets/js/120.44603577.js"><link rel="prefetch" href="/assets/js/121.d5a14741.js"><link rel="prefetch" href="/assets/js/122.823652e9.js"><link rel="prefetch" href="/assets/js/123.d86a6a91.js"><link rel="prefetch" href="/assets/js/124.73b47445.js"><link rel="prefetch" href="/assets/js/125.7072ecb7.js"><link rel="prefetch" href="/assets/js/126.b12331bf.js"><link rel="prefetch" href="/assets/js/127.a435466b.js"><link rel="prefetch" href="/assets/js/128.b672627d.js"><link rel="prefetch" href="/assets/js/129.82f22e7a.js"><link rel="prefetch" href="/assets/js/13.ff299321.js"><link rel="prefetch" href="/assets/js/130.178c1921.js"><link rel="prefetch" href="/assets/js/131.591e644e.js"><link rel="prefetch" href="/assets/js/132.5e861fde.js"><link rel="prefetch" href="/assets/js/133.ce2c0482.js"><link rel="prefetch" href="/assets/js/134.e8da9786.js"><link rel="prefetch" href="/assets/js/135.843143fe.js"><link rel="prefetch" href="/assets/js/136.0906fde3.js"><link rel="prefetch" href="/assets/js/137.2a17b81e.js"><link rel="prefetch" href="/assets/js/138.eeea42b4.js"><link rel="prefetch" href="/assets/js/139.8422b7a3.js"><link rel="prefetch" href="/assets/js/14.4aa1e815.js"><link rel="prefetch" href="/assets/js/140.17d507c5.js"><link rel="prefetch" href="/assets/js/141.9857a757.js"><link rel="prefetch" href="/assets/js/143.3c993812.js"><link rel="prefetch" href="/assets/js/144.535d168e.js"><link rel="prefetch" href="/assets/js/145.94fb7f59.js"><link rel="prefetch" href="/assets/js/146.f26293c2.js"><link rel="prefetch" href="/assets/js/147.c11f2642.js"><link rel="prefetch" href="/assets/js/148.e97749e7.js"><link rel="prefetch" href="/assets/js/149.97794d45.js"><link rel="prefetch" href="/assets/js/15.8e086a30.js"><link rel="prefetch" href="/assets/js/150.e07042ec.js"><link rel="prefetch" href="/assets/js/151.5f68a5b0.js"><link rel="prefetch" href="/assets/js/16.8ce4e787.js"><link rel="prefetch" href="/assets/js/17.ea66db9c.js"><link rel="prefetch" href="/assets/js/18.8fc0a33d.js"><link rel="prefetch" href="/assets/js/19.90869ccb.js"><link rel="prefetch" href="/assets/js/2.bae2501d.js"><link rel="prefetch" href="/assets/js/20.a4b340a7.js"><link rel="prefetch" href="/assets/js/21.350164da.js"><link rel="prefetch" href="/assets/js/22.b187ba1e.js"><link rel="prefetch" href="/assets/js/23.74b98738.js"><link rel="prefetch" href="/assets/js/24.06e6308e.js"><link rel="prefetch" href="/assets/js/25.f9b349f9.js"><link rel="prefetch" href="/assets/js/26.ac3a750c.js"><link rel="prefetch" href="/assets/js/27.55bac7ce.js"><link rel="prefetch" href="/assets/js/28.e2c9c108.js"><link rel="prefetch" href="/assets/js/29.f01a8cfe.js"><link rel="prefetch" href="/assets/js/30.c4cb7a05.js"><link rel="prefetch" href="/assets/js/31.36a35116.js"><link rel="prefetch" href="/assets/js/32.0f453a7c.js"><link rel="prefetch" href="/assets/js/33.b6e72323.js"><link rel="prefetch" href="/assets/js/34.f3253096.js"><link rel="prefetch" href="/assets/js/35.87fad0d0.js"><link rel="prefetch" href="/assets/js/36.09456aad.js"><link rel="prefetch" href="/assets/js/37.f01fd752.js"><link rel="prefetch" href="/assets/js/38.1f57f9ad.js"><link rel="prefetch" href="/assets/js/39.c5760297.js"><link rel="prefetch" href="/assets/js/40.6b424356.js"><link rel="prefetch" href="/assets/js/41.60755f9c.js"><link rel="prefetch" href="/assets/js/42.deed9481.js"><link rel="prefetch" href="/assets/js/43.d97afb76.js"><link rel="prefetch" href="/assets/js/44.e1fea1ce.js"><link rel="prefetch" href="/assets/js/45.d25bfa9f.js"><link rel="prefetch" href="/assets/js/46.3f08843c.js"><link rel="prefetch" href="/assets/js/47.244449a9.js"><link rel="prefetch" href="/assets/js/48.fef0c320.js"><link rel="prefetch" href="/assets/js/5.9b2769c2.js"><link rel="prefetch" href="/assets/js/50.f973ba21.js"><link rel="prefetch" href="/assets/js/51.60b0c859.js"><link rel="prefetch" href="/assets/js/52.85091906.js"><link rel="prefetch" href="/assets/js/53.694d808b.js"><link rel="prefetch" href="/assets/js/54.2b1b5d6a.js"><link rel="prefetch" href="/assets/js/55.34441618.js"><link rel="prefetch" href="/assets/js/56.d57eaf8a.js"><link rel="prefetch" href="/assets/js/57.efd115f5.js"><link rel="prefetch" href="/assets/js/58.664fb28b.js"><link rel="prefetch" href="/assets/js/59.751f4e44.js"><link rel="prefetch" href="/assets/js/60.af7bd73d.js"><link rel="prefetch" href="/assets/js/61.35b833ff.js"><link rel="prefetch" href="/assets/js/62.39c790c8.js"><link rel="prefetch" href="/assets/js/63.87888d9c.js"><link rel="prefetch" href="/assets/js/64.849c2258.js"><link rel="prefetch" href="/assets/js/65.9065934f.js"><link rel="prefetch" href="/assets/js/66.6d73f535.js"><link rel="prefetch" href="/assets/js/67.4adf5d65.js"><link rel="prefetch" href="/assets/js/68.00056293.js"><link rel="prefetch" href="/assets/js/69.0ba3da23.js"><link rel="prefetch" href="/assets/js/7.1102604a.js"><link rel="prefetch" href="/assets/js/70.e61a94d9.js"><link rel="prefetch" href="/assets/js/71.2c4756b4.js"><link rel="prefetch" href="/assets/js/72.7530019a.js"><link rel="prefetch" href="/assets/js/73.0e1565de.js"><link rel="prefetch" href="/assets/js/74.bea63946.js"><link rel="prefetch" href="/assets/js/75.361095d6.js"><link rel="prefetch" href="/assets/js/76.6b35654a.js"><link rel="prefetch" href="/assets/js/77.4f6e9023.js"><link rel="prefetch" href="/assets/js/78.8e3634b2.js"><link rel="prefetch" href="/assets/js/79.1f2835fa.js"><link rel="prefetch" href="/assets/js/8.c50c785e.js"><link rel="prefetch" href="/assets/js/80.94ff4649.js"><link rel="prefetch" href="/assets/js/81.113a66fc.js"><link rel="prefetch" href="/assets/js/82.11702052.js"><link rel="prefetch" href="/assets/js/83.c3bfd7c6.js"><link rel="prefetch" href="/assets/js/84.2be399e2.js"><link rel="prefetch" href="/assets/js/85.27b00111.js"><link rel="prefetch" href="/assets/js/86.86b195c8.js"><link rel="prefetch" href="/assets/js/87.2b398202.js"><link rel="prefetch" href="/assets/js/88.504fde66.js"><link rel="prefetch" href="/assets/js/89.9ad83ead.js"><link rel="prefetch" href="/assets/js/9.43efd1e8.js"><link rel="prefetch" href="/assets/js/90.589cd11e.js"><link rel="prefetch" href="/assets/js/91.9dd0b210.js"><link rel="prefetch" href="/assets/js/92.43985641.js"><link rel="prefetch" href="/assets/js/93.5a06009e.js"><link rel="prefetch" href="/assets/js/94.37db833d.js"><link rel="prefetch" href="/assets/js/95.6d51771e.js"><link rel="prefetch" href="/assets/js/96.8139758b.js"><link rel="prefetch" href="/assets/js/97.5e9c070c.js"><link rel="prefetch" href="/assets/js/98.db95a610.js"><link rel="prefetch" href="/assets/js/99.1ac1e132.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7fc1f8c8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="global-layout"><div class="theme-container api-page"><header class="navbar main-header"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <div class="main-header__box"><div class="logo-holder"><a href="/" class="home-link router-link-active"><img src="/images/logo-small.svg" alt="Mobile Money API Developer Portal" class="logo"></a> <div class="branding-text">
+        mobile money api
+      </div></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API" class="dropdown-title"><span class="title">API</span> <span class="arrow down"></span></button> <button type="button" aria-label="API" class="mobile-dropdown-title"><span class="title">API</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Version 1.2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/api-versions-1.2/" class="nav-link">
+  Home
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/highlights.html" class="nav-link">
+  Highlights
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/change-list.html" class="nav-link">
+  Change list
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/api-versions-1.1/" class="nav-link">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/api-versions-1.0/" class="nav-link">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="SDKs" class="dropdown-title"><span class="title">SDKs</span> <span class="arrow down"></span></button> <button type="button" aria-label="SDKs" class="mobile-dropdown-title"><span class="title">SDKs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/sdks/getting-started/introduction.html" class="nav-link">
+  Getting Started
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/auth/client-authentication.html" class="nav-link">
+  Authentication
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/android/introduction.html" class="nav-link">
+  Android
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/nodejs/introduction.html" class="nav-link">
+  NodeJs
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/php/introduction.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/javascript/introduction.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/java/introduction.html" class="nav-link">
+  Java
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/glossary/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  Support
+</a></div> <!----></nav> <!----> <button type="button" class="mobile-search-opener"></button> <div class="login-links"><a href="/signup/" class="btn btn--transparent btn--register">Sign up</a> <a href="/login/" class="btn btn--accent">Log in</a></div> <!----></div></header> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API" class="dropdown-title"><span class="title">API</span> <span class="arrow down"></span></button> <button type="button" aria-label="API" class="mobile-dropdown-title"><span class="title">API</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Version 1.2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/api-versions-1.2/" class="nav-link">
+  Home
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/highlights.html" class="nav-link">
+  Highlights
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/change-list.html" class="nav-link">
+  Change list
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/api-versions-1.1/" class="nav-link">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/api-versions-1.0/" class="nav-link">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="SDKs" class="dropdown-title"><span class="title">SDKs</span> <span class="arrow down"></span></button> <button type="button" aria-label="SDKs" class="mobile-dropdown-title"><span class="title">SDKs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/sdks/getting-started/introduction.html" class="nav-link">
+  Getting Started
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/auth/client-authentication.html" class="nav-link">
+  Authentication
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/android/introduction.html" class="nav-link">
+  Android
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/nodejs/introduction.html" class="nav-link">
+  NodeJs
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/php/introduction.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/javascript/introduction.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/java/introduction.html" class="nav-link">
+  Java
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/glossary/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  Support
+</a></div> <!----></nav>  <!----> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Merchant Payments</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Overview</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/merchant-payments/" aria-current="page" class="sidebar-link">Merchant Payments</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Use case scenarios</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/merchant-payments/scenarios/scenarios.html" class="sidebar-link">About Merchant Payments Scenarios</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>API Service Definition</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/merchant-payments/api-service-definition.html" class="sidebar-link">API Service Definition</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Merchant Payments Open OAS UI</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/merchant-payments/merchant-payments-open-oas-ui.html" aria-current="page" class="active sidebar-link">Merchant Payments Open OAS UI</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="content__default"><h2 id="merchant-payments-open-oas-ui"><a href="#merchant-payments-open-oas-ui" class="header-anchor">#</a> Merchant Payments - Open OAS UI</h2> <div id="swagger" class="swagger"></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/use-cases/merchant-payments/api-service-definition.html" class="prev">
+        API Service Definition
+      </a></span> <!----></p></div> </main></div> <footer class="footer main-footer"><div class="main-footer__content-holder"><ul class="nav-links can-hide"><li class="nav-item"><a href="https://www.gsma.com/aboutus/worldwide-offices" target="_blank" class="nav-link">
+          Contact GSMA
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal" target="_blank" class="nav-link">
+          Legal
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal/email-preference-centre" target="_blank" class="nav-link">
+          Email Preference Centre
+        </a></li></ul> <div class="copyright"> Copyright © 2022 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.609526d3.js" defer></script><script src="/assets/js/6.9452e948.js" defer></script><script src="/assets/js/4.a565b9be.js" defer></script><script src="/assets/js/142.b26ad841.js" defer></script><script src="/assets/js/49.baa7b4cb.js" defer></script>
+  </body>
+</html>
