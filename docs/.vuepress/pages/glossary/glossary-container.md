@@ -1,0 +1,24 @@
+<glossary-container ref="glossary-co" v-show="visibleResults">
+!!!include(./items/atm.md)!!!
+!!!include(./items/agent.md)!!!
+!!!include(./items/api-service.md)!!!
+!!!include(./items/apis.md)!!!
+!!!include(./items/authentication.md)!!!
+!!!include(./items/authorisation.md)!!!
+!!!include(./items/business.md)!!!
+!!!include(./items/client.md)!!!
+!!!include(./items/guid.md)!!!
+!!!include(./items/http.md)!!!
+!!!include(./items/iso.md)!!!
+!!!include(./items/itu.md)!!!
+!!!include(./items/json.md)!!!
+!!!include(./items/merchant.md)!!!
+!!!include(./items/msisdn.md)!!!
+!!!include(./items/object.md)!!!
+!!!include(./items/organisation.md)!!!
+!!!include(./items/provider.md)!!!
+!!!include(./items/resource.md)!!!
+!!!include(./items/rest-api.md)!!!
+!!!include(./items/uri.md)!!!
+!!!include(./items/wallet.md)!!!
+</glossary-container>

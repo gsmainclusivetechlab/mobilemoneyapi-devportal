@@ -1,0 +1,27 @@
+.benefits-list {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 50px 0 0;
+
+  @include media('<tablet') {
+    margin: 0 0 30px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+    @include media('<tablet') {
+      margin: 0;
+    }
+  }
+
+  &-holder {
+    display: flex;
+    justify-content: space-between;
+
+    @include media('<tablet') {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

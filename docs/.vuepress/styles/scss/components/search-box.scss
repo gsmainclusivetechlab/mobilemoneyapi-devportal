@@ -1,0 +1,126 @@
+html {
+  .search-box {
+    @include animate(opacity visibility);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    margin-left: auto;
+    padding: 5px 10px;
+    border-bottom: 1px solid #eaecef;
+    background: var(--base-light-background-color);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    input {
+      @include animate(border-color width);
+      cursor: pointer;
+      height: auto;
+      color: var(--base-text-color);
+      font-weight: 400;
+      border-radius: 20px;
+      font-size: 14px;
+      font-family: var(--base-body-font-family);
+      line-height: 1;
+      outline: none;
+      background: url('/images/search.svg') 7px 50% no-repeat;
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 0 0 0 auto;
+      padding: 6px 10px 6px 35px;
+      border-color: var(--base-accent-color);
+
+
+      @include media('<=tablet-lg') {
+        max-width: 100%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.mobile-search-opener {
+  appearance: none;
+  border: none;
+  background: url('/images/search.svg') center no-repeat;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
+  margin-left: auto;
+
+  .auth-page & {
+    display: none;
+  }
+
+  .mobile-search-opened & {
+    position: relative;
+    background: none;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: #000;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+}
+
+.suggestions {
+  overflow-y: scroll;
+  left: auto;
+  box-shadow: 0 0 20px 6px var(--shadow-light-color);
+  max-height: 500px;
+  position: fixed !important;
+  top: 122px !important;
+  right: 0;
+  width: 60vw;
+  border-radius: 0;
+  min-width: 0px !important;
+
+  @include media('<=tablet-lg') {
+    width: 100%;
+    max-height: calc(100vh - 150px);
+    box-shadow: none;
+  }
+
+  @include media('>tablet-lg') {
+    max-width: 500px;
+    margin-right: 10px;
+  }
+
+
+  @include media('<tablet') {
+    top: 95px !important;
+    max-height: calc(100vh - 102px);
+  }
+
+  * {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    word-break: break-all;
+
+    @include media('<=tablet') {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.search-results-section {
+  margin: 92px 0;
+
+  @include media('<tablet') {
+    margin: 62px 0;
+  }
+}

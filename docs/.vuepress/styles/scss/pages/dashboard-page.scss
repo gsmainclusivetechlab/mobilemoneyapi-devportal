@@ -1,0 +1,12 @@
+.dashboard-page {
+  display: flex;
+
+  main {
+    width: 100%;
+  }
+
+  .content__default {
+    padding: 0 !important;
+    height: 100%;
+  }
+}

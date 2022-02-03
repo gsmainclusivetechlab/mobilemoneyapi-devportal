@@ -1,0 +1,25 @@
+.dotted-list {
+  @extend %listreset;
+
+  li {
+    position: relative;
+    padding-left: 24px;
+    margin: 0 0 12px;
+    line-height: 1.815;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--base-accent-color);
+      border-radius: 50%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.faq-results__item {
+  margin: 0 0 62px;
+  h2 {
+    margin: -100px 0 17px;
+    padding-top: 100px;
+  }
+
+  @include media('<tablet') {
+    margin: 0 0 42px;
+  }
+}
