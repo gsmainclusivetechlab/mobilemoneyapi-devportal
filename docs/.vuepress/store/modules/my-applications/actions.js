@@ -2,27 +2,42 @@ import Application from '@/api/Application';
 import { ALL_APPS, USER } from '../module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP, REMOVE_ITEM, UPDATE_APP_BY_ID } from '../action-types';
-import { SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
+import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
 import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
 
 export default {
-  async [GET_DATA]({ commit, state, rootGetters }) {
+  async [GET_DATA]({ commit, state, dispatch, getters, rootGetters }) {
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
-      const { data } = await Application.getApps(userName);
+      const { data } = await Application.getApps({
+        paginationToken: state.paginationTokens[state.currentPage],
+        userName
+      });
+
+      if (! data.appData.length && state.currentPage) {
+        commit(SET_CURRENT_PAGE, state.currentPage - 1);
+        commit(REMOVE_PAGINATION_TOKEN);
+        return dispatch(GET_DATA);
+      }
 
       commit(SET_DATA, data.appData);
-      // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: MY_APPS }, { root: true });
+
+      if (getters['getNextPageToken'] !== 'last') {
+        commit(ADD_PAGINATION_TOKEN, data.paginationToken);
+      }
 
       if (state.selectedApplication) {
         commit(SET_SELECTED_APPLICATION, state.selectedApplication.appId);
       }
     } catch (error) {
-      if (error?.response?.data?.description === 'No App Data present') {
-        commit(SET_DATA, []);
-        // commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: null, module: MY_APPS }, { root: true });
-      }
+      commit(SET_DATA, []);
+      commit(CLEAR_PAGINATION_TOKENS);
+      commit(SET_CURRENT_PAGE, 0);
+
+      console.log(error);
     }
+
+    return Promise.resolve();
   },
 
   async [POST_APP]({ dispatch, rootGetters }, payload) {

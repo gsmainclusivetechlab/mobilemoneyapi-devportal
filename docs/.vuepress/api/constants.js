@@ -29,7 +29,7 @@ export const SET_NEW_PASSWORD = USER_API.replace('{endpoint}', '{userName}/reset
 export const RESET_PASSWORD_CONFIRMATION = USER_API.replace('{endpoint}', 'reset-password-confirmation');
 export const UPDATE_REFRESH_TOKEN = USER_API.replace('{endpoint}', 'refresh-token');
 export const USER = USER_API.replace('{endpoint}', '{userName}');
-export const APPS = DEVELOPERS_API.replace('{endpoint}', 'apps?userName={userName}');
+export const APPS = DEVELOPERS_API.replace('{endpoint}', 'apps?userName{userName}&searchField&searchValue&sortType');
 export const CREATE_APP = DEVELOPERS_API.replace('{endpoint}', 'apps');
 export const ALL_APPS = DEVELOPERS_API.replace('{endpoint}', 'apps?searchField{searchField}&searchValue{searchValue}&sortType{sortType}');
 export const APP_BY_ID = DEVELOPERS_API.replace('{endpoint}', '{userName}/apps/{appId}');

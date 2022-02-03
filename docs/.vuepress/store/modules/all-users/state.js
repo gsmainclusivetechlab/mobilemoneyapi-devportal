@@ -1,6 +1,6 @@
 export default {
   data: [],
-  sortValue: '',
+  sortValue: 'firstName',
   searchValue: '',
   searchField: '',
   currentPage: 0,

@@ -24,6 +24,7 @@
 <script>
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
+import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -50,13 +51,13 @@ export default {
 
   methods: {
     nextPage() {
-      this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), this.getCurrentPage + 1);
+      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage + 1);
       this.getData();
     },
 
     prevPage() {
-      this.$store.commit(nameWithSlash(this.module, 'setCurrentPage'), this.getCurrentPage - 1);
-      this.$store.commit(nameWithSlash(this.module, 'removePaginationToken'));
+      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage - 1);
+      this.$store.commit(nameWithSlash(this.module, REMOVE_PAGINATION_TOKEN));
       this.getData();
     },
 

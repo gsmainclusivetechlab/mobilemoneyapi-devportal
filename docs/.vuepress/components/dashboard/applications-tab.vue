@@ -21,7 +21,6 @@
         </li>
       </ul>
       <dashboard-table-bottom
-          v-if="getApplicationsList.length"
           :module="module"
       />
     </div>
@@ -37,6 +36,9 @@ import { mapGetters } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
 import { MY_APPS } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { CLEAR_PAGINATION_TOKENS, SET_CURRENT_PAGE, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
+import { GET_DATA } from '@/store/modules/action-types';
 
 export default {
   name: 'applications-tab',
@@ -57,6 +59,12 @@ export default {
     }),
   },
 
+  created() {
+    this.$store.commit(nameWithSlash(this.module, CLEAR_PAGINATION_TOKENS));
+    this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), 0);
+    this.getData()
+  },
+
   methods: {
     toggleModal() {
       this.modalIsVisible = ! this.modalIsVisible;
@@ -64,6 +72,10 @@ export default {
 
     handleAppClick(key) {
       this.$emit('app-click', key, this.tabTitle);
+    },
+
+    getData() {
+      return this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };

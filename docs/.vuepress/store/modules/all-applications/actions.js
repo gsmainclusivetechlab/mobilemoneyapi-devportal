@@ -1,7 +1,7 @@
 import AllApplications from '@/api/admin/allApplications';
 import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM } from '../action-types';
-import { SET_DATA } from '../mutation-types';
+import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA } from '../mutation-types';
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, getters }) {
@@ -14,20 +14,20 @@ export default {
       });
 
       if(!data.appData.length && state.currentPage) {
-        commit('setCurrentPage', state.currentPage - 1)
-        commit('removePaginationToken')
+        commit(SET_CURRENT_PAGE, state.currentPage - 1)
+        commit(REMOVE_PAGINATION_TOKEN)
         return dispatch(GET_DATA);
       }
 
       commit(SET_DATA, data.appData);
 
       if(getters['getNextPageToken'] !== 'last') {
-        commit('addPaginationToken', data.paginationToken)
+        commit(ADD_PAGINATION_TOKEN, data.paginationToken)
       }
     } catch (error) {
       commit(SET_DATA, []);
-      commit('clearPaginationTokens');
-      commit('setCurrentPage', 0);
+      commit(CLEAR_PAGINATION_TOKENS);
+      commit(SET_CURRENT_PAGE, 0);
 
       console.log(error);
     }
