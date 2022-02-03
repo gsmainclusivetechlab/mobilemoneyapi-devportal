@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Account Linking - Use Case Scenarios | Mobile Money API Developer Portal</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <script src="/js/fix-scroll-to-hash.js"></script>
+    <meta name="description" content="Mobile Money API documentation">
+    <meta name="theme-color" content="red">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.7fc1f8c8.css" as="style"><link rel="preload" href="/assets/js/app.609526d3.js" as="script"><link rel="preload" href="/assets/js/6.9452e948.js" as="script"><link rel="preload" href="/assets/js/4.a565b9be.js" as="script"><link rel="preload" href="/assets/js/123.d86a6a91.js" as="script"><link rel="preload" href="/assets/js/64.849c2258.js" as="script"><link rel="preload" href="/assets/js/27.55bac7ce.js" as="script"><link rel="preload" href="/assets/js/48.fef0c320.js" as="script"><link rel="prefetch" href="/assets/js/1.3566a8cc.js"><link rel="prefetch" href="/assets/js/10.67bcdbe9.js"><link rel="prefetch" href="/assets/js/100.3969cf4c.js"><link rel="prefetch" href="/assets/js/101.9a8a0f66.js"><link rel="prefetch" href="/assets/js/102.673896c1.js"><link rel="prefetch" href="/assets/js/103.fe36f393.js"><link rel="prefetch" href="/assets/js/104.6618cc71.js"><link rel="prefetch" href="/assets/js/105.c3a5cf8a.js"><link rel="prefetch" href="/assets/js/106.4d7925ac.js"><link rel="prefetch" href="/assets/js/107.5965afc4.js"><link rel="prefetch" href="/assets/js/108.7118eb4a.js"><link rel="prefetch" href="/assets/js/109.3eb3d357.js"><link rel="prefetch" href="/assets/js/11.6d988afa.js"><link rel="prefetch" href="/assets/js/110.76095d74.js"><link rel="prefetch" href="/assets/js/111.7ea4eb62.js"><link rel="prefetch" href="/assets/js/112.764dfb4a.js"><link rel="prefetch" href="/assets/js/113.923eb362.js"><link rel="prefetch" href="/assets/js/114.d5ef52b4.js"><link rel="prefetch" href="/assets/js/115.a49b9ec9.js"><link rel="prefetch" href="/assets/js/116.1aa678d7.js"><link rel="prefetch" href="/assets/js/117.698aacd0.js"><link rel="prefetch" href="/assets/js/118.46dd85e0.js"><link rel="prefetch" href="/assets/js/119.9e291798.js"><link rel="prefetch" href="/assets/js/12.78ed9efb.js"><link rel="prefetch" href="/assets/js/120.44603577.js"><link rel="prefetch" href="/assets/js/121.d5a14741.js"><link rel="prefetch" href="/assets/js/122.823652e9.js"><link rel="prefetch" href="/assets/js/124.73b47445.js"><link rel="prefetch" href="/assets/js/125.7072ecb7.js"><link rel="prefetch" href="/assets/js/126.b12331bf.js"><link rel="prefetch" href="/assets/js/127.a435466b.js"><link rel="prefetch" href="/assets/js/128.b672627d.js"><link rel="prefetch" href="/assets/js/129.82f22e7a.js"><link rel="prefetch" href="/assets/js/13.ff299321.js"><link rel="prefetch" href="/assets/js/130.178c1921.js"><link rel="prefetch" href="/assets/js/131.591e644e.js"><link rel="prefetch" href="/assets/js/132.5e861fde.js"><link rel="prefetch" href="/assets/js/133.ce2c0482.js"><link rel="prefetch" href="/assets/js/134.e8da9786.js"><link rel="prefetch" href="/assets/js/135.843143fe.js"><link rel="prefetch" href="/assets/js/136.0906fde3.js"><link rel="prefetch" href="/assets/js/137.2a17b81e.js"><link rel="prefetch" href="/assets/js/138.eeea42b4.js"><link rel="prefetch" href="/assets/js/139.8422b7a3.js"><link rel="prefetch" href="/assets/js/14.4aa1e815.js"><link rel="prefetch" href="/assets/js/140.17d507c5.js"><link rel="prefetch" href="/assets/js/141.9857a757.js"><link rel="prefetch" href="/assets/js/142.b26ad841.js"><link rel="prefetch" href="/assets/js/143.3c993812.js"><link rel="prefetch" href="/assets/js/144.535d168e.js"><link rel="prefetch" href="/assets/js/145.94fb7f59.js"><link rel="prefetch" href="/assets/js/146.f26293c2.js"><link rel="prefetch" href="/assets/js/147.c11f2642.js"><link rel="prefetch" href="/assets/js/148.e97749e7.js"><link rel="prefetch" href="/assets/js/149.97794d45.js"><link rel="prefetch" href="/assets/js/15.8e086a30.js"><link rel="prefetch" href="/assets/js/150.e07042ec.js"><link rel="prefetch" href="/assets/js/151.5f68a5b0.js"><link rel="prefetch" href="/assets/js/16.8ce4e787.js"><link rel="prefetch" href="/assets/js/17.ea66db9c.js"><link rel="prefetch" href="/assets/js/18.8fc0a33d.js"><link rel="prefetch" href="/assets/js/19.90869ccb.js"><link rel="prefetch" href="/assets/js/2.bae2501d.js"><link rel="prefetch" href="/assets/js/20.a4b340a7.js"><link rel="prefetch" href="/assets/js/21.350164da.js"><link rel="prefetch" href="/assets/js/22.b187ba1e.js"><link rel="prefetch" href="/assets/js/23.74b98738.js"><link rel="prefetch" href="/assets/js/24.06e6308e.js"><link rel="prefetch" href="/assets/js/25.f9b349f9.js"><link rel="prefetch" href="/assets/js/26.ac3a750c.js"><link rel="prefetch" href="/assets/js/28.e2c9c108.js"><link rel="prefetch" href="/assets/js/29.f01a8cfe.js"><link rel="prefetch" href="/assets/js/30.c4cb7a05.js"><link rel="prefetch" href="/assets/js/31.36a35116.js"><link rel="prefetch" href="/assets/js/32.0f453a7c.js"><link rel="prefetch" href="/assets/js/33.b6e72323.js"><link rel="prefetch" href="/assets/js/34.f3253096.js"><link rel="prefetch" href="/assets/js/35.87fad0d0.js"><link rel="prefetch" href="/assets/js/36.09456aad.js"><link rel="prefetch" href="/assets/js/37.f01fd752.js"><link rel="prefetch" href="/assets/js/38.1f57f9ad.js"><link rel="prefetch" href="/assets/js/39.c5760297.js"><link rel="prefetch" href="/assets/js/40.6b424356.js"><link rel="prefetch" href="/assets/js/41.60755f9c.js"><link rel="prefetch" href="/assets/js/42.deed9481.js"><link rel="prefetch" href="/assets/js/43.d97afb76.js"><link rel="prefetch" href="/assets/js/44.e1fea1ce.js"><link rel="prefetch" href="/assets/js/45.d25bfa9f.js"><link rel="prefetch" href="/assets/js/46.3f08843c.js"><link rel="prefetch" href="/assets/js/47.244449a9.js"><link rel="prefetch" href="/assets/js/49.baa7b4cb.js"><link rel="prefetch" href="/assets/js/5.9b2769c2.js"><link rel="prefetch" href="/assets/js/50.f973ba21.js"><link rel="prefetch" href="/assets/js/51.60b0c859.js"><link rel="prefetch" href="/assets/js/52.85091906.js"><link rel="prefetch" href="/assets/js/53.694d808b.js"><link rel="prefetch" href="/assets/js/54.2b1b5d6a.js"><link rel="prefetch" href="/assets/js/55.34441618.js"><link rel="prefetch" href="/assets/js/56.d57eaf8a.js"><link rel="prefetch" href="/assets/js/57.efd115f5.js"><link rel="prefetch" href="/assets/js/58.664fb28b.js"><link rel="prefetch" href="/assets/js/59.751f4e44.js"><link rel="prefetch" href="/assets/js/60.af7bd73d.js"><link rel="prefetch" href="/assets/js/61.35b833ff.js"><link rel="prefetch" href="/assets/js/62.39c790c8.js"><link rel="prefetch" href="/assets/js/63.87888d9c.js"><link rel="prefetch" href="/assets/js/65.9065934f.js"><link rel="prefetch" href="/assets/js/66.6d73f535.js"><link rel="prefetch" href="/assets/js/67.4adf5d65.js"><link rel="prefetch" href="/assets/js/68.00056293.js"><link rel="prefetch" href="/assets/js/69.0ba3da23.js"><link rel="prefetch" href="/assets/js/7.1102604a.js"><link rel="prefetch" href="/assets/js/70.e61a94d9.js"><link rel="prefetch" href="/assets/js/71.2c4756b4.js"><link rel="prefetch" href="/assets/js/72.7530019a.js"><link rel="prefetch" href="/assets/js/73.0e1565de.js"><link rel="prefetch" href="/assets/js/74.bea63946.js"><link rel="prefetch" href="/assets/js/75.361095d6.js"><link rel="prefetch" href="/assets/js/76.6b35654a.js"><link rel="prefetch" href="/assets/js/77.4f6e9023.js"><link rel="prefetch" href="/assets/js/78.8e3634b2.js"><link rel="prefetch" href="/assets/js/79.1f2835fa.js"><link rel="prefetch" href="/assets/js/8.c50c785e.js"><link rel="prefetch" href="/assets/js/80.94ff4649.js"><link rel="prefetch" href="/assets/js/81.113a66fc.js"><link rel="prefetch" href="/assets/js/82.11702052.js"><link rel="prefetch" href="/assets/js/83.c3bfd7c6.js"><link rel="prefetch" href="/assets/js/84.2be399e2.js"><link rel="prefetch" href="/assets/js/85.27b00111.js"><link rel="prefetch" href="/assets/js/86.86b195c8.js"><link rel="prefetch" href="/assets/js/87.2b398202.js"><link rel="prefetch" href="/assets/js/88.504fde66.js"><link rel="prefetch" href="/assets/js/89.9ad83ead.js"><link rel="prefetch" href="/assets/js/9.43efd1e8.js"><link rel="prefetch" href="/assets/js/90.589cd11e.js"><link rel="prefetch" href="/assets/js/91.9dd0b210.js"><link rel="prefetch" href="/assets/js/92.43985641.js"><link rel="prefetch" href="/assets/js/93.5a06009e.js"><link rel="prefetch" href="/assets/js/94.37db833d.js"><link rel="prefetch" href="/assets/js/95.6d51771e.js"><link rel="prefetch" href="/assets/js/96.8139758b.js"><link rel="prefetch" href="/assets/js/97.5e9c070c.js"><link rel="prefetch" href="/assets/js/98.db95a610.js"><link rel="prefetch" href="/assets/js/99.1ac1e132.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7fc1f8c8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="global-layout"><div class="theme-container api-page has-code-panel"><header class="navbar main-header"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <div class="main-header__box"><div class="logo-holder"><a href="/" class="home-link router-link-active"><img src="/images/logo-small.svg" alt="Mobile Money API Developer Portal" class="logo"></a> <div class="branding-text">
+        mobile money api
+      </div></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API" class="dropdown-title"><span class="title">API</span> <span class="arrow down"></span></button> <button type="button" aria-label="API" class="mobile-dropdown-title"><span class="title">API</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Version 1.2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/api-versions-1.2/" class="nav-link">
+  Home
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/highlights.html" class="nav-link">
+  Highlights
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/change-list.html" class="nav-link">
+  Change list
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/api-versions-1.1/" class="nav-link">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/api-versions-1.0/" class="nav-link">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="SDKs" class="dropdown-title"><span class="title">SDKs</span> <span class="arrow down"></span></button> <button type="button" aria-label="SDKs" class="mobile-dropdown-title"><span class="title">SDKs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/sdks/getting-started/introduction.html" class="nav-link">
+  Getting Started
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/auth/client-authentication.html" class="nav-link">
+  Authentication
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/android/introduction.html" class="nav-link">
+  Android
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/nodejs/introduction.html" class="nav-link">
+  NodeJs
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/php/introduction.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/javascript/introduction.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/java/introduction.html" class="nav-link">
+  Java
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/glossary/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  Support
+</a></div> <!----></nav> <!----> <button type="button" class="mobile-search-opener"></button> <div class="login-links"><a href="/signup/" class="btn btn--transparent btn--register">Sign up</a> <a href="/login/" class="btn btn--accent">Log in</a></div> <!----></div></header> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="About" class="dropdown-title"><span class="title">About</span> <span class="arrow down"></span></button> <button type="button" aria-label="About" class="mobile-dropdown-title"><span class="title">About</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.gsma.com/aboutus/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  About GSMA
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Mobile for Development
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.gsma.com/mobilefordevelopment/mobile-money/gsma-inclusive-tech-lab/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Inclusive Tech Lab
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Business" class="dropdown-title"><span class="title">Business</span> <span class="arrow down"></span></button> <button type="button" aria-label="Business" class="mobile-dropdown-title"><span class="title">Business</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/mobile-money-providers/" class="nav-link">
+  Mobile Money Providers
+</a></li><li class="dropdown-item"><!----> <a href="/merchants-and-service-providers/" class="nav-link">
+  Merchants &amp; Service Providers
+</a></li><li class="dropdown-item"><!----> <a href="/governments/" class="nav-link">
+  Governments
+</a></li><li class="dropdown-item"><!----> <a href="/humanitarian-agencies/" class="nav-link">
+  Humanitarian Agencies
+</a></li><li class="dropdown-item"><!----> <a href="/international-transfer-organisations/" class="nav-link">
+  International Transfer Organisations
+</a></li><li class="dropdown-item"><!----> <a href="/payment-service-providers-and-payment-aggregators/" class="nav-link">
+  Payment Service Providers &amp; Payment Aggregators
+</a></li><li class="dropdown-item"><!----> <a href="/banks-microfinance-institutions/" class="nav-link">
+  Banks &amp; Microfinance Institutions
+</a></li><li class="dropdown-item"><!----> <a href="/fintech-providers/" class="nav-link">
+  FinTech Providers (Insurance Savings Loans)
+</a></li><li class="dropdown-item"><!----> <a href="/employers/" class="nav-link">
+  Employers
+</a></li><li class="dropdown-item"><!----> <a href="/energy-utilities-agritech/" class="nav-link">
+  Energy &amp; Utilities &amp; AgriTech
+</a></li><li class="dropdown-item"><!----> <a href="/education-and-health/" class="nav-link">
+  Education &amp; Health
+</a></li><li class="dropdown-item"><!----> <a href="/mobile-money-agents/" class="nav-link">
+  Mobile Money Agents
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API" class="dropdown-title"><span class="title">API</span> <span class="arrow down"></span></button> <button type="button" aria-label="API" class="mobile-dropdown-title"><span class="title">API</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          Version 1.2
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/api-versions-1.2/" class="nav-link">
+  Home
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/highlights.html" class="nav-link">
+  Highlights
+</a></li><li class="dropdown-subitem"><a href="/api-versions-1.2/resources/change-list.html" class="nav-link">
+  Change list
+</a></li></ul></li><li class="dropdown-item"><!----> <a href="/api-versions-1.1/" class="nav-link">
+  Version 1.1
+</a></li><li class="dropdown-item"><!----> <a href="/api-versions-1.0/" class="nav-link">
+  Version 1.0
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="SDKs" class="dropdown-title"><span class="title">SDKs</span> <span class="arrow down"></span></button> <button type="button" aria-label="SDKs" class="mobile-dropdown-title"><span class="title">SDKs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/sdks/getting-started/introduction.html" class="nav-link">
+  Getting Started
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/auth/client-authentication.html" class="nav-link">
+  Authentication
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/android/introduction.html" class="nav-link">
+  Android
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/nodejs/introduction.html" class="nav-link">
+  NodeJs
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/php/introduction.html" class="nav-link">
+  PHP
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/javascript/introduction.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/sdks/java/introduction.html" class="nav-link">
+  Java
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Resources" class="dropdown-title"><span class="title">Resources</span> <span class="arrow down"></span></button> <button type="button" aria-label="Resources" class="mobile-dropdown-title"><span class="title">Resources</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/security/" class="nav-link">
+  Security
+</a></li><li class="dropdown-item"><!----> <a href="/glossary/" class="nav-link">
+  Glossary
+</a></li><li class="dropdown-item"><!----> <a href="/faq/" class="nav-link">
+  FAQ
+</a></li></ul></div></div><div class="nav-item"><a href="/support/" class="nav-link">
+  Support
+</a></div> <!----></nav>  <!----> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Account linking</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Overview</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/account-linking/" aria-current="page" class="sidebar-link">Account Linking</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Use case scenarios</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/account-linking/scenarios/scenarios.html" aria-current="page" class="active sidebar-link">About Account Linking Scenarios</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#setup-an-account-link" class="sidebar-link">Setup an Account Link</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#setup-an-account-link-failure" class="sidebar-link">Setup an Account Link Failure</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#perform-a-transfer-for-a-linked-account" class="sidebar-link">Perform a Transfer for a Linked Account</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#perform-a-transfer-for-a-linked-account-failure" class="sidebar-link">Perform a Transfer for a Linked Account - Failure</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#perform-a-transfer-using-an-account-link-via-the-polling-method" class="sidebar-link">Perform a Transfer using an Account Link via the Polling Method</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#perform-a-transfer-reversal" class="sidebar-link">Perform a Transfer Reversal</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#obtain-a-financial-service-provider-balance" class="sidebar-link">Obtain a Financial Service Provider Balance</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#retrieve-transfers-for-a-financial-service-provider" class="sidebar-link">Retrieve Transfers for a Financial Service Provider</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#check-for-service-availability" class="sidebar-link">Check for Service Availability</a></li><li class="sidebar-sub-header"><a href="/use-cases/account-linking/scenarios/scenarios.html#retrieve-a-missing-api-response" class="sidebar-link">Retrieve a Missing API Response</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>API Service Definition</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/account-linking/api-service-definition.html" class="sidebar-link">API Service Definition</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Account Linking Open OAS UI</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/use-cases/account-linking/account-linking-open-oas-ui.html" class="sidebar-link">Account Linking Open OAS UI</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="content__default"><div class="panel-collapsable"><div class="panel-opener-overlay"></div> <button type="button" class="panel-opener"><svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 0H2C1.60218 0 1.22064 0.158035 0.93934 0.43934C0.658035 0.720644 0.5 1.10218 0.5 1.5V16.5C0.5 16.8978 0.658035 17.2794 0.93934 17.5607C1.22064 17.842 1.60218 18 2 18H20C20.3978 18 20.7794 17.842 21.0607 17.5607C21.342 17.2794 21.5 16.8978 21.5 16.5V1.5C21.5 1.10218 21.342 0.720644 21.0607 0.43934C20.7794 0.158035 20.3978 0 20 0ZM2 1.5H14V16.5H2V1.5Z" fill="white"></path></svg></button></div> <h1 id="about-use-case-scenarios"><a href="#about-use-case-scenarios" class="header-anchor">#</a> About Use Case Scenarios</h1> <p>The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.</p> <h2 id="setup-an-account-link"><a href="#setup-an-account-link" class="header-anchor">#</a> Setup an Account Link</h2> <p>This diagram illustrates the setting-up of an account link. The requesting FSP initiates the request which is authorised by the account holding customer. In this diagram, an asynchronous flow is used with a final callback.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FPS
+    participant FSP 
+    participant Account Holder  
+    Requesting FPS-&gt;&gt;FSP: POST /accounts/{identifierType}/{identifier}/links
+    activate Requesting FPS
+    activate FSP
+    Note right of FSP: (1) The requesting FPS submits the debit mandate request for<br>processing to the FSP. The FSP will return the Request<br>State object to indicate that the request is 'pending'.
+    FSP--&gt;&gt;Requesting FPS: HTTP 202 (Request State Object)
+    FSP-&gt;&gt;Account Holder: Obtain Customer Authorisation
+    activate Account Holder
+    Note right of Account Holder: (2) The account holder is requested by the<br>FSP to authorise the link. This can be<br>achieved through a number of means<br>including USSD Push and One Time Code.<br>OpenId can also be used to secure<br>customer authorisation.
+    Account Holder--&gt;&gt;FSP: (Authorised)   
+    deactivate Account Holder
+    FSP-&gt;&gt;Requesting FPS: PUT {Callback URL} (Debit Mandates Object)
+    Note right of FSP: (3) The FSP informs the requesting FPS that the<br>link has been successfully created by<br>returning the final representation of the link.
+    Requesting FPS--&gt;&gt;FSP: HTTP 204
+    deactivate Requesting FPS
+    deactivate FSP 
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TzCLA9Qf" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoFLop" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="setup-an-account-link-failure"><a href="#setup-an-account-link-failure" class="header-anchor">#</a> Setup an Account Link Failure</h2> <p>In this diagram, the account holder declines to provide authorisation to setup the account link. The requesting FSP receives a callback containing an error object detailing the reason for failure.</p> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FPS
+    participant FSP 
+    participant Account Holder  
+    Requesting FPS-&gt;&gt;FSP: POST /accounts/{identifierType}/{identifier}/links
+    activate Requesting FPS
+    activate FSP
+    Note right of FSP: (1) The requesting FPS submits the debit mandate request for<br>processing to the FSP. The FSP will return the Request<br>State object to indicate that the request is 'pending'.
+    FSP--&gt;&gt;Requesting FPS: HTTP 202 (Request State Object)
+    FSP-&gt;&gt;Account Holder: Obtain Customer Authorisation
+    activate Account Holder
+    Note right of Account Holder: (2) The account holder declines the link<br>request.
+    Account Holder--&gt;&gt;FSP: (Declined)   
+    deactivate Account Holder
+    FSP-&gt;&gt;Requesting FPS: PUT {Callback URL} (Error Object)
+    Note right of FSP: (3) The FSP informs the requesting FPS that the<br>link has been declined by returning an error<br>object.
+    Requesting FPS--&gt;&gt;FSP: HTTP 204
+    deactivate Requesting FPS
+    deactivate FSP
+</div> <h2 id="perform-a-transfer-for-a-linked-account"><a href="#perform-a-transfer-for-a-linked-account" class="header-anchor">#</a> Perform a Transfer for a Linked Account</h2> <p>In this diagram, the requesting FSP initiates a transfer to the FSP using an established link.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: POST /transactions/type/transfer
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP submits the transfer request for<br>processing to the FSP, ensuring that a link reference<br>is provided for the transfer. The FSP will return the Request<br>State object to indicate that the request is 'pending'.
+    FSP--&gt;&gt;Requesting FSP: HTTP 202 (Request State Object)  
+    deactivate Requesting FSP
+    FSP-&gt;&gt;Requesting FSP: PUT {Callback URL} (Transactions Object)
+    activate Requesting FSP
+    Note right of FSP: (2) The FSP informs the requesting FSP that the<br>transfer has been successfully completed by<br>returning the final representation of the<br>transaction.
+    Requesting FSP--&gt;&gt;FSP: HTTP 204
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDakunn" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoDfUX" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="perform-a-transfer-for-a-linked-account-failure"><a href="#perform-a-transfer-for-a-linked-account-failure" class="header-anchor">#</a> Perform a Transfer for a Linked Account - Failure</h2> <p>In this diagram, the requesting FSP initiates a transfer to the FSP using an established link. The FSP is unable to process the transfer and returns a callback containing the error object.</p> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: POST /transactions/type/transfer
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP submits the transfer request for<br>processing to the FSP, ensuring that a link reference is<br>provided for the transfer. The FSP will return the Request<br>State object to indicate that the request is 'pending'.
+    FSP--&gt;&gt;Requesting FSP: HTTP 202 (Request State Object) 
+    deactivate Requesting FSP
+    FSP-&gt;&gt;Requesting FSP: PUT {Callback URL} (Error Object)
+    activate Requesting FSP
+    Note right of FSP: (2) The FSP informs the requesting FSP that the<br>transfer has failed and returns the error object<br>detailing the reason for failure.
+    Requesting FSP--&gt;&gt;FSP: HTTP 204
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <h2 id="perform-a-transfer-using-an-account-link-via-the-polling-method"><a href="#perform-a-transfer-using-an-account-link-via-the-polling-method" class="header-anchor">#</a> Perform a Transfer using an Account Link via the Polling Method</h2> <p>In this example, an asynchronous flow is used with the polling method. The client polls against the request state object to determine the outcome of the transfer request.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: POST /transactions/type/transfer
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP submits the transfer request for<br>processing to the FSP, ensuring that a link reference is<br>provided for the transfer. The FSP will return the Request<br>State object to indicate that the request is 'pending'.
+    FSP--&gt;&gt;Requesting FSP: HTTP 202 (Request State Object)  
+    deactivate Requesting FSP
+    loop
+        activate Requesting FSP
+        Requesting FSP-&gt;&gt;FSP: GET /requeststates/{serverCorrelationId}
+        Note right of FSP: (2) The requesting FSP polls the FSP for the Request State<br>until the transaction is authorised or declied or until the<br>polling limit is reached.
+        FSP--&gt;&gt;Requesting FSP: HTTP 200 (Request State Object)
+    end  
+    deactivate FSP
+    opt
+        activate FSP
+        Requesting FSP-&gt;&gt;FSP: GET /transactions/transactionReference
+        Note right of FSP: (3) The requesting FSP can use the objectReference returned in<br>the Request State to retrieve a representation of the<br>completed transfer.
+        FSP--&gt;&gt;Requesting FSP: HTTP 200 (Transactions Object)
+    end
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDakvFD" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoDfUc" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="perform-a-transfer-reversal"><a href="#perform-a-transfer-reversal" class="header-anchor">#</a> Perform a Transfer Reversal</h2> <p>In some failure scenarios, a requesting FSP may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: POST /transactions/{original transaction reference}/reversals
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP submits the reversal request for<br>processing to the FSP - passing the reference of the<br>transaction that is to be reversed. The FSP will return the<br>Request State object to indicate that the request is<br>'pending'.
+    FSP--&gt;&gt;Requesting FSP: HTTP 202 (Request State Object)
+    FSP-&gt;&gt;Requesting FSP: PUT {Callback URL} (Reversal Object)
+    Note right of FSP: (2) The FSP informs the Requesting FSP that the<br>reversal has been successfully completed by<br>returning the final representation of the<br>reversal transaction.
+    Requesting FSP--&gt;&gt;FSP: HTTP 204
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDamF3P" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoDfUV" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="obtain-a-financial-service-provider-balance"><a href="#obtain-a-financial-service-provider-balance" class="header-anchor">#</a> Obtain a Financial Service Provider Balance</h2> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP   
+    Requesting FSP-&gt;&gt;FSP: GET /accounts/{identifierType}/{identifier}/balance
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) Obtain the balance of the<br>requested account.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Balance Object) 
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDamF3U" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoDL9M" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="retrieve-transfers-for-a-financial-service-provider"><a href="#retrieve-transfers-for-a-financial-service-provider" class="header-anchor">#</a> Retrieve Transfers for a Financial Service Provider</h2> <p>This diagram illustrates use of a cursor mechanism to retrieve all transfers for a financial service provider via multiple requests.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: GET /accounts/{identifierType}/{identifier}/transactions?offset=0&amp;limit=20
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP requests<br>up to 20 transactions for the<br>account from the FSP.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
+    Note right of FSP: (2) The FSP returns an array of<br>20 transactions and indicates<br>via a response header that<br>there are 40 records<br>available in total.   
+    Requesting FSP-&gt;&gt;FSP: GET /accounts/{identifierType}/{identifier}/transactions?offset=20&amp;limit=20
+    Note right of FSP: (3) The requesting FSP requests<br>the remaining transactions for<br>the account from the FSP.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Transactions Array) (X-Records-Available-Count=40)
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDamF7n" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoF1wE" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="check-for-service-availability"><a href="#check-for-service-availability" class="header-anchor">#</a> Check for Service Availability</h2> <p>The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP 
+    Requesting FSP-&gt;&gt;FSP: GET /heartbeat
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) The requesting FSP requests the<br>availability of the service from the FSP.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Heartbeat Object)
+    Note right of FSP: (2) The FSP returns the availability of<br>the service - available, unavailable<br>or degraded.    
+    deactivate Requesting FSP
+    deactivate FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzCQbS8z" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div> <h2 id="retrieve-a-missing-api-response"><a href="#retrieve-a-missing-api-response" class="header-anchor">#</a> Retrieve a Missing API Response</h2> <p>This API can be used by the requesting FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the FSP.</p> <!----> <div class="mermaid">
+sequenceDiagram
+    participant Requesting FSP
+    participant FSP    
+    Requesting FSP-&gt;&gt;FSP: GET /responses{clientCorrelationId}
+    activate Requesting FSP
+    activate FSP
+    Note right of FSP: (1) Using the requesting FSP's<br>clientCorrelationId, a request for the<br>missing API response is sent.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Responses Object)
+    Note right of FSP: (2) A Responses object is returned<br>containing a link to the missing<br>resource.   
+    Requesting FSP-&gt;&gt;FSP: GET /{link}
+    Note right of FSP: (3) The requesting FSP uses the link to<br>obtain a representation of the missing<br>resource.
+    FSP--&gt;&gt;Requesting FSP: HTTP 200 (Requested Object)   
+    deactivate FSP
+    deactivate Requesting FSP
+</div> <div class="buttons-holder content-center"><a href="https://documenter.getpostman.com/view/4336524/TWDamF7v" target="_blank" class="btn btn--accent">Open Postman Collection</a> <a href="https://documenter.getpostman.com/view/4336524/TzJoF1rj" target="_blank" class="btn btn--accent">Open Postman Collection with Authentication</a></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/use-cases/account-linking/" class="prev router-link-active">
+        Account Linking
+      </a></span> <span class="next"><a href="/use-cases/account-linking/api-service-definition.html">
+        API Service Definition
+      </a>
+      →
+    </span></p></div> </main></div> <footer class="footer main-footer"><div class="main-footer__content-holder"><ul class="nav-links can-hide"><li class="nav-item"><a href="https://www.gsma.com/aboutus/worldwide-offices" target="_blank" class="nav-link">
+          Contact GSMA
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal" target="_blank" class="nav-link">
+          Legal
+        </a></li><li class="nav-item"><a href="https://www.gsma.com/aboutus/legal/email-preference-centre" target="_blank" class="nav-link">
+          Email Preference Centre
+        </a></li></ul> <div class="copyright"> Copyright © 2022 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.609526d3.js" defer></script><script src="/assets/js/6.9452e948.js" defer></script><script src="/assets/js/4.a565b9be.js" defer></script><script src="/assets/js/123.d86a6a91.js" defer></script><script src="/assets/js/64.849c2258.js" defer></script><script src="/assets/js/27.55bac7ce.js" defer></script><script src="/assets/js/48.fef0c320.js" defer></script>
+  </body>
+</html>
