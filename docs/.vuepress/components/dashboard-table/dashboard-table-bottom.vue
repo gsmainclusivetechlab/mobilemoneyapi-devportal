@@ -1,19 +1,23 @@
 <template>
   <div class="dashboard-table-bottom">
+    <div>Current Page {{ getCurrentPage + 1 }}</div>
     <div>
       <button
-          type="button"
-          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0}"
-          @click="prevPage"
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
+        :class="{ 'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 }"
+        @click="prevPage"
       >
         < Prev
       </button>
       <button
-          type="button"
-          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': (!getTokenNextPage || getTokenNextPage === 'last')}"
-          @click="nextPage"
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
+        :class="{
+          'dashboard-table__pagination-arrow--inactive':
+            !getTokenNextPage || getTokenNextPage === 'last'
+        }"
+        @click="nextPage"
       >
         Next >
       </button>

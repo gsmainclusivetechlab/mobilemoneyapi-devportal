@@ -3,32 +3,43 @@
     <div style="display: flex; justify-content: space-between">
       <h3>{{ tableTitle }}</h3>
       <div v-if="isCreateButton" class="btn-row">
-        <button class="btn btn--accent btn__create" @click="toggleModal" type="button">Create</button>
+        <button class="btn btn--accent btn__create" @click="toggleModal" type="button">
+          Create
+        </button>
       </div>
     </div>
     <div class="table-block">
       <dashboard-table-top
-          :hideFilter="hideFilter"
-          :searchBy="searchBy"
-          :pageType="pageType"
-          :module="module"
-          @start-getting-data="isGettingData = true"
-          @end-getting-data="isGettingData = false"
+        :hideFilter="hideFilter"
+        :searchBy="searchBy"
+        :pageType="pageType"
+        :module="module"
+        @start-getting-data="isGettingData = true"
+        @end-getting-data="isGettingData = false"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
-          <th class="dashboard-table__cell dashboard-table__cell--heading"
-              :class="{'dashboard-table__cell--center': isCenterHeader ? index === indexCenter : false}"
-              v-for="(title, index) of tableHeadersData"
-              :key="index">
+          <th
+            class="dashboard-table__cell dashboard-table__cell--heading"
+            :class="{
+              'dashboard-table__cell--center': isCenterHeader ? index === indexCenter : false
+            }"
+            v-for="(title, index) of tableHeadersData"
+            :key="index"
+          >
             {{ title }}
           </th>
-          <th class="dashboard-table__cell dashboard-table__cell--heading" v-if="pageType !== 'plans'">
-          </th>
+          <th
+            class="dashboard-table__cell dashboard-table__cell--heading"
+            v-if="pageType !== 'plans'"
+          ></th>
         </tr>
-        <tr class="dashboard-table__row dashboard-table__row--not-found" v-if="isDataNotFound && isGettingData">
+        <tr
+          class="dashboard-table__row dashboard-table__row--not-found"
+          v-if="isDataNotFound && isGettingData"
+        >
           <td class="dashboard-table__cell">
-            <spinner-component/>
+            <spinner-component />
           </td>
         </tr>
         <tr class="dashboard-table__row dashboard-table__row--not-found" v-else-if="isDataNotFound">
@@ -36,10 +47,10 @@
         </tr>
         <slot></slot>
       </table>
-      <dashboard-table-bottom
-          :module="module"/>
+
+      <dashboard-table-bottom v-if="hasNextPages" :module="module" />
     </div>
-    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
+    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
   </div>
 </template>
 
@@ -58,7 +69,7 @@ export default {
   props: {
     tableHeadersData: {
       type: Array,
-      default: () => ([])
+      default: () => []
     },
     isCenterHeader: {
       type: Boolean,
@@ -82,7 +93,7 @@ export default {
     },
     searchBy: {
       type: Array,
-      default: () => ([])
+      default: () => []
     },
     isCreateButton: {
       type: Boolean,
@@ -100,6 +111,10 @@ export default {
     isDataNotFound: {
       type: Boolean,
       default: false
+    },
+    hasNextPages: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -114,8 +129,8 @@ export default {
 
   methods: {
     toggleModal() {
-      this.modalIsVisible = ! this.modalIsVisible;
-    },
+      this.modalIsVisible = !this.modalIsVisible;
+    }
   }
 };
 </script>

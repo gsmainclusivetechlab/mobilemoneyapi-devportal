@@ -1,34 +1,36 @@
 <template>
   <dashboard-table
-      is-center-header
-      hide-filter
-      table-title="All plans"
-      table-class="dashboard-content__table-plans"
-      :indexCenter="1"
-      :table-headers-data="allPlansHeaderTitles"
-      :search-by="getSearchBy"
-      :is-data-not-found="!tableData.length"
-      :module="module"
-      page-type="plans"
+    is-center-header
+    hide-filter
+    table-title="All plans"
+    table-class="dashboard-content__table-plans"
+    :indexCenter="1"
+    :table-headers-data="allPlansHeaderTitles"
+    :search-by="getSearchBy"
+    :is-data-not-found="!tableData.length"
+    :module="module"
+    page-type="plans"
+    :hasNextPages="hasNextPages"
   >
     <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
-      <dashboard-cell :value="plan.name"/>
+      <dashboard-cell :value="plan.name" />
       <td class="dashboard-table__cell dashboard-table__cell--center dashboard-table__cell--state">
         <template v-if="isAdminRole">
           <span
-              class="dashboard-table__state-label"
-              :class="[getPlanStatusLabelClass(plan.published)]">
+            class="dashboard-table__state-label"
+            :class="[getPlanStatusLabelClass(plan.published)]"
+          >
             {{ getPlanStatus(plan.published) }}
           </span>
         </template>
         <template v-if="isSuperAdminRole">
           <button
-              @click="changeState(plan.id, plan.published)"
-              class="dashboard-table__state-label dashboard-table__state-button"
-              :class="[getPlanStatusLabelClass(plan.published)]"
-              :disabled="waitingPlanId === plan.id"
+            @click="changeState(plan.id, plan.published)"
+            class="dashboard-table__state-label dashboard-table__state-button"
+            :class="[getPlanStatusLabelClass(plan.published)]"
+            :disabled="waitingPlanId === plan.id"
           >
-            <spinner-component table v-if="waitingPlanId === plan.id"/>
+            <spinner-component table v-if="waitingPlanId === plan.id" />
             <span v-else>{{ getPlanStatus(plan.published) }}</span>
           </button>
         </template>
@@ -66,9 +68,7 @@ export default {
 
   computed: {
     getSearchBy() {
-      return [
-        {label: 'Plan name', value: 'planname'},
-      ]
+      return [{ label: 'Plan name', value: 'planname' }];
     },
 
     isAdminRole() {
@@ -79,8 +79,24 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
+    hasNextPages() {
+      let index = 0;
+
+      if (this.getOldPageValue === 0) {
+        return (
+          this.getPaginationTokens[index] === 'first' &&
+          this.getPaginationTokens[index + 1] &&
+          this.getPaginationTokens[index + 1] !== 'last'
+        );
+      }
+
+      return true;
+    },
+
     ...mapGetters(ALL_PLANS, {
-      tableData: GET_PLANS_WITH_STATE
+      tableData: GET_PLANS_WITH_STATE,
+      getPaginationTokens: 'getPaginationTokens',
+      getOldPageValue: 'getOldPageValue'
     }),
 
     ...mapState(USER, ['userData'])
@@ -90,7 +106,9 @@ export default {
 
   methods: {
     getPlanStatusLabelClass(state) {
-      return state ? 'dashboard-table__state-label--active' : 'dashboard-table__state-label--inactive';
+      return state
+        ? 'dashboard-table__state-label--active'
+        : 'dashboard-table__state-label--inactive';
     },
 
     getPlanStatus(state) {
@@ -99,7 +117,10 @@ export default {
 
     async changeState(planId, published) {
       this.waitingPlanId = planId;
-      await this.$store.dispatch(nameWithSlash(ALL_PLANS, CHANGE_PUBLISHED_STATE), { planId, published });
+      await this.$store.dispatch(nameWithSlash(ALL_PLANS, CHANGE_PUBLISHED_STATE), {
+        planId,
+        published
+      });
       this.waitingPlanId = '';
     }
   }
