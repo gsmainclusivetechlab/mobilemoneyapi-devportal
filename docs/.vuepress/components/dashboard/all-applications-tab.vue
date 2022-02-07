@@ -8,7 +8,6 @@
     :is-data-not-found="!tableData.length"
     page-type="applications"
     is-create-button
-    :hasNextPages="hasNextPages"
   >
     <tr class="dashboard-table__row" v-for="app of tableData" :key="app.appId">
       <dashboard-cell :value="app.appName" />
@@ -85,24 +84,8 @@ export default {
       ];
     },
 
-    hasNextPages() {
-      let index = 0;
-
-      if (this.getOldPageValue === 0) {
-        return (
-          this.getPaginationTokens[index] === 'first' &&
-          this.getPaginationTokens[index + 1] &&
-          this.getPaginationTokens[index + 1] !== 'last'
-        );
-      }
-
-      return true;
-    },
-
     ...mapGetters(ALL_APPS, {
-      tableData: GET_ALL_APPS,
-      getPaginationTokens: 'getPaginationTokens',
-      getOldPageValue: 'getOldPageValue'
+      tableData: GET_ALL_APPS
     })
   },
 

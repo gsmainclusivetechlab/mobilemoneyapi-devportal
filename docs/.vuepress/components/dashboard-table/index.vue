@@ -48,7 +48,7 @@
         <slot></slot>
       </table>
 
-      <dashboard-table-bottom v-if="hasNextPages" :module="module" />
+      <dashboard-table-bottom :module="module" />
     </div>
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
   </div>
@@ -109,10 +109,6 @@ export default {
       default: ''
     },
     isDataNotFound: {
-      type: Boolean,
-      default: false
-    },
-    hasNextPages: {
       type: Boolean,
       default: false
     }

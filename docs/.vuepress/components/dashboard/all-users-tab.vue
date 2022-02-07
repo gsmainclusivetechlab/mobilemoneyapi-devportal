@@ -7,7 +7,6 @@
     :module="module"
     :is-data-not-found="!tableData.length"
     page-type="users"
-    :hasNextPages="hasNextPages"
   >
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)" />
@@ -121,24 +120,8 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
-    hasNextPages() {
-      let index = 0;
-
-      if (this.getOldPageValue === 0) {
-        return (
-          this.getPaginationTokens[index] === 'first' &&
-          this.getPaginationTokens[index + 1] &&
-          this.getPaginationTokens[index + 1] !== 'last'
-        );
-      }
-
-      return true;
-    },
-
     ...mapGetters(ALL_USERS, {
-      tableData: GET_ALL_USERS,
-      getPaginationTokens: 'getPaginationTokens',
-      getOldPageValue: 'getOldPageValue'
+      tableData: GET_ALL_USERS
     }),
 
     ...mapGetters(USER, {

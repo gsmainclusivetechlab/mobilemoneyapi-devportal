@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard-table-bottom">
-    <div>Current Page {{ getCurrentPage + 1 }}</div>
+  <div v-if="hasPages" class="dashboard-table-bottom">
+    <span>Current Page {{ getCurrentPage + 1 }}</span>
     <div>
       <button
         type="button"
@@ -40,6 +40,24 @@ export default {
   },
 
   computed: {
+    hasPages() {
+      const page = this.getCurrentPage;
+      const nextPage = this.getTokenNextPage;
+      const isComeback = this.$store.state[this.module].oldPageValue > 0;
+
+      if (
+        !isComeback &&
+        page === 0 &&
+        ((typeof nextPage === 'string' && nextPage === 'last') ||
+          (typeof nextPage === 'number' && nextPage !== 2) ||
+          !nextPage)
+      ) {
+        return false;
+      }
+
+      return true;
+    },
+
     getTokenNextPage() {
       return this.$store.getters[nameWithSlash(this.module, 'getNextPageToken')];
     },

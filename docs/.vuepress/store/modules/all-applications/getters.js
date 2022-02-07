@@ -12,14 +12,6 @@ export default {
     });
   },
 
-  getPaginationTokens(state) {
-    return [state.paginationTokens[0], state.paginationTokens[1]];
-  },
-
-  getOldPageValue(state) {
-    return state.oldPageValue;
-  },
-
   getNextPageToken(state) {
     return state.paginationTokens[state.currentPage + 1];
   },

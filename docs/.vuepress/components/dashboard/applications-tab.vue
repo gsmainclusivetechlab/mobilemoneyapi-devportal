@@ -21,7 +21,7 @@
           <span class="link-text">View details</span>
         </li>
       </ul>
-      <dashboard-table-bottom v-if="hasNextPages" :module="module" />
+      <dashboard-table-bottom :module="module" />
     </div>
     <card-links-section />
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
@@ -57,24 +57,8 @@ export default {
   },
 
   computed: {
-    hasNextPages() {
-      let index = 0;
-
-      if (this.getOldPageValue === 0) {
-        return (
-          this.getPaginationTokens[index] === 'first' &&
-          this.getPaginationTokens[index + 1] &&
-          this.getPaginationTokens[index + 1] !== 'last'
-        );
-      }
-
-      return true;
-    },
-
     ...mapGetters(MY_APPS, {
-      getApplicationsList: GET_ALL_MY_APPS,
-      getPaginationTokens: 'getPaginationTokens',
-      getOldPageValue: 'getOldPageValue'
+      getApplicationsList: GET_ALL_MY_APPS
     })
   },
 

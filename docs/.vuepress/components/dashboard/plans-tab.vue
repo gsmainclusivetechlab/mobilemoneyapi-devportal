@@ -10,7 +10,6 @@
     :is-data-not-found="!tableData.length"
     :module="module"
     page-type="plans"
-    :hasNextPages="hasNextPages"
   >
     <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
       <dashboard-cell :value="plan.name" />
@@ -79,24 +78,8 @@ export default {
       return this.userData.role === 'superadmin';
     },
 
-    hasNextPages() {
-      let index = 0;
-
-      if (this.getOldPageValue === 0) {
-        return (
-          this.getPaginationTokens[index] === 'first' &&
-          this.getPaginationTokens[index + 1] &&
-          this.getPaginationTokens[index + 1] !== 'last'
-        );
-      }
-
-      return true;
-    },
-
     ...mapGetters(ALL_PLANS, {
-      tableData: GET_PLANS_WITH_STATE,
-      getPaginationTokens: 'getPaginationTokens',
-      getOldPageValue: 'getOldPageValue'
+      tableData: GET_PLANS_WITH_STATE
     }),
 
     ...mapState(USER, ['userData'])
