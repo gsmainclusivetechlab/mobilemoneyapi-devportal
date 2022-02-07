@@ -41,10 +41,7 @@ export default {
 
   computed: {
     hasPages() {
-      const nextPage = this.getTokenNextPage;
-      const isComeback = this.$store.state[this.module].oldPageValue > 0;
-
-      return ! (! isComeback && this.getCurrentPage === 0 && ((nextPage === 'last') || (nextPage !== 2) || ! nextPage));
+      return !((this.getCurrentPage === 0) && (this.getTokenNextPage === 'last' || !this.getTokenNextPage))
     },
 
     getTokenNextPage() {
