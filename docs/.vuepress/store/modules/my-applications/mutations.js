@@ -17,11 +17,11 @@ export default {
   },
 
   [SET_SELECTED_APPLICATION](state, id) {
-    state.selectedApplication = state.data.find((el) => el.appId === id);
+    state.selectedApplication = state.data.find(el => el.appId === id) ?? {};
   },
 
   [CLEAR_SELECTED_APPLICATION](state) {
-    state.selectedApplication = null;
+    state.selectedApplication = {};
   },
 
   [SET_SORT_VALUE](state, value) {
@@ -42,7 +42,7 @@ export default {
   },
 
   [ADD_PAGINATION_TOKEN](state, value) {
-    if (!value) {
+    if (! value) {
       state.paginationTokens.push('last');
     } else {
       state.paginationTokens.push(value);
@@ -51,7 +51,7 @@ export default {
 
   [REMOVE_PAGINATION_TOKEN](state, once = false) {
     state.paginationTokens.pop();
-    if (!once) {
+    if(!once) {
       state.paginationTokens.pop();
     }
   },
