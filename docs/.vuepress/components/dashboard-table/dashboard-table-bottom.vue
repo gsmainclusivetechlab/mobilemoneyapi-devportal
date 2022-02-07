@@ -41,21 +41,10 @@ export default {
 
   computed: {
     hasPages() {
-      const page = this.getCurrentPage;
       const nextPage = this.getTokenNextPage;
       const isComeback = this.$store.state[this.module].oldPageValue > 0;
 
-      if (
-        !isComeback &&
-        page === 0 &&
-        ((typeof nextPage === 'string' && nextPage === 'last') ||
-          (typeof nextPage === 'number' && nextPage !== 2) ||
-          !nextPage)
-      ) {
-        return false;
-      }
-
-      return true;
+      return ! (! isComeback && this.getCurrentPage === 0 && ((nextPage === 'last') || (nextPage !== 2) || ! nextPage));
     },
 
     getTokenNextPage() {
