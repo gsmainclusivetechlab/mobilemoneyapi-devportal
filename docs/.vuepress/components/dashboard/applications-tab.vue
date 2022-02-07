@@ -6,10 +6,11 @@
     </div>
     <div class="applications-list-wrap">
       <ul class="applications-list">
-        <li class="applications-list-item"
-            v-for="(item, key) in getApplicationsList"
-            :key="key"
-            @click="handleAppClick(key)"
+        <li
+          class="applications-list-item"
+          v-for="(item, key) in getApplicationsList"
+          :key="key"
+          @click="handleAppClick(key)"
         >
           <div class="info-box">
             <div class="title-wrap">
@@ -20,12 +21,10 @@
           <span class="link-text">View details</span>
         </li>
       </ul>
-      <dashboard-table-bottom
-          :module="module"
-      />
+      <dashboard-table-bottom :module="module" />
     </div>
-    <card-links-section/>
-    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
+    <card-links-section />
+    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
   </div>
 </template>
 
@@ -37,7 +36,11 @@ import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
 import { MY_APPS } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { CLEAR_PAGINATION_TOKENS, SET_CURRENT_PAGE, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
+import {
+  CLEAR_PAGINATION_TOKENS,
+  SET_CURRENT_PAGE,
+  SET_SEARCH_VALUE
+} from '@/store/modules/mutation-types';
 import { GET_DATA } from '@/store/modules/action-types';
 
 export default {
@@ -56,18 +59,18 @@ export default {
   computed: {
     ...mapGetters(MY_APPS, {
       getApplicationsList: GET_ALL_MY_APPS
-    }),
+    })
   },
 
   created() {
     this.$store.commit(nameWithSlash(this.module, CLEAR_PAGINATION_TOKENS));
     this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), 0);
-    this.getData()
+    this.getData();
   },
 
   methods: {
     toggleModal() {
-      this.modalIsVisible = ! this.modalIsVisible;
+      this.modalIsVisible = !this.modalIsVisible;
     },
 
     handleAppClick(key) {

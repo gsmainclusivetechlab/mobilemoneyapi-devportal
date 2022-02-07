@@ -4,10 +4,10 @@ import { ALL_USERS } from '../module-types';
 
 export default {
   [GET_ALL_APPS](state, getters, rootState, rootGetters) {
-    return state.data.map(app => {
+    return state.data.map((app) => {
       return {
         ...app,
-        company: rootGetters[nameWithSlash(ALL_USERS, GET_COMPANY_BY_USERNAME)](app.userName),
+        company: rootGetters[nameWithSlash(ALL_USERS, GET_COMPANY_BY_USERNAME)](app.userName)
       };
     });
   },

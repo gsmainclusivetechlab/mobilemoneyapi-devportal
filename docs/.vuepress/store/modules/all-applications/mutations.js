@@ -23,7 +23,7 @@ export default {
   },
 
   [ADD_PAGINATION_TOKEN](state, value) {
-    if (! value) {
+    if (!value) {
       state.paginationTokens.push('last');
     } else {
       state.paginationTokens.push(value);

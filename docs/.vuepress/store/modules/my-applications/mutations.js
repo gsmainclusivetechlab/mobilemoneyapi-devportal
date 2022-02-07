@@ -1,5 +1,6 @@
 import {
-  ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS,
+  ADD_PAGINATION_TOKEN,
+  CLEAR_PAGINATION_TOKENS,
   CLEAR_SELECTED_APPLICATION,
   REMOVE_PAGINATION_TOKEN,
   SET_CURRENT_PAGE,
@@ -16,7 +17,7 @@ export default {
   },
 
   [SET_SELECTED_APPLICATION](state, id) {
-    state.selectedApplication = state.data.find(el => el.appId === id);
+    state.selectedApplication = state.data.find((el) => el.appId === id);
   },
 
   [CLEAR_SELECTED_APPLICATION](state) {
@@ -41,7 +42,7 @@ export default {
   },
 
   [ADD_PAGINATION_TOKEN](state, value) {
-    if (! value) {
+    if (!value) {
       state.paginationTokens.push('last');
     } else {
       state.paginationTokens.push(value);
@@ -50,7 +51,7 @@ export default {
 
   [REMOVE_PAGINATION_TOKEN](state, once = false) {
     state.paginationTokens.pop();
-    if(!once) {
+    if (!once) {
       state.paginationTokens.pop();
     }
   },

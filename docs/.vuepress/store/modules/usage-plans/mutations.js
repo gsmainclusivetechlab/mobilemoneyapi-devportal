@@ -1,4 +1,13 @@
-import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SEARCH_FIELD, SET_SEARCH_VALUE, SET_SORT_VALUE } from '../mutation-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  CLEAR_PAGINATION_TOKENS,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  SET_DATA,
+  SET_SEARCH_FIELD,
+  SET_SEARCH_VALUE,
+  SET_SORT_VALUE
+} from '../mutation-types';
 
 export default {
   [SET_DATA](state, data) {
@@ -23,7 +32,7 @@ export default {
   },
 
   [ADD_PAGINATION_TOKEN](state, value) {
-    if (! value) {
+    if (!value) {
       state.paginationTokens.push('last');
     } else {
       state.paginationTokens.push(value);
@@ -32,7 +41,7 @@ export default {
 
   [REMOVE_PAGINATION_TOKEN](state, once = false) {
     state.paginationTokens.pop();
-    if(!once) {
+    if (!once) {
       state.paginationTokens.pop();
     }
   },
