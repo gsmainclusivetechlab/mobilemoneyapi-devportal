@@ -211,10 +211,9 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        this.$emit('close-application', event);
         await this.$store.dispatch(nameWithSlash(MY_APPS, REMOVE_ITEM));
       }
-
+      this.$emit('close-application', event);
       this.waitingResponseDelete = false;
     }
   }

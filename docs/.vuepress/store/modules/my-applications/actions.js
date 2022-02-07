@@ -26,7 +26,7 @@ export default {
         commit(ADD_PAGINATION_TOKEN, data.paginationToken);
       }
 
-      if (state.selectedApplication) {
+      if (state.selectedApplication.appId) {
         commit(SET_SELECTED_APPLICATION, state.selectedApplication.appId);
       }
     } catch (error) {

@@ -1,7 +1,7 @@
 import AllUsers from '@/api/admin/allUsers';
 import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
-import { ADD_PAGINATION_TOKEN, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA } from '../mutation-types';
+import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA } from '../mutation-types';
 
 export default {
 
@@ -26,6 +26,9 @@ export default {
         commit(ADD_PAGINATION_TOKEN, data.paginationToken)
       }
     } catch (error) {
+      commit(SET_DATA, []);
+      commit(CLEAR_PAGINATION_TOKENS);
+      commit(SET_CURRENT_PAGE, 0);
       console.log(error);
     }
 

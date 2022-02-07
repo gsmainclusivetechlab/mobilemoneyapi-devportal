@@ -1,6 +1,6 @@
 export default {
   data: [],
-  selectedApplication: null,
+  selectedApplication: {  },
   sortValue: '',
   searchValue: '',
   searchField: '',
