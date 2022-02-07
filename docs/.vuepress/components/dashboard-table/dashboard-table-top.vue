@@ -2,24 +2,27 @@
   <div class="dashboard-table-top">
     <div class="search-block">
       <input
-          type="text"
-          class="search-block__input"
-          placeholder="Search"
-          :value="searchValue"
-          @input="setSearchValue($event.target.value)">
+        type="text"
+        class="search-block__input"
+        placeholder="Search"
+        :value="searchValue"
+        @input="setSearchValue($event.target.value)"
+      />
     </div>
 
     <div class="dashboard-table__select-block" v-if="!hideFilter">
       Search by:
-      <v-select :value="searchField"
-                @input="setSearchField"
-                :options="searchBy"
-                class="vs-custom-style"
-                placeholder="Company name"
-                :reduce="item => item.value"
-                :clearable="false">
+      <v-select
+        :value="searchField"
+        @input="setSearchField"
+        :options="searchBy"
+        class="vs-custom-style"
+        placeholder="Company name"
+        :reduce="(item) => item.value"
+        :clearable="false"
+      >
         <template #open-indicator="{ attributes }">
-          <img class="expand-arrow" v-bind="attributes" src="/images/expand_arrow.svg" alt="">
+          <img class="expand-arrow" v-bind="attributes" src="/images/expand_arrow.svg" alt="" />
         </template>
       </v-select>
     </div>
@@ -27,15 +30,20 @@
     <div class="dashboard-table__sort-by">
       <button type="button" class="dashboard-table__button" @click="showSortByOptions">
         Sort by
-        <img class="expand-arrow" :class="{'expand-arrow--revert': activeSortOptions}" src="/images/expand_arrow.svg" alt="">
+        <img
+          class="expand-arrow"
+          :class="{ 'expand-arrow--revert': activeSortOptions }"
+          src="/images/expand_arrow.svg"
+          alt=""
+        />
       </button>
       <sort-by-block
-          :pageType="pageType"
-          v-on-clickaway="hideSortByOptions"
-          @hide-sort-block="hideSortByOptions"
-          v-if="activeSortOptions"
-          :value="sortValue"
-          @input="setSortValue"
+        :pageType="pageType"
+        v-on-clickaway="hideSortByOptions"
+        @hide-sort-block="hideSortByOptions"
+        v-if="activeSortOptions"
+        :value="sortValue"
+        @input="setSortValue"
       />
     </div>
   </div>
@@ -46,7 +54,13 @@ import SortByBlock from '../sort-by-block';
 import { mixin as clickaway } from 'vue-clickaway';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
-import { CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_SEARCH_FIELD, SET_SEARCH_VALUE, SET_SORT_VALUE } from '@/store/modules/mutation-types';
+import {
+  RESET_PAGINATION,
+  SET_SEARCH_FIELD,
+  SET_SEARCH_VALUE,
+  SET_SORT_VALUE
+} from '@/store/modules/mutation-types';
+import { PAGINATION } from './../../store/modules/module-types';
 
 export default {
   name: 'dashboard-table-top',
@@ -58,7 +72,7 @@ export default {
     },
     searchBy: {
       type: Array,
-      default: () => ([])
+      default: () => []
     },
     pageType: {
       type: String,
@@ -94,8 +108,7 @@ export default {
   mixins: [clickaway],
 
   created() {
-    this.$store.commit(nameWithSlash(this.module, CLEAR_PAGINATION_TOKENS));
-    this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), 0);
+    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
     this.$store.commit(nameWithSlash(this.module, SET_SEARCH_VALUE), '');
 
     this.setSearchField(this.searchBy[0].value);
@@ -124,11 +137,10 @@ export default {
     setSearchValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SEARCH_VALUE), value);
 
-      if (! this.searchRequest) {
+      if (!this.searchRequest) {
         this.searchRequest = true;
         this.timer = setTimeout(() => {
-          this.$store.commit(nameWithSlash(this.module, CLEAR_PAGINATION_TOKENS));
-          this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), 0);
+          this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
           this.getData();
           this.searchRequest = false;
         }, 700);
@@ -150,6 +162,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

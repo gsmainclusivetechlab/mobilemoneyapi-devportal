@@ -29,6 +29,8 @@
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
+import { PAGINATION } from './../../store/modules/module-types';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -43,7 +45,7 @@ export default {
     hasPages() {
       const page = this.getCurrentPage;
       const nextPage = this.getTokenNextPage;
-      const isComeback = this.$store.state[this.module].oldPageValue > 0;
+      const isComeback = this.$store.state[PAGINATION].oldPageValue > 0;
 
       if (
         !isComeback &&
@@ -59,27 +61,27 @@ export default {
     },
 
     getTokenNextPage() {
-      return this.$store.getters[nameWithSlash(this.module, 'getNextPageToken')];
+      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)];
     },
 
     getTokenPrevPage() {
-      return this.$store.getters[nameWithSlash(this.module, 'getPrevPageToken')];
+      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)];
     },
 
     getCurrentPage() {
-      return this.$store.state[this.module].currentPage;
+      return this.$store.state[PAGINATION].currentPage;
     }
   },
 
   methods: {
     nextPage() {
-      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage + 1);
+      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
       this.getData();
     },
 
     prevPage() {
-      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage - 1);
-      this.$store.commit(nameWithSlash(this.module, REMOVE_PAGINATION_TOKEN));
+      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
+      this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
       this.getData();
     },
 
