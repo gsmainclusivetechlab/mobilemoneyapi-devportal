@@ -94,8 +94,11 @@
                 <span v-if="!waitingResponse">Sign up</span>
                 <spinner-component v-else/>
               </button>
-              <span class="bottom-row">
+              <span v-if="!successSignUp" class="bottom-row">
               <router-link to="/login">Log in</router-link> instead?
+            </span>
+              <span v-else class="bottom-row">
+              Successful registration! Please check your email and <router-link to="/login">go to Login</router-link>!
             </span>
             </div>
           </form>
@@ -109,6 +112,8 @@
 import Auth from '@/api/Auth';
 import SpinnerComponent from './helpers/spinner-component';
 import { USERNAME_ALREADY_REGISTERED, EMAIL_ALREADY_REGISTERED } from '@/api/constants';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { AUTH } from '@/store/modules/module-types';
 
 export default {
   name: 'signup-section',
@@ -125,37 +130,29 @@ export default {
       },
       privacyCheckbox: false,
       waitingResponse: false,
-      errorMessage: ''
+      errorMessage: '',
+      successSignUp: false
     };
   },
   methods: {
     async signUp() {
+      this.successSignUp = false;
       this.waitingResponse = true;
       this.errorMessage = '';
 
-      await Auth.signUp(this.form)
-          .then(() => {
-            this.$router.push({ path: '/login/' });
-          })
-          .catch((e) => {
-            if (e?.response?.data?.error) {
-              if (e.response.data.error === USERNAME_ALREADY_REGISTERED) {
-                this.$refs.form.setErrors({
-                  userName: e.response.data.errorDescription.replaceAll('.', '')
-                });
-              } else if (e.response.data.error === EMAIL_ALREADY_REGISTERED) {
-                this.$refs.form.setErrors({
-                  email: e.response.data.errorDescription.replaceAll('.', '')
-                });
-              } else {
-                this.errorMessage = e.response.data.errorDescription;
-              }
-            }
-          })
-          .finally(() => {
-            this.waitingResponse = false;
-          });
+      const resolveObject = await this.$store.dispatch(nameWithSlash(AUTH, 'signUp'), this.form);
 
+      if (resolveObject.status) {
+        this.successSignUp = true;
+      } else if (resolveObject.errorField) {
+        this.$refs.form.setErrors({
+          [resolveObject.errorField]: resolveObject.errorMessage
+        });
+      } else {
+        this.errorMessage = resolveObject.errorMessage;
+      }
+
+      this.waitingResponse = false;
     }
   }
 };

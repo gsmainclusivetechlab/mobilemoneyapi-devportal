@@ -1,7 +1,7 @@
 import Auth from '@/api/Auth';
 import CookieManager from '@/helpers/CookieManager';
 import Api from '@/api/Api';
-import { ID_TOKEN, REFRESH_TOKEN, X_USER_TOKEN } from '@/api/constants';
+import { EMAIL_ALREADY_REGISTERED, ID_TOKEN, REFRESH_TOKEN, USERNAME_ALREADY_REGISTERED, X_USER_TOKEN } from '@/api/constants';
 import ModalWindow from '@/services/ModalWindow';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { USER } from '../module-types';
@@ -30,6 +30,33 @@ export default {
           return reject(e);
         });
     });
+  },
+
+  async signUp(ctx, form) {
+    const resolveObject = {
+      status: true,
+      errorField: '',
+      errorMessage: ''
+    };
+
+    try {
+      await Auth.signUp(form);
+    } catch (e) {
+      resolveObject.status = false;
+      if (e?.response?.data?.error) {
+        if (e.response.data.error === USERNAME_ALREADY_REGISTERED) {
+          resolveObject.errorField = 'userName';
+          resolveObject.errorMessage = e.response.data.errorDescription.replaceAll('.', '');
+        } else if (e.response.data.error === EMAIL_ALREADY_REGISTERED) {
+          resolveObject.errorField = 'email';
+          resolveObject.errorMessage = e.response.data.errorDescription.replaceAll('.', '');
+        } else {
+          resolveObject.errorMessage = e.response.data.errorDescription;
+        }
+      }
+    }
+
+    return Promise.resolve(resolveObject);
   },
 
   async [LOG_OUT]({ commit }, payload) {
