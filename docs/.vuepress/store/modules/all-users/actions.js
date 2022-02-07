@@ -1,7 +1,14 @@
 import AllUsers from '@/api/admin/allUsers';
 import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
-import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA } from '../mutation-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  SET_DATA
+} from '../mutation-types';
+import { PAGINATION } from '../module-types';
+import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
 
@@ -14,21 +21,18 @@ export default {
         paginationToken: state.paginationTokens[state.currentPage]
       });
 
-      if(!data.users.length && state.currentPage) {
-        commit(SET_CURRENT_PAGE, state.currentPage - 1)
-        commit(REMOVE_PAGINATION_TOKEN)
+      if (!data.users.length && state.currentPage) {
+        commit(SET_CURRENT_PAGE, state.currentPage - 1);
+        commit(REMOVE_PAGINATION_TOKEN);
         return dispatch(GET_DATA);
       }
 
       commit(SET_DATA, data.users);
 
-      if(getters['getNextPageToken'] !== 'last') {
-        commit(ADD_PAGINATION_TOKEN, data.paginationToken)
+      if (getters['getNextPageToken'] !== 'last') {
+        commit(ADD_PAGINATION_TOKEN, data.paginationToken);
       }
     } catch (error) {
-      commit(SET_DATA, []);
-      commit(CLEAR_PAGINATION_TOKENS);
-      commit(SET_CURRENT_PAGE, 0);
       console.log(error);
     }
 
@@ -36,11 +40,9 @@ export default {
   },
 
   async [UPDATE_ROLE]({ dispatch, state }, userId) {
-    const { role, userName } = state.data.find(user => user.userId === userId);
+    const { role, userName } = state.data.find((user) => user.userId === userId);
 
-    const roles = [
-      'user', 'admin'
-    ];
+    const roles = ['user', 'admin'];
 
     const roleIndex = roles.indexOf(role) + 1;
 
@@ -67,7 +69,7 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        const { userEnabled } = state.data.find(user => user.userName === userName);
+        const { userEnabled } = state.data.find((user) => user.userName === userName);
 
         await AllUsers.setUserStatus(userName, userEnabled);
         await dispatch(GET_DATA);

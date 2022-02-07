@@ -29,6 +29,8 @@
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
+import { PAGINATION } from './../../store/modules/module-types';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -41,31 +43,45 @@ export default {
 
   computed: {
     hasPages() {
-      return !((this.getCurrentPage === 0) && (this.getTokenNextPage === 'last' || !this.getTokenNextPage))
+      const page = this.getCurrentPage;
+      const nextPage = this.getTokenNextPage;
+      const isComeback = this.$store.state[PAGINATION].oldPageValue > 0;
+
+      if (
+        !isComeback &&
+        page === 0 &&
+        ((typeof nextPage === 'string' && nextPage === 'last') ||
+          (typeof nextPage === 'number' && nextPage !== 2) ||
+          !nextPage)
+      ) {
+        return false;
+      }
+
+      return true;
     },
 
     getTokenNextPage() {
-      return this.$store.getters[nameWithSlash(this.module, 'getNextPageToken')];
+      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)];
     },
 
     getTokenPrevPage() {
-      return this.$store.getters[nameWithSlash(this.module, 'getPrevPageToken')];
+      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)];
     },
 
     getCurrentPage() {
-      return this.$store.state[this.module].currentPage;
+      return this.$store.state[PAGINATION].currentPage;
     }
   },
 
   methods: {
     nextPage() {
-      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage + 1);
+      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
       this.getData();
     },
 
     prevPage() {
-      this.$store.commit(nameWithSlash(this.module, SET_CURRENT_PAGE), this.getCurrentPage - 1);
-      this.$store.commit(nameWithSlash(this.module, REMOVE_PAGINATION_TOKEN));
+      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
+      this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
       this.getData();
     },
 

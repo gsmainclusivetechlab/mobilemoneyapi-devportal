@@ -1,8 +1,15 @@
 import Application from '@/api/Application';
-import { ALL_APPS, USER } from '../module-types';
+import { ALL_APPS, USER, PAGINATION } from '../module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP, REMOVE_ITEM, UPDATE_APP_BY_ID } from '../action-types';
-import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  CLEAR_PAGINATION_TOKENS,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  SET_DATA,
+  SET_SELECTED_APPLICATION
+} from '../mutation-types';
 import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
 
 export default {
@@ -14,7 +21,7 @@ export default {
         userName
       });
 
-      if (! data.appData.length && state.currentPage) {
+      if (!data.appData.length && state.currentPage) {
         commit(SET_CURRENT_PAGE, state.currentPage - 1);
         commit(REMOVE_PAGINATION_TOKEN);
         return dispatch(GET_DATA);
@@ -88,5 +95,5 @@ export default {
     }
 
     return Promise.resolve();
-  },
+  }
 };
