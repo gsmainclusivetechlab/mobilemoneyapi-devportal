@@ -7,9 +7,16 @@ import {
   REMOVE_PAGINATION_TOKEN,
   SET_CURRENT_PAGE,
   SET_DATA,
-  SET_SELECTED_APPLICATION
+  SET_SELECTED_APPLICATION,
+  CLEAR_PAGINATION_TOKENS,
+  RESET_PAGINATION
 } from '../mutation-types';
-import { GET_USER_NAME, GET_USER_ROLE, GET_TOKEN_NEXT_PAGE } from '../getter-types';
+import {
+  GET_USER_NAME,
+  GET_USER_ROLE,
+  GET_TOKEN_NEXT_PAGE,
+  GET_TOKEN_PREV_PAGE
+} from '../getter-types';
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
@@ -49,7 +56,7 @@ export default {
     return Promise.resolve();
   },
 
-  async [POST_APP]({ dispatch, rootGetters }, payload) {
+  async [POST_APP]({ commit, dispatch, rootGetters }, payload) {
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
     const userRole = rootGetters[nameWithSlash(USER, GET_USER_ROLE)];
     const data = {
@@ -59,6 +66,14 @@ export default {
 
     try {
       await Application.postApp(data);
+
+      if (
+        !rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)] &&
+        rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] === 'last'
+      ) {
+        commit(nameWithSlash(PAGINATION, CLEAR_PAGINATION_TOKENS), null, { root: true });
+      }
+
       await dispatch(GET_DATA);
 
       if (userRole === 'admin' || userRole === 'superadmin') {
@@ -91,7 +106,7 @@ export default {
 
     try {
       await Application.deleteAppById(appId, userName);
-      await dispatch(GET_DATA);
+      // await dispatch(GET_DATA);
     } catch (error) {
       console.log(error);
     }
