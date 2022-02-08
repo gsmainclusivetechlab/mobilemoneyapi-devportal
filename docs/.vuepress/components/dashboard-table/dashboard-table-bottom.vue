@@ -29,8 +29,9 @@
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
-import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_HAS_NEXT_PAGES } from '@/store/modules/getter-types';
 import { PAGINATION } from '@/store/modules/module-types';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -42,35 +43,14 @@ export default {
   },
 
   computed: {
-    hasPages() {
-      const page = this.getCurrentPage;
-      const nextPage = this.getTokenNextPage;
-      const isComeback = this.$store.state[PAGINATION].oldPageValue > 0;
-
-      if (
-        !isComeback &&
-        page === 0 &&
-        ((typeof nextPage === 'string' && nextPage === 'last') ||
-          (typeof nextPage === 'number' && nextPage !== 2) ||
-          !nextPage)
-      ) {
-        return false;
-      }
-
-      return true;
-    },
-
-    getTokenNextPage() {
-      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)];
-    },
-
-    getTokenPrevPage() {
-      return this.$store.getters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)];
-    },
-
     getCurrentPage() {
       return this.$store.state[PAGINATION].currentPage;
-    }
+    },
+
+    ...mapGetters(PAGINATION, {
+      getTokenNextPage: GET_TOKEN_NEXT_PAGE,
+      hasPages: GET_HAS_NEXT_PAGES
+    })
   },
 
   methods: {
