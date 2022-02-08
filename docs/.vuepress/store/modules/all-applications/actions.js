@@ -13,7 +13,7 @@ import { PAGINATION } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, getters, rootState }) {
+  async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }) {
     try {
       const { data } = await AllApplications.get({
         sortValue: state.sortValue,
@@ -32,7 +32,7 @@ export default {
 
       commit(SET_DATA, data.appData);
 
-      if (getters[GET_TOKEN_NEXT_PAGE] !== 'last') {
+      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
         commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
           root: true
         });

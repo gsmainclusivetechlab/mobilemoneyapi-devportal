@@ -4,33 +4,36 @@ import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP, REMOVE_ITEM, UPDATE_APP_BY_ID } from '../action-types';
 import {
   ADD_PAGINATION_TOKEN,
-  CLEAR_PAGINATION_TOKENS,
   REMOVE_PAGINATION_TOKEN,
   SET_CURRENT_PAGE,
   SET_DATA,
   SET_SELECTED_APPLICATION
 } from '../mutation-types';
-import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
+import { GET_USER_NAME, GET_USER_ROLE, GET_TOKEN_NEXT_PAGE } from '../getter-types';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, getters, rootGetters }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
       const { data } = await Application.getApps({
-        paginationToken: state.paginationTokens[state.currentPage],
+        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage],
         userName
       });
 
       if (!data.appData.length && state.currentPage) {
-        commit(SET_CURRENT_PAGE, state.currentPage - 1);
-        commit(REMOVE_PAGINATION_TOKEN);
+        commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
+          root: true
+        });
+        commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN), null, { root: true });
         return dispatch(GET_DATA);
       }
 
       commit(SET_DATA, data.appData);
 
-      if (getters['getNextPageToken'] !== 'last') {
-        commit(ADD_PAGINATION_TOKEN, data.paginationToken);
+      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
+          root: true
+        });
       }
 
       if (state.selectedApplication) {
@@ -38,8 +41,7 @@ export default {
       }
     } catch (error) {
       commit(SET_DATA, []);
-      commit(CLEAR_PAGINATION_TOKENS);
-      commit(SET_CURRENT_PAGE, 0);
+      commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
 
       console.log(error);
     }
