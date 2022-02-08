@@ -60,7 +60,7 @@ import {
   SET_SEARCH_VALUE,
   SET_SORT_VALUE
 } from '@/store/modules/mutation-types';
-import { PAGINATION } from './../../store/modules/module-types';
+import { PAGINATION } from '@/store/modules/module-types';
 
 export default {
   name: 'dashboard-table-top',

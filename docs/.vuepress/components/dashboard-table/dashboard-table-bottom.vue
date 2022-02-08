@@ -30,7 +30,7 @@ import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
 import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '@/store/modules/getter-types';
-import { PAGINATION } from './../../store/modules/module-types';
+import { PAGINATION } from '@/store/modules/module-types';
 
 export default {
   name: 'dashboard-table-bottom',

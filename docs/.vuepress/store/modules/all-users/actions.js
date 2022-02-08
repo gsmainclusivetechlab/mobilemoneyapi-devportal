@@ -1,5 +1,6 @@
 import AllUsers from '@/api/admin/allUsers';
 import ModalWindow from '@/services/ModalWindow';
+import { GET_TOKEN_NEXT_PAGE } from '../getter-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
 import {
   ADD_PAGINATION_TOKEN,
@@ -11,26 +12,29 @@ import { PAGINATION } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-
-  async [GET_DATA]({ commit, state, dispatch, getters }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
     try {
       const { data } = await AllUsers.get({
         sortValue: state.sortValue,
         searchValue: state.searchValue,
         searchField: state.searchField,
-        paginationToken: state.paginationTokens[state.currentPage]
+        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
       });
 
       if (!data.users.length && state.currentPage) {
-        commit(SET_CURRENT_PAGE, state.currentPage - 1);
-        commit(REMOVE_PAGINATION_TOKEN);
+        commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
+          root: true
+        });
+        commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN), null, { root: true });
         return dispatch(GET_DATA);
       }
 
       commit(SET_DATA, data.users);
 
-      if (getters['getNextPageToken'] !== 'last') {
-        commit(ADD_PAGINATION_TOKEN, data.paginationToken);
+      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
+          root: true
+        });
       }
     } catch (error) {
       console.log(error);
