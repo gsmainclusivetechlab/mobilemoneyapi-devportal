@@ -155,7 +155,6 @@ import SpinnerComponent from '../helpers/spinner-component';
 import ModalWindow from '@/services/ModalWindow';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
-import { CLEAR_SELECTED_APPLICATION } from '@/store/modules/mutation-types';
 import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '@/store/modules/action-types';
 import { GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 
@@ -193,10 +192,6 @@ export default {
       deep: true,
       immediate: true
     }
-  },
-
-  beforeDestroy() {
-    this.$store.commit(nameWithSlash(MY_APPS, CLEAR_SELECTED_APPLICATION));
   },
 
   methods: {

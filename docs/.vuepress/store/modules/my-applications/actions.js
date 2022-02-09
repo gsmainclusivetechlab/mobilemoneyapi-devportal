@@ -7,16 +7,11 @@ import {
   REMOVE_PAGINATION_TOKEN,
   SET_CURRENT_PAGE,
   SET_DATA,
-  SET_SELECTED_APPLICATION,
   CLEAR_PAGINATION_TOKENS,
-  RESET_PAGINATION
+  RESET_PAGINATION,
+  CLEAR_SELECTED_APPLICATION
 } from '../mutation-types';
-import {
-  GET_USER_NAME,
-  GET_USER_ROLE,
-  GET_TOKEN_NEXT_PAGE,
-  GET_TOKEN_PREV_PAGE
-} from '../getter-types';
+import { GET_USER_NAME, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
@@ -41,10 +36,6 @@ export default {
         commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
           root: true
         });
-      }
-
-      if (state.selectedApplication.appId) {
-        commit(SET_SELECTED_APPLICATION, state.selectedApplication.appId);
       }
     } catch (error) {
       commit(SET_DATA, []);
@@ -95,12 +86,13 @@ export default {
     return Promise.resolve();
   },
 
-  async [REMOVE_ITEM]({ state, rootGetters }) {
+  async [REMOVE_ITEM]({ state, rootGetters, commit }) {
     const appId = state.selectedApplication.appId;
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
 
     try {
       await Application.deleteAppById(appId, userName);
+      commit(CLEAR_SELECTED_APPLICATION);
     } catch (error) {
       console.log(error);
     }

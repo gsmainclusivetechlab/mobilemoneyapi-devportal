@@ -27,6 +27,7 @@
             <li
               class="sidebar-child-item"
               v-for="app in getApplicationsList"
+              :key="app.appId"
               ref="sidebarChildItem"
               @click="toggleApplicationChildTab(true, $event, app.appId)"
             >
