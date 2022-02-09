@@ -231,7 +231,6 @@ export default {
           element.classList.remove('active');
         });
         e.target.classList.add('active');
-        console.log(id);
         this.$store.commit(nameWithSlash(MY_APPS, SET_SELECTED_APPLICATION), id);
       }
 
