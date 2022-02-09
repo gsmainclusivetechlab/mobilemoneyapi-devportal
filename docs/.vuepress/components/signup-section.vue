@@ -172,7 +172,7 @@ export default {
         lastName: '',
         userName: '',
         companyName: '',
-        timeZone: ''
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
       },
       privacyCheckbox: false,
       waitingResponse: false,
@@ -186,17 +186,19 @@ export default {
         formObject[field] = '';
       }
       this.privacyCheckbox = false;
+      this.form.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     },
     async signUp() {
       this.successSignUp = false;
       this.waitingResponse = true;
       this.errorMessage = '';
-      this.form.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       const resolveObject = await this.$store.dispatch(nameWithSlash(AUTH, 'signUp'), this.form);
 
       if (resolveObject.status) {
         this.successSignUp = true;
+        this.clearForm(this.form);
+        this.$refs.form.reset();
       } else if (resolveObject.errorField) {
         this.$refs.form.setErrors({
           [resolveObject.errorField]: resolveObject.errorMessage
@@ -205,8 +207,6 @@ export default {
         this.errorMessage = resolveObject.errorMessage;
       }
 
-      this.clearForm(this.form);
-      this.$refs.form.reset();
       this.waitingResponse = false;
     }
   }
