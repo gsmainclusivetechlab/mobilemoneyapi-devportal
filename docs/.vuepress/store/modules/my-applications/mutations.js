@@ -17,7 +17,7 @@ export default {
   },
 
   [CLEAR_SELECTED_APPLICATION](state) {
-    state.selectedApplication = null;
+    state.selectedApplication = {};
   },
 
   [SET_SORT_VALUE](state, value) {

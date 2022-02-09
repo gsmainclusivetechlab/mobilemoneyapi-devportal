@@ -1,7 +1,7 @@
 import AllApplications from '@/api/admin/allApplications';
 import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM } from '../action-types';
-import { GET_TOKEN_NEXT_PAGE } from '../getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_CURRENT_PAGE } from '../getter-types';
 import {
   ADD_PAGINATION_TOKEN,
   RESET_PAGINATION,
@@ -15,6 +15,8 @@ import { nameWithSlash } from '../../../helpers/vuexHelper';
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }) {
     try {
+      const PRE_PAGE_LENGTH = 25;
+
       const { data } = await AllApplications.get({
         sortValue: state.sortValue,
         searchValue: state.searchValue,
@@ -22,7 +24,9 @@ export default {
         paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
       });
 
-      if (!data.appData.length && rootState.pagination.currentPage) {
+      const appsLength = data.appData.length;
+
+      if (!appsLength && rootState.pagination.currentPage) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
           root: true
         });
@@ -31,9 +35,15 @@ export default {
       }
 
       commit(SET_DATA, data.appData);
+      let comingNextPageToken = data.paginationToken;
+      const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
 
       if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
-        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
+        if (appsLength < PRE_PAGE_LENGTH && currentPageToken === comingNextPageToken) {
+          comingNextPageToken = null;
+        }
+
+        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), comingNextPageToken, {
           root: true
         });
       }

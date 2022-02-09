@@ -146,7 +146,7 @@
               </span>
               <span v-else class="bottom-row">
                 Successful registration! Please check your email and
-                <router-link to="/login">go to Login</router-link>!
+                <router-link to="/login">go to Log in</router-link>!
               </span>
             </div>
           </form>

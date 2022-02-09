@@ -1,6 +1,14 @@
-import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE, GET_HAS_NEXT_PAGES } from '../getter-types';
+import {
+  GET_TOKEN_NEXT_PAGE,
+  GET_TOKEN_PREV_PAGE,
+  GET_HAS_NEXT_PAGES,
+  GET_TOKEN_CURRENT_PAGE
+} from '../getter-types';
 
 export default {
+  [GET_TOKEN_CURRENT_PAGE](state) {
+    return state.tokens[state.currentPage];
+  },
   [GET_TOKEN_NEXT_PAGE](state) {
     return state.tokens[state.currentPage + 1];
   },
