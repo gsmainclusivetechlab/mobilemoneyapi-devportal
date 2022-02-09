@@ -27,6 +27,7 @@
             <li
               class="sidebar-child-item"
               v-for="app in getApplicationsList"
+              :key="app.appId"
               ref="sidebarChildItem"
               @click="toggleApplicationChildTab(true, $event, app.appId)"
             >
@@ -230,6 +231,7 @@ export default {
           element.classList.remove('active');
         });
         e.target.classList.add('active');
+        console.log(id);
         this.$store.commit(nameWithSlash(MY_APPS, SET_SELECTED_APPLICATION), id);
       }
 
