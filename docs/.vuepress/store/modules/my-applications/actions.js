@@ -58,7 +58,6 @@ export default {
 
   async [POST_APP]({ commit, dispatch, rootGetters }, payload) {
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
-    const userRole = rootGetters[nameWithSlash(USER, GET_USER_ROLE)];
     const data = {
       ...payload,
       userName
@@ -75,10 +74,6 @@ export default {
       }
 
       await dispatch(GET_DATA);
-
-      if (userRole === 'admin' || userRole === 'superadmin') {
-        await dispatch(nameWithSlash(ALL_APPS, GET_DATA), null, { root: true });
-      }
     } catch (error) {
       console.log(error);
     }
@@ -100,13 +95,12 @@ export default {
     return Promise.resolve();
   },
 
-  async [REMOVE_ITEM]({ dispatch, state, rootGetters }) {
+  async [REMOVE_ITEM]({ state, rootGetters }) {
     const appId = state.selectedApplication.appId;
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
 
     try {
       await Application.deleteAppById(appId, userName);
-      // await dispatch(GET_DATA);
     } catch (error) {
       console.log(error);
     }
