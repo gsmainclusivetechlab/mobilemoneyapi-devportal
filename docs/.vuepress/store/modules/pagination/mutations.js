@@ -3,7 +3,6 @@ import {
   SET_CURRENT_PAGE,
   REMOVE_PAGINATION_TOKEN,
   RESET_PAGINATION,
-  SET_HAS_NEXT_PAGES,
   CLEAR_PAGINATION_TOKENS
 } from '../mutation-types';
 
@@ -27,9 +26,6 @@ export default {
   },
   [RESET_PAGINATION](state) {
     (state.currentPage = 0), (state.oldPageValue = 0), (state.tokens = ['first']);
-  },
-  [SET_HAS_NEXT_PAGES](state, payload) {
-    state.hasNextPages = payload;
   },
   [CLEAR_PAGINATION_TOKENS](state) {
     state.tokens = ['first'];
