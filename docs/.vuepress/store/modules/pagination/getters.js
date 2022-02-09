@@ -1,22 +1,19 @@
-import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE, GET_HAS_NEXT_PAGES } from '../getter-types';
 
 export default {
   [GET_TOKEN_NEXT_PAGE](state) {
-    return (module) => {
-      return state[module].tokens[state[module].currentPage];
-    };
+    return state.tokens[state.currentPage + 1];
   },
   [GET_TOKEN_PREV_PAGE](state) {
-    return (module) => {
-      if (state[module].currentPage === 1) {
-        return null;
-      }
-      return state[module].tokens[state[module].currentPage - 2];
-    };
+    return state.tokens[state.currentPage - 1];
   },
-  [GET_CURRENT_PAGE](state) {
-    return (module) => {
-      return state[module].currentPage;
-    };
+  [GET_HAS_NEXT_PAGES](state, getters) {
+    const nextPage = getters[GET_TOKEN_NEXT_PAGE];
+
+    return !(
+      state.oldPageValue === 0 &&
+      state.currentPage === 0 &&
+      (nextPage === 'last' || !nextPage)
+    );
   }
 };

@@ -1,29 +1,46 @@
 import Application from '@/api/Application';
-import { ALL_APPS, USER } from '../module-types';
+import { ALL_APPS, USER, PAGINATION } from '../module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP, REMOVE_ITEM, UPDATE_APP_BY_ID } from '../action-types';
-import { ADD_PAGINATION_TOKEN, CLEAR_PAGINATION_TOKENS, REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE, SET_DATA, SET_SELECTED_APPLICATION } from '../mutation-types';
-import { GET_USER_NAME, GET_USER_ROLE } from '../getter-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  SET_DATA,
+  SET_SELECTED_APPLICATION,
+  CLEAR_PAGINATION_TOKENS,
+  RESET_PAGINATION
+} from '../mutation-types';
+import {
+  GET_USER_NAME,
+  GET_USER_ROLE,
+  GET_TOKEN_NEXT_PAGE,
+  GET_TOKEN_PREV_PAGE
+} from '../getter-types';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, getters, rootGetters }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
       const { data } = await Application.getApps({
-        paginationToken: state.paginationTokens[state.currentPage],
+        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage],
         userName
       });
 
-      if (! data.appData.length && state.currentPage) {
-        commit(SET_CURRENT_PAGE, state.currentPage - 1);
-        commit(REMOVE_PAGINATION_TOKEN);
+      if (!data.appData.length && state.currentPage) {
+        commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
+          root: true
+        });
+        commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN), null, { root: true });
         return dispatch(GET_DATA);
       }
 
       commit(SET_DATA, data.appData);
 
-      if (getters['getNextPageToken'] !== 'last') {
-        commit(ADD_PAGINATION_TOKEN, data.paginationToken);
+      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
+          root: true
+        });
       }
 
       if (state.selectedApplication.appId) {
@@ -31,8 +48,7 @@ export default {
       }
     } catch (error) {
       commit(SET_DATA, []);
-      commit(CLEAR_PAGINATION_TOKENS);
-      commit(SET_CURRENT_PAGE, 0);
+      commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
 
       console.log(error);
     }
@@ -40,9 +56,8 @@ export default {
     return Promise.resolve();
   },
 
-  async [POST_APP]({ dispatch, rootGetters }, payload) {
+  async [POST_APP]({ commit, dispatch, rootGetters }, payload) {
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
-    const userRole = rootGetters[nameWithSlash(USER, GET_USER_ROLE)];
     const data = {
       ...payload,
       userName
@@ -50,11 +65,15 @@ export default {
 
     try {
       await Application.postApp(data);
-      await dispatch(GET_DATA);
 
-      if (userRole === 'admin' || userRole === 'superadmin') {
-        await dispatch(nameWithSlash(ALL_APPS, GET_DATA), null, { root: true });
+      if (
+        !rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)] &&
+        rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] === 'last'
+      ) {
+        commit(nameWithSlash(PAGINATION, CLEAR_PAGINATION_TOKENS), null, { root: true });
       }
+
+      await dispatch(GET_DATA);
     } catch (error) {
       console.log(error);
     }
@@ -76,17 +95,16 @@ export default {
     return Promise.resolve();
   },
 
-  async [REMOVE_ITEM]({ dispatch, state, rootGetters }) {
+  async [REMOVE_ITEM]({ state, rootGetters }) {
     const appId = state.selectedApplication.appId;
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
 
     try {
       await Application.deleteAppById(appId, userName);
-      await dispatch(GET_DATA);
     } catch (error) {
       console.log(error);
     }
 
     return Promise.resolve();
-  },
+  }
 };

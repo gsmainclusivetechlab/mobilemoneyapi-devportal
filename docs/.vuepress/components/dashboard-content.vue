@@ -1,42 +1,36 @@
 <template>
   <div class="dashboard-section">
-    <v-touch
-        @click.prevent.stop
-        v-on:swiperight="openSidebar"
-        v-on:swipeleft="closeSidebar"
-    >
-      <div
-          class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
+    <v-touch @click.prevent.stop v-on:swiperight="openSidebar" v-on:swipeleft="closeSidebar">
+      <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
     </v-touch>
 
-    <div class="dashboard-sidebar"
-         :class="{ 'show-sidebar': dashboardSidebarOpen }"
-    >
+    <div class="dashboard-sidebar" :class="{ 'show-sidebar': dashboardSidebarOpen }">
       <span class="dashboard-title">Developer Portal</span>
       <ul class="sidebar-list">
         <li
-            v-for="(tab, index) in getTabsForUser"
-            :key="`tab-button-${index}`"
-            :data-name="tab.tabTitle"
-            class="sidebar-item"
-            ref="sidebarListItem"
-            :class="{
-                'active' : tab.tabTitle === activeTabName,
-                'children item-closed': tab.children
-
-            }"
-            @click="handleTabSwitch(tab.tabTitle, $event, tab.children)"
+          v-for="(tab, index) in getTabsForUser"
+          :key="`tab-button-${index}`"
+          :data-name="tab.tabTitle"
+          class="sidebar-item"
+          ref="sidebarListItem"
+          :class="{
+            active: tab.tabTitle === activeTabName,
+            'children item-closed': tab.children
+          }"
+          @click="handleTabSwitch(tab.tabTitle, $event, tab.children)"
         >
           <div class="sidebar-item-main-btn">
             <div class="icon-wrap" v-html="tab.tabIcon"></div>
             <span class="sidebar-item-text">{{ tab.tabTitle }}</span>
           </div>
           <ul class="sidebar-child-list" v-if="tab.tabTitle === 'Applications' && tab.children">
-            <li class="sidebar-child-item"
-                v-for="app in getApplicationsList"
-                ref="sidebarChildItem"
-                @click="toggleApplicationChildTab(true, $event, app.appId)"
-            >{{ app.appName }}
+            <li
+              class="sidebar-child-item"
+              v-for="app in getApplicationsList"
+              ref="sidebarChildItem"
+              @click="toggleApplicationChildTab(true, $event, app.appId)"
+            >
+              {{ app.appName }}
             </li>
           </ul>
         </li>
@@ -44,17 +38,18 @@
     </div>
 
     <template v-for="(tab, index) in tabs">
-      <component :is="tab.component"
-                 v-if="tab.tabTitle === activeTabName && !applicationsChildActive"
-                 @close-menu="closeSidebar"
-                 @app-click="handleAppClick"
-                 :key="index"
+      <component
+        :is="tab.component"
+        v-if="tab.tabTitle === activeTabName && !applicationsChildActive"
+        @close-menu="closeSidebar"
+        @app-click="handleAppClick"
+        :key="index"
       />
     </template>
 
     <applications-child
-        v-if="applicationsChildActive"
-        @close-application="handleTabSwitch('Applications', $event)"
+      v-if="applicationsChildActive"
+      @close-application="handleTabSwitch('Applications', $event)"
     />
   </div>
 </template>
@@ -124,14 +119,12 @@ export default {
     applicationsChild
   },
 
-  mixins: [
-    clickaway
-  ],
+  mixins: [clickaway],
 
   data() {
     return {
       activeTabName: '',
-      applicationsChildActive: false,
+      applicationsChildActive: false
     };
   },
 
@@ -180,14 +173,14 @@ export default {
           tabIcon: plansIcon,
           component: allPlans,
           children: false
-        },
+        }
       ];
     },
     ...mapGetters(MY_APPS, {
       getApplicationsList: GET_ALL_MY_APPS
     }),
     ...mapState(USER, ['userData']),
-    ...mapState(CODE_PANEL, ['dashboardSidebarOpen']),
+    ...mapState(CODE_PANEL, ['dashboardSidebarOpen'])
   },
 
   mounted() {
@@ -209,7 +202,7 @@ export default {
         e.target.closest('li').classList.add('item-closed');
       }
 
-      if (! isChildMenu) this.closeSidebar();
+      if (!isChildMenu) this.closeSidebar();
 
       if (this.$refs.sidebarChildItem) {
         this.$refs.sidebarChildItem.forEach((element) => {
@@ -223,11 +216,11 @@ export default {
     },
 
     openSidebar() {
-      this.$store.commit(nameWithSlash(CODE_PANEL, 'setActiveSidebar'), 'dashboard')
+      this.$store.commit(nameWithSlash(CODE_PANEL, 'setActiveSidebar'), 'dashboard');
     },
 
     closeSidebar() {
-      this.$store.commit(nameWithSlash(CODE_PANEL, 'setInactiveSidebar'), 'dashboard')
+      this.$store.commit(nameWithSlash(CODE_PANEL, 'setInactiveSidebar'), 'dashboard');
     },
 
     toggleApplicationChildTab(show, e, id) {
@@ -250,12 +243,12 @@ export default {
     handleAppClick(key, tabTitle) {
       this.$refs.sidebarChildItem[key].click();
 
-      this.$refs.sidebarListItem.forEach(element => {
+      this.$refs.sidebarListItem.forEach((element) => {
         if (element.getAttribute('data-name') === tabTitle) {
           element.classList.remove('item-closed');
         }
       });
-    },
+    }
   }
 };
 </script>
