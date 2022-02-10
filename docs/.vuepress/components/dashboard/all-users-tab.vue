@@ -92,8 +92,6 @@ import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '@/store/mod
 import { GET_ALL_USERS, GET_USER_NAME } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 
-let controller = new AbortController();
-
 export default {
   name: 'all-users-tab',
 
@@ -103,7 +101,8 @@ export default {
     return {
       allUsersHeaderTitles,
       waitingUserId: '',
-      module: ALL_USERS
+      module: ALL_USERS,
+      controller: new AbortController()
     };
   },
 
@@ -141,8 +140,7 @@ export default {
   },
 
   beforeDestroy() {
-    controller.abort();
-    controller = new AbortController();
+    this.controller.abort();
   },
 
   methods: {
@@ -153,7 +151,7 @@ export default {
     }),
 
     getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), controller);
+      return this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), this.controller);
     },
 
     isUserAdminOrSuperadmin(user) {

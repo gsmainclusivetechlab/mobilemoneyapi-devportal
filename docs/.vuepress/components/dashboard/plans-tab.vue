@@ -52,8 +52,6 @@ import { nameWithSlash } from '@/helpers/vuexHelper';
 import { CHANGE_PUBLISHED_STATE, GET_DATA } from '@/store/modules/action-types';
 import { GET_PLANS_WITH_STATE } from '@/store/modules/getter-types';
 
-let controller = new AbortController();
-
 export default {
   name: 'plans-tab',
 
@@ -63,7 +61,8 @@ export default {
     return {
       allPlansHeaderTitles,
       waitingPlanId: '',
-      module: ALL_PLANS
+      module: ALL_PLANS,
+      controller: new AbortController()
     };
   },
 
@@ -94,13 +93,12 @@ export default {
   },
 
   beforeDestroy() {
-    controller.abort();
-    controller = new AbortController();
+    this.controller.abort();
   },
 
   methods: {
     getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), controller);
+      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), this.controller);
     },
 
     getPlanStatusLabelClass(state) {

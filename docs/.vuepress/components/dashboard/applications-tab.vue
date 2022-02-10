@@ -39,8 +39,6 @@ import { RESET_PAGINATION } from '@/store/modules/mutation-types';
 import { GET_DATA } from '@/store/modules/action-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 
-let controller = new AbortController();
-
 export default {
   name: 'applications-tab',
 
@@ -50,7 +48,8 @@ export default {
     return {
       tabTitle: 'Applications',
       modalIsVisible: false,
-      module: MY_APPS
+      module: MY_APPS,
+      controller: new AbortController()
     };
   },
 
@@ -66,8 +65,7 @@ export default {
   },
 
   beforeDestroy() {
-    controller.abort();
-    controller = new AbortController();
+    this.controller.abort();
   },
 
   methods: {
@@ -80,7 +78,7 @@ export default {
     },
 
     getData() {
-      return this.$store.dispatch(nameWithSlash(MY_APPS, GET_DATA), controller);
+      return this.$store.dispatch(nameWithSlash(MY_APPS, GET_DATA), this.controller);
     },
 
     ...mapMutations(PAGINATION, {

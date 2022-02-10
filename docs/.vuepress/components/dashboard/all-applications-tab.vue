@@ -62,8 +62,6 @@ import { GET_ALL_APPS } from '@/store/modules/getter-types';
 import { REMOVE_ITEM, GET_DATA } from '@/store/modules/action-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 
-let controller = new AbortController();
-
 export default {
   name: 'all-applications-tab',
 
@@ -73,7 +71,8 @@ export default {
     return {
       allApplicationsHeaderTitles,
       activeOptionsUserId: -1,
-      module: ALL_APPS
+      module: ALL_APPS,
+      controller: new AbortController()
     };
   },
 
@@ -99,8 +98,7 @@ export default {
   },
 
   beforeDestroy() {
-    controller.abort();
-    controller = new AbortController();
+    this.controller.abort();
   },
 
   methods: {
@@ -109,7 +107,7 @@ export default {
     }),
 
     getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), controller);
+      return this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), this.controller);
     },
 
     showUserOptions(id) {
