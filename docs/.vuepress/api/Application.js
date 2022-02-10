@@ -2,12 +2,13 @@ import Api from './Api';
 import { APP_BY_ID, APPS, CREATE_APP } from './constants';
 
 export default class Application {
-  static getApps({ userName, paginationToken }) {
-    const route = APPS
-      .replace('{userName}', `=${userName}`)
+  static getApps({ userName, paginationToken }, controller) {
+    const route = APPS.replace('{userName}', `=${userName}`);
     return Api.setHeadersForOneRequest({
-      paginationToken: (paginationToken !== 'first' ) ? paginationToken : ''
-    }).get(route);
+      paginationToken: paginationToken !== 'first' ? paginationToken : ''
+    }).get(route, {
+      signal: controller?.signal
+    });
   }
 
   static postApp(payload) {

@@ -8,7 +8,11 @@ import {
 
 export default {
   [ADD_PAGINATION_TOKEN](state, value) {
-    if (!value) {
+    const findLast = state.tokens.findIndex((token) => token === 'last');
+
+    if (findLast >= 0) {
+      state.tokens[findLast] = value;
+    } else if (!value) {
       state.tokens.push('last');
     } else {
       state.tokens.push(value);

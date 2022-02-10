@@ -1,6 +1,6 @@
 import AllUsers from '@/api/admin/allUsers';
 import ModalWindow from '@/services/ModalWindow';
-import { GET_TOKEN_NEXT_PAGE } from '../getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
 import {
   ADD_PAGINATION_TOKEN,
@@ -12,14 +12,17 @@ import { PAGINATION } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
     try {
-      const { data } = await AllUsers.get({
-        sortValue: state.sortValue,
-        searchValue: state.searchValue,
-        searchField: state.searchField,
-        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
-      });
+      const { data } = await AllUsers.get(
+        {
+          sortValue: state.sortValue,
+          searchValue: state.searchValue,
+          searchField: state.searchField,
+          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
+        },
+        controller
+      );
 
       if (!data.users.length && state.currentPage) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {

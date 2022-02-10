@@ -6,7 +6,7 @@
         type="button"
         class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
         :class="{
-          'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 || !getTokenNextPage
+          'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 || !isActive
         }"
         @click="prevPage"
       >
@@ -16,8 +16,7 @@
         type="button"
         class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
         :class="{
-          'dashboard-table__pagination-arrow--inactive':
-            !getTokenNextPage || getTokenNextPage === 'last'
+          'dashboard-table__pagination-arrow--inactive': !isActive || getTokenNextPage === 'last'
         }"
         @click="nextPage"
       >
@@ -33,7 +32,7 @@ import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
 import { GET_TOKEN_NEXT_PAGE, GET_HAS_NEXT_PAGES } from '@/store/modules/getter-types';
 import { PAGINATION } from '@/store/modules/module-types';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -44,10 +43,20 @@ export default {
     }
   },
 
+  data() {
+    return {
+      isActive: true
+    };
+  },
+
   computed: {
     getCurrentPage() {
       return this.$store.state[PAGINATION].currentPage;
     },
+
+    ...mapState(PAGINATION, {
+      tokens: 'tokens'
+    }),
 
     ...mapGetters(PAGINATION, {
       getTokenNextPage: GET_TOKEN_NEXT_PAGE,
@@ -58,8 +67,10 @@ export default {
   methods: {
     async nextPage() {
       try {
+        this.isActive = false;
         this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
         await this.getData();
+        this.isActive = true;
       } catch (err) {
         console.error(err);
       }
@@ -67,9 +78,11 @@ export default {
 
     async prevPage() {
       try {
+        this.isActive = false;
         this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
         this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
         await this.getData();
+        this.isActive = true;
       } catch (err) {
         console.error(err);
       }

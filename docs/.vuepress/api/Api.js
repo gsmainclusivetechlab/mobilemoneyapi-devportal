@@ -89,10 +89,10 @@ class Api {
         return response;
       },
       (error) => {
-        const responseURL = error.request.responseURL;
+        const responseURL = error.request?.responseURL;
 
         if (
-          error.response.status === 401 &&
+          error.response?.status === 401 &&
           CookieManager.getValue(REFRESH_TOKEN) &&
           !responseURL.includes(UPDATE_REFRESH_TOKEN)
         ) {
@@ -128,7 +128,7 @@ class Api {
           });
 
           return retryOriginalRequest;
-        } else if (error.response.status === 401 && error.config.url !== LOGIN) {
+        } else if (error.response?.status === 401 && error.config?.url !== LOGIN) {
           if (window.location.pathname === '/dashboard/') {
             window.location.replace('/login/');
           }

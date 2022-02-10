@@ -53,7 +53,6 @@
 import SortByBlock from '../sort-by-block';
 import { mixin as clickaway } from 'vue-clickaway';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { GET_DATA } from '@/store/modules/action-types';
 import {
   RESET_PAGINATION,
   SET_SEARCH_FIELD,
@@ -64,7 +63,9 @@ import { PAGINATION } from '@/store/modules/module-types';
 
 export default {
   name: 'dashboard-table-top',
+
   components: { SortByBlock },
+
   props: {
     hideFilter: {
       type: Boolean,
@@ -83,6 +84,7 @@ export default {
       default: ''
     }
   },
+
   data() {
     return {
       activeSortOptions: false,
@@ -112,12 +114,6 @@ export default {
     this.$store.commit(nameWithSlash(this.module, SET_SEARCH_VALUE), '');
 
     this.setSearchField(this.searchBy[0].value);
-
-    this.$emit('start-getting-data');
-
-    this.getData().then(() => {
-      this.$emit('end-getting-data');
-    });
   },
 
   methods: {
@@ -131,6 +127,7 @@ export default {
 
     setSortValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
+      this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
       this.getData();
     },
 
@@ -153,10 +150,6 @@ export default {
 
     setSearchField(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SEARCH_FIELD), value);
-    },
-
-    getData() {
-      return this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };
