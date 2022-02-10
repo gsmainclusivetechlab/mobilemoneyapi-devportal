@@ -14,13 +14,16 @@ import {
 import { GET_USER_NAME, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
-      const { data } = await Application.getApps({
-        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage],
-        userName
-      });
+      const { data } = await Application.getApps(
+        {
+          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage],
+          userName
+        },
+        controller
+      );
 
       if (!data.appData.length && state.currentPage) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {

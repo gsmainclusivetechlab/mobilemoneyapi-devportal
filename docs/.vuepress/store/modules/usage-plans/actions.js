@@ -7,19 +7,22 @@ import {
   SET_CURRENT_PAGE,
   SET_DATA
 } from '../mutation-types';
-import { GET_TOKEN_NEXT_PAGE } from '../getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
 import { PAGINATION } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }) {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
     try {
-      const { data } = await AllPlans.get({
-        sortValue: state.sortValue,
-        searchValue: state.searchValue,
-        searchField: state.searchField,
-        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
-      });
+      const { data } = await AllPlans.get(
+        {
+          sortValue: state.sortValue,
+          searchValue: state.searchValue,
+          searchField: state.searchField,
+          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
+        },
+        controller
+      );
 
       if (!data.planData.length && state.currentPage) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {

@@ -90,6 +90,9 @@ import SpinnerComponent from '../helpers/spinner-component';
 import { ALL_USERS, USER } from '@/store/modules/module-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '@/store/modules/action-types';
 import { GET_ALL_USERS, GET_USER_NAME } from '@/store/modules/getter-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+
+let controller = new AbortController();
 
 export default {
   name: 'all-users-tab',
@@ -133,12 +136,25 @@ export default {
 
   mixins: [dashboardSearch],
 
+  created() {
+    this.getData();
+  },
+
+  beforeDestroy() {
+    controller.abort();
+    controller = new AbortController();
+  },
+
   methods: {
     ...mapActions(ALL_USERS, {
       deleteUserByUsername: REMOVE_ITEM,
       setUserStatus: SET_USER_STATUS,
       updateRole: UPDATE_ROLE
     }),
+
+    getData() {
+      return this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), controller);
+    },
 
     isUserAdminOrSuperadmin(user) {
       if (this.isAdminRole) {

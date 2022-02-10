@@ -13,16 +13,19 @@ import { PAGINATION } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-  async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }) {
+  async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }, controller) {
     try {
       const PRE_PAGE_LENGTH = 25;
 
-      const { data } = await AllApplications.get({
-        sortValue: state.sortValue,
-        searchValue: state.searchValue,
-        searchField: state.searchField,
-        paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
-      });
+      const { data } = await AllApplications.get(
+        {
+          sortValue: state.sortValue,
+          searchValue: state.searchValue,
+          searchField: state.searchField,
+          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
+        },
+        controller
+      );
 
       const appsLength = data.appData.length;
 
@@ -35,6 +38,7 @@ export default {
       }
 
       commit(SET_DATA, data.appData);
+
       let comingNextPageToken = data.paginationToken;
       const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
 

@@ -31,13 +31,15 @@
 <script>
 import dashboardModal from '../dashboard-modal.vue';
 import cardLinksSection from './card-links-section.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions, mapMutations } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
 import { MY_APPS, PAGINATION } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
-import { nameWithSlash } from '@/helpers/vuexHelper';
 import { RESET_PAGINATION } from '@/store/modules/mutation-types';
 import { GET_DATA } from '@/store/modules/action-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+
+let controller = new AbortController();
 
 export default {
   name: 'applications-tab',
@@ -59,8 +61,13 @@ export default {
   },
 
   created() {
-    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.resetPagination();
     this.getData();
+  },
+
+  beforeDestroy() {
+    controller.abort();
+    controller = new AbortController();
   },
 
   methods: {
@@ -73,8 +80,12 @@ export default {
     },
 
     getData() {
-      return this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
-    }
+      return this.$store.dispatch(nameWithSlash(MY_APPS, GET_DATA), controller);
+    },
+
+    ...mapMutations(PAGINATION, {
+      resetPagination: RESET_PAGINATION
+    })
   }
 };
 </script>

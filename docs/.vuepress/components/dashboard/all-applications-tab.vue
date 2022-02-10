@@ -13,7 +13,7 @@
       <dashboard-cell :value="app.appName" />
       <dashboard-cell :value="app.userName" />
       <dashboard-cell :value="app.companyName" />
-      <dashboard-cell :value="app.usagePlan" />
+      <dashboard-cell :value="app.usagePlanName" />
       <dashboard-cell :value="app.consumerKey" />
       <dashboard-cell :value="app.consumerSecret" />
       <dashboard-cell :value="app.apiKey" />
@@ -59,7 +59,10 @@ import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapActions } from 'vuex';
 import { ALL_APPS } from '@/store/modules/module-types';
 import { GET_ALL_APPS } from '@/store/modules/getter-types';
-import { REMOVE_ITEM } from '@/store/modules/action-types';
+import { REMOVE_ITEM, GET_DATA } from '@/store/modules/action-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+
+let controller = new AbortController();
 
 export default {
   name: 'all-applications-tab',
@@ -91,10 +94,23 @@ export default {
 
   mixins: [dashboardSearch],
 
+  created() {
+    this.getData();
+  },
+
+  beforeDestroy() {
+    controller.abort();
+    controller = new AbortController();
+  },
+
   methods: {
     ...mapActions(ALL_APPS, {
       deleteApplicationByUser: REMOVE_ITEM
     }),
+
+    getData() {
+      return this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), controller);
+    },
 
     showUserOptions(id) {
       this.activeOptionsUserId = id;
