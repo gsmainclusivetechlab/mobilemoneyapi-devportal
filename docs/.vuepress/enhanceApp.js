@@ -54,7 +54,8 @@ export default async ({
     router.beforeEach((to, from, next) => {
       if (
         to.path === '/dashboard/' &&
-        !CookieManager.getValue(X_USER_TOKEN) && !CookieManager.getValue(REFRESH_TOKEN)
+        !CookieManager.getValue(X_USER_TOKEN) &&
+        !CookieManager.getValue(REFRESH_TOKEN)
       ) {
         window.location.replace('/login/');
       } else next();

@@ -5,7 +5,9 @@
       <button
         type="button"
         class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-        :class="{ 'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 }"
+        :class="{
+          'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 || !getTokenNextPage
+        }"
         @click="prevPage"
       >
         < Prev
@@ -29,11 +31,7 @@
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA } from '@/store/modules/action-types';
 import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
-import {
-  GET_TOKEN_NEXT_PAGE,
-  GET_HAS_NEXT_PAGES,
-  GET_TOKEN_CURRENT_PAGE
-} from '@/store/modules/getter-types';
+import { GET_TOKEN_NEXT_PAGE, GET_HAS_NEXT_PAGES } from '@/store/modules/getter-types';
 import { PAGINATION } from '@/store/modules/module-types';
 import { mapGetters } from 'vuex';
 
@@ -58,19 +56,27 @@ export default {
   },
 
   methods: {
-    nextPage() {
-      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
-      this.getData();
+    async nextPage() {
+      try {
+        this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
+        await this.getData();
+      } catch (err) {
+        console.error(err);
+      }
     },
 
-    prevPage() {
-      this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
-      this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
-      this.getData();
+    async prevPage() {
+      try {
+        this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
+        this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
+        await this.getData();
+      } catch (err) {
+        console.error(err);
+      }
     },
 
-    getData() {
-      this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
+    async getData() {
+      await this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };
