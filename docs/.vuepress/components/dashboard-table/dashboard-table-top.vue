@@ -128,7 +128,7 @@ export default {
     setSortValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
       this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
-      this.getData();
+      this.$emit('changedSortValue');
     },
 
     setSearchValue(value) {

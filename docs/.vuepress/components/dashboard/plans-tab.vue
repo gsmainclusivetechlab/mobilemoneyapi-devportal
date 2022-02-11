@@ -9,6 +9,8 @@
     :search-by="getSearchBy"
     :is-data-not-found="!tableData.length"
     :module="module"
+    :isGettingData="isGettingData"
+    @changedSortValue="changedSortValue"
     page-type="plans"
   >
     <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
@@ -62,7 +64,8 @@ export default {
       allPlansHeaderTitles,
       waitingPlanId: '',
       module: ALL_PLANS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -88,8 +91,8 @@ export default {
 
   mixins: [clickaway, dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -97,8 +100,10 @@ export default {
   },
 
   methods: {
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     getPlanStatusLabelClass(state) {
@@ -118,6 +123,10 @@ export default {
         published
       });
       this.waitingPlanId = '';
+    },
+
+    async changedSortValue() {
+      await this.getData();
     }
   }
 };

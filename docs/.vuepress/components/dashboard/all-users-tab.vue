@@ -6,6 +6,8 @@
     :search-by="getSearchBy"
     :module="module"
     :is-data-not-found="!tableData.length"
+    :isGettingData="isGettingData"
+    @changedSortValue="changedSortValue"
     page-type="users"
   >
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
@@ -102,7 +104,8 @@ export default {
       allUsersHeaderTitles,
       waitingUserId: '',
       module: ALL_USERS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -135,8 +138,8 @@ export default {
 
   mixins: [dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -150,8 +153,10 @@ export default {
       updateRole: UPDATE_ROLE
     }),
 
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     isUserAdminOrSuperadmin(user) {
@@ -190,6 +195,10 @@ export default {
         await this.updateRole(user.userId);
         this.waitingUserId = '';
       }
+    },
+
+    async changedSortValue() {
+      await this.getData();
     }
   }
 };

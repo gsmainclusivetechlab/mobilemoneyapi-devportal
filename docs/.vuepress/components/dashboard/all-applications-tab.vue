@@ -6,8 +6,10 @@
     :search-by="getSearchBy"
     :module="module"
     :is-data-not-found="!tableData.length"
+    :isGettingData="isGettingData"
     page-type="applications"
     is-create-button
+    @changedSortValue="changedSortValue"
   >
     <tr class="dashboard-table__row" v-for="app of tableData" :key="app.appId">
       <dashboard-cell :value="app.appName" />
@@ -72,7 +74,8 @@ export default {
       allApplicationsHeaderTitles,
       activeOptionsUserId: -1,
       module: ALL_APPS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -93,8 +96,8 @@ export default {
 
   mixins: [dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -106,8 +109,10 @@ export default {
       deleteApplicationByUser: REMOVE_ITEM
     }),
 
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     showUserOptions(id) {
@@ -117,6 +122,10 @@ export default {
     deleteApplication(userName, appId) {
       this.deleteApplicationByUser({ userName, appId });
       document.body.click(); // for hide tippy
+    },
+
+    async changedSortValue() {
+      await this.getData();
     }
   }
 };
