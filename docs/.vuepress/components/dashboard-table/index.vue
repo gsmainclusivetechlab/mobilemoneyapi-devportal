@@ -14,8 +14,8 @@
         :searchBy="searchBy"
         :pageType="pageType"
         :module="module"
-        @start-getting-data="isGettingData = true"
-        @end-getting-data="isGettingData = false"
+        @changedSortValue="$emit('changedSortValue')"
+        @changedSearchValue="$emit('changedSearchValue')"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
@@ -111,13 +111,16 @@ export default {
     isDataNotFound: {
       type: Boolean,
       default: false
+    },
+    isGettingData: {
+      type: Boolean,
+      default: false
     }
   },
 
   data() {
     return {
-      modalIsVisible: false,
-      isGettingData: false
+      modalIsVisible: false
     };
   },
 

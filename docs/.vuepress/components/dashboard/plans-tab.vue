@@ -9,6 +9,9 @@
     :search-by="getSearchBy"
     :is-data-not-found="!tableData.length"
     :module="module"
+    :isGettingData="isGettingData"
+    @changedSortValue="changedSortValue"
+    @changedSearchValue="changedSearchValue"
     page-type="plans"
   >
     <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
@@ -47,10 +50,11 @@ import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { ALL_PLANS, USER } from '@/store/modules/module-types';
+import { ALL_PLANS, USER, PAGINATION } from '@/store/modules/module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { CHANGE_PUBLISHED_STATE, GET_DATA } from '@/store/modules/action-types';
 import { GET_PLANS_WITH_STATE } from '@/store/modules/getter-types';
+import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'plans-tab',
@@ -62,7 +66,8 @@ export default {
       allPlansHeaderTitles,
       waitingPlanId: '',
       module: ALL_PLANS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -88,8 +93,11 @@ export default {
 
   mixins: [clickaway, dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(ALL_PLANS, SET_SEARCH_VALUE), '');
+
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -97,8 +105,10 @@ export default {
   },
 
   methods: {
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     getPlanStatusLabelClass(state) {
@@ -118,6 +128,14 @@ export default {
         published
       });
       this.waitingPlanId = '';
+    },
+
+    async changedSortValue() {
+      await this.getData();
+    },
+
+    async changedSearchValue() {
+      await this.getData();
     }
   }
 };

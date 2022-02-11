@@ -6,6 +6,9 @@
     :search-by="getSearchBy"
     :module="module"
     :is-data-not-found="!tableData.length"
+    :isGettingData="isGettingData"
+    @changedSortValue="changedSortValue"
+    @changedSearchValue="changedSearchValue"
     page-type="users"
   >
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
@@ -87,10 +90,11 @@ import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapState, mapActions } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { ALL_USERS, USER } from '@/store/modules/module-types';
+import { ALL_USERS, USER, PAGINATION } from '@/store/modules/module-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '@/store/modules/action-types';
 import { GET_ALL_USERS, GET_USER_NAME } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
+import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'all-users-tab',
@@ -102,7 +106,8 @@ export default {
       allUsersHeaderTitles,
       waitingUserId: '',
       module: ALL_USERS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -135,8 +140,11 @@ export default {
 
   mixins: [dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(ALL_USERS, SET_SEARCH_VALUE), '');
+
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -150,8 +158,10 @@ export default {
       updateRole: UPDATE_ROLE
     }),
 
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_USERS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     isUserAdminOrSuperadmin(user) {
@@ -190,6 +200,14 @@ export default {
         await this.updateRole(user.userId);
         this.waitingUserId = '';
       }
+    },
+
+    async changedSortValue() {
+      await this.getData();
+    },
+
+    async changedSearchValue() {
+      await this.getData();
     }
   }
 };

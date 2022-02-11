@@ -110,9 +110,6 @@ export default {
   mixins: [clickaway],
 
   created() {
-    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
-    this.$store.commit(nameWithSlash(this.module, SET_SEARCH_VALUE), '');
-
     this.setSearchField(this.searchBy[0].value);
   },
 
@@ -128,7 +125,7 @@ export default {
     setSortValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
       this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
-      this.getData();
+      this.$emit('changedSortValue');
     },
 
     setSearchValue(value) {
@@ -138,7 +135,7 @@ export default {
         this.searchRequest = true;
         this.timer = setTimeout(() => {
           this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
-          this.getData();
+          this.$emit('changedSearchValue');
           this.searchRequest = false;
         }, 700);
       } else {

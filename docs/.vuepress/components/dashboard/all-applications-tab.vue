@@ -6,8 +6,11 @@
     :search-by="getSearchBy"
     :module="module"
     :is-data-not-found="!tableData.length"
+    :isGettingData="isGettingData"
     page-type="applications"
     is-create-button
+    @changedSortValue="changedSortValue"
+    @changedSearchValue="changedSearchValue"
   >
     <tr class="dashboard-table__row" v-for="app of tableData" :key="app.appId">
       <dashboard-cell :value="app.appName" />
@@ -57,10 +60,11 @@ import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapActions } from 'vuex';
-import { ALL_APPS } from '@/store/modules/module-types';
+import { ALL_APPS, PAGINATION } from '@/store/modules/module-types';
 import { GET_ALL_APPS } from '@/store/modules/getter-types';
 import { REMOVE_ITEM, GET_DATA } from '@/store/modules/action-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
+import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'all-applications-tab',
@@ -72,7 +76,8 @@ export default {
       allApplicationsHeaderTitles,
       activeOptionsUserId: -1,
       module: ALL_APPS,
-      controller: new AbortController()
+      controller: new AbortController(),
+      isGettingData: false
     };
   },
 
@@ -93,8 +98,11 @@ export default {
 
   mixins: [dashboardSearch],
 
-  created() {
-    this.getData();
+  async created() {
+    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(ALL_APPS, SET_SEARCH_VALUE), '');
+
+    await this.getData();
   },
 
   beforeDestroy() {
@@ -106,8 +114,10 @@ export default {
       deleteApplicationByUser: REMOVE_ITEM
     }),
 
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), this.controller);
+    async getData() {
+      this.isGettingData = true;
+      await this.$store.dispatch(nameWithSlash(ALL_APPS, GET_DATA), this.controller);
+      this.isGettingData = false;
     },
 
     showUserOptions(id) {
@@ -117,6 +127,14 @@ export default {
     deleteApplication(userName, appId) {
       this.deleteApplicationByUser({ userName, appId });
       document.body.click(); // for hide tippy
+    },
+
+    async changedSortValue() {
+      await this.getData();
+    },
+
+    async changedSearchValue() {
+      await this.getData();
     }
   }
 };
