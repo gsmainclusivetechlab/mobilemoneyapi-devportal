@@ -11,6 +11,7 @@
     :module="module"
     :isGettingData="isGettingData"
     @changedSortValue="changedSortValue"
+    @changedSearchValue="changedSearchValue"
     page-type="plans"
   >
     <tr class="dashboard-table__row" v-for="plan of tableData" :key="plan.id">
@@ -49,10 +50,11 @@ import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import { ALL_PLANS, USER } from '@/store/modules/module-types';
+import { ALL_PLANS, USER, PAGINATION } from '@/store/modules/module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { CHANGE_PUBLISHED_STATE, GET_DATA } from '@/store/modules/action-types';
 import { GET_PLANS_WITH_STATE } from '@/store/modules/getter-types';
+import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
 
 export default {
   name: 'plans-tab',
@@ -92,6 +94,9 @@ export default {
   mixins: [clickaway, dashboardSearch],
 
   async created() {
+    this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(ALL_PLANS, SET_SEARCH_VALUE), '');
+
     await this.getData();
   },
 
@@ -126,6 +131,10 @@ export default {
     },
 
     async changedSortValue() {
+      await this.getData();
+    },
+
+    async changedSearchValue() {
       await this.getData();
     }
   }

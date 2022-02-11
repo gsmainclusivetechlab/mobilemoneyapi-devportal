@@ -15,6 +15,7 @@
         :pageType="pageType"
         :module="module"
         @changedSortValue="$emit('changedSortValue')"
+        @changedSearchValue="$emit('changedSearchValue')"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
