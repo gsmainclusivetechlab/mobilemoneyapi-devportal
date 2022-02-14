@@ -39,7 +39,11 @@ export default async ({
   Vue.component('CodeBlock', CodeBlock);
   Vue.component('CodeGroup', CodeGroup);
 
-  Vue.use(VueTippy);
+  Vue.use(VueTippy, {
+    interactive: true,
+    appendTo: 'parent',
+    maxWidth: 'none'
+  });
   Vue.component('tippy', TippyComponent);
 
   for (const [name, component] of Object.entries(pageComponents)) {
