@@ -1,6 +1,6 @@
 <template>
   <td class="dashboard-table__cell">
-    <tippy interactive style="max-width: 100%" delay="600" zIndex="1">
+    <tippy style="max-width: 100%" delay="600">
       <template v-slot:trigger>
         <div class="dashboard-table__cell-content">{{ value }}</div>
       </template>

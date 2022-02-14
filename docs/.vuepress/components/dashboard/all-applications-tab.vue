@@ -22,7 +22,7 @@
       <dashboard-cell :value="app.apiKey" />
       <dashboard-cell :value="app.keyIssued" />
       <td class="dashboard-table__cell dashboard-table__cell--options">
-        <tippy trigger="click" interactive style="overflow: visible" arrow offset="0,-30">
+        <tippy trigger="click" style="overflow: visible" arrow offset="0,-30">
           <template v-slot:trigger>
             <button
               type="button"
