@@ -51,6 +51,7 @@ export default {
   },
 
   async [POST_APP]({ commit, dispatch, rootGetters }, payload) {
+    let response = false;
     const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
     const data = {
       ...payload,
@@ -58,7 +59,7 @@ export default {
     };
 
     try {
-      await Application.postApp(data);
+      response = await Application.postApp(data);
 
       if (
         !rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_PREV_PAGE)] &&
@@ -69,10 +70,10 @@ export default {
 
       await dispatch(GET_DATA);
     } catch (error) {
-      console.log(error);
+      response = error.response;
     }
 
-    return Promise.resolve(true);
+    return response;
   },
 
   async [UPDATE_APP_BY_ID]({ dispatch, state, rootGetters }, payload) {
