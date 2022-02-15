@@ -89,7 +89,7 @@
 import { mapGetters } from 'vuex';
 import SpinnerComponent from './helpers/spinner-component';
 import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
-import { GET_ALL_MY_APPS, GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
+import { GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP } from '@/store/modules/action-types';
 import { APP_ALREADY_EXISTS } from '@/api/constants';
@@ -112,10 +112,6 @@ export default {
   computed: {
     ...mapGetters(ALL_PLANS, {
       getPublishedUsagePlans: GET_PUBLISHED_USAGE_PLANS
-    }),
-
-    ...mapGetters(MY_APPS, {
-      getApplicationsList: GET_ALL_MY_APPS
     })
   },
 
