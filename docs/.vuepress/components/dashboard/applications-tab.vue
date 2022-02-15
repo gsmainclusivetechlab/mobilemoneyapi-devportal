@@ -4,7 +4,7 @@
       <h3 class="content-title">My applications</h3>
       <button class="btn btn--accent" type="button" @click="toggleModal">Create app</button>
     </div>
-    <div class="applications-list-wrap">
+    <div v-if="getApplicationsList.length" class="applications-list-wrap">
       <ul class="applications-list">
         <li
           class="applications-list-item"
@@ -22,6 +22,9 @@
         </li>
       </ul>
       <dashboard-table-bottom :module="module" />
+    </div>
+    <div class="dashboard-content__placeholder" v-else>
+      <p>No Apps Yet</p>
     </div>
     <card-links-section />
     <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />

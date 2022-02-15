@@ -1,7 +1,7 @@
 import User from '@/api/User';
 import { Admin } from '@/api/admin';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { AUTH, USER, MY_APPS } from '../module-types';
+import { AUTH, USER, MY_APPS, ALL_PLANS } from '../module-types';
 import { SET_DATA, SET_LOGGED_USER } from '../mutation-types';
 import { GET_DATA, UPDATE_USER_DATA } from '../action-types';
 import { GET_USER_NAME } from '../getter-types';
@@ -14,6 +14,7 @@ export default {
 
       commit(SET_DATA, data);
 
+      await dispatch(nameWithSlash(ALL_PLANS, GET_DATA), null, { root: true });
       await dispatch(nameWithSlash(MY_APPS, GET_DATA), null, { root: true });
 
       commit(nameWithSlash(AUTH, SET_LOGGED_USER), true, { root: true });

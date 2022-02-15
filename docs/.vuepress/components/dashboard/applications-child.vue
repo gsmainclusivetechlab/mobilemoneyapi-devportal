@@ -75,7 +75,7 @@
                 </label>
                 <v-select
                   return-object
-                  v-model="form.usagePlan"
+                  v-model="form.usagePlanName"
                   id="product"
                   name="product"
                   :clearable="false"
@@ -170,7 +170,7 @@ export default {
       tooltipPopupIsVisible: false,
       form: {
         appName: '',
-        usagePlan: ''
+        usagePlanName: ''
       },
       waitingResponseUpdate: false,
       waitingResponseDelete: false
@@ -234,7 +234,7 @@ export default {
 
     setSelectedAppInForm(app) {
       this.form.appName = app?.appName ?? '';
-      this.form.usagePlan = app?.usagePlan ?? '';
+      this.form.usagePlanName = app?.usagePlanName ?? '';
     },
 
     async deleteApplication(event) {
