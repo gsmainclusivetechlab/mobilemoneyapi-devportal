@@ -6,50 +6,76 @@
         <span class="h3 modal-title">Create app</span>
         <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="create-app">
           <form @submit.prevent="handleSubmit(createApp)">
-            <ValidationProvider class="input-wrap"
-                                vid="app-name"
-                                :rules="{ required: { allowFalse: false }, min: 2, check_same_name: getApplicationsList }"
-                                v-slot="{ errors }"
-                                tag="div">
+            <ValidationProvider
+              class="input-wrap"
+              vid="app-name"
+              :rules="{
+                required: { allowFalse: false },
+                min: 2,
+                check_same_name: [...myErrors]
+              }"
+              v-slot="{ errors }"
+              tag="div"
+            >
               <label for="app-name">
                 App name
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
-              <input type="text" v-model="form.appName" id="app-name" placeholder="Enter app name">
+              <input
+                type="text"
+                v-model="form.appName"
+                id="app-name"
+                placeholder="Enter app name"
+                @change="onChangeAppName"
+              />
             </ValidationProvider>
 
-            <ValidationProvider class="input-wrap input-wrapper__custom-select"
-                                vid="product-name"
-                                :rules="{ required: { allowFalse: false }}"
-                                v-slot="{ errors }"
-                                tag="div">
-              <label for="product-name">Product
+            <ValidationProvider
+              class="input-wrap input-wrapper__custom-select"
+              vid="product-name"
+              :rules="{ required: { allowFalse: false } }"
+              v-slot="{ errors }"
+              tag="div"
+            >
+              <label for="product-name"
+                >Product
                 <div class="tooltip-wrap">
-                  <button class="tooltip-btn"
-                          @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
-                          @focusout="tooltipPopupIsVisible = false"
-                          tabindex="0">?
+                  <button
+                    class="tooltip-btn"
+                    @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
+                    @focusout="tooltipPopupIsVisible = false"
+                    tabindex="0"
+                  >
+                    ?
                   </button>
-                  <span class="tooltip-popup" v-show="tooltipPopupIsVisible">Here you can select product version</span>
+                  <span class="tooltip-popup" v-show="tooltipPopupIsVisible"
+                    >Here you can select product version</span
+                  >
                 </div>
                 <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
               </label>
               <v-select
-                  return-object
-                  v-model="form.usagePlan"
-                  id="product-name"
-                  name="country"
-                  :clearable="false"
-                  :options="getPublishedUsagePlans"
-                  placeholder="Select product"
-                  :reduce="item => item.value"
+                return-object
+                v-model="form.usagePlan"
+                id="product-name"
+                name="country"
+                :clearable="false"
+                :options="getPublishedUsagePlans"
+                placeholder="Select product"
+                :reduce="(item) => item.value"
               ></v-select>
             </ValidationProvider>
             <div class="btn-row">
-              <button class="cancel-btn btn btn--link" type="button" @click="handleModalClose">Cancel</button>
-              <button class="btn btn btn--accent" :disabled="invalid || waitingResponse" type="submit">
+              <button class="cancel-btn btn btn--link" type="button" @click="handleModalClose">
+                Cancel
+              </button>
+              <button
+                class="btn btn btn--accent"
+                :disabled="invalid || waitingResponse"
+                type="submit"
+              >
                 <span v-if="!waitingResponse">Create app</span>
-                <spinner-component v-else/>
+                <spinner-component v-else />
               </button>
             </div>
           </form>
@@ -66,6 +92,7 @@ import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS, GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { GET_DATA, POST_APP } from '@/store/modules/action-types';
+import { APP_ALREADY_EXISTS } from '@/api/constants';
 
 export default {
   name: 'dashboard-modal',
@@ -74,9 +101,10 @@ export default {
     return {
       tooltipPopupIsVisible: false,
       waitingResponse: false,
+      myErrors: [],
       form: {
-        'appName': '',
-        'usagePlan': ''
+        appName: '',
+        usagePlan: ''
       }
     };
   },
@@ -88,7 +116,7 @@ export default {
 
     ...mapGetters(MY_APPS, {
       getApplicationsList: GET_ALL_MY_APPS
-    }),
+    })
   },
 
   created() {
@@ -100,21 +128,37 @@ export default {
       this.$emit('close-modal');
     },
 
+    onChangeAppName() {
+      this.myErrors.forEach((errorObj, index) => {
+        switch (errorObj.error) {
+          case APP_ALREADY_EXISTS: {
+            this.myErrors.splice(index, 1);
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+      });
+    },
+
     async createApp() {
       this.waitingResponse = true;
-      // TODO maybe refactor this
-      await this.$store.dispatch(nameWithSlash(MY_APPS, POST_APP), this.form)
-          .then(() => {
-            this.handleModalClose();
-          })
-          .finally(() => {
-            this.waitingResponse = false;
-          });
+
+      const response = await this.$store.dispatch(nameWithSlash(MY_APPS, POST_APP), this.form);
+
+      if (response.status === 201) {
+        this.handleModalClose();
+      } else {
+        this.myErrors.push(response.data);
+      }
+
+      this.waitingResponse = false;
     },
 
     getData() {
       return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA));
     }
-  },
+  }
 };
 </script>

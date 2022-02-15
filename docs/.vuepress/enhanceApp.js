@@ -41,8 +41,11 @@ export default async ({
 
   Vue.use(VueTippy, {
     interactive: true,
-    appendTo: 'parent',
-    maxWidth: 'none'
+    maxWidth: 'none',
+    zIndex: 4,
+    appendTo: () => {
+      return document.querySelector('.table-block');
+    }
   });
   Vue.component('tippy', TippyComponent);
 
