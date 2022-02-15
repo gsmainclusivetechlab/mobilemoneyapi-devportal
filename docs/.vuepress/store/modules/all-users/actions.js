@@ -6,6 +6,7 @@ import {
   ADD_PAGINATION_TOKEN,
   REMOVE_PAGINATION_TOKEN,
   SET_CURRENT_PAGE,
+  RESET_PAGINATION,
   SET_DATA
 } from '../mutation-types';
 import { PAGINATION } from '../module-types';
@@ -40,6 +41,9 @@ export default {
         });
       }
     } catch (error) {
+      commit(SET_DATA, []);
+      commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+
       console.log(error);
     }
 
