@@ -47,34 +47,21 @@ extend('without_space', {
 });
 extend('check_same_name', {
   validate: (value, params) => {
-    if (params.length) {
-      for (const errorObj of params) {
-        switch (errorObj.error) {
-          case APP_ALREADY_EXISTS: {
-            return false;
-          }
-          default: {
-            return true;
-          }
-        }
+    for (const errorObj of params) {
+      if (errorObj.error === APP_ALREADY_EXISTS) {
+        return false;
       }
-    } else {
-      return true;
     }
+
+    return true;
   },
   message: (field, params) => {
     for (const key in params) {
       const errorObj = params[key];
 
-      switch (errorObj.error) {
-        case APP_ALREADY_EXISTS: {
-          return errorObj.errorDescription;
-        }
-        default: {
-          return 'The application with the same name already exists';
-        }
+      if (errorObj.error === APP_ALREADY_EXISTS) {
+        return errorObj.errorDescription;
       }
     }
-    return 'The application with the same name already exists';
   }
 });
