@@ -15,7 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-search": "^1.9.7",
-    "cypress": "^9.5.0",
     "dotenv-webpack": "^7.0.3",
     "node-sass": "^6.0.0",
     "nodemon": "^2.0.15",
