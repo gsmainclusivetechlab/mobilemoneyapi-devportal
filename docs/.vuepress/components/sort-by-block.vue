@@ -64,7 +64,7 @@ export default {
         },
         {
           title: 'Usage plan',
-          value: 'usagePlan'
+          value: 'usagePlanName'
         }
       ],
       valuesPlans: [

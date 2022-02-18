@@ -86,8 +86,6 @@ export default {
     } catch (error) {
       console.log(error);
     }
-
-    return Promise.resolve();
   },
 
   async [REMOVE_ITEM]({ state, rootGetters, commit }) {

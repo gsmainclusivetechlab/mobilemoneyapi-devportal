@@ -56,13 +56,13 @@
               </label>
               <v-select
                 return-object
-                v-model="form.usagePlan"
+                v-model="form.usagePlanName"
                 id="product-name"
                 name="country"
                 :clearable="false"
                 :options="getPublishedUsagePlans"
                 placeholder="Select product"
-                :reduce="(item) => item.value"
+                :reduce="(item) => item.label"
               ></v-select>
             </ValidationProvider>
             <div class="btn-row">
@@ -104,7 +104,7 @@ export default {
       myErrors: [],
       form: {
         appName: '',
-        usagePlan: ''
+        usagePlanName: ''
       }
     };
   },
@@ -126,14 +126,8 @@ export default {
 
     onChangeAppName() {
       this.myErrors.forEach((errorObj, index) => {
-        switch (errorObj.error) {
-          case APP_ALREADY_EXISTS: {
-            this.myErrors.splice(index, 1);
-            break;
-          }
-          default: {
-            break;
-          }
+        if (errorObj.error === APP_ALREADY_EXISTS) {
+          this.myErrors.splice(index, 1);
         }
       });
     },

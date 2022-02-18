@@ -81,7 +81,7 @@
                   :clearable="false"
                   :options="getPublishedUsagePlans"
                   :disabled="editBtnEnabled"
-                  :reduce="(item) => item.value"
+                  :reduce="(item) => item.label"
                   placeholder="Select product"
                 ></v-select>
               </ValidationProvider>
@@ -196,10 +196,9 @@ export default {
 
   methods: {
     async editApp() {
-      this.waitingResponseUpdate = true;
-
       try {
         this.waitingResponseUpdate = true;
+        console.dir(this.form);
         await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), this.form);
         this.handleEditClick(true);
       } catch (error) {

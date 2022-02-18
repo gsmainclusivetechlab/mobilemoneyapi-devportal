@@ -70,10 +70,11 @@ export default {
         this.isActive = false;
         this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
         await this.getData();
-        this.isActive = true;
       } catch (err) {
         console.error(err);
       }
+
+      this.isActive = true;
     },
 
     async prevPage() {
@@ -82,10 +83,11 @@ export default {
         this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
         this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
         await this.getData();
-        this.isActive = true;
       } catch (err) {
         console.error(err);
       }
+
+      this.isActive = true;
     },
 
     async getData() {
