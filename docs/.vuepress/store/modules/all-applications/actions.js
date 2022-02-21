@@ -9,27 +9,30 @@ import {
   SET_CURRENT_PAGE,
   SET_DATA
 } from '../mutation-types';
-import { PAGINATION } from '../module-types';
+import { PAGINATION, ALL_APPS } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }, controller) {
-    try {
-      const PRE_PAGE_LENGTH = 25;
+    const PRE_PAGE_LENGTH = 25;
+    const isCurrentModule = rootState.pagination.currentModule === ALL_APPS;
 
+    try {
       const { data } = await AllApplications.get(
         {
           sortValue: state.sortValue,
           searchValue: state.searchValue,
           searchField: state.searchField,
-          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
+          paginationToken: isCurrentModule
+            ? rootState.pagination.tokens[rootState.pagination.currentPage]
+            : ''
         },
         controller
       );
 
       const appsLength = data.appData.length;
 
-      if (!appsLength && rootState.pagination.currentPage) {
+      if (!appsLength && rootState.pagination.currentPage && isCurrentModule) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
           root: true
         });
@@ -39,21 +42,25 @@ export default {
 
       commit(SET_DATA, data.appData);
 
-      let comingNextPageToken = data.paginationToken;
-      const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
+      if (isCurrentModule) {
+        let comingNextPageToken = data.paginationToken;
+        const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
 
-      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
-        if (appsLength < PRE_PAGE_LENGTH && currentPageToken === comingNextPageToken) {
-          comingNextPageToken = null;
+        if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+          if (appsLength < PRE_PAGE_LENGTH && currentPageToken === comingNextPageToken) {
+            comingNextPageToken = null;
+          }
+
+          commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), comingNextPageToken, {
+            root: true
+          });
         }
-
-        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), comingNextPageToken, {
-          root: true
-        });
       }
     } catch (error) {
-      commit(SET_DATA, []);
-      commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      if (isCurrentModule) {
+        commit(SET_DATA, []);
+        commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      }
 
       console.log(error);
     }

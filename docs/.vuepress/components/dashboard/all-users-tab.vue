@@ -93,7 +93,11 @@ import { ALL_USERS, USER, PAGINATION } from '@/store/modules/module-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '@/store/modules/action-types';
 import { GET_ALL_USERS, GET_USER_NAME } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
+import {
+  RESET_PAGINATION,
+  SET_SEARCH_VALUE,
+  SET_CURRENT_PAGINATION_MODULE
+} from '@/store/modules/mutation-types';
 
 export default {
   name: 'all-users-tab',
@@ -141,6 +145,7 @@ export default {
 
   async created() {
     this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGINATION_MODULE), ALL_USERS);
     this.$store.commit(nameWithSlash(ALL_USERS, SET_SEARCH_VALUE), '');
 
     await this.getData();
