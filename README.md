@@ -2,7 +2,13 @@
 ```npm
 npm i
 ```
-2. run start
+
+2. Copy the .env.example file to .env
+```npm
+npm run cp-env
+```
+
+3. run start
 ```npm
 npm run start
 ```

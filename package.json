@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vuepress build docs",
     "start": "nodemon --watch 'docs/.vuepress/pages/**/*' -e md --exec vuepress dev docs --temp .temp --no-cache",
-    "test": "./node_modules/.bin/cypress open"
+    "cp-env": "cp .env.example .env"
   },
   "keywords": [
     "documentation"
