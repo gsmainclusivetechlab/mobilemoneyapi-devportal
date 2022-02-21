@@ -3,7 +3,8 @@ import {
   SET_CURRENT_PAGE,
   REMOVE_PAGINATION_TOKEN,
   RESET_PAGINATION,
-  CLEAR_PAGINATION_TOKENS
+  CLEAR_PAGINATION_TOKENS,
+  SET_CURRENT_PAGINATION_MODULE
 } from '../mutation-types';
 
 export default {
@@ -25,9 +26,15 @@ export default {
     }
   },
   [RESET_PAGINATION](state) {
-    (state.currentPage = 0), (state.oldPageValue = 0), (state.tokens = ['first']);
+    (state.currentPage = 0),
+      (state.oldPageValue = 0),
+      (state.tokens = ['first']),
+      (state.currentModule = '');
   },
   [CLEAR_PAGINATION_TOKENS](state) {
     state.tokens = ['first'];
+  },
+  [SET_CURRENT_PAGINATION_MODULE](state, value) {
+    state.currentModule = value;
   }
 };

@@ -9,23 +9,27 @@ import {
   RESET_PAGINATION,
   SET_DATA
 } from '../mutation-types';
-import { PAGINATION } from '../module-types';
+import { PAGINATION, ALL_USERS } from '../module-types';
 import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
+    const isCurrentModule = rootState.pagination.currentModule === ALL_USERS;
+
     try {
       const { data } = await AllUsers.get(
         {
           sortValue: state.sortValue,
           searchValue: state.searchValue,
           searchField: state.searchField,
-          paginationToken: rootState.pagination.tokens[rootState.pagination.currentPage]
+          paginationToken: isCurrentModule
+            ? rootState.pagination.tokens[rootState.pagination.currentPage]
+            : ''
         },
         controller
       );
 
-      if (!data.users.length && state.currentPage) {
+      if (!data.users.length && state.currentPage && isCurrentModule) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
           root: true
         });
@@ -35,14 +39,19 @@ export default {
 
       commit(SET_DATA, data.users);
 
-      if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+      if (
+        rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last' &&
+        isCurrentModule
+      ) {
         commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
           root: true
         });
       }
     } catch (error) {
-      commit(SET_DATA, []);
-      commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      if (isCurrentModule) {
+        commit(SET_DATA, []);
+        commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      }
 
       console.log(error);
     }

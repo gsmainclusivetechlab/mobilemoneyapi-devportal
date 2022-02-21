@@ -38,7 +38,7 @@ import { mapGetters, mapActions, mapMutations } from 'vuex';
 import DashboardTableBottom from '../dashboard-table/dashboard-table-bottom';
 import { MY_APPS, PAGINATION } from '@/store/modules/module-types';
 import { GET_ALL_MY_APPS } from '@/store/modules/getter-types';
-import { RESET_PAGINATION } from '@/store/modules/mutation-types';
+import { RESET_PAGINATION, SET_CURRENT_PAGINATION_MODULE } from '@/store/modules/mutation-types';
 import { GET_DATA } from '@/store/modules/action-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 
@@ -64,6 +64,7 @@ export default {
 
   created() {
     this.resetPagination();
+    this.setCurrentPaginationModule(MY_APPS);
     this.getData();
   },
 
@@ -85,7 +86,8 @@ export default {
     },
 
     ...mapMutations(PAGINATION, {
-      resetPagination: RESET_PAGINATION
+      resetPagination: RESET_PAGINATION,
+      setCurrentPaginationModule: SET_CURRENT_PAGINATION_MODULE
     })
   }
 };

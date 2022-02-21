@@ -54,7 +54,11 @@ import { ALL_PLANS, USER, PAGINATION } from '@/store/modules/module-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
 import { CHANGE_PUBLISHED_STATE, GET_DATA } from '@/store/modules/action-types';
 import { GET_PLANS_WITH_STATE } from '@/store/modules/getter-types';
-import { RESET_PAGINATION, SET_SEARCH_VALUE } from '@/store/modules/mutation-types';
+import {
+  RESET_PAGINATION,
+  SET_SEARCH_VALUE,
+  SET_CURRENT_PAGINATION_MODULE
+} from '@/store/modules/mutation-types';
 
 export default {
   name: 'plans-tab',
@@ -95,6 +99,7 @@ export default {
 
   async created() {
     this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+    this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGINATION_MODULE), ALL_PLANS);
     this.$store.commit(nameWithSlash(ALL_PLANS, SET_SEARCH_VALUE), '');
 
     await this.getData();

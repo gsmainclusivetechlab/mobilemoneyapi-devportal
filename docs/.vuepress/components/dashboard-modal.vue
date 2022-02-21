@@ -91,7 +91,7 @@ import SpinnerComponent from './helpers/spinner-component';
 import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
 import { GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 import { nameWithSlash } from '@/helpers/vuexHelper';
-import { GET_DATA, POST_APP } from '@/store/modules/action-types';
+import { POST_APP } from '@/store/modules/action-types';
 import { APP_ALREADY_EXISTS } from '@/api/constants';
 
 export default {
@@ -113,10 +113,6 @@ export default {
     ...mapGetters(ALL_PLANS, {
       getPublishedUsagePlans: GET_PUBLISHED_USAGE_PLANS
     })
-  },
-
-  created() {
-    this.getData();
   },
 
   methods: {
@@ -144,10 +140,6 @@ export default {
       }
 
       this.waitingResponse = false;
-    },
-
-    getData() {
-      return this.$store.dispatch(nameWithSlash(ALL_PLANS, GET_DATA));
     }
   }
 };
