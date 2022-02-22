@@ -56,7 +56,6 @@
 <script>
 import { allApplicationsHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
-import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapActions } from 'vuex';
@@ -99,8 +98,6 @@ export default {
       tableData: GET_ALL_APPS
     })
   },
-
-  mixins: [dashboardSearch],
 
   async created() {
     this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));

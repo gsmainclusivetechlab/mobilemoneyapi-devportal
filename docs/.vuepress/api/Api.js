@@ -45,7 +45,6 @@ class Api {
     this.headersForOneRequest = {};
   }
 
-  // TODO fix setting headers - need set headers for every request
   onAccessTokenFetched() {
     const [id_token, x_user_token] = CookieManager.getValues([ID_TOKEN], [X_USER_TOKEN]);
     this.requestsQueue.forEach((callback) => callback(id_token, x_user_token));
@@ -74,7 +73,6 @@ class Api {
   }
 
   initClient() {
-    // this.client = this.client ?? axios.create({
     this.client = axios.create({
       baseURL: BASE_URL,
       headers: {

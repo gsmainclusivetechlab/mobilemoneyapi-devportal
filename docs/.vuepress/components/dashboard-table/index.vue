@@ -58,7 +58,6 @@
 import DashboardTableBottom from './dashboard-table-bottom';
 import DashboardTableTop from './dashboard-table-top';
 import DashboardModal from '../dashboard-modal';
-import dashboardSearch from '@/mixins/dashboardSearch';
 import SpinnerComponent from '@/components/helpers/spinner-component';
 
 export default {
@@ -123,8 +122,6 @@ export default {
       modalIsVisible: false
     };
   },
-
-  mixins: [dashboardSearch],
 
   methods: {
     toggleModal() {

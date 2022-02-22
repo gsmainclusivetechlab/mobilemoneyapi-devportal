@@ -84,7 +84,6 @@
 <script>
 import { allUsersHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
-import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardTable from '../dashboard-table';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapGetters, mapState, mapActions } from 'vuex';
@@ -140,8 +139,6 @@ export default {
 
     ...mapState(USER, ['userData'])
   },
-
-  mixins: [dashboardSearch],
 
   async created() {
     this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));

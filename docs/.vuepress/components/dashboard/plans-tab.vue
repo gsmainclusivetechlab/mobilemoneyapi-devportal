@@ -46,7 +46,6 @@ import { allPlansHeaderTitles } from '@/constants';
 import UserOptionsBlock from '../user-options-block';
 import { mixin as clickaway } from 'vue-clickaway';
 import DashboardTable from '../dashboard-table';
-import dashboardSearch from '@/mixins/dashboardSearch';
 import DashboardCell from '../dashboard-table/dashboard-cell';
 import { mapState, mapGetters } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
@@ -94,8 +93,6 @@ export default {
 
     ...mapState(USER, ['userData'])
   },
-
-  mixins: [clickaway, dashboardSearch],
 
   async created() {
     this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));

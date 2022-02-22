@@ -198,8 +198,14 @@ export default {
     async editApp() {
       try {
         this.waitingResponseUpdate = true;
-        console.dir(this.form);
-        await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), this.form);
+        const payload = {
+          appName: this.form.appName,
+          usagePlan: this.getPublishedUsagePlans.find(
+            (plan) => plan.label === this.form.usagePlanName
+          ).value
+        };
+
+        await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), payload);
         this.handleEditClick(true);
       } catch (error) {
         console.log(error);
