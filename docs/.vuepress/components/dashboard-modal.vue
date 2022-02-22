@@ -130,8 +130,14 @@ export default {
 
     async createApp() {
       this.waitingResponse = true;
+      const payload = {
+        appName: this.form.appName,
+        usagePlan: this.getPublishedUsagePlans.find(
+          (plan) => plan.label === this.form.usagePlanName
+        ).value
+      };
 
-      const response = await this.$store.dispatch(nameWithSlash(MY_APPS, POST_APP), this.form);
+      const response = await this.$store.dispatch(nameWithSlash(MY_APPS, POST_APP), payload);
 
       if (response.status === 201) {
         this.handleModalClose();
