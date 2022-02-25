@@ -60,24 +60,33 @@ Body Parameters:
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
 
-```javascript
-//some JavaScript code here 
-```
+<code-group title="PHP">
+<code-block title="createMerchantTransaction">
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="createMerchantTransaction">
 
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
+<code-group title="Java">
+<code-block title="createMerchantTransaction">
 
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createMerchantTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createMerchantTransaction">
 
 </code-block>
 </code-group>
@@ -277,56 +286,73 @@ GET .../transactions/Place Transaction Reference here
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
 
-```javascript
-//some JavaScript code here 
-```
+<code-group title="PHP">
+<code-block title="createMerchantTransaction">
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
+</code-block>
+
+<code-block title="viewRequestState">
+<<< @/code-snippets/php/merchantPayment/viewRequestState.php
+</code-block>
+
+<code-block title="viewTransaction">
+<<< @/code-snippets/php/merchantPayment/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="createMerchantTransaction">
 
 </code-block>
-<code-block title="GET">
 
-```javascript
-//some JavaScript code here 
-```
+<code-block title="viewRequestState">
 
 </code-block>
-<code-block title="GET">
 
-```javascript
-//some JavaScript code here 
-```
+<code-block title="viewTransaction">
 
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="Java">
+<code-block title="createMerchantTransaction">
 
 </code-block>
-<code-block title="GET">
 
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="viewRequestState">
 
 </code-block>
-<code-block title="GET">
 
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="viewTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createMerchantTransaction">
+
+</code-block>
+
+<code-block title="viewRequestState">
+
+</code-block>
+
+<code-block title="viewTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createMerchantTransaction">
+
+</code-block>
+
+<code-block title="viewRequestState">
+
+</code-block>
+
+<code-block title="viewTransaction">
 
 </code-block>
 </code-group>
