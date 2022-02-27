@@ -9,20 +9,24 @@ title: Agent Services - Use Case Scenarios
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+
+
 # About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
+
+
 
 ## Agent-initiated Cash-out
 
 In this example, an asynchronous cash-out flow is used with a final callback.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/withdrawal
 ---
@@ -51,35 +55,46 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createWithdrawalTransaction">
+<<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createWithdrawalTransaction">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -105,11 +120,11 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamFGd" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfdP" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
 
 
 ## Agent-initiated Cash-out Failure
@@ -146,13 +161,12 @@ sequenceDiagram
 
 In this example, an asynchronous cash-out flow is used with the polling method. The client polls against the request state object to determine the outcome of the cash-out request.
 
- 
-
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/withdrawal
 ---
@@ -180,76 +194,102 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createWithdrawalTransaction">
+<<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+<code-block title="viewRequestState">
+<<< @/code-snippets/php/agentService/viewRequestState.php
 </code-block>
 
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+<code-block title="viewTransaction">
+<<< @/code-snippets/php/agentService/viewTransaction.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createWithdrawalTransaction">
+
 </code-block>
 
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="viewRequestState">
+
 </code-block>
 
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="viewTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewRequestState">
+
+</code-block>
+
+<code-block title="viewTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewRequestState">
+
+</code-block>
+
+<code-block title="viewTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewRequestState">
+
+</code-block>
+
+<code-block title="viewTransaction">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
- 
-
 
 <mermaid>
 sequenceDiagram
@@ -295,17 +335,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Customer-initiated Cash-out
 
 In this example, an asynchronous cash-out flow is used with a final callback.
-
- 
 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/withdrawal
 ---
@@ -334,34 +374,46 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createWithdrawalTransaction">
+<<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createWithdrawalTransaction">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -390,6 +442,7 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamFRa" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLJEt" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
 
 
 ## Customer-initiated Cash-out Failure
@@ -425,12 +478,12 @@ sequenceDiagram
 
 In this example the /authorisationcodes API is used to obtain a pre-authorised code. This in turn is presented by the withdrawing customer to the ATM which then initiates the cash-out request. Both flows in the diagram result in a callback.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../accounts/accountid/2000/authorisationcodes
 ---
@@ -448,9 +501,11 @@ Body parameters:
     "amount": "1000.00"
 }
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/withdrawal
 ---
@@ -481,48 +536,86 @@ Body parameters:
     "oneTimeCode": "Place your Authorisation Code here"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createAuthorisationCode">
+<<< @/code-snippets/php/agentService/createAuthorisationCode.php
 </code-block>
 
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+<code-block title="createWithdrawalTransaction">
+<<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
+</code-block>
+
+<code-block title="viewAuthorisationCode">
+<<< @/code-snippets/php/agentService/viewAuthorisationCode.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createAuthorisationCode">
+
 </code-block>
 
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewAuthorisationCode">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createAuthorisationCode">
+
+</code-block>
+
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewAuthorisationCode">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createAuthorisationCode">
+
+</code-block>
+
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewAuthorisationCode">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createAuthorisationCode">
+
+</code-block>
+
+<code-block title="createWithdrawalTransaction">
+
+</code-block>
+
+<code-block title="viewAuthorisationCode">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram    
@@ -564,22 +657,25 @@ sequenceDiagram
 </div>
 
 
+
 ## Agent-initiated Customer Cash-in
 
 In this diagram, the agent firstly checks that the depositing customer’s name is correct and will then submit the cash-in request. The final result is returned in the callback.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/accountname
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/deposit
 ---
@@ -608,48 +704,69 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
+
+<code-group title="PHP">
+<code-block title="viewAccountName">
 ```
+See https://github.com/gsmainclusivetechlab/mmapi-php-sdk/issues/26
+```
+<!-- <<< @/code-snippets/php/agentService/viewAccountName.php -->
 </code-block>
 
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+<code-block title="createDepositTransaction">
+<<< @/code-snippets/php/agentService/createDepositTransaction.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewAccountName">
+
 </code-block>
 
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-block title="createDepositTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewAccountName">
+
+</code-block>
+
+<code-block title="createDepositTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewAccountName">
+
+</code-block>
+
+<code-block title="createDepositTransaction">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewAccountName">
+
+</code-block>
+
+<code-block title="createDepositTransaction">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -683,16 +800,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Cash-out Reversal
 
 In some failure scenarios, an agent may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
@@ -708,34 +826,46 @@ Body parameters:
     "type": "reversal"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createReversal">
+<<< @/code-snippets/php/agentService/createReversal.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createReversal">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createReversal">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createReversal">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createReversal">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -759,6 +889,7 @@ sequenceDiagram
 </div>
 
 
+
 ## Register a Customer Mobile Money Account
 
 In this diagram, an agent registers a new mobile money customer on behalf of a mobile money provider.
@@ -769,6 +900,7 @@ In this diagram, an agent registers a new mobile money customer on behalf of a m
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../accounts/individual
 ---
@@ -857,34 +989,46 @@ Body parameters:
   "requestDate": "2017-07-21T17:32:28Z"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="createAccount">
+<<< @/code-snippets/php/agentService/createAccount.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="createAccount">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="createAccount">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="createAccount">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="createAccount">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -908,16 +1052,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Verify a Customer’s KYC
 
 In this diagram, an agent verifies the physical KYC provided by the customer against details held by the mobile money provider and informs the provider that the KYC has been successfully verified.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="PATCH">
+
 ```json{1}
 PATCH .../accounts/accountid/2000/identities/105
 ---
@@ -939,34 +1084,66 @@ Body parameters:
   ]
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="PATCH">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="viewAccount">
+<<< @/code-snippets/php/agentService/viewAccount.php
+</code-block>
+
+<code-block title="updateAccountIdentity">
+<<< @/code-snippets/php/agentService/updateAccountIdentity.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="PATCH">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewAccount">
+
+</code-block>
+
+<code-block title="updateAccountIdentity">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewAccount">
+
+</code-block>
+
+<code-block title="updateAccountIdentity">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewAccount">
+
+</code-block>
+
+<code-block title="updateAccountIdentity">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewAccount">
+
+</code-block>
+
+<code-block title="updateAccountIdentity">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -993,45 +1170,58 @@ sequenceDiagram
 </div>
 
 
+
 ## Obtain an Agent Balance
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="viewAccountBalance">
+<<< @/code-snippets/php/agentService/viewAccountBalance.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewAccountBalance">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewAccountBalance">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewAccountBalance">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewAccountBalance">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -1052,16 +1242,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve Transactions for an Agent
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for an agent via multiple requests.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
@@ -1071,34 +1262,46 @@ Params:
   "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="viewAccountTransactions">
+<<< @/code-snippets/php/agentService/viewAccountTransactions.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewAccountTransactions">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewAccountTransactions">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewAccountTransactions">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewAccountTransactions">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -1123,47 +1326,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="viewServiceAvailability">
+<<< @/code-snippets/php/agentService/viewServiceAvailability.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewServiceAvailability">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewServiceAvailability">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewServiceAvailability">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewServiceAvailability">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -1185,48 +1401,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve a Missing API Response
 
 This API can be used by the agent to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
+
+<code-group title="PHP">
+<code-block title="viewResponse">
+<<< @/code-snippets/php/agentService/viewResponse.php
 </code-block>
 </code-group>
 
-<code-group title="PHP">
-<code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<code-group title="NodeJS">
+<code-block title="viewResponse">
+
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="viewResponse">
+
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="viewResponse">
+
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="viewResponse">
+
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
-
 
 <mermaid>
 sequenceDiagram
