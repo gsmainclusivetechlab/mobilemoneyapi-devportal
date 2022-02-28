@@ -75,13 +75,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAccountLink">
-
+<<< @/code-snippets/nodejs/accountLinking/createAccountLink.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAccountLink">
-
+<<< @/code-snippets/java/accountLinking/createAccountLink.java
 </code-block>
 </code-group>
 
@@ -93,7 +93,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createAccountLink">
-
+<<< @/code-snippets/javascript/accountLinking/createAccountLink.js
 </code-block>
 </code-group>
 
@@ -209,13 +209,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/java/accountLinking/createTransferTransaction.java
 </code-block>
 </code-group>
 
@@ -227,7 +227,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
 </code-block>
 </code-group>
 
@@ -360,29 +360,29 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="NodeJS">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/accountLinking/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/java/accountLinking/createTransferTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/accountLinking/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/accountLinking/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -402,15 +402,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Javascript">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/accountLinking/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -492,13 +492,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/accountLinking/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/accountLinking/createReversal.java
 </code-block>
 </code-group>
 
@@ -510,7 +510,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/accountLinking/createReversal.js
 </code-block>
 </code-group>
 
@@ -567,13 +567,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/accountLinking/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/accountLinking/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -585,7 +585,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/accountLinking/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -647,13 +647,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/accountLinking/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/accountLinking/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -665,7 +665,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/accountLinking/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -725,13 +725,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/accountLinking/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/accountLinking/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -743,7 +743,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/accountLinking/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -800,13 +800,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/accountLinking/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/accountLinking/viewResponse.java
 </code-block>
 </code-group>
 
@@ -818,7 +818,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/accountLinking/viewResponse.js
 </code-block>
 </code-group>
 
