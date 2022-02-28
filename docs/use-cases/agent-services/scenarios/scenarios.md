@@ -71,13 +71,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
@@ -89,7 +89,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
@@ -234,29 +234,29 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="NodeJS">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/agentService/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/agentService/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/agentService/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/agentService/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -276,15 +276,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Javascript">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/agentService/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/javascript/agentService/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -390,13 +390,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
@@ -408,7 +408,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
@@ -560,29 +560,29 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/nodejs/agentService/createAuthorisationCode.js
 </code-block>
 
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/nodejs/agentService/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/java/agentService/createAuthorisationCode.java
 </code-block>
 
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/java/agentService/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
@@ -602,15 +602,15 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/javascript/agentService/createAuthorisationCode.js
 </code-block>
 
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/javascript/agentService/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
@@ -714,10 +714,7 @@ Body parameters:
 
 <code-group title="PHP">
 <code-block title="viewAccountName">
-```
-See https://github.com/gsmainclusivetechlab/mmapi-php-sdk/issues/26
-```
-<!-- <<< @/code-snippets/php/agentService/viewAccountName.php -->
+<<< @/code-snippets/php/agentService/viewAccountName.php
 </code-block>
 
 <code-block title="createDepositTransaction">
@@ -727,21 +724,21 @@ See https://github.com/gsmainclusivetechlab/mmapi-php-sdk/issues/26
 
 <code-group title="NodeJS">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/nodejs/agentService/viewAccountName.js
 </code-block>
 
 <code-block title="createDepositTransaction">
-
+<<< @/code-snippets/nodejs/agentService/createDepositTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/java/agentService/viewAccountName.java
 </code-block>
 
 <code-block title="createDepositTransaction">
-
+<<< @/code-snippets/java/agentService/createDepositTransaction.java
 </code-block>
 </code-group>
 
@@ -757,11 +754,11 @@ See https://github.com/gsmainclusivetechlab/mmapi-php-sdk/issues/26
 
 <code-group title="Javascript">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/javascript/agentService/viewAccountName.js
 </code-block>
 
 <code-block title="createDepositTransaction">
-
+<<< @/code-snippets/javascript/agentService/createDepositTransaction.js
 </code-block>
 </code-group>
 
@@ -1005,13 +1002,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAccount">
-
+<<< @/code-snippets/nodejs/agentService/createAccount.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAccount">
-
+<<< @/code-snippets/java/agentService/createAccount.java
 </code-block>
 </code-group>
 
@@ -1023,7 +1020,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createAccount">
-
+<<< @/code-snippets/javascript/agentService/createAccount.js
 </code-block>
 </code-group>
 
@@ -1104,21 +1101,21 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="viewAccount">
-
+<<< @/code-snippets/nodejs/agentService/viewAccount.js
 </code-block>
 
 <code-block title="updateAccountIdentity">
-
+<<< @/code-snippets/nodejs/agentService/updateAccountIdentity.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccount">
-
+<<< @/code-snippets/java/agentService/viewAccount.java
 </code-block>
 
 <code-block title="updateAccountIdentity">
-
+<<< @/code-snippets/java/agentService/updateAccountIdentity.java
 </code-block>
 </code-group>
 
@@ -1134,11 +1131,11 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="viewAccount">
-
+<<< @/code-snippets/javascript/agentService/viewAccount.js
 </code-block>
 
 <code-block title="updateAccountIdentity">
-
+<<< @/code-snippets/javascript/agentService/updateAccountIdentity.js
 </code-block>
 </code-group>
 
@@ -1198,13 +1195,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/agentService/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/agentService/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -1216,7 +1213,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/agentService/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -1278,13 +1275,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/agentService/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/agentService/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -1296,7 +1293,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/agentService/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -1356,13 +1353,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/agentService/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/agentService/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1374,7 +1371,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/agentService/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1431,13 +1428,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/agentService/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/agentService/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1449,7 +1446,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/agentService/viewResponse.js
 </code-block>
 </code-group>
 
