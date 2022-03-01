@@ -76,13 +76,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
@@ -94,7 +94,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
@@ -212,13 +212,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
@@ -230,7 +230,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
@@ -363,29 +363,29 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="NodeJS">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/recurringPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/recurringPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -405,15 +405,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Javascript">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/recurringPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/javascript/recurringPayment/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -508,13 +508,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/nodejs/recurringPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/java/recurringPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
@@ -526,7 +526,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/javascript/recurringPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
@@ -597,13 +597,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/recurringPayment/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/recurringPayment/createReversal.java
 </code-block>
 </code-group>
 
@@ -615,7 +615,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/recurringPayment/createReversal.js
 </code-block>
 </code-group>
 
@@ -704,13 +704,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
@@ -722,7 +722,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
@@ -779,13 +779,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/recurringPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -797,7 +797,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/recurringPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -859,13 +859,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/recurringPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -877,7 +877,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/recurringPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -937,13 +937,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/recurringPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -955,7 +955,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/recurringPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1012,13 +1012,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/recurringPayment/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/recurringPayment/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1030,7 +1030,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/recurringPayment/viewResponse.js
 </code-block>
 </code-group>
 
