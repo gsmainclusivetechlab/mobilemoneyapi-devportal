@@ -69,13 +69,13 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
@@ -87,7 +87,7 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
@@ -228,29 +228,29 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="NodeJS">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/merchantPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/merchantPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -270,15 +270,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Javascript">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/merchantPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -384,13 +384,13 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
@@ -402,7 +402,7 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
@@ -554,29 +554,29 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/nodejs/merchantPayment/createAuthorisationCode.js
 </code-block>
 
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/java/merchantPayment/createAuthorisationCode.java
 </code-block>
 
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/java/merchantPayment/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
@@ -596,15 +596,15 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/javascript/merchantPayment/createAuthorisationCode.js
 </code-block>
 
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/javascript/merchantPayment/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
@@ -705,13 +705,13 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/nodejs/merchantPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/java/merchantPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
@@ -723,7 +723,7 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/javascript/merchantPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
@@ -794,13 +794,13 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/merchantPayment/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/merchantPayment/createReversal.java
 </code-block>
 </code-group>
 
@@ -812,7 +812,7 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/merchantPayment/createReversal.js
 </code-block>
 </code-group>
 
@@ -869,13 +869,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/merchantPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -887,7 +887,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/merchantPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -949,13 +949,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/merchantPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -967,7 +967,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/merchantPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -1027,13 +1027,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/merchantPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1045,7 +1045,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/merchantPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1102,13 +1102,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/merchantPayment/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/merchantPayment/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1120,7 +1120,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/merchantPayment/viewResponse.js
 </code-block>
 </code-group>
 
