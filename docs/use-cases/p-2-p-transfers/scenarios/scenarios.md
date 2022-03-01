@@ -142,29 +142,29 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/nodejs/p2pTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/java/p2pTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/java/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -184,15 +184,15 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/javascript/p2pTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -339,21 +339,21 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/nodejs/p2pTransfer/createTransferTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/java/p2pTransfer/createTransferTransaction.java
 </code-block>
 </code-group>
 
@@ -369,11 +369,11 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/javascript/p2pTransfer/createTransferTransaction.js
 </code-block>
 </code-group>
 
@@ -536,29 +536,29 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/nodejs/p2pTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/java/p2pTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/java/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -578,15 +578,15 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/javascript/p2pTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -714,13 +714,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/p2pTransfer/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/p2pTransfer/createReversal.java
 </code-block>
 </code-group>
 
@@ -732,7 +732,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/p2pTransfer/createReversal.js
 </code-block>
 </code-group>
 
@@ -790,13 +790,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/p2pTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -808,7 +808,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -871,13 +871,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/p2pTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -889,7 +889,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -950,13 +950,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/p2pTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -968,7 +968,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1026,13 +1026,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/p2pTransfer/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/p2pTransfer/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1044,7 +1044,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/p2pTransfer/viewResponse.js
 </code-block>
 </code-group>
 
