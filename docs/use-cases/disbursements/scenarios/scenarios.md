@@ -69,13 +69,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
 </code-block>
 </code-group>
 
@@ -87,7 +87,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
 </code-block>
 </code-group>
 
@@ -250,37 +250,37 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="NodeJS">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/java/disbursement/createBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/java/disbursement/viewBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/java/disbursement/viewBatchCompletions.java
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/java/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
@@ -304,19 +304,19 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="Javascript">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
@@ -498,45 +498,45 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="NodeJS">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
 </code-block>
 
 <code-block title="updateBatchTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/updateBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/java/disbursement/createBatchTransaction.java
 </code-block>
 
 <code-block title="updateBatchTransaction">
-
+<<< @/code-snippets/java/disbursement/updateBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/java/disbursement/viewBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/java/disbursement/viewBatchCompletions.java
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/java/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
@@ -564,23 +564,23 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="Javascript">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
 </code-block>
 
 <code-block title="updateBatchTransaction">
-
+<<< @/code-snippets/javascript/disbursement/updateBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
@@ -717,29 +717,29 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="NodeJS">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/disbursement/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/disbursement/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/disbursement/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/disbursement/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -759,15 +759,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Javascript">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/disbursement/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/javascript/disbursement/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -849,13 +849,13 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/disbursement/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/disbursement/createReversal.java
 </code-block>
 </code-group>
 
@@ -867,7 +867,7 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/disbursement/createReversal.js
 </code-block>
 </code-group>
 
@@ -924,13 +924,13 @@ POST .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/disbursement/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/disbursement/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -942,7 +942,7 @@ POST .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/disbursement/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -1004,13 +1004,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/disbursement/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/disbursement/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -1022,7 +1022,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/disbursement/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -1082,13 +1082,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/disbursement/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/disbursement/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1100,7 +1100,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/disbursement/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1157,13 +1157,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/disbursement/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/disbursement/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1175,7 +1175,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/disbursement/viewResponse.js
 </code-block>
 </code-group>
 
