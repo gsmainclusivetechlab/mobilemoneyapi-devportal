@@ -53,27 +53,24 @@ Params:
 <code-group title="NodeJS">
 <code-block title="viewAccountBills">
 <<< @/code-snippets/nodejs/billPayment/viewAccountBills.js
-
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBills">
 <<< @/code-snippets/java/billPayment/viewAccountBills.java
-
 </code-block>
 </code-group>
 
 <code-group title="Android">
 <code-block title="viewAccountBills">
-<<< @/code-snippets/javascript/billPayment/viewAccountBills.js
-
+<<< @/code-snippets/android/billPayment/viewAccountBills.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
 <code-block title="viewAccountBills">
-
+<<< @/code-snippets/javascript/billPayment/viewAccountBills.js
 </code-block>
 </code-group>
 
@@ -186,11 +183,11 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createBillTransaction">
-
+<<< @/code-snippets/android/billPayment/createBillTransaction.java
 </code-block>
 
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/android/billPayment/createBillPayment.java
 </code-block>
 </code-group>
 
@@ -365,15 +362,15 @@ GET .../requestStates/Place the Server Correlation Id here
 
 <code-group title="Android">
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/android/billPayment/createBillPayment.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/billPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/billPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -468,7 +465,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewBillPayment">
-
+<<< @/code-snippets/android/billPayment/viewBillPayment.java
 </code-block>
 </code-group>
 
@@ -546,7 +543,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/billPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 

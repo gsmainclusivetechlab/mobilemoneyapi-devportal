@@ -87,7 +87,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createAccountLink">
-
+<<< @/code-snippets/android/accountLinking/createAccountLink.java
 </code-block>
 </code-group>
 
@@ -221,7 +221,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/android/accountLinking/createTransferTransaction.java
 </code-block>
 </code-group>
 
@@ -388,15 +388,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Android">
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/android/accountLinking/createTransferTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/accountLinking/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/accountLinking/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -504,7 +504,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/accountLinking/createReversal.java
 </code-block>
 </code-group>
 
@@ -579,7 +579,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/accountLinking/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -659,7 +659,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/accountLinking/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -737,7 +737,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/accountLinking/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -812,7 +812,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/accountLinking/viewResponse.java
 </code-block>
 </code-group>
 

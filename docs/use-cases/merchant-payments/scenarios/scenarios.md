@@ -81,7 +81,7 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
@@ -256,15 +256,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Android">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/merchantPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/merchantPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -582,15 +582,15 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/android/merchantPayment/createAuthorisationCode.java
 </code-block>
 
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/android/merchantPayment/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
@@ -717,7 +717,7 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/android/merchantPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
@@ -806,7 +806,7 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/merchantPayment/createReversal.java
 </code-block>
 </code-group>
 
@@ -881,7 +881,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/merchantPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -961,7 +961,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/merchantPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -1039,7 +1039,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/merchantPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1114,7 +1114,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/merchantPayment/viewResponse.java
 </code-block>
 </code-group>
 

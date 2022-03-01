@@ -243,15 +243,15 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/android/internationalTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/android/internationalTransfer/viewRequestState.java
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/android/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -545,15 +545,15 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/android/internationalTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/android/internationalTransfer/viewRequestState.java
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/android/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -704,7 +704,7 @@ Body Parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/internationalTransfer/createReversal.java
 </code-block>
 </code-group>
 
@@ -779,7 +779,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/internationalTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -859,7 +859,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/internationalTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -937,7 +937,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/internationalTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1012,7 +1012,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/internationalTransfer/viewResponse.java
 </code-block>
 </code-group>
 

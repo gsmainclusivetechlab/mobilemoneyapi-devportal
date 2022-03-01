@@ -83,7 +83,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
@@ -262,15 +262,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Android">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/agentService/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/agentService/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -402,7 +402,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
@@ -588,15 +588,15 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createAuthorisationCode">
-
+<<< @/code-snippets/android/agentService/createAuthorisationCode.java
 </code-block>
 
 <code-block title="createWithdrawalTransaction">
-
+<<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 
 <code-block title="viewAuthorisationCode">
-
+<<< @/code-snippets/android/agentService/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
@@ -744,11 +744,11 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/android/agentService/viewAccountName.java
 </code-block>
 
 <code-block title="createDepositTransaction">
-
+<<< @/code-snippets/android/agentService/createDepositTransaction.java
 </code-block>
 </code-group>
 
@@ -839,25 +839,25 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/agentService/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/agentService/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/agentService/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/agentService/createReversal.js
 </code-block>
 </code-group>
 
@@ -1014,7 +1014,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createAccount">
-
+<<< @/code-snippets/android/agentService/createAccount.java
 </code-block>
 </code-group>
 
@@ -1121,11 +1121,11 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="viewAccount">
-
+<<< @/code-snippets/android/agentService/viewAccount.java
 </code-block>
 
 <code-block title="updateAccountIdentity">
-
+<<< @/code-snippets/android/agentService/updateAccountIdentity.java
 </code-block>
 </code-group>
 
@@ -1207,7 +1207,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/agentService/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -1287,7 +1287,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/agentService/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -1365,7 +1365,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/agentService/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1440,7 +1440,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/agentService/viewResponse.java
 </code-block>
 </code-group>
 

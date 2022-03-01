@@ -81,7 +81,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
 </code-block>
 </code-group>
 
@@ -286,19 +286,19 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="Android">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/android/disbursement/createBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/android/disbursement/viewBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/android/disbursement/viewBatchCompletions.java
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/android/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
@@ -542,23 +542,23 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 
 <code-group title="Android">
 <code-block title="createBatchTransaction">
-
+<<< @/code-snippets/android/disbursement/createBatchTransaction.java
 </code-block>
 
 <code-block title="updateBatchTransaction">
-
+<<< @/code-snippets/android/disbursement/updateBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchTransaction">
-
+<<< @/code-snippets/android/disbursement/viewBatchTransaction.java
 </code-block>
 
 <code-block title="viewBatchCompletions">
-
+<<< @/code-snippets/android/disbursement/viewBatchCompletions.java
 </code-block>
 
 <code-block title="viewBatchRejections">
-
+<<< @/code-snippets/android/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
@@ -745,15 +745,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Android">
 <code-block title="createDisbursementTransaction">
-
+<<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/disbursement/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/disbursement/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -861,7 +861,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/disbursement/createReversal.java
 </code-block>
 </code-group>
 
@@ -936,7 +936,7 @@ POST .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/disbursement/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -1016,7 +1016,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/disbursement/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -1094,7 +1094,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/disbursement/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1169,7 +1169,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/disbursement/viewResponse.java
 </code-block>
 </code-group>
 

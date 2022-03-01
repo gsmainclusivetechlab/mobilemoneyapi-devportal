@@ -170,15 +170,15 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/android/p2pTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/android/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -359,11 +359,11 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/android/p2pTransfer/createTransferTransaction.java
 </code-block>
 </code-group>
 
@@ -564,15 +564,15 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="viewAccountName">
-
+<<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
 <code-block title="createQuotation">
-
+<<< @/code-snippets/android/p2pTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createTransferTransaction">
-
+<<< @/code-snippets/android/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -726,7 +726,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/p2pTransfer/createReversal.java
 </code-block>
 </code-group>
 
@@ -802,7 +802,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/p2pTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -883,7 +883,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/p2pTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -962,7 +962,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/p2pTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1038,7 +1038,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/p2pTransfer/viewResponse.java
 </code-block>
 </code-group>
 

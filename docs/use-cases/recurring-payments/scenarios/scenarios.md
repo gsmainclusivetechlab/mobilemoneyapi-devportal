@@ -88,7 +88,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
@@ -224,7 +224,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
@@ -391,15 +391,15 @@ GET .../transactions/Place Transaction Reference here
 
 <code-group title="Android">
 <code-block title="createMerchantTransaction">
-
+<<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/android/recurringPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/android/recurringPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -520,7 +520,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createRefundTransaction">
-
+<<< @/code-snippets/android/recurringPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
@@ -609,7 +609,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createReversal">
-
+<<< @/code-snippets/android/recurringPayment/createReversal.java
 </code-block>
 </code-group>
 
@@ -716,7 +716,7 @@ Body parameters:
 
 <code-group title="Android">
 <code-block title="createAccountDebitMandate">
-
+<<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
@@ -791,7 +791,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Android">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/android/recurringPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -871,7 +871,7 @@ Params:
 
 <code-group title="Android">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/android/recurringPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -949,7 +949,7 @@ GET .../heartbeat
 
 <code-group title="Android">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/android/recurringPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -1024,7 +1024,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Android">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/android/recurringPayment/viewResponse.java
 </code-block>
 </code-group>
 
