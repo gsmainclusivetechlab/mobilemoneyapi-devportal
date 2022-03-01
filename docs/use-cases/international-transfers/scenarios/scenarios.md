@@ -215,29 +215,29 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/java/internationalTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/java/internationalTransfer/viewRequestState.java
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/java/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -257,15 +257,15 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -517,29 +517,29 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/java/internationalTransfer/createQuotation.java
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/java/internationalTransfer/viewRequestState.java
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/java/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -559,15 +559,15 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createQuotation">
-
+<<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
 </code-block>
 
 <code-block title="createInternationalTransaction">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
 </code-block>
 
 <code-block title="viewQuotation">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -692,13 +692,13 @@ Body Parameters:
 
 <code-group title="NodeJS">
 <code-block title="createReversal">
-
+<<< @/code-snippets/nodejs/internationalTransfer/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createReversal">
-
+<<< @/code-snippets/java/internationalTransfer/createReversal.java
 </code-block>
 </code-group>
 
@@ -710,7 +710,7 @@ Body Parameters:
 
 <code-group title="Javascript">
 <code-block title="createReversal">
-
+<<< @/code-snippets/javascript/internationalTransfer/createReversal.js
 </code-block>
 </code-group>
 
@@ -767,13 +767,13 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/java/internationalTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
@@ -785,7 +785,7 @@ GET .../accounts/accountid/2000/balance
 
 <code-group title="Javascript">
 <code-block title="viewAccountBalance">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
@@ -847,13 +847,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/java/internationalTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
@@ -865,7 +865,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewAccountTransactions">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
@@ -925,13 +925,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/internationalTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -943,7 +943,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
@@ -1000,13 +1000,13 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="NodeJS">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/nodejs/internationalTransfer/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/java/internationalTransfer/viewResponse.java
 </code-block>
 </code-group>
 
@@ -1018,7 +1018,7 @@ GET .../responses/Please enter your UUID here
 
 <code-group title="Javascript">
 <code-block title="viewResponse">
-
+<<< @/code-snippets/javascript/internationalTransfer/viewResponse.js
 </code-block>
 </code-group>
 
