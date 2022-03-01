@@ -52,18 +52,21 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewAccountBills">
+<<< @/code-snippets/nodejs/billPayment/viewAccountBills.js
 
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewAccountBills">
+<<< @/code-snippets/java/billPayment/viewAccountBills.java
 
 </code-block>
 </code-group>
 
 <code-group title="Android">
 <code-block title="viewAccountBills">
+<<< @/code-snippets/javascript/billPayment/viewAccountBills.js
 
 </code-block>
 </code-group>
@@ -163,21 +166,21 @@ Body parameters:
 
 <code-group title="NodeJS">
 <code-block title="createBillTransaction">
-
+<<< @/code-snippets/nodejs/billPayment/createBillTransaction.js
 </code-block>
 
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/nodejs/billPayment/createBillPayment.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createBillTransaction">
-
+<<< @/code-snippets/java/billPayment/createBillTransaction.java
 </code-block>
 
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/java/billPayment/createBillPayment.java
 </code-block>
 </code-group>
 
@@ -193,11 +196,11 @@ Body parameters:
 
 <code-group title="Javascript">
 <code-block title="createBillTransaction">
-
+<<< @/code-snippets/javascript/billPayment/createBillTransaction.js
 </code-block>
 
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/javascript/billPayment/createBillPayment.js
 </code-block>
 </code-group>
 
@@ -334,29 +337,29 @@ GET .../requestStates/Place the Server Correlation Id here
 
 <code-group title="NodeJS">
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/nodejs/billPayment/createBillPayment.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/nodejs/billPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/nodejs/billPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/java/billPayment/createBillPayment.java
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/java/billPayment/viewRequestState.java
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/java/billPayment/viewTransaction.java
 </code-block>
 </code-group>
 
@@ -376,15 +379,15 @@ GET .../requestStates/Place the Server Correlation Id here
 
 <code-group title="Javascript">
 <code-block title="createBillPayment">
-
+<<< @/code-snippets/javascript/billPayment/createBillPayment.js
 </code-block>
 
 <code-block title="viewRequestState">
-
+<<< @/code-snippets/javascript/billPayment/viewRequestState.js
 </code-block>
 
 <code-block title="viewTransaction">
-
+<<< @/code-snippets/javascript/billPayment/viewTransaction.js
 </code-block>
 </code-group>
 
@@ -453,13 +456,13 @@ Params:
 
 <code-group title="NodeJS">
 <code-block title="viewBillPayment">
-
+<<< @/code-snippets/nodejs/billPayment/viewBillPayment.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewBillPayment">
-
+<<< @/code-snippets/java/billPayment/viewBillPayment.java
 </code-block>
 </code-group>
 
@@ -471,7 +474,7 @@ Params:
 
 <code-group title="Javascript">
 <code-block title="viewBillPayment">
-
+<<< @/code-snippets/javascript/billPayment/viewBillPayment.js
 </code-block>
 </code-group>
 
@@ -531,13 +534,13 @@ GET .../heartbeat
 
 <code-group title="NodeJS">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/nodejs/billPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/java/billPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
@@ -549,7 +552,7 @@ GET .../heartbeat
 
 <code-group title="Javascript">
 <code-block title="viewServiceAvailability">
-
+<<< @/code-snippets/javascript/billPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
