@@ -1,6 +1,6 @@
 export default {
   usagePlans: [],
-  sortValue: 'publish',
+  sortValue: 'planName',
   searchValue: '',
   searchField: ''
 };
