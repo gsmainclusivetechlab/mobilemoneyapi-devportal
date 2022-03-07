@@ -75,6 +75,10 @@ export default {
         {
           title: 'Publish',
           value: 'publish'
+        },
+        {
+          title: 'Alphabetically',
+          value: 'planName'
         }
       ]
     };
