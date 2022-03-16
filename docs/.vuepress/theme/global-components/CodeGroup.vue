@@ -1,34 +1,34 @@
 <template>
   <ClientOnly>
-    <div class="theme-code-group" :class="{'theme-code-group__hidden': !((title && provideObject.activeLanguage === title) ||
-    !title)}" :style="{'padding': isButtonShow ? '8px 0 0' : '8px 0'}">
+    <div
+      class="theme-code-group"
+      :class="{
+        'theme-code-group__hidden': !((title && provideObject.activeLanguage === title) || !title)
+      }"
+      :style="{ padding: isButtonShow ? '8px 0 0' : '8px 0' }"
+    >
       <div class="theme-code-group__nav">
         <ul class="theme-code-group__ul">
-          <li
-              v-for="(tab, i) in codeTabs"
-              :key="`${tab.title}${i}`"
-              class="theme-code-group__li"
-          >
+          <li v-for="(tab, i) in codeTabs" :key="`${tab.title}${i}`" class="theme-code-group__li">
             <button
-                class="theme-code-group__nav-tab"
-                :class="{
-                'theme-code-group__nav-tab-active': i === provideObject.activeMethodIndex,
+              class="theme-code-group__nav-tab"
+              :class="{
+                'theme-code-group__nav-tab-active': i === provideObject.activeMethodIndex
               }"
-                @click="changeCodeTab(i)"
+              @click="changeCodeTab(i)"
             >
               {{ tab.title }}
             </button>
           </li>
         </ul>
       </div>
-      <slot/>
+      <slot />
       <div class="code-arrow" v-if="isButtonShow" @click="isButtonClick()">
         {{ isVisibleContent ? 'Show less' : 'Show more' }}
       </div>
-      <pre
-          v-if="codeTabs.length < 1"
-          class="pre-blank"
-      >// Make sure to add code blocks to your code group</pre>
+      <pre v-if="codeTabs.length < 1" class="pre-blank">
+// Make sure to add code blocks to your code group</pre
+      >
     </div>
   </ClientOnly>
 </template>
@@ -44,7 +44,7 @@ export default {
     title: {
       type: String,
       default: ''
-    },
+    }
   },
   data() {
     return {
@@ -67,7 +67,7 @@ export default {
   watch: {
     'provideObject.activeMethodIndex'(index) {
       this.activateCodeTab(index);
-      if (this.provideObject.activeCodeTabIndex === 0 && ! this.title) {
+      if (this.provideObject.activeCodeTabIndex === 0 && !this.title) {
         if (this.afterInitComponent) {
           this.checkScrollHeight();
         }
@@ -87,7 +87,7 @@ export default {
       }
     },
     activeCodeBlock(val) {
-      if (val !== this.$parent.$parent._uid && ! this.isNonCollapse) {
+      if (val !== this.$parent.$parent._uid && !this.isNonCollapse) {
         this.isButtonClick(false);
       }
     }
@@ -111,8 +111,12 @@ export default {
   },
   methods: {
     setMinHeight(value) {
-      const elements = this.$el.querySelectorAll('.theme-code-block > div[class^="language-"] > pre[class^="language-"]');
-      const elementsActive = this.$el.querySelectorAll('.theme-code-block.theme-code-block__active > .language-json > pre.language-json');
+      const elements = this.$el.querySelectorAll(
+        '.theme-code-block > div[class^="language-"] > pre[class^="language-"]'
+      );
+      const elementsActive = this.$el.querySelectorAll(
+        '.theme-code-block.theme-code-block__active > .language-json > pre.language-json'
+      );
 
       for (let el of elements) {
         if (value === 130) {
@@ -128,33 +132,49 @@ export default {
     },
     isButtonClick(param) {
       if (param !== undefined) this.isVisibleContent = param;
-      else this.isVisibleContent = ! this.isVisibleContent;
+      else this.isVisibleContent = !this.isVisibleContent;
 
       if (this.isVisibleContent) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = `${this.scrollHeight}px`;
-        this.$store.commit(nameWithSlash(CODE_PANEL, SET_ACTIVE_CODE_BLOCK), this.$parent.$parent._uid);
-      } else if (this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')) {
-        this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]').style.maxHeight = '130px';
+        this.$el.querySelector(
+          '.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]'
+        ).style.maxHeight = `${this.scrollHeight}px`;
+        this.$store.commit(
+          nameWithSlash(CODE_PANEL, SET_ACTIVE_CODE_BLOCK),
+          this.$parent.$parent._uid
+        );
+      } else if (
+        this.$el.querySelector(
+          '.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]'
+        )
+      ) {
+        this.$el.querySelector(
+          '.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]'
+        ).style.maxHeight = '130px';
       }
     },
     changeCodeTab(index) {
       if (this.$parent && this.$parent.$parent) {
         this.$parent.$parent.$emit('set-method-index', index);
         this.activateCodeTab(index);
+        if (this.$el.classList) {
+          this.isButtonClick(false);
+        }
       }
     },
     loadTabs() {
       let vm = this;
-      this.codeTabs = (this.$slots.default || []).filter(slot => Boolean(slot.componentOptions)).map((slot, index) => {
-        if (slot.componentOptions.propsData.active === '') {
-          vm.changeCodeTab(index);
-        }
+      this.codeTabs = (this.$slots.default || [])
+        .filter((slot) => Boolean(slot.componentOptions))
+        .map((slot, index) => {
+          if (slot.componentOptions.propsData.active === '') {
+            vm.changeCodeTab(index);
+          }
 
-        return {
-          title: slot.componentOptions.propsData.title,
-          elm: slot.elm
-        };
-      });
+          return {
+            title: slot.componentOptions.propsData.title,
+            elm: slot.elm
+          };
+        });
 
       if (this.provideObject.activeMethodIndex === -1 && this.codeTabs.length > 0) {
         this.changeCodeTab(0);
@@ -162,7 +182,7 @@ export default {
       this.activateCodeTab(0);
     },
     activateCodeTab(index) {
-      this.codeTabs.forEach(tab => {
+      this.codeTabs.forEach((tab) => {
         if (tab.elm) {
           tab.elm.classList.remove('theme-code-block__active');
         }
@@ -173,9 +193,13 @@ export default {
       }
     },
     checkScrollHeight() {
-      this.scrollHeight = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollHeight;
+      this.scrollHeight = this.$el.querySelector(
+        '.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]'
+      )?.scrollHeight;
 
-      const scrollWidth = this.$el.querySelector('.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]')?.scrollWidth;
+      const scrollWidth = this.$el.querySelector(
+        '.theme-code-block.theme-code-block__active > div[class^="language-"] > pre[class^="language-"]'
+      )?.scrollWidth;
 
       this.scrollHeight += 31; // code copy
 
