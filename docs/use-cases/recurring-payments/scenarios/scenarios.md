@@ -69,31 +69,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createAccountDebitMandate.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
@@ -205,31 +205,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createMerchantTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
@@ -348,71 +348,71 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createMerchantTransaction.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewTransaction.js
 </code-block>
 </code-group>
@@ -501,31 +501,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createRefundTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createRefundTransaction.js
 </code-block>
 </code-group>
@@ -590,31 +590,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createReversal.js
 </code-block>
 </code-group>
@@ -697,31 +697,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/php/recurringPayment/createAccountDebitMandate.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAccountDebitMandate">
+<code-block title="POST">
 <<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
@@ -772,31 +772,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -852,31 +852,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -930,31 +930,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -1005,31 +1005,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/recurringPayment/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/recurringPayment/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/recurringPayment/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/recurringPayment/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/recurringPayment/viewResponse.js
 </code-block>
 </code-group>

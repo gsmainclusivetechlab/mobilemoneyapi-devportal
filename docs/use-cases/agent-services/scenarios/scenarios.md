@@ -64,31 +64,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
@@ -219,71 +219,71 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewTransaction.js
 </code-block>
 </code-group>
@@ -383,31 +383,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 </code-group>
@@ -538,6 +538,15 @@ Body parameters:
 ```
 
 </code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
 </code-group>
 
 </code-block>
@@ -545,71 +554,71 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createAuthorisationCode.php
 </code-block>
 
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createWithdrawalTransaction.php
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewAuthorisationCode.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createAuthorisationCode.js
 </code-block>
 
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createWithdrawalTransaction.js
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createAuthorisationCode.java
 </code-block>
 
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createWithdrawalTransaction.java
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createAuthorisationCode.java
 </code-block>
 
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createWithdrawalTransaction.java
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createAuthorisationCode.js
 </code-block>
 
-<code-block title="createWithdrawalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createWithdrawalTransaction.js
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewAuthorisationCode.js
 </code-block>
 </code-group>
@@ -713,51 +722,51 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewAccountName.php
 </code-block>
 
-<code-block title="createDepositTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createDepositTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewAccountName.js
 </code-block>
 
-<code-block title="createDepositTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createDepositTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewAccountName.java
 </code-block>
 
-<code-block title="createDepositTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createDepositTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewAccountName.java
 </code-block>
 
-<code-block title="createDepositTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createDepositTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewAccountName.js
 </code-block>
 
-<code-block title="createDepositTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createDepositTransaction.js
 </code-block>
 </code-group>
@@ -832,31 +841,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createReversal.js
 </code-block>
 </code-group>
@@ -995,31 +1004,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAccount">
+<code-block title="POST">
 <<< @/code-snippets/php/agentService/createAccount.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAccount">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/agentService/createAccount.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAccount">
+<code-block title="POST">
 <<< @/code-snippets/java/agentService/createAccount.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAccount">
+<code-block title="POST">
 <<< @/code-snippets/android/agentService/createAccount.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAccount">
+<code-block title="POST">
 <<< @/code-snippets/javascript/agentService/createAccount.js
 </code-block>
 </code-group>
@@ -1058,6 +1067,14 @@ In this diagram, an agent verifies the physical KYC provided by the customer aga
 <code-block title="View">
 
 <code-group>
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
 <code-block title="PATCH">
 
 ```json{1}
@@ -1090,51 +1107,51 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccount">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewAccount.php
 </code-block>
 
-<code-block title="updateAccountIdentity">
+<code-block title="PATCH">
 <<< @/code-snippets/php/agentService/updateAccountIdentity.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccount">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewAccount.js
 </code-block>
 
-<code-block title="updateAccountIdentity">
+<code-block title="PATCH">
 <<< @/code-snippets/nodejs/agentService/updateAccountIdentity.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccount">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewAccount.java
 </code-block>
 
-<code-block title="updateAccountIdentity">
+<code-block title="PATCH">
 <<< @/code-snippets/java/agentService/updateAccountIdentity.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccount">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewAccount.java
 </code-block>
 
-<code-block title="updateAccountIdentity">
+<code-block title="PATCH">
 <<< @/code-snippets/android/agentService/updateAccountIdentity.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccount">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewAccount.js
 </code-block>
 
-<code-block title="updateAccountIdentity">
+<code-block title="PATCH">
 <<< @/code-snippets/javascript/agentService/updateAccountIdentity.js
 </code-block>
 </code-group>
@@ -1188,31 +1205,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -1268,31 +1285,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -1346,31 +1363,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -1421,31 +1438,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/agentService/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/agentService/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/agentService/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/agentService/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/agentService/viewResponse.js
 </code-block>
 </code-group>

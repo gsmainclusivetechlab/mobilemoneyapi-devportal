@@ -62,31 +62,31 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
@@ -213,71 +213,71 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewTransaction.js
 </code-block>
 </code-group>
@@ -377,31 +377,31 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createMerchantTransaction">
-
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
@@ -532,6 +532,14 @@ Body Parameters:
 ```
 
 </code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
 </code-group>
 
 </code-block>
@@ -539,71 +547,71 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createAuthorisationCode.php
 </code-block>
 
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewAuthorisationCode.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createAuthorisationCode.js
 </code-block>
 
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createAuthorisationCode.java
 </code-block>
 
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createAuthorisationCode.java
 </code-block>
 
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewAuthorisationCode.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAuthorisationCode">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createAuthorisationCode.js
 </code-block>
 
-<code-block title="createMerchantTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 
-<code-block title="viewAuthorisationCode">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewAuthorisationCode.js
 </code-block>
 </code-group>
@@ -698,31 +706,31 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createRefundTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createRefundTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createRefundTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createRefundTransaction.js
 </code-block>
 </code-group>
@@ -787,31 +795,31 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/merchantPayment/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/merchantPayment/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/merchantPayment/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/merchantPayment/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/merchantPayment/createReversal.js
 </code-block>
 </code-group>
@@ -862,31 +870,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -942,31 +950,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -1020,31 +1028,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -1095,31 +1103,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/merchantPayment/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/merchantPayment/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/merchantPayment/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/merchantPayment/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/merchantPayment/viewResponse.js
 </code-block>
 </code-group>

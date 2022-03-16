@@ -127,71 +127,71 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewAccountName.php
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/createQuotation.php
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
@@ -328,51 +328,51 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewAccountName.php
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/createTransferTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/createTransferTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/createTransferTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/createTransferTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/createTransferTransaction.js
 </code-block>
 </code-group>
@@ -521,71 +521,71 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewAccountName.php
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/createQuotation.php
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewAccountName.java
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountName">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewAccountName.js
 </code-block>
 
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/viewTransaction.js
 </code-block>
 </code-group>
@@ -707,31 +707,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/p2pTransfer/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/p2pTransfer/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/p2pTransfer/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/p2pTransfer/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/p2pTransfer/createReversal.js
 </code-block>
 </code-group>
@@ -783,31 +783,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -864,31 +864,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -943,31 +943,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -1019,31 +1019,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/p2pTransfer/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/p2pTransfer/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/p2pTransfer/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/p2pTransfer/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/p2pTransfer/viewResponse.js
 </code-block>
 </code-group>
