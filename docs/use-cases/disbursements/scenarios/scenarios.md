@@ -13,16 +13,18 @@ title: Disbursements - Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
+
+
 ## Individual Disbursement
 
 This diagram illustrates an individual disbursement using an asynchronous flow with the notification provided via a callback.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/disbursement
 ---
@@ -51,37 +53,46 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/createDisbursementTransaction.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
   sequenceDiagram
@@ -101,82 +112,16 @@ Body parameters:
       deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcFaVS" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfhr" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
+
 ## Individual Disbursement Failure
 
 In this example, an asynchronous flow is used with a final callback that contains the reason for failure.
-
- 
-<code-main-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```json{1}
-POST .../transactions/type/disbursement
----
-Headers:
-{
-   "X-CorrelationID": ["Please enter your UUID here"],
-   "X-Callback-URL": ["Please enter your callback URL here"],
-   "Content-Type": ["application/json"]
-}
----
-Body parameters: 
-{
-    "amount": "200.00",
-    "debitParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "creditParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "currency": "RWF"
-}
-```
-</code-block>
-
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
-
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
-</code-block>
-
-</code-group>
-
-</code-block>
-</code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -197,16 +142,17 @@ sequenceDiagram
 </mermaid>
 
 
+
 ## Bulk Disbursement
 
 This diagram illustrates the flow for a ‘one-shot’ bulk disbursement.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../batchtransactions
 ---
@@ -260,77 +206,130 @@ Body parameters:
     "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="GET">
+
 ```json{1}
 GET .../batchtransactions/Place your Batch Id here/completions
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```json{1}
 GET .../batchtransactions/Place your Batch Id here/rejections
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/createBatchTransaction.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewBatchTransaction.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewBatchCompletions.php
 </code-block>
 
+<code-block title="GET">
+<<< @/code-snippets/php/disbursement/viewBatchRejections.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/disbursement/createBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchCompletions.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchRejections.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/disbursement/createBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchCompletions.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchRejections.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -376,12 +375,36 @@ sequenceDiagram
 
 In this example, an asynchronous flow is used with a final callback that contains the reason for failure to process the bulk request.
 
- 
+<mermaid>
+  sequenceDiagram
+      participant Disbursement Organisation
+      participant Mobile Money Provider 
+      Disbursement Organisation->>Mobile Money Provider: POST /batchtransactions
+      activate Disbursement Organisation
+      activate Mobile Money Provider
+      Note right of Mobile Money Provider: (1) The disbursement organisation submits the batch of<br>transactions for processing to the MMP. The MMP will<br>return the Request State object to indicate that the batch<br>request is 'pending'.
+      Mobile Money Provider-->>Disbursement Organisation: HTTP 202 (Request State Object)      
+      deactivate Disbursement Organisation
+      Mobile Money Provider->>Disbursement Organisation: PUT {Callback URL} (Error Object)
+      activate Disbursement Organisation
+      Note right of Mobile Money Provider: (2) The MMP informs the disbursement organisation that<br>the request has failed by returning the representation of<br>the error object.
+      Disbursement Organisation-->>Mobile Money Provider: HTTP 204
+      deactivate Disbursement Organisation
+      deactivate Mobile Money Provider
+</mermaid>
+
+
+
+## Bulk Disbursement with Maker / Checker
+
+This flow allows a bulk request to be processed in two steps. The first step involves the ‘maker’ system loading the request into the mobile money provider. The second step involves the ‘checker’ system approving the request.
+
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../batchtransactions
 ---
@@ -435,61 +458,158 @@ Body parameters:
     "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
+
+</code-block>
+
+<code-block title="PATCH">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+GET .../batchtransactions/Place your Batch Id here/completions
+```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+GET .../batchtransactions/Place your Batch Id here/rejections
+```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/createBatchTransaction.php
 </code-block>
 
+<code-block title="PATCH">
+<<< @/code-snippets/php/disbursement/updateBatchTransaction.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/disbursement/viewBatchTransaction.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/disbursement/viewBatchCompletions.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/disbursement/viewBatchRejections.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
+</code-block>
+
+<code-block title="PATCH">
+<<< @/code-snippets/nodejs/disbursement/updateBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/disbursement/createBatchTransaction.java
+</code-block>
+
+<code-block title="PATCH">
+<<< @/code-snippets/java/disbursement/updateBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchCompletions.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewBatchRejections.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/disbursement/createBatchTransaction.java
+</code-block>
+
+<code-block title="PATCH">
+<<< @/code-snippets/android/disbursement/updateBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchCompletions.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewBatchRejections.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
+</code-block>
+
+<code-block title="PATCH">
+<<< @/code-snippets/javascript/disbursement/updateBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
-
-
-<mermaid>
-  sequenceDiagram
-      participant Disbursement Organisation
-      participant Mobile Money Provider 
-      Disbursement Organisation->>Mobile Money Provider: POST /batchtransactions
-      activate Disbursement Organisation
-      activate Mobile Money Provider
-      Note right of Mobile Money Provider: (1) The disbursement organisation submits the batch of<br>transactions for processing to the MMP. The MMP will<br>return the Request State object to indicate that the batch<br>request is 'pending'.
-      Mobile Money Provider-->>Disbursement Organisation: HTTP 202 (Request State Object)      
-      deactivate Disbursement Organisation
-      Mobile Money Provider->>Disbursement Organisation: PUT {Callback URL} (Error Object)
-      activate Disbursement Organisation
-      Note right of Mobile Money Provider: (2) The MMP informs the disbursement organisation that<br>the request has failed by returning the representation of<br>the error object.
-      Disbursement Organisation-->>Mobile Money Provider: HTTP 204
-      deactivate Disbursement Organisation
-      deactivate Mobile Money Provider
-</mermaid>
-
-
-## Bulk Disbursement with Maker / Checker
-
-This flow allows a bulk request to be processed in two steps. The first step involves the ‘maker’ system loading the request into the mobile money provider. The second step involves the ‘checker’ system approving the request.
 
 <mermaid>
 sequenceDiagram
@@ -543,16 +663,17 @@ sequenceDiagram
 </mermaid>
 
 
+
 ## Individual Disbursement Using the Polling Method
 
 In this diagram, an asynchronous flow is used with the polling method. The client polls against the request state object to determine the outcome of the individual disbursement request.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/disbursement
 ---
@@ -580,78 +701,102 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
+
 </code-block>
 
 <code-block title="GET">
+
 ```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/createDisbursementTransaction.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewRequestState.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
 </code-block>
 
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewTransaction.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
-
 
 <mermaid>
   sequenceDiagram
@@ -690,13 +835,13 @@ GET .../transactions/Place Transaction Reference here
 ## Disbursement Reversal
 
 In some failure scenarios, a organisation may need to reverse an individual disbursement transaction. This diagram illustrates a reversal with the final result communicated via the callback.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
@@ -712,37 +857,46 @@ Body parameters:
   "type": "reversal"
 }
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/createReversal.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/disbursement/createReversal.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/disbursement/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/disbursement/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/disbursement/createReversal.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
   sequenceDiagram
@@ -769,46 +923,55 @@ Body parameters:
 
 ## Obtain a Disbursement Organisation Balance
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 POST .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewAccountBalance.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewAccountBalance.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewAccountBalance.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -829,16 +992,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve Transactions for a Disbursement Organisation
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a disbursement organisation via multiple requests.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
@@ -848,37 +1012,46 @@ Params:
     "limit": 20
 }
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewAccountTransactions.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewAccountTransactions.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewAccountTransactions.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
   sequenceDiagram
@@ -902,50 +1075,61 @@ Params:
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1wA" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.sts.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewServiceAvailability.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewServiceAvailability.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
   sequenceDiagram
@@ -967,50 +1151,60 @@ GET .../heartbeat
 </div>
 
 
+
 ## Retrieve a Missing API Response
 
 This API can be used by the disbursement organisation to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/disbursement/viewResponse.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/disbursement/viewResponse.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/disbursement/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/disbursement/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/disbursement/viewResponse.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
   sequenceDiagram

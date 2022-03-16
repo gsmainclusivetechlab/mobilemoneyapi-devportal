@@ -9,9 +9,13 @@ title: International Transfers - Use Case Scenarios
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+
+
 # About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
+
+
 
 ## International Transfer via Hub
 
@@ -19,12 +23,12 @@ In this diagram, a hub is used by the sending FSP to obtain a quotation and perf
 
 This flow can also be used for bilateral international transfers.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../quotations
 ---
@@ -103,9 +107,11 @@ Body Parameters:
   "receivingCountry": "AD"
 }
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/inttransfer
 ---
@@ -185,49 +191,94 @@ Body Parameters:
   }
 }
 ```
-</code-block>
-</code-group>
 
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+</code-group>
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/createQuotation.php
 </code-block>
 
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewRequestState.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/internationalTransfer/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/internationalTransfer/createQuotation.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/java/internationalTransfer/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/internationalTransfer/createQuotation.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/android/internationalTransfer/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
- 
 
 <mermaid>
   sequenceDiagram
@@ -277,16 +328,17 @@ Body Parameters:
 </div>
 
 
+
 ## Bilateral International Transfer
 
 In this diagram, the sending FSP connects directly with the receiving FSP to obtain a quotation and to perform the transfer. A callback is provided by the receiving FSP to return confirmation of the transfer.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../quotations
 ---
@@ -365,9 +417,11 @@ Body Parameters:
   "receivingCountry": "AD"
 }
 ```
+
 </code-block>
 
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/type/inttransfer
 ---
@@ -447,49 +501,94 @@ Body Parameters:
   }
 }
 ```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/createQuotation.php
 </code-block>
 
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewRequestState.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/internationalTransfer/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/internationalTransfer/createQuotation.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/java/internationalTransfer/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/internationalTransfer/createQuotation.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/android/internationalTransfer/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -527,6 +626,8 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcFuk7" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfnE" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
+
 
 ## International Transfer Failure
 
@@ -569,13 +670,13 @@ sequenceDiagram
 ## International Transfer Reversal
 
 In some failure scenarios, a transfer may need to be reversed. This diagram illustrates an reversal with the final result communicated via the callback.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
+
 ```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
@@ -591,37 +692,46 @@ Body Parameters:
   "type": "reversal"
 }
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/createReversal.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/internationalTransfer/createReversal.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/internationalTransfer/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/internationalTransfer/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/internationalTransfer/createReversal.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -647,48 +757,56 @@ sequenceDiagram
 
 
 ## Obtain an FSP Balance
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewAccountBalance.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewAccountBalance.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewAccountBalance.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -709,16 +827,17 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve Transactions for an FSP
 
 This diagram illustrates use of a cursor mechanism to retrieve all transactions for a sending FSP via multiple requests.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
@@ -728,37 +847,46 @@ Params:
   "limit": 20
 }
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewAccountTransactions.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewAccountTransactions.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewAccountTransactions.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -783,50 +911,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
-
  
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewServiceAvailability.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewServiceAvailability.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
@@ -848,50 +986,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve a Missing API Response
 
 This API can be used by the sending FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the receiving FSP.
 
- 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
+
 ```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 
 </code-group>
-
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/internationalTransfer/viewResponse.php
 </code-block>
+</code-group>
 
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/internationalTransfer/viewResponse.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/internationalTransfer/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/internationalTransfer/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/internationalTransfer/viewResponse.js
+</code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
- 
 
 <mermaid>
 sequenceDiagram
