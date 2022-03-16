@@ -68,31 +68,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createAccountLink">
+<code-block title="POST">
 <<< @/code-snippets/php/accountLinking/createAccountLink.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createAccountLink">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/accountLinking/createAccountLink.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createAccountLink">
+<code-block title="POST">
 <<< @/code-snippets/java/accountLinking/createAccountLink.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createAccountLink">
+<code-block title="POST">
 <<< @/code-snippets/android/accountLinking/createAccountLink.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createAccountLink">
+<code-block title="POST">
 <<< @/code-snippets/javascript/accountLinking/createAccountLink.js
 </code-block>
 </code-group>
@@ -202,31 +202,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/accountLinking/createTransferTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/accountLinking/createTransferTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/accountLinking/createTransferTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
 </code-block>
 </code-group>
@@ -345,71 +345,71 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/accountLinking/createTransferTransaction.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/accountLinking/createTransferTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/accountLinking/createTransferTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createTransferTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/accountLinking/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
 </code-block>
 </code-group>
@@ -485,31 +485,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/accountLinking/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/accountLinking/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/accountLinking/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/accountLinking/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/accountLinking/createReversal.js
 </code-block>
 </code-group>
@@ -560,31 +560,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/accountLinking/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -640,31 +640,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/accountLinking/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -718,31 +718,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/accountLinking/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -793,31 +793,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/accountLinking/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/accountLinking/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/accountLinking/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/accountLinking/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/accountLinking/viewResponse.js
 </code-block>
 </code-group>

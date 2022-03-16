@@ -62,31 +62,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/disbursement/createDisbursementTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
 </code-block>
 </code-group>
@@ -212,6 +212,14 @@ Body parameters:
 <code-block title="GET">
 
 ```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/completions
 ```
 
@@ -231,91 +239,91 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/disbursement/createBatchTransaction.php
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchTransaction.php
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchCompletions.php
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchRejections.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/disbursement/createBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchCompletions.java
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/disbursement/createBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchCompletions.java
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
@@ -453,6 +461,22 @@ Body parameters:
 
 </code-block>
 
+<code-block title="PATCH">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
 <code-block title="GET">
 
 ```json{1}
@@ -475,111 +499,111 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/disbursement/createBatchTransaction.php
 </code-block>
 
-<code-block title="updateBatchTransaction">
+<code-block title="PATCH">
 <<< @/code-snippets/php/disbursement/updateBatchTransaction.php
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchTransaction.php
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchCompletions.php
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewBatchRejections.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/disbursement/createBatchTransaction.js
 </code-block>
 
-<code-block title="updateBatchTransaction">
+<code-block title="PATCH">
 <<< @/code-snippets/nodejs/disbursement/updateBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchCompletions.js
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/disbursement/createBatchTransaction.java
 </code-block>
 
-<code-block title="updateBatchTransaction">
+<code-block title="PATCH">
 <<< @/code-snippets/java/disbursement/updateBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchCompletions.java
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/disbursement/createBatchTransaction.java
 </code-block>
 
-<code-block title="updateBatchTransaction">
+<code-block title="PATCH">
 <<< @/code-snippets/android/disbursement/updateBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchTransaction.java
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchCompletions.java
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewBatchRejections.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createBatchTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/disbursement/createBatchTransaction.js
 </code-block>
 
-<code-block title="updateBatchTransaction">
+<code-block title="PATCH">
 <<< @/code-snippets/javascript/disbursement/updateBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchTransaction.js
 </code-block>
 
-<code-block title="viewBatchCompletions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchCompletions.js
 </code-block>
 
-<code-block title="viewBatchRejections">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewBatchRejections.js
 </code-block>
 </code-group>
@@ -702,71 +726,71 @@ GET .../transactions/Place Transaction Reference here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/disbursement/createDisbursementTransaction.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/disbursement/createDisbursementTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/disbursement/createDisbursementTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/disbursement/createDisbursementTransaction.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createDisbursementTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/disbursement/createDisbursementTransaction.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewTransaction.js
 </code-block>
 </code-group>
@@ -842,31 +866,31 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/disbursement/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/disbursement/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/disbursement/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/disbursement/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/disbursement/createReversal.js
 </code-block>
 </code-group>
@@ -917,31 +941,31 @@ POST .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -997,31 +1021,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -1075,31 +1099,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -1150,31 +1174,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/disbursement/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/disbursement/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/disbursement/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/disbursement/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/disbursement/viewResponse.js
 </code-block>
 </code-group>

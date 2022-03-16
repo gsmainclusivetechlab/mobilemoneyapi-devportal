@@ -45,31 +45,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBills">
+<code-block title="GET">
 <<< @/code-snippets/php/billPayment/viewAccountBills.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBills">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/billPayment/viewAccountBills.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBills">
+<code-block title="GET">
 <<< @/code-snippets/java/billPayment/viewAccountBills.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBills">
+<code-block title="GET">
 <<< @/code-snippets/android/billPayment/viewAccountBills.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBills">
+<code-block title="GET">
 <<< @/code-snippets/javascript/billPayment/viewAccountBills.js
 </code-block>
 </code-group>
@@ -128,6 +128,14 @@ This diagram illustrates how a mobile money provider can make a bill payment to 
 <code-block title="POST">
 
 ```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```json{1}
 POST .../accounts/accountid/1/bills/REF-000001/payments
 ---
 Headers:
@@ -152,51 +160,51 @@ Body parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createBillTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/billPayment/createBillTransaction.php
 </code-block>
 
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/php/billPayment/createBillPayment.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createBillTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/billPayment/createBillTransaction.js
 </code-block>
 
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/billPayment/createBillPayment.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createBillTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/billPayment/createBillTransaction.java
 </code-block>
 
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/java/billPayment/createBillPayment.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createBillTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/billPayment/createBillTransaction.java
 </code-block>
 
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/android/billPayment/createBillPayment.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createBillTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/billPayment/createBillTransaction.js
 </code-block>
 
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/javascript/billPayment/createBillPayment.js
 </code-block>
 </code-group>
@@ -319,71 +327,71 @@ GET .../requestStates/Place the Server Correlation Id here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/php/billPayment/createBillPayment.php
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/php/billPayment/viewRequestState.php
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/php/billPayment/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/billPayment/createBillPayment.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/billPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/billPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/java/billPayment/createBillPayment.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/java/billPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/java/billPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/android/billPayment/createBillPayment.java
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/android/billPayment/viewRequestState.java
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/android/billPayment/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createBillPayment">
+<code-block title="POST">
 <<< @/code-snippets/javascript/billPayment/createBillPayment.js
 </code-block>
 
-<code-block title="viewRequestState">
+<code-block title="GET">
 <<< @/code-snippets/javascript/billPayment/viewRequestState.js
 </code-block>
 
-<code-block title="viewTransaction">
+<code-block title="GET">
 <<< @/code-snippets/javascript/billPayment/viewTransaction.js
 </code-block>
 </code-group>
@@ -446,31 +454,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewBillPayment">
+<code-block title="GET">
 <<< @/code-snippets/php/billPayment/viewBillPayment.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewBillPayment">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/billPayment/viewBillPayment.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewBillPayment">
+<code-block title="GET">
 <<< @/code-snippets/java/billPayment/viewBillPayment.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewBillPayment">
+<code-block title="GET">
 <<< @/code-snippets/android/billPayment/viewBillPayment.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewBillPayment">
+<code-block title="GET">
 <<< @/code-snippets/javascript/billPayment/viewBillPayment.js
 </code-block>
 </code-group>
@@ -524,31 +532,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/billPayment/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/billPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/billPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/billPayment/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/billPayment/viewServiceAvailability.js
 </code-block>
 </code-group>

@@ -194,77 +194,85 @@ Body Parameters:
 
 </code-block>
 
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
 </code-group>
 </code-block>
 
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/php/internationalTransfer/createQuotation.php
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/internationalTransfer/viewRequestState.php
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/java/internationalTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/internationalTransfer/viewRequestState.java
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/android/internationalTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/internationalTransfer/viewRequestState.java
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
@@ -495,6 +503,14 @@ Body Parameters:
 ```
 
 </code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
 </code-group>
 
 </code-block>
@@ -502,71 +518,71 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/php/internationalTransfer/createQuotation.php
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/php/internationalTransfer/viewRequestState.php
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewTransaction.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/internationalTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/internationalTransfer/viewRequestState.js
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/java/internationalTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/java/internationalTransfer/viewRequestState.java
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/android/internationalTransfer/createQuotation.java
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/android/internationalTransfer/viewRequestState.java
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewTransaction.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createQuotation">
+<code-block title="POST">
 <<< @/code-snippets/javascript/internationalTransfer/createQuotation.js
 </code-block>
 
-<code-block title="createInternationalTransaction">
+<code-block title="POST">
 <<< @/code-snippets/javascript/internationalTransfer/viewRequestState.js
 </code-block>
 
-<code-block title="viewQuotation">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewTransaction.js
 </code-block>
 </code-group>
@@ -685,31 +701,31 @@ Body Parameters:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/php/internationalTransfer/createReversal.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/nodejs/internationalTransfer/createReversal.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/java/internationalTransfer/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/android/internationalTransfer/createReversal.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="createReversal">
+<code-block title="POST">
 <<< @/code-snippets/javascript/internationalTransfer/createReversal.js
 </code-block>
 </code-group>
@@ -760,31 +776,31 @@ GET .../accounts/accountid/2000/balance
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewAccountBalance.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewAccountBalance.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountBalance">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewAccountBalance.js
 </code-block>
 </code-group>
@@ -840,31 +856,31 @@ Params:
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewAccountTransactions.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewAccountTransactions.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewAccountTransactions">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewAccountTransactions.js
 </code-block>
 </code-group>
@@ -918,31 +934,31 @@ GET .../heartbeat
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewServiceAvailability.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewServiceAvailability.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewServiceAvailability">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewServiceAvailability.js
 </code-block>
 </code-group>
@@ -993,31 +1009,31 @@ GET .../responses/Please enter your UUID here
 <code-block title="Code">
 
 <code-group title="PHP">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/php/internationalTransfer/viewResponse.php
 </code-block>
 </code-group>
 
 <code-group title="NodeJS">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/nodejs/internationalTransfer/viewResponse.js
 </code-block>
 </code-group>
 
 <code-group title="Java">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/java/internationalTransfer/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Android">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/android/internationalTransfer/viewResponse.java
 </code-block>
 </code-group>
 
 <code-group title="Javascript">
-<code-block title="viewResponse">
+<code-block title="GET">
 <<< @/code-snippets/javascript/internationalTransfer/viewResponse.js
 </code-block>
 </code-group>
