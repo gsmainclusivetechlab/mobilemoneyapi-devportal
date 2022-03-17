@@ -67,11 +67,6 @@ export default {
   watch: {
     'provideObject.activeMethodIndex'(index) {
       this.activateCodeTab(index);
-      if (this.provideObject.activeCodeTabIndex === 0 && !this.title) {
-        if (this.afterInitComponent) {
-          this.checkScrollHeight();
-        }
-      }
     },
     'provideObject.heightOfCodeGroup'(value) {
       this.setMinHeight(value);
@@ -156,9 +151,9 @@ export default {
       if (this.$parent && this.$parent.$parent) {
         this.$parent.$parent.$emit('set-method-index', index);
         this.activateCodeTab(index);
-        if (this.$el.classList) {
+        if (this.afterInitComponent) {
           this.isButtonClick(false);
-          
+          this.checkScrollHeight();
         }
       }
     },
