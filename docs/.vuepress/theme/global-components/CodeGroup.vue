@@ -158,6 +158,7 @@ export default {
         this.activateCodeTab(index);
         if (this.$el.classList) {
           this.isButtonClick(false);
+          
         }
       }
     },
