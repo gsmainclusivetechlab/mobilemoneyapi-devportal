@@ -8,7 +8,7 @@
 
 </div>
         <div class="section-intro__column">
-          <div class="section-description">Explore our interactive tool that provides a comprehensive set of global metrics by combining unique data sources.</div>
+          <div class="section-description">Explore the GSMA’s interactive tool that provides a comprehensive set of global metrics by combining unique data sources from the GSMA Mobile Money programme.</div>
         </div>
       </div>
       <div class="iframe-box">

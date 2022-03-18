@@ -87,6 +87,41 @@
       }
     }
 
+    &.guidelines-page {
+      .content__default {
+        max-width: 896px;
+        margin-left: auto;
+        padding: 34px 32px 64px;
+
+        p {
+          font-size: 2rem;
+          line-height: 1.8;
+
+          @include media('<tablet') {
+            font-size: 1.6rem;
+          }
+        }
+
+        h1 {
+          font-size: var(--h1-font-size);
+
+          &:first-of-type {
+            padding-top: 139px;
+            margin-bottom: 25px;
+
+            @include media('<tablet') {
+              padding-top: 90px;
+              margin-bottom: 15px;
+            }
+          }
+        }
+
+        .iframe {
+          margin: 31px 0;
+        }
+      }
+    }
+
     .content__default {
       padding: 34px 142px 64px 32px;
       max-width: 100%;
