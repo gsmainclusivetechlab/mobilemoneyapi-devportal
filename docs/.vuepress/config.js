@@ -162,6 +162,10 @@ const mainNavigation = [
         link: '/glossary/'
       },
       {
+        text: 'API Guidelines',
+        link: '/guidelines/'
+      },
+      {
         text: 'FAQ',
         link: '/faq/'
       }

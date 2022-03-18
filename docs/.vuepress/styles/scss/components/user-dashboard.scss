@@ -1,0 +1,38 @@
+.user-dashboard {
+  &-section {
+    text-align: center;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+  }
+  &__intro {
+    display: flex;
+    padding: 0 15px;
+    width: 50%;
+
+    @include media('<tablet') {
+      width: unset;
+      min-width: 320px;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+  }
+  &__description {
+    text-align: left;
+    font-size: 1.8rem;
+    line-height: 1.65;
+    padding: 0 15px;
+    width: 50%;
+
+    @include media('<tablet') {
+      font-size: 1.6rem;
+      width: 100%;
+    }
+  }
+}

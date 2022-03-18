@@ -5,23 +5,19 @@
 
 ## Benefits and objectives
 
-<div class="section-description">Lobortis porta aliquam morbi eget. Duis in vitae sed eleifend hendrerit justo, vestibulum, proin.</div>
+<div class="section-description">Using technology best practices in API design and security, the GSMA API aims to simplify and accelerate the advancement of Open APIs in mobile money platforms and stimulate the growth of the ecosystem.</div>
       </div>
       <div class="benefits-list-holder">
         <div class="benefits-list">
           <h4 class="h4">For API providers</h4>
           <ul class="dotted-list">
-            <li class="dotted-list__item">Lobortis porta aliquam morbi eget. Duis in vitae sed eleifend hendrerit justo, vestibulum, proin.</li>
-            <li class="dotted-list__item">Dictumst vel velit augue vitae, eu rhoncus quis.</li>
-            <li class="dotted-list__item">Massa platea nunc metus vestibulum turpis lorem eu purus sed.</li>
+            <li class="dotted-list__item">If you are a mobile money provider implementing the GMSA API, the developer portal will support the rapid creation of new APIs to attract third-party service providers to your platform and grow your ecosystem.</li>
           </ul>
         </div>
         <div class="benefits-list">
-          <h4 class="h4">For API consumers</h4>
+          <h4 class="h4">For API consumers nc</h4>
           <ul class="dotted-list">
-            <li class="dotted-list__item">Aliquet sem ullamcorper metus, fames vivamus viverra varius ac aliquet.</li>
-            <li class="dotted-list__item">Orci sodales sit aliquam enim non convallis. Pharetra, nulla sed consectetur eu suscipit diam.</li>
-            <li class="dotted-list__item">Porta aenean a iaculis donec purus.</li>
+            <li class="dotted-list__item">If you are a service provider creating solutions for the mobile money ecosystem, the developer portal will support easily creating solutions which support the GSMA API and allow you to scale your integrations across the industry.</li>
           </ul>
         </div>
       </div>
