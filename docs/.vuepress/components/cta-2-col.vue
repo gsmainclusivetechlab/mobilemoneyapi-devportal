@@ -20,4 +20,5 @@ export default {
     sectionClass: String,
   },
 };
+
 </script>
