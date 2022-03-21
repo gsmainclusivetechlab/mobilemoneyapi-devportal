@@ -158,12 +158,12 @@ const mainNavigation = [
         link: '/security/'
       },
       {
-        text: 'Glossary',
-        link: '/glossary/'
-      },
-      {
         text: 'API Guidelines',
         link: '/guidelines/'
+      },
+      {
+        text: 'Glossary',
+        link: '/glossary/'
       },
       {
         text: 'FAQ',

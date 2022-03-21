@@ -11,7 +11,7 @@
 
 <div class="developer-resources__image">
   <router-link to="/sdks/getting-started/introduction.html">
-    <img src="/images/succeed-use-case.jpg" alt="image description">
+    <img src="/images/SDKs.png" alt="image description">
   </router-link>
 </div>
 
@@ -25,7 +25,7 @@
 
 <div class="developer-resources__image">
   <router-link to="/security/">
-    <img src="/images/succeed-use-case.jpg" alt="image description">
+    <img src="/images/Security.png" alt="image description">
   </router-link>
 </div>
 
@@ -39,7 +39,7 @@
 
 <div class="developer-resources__image">
   <router-link to="/guidelines/">
-    <img src="/images/succeed-use-case.jpg" alt="image description">
+    <img src="/images/Guidelines.png" alt="image description">
   </router-link>
 </div>
 
@@ -53,7 +53,7 @@
 
 <div class="developer-resources__image">
   <router-link to="/faq/">
-    <img src="/images/succeed-use-case.jpg" alt="image description">
+    <img src="/images/FAQs.png" alt="image description">
   </router-link>
 </div>
 
