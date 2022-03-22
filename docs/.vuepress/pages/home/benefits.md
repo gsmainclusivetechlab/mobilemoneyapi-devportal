@@ -15,7 +15,7 @@
           </ul>
         </div>
         <div class="benefits-list">
-          <h4 class="h4">For API consumers nc</h4>
+          <h4 class="h4">For API consumers</h4>
           <ul class="dotted-list">
             <li class="dotted-list__item">If you are a service provider creating solutions for the mobile money ecosystem, the developer portal will support easily creating solutions which support the GSMA API and allow you to scale your integrations across the industry.</li>
           </ul>
