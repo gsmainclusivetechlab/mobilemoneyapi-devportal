@@ -31,7 +31,7 @@
           <div class="cards-grid__item">
             <use-case-card :card-item="{link: '/use-cases/p-2-p-transfers', icon: '/images/use-case-4.png'}">
               <template v-slot:title>P2P transfers</template>
-              <template v-slot:description>Enables financial service providers to transfer funds between domestic mobile money account holders or to other recipients.</template>
+              <template v-slot:description>Enables financial service providers to transfer funds between domestic mobile money account holders or to other recipients</template>
             </use-case-card>
           </div>
           <div class="cards-grid__item">

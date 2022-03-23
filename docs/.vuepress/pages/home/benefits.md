@@ -11,7 +11,7 @@
         <div class="benefits-list">
           <h4 class="h4">For API providers</h4>
           <ul class="dotted-list">
-            <li class="dotted-list__item">If you are a mobile money provider implementing the GMSA API, the developer portal will support the rapid creation of new APIs to attract third-party service providers to your platform and grow your ecosystem.</li>
+            <li class="dotted-list__item">If you are a mobile money provider implementing the GSMA API, the developer portal will support the rapid creation of new APIs to attract third-party service providers to your platform and grow your ecosystem.</li>
           </ul>
         </div>
         <div class="benefits-list">

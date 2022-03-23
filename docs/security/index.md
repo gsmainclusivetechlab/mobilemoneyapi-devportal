@@ -25,5 +25,5 @@ This security design document for the GSMA Mobile Money APIs is to ensure that:
 </iframe>
 
 <div class="buttons-holder text-center">
-  <a href="https://developer.mobilemoneyapi.io/sites/default/files/GSMA_MM_API_Security_Design.pdf" class="btn btn--accent">Download PDF</a>
+  <a href="https://developer.mobilemoneyapi.io/sites/default/files/GSMA_MM_API_Security_Design.pdf" target="_blank" class="btn btn--accent">Download PDF</a>
 </div>
