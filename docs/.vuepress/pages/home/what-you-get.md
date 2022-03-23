@@ -16,7 +16,7 @@
       <div class="what-you-get__information-holder">
         <div class="what-you-get__information-content">
           <h4>Business Information</h4>
-          <p>
+          <p class="what-you-get__information-info">
             Guidance for business and product owners on how the Mobile Money API can support the mobile money industry for specific use cases across multiple industry verticals.
           </p>
           <ul class="what-you-get__information-list">
@@ -48,7 +48,7 @@
         </div>
         <div class="what-you-get__information-content">
           <h4>Developer Documentation</h4>
-          <p>
+          <p class="what-you-get__information-info">
             A full set of developer documentation and guides for getting started with the Mobile Money API Specification.
           </p>
           <ul class="what-you-get__information-list">
@@ -106,10 +106,10 @@
         </div>
         <div class="what-you-get__information-content">
           <h4>Developer Tools</h4>
-          <p>
+          <p class="what-you-get__information-info">
             A full suite of tools to facilitate developers analysing, implementing or integrating to the API.
           </p>
-          <ul class="what-you-get__information-list two-items">
+          <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
                 <div class="icon-holder use-cases">

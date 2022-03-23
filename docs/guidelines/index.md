@@ -15,5 +15,5 @@ Best practice guidance on how and when to use the three supported API request-re
 </iframe>
 
 <div class="buttons-holder text-center">
-  <a href="/GSMA-Mobile-Money-API-Guidelines.pdf" class="btn btn--accent">Download PDF</a>
+  <a href="/GSMA-Mobile-Money-API-Guidelines.pdf" target="_blank" class="btn btn--accent">Download PDF</a>
 </div>
