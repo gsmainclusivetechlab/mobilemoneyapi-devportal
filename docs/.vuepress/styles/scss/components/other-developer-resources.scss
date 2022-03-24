@@ -2,23 +2,34 @@
   &-section {
   }
   &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-left: 15px;
     font-size: 1.8rem;
     line-height: 1.65;
 
     @include media('<tablet') {
       font-size: 1.6rem;
+      margin-left: 0;
+    }
+
+    @include media('<600px') {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   &__item {
-    margin-bottom: 20px;
+    margin: 0 20px 20px 20px;
 
     &:last-child {
       margin-bottom: unset;
     }
+    @include media('<600px') {
+      margin: 0 0 20px 0;
+    }
   }
   &__image {
     width: 80px;
+    height: 80px;
   }
   &__info {
   }
