@@ -76,8 +76,6 @@
               </div>
               <div class="title">API reference docs</div>
             </li>
-          </ul>
-          <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
                 <div class="icon-holder docs">
