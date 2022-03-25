@@ -43,10 +43,10 @@
 
     p {
       line-height: 2;
-      font-size: 1.8;
+      font-size: 1.8rem;
 
       @include media('<phone') {
-        font-size: 1.6;
+        font-size: 1.6rem;
       }
     }
 
