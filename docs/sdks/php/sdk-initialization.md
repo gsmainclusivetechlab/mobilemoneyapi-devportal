@@ -4,13 +4,70 @@ pageClass: api-page
 title: SDK Initialization
 ---
 
+Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-php-sdk" target="_blank">mmapi-php-sdk</a>
 
+```
+git clone git@github.com:gsmainclusivetechlab/mmapi-php-sdk.git -b develop
+cd mmapi-php-sdk
+```
 
-## Transaction Status Update
+Install <a href="https://getcomposer.org/download/" target="_blank">Composer</a>
 
-Introduced the ability to update the _transactionStatus_ of mobile money transactions through a new API - _PATCH /transactions/{transactionReference}_. This supports a number of scenarios including:
+From the root of the mmapi-sdk-php project, type:
 
-*   **Resolution of doubt transactions**. Some mobile money providers will put transactions into ‘doubt’ where communication is interrupted. This may then require a subsequent API request from the client to inform the provider of the final outcome to the transaction.
-*   **Two stage transaction processing**. Some systems require two steps to create a transaction:
-1.  The client submits the request to the provider to create the transaction. The provider then performs necessary checks on the transaction and returns a response indicating that the transaction is pending confirmation.
-2.  The client then must provide an explicit request to ‘confirm’ the transaction. Upon receiving the request, the provider will complete the transaction.
+```
+composer install
+```
+
+Copy config.env.sample to config.env and replace the template values by values obtained in your MMAPI
+developer account. The content of the file should look like:
+
+```
+consumer_key= 2803qinohvhvkn8gv8q1v5kc5j
+consumer_secret= a70fdpaorep27nue66380fld2hp5jc710t214bfentot4j6e6sm
+api_key= qQcKL8nJhB2uVuEFr0nld8TJhmVJEIEZ46LToIsO
+callback_url= http://your-url.com
+```
+
+Sample code to initialise PHP SDK:
+
+```php
+<?php
+//require the autoload file
+require dirname(__DIR__, 1) . '/autoload.php';
+
+//Parse the config file
+$env = parse_ini_file(__DIR__ . '../../config.env');
+
+use mmpsdk\\Common\\Constants\\MobileMoney;
+use mmpsdk\\Common\\Enums\\SecurityLevel;
+use mmpsdk\\Common\\Exceptions\\SDKException;
+
+//Initialize SDKa
+try {
+  MobileMoney::initialize(
+      MobileMoney::SANDBOX,
+      $env['consumer_key'],
+      $env['consumer_secret'],
+      $env['api_key']
+  );
+  MobileMoney::setCallbackUrl($env['callback_url']);
+  MobileMoney::setSecurityLevel(SecurityLevel::DEVELOPMENT);
+} catch (SDKException $exception) {
+  prettyPrint($exception->getMessage());
+}
+
+function prettyPrint($data)
+{
+  echo PHP_EOL . print_r($data, true) . PHP_EOL;
+}
+
+print("Consumer Key : " . MobileMoney::getConsumerKey() . PHP_EOL);
+print("Consumer Secret : " . MobileMoney::getConsumerSecret() . PHP_EOL);
+print("API Key : " . MobileMoney::getApiKey() . PHP_EOL);
+print("Environment : " . MobileMoney::getEnvironment() . PHP_EOL);
+print("Security Level : " . MobileMoney::getSecurityLevel() . PHP_EOL);
+print("Callback URL : " . MobileMoney::getCallbackUrl() . PHP_EOL);
+print("MMAPI URL : " . MobileMoney::getBaseUrl() . PHP_EOL);
+?>
+```
