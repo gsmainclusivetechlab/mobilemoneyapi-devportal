@@ -57,7 +57,7 @@
     flex-direction: column;
 
     label {
-      font-size: 14px;
+      font-size: 1.4rem;
     }
 
 
@@ -73,10 +73,11 @@
       border-radius: unset;
       border: 1px solid var(--base-border-color);
       height: 40px;
+      font-size: 1.6rem;
       padding-left: 15px;
 
       &::placeholder {
-        font-size: 14px;
+        font-size: 1.4rem;
         color: var(--inactive-btn-color);
         font-family: var(--base-body-font-family);
       }
