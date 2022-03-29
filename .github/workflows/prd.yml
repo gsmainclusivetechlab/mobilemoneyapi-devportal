@@ -1,8 +1,8 @@
-name: DevPortal Deployment
+name: DevPortal Deployment (Production)
 on:
   push:
     branches:
-      - feature/content
+      - release
 
 jobs:
   run:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Setting Environment
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
+          BASE_URL: ${{ secrets.PRD_BASE_URL }}
         run: echo BASE_URL=$BASE_URL > .env
 
       - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          S3_BUCKET: ${{ secrets.S3_BUCKET }}
-          S3_BUCKET_REGION: ${{ secrets.S3_BUCKET_REGION }}
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          S3_BUCKET: ${{ secrets.PRD_S3_BUCKET }}
+          S3_BUCKET_REGION: ${{ secrets.PRD_S3_BUCKET_REGION }}
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.PRD_CLOUDFRONT_DISTRIBUTION_ID }}
         run: ./s3deploy -source docs/.vuepress/dist -key $AWS_ACCESS_KEY_ID -secret $AWS_SECRET_ACCESS_KEY -bucket=$S3_BUCKET -region=$S3_BUCKET_REGION --distribution-id=$CLOUDFRONT_DISTRIBUTION_ID -v
