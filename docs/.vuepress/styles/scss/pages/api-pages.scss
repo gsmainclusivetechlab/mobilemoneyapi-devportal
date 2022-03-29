@@ -131,6 +131,15 @@
         padding: 34px 0 64px;
       }
 
+      span.highlight {
+        background-color: #f0f0f0;
+        color: #fc6565;
+        border-radius: 2px;
+        font-size: 1.2rem;
+        display: inline-block;
+        padding: 0 0.6em;
+      }
+
       h1, .h1 {
         margin: -100px 0 17px;
         font-size: 2.4rem;
@@ -234,6 +243,12 @@
         margin: 8px 0;
         font-size: 1.4rem;
         line-height: 1.8;
+      }
+
+      ol {
+        .language-shell {
+          margin-left: -1.2em;
+        }
       }
 
       ul {
@@ -503,6 +518,12 @@
         }
       }
 
+      ol {
+        div[class*="language-"] {
+          margin-left: -1.2em;
+        }
+      }
+
       div[class*="language-"] {
         margin: 21px 0;
         background: var(--primaty-dark-color);
@@ -521,7 +542,7 @@
         pre[class*="language-"] {
           margin: 0;
           padding: 8px 8px 15px 14px;
-          min-height: 130px;
+          min-height: 50px;
         }
 
         code {

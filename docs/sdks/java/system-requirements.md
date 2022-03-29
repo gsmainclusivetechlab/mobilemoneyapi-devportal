@@ -4,5 +4,7 @@ pageClass: api-page
 title: System requirements
 ---
 
-1.  Java JDK-1.8 or higher
-2.  Apache Maven 3 or higher
+## System Requirements
+
+1.  Java <span class="highlight">JDK-1.8</span> or higher
+2.  Apache Maven <span class="highlight">3</span> or higher

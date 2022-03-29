@@ -4,33 +4,35 @@ pageClass: api-page
 title: SDK Initialization
 ---
 
-Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>
+## SDK Initialisation
 
-```
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>
+
+```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-java-sdk.git -b develop
 export MMAPI_JAVA_SDK=$(pwd)/mmapi-java-sdk
 cd $MMAPI_JAVA_SDK
 ```
 
-Create the file config.properties inside the directories $MMAPI_JAVA_SDK/mmapi-java-sdk/src/test/resources
-and $MMAPI_JAVA_SDK/mmapi-java-sdk-samples/resources.
+2. Create the file <span class="highlight">config.properties</span> inside the directories <span class="highlight">$MMAPI_JAVA_SDK/mmapi-java-sdk/src/test/resources</span>
+and <span class="highlight">$MMAPI_JAVA_SDK/mmapi-java-sdk-samples/resources</span>.
 
-```
+```shell
 touch $MMAPI_JAVA_SDK/mmapi-java-sdk/src/test/resources/config.properties
 touch $MMAPI_JAVA_SDK/mmapi-java-sdk-samples/resources/config.properties
 ```
 
-The values that must be present inside the (config.properties)(<http://config.properties>) files created
+3. The values that must be present inside the <span class="highlight">(config.properties)(<http://config.properties>)</span> files created
 above file comes from your mmapi developer account. The final content of the files should look like:
 
-```
+```shell
 CONSUMER_KEY=7g47724jk9hpi5o1jja3m3rouc
 CONSUMER_SECRET=g5i176kcqjgnv17rf7sg9931v4b0eed7kjn1oi0a7dm5mkgfu6l
 API_KEY=cxxZeeGh0P5xHDRSJzlbm2JIRPsbq9jC9k7Bh239
 CALLBACK_URL=http://your-url.com
 ```
 
-Sample code to initialise Java SDK:
+4. Sample code to initialise Java SDK:
 
 ```java
 package sdkinit;
