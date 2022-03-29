@@ -60,10 +60,13 @@
       font-size: 14px;
     }
 
+
     &:not(.privacy-row) {
       label {
         font-weight: 500;
+        padding-left: 10px;
       }
+
     }
 
     input {
@@ -99,7 +102,7 @@
     display: none;
 
     &:checked {
-      ~.privacy-checkbox {
+      ~ .privacy-checkbox {
         &:after {
           content: '';
         }

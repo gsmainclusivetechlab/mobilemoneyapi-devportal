@@ -9,24 +9,25 @@ title: Bill Payments - Use Case Scenarios
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+
+
 # About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
+
+
 
 ## Successful Retrieval of Bills
 
 This diagram illustrates how a mobile money provider can retrieve bills for a given service provider customer account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/1/bills?offset=0&limit=20
 ---
 Params: 
@@ -35,37 +36,46 @@ Params:
   "limit": 20                
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/viewAccountBills.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/billPayment/viewAccountBills.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/billPayment/viewAccountBills.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/billPayment/viewAccountBills.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/billPayment/viewAccountBills.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -80,11 +90,11 @@ sequenceDiagram
     deactivate Service Provider   
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcEEVK" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1rp" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
 
 
 ## Unsuccessful Retrieval of Bills
@@ -111,16 +121,21 @@ sequenceDiagram
 
 This diagram illustrates how a mobile money provider can make a bill payment to a service provider using the asynchronous callback method. To illustrate the end to end flow, a leg has been added to describe how a third payment provider can initiate a bill payment request to a mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
+TEST CONTENT
+```
+
+</code-block>
+
+<code-block title="POST">
+
+```json{1}
 POST .../accounts/accountid/1/bills/REF-000001/payments
 ---
 Headers:
@@ -136,37 +151,66 @@ Body parameters:
     "amountPaid": "5.30"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/createBillTransaction.php
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/php/billPayment/createBillPayment.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/billPayment/createBillTransaction.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/nodejs/billPayment/createBillPayment.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/billPayment/createBillTransaction.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/java/billPayment/createBillPayment.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/billPayment/createBillTransaction.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/android/billPayment/createBillPayment.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/billPayment/createBillTransaction.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/javascript/billPayment/createBillPayment.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -202,6 +246,8 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDKzZ" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Make an Unsuccessful Bill Payment with Callback
 
 This diagram illustrates the return of an error object where a service provider fails to process a bill payment request.
@@ -225,20 +271,18 @@ sequenceDiagram
 </mermaid>
 
 
+
 ## Make a Bill Payment with Polling
 
 This diagram illustrates how a mobile money provider can make a bill payment to a service provider using the asynchronous polling method.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../accounts/accountid/1/bills/REF-000001/payments
 ---
 Headers:
@@ -253,10 +297,12 @@ Body parameters:
     "amountPaid": "5.30"
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/bills/REF-000001/payments?limit=5
 ---
 Params:
@@ -264,71 +310,94 @@ Params:
   "limit": 5
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../requestStates/Place the Server Correlation Id here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/createBillPayment.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/viewRequestState.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/billPayment/createBillPayment.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/billPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/billPayment/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/billPayment/createBillPayment.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/billPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/billPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/billPayment/createBillPayment.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/billPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/billPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/billPayment/createBillPayment.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/billPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/billPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -355,20 +424,19 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL4x" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Retrieval of Bill Payments
 
 This diagram illustrates how a mobile money provider can retrieve payments against a given bill for a given service provider customer account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/1/bills/REF-000001/payments?offset=0&limit=20
 ---
 Params:
@@ -377,37 +445,46 @@ Params:
   "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/viewBillPayment.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/billPayment/viewBillPayment.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/billPayment/viewBillPayment.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/billPayment/viewBillPayment.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/billPayment/viewBillPayment.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -431,53 +508,61 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1rm" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the Service Provider is in a state that enables an FSP to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/billPayment/viewServiceAvailability.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/billPayment/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/billPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/billPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/billPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram

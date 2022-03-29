@@ -70,6 +70,15 @@
       text-decoration: none !important;
     }
   }
+
+  &:disabled {
+    //color: var(--inactive-btn-color);
+    background-color: var(--inactive-btn-color);
+    border-color: var(--inactive-btn-color);
+    &:hover {
+      cursor: default;
+    }
+  }
 }
 
 .buttons-holder {
@@ -114,5 +123,17 @@
 
   .has-back-btn & {
     display: block;
+  }
+}
+
+.btn-tippy-copy {
+  background: #d7d7d7;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: 600;
+
+  &:hover {
+    background: #fff;
+    cursor: pointer;
   }
 }

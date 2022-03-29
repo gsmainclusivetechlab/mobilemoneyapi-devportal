@@ -9,24 +9,25 @@ title: Account Linking - Use Case Scenarios
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+
+
 # About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
+
+
 
 ## Setup an Account Link
 
 This diagram illustrates the setting-up of an account link. The requesting FSP initiates the request which is authorised by the account holding customer. In this diagram, an asynchronous flow is used with a final callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../accounts/accountid/2000/links
 ---
 Headers:
@@ -58,37 +59,46 @@ Body parameters:
   }                 
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/createAccountLink.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/accountLinking/createAccountLink.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/accountLinking/createAccountLink.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/accountLinking/createAccountLink.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/accountLinking/createAccountLink.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -112,11 +122,11 @@ sequenceDiagram
     deactivate FSP 
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLA9Qf" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoFLop" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
 
 
 ## Setup an Account Link Failure
@@ -145,21 +155,17 @@ sequenceDiagram
     deactivate FSP
 </mermaid>
 
-
 ## Perform a Transfer for a Linked Account
 
 In this diagram, the requesting FSP initiates a transfer to the FSP using an established link.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -187,38 +193,46 @@ Body parameters:
     ]
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/createTransferTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/accountLinking/createTransferTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/accountLinking/createTransferTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
-
 
 <mermaid>
 sequenceDiagram
@@ -244,6 +258,7 @@ sequenceDiagram
 </div>
 
 
+
 ## Perform a Transfer for a Linked Account - Failure
 
 In this diagram, the requesting FSP initiates a transfer to the FSP using an established link. The FSP is unable to process the transfer and returns a callback containing the error object.
@@ -267,20 +282,18 @@ sequenceDiagram
 </mermaid>
 
 
+
 ## Perform a Transfer using an Account Link via the Polling Method
 
 In this example, an asynchronous flow is used with the polling method. The client polls against the request state object to determine the outcome of the transfer request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/transfer
 ---
 Headers:
@@ -307,77 +320,102 @@ Body parameters:
     ]
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/createTransferTransaction.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewRequestState.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/accountLinking/createTransferTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/accountLinking/createTransferTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/accountLinking/createTransferTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/accountLinking/createTransferTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/accountLinking/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -412,20 +450,18 @@ sequenceDiagram
 </div>
 
 
+
 ## Perform a Transfer Reversal
 
 In some failure scenarios, a requesting FSP may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -440,37 +476,46 @@ Body parameters:
     "type": "reversal"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/createReversal.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/accountLinking/createReversal.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/accountLinking/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/accountLinking/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/accountLinking/createReversal.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -494,51 +539,58 @@ sequenceDiagram
 </div>
 
 
-## Obtain a Financial Service Provider Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+## Obtain a Financial Service Provider Balance
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewAccountBalance.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewAccountBalance.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/accountLinking/viewAccountBalance.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -559,20 +611,18 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve Transfers for a Financial Service Provider
 
 This diagram illustrates use of a cursor mechanism to retrieve all transfers for a financial service provider via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -581,37 +631,46 @@ Params:
   "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewAccountTransactions.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewAccountTransactions.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/accountLinking/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -636,53 +695,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewServiceAvailability.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/accountLinking/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -704,53 +770,60 @@ sequenceDiagram
 </div>
 
 
+
 ## Retrieve a Missing API Response
 
 This API can be used by the requesting FSP to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the FSP.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/accountLinking/viewResponse.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/accountLinking/viewResponse.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/accountLinking/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/accountLinking/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/accountLinking/viewResponse.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram

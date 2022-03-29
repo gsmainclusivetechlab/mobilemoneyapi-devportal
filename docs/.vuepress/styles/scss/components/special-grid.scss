@@ -67,7 +67,10 @@
     align-items: center;
 
     .section-intro__column {
-
+      h2 {
+        margin: -100px 0 15px;
+        padding-top: 100px;
+      }
 
       .section-title {
         margin: 0 0 16px;

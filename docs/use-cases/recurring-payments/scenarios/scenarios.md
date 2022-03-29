@@ -9,24 +9,25 @@ title: Recurring Payments - Use Case Scenarios
 <side-code-panel/>
 <!-- required component to open-close right-side panel -->
 
+
+
 # About Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
+
+
 
 ## Setup a Recurring Payment
 
 This diagram illustrates the setting-up of a recurring payment via a debit mandate. The service provider initiates the request which is authorised by the account holding customer. In this diagram, an asynchronous flow is used with a final callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../accounts/accountid/2000/debitmandates
 ---
 Headers:
@@ -44,11 +45,11 @@ Body parameters:
       "value": "2999"
     }
   ],
-    "requestDate": "2018-07-03T10:43:27.405Z",
-    "startDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
+    "startDate": "2018-11-20",
     "currency": "GBP",
     "amountLimit": "1000.00",
-    "endDate": "2028-07-03T10:43:27.405Z",
+    "endDate": "2018-11-20",
     "numberOfPayments": "2",
     "frequencyType": "sixmonths",
     "customData": [
@@ -59,37 +60,46 @@ Body parameters:
     ]        
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createAccountDebitMandate.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -113,11 +123,11 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDakaJt" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoFLoh" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
 
 
 ## Setup a Recurring Payment Failure
@@ -147,20 +157,18 @@ sequenceDiagram
 </mermaid>
 
 
+
 ## Take a Recurring Payment
 
 In this diagram, the service provider initiates a payment request to the FSP to debit the account-holders account as per the debit mandate.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -188,37 +196,46 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createMerchantTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -242,6 +259,8 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCLAUy6" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoFLt8" target="_blank">Open Postman Collection with Authentication</a>
 </div>
+
+
 
 ## Take a Recurring Payment Failure
 
@@ -271,16 +290,13 @@ sequenceDiagram
 
 In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -307,77 +323,102 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
+
 </code-block>
 
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createMerchantTransaction.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewRequestState.php
 </code-block>
 
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -411,20 +452,19 @@ sequenceDiagram
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoFLtE" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Recurring Payment Refund
 
 Service Providers can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/adjustment
 ---
 Headers:
@@ -452,37 +492,46 @@ Body parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createRefundTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createRefundTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createRefundTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createRefundTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -505,20 +554,19 @@ Body parameters:
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfQ8" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Recurring Payment Reversal
 
 In some failure scenarios, a service provider may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -533,37 +581,46 @@ Body parameters:
     "type": "reversal"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createReversal.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createReversal.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createReversal.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -586,20 +643,19 @@ Body parameters:
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDfQA" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Payer sets up a Recurring Payment using MMP Channel
 
 This diagram illustrates how the MM API can be used by a mobile money provider to allow a payer to setup a recurring payment using a channel provided by the provider, for example, a mobile money app.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../accounts/accountid/2000/debitmandates
 ---
 Headers:
@@ -617,11 +673,11 @@ Body parameters:
       "value": "2999"
     }
   ],
-    "requestDate": "2018-07-03T10:43:27.405Z",
-    "startDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
+    "startDate": "2018-11-20",
     "currency": "GBP",
     "amountLimit": "1000.00",
-    "endDate": "2028-07-03T10:43:27.405Z",
+    "endDate": "2018-11-20",
     "numberOfPayments": "2",
     "frequencyType": "sixmonths",
     "customData": [
@@ -632,37 +688,46 @@ Body parameters:
     ]        
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/createAccountDebitMandate.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/recurringPayment/createAccountDebitMandate.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/recurringPayment/createAccountDebitMandate.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/recurringPayment/createAccountDebitMandate.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/recurringPayment/createAccountDebitMandate.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -685,51 +750,59 @@ Body parameters:
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoFLon" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Obtain a Service Provider Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewAccountBalance.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewAccountBalance.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -749,20 +822,19 @@ GET .../accounts/accountid/2000/balance
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9T" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Retrieve Payments for a Service Provider
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a service provider via multiple requests.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params:
@@ -771,37 +843,46 @@ Params:
   "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewAccountTransactions.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewAccountTransactions.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -825,53 +906,61 @@ Params:
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF21X" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the FSP is in a state that enables a client to submit a request for processing.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewServiceAvailability.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -892,53 +981,61 @@ GET .../heartbeat
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCQbS8z" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Retrieve a Missing API Response
 
 This API can be used by the service provider to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the FSP.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/recurringPayment/viewResponse.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/recurringPayment/viewResponse.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/recurringPayment/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/recurringPayment/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/recurringPayment/viewResponse.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram

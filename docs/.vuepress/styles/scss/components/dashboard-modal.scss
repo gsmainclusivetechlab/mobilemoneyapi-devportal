@@ -40,6 +40,15 @@
     @include media('<tablet-xs') {
       padding: 35px 15px;
     }
+
+    &__confirmation {
+      max-width: 762px;
+      padding: 54px 0 36px;
+
+      @include media('<tablet') {
+        padding: 54px 0 36px;
+      }
+    }
   }
 
   .close-btn {
@@ -51,6 +60,11 @@
     padding: 15px;
     margin: 0;
     cursor: pointer;
+
+    @include media('<tablet') {
+      right: 15px;
+      top: 15px;
+    }
 
     &:before,
     &:after {
@@ -70,11 +84,10 @@
   }
 
   .modal-title {
-    font-size: 24px;
-    font-weight: bold;
     display: block;
     margin-bottom: 35px;
     text-align: center;
+
   }
 
   .input-wrap {
@@ -92,6 +105,7 @@
     label {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       font-size: 14px;
       font-weight: 500;
       margin-bottom: 2px;
@@ -104,8 +118,9 @@
     }
 
     input {
-      padding-left: 15px;
-      height: 40px;
+      padding: 11px 0 11px 15px;
+      line-height: 1;
+      font-size: 14px;
 
       &::placeholder {
         font-size: 14px;
@@ -144,14 +159,25 @@
 
   .btn-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 64px;
 
-    .btn.btn--accent {
-      min-width: 184px;
+    .modal-container__confirmation & {
+      margin-top: 0;
+    }
 
-      @include media('<phone') {
-        min-width: 120px;
+    .btn {
+      &.btn--accent, &.btn--accent-close {
+        min-width: 184px;
+
+        @include media('<tablet') {
+          min-width: 150px;
+          font-size: 1.4rem;
+        }
+
+        @include media('<tablet-xs') {
+          min-width: 110px;
+        }
       }
     }
   }

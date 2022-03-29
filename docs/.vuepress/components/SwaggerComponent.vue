@@ -6,10 +6,10 @@
 import 'swagger-ui/dist/swagger-ui.css';
 
 export default {
-  name: "SwaggerComponent",
+  name: 'SwaggerComponent',
   props: ['url'],
   mounted() {
-    import("swagger-ui/dist/swagger-ui-es-bundle.js").then(swagger => {
+    import('swagger-ui/dist/swagger-ui-es-bundle.js').then(swagger => {
       if (swagger) {
         const SwaggerUI = require('swagger-ui');
         SwaggerUI({
@@ -19,5 +19,5 @@ export default {
       }
     });
   }
-}
+};
 </script>

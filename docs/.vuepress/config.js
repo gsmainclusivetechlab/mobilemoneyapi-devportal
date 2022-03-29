@@ -1,6 +1,8 @@
 const fs = require('fs');
 const {path} = require('@vuepress/shared-utils');
 
+const Dotenv = require('dotenv-webpack');
+
 const md = require('markdown-it')()
     .use(require('markdown-it-code-copy'));
 
@@ -84,7 +86,7 @@ const mainNavigation = [
         ]
     },
     {
-        text: 'API version',
+        text: 'API',
         items: [
             {
                 text: 'Version 1.2',
@@ -114,6 +116,39 @@ const mainNavigation = [
                 link: '/api-versions-1.0/'
                 // link: '/download-files/Mobile_Money_API_V1.0.0-Specification_Definition.yaml',
                 // target: 'download',
+            },
+        ]
+    },
+    {
+        text: 'SDKs',
+        items: [
+            {
+                text: 'Getting Started',
+                link: '/sdks/getting-started/introduction',
+            },
+            {
+                text: 'Authentication',
+                link: '/sdks/auth/client-authentication',
+            },
+            {
+                text: 'Android',
+                link: '/sdks/android/introduction',
+            },
+            {
+                text: 'NodeJs',
+                link: '/sdks/nodejs/introduction',
+            },
+            {
+                text: 'PHP',
+                link: '/sdks/php/introduction',
+            },
+            {
+                text: 'JavaScript',
+                link: '/sdks/javascript/introduction',
+            },
+            {
+                text: 'Java',
+                link: '/sdks/java/introduction',
             },
         ]
     },
@@ -281,6 +316,239 @@ const sidebarNavigation = {
                         },
                     ]
                 }
+            ]
+        }
+    ],
+    '/sdks/': [
+        {
+            title: 'SDKs',
+            collapsable: false,
+            sidebarDepth: 2,
+            // backLink: {
+            //     title: 'SDKs',
+            //     path: '/sdks/',
+            // },
+            children: [
+                {
+                    title: 'Getting Started',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/getting-started/introduction',
+                            sidebarDepth: 2,
+                        },
+                        {
+                            title: 'SDKs',
+                            path: '/sdks/getting-started/sdks',
+                            sidebarDepth: 2,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-sdk-docs',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        }
+                    ]
+                },
+                {
+                    title: 'Authentication',
+                    sidebarDepth: 2,
+                    // collapsable: false, - можно ли сворачивать
+                    children: [
+                        {
+                            title: 'Client Authentication',
+                            path: '/sdks/auth/client-authentication',
+                            sidebarDepth: 2,
+                        },
+                        {
+                            title: 'API Authorisation',
+                            path: '/sdks/auth/api-authorization',
+                            collapsable: true,
+                            sidebarDepth: 2,
+                        },
+                    ]
+                },
+                {
+                    title: 'Android',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/android/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/android/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/android/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/android/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-android-sdk/tree/develop#readme',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'NodeJs',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/nodejs/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/nodejs/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/nodejs/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/nodejs/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-nodejs-sdk/tree/develop#readme',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'PHP',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/php/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/php/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/php/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/php/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-php-sdk/tree/develop#readme',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'JavaScript',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/javascript/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/javascript/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/javascript/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/javascript/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/development#readme',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
+                {
+                    title: 'Java',
+                    sidebarDepth: 2,
+                    children: [
+                        {
+                            title: 'Introduction',
+                            path: '/sdks/java/introduction',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'System Requirements',
+                            path: '/sdks/java/system-requirements',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'SDK Initialisation',
+                            path: '/sdks/java/sdk-initialization',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'Downloads',
+                            path: '/sdks/java/downloads',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                        {
+                            title: 'GitHub',
+                            path: 'https://github.com/gsmainclusivetechlab/mmapi-java-sdk/tree/develop#readme',
+                            sidebarDepth: 2,
+                            collapsable: true,
+                        },
+                    ]
+                },
             ]
         }
     ],
@@ -755,9 +1023,11 @@ module.exports = {
         ['script', {src: '/js/fix-scroll-to-hash.js'}]
     ],
     extend: '@vuepress/theme-default',
-    // render all <h> tags that exist in .md page
     markdown: {
         extractHeaders: ['h2', 'h3', 'h4', 'h5', 'h6'],
+        plugins: [
+            'markdown-it-include',
+        ],
     },
     themeConfig: {
         repo: '',
@@ -770,18 +1040,21 @@ module.exports = {
         footer: [...footerNavigation],
         sidebar: sidebarNavigation,
         smoothScroll: true,
+        searchMaxSuggestions: 10,
     },
-    plugins: {
-        'vuepress-plugin-code-copy': true,
-        'vuepress-plugin-smooth-scroll': true,
-        // '@vuepress/search': {
-        //   searchMaxSuggestions: 10
-        // },
-        'fulltext-search':
-            {
-                tokenize: 'full',
-                // provide the contents of a JavaScript file
-                hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
-            },
+    configureWebpack: {
+        plugins: [
+          new Dotenv()
+        ]
     },
+    plugins: [
+        ['@vuepress/active-header-links', false],
+        ['vuepress-plugin-code-copy', true],
+        ['vuepress-plugin-smooth-scroll', true],
+        [
+            require('./plugins/vuepress-plugin-fulltext-search/index.js'), {
+            hooks: fs.readFileSync(path.resolve(__dirname, './services/searchHooks.js')),
+        },
+        ],
+    ],
 };

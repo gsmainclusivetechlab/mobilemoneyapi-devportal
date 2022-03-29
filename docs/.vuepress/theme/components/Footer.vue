@@ -4,24 +4,31 @@
       <ul class="nav-links can-hide">
         <li class="nav-item" v-for="item in $site.themeConfig.footer">
           <router-link
-            v-if="!item.target"
-            :to="item.link"
-            class="nav-link"
-          >{{item.text}}</router-link>
+              v-if="!item.target"
+              :to="item.link"
+              class="nav-link"
+          >{{ item.text }}
+          </router-link>
           <a v-else :href="item.link" class="nav-link" target="_blank">
-            {{item.text}}
+            {{ item.text }}
           </a>
         </li>
       </ul>
-      <div class="copyright"> Copyright &copy; 2021 GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div>
+      <div class="copyright"> Copyright &copy; {{ getCurrentYear }} GSMA. GSM and the GSM Logo are registered and owned by the GSMA.</div>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer",
-}
+  name: 'Footer',
+
+  computed: {
+    getCurrentYear() {
+      return new Date().getFullYear();
+    }
+  }
+};
 </script>
 
 <style>

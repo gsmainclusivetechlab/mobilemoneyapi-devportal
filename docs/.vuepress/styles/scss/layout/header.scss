@@ -1,16 +1,20 @@
 .main-header {
-  padding: 24px 88px;
+  padding: 24px 70px;
 
   &.main-header {
-    @include media('<desktop')  {
+    @include media('<desktop') {
       padding: 24px 40px;
+    }
+
+    @media (max-width: 1155px) and (min-width: 1046px) {
+      padding: 24px 10px;
     }
 
     @include media('<=tablet') {
       padding-left: 40px;
     }
 
-    @include media('<tablet')  {
+    @include media('<tablet') {
       padding: 15px 25px 15px 0;
     }
   }
@@ -18,6 +22,7 @@
   &__box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     min-height: 48px;
 
     @include media('<tablet') {
@@ -102,7 +107,7 @@
     }
 
     .btn {
-      margin-left: 17px;
+      margin-left: 10px;
       padding: 6px 22px;
 
 
@@ -160,6 +165,16 @@
   .logged-in-name {
     font-size: 12px;
     font-weight: 500;
+    margin: 0;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include media('<=tablet-lg') {
+      max-width: 20vw;
+
+    }
   }
 
   .logged-in-account-btn {
@@ -167,7 +182,7 @@
     border: none;
     border-radius: 50%;
     padding: 0;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 12px;
     width: 40px;
     height: 40px;
     display: flex;

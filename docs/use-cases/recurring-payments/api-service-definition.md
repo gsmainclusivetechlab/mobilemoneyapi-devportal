@@ -48,16 +48,13 @@ The following paths are permitted:
 
 Transactions fields that are not applicable for recurring payments have been omitted.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -81,13 +78,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```json
+```json{1}
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -151,10 +148,7 @@ Body Parameters:
 </code-main-group>
 
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Operation** | **Path**  | **Description** |
 |:-----------|:-------|:-------------|
@@ -179,10 +173,7 @@ classDiagram
 
 #### Transaction Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -239,9 +230,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -281,10 +272,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Transaction Object** ||||||
 |:-----|:-----|:------------|:--|:----------|:-----------|
@@ -323,16 +311,13 @@ The Reversals API is used to reverse, adjust, or refund a recurring payment. The
 
 For viewing reversals, the [Transactions API](#transactions-api) should be used. For performing a reversal without the original transaction reference, use the [Transactions API](#transactions-api). 
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -376,10 +361,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 The supported path is POST `/transactions/{originalTransactionReference}/reversals`.
 
@@ -396,10 +378,7 @@ classDiagram
 
 #### Reversal Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -458,9 +437,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -502,10 +481,7 @@ classDiagram
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:---|:---|:---|:---|:---|:---|
@@ -569,10 +545,7 @@ or GET `/accounts/{Account Identifiers}/transactions`
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -584,8 +557,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
   "transactionStatus": "completed",
   "transactionType": "merchantpay"
 }
@@ -620,10 +593,7 @@ To filter the number of records returned, the following query strings can be use
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 
 | **Parameter** | **Type** | **Format** | **Description** |
@@ -678,10 +648,7 @@ classDiagram
 
 #### Account Balance Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -729,10 +696,7 @@ classDiagram
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -771,10 +735,7 @@ classDiagram
 
 #### Debit Mandate Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -792,19 +753,19 @@ classDiagram
     }
   ],
   "mandateStatus": "active",
-  "startDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "startDate": "2018-11-20",
   "amountLimit": "123.45",
   "currency": "GBP",
-  "endDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "endDate": "2018-11-20",
   "frequencyType": "weekly",
   "numberOfPayments": 50,
   "requestingOrganisation": {
     "requestingOrganisationIdentifierType": "organisationid",
     "requestingOrganisationIdentifier": "987654321"
   },
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -841,10 +802,7 @@ classDiagram
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Debit Mandate Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -874,10 +832,7 @@ classDiagram
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -928,10 +883,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -942,10 +894,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -989,10 +938,7 @@ The metadata object allows fields to be specified to convey administrative infor
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1003,10 +949,7 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -1051,10 +994,7 @@ The custom data object allows additional fields to be specified for the associat
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1065,10 +1005,7 @@ The custom data object allows additional fields to be specified for the associat
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -1114,10 +1051,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1129,10 +1063,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 An object that details the originating organisation of the request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -1176,10 +1107,7 @@ An object that details the originating organisation of the request.
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1213,10 +1141,7 @@ A transaction type is used to classify the nature of a transaction.
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 
 <code-main-group>
@@ -1278,10 +1203,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

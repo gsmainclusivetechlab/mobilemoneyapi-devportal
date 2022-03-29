@@ -1,0 +1,78 @@
+.user-options, .sort-by-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px rgba(36, 37, 41, 0.1);
+  z-index: 20;
+  top: 100%;
+  right: 20px;
+  padding: 14px 18px;
+
+  &__button {
+    border: none;
+    background: none;
+    position: relative;
+    display: flex;
+    padding: 5px 0;
+    cursor: pointer;
+
+    .user-options & {
+      &:before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: 8px;
+      }
+
+      &--delete {
+        &:before {
+          background-image: url('/images/delete-icon.svg');
+        }
+      }
+
+      &--change {
+        &:before {
+          background-image: url('/images/change-role-icon.svg');
+        }
+      }
+
+      &--edit {
+        &:before {
+          background-image: url('/images/edit-icon.svg');
+        }
+      }
+
+      &--unblock {
+        &:before {
+          background-image: url('/images/unblock-icon.svg');
+        }
+      }
+    }
+  }
+}
+
+.sort-by-options {
+  padding: 14px 0;
+
+  &__button {
+    padding: 5px 47px 5px 18px;
+    white-space: nowrap;
+
+    &--active {
+      background-color: #BEBEBF;
+    }
+  }
+}
+
+.tippy-tooltip {
+  background: none;
+}
+
+.tippy-arrow {
+  border: none !important;
+}

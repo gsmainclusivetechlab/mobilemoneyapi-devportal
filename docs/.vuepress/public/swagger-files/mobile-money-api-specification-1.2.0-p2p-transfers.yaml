@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
   description: |
-    The purpose of this schema is to specify the endpoints, fields, objects, and enumerations for Person to Person (P2P) Transfer Mobile Money APIs, which are a subset of the GSMA Mobile Money API Specification. 
-    The P2P Transfer Mobile Money APIs allow financial service providers to transfer funds from an account holding individual to another account holding individual or 
-    to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers, 
-    banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs). 
+    The purpose of this schema is to specify the endpoints, fields, objects, and enumerations for Person to Person (P2P) Transfer Mobile Money APIs, which are a subset of the GSMA Mobile Money API Specification.
+    The P2P Transfer Mobile Money APIs allow financial service providers to transfer funds from an account holding individual to another account holding individual or
+    to a non-account holding individual (known as an unregistered customer). The API supports a wide number of financial service providers including mobile money providers,
+    banks, and micro-finance institutions. The API supports ‘on-us’ P2P transfers (both accounts held within one FSP) and ‘off-us’ P2P transfers (accounts held in different FSPs).
     Bilateral and Switch-based transfers can be supported.
-    You can find out more about what the API can do for your business at 
+    You can find out more about what the API can do for your business at
     [https://developer.mobilemoneyapi.io]
   version: "1.2.0"
   title: Mobile Money API for P2P Transfers
@@ -16,11 +16,11 @@ servers:
 tags:
   - name: Transactions
     description: |
-      P2P Transfers can be created, updated and viewed using **transactions** APIs. 
+      P2P Transfers can be created, updated and viewed using **transactions** APIs.
   - name: Quotations
     description: |
-      The Quotations APIs are used to obtain one or multiple quotes for a P2P transfer. The creation of a quote involves returning any fees that will be levied on the sender. 
-      A request is made for a quotation by the requesting FSP. The quotation is calculated and returned by the receiving FSP or an intermediate provider such as a Switch. 
+      The Quotations APIs are used to obtain one or multiple quotes for a P2P transfer. The creation of a quote involves returning any fees that will be levied on the sender.
+      A request is made for a quotation by the requesting FSP. The quotation is calculated and returned by the receiving FSP or an intermediate provider such as a Switch.
       If the sender is satisfied with the quotation, then the sending FSP can confirm and proceed with the P2P transfer using the /transactions API.
   - name: Accounts
     description: |
@@ -36,14 +36,14 @@ tags:
 
       Multiple Identifiers Method:
 
-      - Where a single identifier is not sufficient to identify an account, the following path is to be used: &#39; **/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}**&#39;. The list of permitted account identifiers supported by the Mobile Money API can be found in the API documentation. As there can be multiple identifiers required to identify the target account, the path uses a &#39;$&#39; delimiter to separate each identifier, up to a limit of three account identifiers.    
+      - Where a single identifier is not sufficient to identify an account, the following path is to be used: &#39; **/accounts/{accountIdentifier1}@{value1}${accountIdentifier2}@{value2}${accountIdentifier3}@{value3}**&#39;. The list of permitted account identifiers supported by the Mobile Money API can be found in the API documentation. As there can be multiple identifiers required to identify the target account, the path uses a &#39;$&#39; delimiter to separate each identifier, up to a limit of three account identifiers.
   - name: Supporting
     description: |
       Supporting APIs consist of the following:
 
       - **Heartbeat API:** Used for monitoring purposes and establishes whether the system of an API provider is in a state that enables a client to submit a request for processing within established SLAs.
       - **Request State API** : Used to determine the state of an asynchronous request.
-      - **Responses API** : In some circumstances, the client may not have received the final representation of the resource for which it attempted to create or update. The **Responses** API allows a client to identify and retrieve the final representation of the resource assuming that the resource was created.     
+      - **Responses API** : In some circumstances, the client may not have received the final representation of the resource for which it attempted to create or update. The **Responses** API allows a client to identify and retrieve the final representation of the resource assuming that the resource was created.
 paths:
   # Transactions APIs. These support creation, modification and viewing of financial transactions in singular and bulk.
 
@@ -74,9 +74,9 @@ paths:
       callbacks:
         transactionsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Transaction Success Callback
-              description: This callback communicates the final representation of the transaction requested by the client. 
+              description: This callback communicates the final representation of the transaction requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "transactionsTransactionTypeSuccessPUT"
               parameters:
@@ -90,22 +90,22 @@ paths:
                 $ref: '#/components/requestBodies/updateTransaction' # The callback consists of the same body as a synchronous /transactions response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         transactionsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Transaction Failure Callback
-              description: This callback communicates the information regarding a transaction failure in the form of an error object. 
+              description: This callback communicates the information regarding a transaction failure in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "transactionsTransactionTypeFailurePUT"
               parameters:
@@ -119,17 +119,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Transaction response
@@ -175,7 +175,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -249,7 +249,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -282,7 +282,7 @@ paths:
       callbacks:
         transactionsUpdateSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Transactions Update Success Callback
               description: This callback communicates a simple message to communicate that the transaction update completed successfully.
               operationId: "transactionsTransactionsUpdatePUT"
@@ -294,25 +294,25 @@ paths:
                 - $ref: '#/components/parameters/X-User-Bearer'
                 - $ref: '#/components/parameters/X-Client-Id'
               requestBody:
-                $ref: '#/components/requestBodies/genericUpdateSuccess' 
+                $ref: '#/components/requestBodies/genericUpdateSuccess'
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         transactionsUpdateFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Transaction Update Failure Callback
-              description: This callback communicates the information regarding a failure to update a transaction in the form of an error object. 
+              description: This callback communicates the information regarding a failure to update a transaction in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "transactionsTransactionsUpdateFailurePUT"
               parameters:
@@ -326,17 +326,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         202:
           description: Represents an Asynchronous response
@@ -375,7 +375,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -420,9 +420,9 @@ paths:
       callbacks:
         reversalsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Reversal Callback
-              description: This callback communicates the final representation of the reversal requested by the client. 
+              description: This callback communicates the final representation of the reversal requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "transactionsTransactionReferenceReversalsSuccessPUT"
               parameters:
@@ -436,22 +436,22 @@ paths:
                 $ref: '#/components/requestBodies/updateReversal' # The callback consists of the same body as a synchronous /reversals response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         reversalsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Reversal Failure Callback
-              description: This callback communicates the information regarding a transaction failure in the form of an error object. 
+              description: This callback communicates the information regarding a transaction failure in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "transactionsTransactionReferenceReversalfailurePUT"
               parameters:
@@ -465,17 +465,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback    
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Transaction Reversal response
@@ -521,7 +521,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -598,7 +598,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -673,7 +673,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -746,7 +746,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -787,9 +787,9 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
-        - $ref: '#/components/parameters/transactionStatus'        
-        - $ref: '#/components/parameters/transactionTypeQuery' 
+        - $ref: '#/components/parameters/toDateTime'
+        - $ref: '#/components/parameters/transactionStatus'
+        - $ref: '#/components/parameters/transactionTypeQuery'
 
       responses:
         200:
@@ -805,9 +805,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -834,7 +834,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -876,9 +876,9 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/fromDateTime'
-        - $ref: '#/components/parameters/toDateTime'        
-        - $ref: '#/components/parameters/transactionStatus'        
-        - $ref: '#/components/parameters/transactionTypeQuery' 
+        - $ref: '#/components/parameters/toDateTime'
+        - $ref: '#/components/parameters/transactionStatus'
+        - $ref: '#/components/parameters/transactionTypeQuery'
       responses:
         200:
           description: Represent a list of Transactions
@@ -893,9 +893,9 @@ paths:
             'X-Date':
               $ref: '#/components/headers/X-Date'
             'X-Records-Available-Count':
-              $ref: '#/components/headers/X-Records-Available-Count' 
+              $ref: '#/components/headers/X-Records-Available-Count'
             'X-Records-Returned-Count':
-              $ref: '#/components/headers/X-Records-Returned-Count' 
+              $ref: '#/components/headers/X-Records-Returned-Count'
         400:
           description: Represents an Error Caused by the Violation of a Business Rule
           content:
@@ -922,7 +922,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -963,15 +963,15 @@ paths:
         - $ref: '#/components/parameters/X-Channel'
         - $ref: '#/components/parameters/X-Callback-URL'
         - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier-Type'
-        - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier' 
+        - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier'
       requestBody:
         $ref: '#/components/requestBodies/requestQuotation'
       callbacks:
         quotationsSuccessEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Quotations Success Callback
-              description: This callback communicates the final representation of the Quotation requested by the client. 
+              description: This callback communicates the final representation of the Quotation requested by the client.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "quotationsSuccessPUT"
               parameters:
@@ -985,22 +985,22 @@ paths:
                 $ref: '#/components/requestBodies/updateQuotation' # The callback consists of the same body as a synchronous /quotations response
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
         quotationsFailureEvent:
           '{$request.header.X-Callback-URL}': # This is the callback URL provided by the client in the request header
-            put: 
+            put:
               summary: Quotations Failure Callback
-              description: This callback communicates the information regarding a failure to receive a quotation in the form of an error object. 
+              description: This callback communicates the information regarding a failure to receive a quotation in the form of an error object.
                 The client endpoint is identified from the X-Callback-URL supplied in the POST request header.
               operationId: "quotationsFailurePUT"
               parameters:
@@ -1014,17 +1014,17 @@ paths:
                 $ref: '#/components/requestBodies/updateError' # The callback returns the error object in the event of failure
               responses:
                 204:
-                  description: Your server returns this code if it accepts the callback   
+                  description: Your server returns this code if it accepts the callback
                 400:
-                  description: Your server returns this code if it rejects the callback due to a violation of a business rule   
+                  description: Your server returns this code if it rejects the callback due to a violation of a business rule
                 401:
-                  description: Your server returns this code if it rejects the callback due to an authorisation failure   
+                  description: Your server returns this code if it rejects the callback due to an authorisation failure
                 404:
-                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource   
+                  description: Your server returns this code if it rejects the callback due to a failure to identify the target resource
                 500:
-                  description: Your server returns this code if it rejects the callback due to general server-side issue   
+                  description: Your server returns this code if it rejects the callback due to general server-side issue
                 503:
-                  description: Your server returns this code if it rejects the callback due to systems unavailability   
+                  description: Your server returns this code if it rejects the callback due to systems unavailability
       responses:
         201:
           description: Represents a Quotation response
@@ -1070,7 +1070,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1100,14 +1100,14 @@ paths:
         - $ref: '#/components/parameters/quotationReference'
         - $ref: '#/components/parameters/X-Date'
         - $ref: '#/components/parameters/X-API-Key'
-        - $ref: '#/components/parameters/X-User-Bearer' 
+        - $ref: '#/components/parameters/X-User-Bearer'
         - $ref: '#/components/parameters/X-Client-Id'
         - $ref: '#/components/parameters/X-Content-Hash'
         - $ref: '#/components/parameters/X-User-Credential-1'
         - $ref: '#/components/parameters/X-User-Credential-2'
         - $ref: '#/components/parameters/X-Channel'
         - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier-Type'
-        - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier' 
+        - $ref: '#/components/parameters/X-Account-Holding-Institution-Identifier'
       responses:
         200:
           description: Represents a Quotation response
@@ -1144,7 +1144,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1213,7 +1213,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1284,7 +1284,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1308,7 +1308,7 @@ paths:
       tags:
         - Supporting
       summary: Update A Request State
-      description: This endpoint updates a specific request state. This operation is to be deprecated. Please refer to Callback definitions 
+      description: This endpoint updates a specific request state. This operation is to be deprecated. Please refer to Callback definitions
         for the revised approach to implementing asynchronous callbacks.
       operationId: "requeststatesServerCorrelationIdPATCH"
       parameters:
@@ -1352,7 +1352,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1423,7 +1423,7 @@ paths:
                 $ref: "#/components/schemas/errorObject"
           headers:
             'X-Date':
-              $ref: '#/components/headers/X-Date' 
+              $ref: '#/components/headers/X-Date'
         500:
           description: Represents an Error Caused by a General Server-Side Issue
           content:
@@ -1451,7 +1451,7 @@ components:
       type: "string"
       minLength: 1
       maxLength: 23
-      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,3}[1-9])?$      
+      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,3}[1-9])?$
       example: "15.21"
     currency:
       type: "string"
@@ -1653,16 +1653,16 @@ components:
       enum:
         - "adjustment"
         - "reversal"
-      example: "reversal"  
+      example: "reversal"
     subType:
       type: "string"
-      description: A non-harmonised sub-classification of the type of transaction. 
+      description: A non-harmonised sub-classification of the type of transaction.
           Values are not fixed, and usage will vary according to Provider.
       minLength: 0
       maxLength: 256
     descriptionText:
       type: "string"
-      description: Free format text description of the transaction provided by the client. This can be provided as a reference 
+      description: Free format text description of the transaction provided by the client. This can be provided as a reference
         for the receiver on a notification SMS and on an account statement.
       minLength: 0
       maxLength: 160
@@ -1672,14 +1672,14 @@ components:
       description: The date and time of the request as supplied by the client.
     requestingOrganisationTransactionReference:
       type: "string"
-      description: A reference provided by the requesting organisation that is 
+      description: A reference provided by the requesting organisation that is
           to be associated with the transaction.
       minLength: 0
       maxLength: 256
     oneTimeCode:
       type: "string"
-      description: A one-time code that can be supplied in the request or can be 
-          generated in the response depending upon the use case. 
+      description: A one-time code that can be supplied in the request or can be
+          generated in the response depending upon the use case.
           An authorisation code can be supplied in this field for requests that have been pre-authorised.
       minLength: 0
       maxLength: 256
@@ -1689,7 +1689,7 @@ components:
       minLength: 0
       maxLength: 256
       pattern: "^(-?(90|(\\d|[1-8]\\d)(\\.\\d{1,6}){0,1}))\\,{1}(-?(180|(\\d|\\d\\d|1[0-7]\\d)(\\.\\d{1,6}){0,1}))$"
-      example: "37.423825,-122.082900"  
+      example: "37.423825,-122.082900"
     originalTransactionReference:
       type: "string"
       description: For reversals and refunds, this field indicates the transaction which is the subject of the reversal.
@@ -1790,7 +1790,7 @@ components:
       minItems: 1
     metadataArray:
       type: "array"
-      description: A collection of key/value pairs. These can be used to populate additional 
+      description: A collection of key/value pairs. These can be used to populate additional
         properties that describe administrative information regarding the resource.
       items:
         $ref: "#/components/schemas/metadata"
@@ -1816,12 +1816,12 @@ components:
         feeAmount:
           description: Defines the amount of the fee.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "5.46"
         feeCurrency:
           description: Defines the currency for the given fee.
           allOf:
-            - $ref: '#/components/schemas/currency' 
+            - $ref: '#/components/schemas/currency'
     metadata:
       type: "object"
       required:
@@ -2105,7 +2105,7 @@ components:
         - "YT"
         - "ZA"
         - "ZM"
-        - "ZW"      
+        - "ZW"
     dateOfBirth:
       type: "string"
       format: "date"
@@ -2132,7 +2132,7 @@ components:
         - "m"
         - "f"
         - "u"
-      description: Gender of the KYC subject.   
+      description: Gender of the KYC subject.
     emailAddress:
       type: "string"
       description: Email address of the KYC subject.
@@ -2145,29 +2145,29 @@ components:
       - "originCountry"
       properties:
         quotationReference:
-          $ref: '#/components/schemas/quotationReference' 
+          $ref: '#/components/schemas/quotationReference'
         quoteId:
-          $ref: '#/components/schemas/quoteId' 
+          $ref: '#/components/schemas/quoteId'
         originCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The originating country of the transaction, i.e. the country where the transaction was initiated. 
+            - $ref: '#/components/schemas/nationality'
+          description: The originating country of the transaction, i.e. the country where the transaction was initiated.
         deliveryMethod:
           allOf:
-            - $ref: '#/components/schemas/deliveryMethod' 
-          description: The recipient delivery method as chosen by the sender. 
+            - $ref: '#/components/schemas/deliveryMethod'
+          description: The recipient delivery method as chosen by the sender.
         receivingCountry:
-          allOf:  
-            - $ref: '#/components/schemas/nationality' 
-          description: Destination Country of the international transfer. 
+          allOf:
+            - $ref: '#/components/schemas/nationality'
+          description: Destination Country of the international transfer.
         relationshipSender:
-          $ref: '#/components/schemas/relationshipSender' 
+          $ref: '#/components/schemas/relationshipSender'
         remittancePurpose:
-          $ref: '#/components/schemas/remittancePurpose' 
+          $ref: '#/components/schemas/remittancePurpose'
         sendingServiceProviderCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The country of the sending service provider that holds the account of the sender. 
+            - $ref: '#/components/schemas/nationality'
+          description: The country of the sending service provider that holds the account of the sender.
     internationalTransferInformationResponse:
       type: "object"
       required:
@@ -2175,32 +2175,32 @@ components:
       properties:
         originCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The originating country of the transaction, i.e. the country where the transaction commenced.  
+            - $ref: '#/components/schemas/nationality'
+          description: The originating country of the transaction, i.e. the country where the transaction commenced.
         quotationReference:
-          $ref: '#/components/schemas/quotationReference' 
+          $ref: '#/components/schemas/quotationReference'
         quoteId:
-          $ref: '#/components/schemas/quoteId' 
+          $ref: '#/components/schemas/quoteId'
         deliveryMethod:
           allOf:
-            - $ref: '#/components/schemas/deliveryMethod' 
-          description: The recipient delivery method as chosen by the sender.  
+            - $ref: '#/components/schemas/deliveryMethod'
+          description: The recipient delivery method as chosen by the sender.
         receivingCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: Destination country of the international transfer.  
+            - $ref: '#/components/schemas/nationality'
+          description: Destination country of the international transfer.
         relationshipSender:
-          $ref: '#/components/schemas/relationshipSender' 
+          $ref: '#/components/schemas/relationshipSender'
         remittancePurpose:
-          $ref: '#/components/schemas/remittancePurpose' 
+          $ref: '#/components/schemas/remittancePurpose'
         recipientBlockingReason:
-          $ref: '#/components/schemas/recipientBlockingReason' 
+          $ref: '#/components/schemas/recipientBlockingReason'
         senderBlockingReason:
-          $ref: '#/components/schemas/senderBlockingReason' 
+          $ref: '#/components/schemas/senderBlockingReason'
         sendingServiceProviderCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The country of the sending service provider that holds the account of the sender. 
+            - $ref: '#/components/schemas/nationality'
+          description: The country of the sending service provider that holds the account of the sender.
     idDocumentArray:
       type: "array"
       description: An array of properties containing the forms of identification that are associated with the subject.
@@ -2233,7 +2233,7 @@ components:
             - "villageelderLetter"
             - "pancard"
             - "officialletter"
-          description: Indicates the type of identification for the KYC subject, e.g. passport, driving licence etc.    
+          description: Indicates the type of identification for the KYC subject, e.g. passport, driving licence etc.
         idNumber:
           type: "string"
           description: Reference pertaining to the type of identification for the KYC subject.
@@ -2262,8 +2262,8 @@ components:
         issuerCountry:
           description: Country where the identification type was issued.
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-        otherIddescription: 
+            - $ref: '#/components/schemas/nationality'
+        otherIddescription:
           type: "string"
           description: Where an ID Type of otherid is specified, a description of the type of identification can be provided in this field.
           minLength: 0
@@ -2306,7 +2306,7 @@ components:
         country:
           description: Country"
           allOf:
-            - $ref: '#/components/schemas/nationality' 
+            - $ref: '#/components/schemas/nationality'
     subjectName:
       type: "object"
       properties:
@@ -2346,29 +2346,29 @@ components:
         birthCountry:
           description: The country of birth of the KYC subject.
           allOf:
-            - $ref: '#/components/schemas/nationality' 
+            - $ref: '#/components/schemas/nationality'
         contactPhone:
-          $ref: '#/components/schemas/contactPhone' 
+          $ref: '#/components/schemas/contactPhone'
         dateOfBirth:
-          $ref: '#/components/schemas/dateOfBirth' 
+          $ref: '#/components/schemas/dateOfBirth'
         emailAddress:
-          $ref: '#/components/schemas/emailAddress' 
+          $ref: '#/components/schemas/emailAddress'
         employerName:
-          $ref: '#/components/schemas/employerName' 
+          $ref: '#/components/schemas/employerName'
         gender:
-          $ref: '#/components/schemas/gender' 
+          $ref: '#/components/schemas/gender'
         idDocument:
-          $ref: '#/components/schemas/idDocumentArray' 
+          $ref: '#/components/schemas/idDocumentArray'
         nationality:
           description: Nationality of the KYC subject.
-          allOf:  
-            - $ref: '#/components/schemas/nationality' 
+          allOf:
+            - $ref: '#/components/schemas/nationality'
         occupation:
-          $ref: '#/components/schemas/occupation' 
+          $ref: '#/components/schemas/occupation'
         postalAddress:
-          $ref: '#/components/schemas/postalAddress' 
+          $ref: '#/components/schemas/postalAddress'
         subjectName:
-          $ref: '#/components/schemas/subjectName' 
+          $ref: '#/components/schemas/subjectName'
 
     link:
       type: "string"
@@ -2378,25 +2378,25 @@ components:
     currentBalance:
       description: Current outstanding balance on the account.
       allOf:
-        - $ref: '#/components/schemas/amount' 
+        - $ref: '#/components/schemas/amount'
       example: "15.00"
     availableBalance:
-      description: Indicates the balance that is able to be debited for an account. 
+      description: Indicates the balance that is able to be debited for an account.
           This balance is only provided on some API provider systems.
       allOf:
-        - $ref: '#/components/schemas/amount' 
+        - $ref: '#/components/schemas/amount'
       example: "15.00"
     reservedBalance:
-      description: Indicates the portion of the balance that is reserved, i.e. 
+      description: Indicates the portion of the balance that is reserved, i.e.
           intended to be debited. This balance is only provided on some API provider systems.
       allOf:
-        - $ref: '#/components/schemas/amount' 
+        - $ref: '#/components/schemas/amount'
       example: "15.00"
     unclearedBalance:
-      description: Indicates the sum of uncleared funds in an account, i.e. the funds 
+      description: Indicates the sum of uncleared funds in an account, i.e. the funds
           that are awaiting a credit confirmation.
       allOf:
-        - $ref: '#/components/schemas/amount' 
+        - $ref: '#/components/schemas/amount'
       example: "15.00"
     accountStatus:
       type: "string"
@@ -2404,7 +2404,7 @@ components:
         - "available"
         - "unavailable"
         - "unregistered"
-      description: Indicates a harmonised representation of the account status. 
+      description: Indicates a harmonised representation of the account status.
         This will be shown as available, unavailable or unregistered.
       minLength: 1
       maxLength: 256
@@ -2449,7 +2449,7 @@ components:
         receivingAmount:
           description: The total amount as it will be received by the receiving end-user.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         receivingCurrency:
           description: The currency of the quote.
@@ -2458,11 +2458,11 @@ components:
         sendingAmount:
           description: The requested quotation amount as supplied by the sender.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         sendingCurrency:
           description: Currency of the requested quotation amount.
-          allOf:        
+          allOf:
             - $ref: '#/components/schemas/currency'
         deliveryMethod:
           description: The delivery method that is applicable to the quotation.
@@ -2487,11 +2487,11 @@ components:
       maxLength: 256
     fxRate:
       type: "string"
-      description: The conversion rate applicable between the sending and the receiving 
+      description: The conversion rate applicable between the sending and the receiving
          currency for the requested transaction.
       minLength: 4
       maxLength: 256
-      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,10}[1-9])?$      
+      pattern: ^([0]|([1-9][0-9]{0,17}))([.][0-9]{0,10}[1-9])?$
       example: "1.3436"
     senderBlockingReason:
       type: "string"
@@ -2537,7 +2537,7 @@ components:
       properties:
         serverCorrelationId:
           type: "string"
-          description: A unique identifier issued by the provider to enable the client 
+          description: A unique identifier issued by the provider to enable the client
              to identify the RequestState resource on subsequent polling requests. Must be supplied as a UUID.
           minLength: 1
           maxLength: 256
@@ -2568,7 +2568,7 @@ components:
         expiryTime:
           type: "string"
           format: "date-time"
-          description: Indicate the time by which the provider will fail the request if completion criteria have not been met. 
+          description: Indicate the time by which the provider will fail the request if completion criteria have not been met.
             For an example, a debit party failing to authorise within the allowed period.
         pollLimit:
           type: "number"
@@ -2579,7 +2579,7 @@ components:
         error:
           description: If the asynchronous processing failed, details of the error will be returned here.
           allOf:
-            - $ref: '#/components/schemas/errorObject' 
+            - $ref: '#/components/schemas/errorObject'
     genericUpdateSuccess:
       type: "object"
       required:
@@ -2589,7 +2589,7 @@ components:
           type: "string"
           description: The success message provided in a callback to communicate the success of an update operation.
           enum:
-          - "success"          
+          - "success"
     errorObject:
       type: "object"
       required:
@@ -2648,7 +2648,7 @@ components:
           - "requestDeclined"
           - "servicingPartyAuthorisationError"
           - "requestingPartyAuthorisationError"
-        errordescription: 
+        errordescription:
           type: "string"
           description: A textual description of the error.
           minLength: 0
@@ -2660,7 +2660,7 @@ components:
         errorParameters:
           description: Diagnostic information in the form of key/value pairs relating to the error.
           allOf:
-            - $ref: '#/components/schemas/metadataArray' 
+            - $ref: '#/components/schemas/metadataArray'
     requestTransactionType:
       allOf:
         - type: "object"
@@ -2671,58 +2671,58 @@ components:
             requestingOrganisationTransactionReference:
               $ref: '#/components/schemas/requestingOrganisationTransactionReference'
             originalTransactionReference:
-              $ref: '#/components/schemas/originalTransactionReference'            
+              $ref: '#/components/schemas/originalTransactionReference'
             subType:
-              $ref: '#/components/schemas/subType'  
+              $ref: '#/components/schemas/subType'
             amount:
               description: The transaction amount.
               allOf:
-                - $ref: '#/components/schemas/amount' 
+                - $ref: '#/components/schemas/amount'
               example: "15.23"
             currency:
               description: Currency of the transaction amount.
               allOf:
-                - $ref: '#/components/schemas/currency' 
+                - $ref: '#/components/schemas/currency'
               example: "RWF"
             descriptionText:
-              $ref: '#/components/schemas/descriptionText'  
+              $ref: '#/components/schemas/descriptionText'
             fees:
-             $ref: '#/components/schemas/feesArray'       
+             $ref: '#/components/schemas/feesArray'
             geoCode:
-              $ref: '#/components/schemas/geoCode'            
+              $ref: '#/components/schemas/geoCode'
             internationalTransferInformation:
-              $ref: '#/components/schemas/internationalTransferInformation'       
+              $ref: '#/components/schemas/internationalTransferInformation'
             oneTimeCode:
-              $ref: '#/components/schemas/oneTimeCode'            
+              $ref: '#/components/schemas/oneTimeCode'
             recipientKyc:
-              $ref: '#/components/schemas/kyc'            
+              $ref: '#/components/schemas/kyc'
             senderKyc:
-              $ref: '#/components/schemas/kyc'            
+              $ref: '#/components/schemas/kyc'
             requestingOrganisation:
-              $ref: '#/components/schemas/requestingOrganisation'            
+              $ref: '#/components/schemas/requestingOrganisation'
             servicingIdentity:
-              $ref: '#/components/schemas/servicingIdentity'            
+              $ref: '#/components/schemas/servicingIdentity'
             requestDate:
-              $ref: '#/components/schemas/requestDate'  
+              $ref: '#/components/schemas/requestDate'
             customData:
               $ref: '#/components/schemas/customDataArray'
             metadata:
               $ref: '#/components/schemas/metadataArray'
         - anyOf:
           - type: object # This construct allows for conditionality on credit/debit party. Both can be supplied or one or the other can be supplied.
-            required: 
+            required:
               - creditParty
             properties:
                creditParty:
                  $ref: '#/components/schemas/creditPartyArray'
           - type: object
-            required: 
+            required:
               - debitParty
             properties:
               debitParty:
                 $ref: '#/components/schemas/debitPartyArray'
           - type: object
-            required: 
+            required:
               - debitParty
               - creditParty
             properties:
@@ -2738,35 +2738,35 @@ components:
         requestingOrganisationTransactionReference:
           $ref: '#/components/schemas/requestingOrganisationTransactionReference'
         creditParty:
-          $ref: '#/components/schemas/creditPartyArray'            
+          $ref: '#/components/schemas/creditPartyArray'
         debitParty:
-          $ref: '#/components/schemas/debitPartyArray'            
+          $ref: '#/components/schemas/debitPartyArray'
         type:
-          $ref: '#/components/schemas/typeReversal'   
+          $ref: '#/components/schemas/typeReversal'
         subType:
-          $ref: '#/components/schemas/subType'  
+          $ref: '#/components/schemas/subType'
         amount:
           description: The transaction amount.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.23"
         currency:
           description: Currency of the transaction amount.
           allOf:
-            - $ref: '#/components/schemas/currency' 
+            - $ref: '#/components/schemas/currency'
           example: "RWF"
         descriptionText:
-          $ref: '#/components/schemas/descriptionText'  
+          $ref: '#/components/schemas/descriptionText'
         fees:
-         $ref: '#/components/schemas/feesArray'       
+         $ref: '#/components/schemas/feesArray'
         geoCode:
-          $ref: '#/components/schemas/geoCode'            
+          $ref: '#/components/schemas/geoCode'
         requestingOrganisation:
-          $ref: '#/components/schemas/requestingOrganisation'            
+          $ref: '#/components/schemas/requestingOrganisation'
         servicingIdentity:
-          $ref: '#/components/schemas/servicingIdentity'          
+          $ref: '#/components/schemas/servicingIdentity'
         requestDate:
-          $ref: '#/components/schemas/requestDate'  
+          $ref: '#/components/schemas/requestDate'
         customData:
           $ref: '#/components/schemas/customDataArray'
         metadata:
@@ -2784,44 +2784,44 @@ components:
         debitParty:
           $ref: '#/components/schemas/debitPartyArray'
         type:
-          $ref: '#/components/schemas/type'      
+          $ref: '#/components/schemas/type'
         subType:
-          $ref: '#/components/schemas/subType'      
+          $ref: '#/components/schemas/subType'
         requestAmount:
           description: The requested quotation amount.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         requestCurrency:
           description: Currency of the requested quotation amount
           allOf:
-            - $ref: '#/components/schemas/currency'         
+            - $ref: '#/components/schemas/currency'
         chosenDeliveryMethod:
           description: The delivery method chosen by the sending end user as the specific delivery method to be used in the quotes received.
           allOf:
-            - $ref: '#/components/schemas/deliveryMethod'  
+            - $ref: '#/components/schemas/deliveryMethod'
         originCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The originating country of the quotation request, i.e. the country where the request was initiated.  
+            - $ref: '#/components/schemas/nationality'
+          description: The originating country of the quotation request, i.e. the country where the request was initiated.
         receivingCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: Destination country of the quotation request, i.e. the country that the sender wishes to send to.  
+            - $ref: '#/components/schemas/nationality'
+          description: Destination country of the quotation request, i.e. the country that the sender wishes to send to.
         recipientKyc:
-          $ref: '#/components/schemas/kyc'         
+          $ref: '#/components/schemas/kyc'
         senderKyc:
-          $ref: '#/components/schemas/kyc'            
+          $ref: '#/components/schemas/kyc'
         requestingOrganisation:
-          $ref: '#/components/schemas/requestingOrganisation'            
+          $ref: '#/components/schemas/requestingOrganisation'
         sendingServiceProviderCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The country of the sending service provider that holds the account of the sender.  
+            - $ref: '#/components/schemas/nationality'
+          description: The country of the sending service provider that holds the account of the sender.
         requestDate:
           $ref: '#/components/schemas/requestDate'
         customData:
-          $ref: '#/components/schemas/customDataArray'  
+          $ref: '#/components/schemas/customDataArray'
         metadata:
           $ref: '#/components/schemas/metadataArray'
     requestGenericPatchArray:
@@ -2836,7 +2836,7 @@ components:
       required:
         - "op"
         - "path"
-        - "value"      
+        - "value"
       properties:
         op:
           description: Indicates the Patch operation to be performed. 'replace' is used to update a field and 'add' is used to add a new field.
@@ -2854,7 +2854,7 @@ components:
           maxLength: 256
 
     # All the GSMA Mobile Money API Response Schemas are defined here.
- 
+
     responseTransaction:
       type: "object"
       required:
@@ -2867,57 +2867,57 @@ components:
         - "debitParty"
       properties:
         transactionReference:
-          $ref: '#/components/schemas/transactionReference'       
+          $ref: '#/components/schemas/transactionReference'
         originalTransactionReference:
-          $ref: '#/components/schemas/originalTransactionReference'            
+          $ref: '#/components/schemas/originalTransactionReference'
         requestingOrganisationTransactionReference:
           $ref: '#/components/schemas/requestingOrganisationTransactionReference'
         creditParty:
-          $ref: '#/components/schemas/creditPartyArray'            
+          $ref: '#/components/schemas/creditPartyArray'
         debitParty:
-          $ref: '#/components/schemas/debitPartyArray'            
+          $ref: '#/components/schemas/debitPartyArray'
         type:
-          $ref: '#/components/schemas/type'   
+          $ref: '#/components/schemas/type'
         subType:
-          $ref: '#/components/schemas/subType'  
+          $ref: '#/components/schemas/subType'
         transactionStatus:
-          $ref: '#/components/schemas/transactionStatus'            
+          $ref: '#/components/schemas/transactionStatus'
         amount:
           description: The transaction amount.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.23"
         currency:
           description: Currency of the transaction amount.
           allOf:
-            - $ref: '#/components/schemas/currency' 
+            - $ref: '#/components/schemas/currency'
           example: "RWF"
         descriptionText:
-          $ref: '#/components/schemas/descriptionText'  
+          $ref: '#/components/schemas/descriptionText'
         fees:
-         $ref: '#/components/schemas/feesArray'       
+         $ref: '#/components/schemas/feesArray'
         geoCode:
-          $ref: '#/components/schemas/geoCode'            
+          $ref: '#/components/schemas/geoCode'
         internationalTransferInformation:
-          $ref: '#/components/schemas/internationalTransferInformationResponse'       
+          $ref: '#/components/schemas/internationalTransferInformationResponse'
         oneTimeCode:
-          $ref: '#/components/schemas/oneTimeCode'            
+          $ref: '#/components/schemas/oneTimeCode'
         recipientKyc:
-          $ref: '#/components/schemas/kyc'            
+          $ref: '#/components/schemas/kyc'
         senderKyc:
-          $ref: '#/components/schemas/kyc'            
+          $ref: '#/components/schemas/kyc'
         requestingOrganisation:
-          $ref: '#/components/schemas/requestingOrganisation'            
+          $ref: '#/components/schemas/requestingOrganisation'
         servicingIdentity:
-          $ref: '#/components/schemas/servicingIdentity'            
+          $ref: '#/components/schemas/servicingIdentity'
         transactionReceipt:
-          $ref: '#/components/schemas/transactionReceipt'       
+          $ref: '#/components/schemas/transactionReceipt'
         creationDate:
-          $ref: '#/components/schemas/creationDate'       
+          $ref: '#/components/schemas/creationDate'
         modificationDate:
-          $ref: '#/components/schemas/modificationDate'                 
+          $ref: '#/components/schemas/modificationDate'
         requestDate:
-          $ref: '#/components/schemas/requestDate'  
+          $ref: '#/components/schemas/requestDate'
         customData:
           $ref: '#/components/schemas/customDataArray'
         metadata:
@@ -2933,72 +2933,72 @@ components:
             - "transactionStatus"
           properties:
             transactionReference:
-              $ref: '#/components/schemas/transactionReference'       
+              $ref: '#/components/schemas/transactionReference'
             requestingOrganisationTransactionReference:
               $ref: '#/components/schemas/requestingOrganisationTransactionReference'
             originalTransactionReference:
-              $ref: '#/components/schemas/originalTransactionReference'            
+              $ref: '#/components/schemas/originalTransactionReference'
             type:
-              $ref: '#/components/schemas/type'   
+              $ref: '#/components/schemas/type'
             subType:
-              $ref: '#/components/schemas/subType'  
+              $ref: '#/components/schemas/subType'
             transactionStatus:
-              $ref: '#/components/schemas/transactionStatus'            
+              $ref: '#/components/schemas/transactionStatus'
             amount:
               description: The transaction amount.
               allOf:
-                - $ref: '#/components/schemas/amount' 
+                - $ref: '#/components/schemas/amount'
               example: "15.23"
             currency:
               description: Currency of the transaction amount.
               allOf:
-                - $ref: '#/components/schemas/currency' 
+                - $ref: '#/components/schemas/currency'
               example: "RWF"
             descriptionText:
-              $ref: '#/components/schemas/descriptionText'  
+              $ref: '#/components/schemas/descriptionText'
             fees:
-             $ref: '#/components/schemas/feesArray'       
+             $ref: '#/components/schemas/feesArray'
             geoCode:
-              $ref: '#/components/schemas/geoCode'            
+              $ref: '#/components/schemas/geoCode'
             internationalTransferInformation:
-              $ref: '#/components/schemas/internationalTransferInformationResponse'       
+              $ref: '#/components/schemas/internationalTransferInformationResponse'
             oneTimeCode:
-              $ref: '#/components/schemas/oneTimeCode'            
+              $ref: '#/components/schemas/oneTimeCode'
             recipientKyc:
-              $ref: '#/components/schemas/kyc'            
+              $ref: '#/components/schemas/kyc'
             senderKyc:
-              $ref: '#/components/schemas/kyc'            
+              $ref: '#/components/schemas/kyc'
             requestingOrganisation:
-              $ref: '#/components/schemas/requestingOrganisation'            
+              $ref: '#/components/schemas/requestingOrganisation'
             servicingIdentity:
-              $ref: '#/components/schemas/servicingIdentity'            
+              $ref: '#/components/schemas/servicingIdentity'
             transactionReceipt:
-              $ref: '#/components/schemas/transactionReceipt'       
+              $ref: '#/components/schemas/transactionReceipt'
             creationDate:
-              $ref: '#/components/schemas/creationDate'       
+              $ref: '#/components/schemas/creationDate'
             modificationDate:
-              $ref: '#/components/schemas/modificationDate'                 
+              $ref: '#/components/schemas/modificationDate'
             requestDate:
-              $ref: '#/components/schemas/requestDate'  
+              $ref: '#/components/schemas/requestDate'
             customData:
               $ref: '#/components/schemas/customDataArray'
             metadata:
               $ref: '#/components/schemas/metadataArray'
         - anyOf:
           - type: object  # This construct allows for conditionality on credit/debit party. Both can be supplied or one or the other can be supplied.
-            required: 
+            required:
               - creditParty
             properties:
               creditParty:
                 $ref: '#/components/schemas/creditPartyArray'
           - type: object
-            required: 
+            required:
               - debitParty
             properties:
               debitParty:
                 $ref: '#/components/schemas/debitPartyArray'
           - type: object
-            required: 
+            required:
               - debitParty
               - creditParty
             properties:
@@ -3015,49 +3015,49 @@ components:
         - "transactionStatus"
       properties:
         transactionReference:
-          $ref: '#/components/schemas/transactionReference'       
+          $ref: '#/components/schemas/transactionReference'
         requestingOrganisationTransactionReference:
           $ref: '#/components/schemas/requestingOrganisationTransactionReference'
         originalTransactionReference:
-          $ref: '#/components/schemas/originalTransactionReference'            
+          $ref: '#/components/schemas/originalTransactionReference'
         creditParty:
-          $ref: '#/components/schemas/debitPartyArray'            
+          $ref: '#/components/schemas/debitPartyArray'
         debitParty:
-          $ref: '#/components/schemas/debitPartyArray'            
+          $ref: '#/components/schemas/debitPartyArray'
         type:
-          $ref: '#/components/schemas/typeReversal'   
+          $ref: '#/components/schemas/typeReversal'
         subType:
-          $ref: '#/components/schemas/subType'  
+          $ref: '#/components/schemas/subType'
         transactionStatus:
-          $ref: '#/components/schemas/transactionStatus'            
+          $ref: '#/components/schemas/transactionStatus'
         amount:
           description: The transaction amount.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.23"
         currency:
           description: Currency of the transaction amount.
           allOf:
-            - $ref: '#/components/schemas/currency' 
+            - $ref: '#/components/schemas/currency'
           example: "RWF"
         descriptionText:
-          $ref: '#/components/schemas/descriptionText'  
+          $ref: '#/components/schemas/descriptionText'
         fees:
-         $ref: '#/components/schemas/feesArray'       
+         $ref: '#/components/schemas/feesArray'
         geoCode:
-          $ref: '#/components/schemas/geoCode'            
+          $ref: '#/components/schemas/geoCode'
         requestingOrganisation:
-          $ref: '#/components/schemas/requestingOrganisation'            
+          $ref: '#/components/schemas/requestingOrganisation'
         servicingIdentity:
-          $ref: '#/components/schemas/servicingIdentity'            
+          $ref: '#/components/schemas/servicingIdentity'
         transactionReceipt:
-          $ref: '#/components/schemas/transactionReceipt'            
+          $ref: '#/components/schemas/transactionReceipt'
         creationDate:
-          $ref: '#/components/schemas/creationDate'       
+          $ref: '#/components/schemas/creationDate'
         modificationDate:
-          $ref: '#/components/schemas/modificationDate'                 
+          $ref: '#/components/schemas/modificationDate'
         requestDate:
-          $ref: '#/components/schemas/requestDate'  
+          $ref: '#/components/schemas/requestDate'
         customData:
           $ref: '#/components/schemas/customDataArray'
         metadata:
@@ -3095,60 +3095,60 @@ components:
         debitParty:
           $ref: '#/components/schemas/debitPartyArray'
         type:
-          $ref: '#/components/schemas/type'      
+          $ref: '#/components/schemas/type'
         subType:
-          $ref: '#/components/schemas/subType'      
+          $ref: '#/components/schemas/subType'
         quotationStatus:
-          $ref: '#/components/schemas/quotationStatus'          
+          $ref: '#/components/schemas/quotationStatus'
         requestAmount:
           description: The requested quotation amount.
           allOf:
-            - $ref: '#/components/schemas/amount' 
+            - $ref: '#/components/schemas/amount'
           example: "15.00"
         requestCurrency:
           description: Currency of the requested quotation amount
           allOf:
-            - $ref: '#/components/schemas/currency'          
+            - $ref: '#/components/schemas/currency'
         availableDeliveryMethod:
           description: Delivery Method that is possible for the intended recipient.
           allOf:
-            - $ref: '#/components/schemas/deliveryMethod'        
+            - $ref: '#/components/schemas/deliveryMethod'
         chosenDeliveryMethod:
           description: The delivery method chosen by the sending end user as the specific delivery method to be used in the quotes received.
           allOf:
-            - $ref: '#/components/schemas/deliveryMethod'  
+            - $ref: '#/components/schemas/deliveryMethod'
         originCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The originating country of the quotation request, i.e. the country where the request was initiated.  
+            - $ref: '#/components/schemas/nationality'
+          description: The originating country of the quotation request, i.e. the country where the request was initiated.
         receivingCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: Destination country of the quotation request, i.e. the country that the sender wishes to send to.  
+            - $ref: '#/components/schemas/nationality'
+          description: Destination country of the quotation request, i.e. the country that the sender wishes to send to.
         quotes:
           $ref: '#/components/schemas/quoteArray'
         recipientKyc:
-          $ref: '#/components/schemas/kyc'         
+          $ref: '#/components/schemas/kyc'
         senderKyc:
-          $ref: '#/components/schemas/kyc'            
+          $ref: '#/components/schemas/kyc'
         recipientBlockingReason:
           $ref: '#/components/schemas/recipientBlockingReason'
         senderBlockingReason:
           $ref: '#/components/schemas/senderBlockingReason'
         requestingOrganisation:
-          $ref: '#/components/schemas/requestingOrganisation'            
+          $ref: '#/components/schemas/requestingOrganisation'
         sendingServiceProviderCountry:
           allOf:
-            - $ref: '#/components/schemas/nationality' 
-          description: The country of the sending service provider that holds the account of the sender.  
+            - $ref: '#/components/schemas/nationality'
+          description: The country of the sending service provider that holds the account of the sender.
         creationDate:
-          $ref: '#/components/schemas/creationDate'                
+          $ref: '#/components/schemas/creationDate'
         modificationDate:
-          $ref: '#/components/schemas/modificationDate'                
+          $ref: '#/components/schemas/modificationDate'
         requestDate:
           $ref: '#/components/schemas/requestDate'
         customData:
-          $ref: '#/components/schemas/customDataArray'  
+          $ref: '#/components/schemas/customDataArray'
         metadata:
           $ref: '#/components/schemas/metadataArray'
     responseHeartbeat:
@@ -3251,7 +3251,7 @@ components:
         type: "integer"
         format: "int32"
     X-Records-Returned-Count:
-      description: Integer containing number of records that are returned.  
+      description: Integer containing number of records that are returned.
       schema:
         type: "integer"
         format: "int32"
@@ -3268,62 +3268,62 @@ components:
       schema:
         type: "string"
         pattern: "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
-    X-Date:  
+    X-Date:
       name: "X-Date"
       in: "header"
-      description: Header parameter to indicate the date and time that the message 
-         was originated. It is used for basic message integrity checks, to ensure the request is not stale. 
+      description: Header parameter to indicate the date and time that the message
+         was originated. It is used for basic message integrity checks, to ensure the request is not stale.
          Note that the header was previously referenced as 'Date' in version 1.0 of the Mobile Money API.
       required: false
       schema:
         type: "string"
-        format: "date-time"      
+        format: "date-time"
     X-API-Key:
       name: "X-API-Key"
       in: "header"
       description: Used to pass pre-shared client's API key to the server.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-User-Bearer:
       name: "X-User-Bearer"
       in: "header"
       description: Used to pass user’s access token when OAuth 2.0/OIDC authorisation framework is used for end-user authentication
       required: false
       schema:
-        type: "string"        
-    X-Client-Id:    
+        type: "string"
+    X-Client-Id:
       name: "X-Client-Id"
       in: "header"
       description: Used to pass pre-shared client's identifier to the server.
       required: false
       schema:
-        type: "string"    
+        type: "string"
         maxLength: 256
     X-Content-Hash:
       name: "X-Content-Hash"
       in: "header"
-      description: SHA-256 hex digest of the request content (encrypted or plain). 
+      description: SHA-256 hex digest of the request content (encrypted or plain).
         Applicable only if basic data integrity checking is to be performed.
       required: false
       schema:
-        type: "string"          
+        type: "string"
     X-User-Credential-1:
       name: "X-User-Credential-1"
       in: "header"
-      description: The end-users encrypted security credential. 
+      description: The end-users encrypted security credential.
          Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-User-Credential-2:
       name: "X-User-Credential-2"
       in: "header"
-      description: The end-users encrypted security credential 
+      description: The end-users encrypted security credential
          Should only be used when OAuth 2.0/OIDC authorisation framework has not been implemented by the API Provider.
       required: false
       schema:
-        type: "string"        
+        type: "string"
     X-Channel:
       name: "X-Channel"
       in: "header"
@@ -3358,26 +3358,26 @@ components:
         type: "string"
         maxLength: 256
         minLength: 1
-    limit:  
+    limit:
       name: "limit"
       in: "query"
-      description: Supports pagination. If this is not supplied, then the server 
+      description: Supports pagination. If this is not supplied, then the server
          will apply a limit of 50 records returned for each request.
       required: false
       schema:
         type: "integer"
         format: "int32"
-    offset:  
+    offset:
       name: "offset"
       in: "query"
-      description: Supports pagination. This value will indicate the cursor position 
-         from where to retrieve the set of records. For example, a limit of 50 
+      description: Supports pagination. This value will indicate the cursor position
+         from where to retrieve the set of records. For example, a limit of 50
          and offset of 10 will return records 11 to 60.
       required: false
       schema:
         type: "integer"
         format: "int32"
-    fromDateTime:  
+    fromDateTime:
       name: "fromDateTime"
       in: "query"
       description: Indicates the minimum creation date for which records should be returned.
@@ -3396,7 +3396,7 @@ components:
     accountId:
       name: "accountId"
       in: "path"
-      description: "Path variable to uniquely identify an account. Up to three account identifiers can be supplied. 
+      description: "Path variable to uniquely identify an account. Up to three account identifiers can be supplied.
          Identifiers are delimited by $ and values are delimited by @. Example: organisationid@1234$accountid@3333.
          Valid account identifiers are accountcategory, bankaccountno, accountrank, identityalias, iban, accountid,
          msisdn, swiftbic, sortcode, organisationid, username, walletid, linkref, consumerno, serviceprovider, storeid,
@@ -3461,9 +3461,8 @@ components:
       description: The URL supplied by the client that will be used to return the callback in the form of a HTTP PUT.
       required: false
       schema:
-        type: "string" 
+        type: "string"
         format: uri
-        example: https://myserver.com/send/callback/here
     identifierType:
       name: "identifierType"
       in: "path"
@@ -3504,8 +3503,8 @@ components:
     X-Account-Holding-Institution-Identifier-Type:
       name: "X-Account-Holding-Institution-Identifier-Type"
       in: "header"
-      description: A header variable that identifies the type of the account holding institution. 
-         This header is used to support request routing and should be used in conjunction with 
+      description: A header variable that identifies the type of the account holding institution.
+         This header is used to support request routing and should be used in conjunction with
          the X-Account-Holding-Institution-Identifier header.
       required: false
       schema:
@@ -3517,8 +3516,8 @@ components:
     X-Account-Holding-Institution-Identifier:
       name: "X-Account-Holding-Institution-Identifier"
       in: "header"
-      description: A header variable that identifies the account holding institution. 
-         This header is used to support request routing and should be used in conjunction with 
+      description: A header variable that identifies the account holding institution.
+         This header is used to support request routing and should be used in conjunction with
          the X-Account-Holding-Institution-Identifier-Type header.
       required: false
       schema:

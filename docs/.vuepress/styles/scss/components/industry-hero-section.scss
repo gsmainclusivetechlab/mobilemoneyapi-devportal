@@ -1,5 +1,6 @@
 .industry-hero-section  {
   background-color: transparent;
+  padding-top: 0;
 
   .hero-section {
     &__title {
@@ -15,6 +16,7 @@
   }
 
   .hero-image-holder {
+    margin-bottom: 60px;
     &:after {
       display: none;
     }

@@ -59,10 +59,7 @@ The Bills API are used to return all outstanding bills associated with an accoun
 
 To filter the number of records returned, the following query string parameters can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -72,8 +69,8 @@ To filter the number of records returned, the following query string parameters 
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -103,10 +100,7 @@ To filter the number of records returned, the following query string parameters 
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -133,10 +127,7 @@ classDiagram
 
 #### Bill Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -149,10 +140,10 @@ classDiagram
   "amountDue": "123.45",
   "billDescription": "My custom description...",
   "currency": "GBP",
-  "dueDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "dueDate": "2018-11-20",
   "minimumAmountDue": "23.45",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -192,10 +183,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Bill Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -227,10 +215,7 @@ As per MM API standards, POST is used to create a bill payment whereas GET is us
 
 When retrieving bill payments, the following query string parameters can be used to filter the number of records returned:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -240,8 +225,8 @@ When retrieving bill payments, the following query string parameters can be used
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT"
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
@@ -271,10 +256,7 @@ When retrieving bill payments, the following query string parameters can be used
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -312,10 +294,7 @@ classDiagram
 
 #### Bill Payment Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -338,9 +317,9 @@ classDiagram
   ],
   "serviceProviderComment": "This is SP comment...",
   "serviceProviderNotification": "This is SP notification...",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -380,10 +359,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Bill Payment Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -423,10 +399,7 @@ classDiagram
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -472,10 +445,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -486,10 +456,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -528,10 +495,7 @@ The metadata object allows fields to be specified to convey administrative infor
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -542,10 +506,7 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -584,10 +545,7 @@ The custom data object allows additional fields to be specified for the associat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -599,10 +557,7 @@ The custom data object allows additional fields to be specified for the associat
 
 This object enables additional payment references to be specified for a bill payment in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -640,10 +595,7 @@ This object enables additional payment references to be specified for a bill pay
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Supplementary Bill Reference Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -674,10 +626,7 @@ The three-character alphabetic code for currency as defined by ISO 4217 is to be
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -721,10 +670,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

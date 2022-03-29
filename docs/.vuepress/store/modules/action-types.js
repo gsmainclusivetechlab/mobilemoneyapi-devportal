@@ -1,0 +1,10 @@
+export const GET_DATA = 'GET_DATA';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const UPDATE_ROLE = 'UPDATE_ROLE';
+export const SET_USER_STATUS = 'SET_USER_STATUS';
+export const SIGN_IN = 'SIGN_IN';
+export const LOG_OUT = 'LOG_OUT';
+export const POST_APP = 'POST_APP';
+export const UPDATE_APP_BY_ID = 'UPDATE_APP_BY_ID';
+export const CHANGE_PUBLISHED_STATE = 'CHANGE_PUBLISHED_STATE';
+export const UPDATE_USER_DATA = 'UPDATE_USER_DATA';

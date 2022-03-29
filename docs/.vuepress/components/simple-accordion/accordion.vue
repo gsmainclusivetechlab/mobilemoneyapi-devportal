@@ -10,10 +10,10 @@
 export default {
   name: 'accordion',
 
-  data: function() {
+  data: function () {
     return {
       isOpened: false,
-    }
+    };
   },
-}
+};
 </script>

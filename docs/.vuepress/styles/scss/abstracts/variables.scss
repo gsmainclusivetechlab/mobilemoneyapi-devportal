@@ -2,27 +2,27 @@
 
 // Breakpoints for include media mixin
 $breakpoints: (
-  "phone": 375px,
-  "tablet-xs": 520px,
-  "tablet": 768px,
-  "tablet-lg": 1024px,
-  "desktop": 1280px,
-  "desktop-lg": 1360px,
-  "widescreen": 1560px,
-  "widescreen-lg": 1920px
+        "phone": 375px,
+        "tablet-xs": 520px,
+        "tablet": 768px,
+        "tablet-lg": 1045px,
+        "desktop": 1280px,
+        "desktop-lg": 1360px,
+        "widescreen": 1560px,
+        "widescreen-lg": 1920px
 );
 
 // Keywords for include media mixin
 $media-expressions: (
-  "screen": "screen",
-  "print": "print",
-  "handheld": "handheld",
-  "landscape": "(orientation: landscape)",
-  "portrait": "(orientation: portrait)",
-  "retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
-  "retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
-  "hover": "(hover: hover) and (pointer: fine)",
-  "hover-none": "(hover: none)"
+        "screen": "screen",
+        "print": "print",
+        "handheld": "handheld",
+        "landscape": "(orientation: landscape)",
+        "portrait": "(orientation: portrait)",
+        "retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+        "retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
+        "hover": "(hover: hover) and (pointer: fine)",
+        "hover-none": "(hover: none)"
 );
 
 :root {
@@ -99,6 +99,10 @@ $media-expressions: (
     --h3-font-size: 2rem;
     --h4-font-size: 1.8rem;
     --h5-font-size: 1.6rem;
+  }
+
+  @include media("<tablet-xs") {
+    --h3-font-size: 1.8rem;
   }
   // Breakpoints
   --phone: #{map-get($breakpoints, "phone")};

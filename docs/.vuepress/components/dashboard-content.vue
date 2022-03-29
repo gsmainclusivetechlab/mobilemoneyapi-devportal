@@ -1,11 +1,10 @@
 <template>
   <div class="dashboard-section">
-    <v-touch
-        @swiperight="openSidebar"
-        @swipeleft="closeSidebar"
-    >
-      <div class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
-    </v-touch>
+      <div
+          v-touch:swipe.right="openSidebar"
+          v-touch:swipe.left="closeSidebar"
+          class="aside-menu-swipe-area">&#8592; Swipe to show/hide menu &#8594;</div>
+
     <div class="dashboard-sidebar"
          v-on-clickaway="closeSidebar"
          :class="{ 'show-sidebar': sidebarOpened }"
@@ -13,51 +12,46 @@
       <span class="dashboard-title">Developer Portal</span>
       <ul class="sidebar-list">
         <li
-            v-for="(tab, index) in tabs"
+            v-for="(tab, index) in getTabsForUser"
             :key="`tab-button-${index}`"
-            :data-name="getTabTitle(tab)"
+            :data-name="tab.tabTitle"
             class="sidebar-item"
             ref="sidebarListItem"
             :class="{
-                'active' : getTabTitle(tab) === activeTabName,
-                'children item-closed': isTabHaveChildren(tab),
+                'active' : tab.tabTitle === activeTabName,
+                'children item-closed': tab.children
 
             }"
-            @click="handleTabSwitch(getTabTitle(tab), $event, isTabHaveChildren(tab))"
+            @click="handleTabSwitch(tab.tabTitle, $event, tab.children)"
         >
           <div class="sidebar-item-main-btn">
-            <div class="icon-wrap" v-html="getTabIcon(tab)"></div>
-            <span class="sidebar-item-text">{{ getTabTitle(tab) }}</span>
+            <div class="icon-wrap" v-html="tab.tabIcon"></div>
+            <span class="sidebar-item-text">{{ tab.tabTitle }}</span>
           </div>
-          <ul class="sidebar-child-list" v-if="isTabHaveChildren(tab)">
+          <ul class="sidebar-child-list" v-if="tab.tabTitle === 'Applications' && tab.children">
             <li class="sidebar-child-item"
-                v-for="(item, index) in getTabChildren(tab)"
+                v-for="app in getApplicationsList"
                 ref="sidebarChildItem"
-                @click="toggleApplicationChildTab(true, $event, item)"
-            >{{ item.appName }}</li>
+                @click="toggleApplicationChildTab(true, $event, app.appId)"
+            >{{ app.appName }}
+            </li>
           </ul>
         </li>
       </ul>
     </div>
-    <template v-for="tab in tabs">
-      <component :is="tab"
-                 v-if="getTabTitle(tab) === activeTabName && tabsActive"
+
+    <template v-for="(tab, index) in tabs">
+      <component :is="tab.component"
+                 v-if="tab.tabTitle === activeTabName && !applicationsChildActive"
                  @close-menu="sidebarOpened = false"
                  @app-click="handleAppClick"
+                 :key="index"
       />
     </template>
+
     <applications-child
         v-if="applicationsChildActive"
-        :app-name="applicationChildItem.appName"
-        :app-default="applicationChildItem.appName"
-        :app-created="applicationChildItem.appCreated"
-        :app-expire="applicationChildItem.appExpire"
-        :app-status="applicationChildItem.appStatus"
-        :product-bind="applicationChildItem.productBind"
-        :consumer-key="applicationChildItem.consumerKey"
-        :consumer-secret="applicationChildItem.consumerSecret"
-        :apiKey="applicationChildItem.apiKey"
-        @update-data="handleUdateClick"
+        @close-application="handleTabSwitch('Applications', $event)"
     />
   </div>
 </template>
@@ -67,105 +61,198 @@ import dashboardTab from './dashboard/dashboard-tab.vue';
 import applicationsTab from './dashboard/applications-tab.vue';
 import myAccountTab from './dashboard/myAccount-tab.vue';
 import applicationsChild from './dashboard/applications-child.vue';
+
+import allApplications from './dashboard/all-applications-tab.vue';
+import allUsers from './dashboard/all-users-tab.vue';
+import allPlans from './dashboard/plans-tab.vue';
 import { mixin as clickaway } from 'vue-clickaway';
 
-const tabs = {
-    dashboardTab,
-    applicationsTab,
-    myAccountTab,
-};
+import { mapGetters, mapState } from 'vuex';
+import { nameWithSlash } from '../helpers/vuexHelper';
+import { MY_APPS, USER } from '../store/modules/module-types';
+import { SET_SELECTED_APPLICATION } from '../store/modules/mutation-types';
+import { GET_ALL_MY_APPS } from '../store/modules/getter-types';
+
+const myAccountIcon = `
+  <svg width="15" height="15" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.5 9C11.642 9 15 10.567 15 12.5V15H0V12.5C0 10.567 3.358 9 7.5 9ZM14 12.5C14 11.12 11.09 10 7.5 10C3.91 10 1 11.12 1 12.5V14H14V12.5ZM7.5 0C8.42826 0 9.3185 0.368749 9.97487 1.02513C10.6313 1.6815 11 2.57174 11 3.5C11 4.42826 10.6313 5.3185 9.97487 5.97487C9.3185 6.63125 8.42826 7 7.5 7C6.57174 7 5.6815 6.63125 5.02513 5.97487C4.36875 5.3185 4 4.42826 4 3.5C4 2.57174 4.36875 1.6815 5.02513 1.02513C5.6815 0.368749 6.57174 0 7.5 0ZM7.5 1C6.83696 1 6.20107 1.26339 5.73223 1.73223C5.26339 2.20107 5 2.83696 5 3.5C5 4.16304 5.26339 4.79893 5.73223 5.26777C6.20107 5.73661 6.83696 6 7.5 6C8.16304 6 8.79893 5.73661 9.26777 5.26777C9.73661 4.79893 10 4.16304 10 3.5C10 2.83696 9.73661 2.20107 9.26777 1.73223C8.79893 1.26339 8.16304 1 7.5 1Z"/>
+  </svg>
+`;
+
+const dashboardIcon = `
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.60016 0.160156C0.810699 0.160156 0.160156 0.810698 0.160156 1.60016V7.84016C0.160156 8.62961 0.810699 9.28016 1.60016 9.28016H7.84016C8.62961 9.28016 9.28016 8.62961 9.28016 7.84016V1.60016C9.28016 0.810698 8.62961 0.160156 7.84016 0.160156H1.60016ZM12.1602 0.160156C11.3707 0.160156 10.7202 0.810698 10.7202 1.60016V7.84016C10.7202 8.62961 11.3707 9.28016 12.1602 9.28016H18.4002C19.1896 9.28016 19.8402 8.62961 19.8402 7.84016V1.60016C19.8402 0.810698 19.1896 0.160156 18.4002 0.160156H12.1602ZM1.60016 1.12016H7.84016C8.11438 1.12016 8.32016 1.32593 8.32016 1.60016V7.84016C8.32016 8.11438 8.11438 8.32016 7.84016 8.32016H1.60016C1.32593 8.32016 1.12016 8.11438 1.12016 7.84016V1.60016C1.12016 1.32593 1.32593 1.12016 1.60016 1.12016ZM12.1602 1.12016H18.4002C18.6744 1.12016 18.8802 1.32593 18.8802 1.60016V7.84016C18.8802 8.11438 18.6744 8.32016 18.4002 8.32016H12.1602C11.8859 8.32016 11.6802 8.11438 11.6802 7.84016V1.60016C11.6802 1.32593 11.8859 1.12016 12.1602 1.12016ZM1.60016 10.7202C0.810699 10.7202 0.160156 11.3707 0.160156 12.1602V18.4002C0.160156 19.1896 0.810699 19.8402 1.60016 19.8402H7.84016C8.62961 19.8402 9.28016 19.1896 9.28016 18.4002V12.1602C9.28016 11.3707 8.62961 10.7202 7.84016 10.7202H1.60016ZM1.60016 11.6802H7.84016C8.11438 11.6802 8.32016 11.8859 8.32016 12.1602V18.4002C8.32016 18.6744 8.11438 18.8802 7.84016 18.8802H1.60016C1.32593 18.8802 1.12016 18.6744 1.12016 18.4002V12.1602C1.12016 11.8859 1.32593 11.6802 1.60016 11.6802Z"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1602 10.7202C11.3707 10.7202 10.7202 11.3707 10.7202 12.1602V18.4002C10.7202 19.1896 11.3707 19.8402 12.1602 19.8402H18.4002C19.1896 19.8402 19.8402 19.1896 19.8402 18.4002V12.1602C19.8402 11.3707 19.1896 10.7202 18.4002 10.7202H12.1602ZM12.1501 11.6802C11.8906 11.6802 11.6801 11.8907 11.6801 12.1502V18.4102C11.6801 18.6698 11.8906 18.8802 12.1501 18.8802H18.4102C18.6697 18.8802 18.8802 18.6698 18.8802 18.4102V12.1502C18.8802 11.8907 18.6697 11.6802 18.4102 11.6802H12.1501Z"/>
+  </svg>
+`;
+
+const applicationsIcon = `
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.60016 0.160156C0.810699 0.160156 0.160156 0.810698 0.160156 1.60016V7.84016C0.160156 8.62961 0.810699 9.28016 1.60016 9.28016H7.84016C8.62961 9.28016 9.28016 8.62961 9.28016 7.84016V1.60016C9.28016 0.810698 8.62961 0.160156 7.84016 0.160156H1.60016ZM12.1602 0.160156C11.3707 0.160156 10.7202 0.810698 10.7202 1.60016V7.84016C10.7202 8.62961 11.3707 9.28016 12.1602 9.28016H18.4002C19.1896 9.28016 19.8402 8.62961 19.8402 7.84016V1.60016C19.8402 0.810698 19.1896 0.160156 18.4002 0.160156H12.1602ZM1.60016 1.12016H7.84016C8.11438 1.12016 8.32016 1.32593 8.32016 1.60016V7.84016C8.32016 8.11438 8.11438 8.32016 7.84016 8.32016H1.60016C1.32593 8.32016 1.12016 8.11438 1.12016 7.84016V1.60016C1.12016 1.32593 1.32593 1.12016 1.60016 1.12016ZM12.1602 1.12016H18.4002C18.6744 1.12016 18.8802 1.32593 18.8802 1.60016V7.84016C18.8802 8.11438 18.6744 8.32016 18.4002 8.32016H12.1602C11.8859 8.32016 11.6802 8.11438 11.6802 7.84016V1.60016C11.6802 1.32593 11.8859 1.12016 12.1602 1.12016ZM15.2277 10.7127C15.1084 10.7258 14.9983 10.7831 14.9192 10.8733C14.84 10.9636 14.7976 11.0802 14.8002 11.2002V14.8002H11.2002C11.1852 14.7995 11.1701 14.7995 11.1552 14.8002C11.0921 14.8031 11.0303 14.8184 10.9732 14.8453C10.916 14.8721 10.8648 14.91 10.8223 14.9566C10.7798 15.0033 10.7469 15.0579 10.7255 15.1172C10.7041 15.1766 10.6946 15.2396 10.6976 15.3027C10.7005 15.3657 10.7159 15.4275 10.7427 15.4847C10.7696 15.5418 10.8074 15.593 10.8541 15.6355C10.9008 15.678 10.9553 15.7109 11.0147 15.7323C11.0741 15.7536 11.1371 15.7631 11.2002 15.7602H14.8002V19.3602C14.7993 19.4238 14.811 19.4869 14.8347 19.5459C14.8584 19.605 14.8937 19.6587 14.9383 19.704C14.983 19.7493 15.0362 19.7852 15.0949 19.8098C15.1536 19.8344 15.2165 19.847 15.2802 19.847C15.3438 19.847 15.4067 19.8344 15.4654 19.8098C15.5241 19.7852 15.5773 19.7493 15.622 19.704C15.6667 19.6587 15.7019 19.605 15.7256 19.5459C15.7493 19.4869 15.7611 19.4238 15.7602 19.3602V15.7602H19.3602C19.4238 15.7611 19.4869 15.7493 19.5459 15.7256C19.605 15.7019 19.6587 15.6667 19.704 15.622C19.7493 15.5773 19.7852 15.5241 19.8098 15.4654C19.8344 15.4067 19.847 15.3438 19.847 15.2802C19.847 15.2165 19.8344 15.1536 19.8098 15.0949C19.7852 15.0362 19.7493 14.983 19.704 14.9383C19.6587 14.8937 19.605 14.8584 19.5459 14.8347C19.4869 14.811 19.4238 14.7993 19.3602 14.8002H15.7602V11.2002C15.7616 11.1318 15.7485 11.064 15.7216 11.0011C15.6948 10.9383 15.6548 10.8819 15.6044 10.8357C15.554 10.7896 15.4943 10.7547 15.4293 10.7335C15.3643 10.7123 15.2956 10.7052 15.2277 10.7127ZM1.60016 10.7202C0.810699 10.7202 0.160156 11.3707 0.160156 12.1602V18.4002C0.160156 19.1896 0.810699 19.8402 1.60016 19.8402H7.84016C8.62961 19.8402 9.28016 19.1896 9.28016 18.4002V12.1602C9.28016 11.3707 8.62961 10.7202 7.84016 10.7202H1.60016ZM1.60016 11.6802H7.84016C8.11438 11.6802 8.32016 11.8859 8.32016 12.1602V18.4002C8.32016 18.6744 8.11438 18.8802 7.84016 18.8802H1.60016C1.32593 18.8802 1.12016 18.6744 1.12016 18.4002V12.1602C1.12016 11.8859 1.32593 11.6802 1.60016 11.6802Z"/>
+  </svg>
+`;
+
+const allApplicationsIcon = `
+<svg width="17" height="23" viewBox="0 0 17 23" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6515 0.947582C11.5672 0.859699 11.451 0.809582 11.3292 0.808594H2.67053C1.42757 0.811665 0.419934 1.81704 0.414062 3.05999V19.94C0.419933 21.183 1.42757 22.1883 2.67053 22.1914H14.3295C15.5724 22.1883 16.5801 21.183 16.5859 19.94V6.20515C16.5841 6.08723 16.5368 5.97458 16.4539 5.8907L11.6515 0.947582ZM11.7793 2.37084L15.0642 5.75H12.2276C12.1092 5.75117 11.9953 5.70501 11.9111 5.62177C11.8269 5.53852 11.7795 5.4251 11.7793 5.30671V2.37084ZM14.3295 21.293H2.67053C1.92352 21.2905 1.31779 20.687 1.3125 19.94V3.05999C1.31779 2.31299 1.92352 1.70952 2.67053 1.70703H10.8809V5.30671C10.8812 5.66331 11.0234 6.00513 11.276 6.25681C11.5287 6.5085 11.871 6.64939 12.2276 6.64844H15.6875V19.94C15.6822 20.687 15.0765 21.2905 14.3295 21.293H14.3295Z"/>
+<path d="M3.25781 10.6914H8.35114C8.59924 10.6914 8.80036 10.4903 8.80036 10.2422C8.80036 9.99409 8.59924 9.79297 8.35114 9.79297H3.25781C3.00972 9.79297 2.80859 9.99409 2.80859 10.2422C2.80859 10.4903 3.00972 10.6914 3.25781 10.6914L3.25781 10.6914Z"/>
+<path d="M13.7418 11.7227H3.25781C3.00972 11.7227 2.80859 11.9238 2.80859 12.1719C2.80859 12.42 3.00972 12.6211 3.25781 12.6211H13.7418C13.9899 12.6211 14.191 12.42 14.191 12.1719C14.191 11.9238 13.9899 11.7227 13.7418 11.7227L13.7418 11.7227Z"/>
+<path d="M13.7418 13.6562H3.25781C3.00972 13.6562 2.80859 13.8574 2.80859 14.1055C2.80859 14.3536 3.00972 14.5547 3.25781 14.5547H13.7418C13.9899 14.5547 14.191 14.3536 14.191 14.1055C14.191 13.8574 13.9899 13.6563 13.7418 13.6563L13.7418 13.6562Z"/>
+<path d="M13.7418 15.5859H3.25781C3.00972 15.5859 2.80859 15.7871 2.80859 16.0352C2.80859 16.2833 3.00972 16.4844 3.25781 16.4844H13.7418C13.9899 16.4844 14.191 16.2833 14.191 16.0352C14.191 15.7871 13.9899 15.5859 13.7418 15.5859L13.7418 15.5859Z"/>
+</svg>
+`;
+
+const allUsersIcon = `
+<svg width="18" height="23" viewBox="0 0 18 23" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.97304 0C1.10587 0 0.400391 0.705481 0.400391 1.57265V21.4273C0.400391 22.2945 1.10587 23 1.97304 23H16.0286C16.8958 23 17.6012 22.2945 17.6012 21.4273V1.57265C17.6012 0.705481 16.8958 0 16.0286 0L1.97304 0ZM1.97304 1.17949H16.0286C16.2454 1.17949 16.4218 1.35587 16.4218 1.57265V21.4273C16.4218 21.6441 16.2454 21.8205 16.0286 21.8205H1.97304C1.75626 21.8205 1.57988 21.6441 1.57988 21.4273V1.57265C1.57988 1.35587 1.75626 1.17949 1.97304 1.17949ZM9.00091 3.41502C7.57088 3.41502 6.40744 4.5724 6.40744 5.99505C6.40744 6.33494 6.47449 6.65942 6.5951 6.95684C5.77167 7.65618 5.29323 8.67591 5.29323 9.7778V10.9354C5.29323 11.64 5.86641 12.2132 6.57101 12.2132H11.4309C12.1355 12.2132 12.7087 11.64 12.7087 10.9354V9.7778C12.7085 8.67596 12.2301 7.65618 11.4066 6.95684C11.5272 6.65942 11.5943 6.33489 11.5943 5.99505C11.5943 4.5724 10.4309 3.41502 9.00091 3.41502ZM9.00082 4.59451C9.78046 4.59451 10.4148 5.22278 10.4148 5.99505C10.4148 6.76732 9.78046 7.39569 9.00082 7.39569C8.22118 7.39569 7.58684 6.76732 7.58684 5.99505C7.58684 5.22278 8.22118 4.59451 9.00082 4.59451ZM7.28121 7.9242C7.7393 8.32876 8.34153 8.57518 9.00082 8.57518C9.6601 8.57518 10.2623 8.32871 10.7204 7.9242C11.2335 8.39801 11.5291 9.06264 11.5291 9.7778V10.9355H11.529C11.529 10.9897 11.4849 11.0338 11.4307 11.0338H6.57081C6.5166 11.0338 6.47252 10.9897 6.47252 10.9355V9.7778C6.47252 9.06264 6.76819 8.39796 7.28121 7.9242ZM4.54232 14.9653C4.21664 14.9653 3.95258 15.2294 3.95258 15.5551C3.95258 15.8807 4.21663 16.1448 4.54232 16.1448H13.4593C13.785 16.1448 14.0491 15.8807 14.0491 15.5551C14.0491 15.2294 13.785 14.9653 13.4593 14.9653H4.54232ZM10.8634 18.2947C10.4835 18.2947 10.1754 18.6028 10.1754 18.9828C10.1754 19.3627 10.4835 19.6708 10.8634 19.6708C11.2434 19.6708 11.5515 19.3627 11.5515 18.9828C11.5515 18.6028 11.2434 18.2947 10.8634 18.2947ZM4.54232 18.4055C4.21664 18.4055 3.95258 18.6695 3.95258 18.9952C3.95258 19.3209 4.21663 19.585 4.54232 19.585H8.38948C8.71516 19.585 8.97912 19.3209 8.97912 18.9952C8.97912 18.6695 8.71507 18.4055 8.38938 18.4055H4.54232Z"/>
+</svg>
+`;
+
+const plansIcon = `
+<svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.48209 4.79487H15.3274C16.6961 4.79487 17.8095 3.71938 17.8095 2.39744C17.8095 1.07549 16.6961 0 15.3274 0H2.48209C1.11347 0 1.28114e-06 1.07549 1.28114e-06 2.39744C1.28114e-06 3.71938 1.11342 4.79487 2.48209 4.79487ZM2.48209 0.871795H15.3274C16.1984 0.871795 16.9069 1.5562 16.9069 2.39744C16.9069 3.23867 16.1984 3.92308 15.3274 3.92308H2.48209C1.61115 3.92308 0.902579 3.23867 0.902579 2.39744C0.902579 1.5562 1.61115 0.871795 2.48209 0.871795ZM15.3274 6.10256H2.48209C1.11346 6.10256 0 7.17805 0 8.5C0 9.82195 1.11347 10.8974 2.48209 10.8974H15.3274C16.6961 10.8974 17.8095 9.82195 17.8095 8.5C17.8095 7.17805 16.6961 6.10256 15.3274 6.10256H15.3274ZM15.3274 10.0256H2.48209C1.61115 10.0256 0.902578 9.34124 0.902578 8.5C0.902578 7.65876 1.61115 6.97436 2.48209 6.97436H15.3274C16.1984 6.97436 16.9069 7.65876 16.9069 8.5C16.9069 9.34124 16.1983 10.0256 15.3274 10.0256H15.3274ZM15.3274 12.2051H2.48209C1.11346 12.2051 0 13.2806 0 14.6026C0 15.9245 1.11347 17 2.48209 17H15.3274C16.6961 17 17.8095 15.9245 17.8095 14.6026C17.8095 13.2806 16.6961 12.2051 15.3274 12.2051H15.3274ZM15.3274 16.1282H2.48209C1.61115 16.1282 0.902578 15.4438 0.902578 14.6026C0.902578 13.7613 1.61115 13.0769 2.48209 13.0769H15.3274C16.1984 13.0769 16.9069 13.7613 16.9069 14.6026C16.9069 15.4438 16.1983 16.1282 15.3274 16.1282H15.3274Z"/>
+</svg>
+`;
 
 export default {
   name: 'dashboard-section',
 
-  components: { applicationsChild },
+  components: {
+    applicationsChild
+  },
 
-  mixins: [ clickaway ],
+  mixins: [
+    clickaway
+  ],
 
   data() {
     return {
-        tabs: tabs,
-        applicationsChild: applicationsChild,
-        activeTabName: '',
-        sidebarOpened: false,
-        tabsActive: true,
-        applicationsChildActive: false,
-        applicationChildItem: [],
-    }
+      activeTabName: '',
+      sidebarOpened: false,
+      applicationsChildActive: false,
+    };
   },
 
-  created() {
-      this.setStartActiveTab();
+  computed: {
+    isAdminRole() {
+      return this.userData.role === 'admin' || this.userData.role === 'superadmin';
+    },
+    getTabsForUser() {
+      return this.isAdminRole ? this.tabs : this.tabs.slice(0, 3);
+    },
+    tabs() {
+      return [
+        {
+          tabTitle: 'Dashboard',
+          tabIcon: dashboardIcon,
+          component: dashboardTab,
+          children: false
+        },
+        {
+          tabTitle: 'Applications',
+          tabIcon: applicationsIcon,
+          component: applicationsTab,
+          children: this.getApplicationsList.length
+        },
+        {
+          tabTitle: 'My account',
+          tabIcon: myAccountIcon,
+          component: myAccountTab,
+          children: false
+        },
+
+        {
+          tabTitle: 'All applications',
+          tabIcon: allApplicationsIcon,
+          component: allApplications,
+          children: false
+        },
+        {
+          tabTitle: 'All users',
+          tabIcon: allUsersIcon,
+          component: allUsers,
+          children: false
+        },
+        {
+          tabTitle: 'Plans',
+          tabIcon: plansIcon,
+          component: allPlans,
+          children: false
+        },
+      ];
+    },
+    ...mapGetters(MY_APPS, {
+      getApplicationsList: GET_ALL_MY_APPS
+    }),
+    ...mapState(USER, ['userData'])
+  },
+
+  mounted() {
+    this.setStartActiveTab();
   },
 
   methods: {
-      handleTabSwitch(tabName, e, isChildMenu) {
-          this.activeTabName = tabName;
-          this.toggleApplicationChildTab(false);
-          if (isChildMenu && e.target.closest('li').classList.contains('item-closed')) {
-              setTimeout(() => {e.target.closest('li').classList.remove('item-closed')}, 50);
-              return;
-          } else if (isChildMenu) e.target.closest('li').classList.add('item-closed');
-          if (!isChildMenu) this.closeSidebar();
-          this.$refs.sidebarChildItem.forEach((element) => {
-              element.classList.remove('active');
-          });
-      },
+    handleTabSwitch(tabName, e, isChildMenu) {
+      this.activeTabName = tabName;
 
-      getTabTitle(tab) {
-          return tab.data().tabTitle;
-      },
+      this.toggleApplicationChildTab(false);
 
-      getTabIcon(tab) {
-          return tab.data().tabIcon;
-      },
-
-      isTabHaveChildren(tab) {
-          return tab.data().children;
-      },
-
-      getTabChildren(tab) {
-          return tab.data().dashboardApplicationsDB;
-      },
-
-      setStartActiveTab() {
-          this.activeTabName = this.getTabTitle(this.tabs[`${Object.keys(this.tabs)[this.defaultTab ? this.defaultTab -1 : 0]}`]);
-      },
-
-      openSidebar() {
-          this.sidebarOpened = true;
-      },
-
-      closeSidebar() {
-          this.sidebarOpened = false;
-      },
-
-      toggleApplicationChildTab(show, e, item) {
-          if (e) {
-              e.stopPropagation();
-              this.$refs.sidebarChildItem.forEach((element) => {
-                  element.classList.remove('active');
-              });
-              e.target.classList.add('active')
-              this.applicationChildItem = item;
-          }
-          this.tabsActive = !show;
-          this.applicationsChildActive = show;
-          if (this.applicationsChildActive) this.closeSidebar();
-      },
-      handleAppClick(key, tabTitle) {
-          this.$refs.sidebarChildItem[key].click();
-          this.$refs.sidebarListItem.forEach(element => {
-              if (element.getAttribute('data-name') === tabTitle) {
-                  element.classList.remove('item-closed')
-              }
-          });
-      },
-      handleUdateClick(appName) {
-          console.log('appName 1', this.applicationChildItem.appName);
-          this.applicationChildItem.appName = appName;
-          console.log('appName 2', this.applicationChildItem.appName);
+      if (isChildMenu && e.target.closest('li').classList.contains('item-closed')) {
+        setTimeout(() => {
+          e.target.closest('li').classList.remove('item-closed');
+        }, 50);
+        return;
+      } else if (isChildMenu) {
+        e.target.closest('li').classList.add('item-closed');
       }
+
+      if (! isChildMenu) this.closeSidebar();
+
+      if (this.$refs.sidebarChildItem) {
+        this.$refs.sidebarChildItem.forEach((element) => {
+          element.classList.remove('active');
+        });
+      }
+    },
+
+    setStartActiveTab() {
+      this.activeTabName = this.tabs[0].tabTitle;
+    },
+
+    openSidebar() {
+      this.sidebarOpened = true;
+    },
+
+    closeSidebar() {
+      this.sidebarOpened = false;
+    },
+
+    toggleApplicationChildTab(show, e, id) {
+      if (e) {
+        e.stopPropagation();
+        this.$refs.sidebarChildItem.forEach((element) => {
+          element.classList.remove('active');
+        });
+        e.target.classList.add('active');
+        this.$store.commit(nameWithSlash(MY_APPS, SET_SELECTED_APPLICATION), id);
+      }
+
+      this.applicationsChildActive = show;
+
+      if (this.applicationsChildActive) {
+        this.closeSidebar();
+      }
+    },
+
+    handleAppClick(key, tabTitle) {
+      this.$refs.sidebarChildItem[key].click();
+
+      this.$refs.sidebarListItem.forEach(element => {
+        if (element.getAttribute('data-name') === tabTitle) {
+          element.classList.remove('item-closed');
+        }
+      });
+    },
   }
-}
+};
 </script>

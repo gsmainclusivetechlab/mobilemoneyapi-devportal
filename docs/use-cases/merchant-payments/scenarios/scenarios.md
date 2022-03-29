@@ -13,21 +13,19 @@ title: Merchant Payments - Use Case Scenarios
 
 The GSMA Simulator for the Mobile Money API is a simulated API implementation developed by the GSMA to facilitate API adoption and testing, thereby decreasing implementation effort and time to market for Mobile Money Providers and ecosystem Service Providers. Developers can navigate through Use Case Scenarios providing access to a set of pre-defined Postman Collections for the Simulator to try out some of the most common mobile money API use cases, or directly access the OAS interface for the API Specification and use the API Try It Out functionality from there.
 
+
+
 ## Payee-Initiated Merchant Payment
 
 In this example, an asynchronous payment flow is used with a final callback. The merchant initiates the request and will be credited when the payer approves the request.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -55,38 +53,46 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
   sequenceDiagram
@@ -118,80 +124,10 @@ Body Parameters:
 </div>
 
 
+
 ## Payee-Initiated Merchant Payment Failure
 
 In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-main-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```json
-POST .../transactions/type/merchantpay
----
-Headers:
-{
-   "X-CorrelationID": ["Please enter your UUID here"],
-   "X-Callback-URL": ["Please enter your callback URL here"],
-   "Content-Type": ["application/json"]
-}
----
-Body Parameters:
-{
-    "amount": "200.00",
-    "debitParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "creditParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "currency": "RWF"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-</code-group>
-
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
-</code-block>
-</code-group>
-
-</code-block>
-</code-main-group>
-
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -219,21 +155,17 @@ sequenceDiagram
 
 
 
-
 ## Payee-Initiated Merchant Payment using the Polling Method
 
 In this example, an asynchronous payment flow is used with the polling method. The client polls against the request state object to determine the outcome of the payment request.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```bash
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -260,14 +192,17 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../requeststates/Place the Server Correlation Id here
 ```
 </code-block>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../transactions/Place Transaction Reference here
 ```
 </code-block>
@@ -276,55 +211,79 @@ GET .../transactions/Place Transaction Reference here
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-<code-block title="GET">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-<code-block title="GET">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
 </code-block>
+
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewRequestState.php
 </code-block>
+
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewRequestState.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewRequestState.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -364,8 +323,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvL" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXR" target="_blank">Open Postman Collection with Authentication</a>
@@ -376,17 +333,14 @@ sequenceDiagram
 ## Payer-Initiated Merchant Payment
 
 In this example, an asynchronous payment flow is used with a final callback. The payer initiates the request and will be debited upon successful completion of the request.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -414,37 +368,46 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -469,86 +432,16 @@ sequenceDiagram
     deactivate Merchant
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEvP" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLXU" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
+
 ## Payer-Initiated Merchant Payment Failure
 
 In this example, an asynchronous payment flow is used with a final callback that contains the reason for failure.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
-
-<code-main-group>
-<code-block title="View">
-
-<code-group>
-<code-block title="POST">
-```json
-POST .../transactions/type/merchantpay
----
-Headers:
-{
-   "X-CorrelationID": ["Please enter your UUID here"],
-   "X-Callback-URL": ["Please enter your callback URL here"],
-   "Content-Type": ["application/json"]
-}
----
-Body Parameters:
-{
-    "amount": "200.00",
-    "debitParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "creditParty": [
-        {
-            "key": "accountid",
-            "value": "2999"
-        }
-    ],
-    "currency": "RWF"
-}
-```
-</code-block>
-</code-group>
-
-</code-block>
-
-<code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here 
-```
-</code-block>
-</code-group>
-
-<code-group title="PHP">
-<code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
-</code-block>
-</code-group>
-
-</code-block>
-</code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -578,17 +471,14 @@ sequenceDiagram
 ## Payee-Initiated Merchant Payment using a Pre-authorised Payment Code
 
 In this example the /authorisationcodes API is used to obtain a pre-authorised payment code. This in turn is presented by the payer to the merchant who initiates the payment request. Both flows in the diagram result in a callback. This flow is primarily used for payment on delivery use cases.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../accounts/accountid/2000/authorisationcodes
 ---
 Headers:
@@ -600,15 +490,17 @@ Headers:
 ---
 Body Parameters:
 {
-    "requestDate": "2018-07-03T10:43:27.405Z",
+    "requestDate": "2017-07-21T17:32:28Z",
     "currency": "GBP",
     "amount": "1000.00"
 }
 ```
+
 </code-block>
 
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Headers:
@@ -638,52 +530,94 @@ Body Parameters:
     "oneTimeCode": "Place your Authorisation Code here"
 }
 ```
+
+</code-block>
+
+<code-block title="GET">
+
+```json{1}
+TEST CONTENT
+```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createAuthorisationCode.php
 </code-block>
 
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createMerchantTransaction.php
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/php/merchantPayment/viewAuthorisationCode.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createAuthorisationCode.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewAuthorisationCode.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createAuthorisationCode.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewAuthorisationCode.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createAuthorisationCode.java
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createMerchantTransaction.java
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewAuthorisationCode.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createAuthorisationCode.js
+</code-block>
+
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createMerchantTransaction.js
+</code-block>
+
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewAuthorisationCode.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -718,7 +652,6 @@ sequenceDiagram
     deactivate Mobile Money Provider 
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzm" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLTA" target="_blank">Open Postman Collection with Authentication</a>
@@ -730,16 +663,13 @@ sequenceDiagram
 
 Merchants can issue a refund to payers. In this diagram, the refund is not linked to the original transaction and hence the /transactions API is used. Where a refund needs to be linked to the original transaction, the /reversals API must be used to perform the refund.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/type/adjustment
 ---
 Headers:
@@ -767,38 +697,46 @@ Body Parameters:
     "currency": "RWF"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createRefundTransaction.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createRefundTransaction.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createRefundTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createRefundTransaction.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createRefundTransaction.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -816,8 +754,6 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGEzq" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLJG" target="_blank">Open Postman Collection with Authentication</a>
@@ -828,17 +764,14 @@ sequenceDiagram
 ## Merchant Payment Reversal
 
 In some failure scenarios, a merchant may need to reverse a transaction. This diagram illustrates a reversal with the final result communicated via the callback.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -853,37 +786,46 @@ Body Parameters:
     "type": "reversal"
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="POST">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="POST">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/createReversal.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="POST">
+<<< @/code-snippets/nodejs/merchantPayment/createReversal.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="POST">
+<<< @/code-snippets/java/merchantPayment/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="POST">
+<<< @/code-snippets/android/merchantPayment/createReversal.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="POST">
+<<< @/code-snippets/javascript/merchantPayment/createReversal.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -901,58 +843,64 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDcGF59" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDLJK" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
-## Obtain a Merchant Balance
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+## Obtain a Merchant Balance
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/balance
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewAccountBalance.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewAccountBalance.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewAccountBalance.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewAccountBalance.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -967,27 +915,24 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFV" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoDL9Q" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
 
+
 ## Retrieve Payments for a Merchant
 
 This diagram illustrates use of a cursor mechanism to retrieve all payments for a merchant via multiple requests.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../accounts/accountid/2000/transactions?offset=0&limit=20
 ---
 Params: 
@@ -996,37 +941,46 @@ Params:
     "limit": 20
 }
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewAccountTransactions.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewAccountTransactions.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewAccountTransactions.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewAccountTransactions.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -1045,59 +999,66 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDdiZFX" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzJoF1w6" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Check for Service Availability
 
 The Heartbeat API is used for monitoring purposes and establishes whether the mobile money provider is in a state that enables a client to submit a request for processing.
-
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../heartbeat
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewServiceAvailability.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewServiceAvailability.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewServiceAvailability.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewServiceAvailability.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
 
 <mermaid>
 sequenceDiagram
@@ -1113,59 +1074,67 @@ sequenceDiagram
     deactivate Mobile Money Provider
 </mermaid>
 
-
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7p" target="_blank">Open Postman Collection</a>
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TzCQbS8z" target="_blank">Open Postman Collection with Authentication</a>
 </div>
 
+
+
 ## Retrieve a Missing API Response
 
 This API can be used by the merchant to retrieve a link to the final representation of the resource for which it attempted to create. Use this API when a callback is not received from the mobile money provider.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="GET">
-```json
+
+```json{1}
 GET .../responses/Please enter your UUID here
 ```
+
 </code-block>
 </code-group>
 
 </code-block>
 
 <code-block title="Code">
-<code-group title="JavaScript">
-<code-block title="GET">
-```javascript
-//some JavaScript code here
-```
-</code-block>
-</code-group>
 
 <code-group title="PHP">
 <code-block title="GET">
-```php
-<?php 
-  //some PHP code here 
-?>
-```
+<<< @/code-snippets/php/merchantPayment/viewResponse.php
+</code-block>
+</code-group>
+
+<code-group title="NodeJS">
+<code-block title="GET">
+<<< @/code-snippets/nodejs/merchantPayment/viewResponse.js
+</code-block>
+</code-group>
+
+<code-group title="Java">
+<code-block title="GET">
+<<< @/code-snippets/java/merchantPayment/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Android">
+<code-block title="GET">
+<<< @/code-snippets/android/merchantPayment/viewResponse.java
+</code-block>
+</code-group>
+
+<code-group title="Javascript">
+<code-block title="GET">
+<<< @/code-snippets/javascript/merchantPayment/viewResponse.js
 </code-block>
 </code-group>
 
 </code-block>
 </code-main-group>
-
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 <mermaid>
 sequenceDiagram
     participant Merchant
@@ -1182,7 +1151,6 @@ sequenceDiagram
     deactivate Merchant
     deactivate Mobile Money Provider
 </mermaid>
-
 
 <div class="buttons-holder content-center">
   <a class="btn btn--accent" href="https://documenter.getpostman.com/view/4336524/TWDamF7v" target="_blank">Open Postman Collection</a>

@@ -3,63 +3,45 @@ pageClass: industry-page custom
 title: Employers
 ---
 
-  <industry-hero-section
-    :title="'Employers'"
-    :description="'An employer is a person, company, or organization that employs people—pays them for work.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+!!!include(docs/.vuepress/pages/business/employers/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/employers/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/employers/start-developing.md)!!!
 
-  <use-cases-employers-with-tabs :defaultTab="1"/>
+<script>
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import TabSection from "../.vuepress/components/TabSection";
+import Accordion from "../.vuepress/components/simple-accordion/accordion";
+import AccordionItem from "../.vuepress/components/simple-accordion/accordion-item";
+import useCasesTab from "../.vuepress/mixins/useCasesTab.js";
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
-        {
-          bulletColor: '#00568F',
-          text: 'Increased conversion',
-        },
-        {
-          bulletColor: '#FF6600',
-          text: 'Important point',
-        },
-        {
-          bulletColor: '#00A182',
-          text: 'Reduced errors',
-        },
-        {
-          bulletColor: '#FCBB2C',
-          text: 'Important point',
-        },
-      ]
-    },
-  ]"
-  />
-
-  <testimonials-slider
-  :slides="[
-        {
-          image: '/images/slide-item-1.jpg',
-          description: 'Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.\n' +
-          'Scelerisque hendrerit sagittis, sit aliquet id sodales dictum pellentesque quis. Lobortis ultrices\n' +
-          'ultrices integer urna, pharetra.',
-          author: 'John Smith',
-          position: 'Developer at Porto',
-        },
-    ]"
-  />
-
-  <get-started
-  :sectionTitle="'Ready to explore?'"
-  :sectionDescription="'Find our latest API documentation.'"
-  :accentLink="{text: 'Start developing', link: '/examples'}"
-  />
-  
-  <div class="text-hidden">
-    <p>Employers.</p>
-    <p>An employer is a person, company, or organization that employs people—pays them for work.</p>
-  </div>
+export default {
+  components: {
+    VueSlickCarousel, AccordionItem, Accordion, TabSection
+  },
+  data() {
+    return {
+      options: {
+        dots: true,
+        arrows: true,
+        dotsClass: 'testimonials__dots',
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+      },
+      borderedLink: false,
+      accentLink: {
+        text: 'Start developing',
+        link: '/examples'
+      },
+      tabs: [
+        'Disbursements',
+        'P2P Transfers'
+      ],
+      activeTabName: '',
+    }
+  },
+  mixins: [useCasesTab],
+}
+</script>

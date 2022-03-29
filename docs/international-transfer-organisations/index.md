@@ -3,63 +3,47 @@ pageClass: industry-page custom
 title: International Transfer Organisations
 ---
 
-  <industry-hero-section
-    :title="'International Transfer Organisations'"
-    :description="'Behind most international money and security transfers is the Society for Worldwide Interbank Financial Telecommunications (SWIFT) system.'"
-    :imageSrc="'/images/industry-hero.jpg'"
-    :imageAlt="'image alt'" 
-    />
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/hero.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/use-cases.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/succeed-case.md)!!!
+!!!include(docs/.vuepress/pages/business/international-transfer-organisations/start-developing.md)!!!
 
-  <use-cases-international-transfer-organisations-with-tabs :defaultTab="1"/>
+<script>
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import TabSection from "../.vuepress/components/TabSection";
+import Accordion from "../.vuepress/components/simple-accordion/accordion";
+import AccordionItem from "../.vuepress/components/simple-accordion/accordion-item";
+import useCasesTab from "../.vuepress/mixins/useCasesTab.js";
 
-  <succeed-use-case-section
-  :cards="[
-    {
-      image: '/images/succeed-use-case.jpg',
-      title: 'Succeed case study',
-      description: 'Dictumst habitasse ultrices elementum, consequat ultrices purus volutpat. Posuere amet amet, cum justo bibendum morbi. Auctor interdum morbi non platea justo, et neque.',
-      caseList: [
-        {
-          bulletColor: '#00568F',
-          text: 'Increased conversion',
-        },
-        {
-          bulletColor: '#FF6600',
-          text: 'Important point',
-        },
-        {
-          bulletColor: '#00A182',
-          text: 'Reduced errors',
-        },
-        {
-          bulletColor: '#FCBB2C',
-          text: 'Important point',
-        },
-      ]
-    },
-  ]"
-  />
+export default {
+  components: {
+    VueSlickCarousel, AccordionItem, Accordion, TabSection
+  },
+  data() {
+    return {
+      options: {
+        dots: true,
+        arrows: true,
+        dotsClass: 'testimonials__dots',
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+      },
+      borderedLink: false,
+      accentLink: {
+        text: 'Start developing',
+        link: '/examples'
+      },
+      tabs: [
+        'International Transfers',
+      ],
+      activeTabName: '',
+    }
+  },
+  mixins: [useCasesTab],
+}
+</script>
 
-  <testimonials-slider
-  :slides="[
-        {
-          image: '/images/slide-item-1.jpg',
-          description: 'Quisque bibendum elit purus ultricies. Nam imperdiet praesent cursus congue euismod volutpat.\n' +
-          'Scelerisque hendrerit sagittis, sit aliquet id sodales dictum pellentesque quis. Lobortis ultrices\n' +
-          'ultrices integer urna, pharetra.',
-          author: 'John Smith',
-          position: 'Developer at Porto',
-        },
-    ]"
-  />
 
-  <get-started
-  :sectionTitle="'Ready to explore?'"
-  :sectionDescription="'Find our latest API documentation.'"
-  :accentLink="{text: 'Start developing', link: '/examples'}"
-  />
-  
-  <div class="text-hidden">
-    <p>International Transfer Organisations.</p>
-    <p>Behind most international money and security transfers is the Society for Worldwide Interbank Financial Telecommunications (SWIFT) system.</p>
-  </div>

@@ -1,14 +1,14 @@
 html {
   .theme-container:not(.custom):not(.api-page) {
-    .theme-default-content {
+    .content__default {
       &:not(.custom) {
         max-width: 100%;
         padding: 73px 40px 184px;
-    
+
         @include media('<=tablet-lg') {
           padding: 73px 25px;
         }
-  
+
         & > h1,
         & > h2,
         & > h3,
@@ -17,49 +17,49 @@ html {
         & > h6 {
           margin-top: 0;
           padding-top: 0;
-    
+
           &:first-child {
             margin-top: 0;
             padding-top: 0;
           }
         }
-  
+
         h1, .h1 {
           font-weight: var(--base-h1-font-weight);
           font-size: var(--h1-font-size);
           margin: 0 0 25px;
-      
+
           @include media("<desktop") {
-            
+
           }
-      
+
           @include media("<tablet") {
-            
+
           }
         }
-      
+
         h2, .h2 {
           margin: 0 0 15px;
           font-weight: var(--base-h2-font-weight);
           font-size: var(--h2-font-size);
         }
-      
+
         h3, .h3 {
           font-weight: var(--base-h3-font-weight);
           font-size: var(--h3-font-size);
         }
-      
+
         h4, .h4 {
           margin: 0 0 26px;
           font-weight: var(--base-h4-font-weight);
           font-size: var(--h4-font-size);
         }
-      
+
         h5, .h5 {
           font-weight: var(--base-h5-font-weight);
           font-size: var(--h5-font-size);
         }
-      
+
         h6, .h6 {
           font-weight: var(--base-h6-font-weight);
           font-size: var(--h6-font-size);
@@ -106,8 +106,19 @@ html {
     }
 
     &.no-sidebar {
-      .theme-default-content:not(.custom){
+      .content__default:not(.custom){
         max-width: 916px;
+      }
+    }
+
+    &.industry-page {
+      h2 {
+        margin: 0 0 15px;
+        padding-top: 40px;
+      }
+
+      .section--m-gap {
+        margin: 0;
       }
     }
   }

@@ -1,33 +1,33 @@
 <template>
   <RouterLink
-    v-if="isInternal && !isDownload"
-    class="nav-link"
-    :to="link"
-    :exact="exact"
-    @focusout.native="focusoutAction"
+      v-if="isInternal && !isDownload"
+      class="nav-link"
+      :to="link"
+      :exact="exact"
+      @focusout.native="focusoutAction"
   >
     {{ item.text }}
   </RouterLink>
 
   <a
-    v-else-if="isDownload"
-    :href="downloadLink"
-    class="nav-link external"
-    :rel="rel"
-    download
+      v-else-if="isDownload"
+      :href="downloadLink"
+      class="nav-link external"
+      :rel="rel"
+      download
   >
     {{ item.text }}
   </a>
   <a
-    v-else
-    :href="link"
-    class="nav-link external"
-    :target="target"
-    :rel="rel"
-    @focusout="focusoutAction"
+      v-else
+      :href="link"
+      class="nav-link external"
+      :target="target"
+      :rel="rel"
+      @focusout="focusoutAction"
   >
     {{ item.text }}
-    <OutboundLink v-if="isBlankTarget" />
+    <OutboundLink v-if="isBlankTarget"/>
   </a>
 </template>
 
@@ -44,65 +44,65 @@ export default {
   },
 
   computed: {
-    link () {
-      return ensureExt(this.item.link)
+    link() {
+      return ensureExt(this.item.link);
     },
 
-    exact () {
+    exact() {
       if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
+        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link);
       }
-      return this.link === '/'
+      return this.link === '/';
     },
 
-    isNonHttpURI () {
-      return isMailto(this.link) || isTel(this.link)
+    isNonHttpURI() {
+      return isMailto(this.link) || isTel(this.link);
     },
 
-    isBlankTarget () {
-      return this.target === '_blank'
+    isBlankTarget() {
+      return this.target === '_blank';
     },
 
-    isDownload () {
+    isDownload() {
       return this.target === 'download';
     },
 
-    downloadLink () {
+    downloadLink() {
       return this.item.link;
     },
 
-    isInternal () {
-      return !isExternal(this.link) && !this.isBlankTarget
+    isInternal() {
+      return ! isExternal(this.link) && ! this.isBlankTarget;
     },
 
-    target () {
+    target() {
       if (this.isNonHttpURI) {
-        return null
+        return null;
       }
       if (this.item.target) {
-        return this.item.target
+        return this.item.target;
       }
-      return isExternal(this.link) ? '_blank' : ''
+      return isExternal(this.link) ? '_blank' : '';
     },
 
-    rel () {
+    rel() {
       if (this.isNonHttpURI) {
-        return null
+        return null;
       }
       if (this.item.rel === false) {
-        return null
+        return null;
       }
       if (this.item.rel) {
-        return this.item.rel
+        return this.item.rel;
       }
-      return this.isBlankTarget ? 'noopener noreferrer' : null
+      return this.isBlankTarget ? 'noopener noreferrer' : null;
     }
   },
 
   methods: {
-    focusoutAction () {
-      this.$emit('focusout')
+    focusoutAction() {
+      this.$emit('focusout');
     }
   }
-}
+};
 </script>

@@ -40,16 +40,13 @@ Please note that string fields have a default maximum length of 256 characters u
 
 Individual disbursements can be created and viewed using transactions APIs. The following paths are permitted:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/type/merchantpay
 ---
 Body Parameters:
@@ -73,13 +70,13 @@ Body Parameters:
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../transactions/36125b528237
 ```
 </code-block>
 
 <code-block title="PATCH">
-```json
+```json{1}
 PATCH .../transactions/36125b528237
 ---
 Body Parameters:
@@ -145,10 +142,7 @@ Body Parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 
 | **Operation** | **Path**  | **Description** |
@@ -174,10 +168,7 @@ classDiagram
 
 #### Transaction Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -234,9 +225,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -279,10 +270,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Transaction Object** ||||||
 |:-----|:-----|:------------|:--|:----------|:-----------|
@@ -316,16 +304,13 @@ The Reversals API is used to reverse a P2P transfer. The originating transaction
 
 For viewing reversals, the [Transactions API](#transactions-api) should be used.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 
 <code-main-group>
 <code-block title="View">
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../transactions/Place Reference of Txn to be Reversed here/reversals
 ---
 Headers:
@@ -369,10 +354,7 @@ Body parameters:
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 The supported path is `POST /transactions/{originalTransactionReference}/reversals`.
 
@@ -391,10 +373,7 @@ classDiagram
 
 #### Reversal Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -451,9 +430,9 @@ classDiagram
   },
   "servicingIdentity": "0123-456-789",
   "transactionReceipt": "f2d184b3-ae08-4d99-9e67-8d7490e0103e",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -496,10 +475,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:---|:---|:---|:---|:---|:---|
@@ -536,16 +512,13 @@ The individual APIs that are referenced in the steps below are fully documented 
 
 #### Batch Transactions Workflow
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
 <code-group>
 <code-block title="POST">
-```json
+```json{1}
 POST .../batchtransactions
 ---
 Headers:
@@ -595,19 +568,19 @@ Body parameters:
     ],
     "batchTitle": "Batch_Test",
     "batchDescription": "Testing a Batch",
-    "scheduledStartDate": "2019-12-11T15:08:03.158Z"
+    "scheduledStartDate": "2017-07-21T17:32:28Z"
 }
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/completions
 ```
 </code-block>
 
 <code-block title="GET">
-```json
+```json{1}
 GET .../batchtransactions/Place your Batch Id here/rejections
 ```
 </code-block>
@@ -668,10 +641,7 @@ GET .../batchtransactions/Place your Batch Id here/rejections
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 ##### One-Shot Batch Processing
 
@@ -753,10 +723,7 @@ classDiagram
 
 #### Batch Transaction Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -774,8 +741,8 @@ classDiagram
       //transaction 2 object...
     }
   ]
-  "approvalDate": "Sun, 06 Nov 1994 08:49:37 GMT", 
-  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "approvalDate": "2017-07-21T17:32:28Z", 
+  "completionDate": "2017-07-21T17:32:28Z",
   "batchTitle": "Batch title...",
   "batchDescription": "Batch description...",
   "processingFlag": true,
@@ -786,10 +753,10 @@ classDiagram
     "requestingOrganisationIdentifierType": "organisationid",
     "requestingOrganisationIdentifier": "987654321"
   },
-  "scheduledStartDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "creationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "modificationDate": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "requestDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "scheduledStartDate": "2017-07-21T17:32:28Z",
+  "creationDate": "2017-07-21T17:32:28Z",
+  "modificationDate": "2017-07-21T17:32:28Z",
+  "requestDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -826,10 +793,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Transaction Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -858,10 +822,7 @@ This API enables clients to retrieve information on all transactions that have e
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -871,8 +832,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
 }
 ```
 </code-block>
@@ -905,10 +866,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -934,10 +892,7 @@ classDiagram
 
 #### Batch Rejection Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -960,7 +915,7 @@ classDiagram
     }
   ],
   "rejectionReason": "Some rejection reason...",
-  "rejectionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "rejectionDate": "2017-07-21T17:32:28Z",
   "customData": {
     "customKey01": "customValue01",
     "customKey02": "customValue02"
@@ -997,10 +952,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Rejection Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1019,10 +971,7 @@ This API lists all transactions that have successfully completed for a given bat
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1032,8 +981,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
 }
 ```
 </code-block>
@@ -1066,10 +1015,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 |**Parameter**|**Type**|**Format**|**Description**|
 |:--------|:--------|:-------------|:--------|
@@ -1095,10 +1041,7 @@ classDiagram
 
 #### Batch Completion Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1120,7 +1063,7 @@ classDiagram
       "value":"+447911123456"
     }
   ],
-  "completionDate": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "completionDate": "2017-07-21T17:32:28Z",
   "link": "https://application.com/uuid",
   "customData": {
     "customKey01": "customValue01",
@@ -1158,10 +1101,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Batch Completion Object** ||||||
 |:--------|:--------|:-------------|:--------|:---------|:------|
@@ -1207,10 +1147,7 @@ or GET `/accounts/{Account Identifiers}/transactions`
 
 To filter the number of records returned, the following query strings can be used:
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1220,8 +1157,8 @@ To filter the number of records returned, the following query strings can be use
 {
   "limit": 50,
   "offset": 10,
-  "fromDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
-  "toDateTime": "Sun, 06 Nov 1994 08:49:37 GMT",
+  "fromDateTime": "2017-07-21T17:32:28Z",
+  "toDateTime": "2017-07-21T17:32:28Z",
   "transactionStatus": "completed",
   "transactionType": "merchantpay"
 }
@@ -1256,10 +1193,7 @@ To filter the number of records returned, the following query strings can be use
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Parameter** | **Type** | **Format** | **Description** |
 |:--|:--|:--|:--|
@@ -1312,10 +1246,7 @@ classDiagram
 
 #### Account Balance Object Definition
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1361,10 +1292,7 @@ classDiagram
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1395,10 +1323,7 @@ classDiagram
 
 The Account Identifier object enables one or multiple identifiers to be provided to enable the recipient system to resolve the account/party.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1447,10 +1372,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1461,10 +1383,7 @@ The Account Identifier object enables one or multiple identifiers to be provided
 
 The metadata object allows fields to be specified to convey administrative information regarding the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1506,10 +1425,7 @@ The metadata object allows fields to be specified to convey administrative infor
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1520,10 +1436,7 @@ The metadata object allows fields to be specified to convey administrative infor
 
 The custom data object allows additional fields to be specified for the associated resource in the form of key/value pairs. Additional fields should only be used where no suitable defined field match can be found. The number of key/value pairs is limited to 20.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1565,10 +1478,7 @@ The custom data object allows additional fields to be specified for the associat
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1579,10 +1489,7 @@ The custom data object allows additional fields to be specified for the associat
 
 An object that enables fees that are differentiated by type to be provided and/or returned.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1625,10 +1532,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1640,10 +1544,7 @@ An object that enables fees that are differentiated by type to be provided and/o
 
 An object that details the originating organisation of the request.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1685,10 +1586,7 @@ An object that details the originating organisation of the request.
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Name** | **Type** | **Description** |  | **Reference** | **Validation** |
 |:--|:--|:--|:--|:--|:--|
@@ -1731,10 +1629,7 @@ A transaction type is used to classify the nature of a transaction.
 
 The Account Identifier enumeration lists all possible means to identify a target account. Identifiers can be combined if necessary, to provide a unique identifier for the target account.
 
-<div class="has-code-panel-block">
-<!-- required right-side code blocks wrapper (necessary to bind code blocks to content)-->
-<div class="code-panel-block-holder">
-<!-- start of right-side code blocks holder -->
+ 
 <code-main-group>
 <code-block title="View">
 
@@ -1794,10 +1689,7 @@ The Account Identifier enumeration lists all possible means to identify a target
 </code-block>
 </code-main-group>
 
-</div>
-<!-- end of right-side code blocks holder -->
-</div>
-<!-- end of right-side code blocks wrapper -->
+ 
 
 | **Code** | **Short Description** | **Type** | **Description** |
 |:--|:--|:--|:--|

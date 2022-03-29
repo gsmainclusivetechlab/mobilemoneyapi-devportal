@@ -7,21 +7,22 @@
 
 <script>
 import Footer from '../components/Footer.vue';
+
 export default {
   components: {
     Footer,
   },
   computed: {
-    layout () {
+    layout() {
       if (this.$page.path) {
         if (this.$frontmatter.layout) {
           // You can also check whether layout exists first as the default global layout does.
-          return this.$frontmatter.layout
+          return this.$frontmatter.layout;
         }
-        return 'Layout'
+        return 'Layout';
       }
-      return 'NotFound'
+      return 'NotFound';
     }
   }
-}
+};
 </script>

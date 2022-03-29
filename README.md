@@ -2,9 +2,9 @@
 ```npm
 npm i
 ```
-2. run dev
+2. run start
 ```npm
-npm run dev
+npm run start
 ```
 VuePress will start a hot-reloading development server at http://localhost:8080
 

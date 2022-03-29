@@ -86,3 +86,24 @@
     }
   }
 }
+
+pre[class^="language-"] {
+  overflow-y: hidden !important;
+  transition: max-height 1s ease;
+  border-radius: 8px;
+
+  /* width */
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(25, 49, 85);
+  }
+}
