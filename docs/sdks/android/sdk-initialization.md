@@ -4,19 +4,21 @@ pageClass: api-page
 title: SDK Initialization
 ---
 
-Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-android-sdk" target="_blank">mmapi-android-sdk</a>
+## SDK Initialisation
 
-```cmd
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-android-sdk" target="_blank">mmapi-android-sdk</a>
+
+```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-android-sdk.git -b develop
 export MMAPI_ANDROID_SDK=$(pwd)/mmapi-android-sdk
 ```
 
-Edit the file strings.xml inside the directory $MMAPI_ANDROID_SDK/GSMATest/src/main/res/values and insert the
-values for <consumer_key> , <consumer_secret> , <api_key> taken from your mmapi developer account and
-also the value for <callback_url> according to your environment. For setup a callback environment with
-Postman, see this tutorial. (need to write the tutorial)
+2. Edit the file <span class="highlight">strings.xml</span> inside the directory <span class="highlight">$MMAPI_ANDROID_SDK/GSMATest/src/main/res/values</span> and insert the
+values for <span class="highlight"><consumer_key></span> , <span class="highlight"><consumer_secret></span> , <span class="highlight"><api_key></span> taken from your mmapi developer account and
+also the value for  <span class="highlight"><callback_url></span> according to your environment. For setup a callback environment with
+Postman, see this tutorial. <span style="color: red;">(need to write the tutorial)</span>
 
-```xmlns
+```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name">GSMA Sample Application</string>
   <string name="consumer_key"><consumer_key></string>
@@ -26,7 +28,7 @@ Postman, see this tutorial. (need to write the tutorial)
 </resources>
 ```
 
-Sample Code for Initialise the Android SDK
+3. Sample Code for Initialise the Android SDK
 
 ```java
 package sdkinit;

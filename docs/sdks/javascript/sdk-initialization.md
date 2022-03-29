@@ -4,33 +4,35 @@ pageClass: api-page
 title: SDK Initialization
 ---
 
-Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk" target="_blank">mmapi-javascript-sdk</a>
+## SDK Initialisation
 
-```
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk" target="_blank">mmapi-javascript-sdk</a>
+
+```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-javascript-sdk.git -b develop
 export MMAPI_JAVASCRIPT_SDK=$(pwd)/mmapi-javascript-sdk
 cd $MMAPI_JAVASCRIPT_SDK
 ```
 
-Create the file .env with all the environment variables needed to run the SDK. The values used in this
+2. Create the file <span class="highlight">.env</span> with all the environment variables needed to run the SDK. The values used in this
 file comes from your mmapi developer account. The content of the file should look like:
 
-```
+```shell
 GSMA_BASE_URL=https://sandbox.mobilemoneyapi.io/simulator/v1.2/passthrough/mm/
 GSMA_BASE_URL_AUTH=https://sandbox.mobilemoneyapi.io/2/oauth/simulator/v1.2/mm/
 GSMA_TOKEN_URL=https://sandbox.mobilemoneyapi.io/v1/oauth/accesstoken/
 ```
 
-Build the SDK
+3. Build the SDK
 
-After the build, the final javascript SDK file mmsdk.min.js will be in the folder dist.
+After the build, the final javascript SDK file <span class="highlight">mmsdk.min.js</span> will be in the folder <span class="highlight">dist</span>.
 
-```
+```shell
 npm install
 npm run build
 ```
 
-Sample code to initialise JavaScript SDK:
+4. Sample code to initialise JavaScript SDK:
 
 ```html
 <!DOCTYPE html>
