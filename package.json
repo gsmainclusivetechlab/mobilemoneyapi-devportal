@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "vuepress build docs",
-    "start": "nodemon --watch 'docs/.vuepress/pages/**/*' -e md --exec vuepress dev docs --temp .temp --no-cache"
+    "start": "nodemon --watch 'docs/.vuepress/pages/**/*' -e md --exec vuepress dev docs --temp .temp --no-cache",
+    "cp-env": "cp .env.example .env"
   },
   "keywords": [
     "documentation"
@@ -13,11 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/plugin-search": "^1.8.2",
+    "@vuepress/plugin-search": "^1.9.7",
     "dotenv-webpack": "^7.0.3",
     "node-sass": "^6.0.0",
     "nodemon": "^2.0.15",
     "sass-loader": "^10",
+    "vue-touch": "^2.0.0-beta.4",
     "vue2-collapse": "^1.0.15",
     "vuepress": "^1.8.2",
     "vuepress-plugin-fulltext-search": "^2.2.0",

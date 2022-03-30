@@ -1,19 +1,71 @@
-import AllApplications from '../../../api/admin/allApplications';
-import ModalWindow from '../../../services/ModalWindow';
-import { ALL_APPS, MY_APPS, PAGINATION } from '../module-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import AllApplications from '@/api/admin/allApplications';
+import ModalWindow from '@/services/ModalWindow';
 import { GET_DATA, REMOVE_ITEM } from '../action-types';
-import { SET_DATA, ADD_TOKEN } from '../mutation-types';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_CURRENT_PAGE } from '../getter-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  RESET_PAGINATION,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  SET_DATA
+} from '../mutation-types';
+import { PAGINATION, ALL_APPS } from '../module-types';
+import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
-  async [GET_DATA]({ commit }, paginationToken = null) {
+  async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }, controller) {
+    const PRE_PAGE_LENGTH = 25;
+    const isCurrentModule = rootState.pagination.currentModule === ALL_APPS;
+
     try {
-      const { data } = await AllApplications.get(paginationToken);
+      const { data } = await AllApplications.get(
+        {
+          sortValue: state.sortValue,
+          searchValue: state.searchValue,
+          searchField: state.searchField,
+          paginationToken: isCurrentModule
+            ? rootState.pagination.tokens[rootState.pagination.currentPage]
+            : ''
+        },
+        controller
+      );
+
+      const appsLength = data.appData.length;
+
+      if (!appsLength && rootState.pagination.currentPage && isCurrentModule) {
+        commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
+          root: true
+        });
+        commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN), null, { root: true });
+        return dispatch(GET_DATA);
+      }
+
       commit(SET_DATA, data.appData);
-      commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.paginationToken, module: ALL_APPS }, { root: true });
+
+      if (isCurrentModule) {
+        let comingNextPageToken = data.paginationToken;
+        const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
+
+        if (rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last') {
+          if (appsLength < PRE_PAGE_LENGTH && currentPageToken === comingNextPageToken) {
+            comingNextPageToken = null;
+          }
+
+          commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), comingNextPageToken, {
+            root: true
+          });
+        }
+      }
     } catch (error) {
+      if (isCurrentModule) {
+        commit(SET_DATA, []);
+        commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      }
+
       console.log(error);
     }
+
+    return Promise.resolve();
   },
 
   async [REMOVE_ITEM]({ dispatch }, { userName, appId }) {
@@ -23,10 +75,9 @@ export default {
       if (confirm) {
         await AllApplications.deleteById(userName, appId);
         await dispatch(GET_DATA);
-        await dispatch(nameWithSlash(MY_APPS, GET_DATA), null, { root: true });
       }
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 };

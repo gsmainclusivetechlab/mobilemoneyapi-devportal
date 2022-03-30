@@ -1,19 +1,24 @@
 <template>
-  <div class="dashboard-table-bottom" v-if="getTokenNextPage(this.module)">
+  <div v-if="hasPages" class="dashboard-table-bottom">
+    <span>Current Page {{ getCurrentPage + 1 }}</span>
     <div>
       <button
-          type="button"
-          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
-          :class="{'dashboard-table__pagination-arrow--inactive': getCurrentPage(module) === 1}"
-          @click="prevPage"
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--left"
+        :class="{
+          'dashboard-table__pagination-arrow--inactive': getCurrentPage === 0 || !isActive
+        }"
+        @click="prevPage"
       >
         < Prev
       </button>
       <button
-          type="button"
-          class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
-          :class="{'dashboard-table__pagination-arrow--inactive': !getTokenNextPage(module)}"
-          @click="nextPage"
+        type="button"
+        class="dashboard-table__pagination-arrow dashboard-table__pagination-arrow--right"
+        :class="{
+          'dashboard-table__pagination-arrow--inactive': !isActive || getTokenNextPage === 'last'
+        }"
+        @click="nextPage"
       >
         Next >
       </button>
@@ -22,12 +27,12 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { GET_DATA } from '../../store/modules/action-types';
-import { PAGINATION } from '../../store/modules/module-types';
-import { GET_CURRENT_PAGE, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../../store/modules/getter-types';
-import { SET_CURRENT_PAGE } from '../../store/modules/mutation-types';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { GET_DATA } from '@/store/modules/action-types';
+import { REMOVE_PAGINATION_TOKEN, SET_CURRENT_PAGE } from '@/store/modules/mutation-types';
+import { GET_TOKEN_NEXT_PAGE, GET_HAS_NEXT_PAGES } from '@/store/modules/getter-types';
+import { PAGINATION } from '@/store/modules/module-types';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'dashboard-table-bottom',
@@ -38,31 +43,55 @@ export default {
     }
   },
 
+  data() {
+    return {
+      isActive: true
+    };
+  },
+
   computed: {
+    getCurrentPage() {
+      return this.$store.state[PAGINATION].currentPage;
+    },
+
+    ...mapState(PAGINATION, {
+      tokens: 'tokens'
+    }),
+
     ...mapGetters(PAGINATION, {
       getTokenNextPage: GET_TOKEN_NEXT_PAGE,
-      getTokenPrevPage: GET_TOKEN_PREV_PAGE,
-      getCurrentPage: GET_CURRENT_PAGE
+      hasPages: GET_HAS_NEXT_PAGES
     })
   },
 
   methods: {
-    ...mapMutations(PAGINATION, {
-      setCurrentPage: SET_CURRENT_PAGE
-    }),
+    async nextPage() {
+      try {
+        this.isActive = false;
+        this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage + 1);
+        await this.getData();
+      } catch (err) {
+        console.error(err);
+      }
 
-    nextPage() {
-      this.getData(this.getTokenNextPage(this.module));
-      this.setCurrentPage({ page: this.getCurrentPage(this.module) - 1, module: this.module });
+      this.isActive = true;
     },
 
-    prevPage() {
-      this.getData(this.getTokenPrevPage(this.module));
-      this.setCurrentPage({ page: this.getCurrentPage(this.module) + 1, module: this.module });
+    async prevPage() {
+      try {
+        this.isActive = false;
+        this.$store.commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), this.getCurrentPage - 1);
+        this.$store.commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN));
+        await this.getData();
+      } catch (err) {
+        console.error(err);
+      }
+
+      this.isActive = true;
     },
 
-    getData(token) {
-      this.$store.dispatch(nameWithSlash(this.module, GET_DATA), token);
+    async getData() {
+      await this.$store.dispatch(nameWithSlash(this.module, GET_DATA));
     }
   }
 };

@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 export default {
   name: 'contact-us-modal',
   props: {

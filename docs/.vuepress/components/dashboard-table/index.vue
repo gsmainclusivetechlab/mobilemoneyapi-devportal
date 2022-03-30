@@ -3,34 +3,54 @@
     <div style="display: flex; justify-content: space-between">
       <h3>{{ tableTitle }}</h3>
       <div v-if="isCreateButton" class="btn-row">
-        <button class="btn btn--accent btn__create" @click="toggleModal" type="button">Create</button>
+        <button class="btn btn--accent btn__create" @click="toggleModal" type="button">
+          Create
+        </button>
       </div>
     </div>
     <div class="table-block">
       <dashboard-table-top
-          :hideFilter="hideFilter"
-          :filterData="filterData"
-          :pageType="pageType"
-          @search-value="$emit('search-value', $event)"
-          @filter-value="$emit('filter-value', $event)"
-          @sort-value="$emit('sort-value', $event)"
+        :hideFilter="hideFilter"
+        :searchBy="searchBy"
+        :pageType="pageType"
+        :module="module"
+        @changedSortValue="$emit('changedSortValue')"
+        @changedSearchValue="$emit('changedSearchValue')"
       />
       <table class="dashboard-table">
         <tr class="dashboard-table__row">
-          <th class="dashboard-table__cell dashboard-table__cell--heading"
-              :class="{'dashboard-table__cell--center': isCenterHeader ? index === indexCenter : false}"
-              v-for="(title, index) of tableHeadersData"
-              :key="index">
+          <th
+            class="dashboard-table__cell dashboard-table__cell--heading"
+            :class="{
+              'dashboard-table__cell--center': isCenterHeader ? index === indexCenter : false
+            }"
+            v-for="(title, index) of tableHeadersData"
+            :key="index"
+          >
             {{ title }}
           </th>
-          <th class="dashboard-table__cell dashboard-table__cell--heading" v-if="pageType !== 'plans'">
-          </th>
+          <th
+            class="dashboard-table__cell dashboard-table__cell--heading"
+            v-if="pageType !== 'plans'"
+          ></th>
+        </tr>
+        <tr
+          class="dashboard-table__row dashboard-table__row--not-found"
+          v-if="isDataNotFound && isGettingData"
+        >
+          <td class="dashboard-table__cell">
+            <spinner-component />
+          </td>
+        </tr>
+        <tr class="dashboard-table__row dashboard-table__row--not-found" v-else-if="isDataNotFound">
+          <td class="dashboard-table__cell">Data not found</td>
         </tr>
         <slot></slot>
       </table>
-      <dashboard-table-bottom :module="module"/>
+
+      <dashboard-table-bottom :module="module" />
     </div>
-    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
+    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
   </div>
 </template>
 
@@ -38,14 +58,17 @@
 import DashboardTableBottom from './dashboard-table-bottom';
 import DashboardTableTop from './dashboard-table-top';
 import DashboardModal from '../dashboard-modal';
+import SpinnerComponent from '@/components/helpers/spinner-component';
 
 export default {
   name: 'dashboard-table',
-  components: { DashboardModal, DashboardTableTop, DashboardTableBottom },
+
+  components: { SpinnerComponent, DashboardModal, DashboardTableTop, DashboardTableBottom },
+
   props: {
     tableHeadersData: {
       type: Array,
-      default: () => ([])
+      default: () => []
     },
     isCenterHeader: {
       type: Boolean,
@@ -67,13 +90,15 @@ export default {
       type: Boolean,
       default: false
     },
-    filterData: {
-      type: Set,
+    searchBy: {
+      type: Array,
+      default: () => []
     },
     isCreateButton: {
       type: Boolean,
       default: false
     },
+    // TODO remove pageType, and use module instead
     pageType: {
       type: String,
       default: ''
@@ -81,17 +106,27 @@ export default {
     module: {
       type: String,
       default: ''
+    },
+    isDataNotFound: {
+      type: Boolean,
+      default: false
+    },
+    isGettingData: {
+      type: Boolean,
+      default: false
     }
   },
+
   data() {
     return {
-      modalIsVisible: false,
+      modalIsVisible: false
     };
   },
+
   methods: {
     toggleModal() {
-      this.modalIsVisible = ! this.modalIsVisible;
-    },
+      this.modalIsVisible = !this.modalIsVisible;
+    }
   }
 };
 </script>

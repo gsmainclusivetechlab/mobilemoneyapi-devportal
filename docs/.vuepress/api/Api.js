@@ -1,12 +1,19 @@
 import axios from 'axios';
-import { BASE_URL, ID_TOKEN, LOGIN, REFRESH_TOKEN, X_USER_TOKEN } from './constants';
-import CookieManager from '../helpers/CookieManager';
+import {
+  BASE_URL,
+  ID_TOKEN,
+  LOGIN,
+  REFRESH_TOKEN,
+  UPDATE_REFRESH_TOKEN,
+  X_USER_TOKEN
+} from './constants';
+import CookieManager from '@/helpers/CookieManager';
 import TokensManager from './TokensManager';
 
 class Api {
   constructor() {
     this.headers = {
-      Accept: 'application/json',
+      Accept: 'application/json'
     };
     this.setTokens();
     this.requestWait = false;
@@ -15,7 +22,7 @@ class Api {
   }
 
   static create() {
-    if (! Api.instance) {
+    if (!Api.instance) {
       Api.instance = new Api();
     }
     return Api.instance;
@@ -38,7 +45,6 @@ class Api {
     this.headersForOneRequest = {};
   }
 
-  // TODO fix setting headers - need set headers for every request
   onAccessTokenFetched() {
     const [id_token, x_user_token] = CookieManager.getValues([ID_TOKEN], [X_USER_TOKEN]);
     this.requestsQueue.forEach((callback) => callback(id_token, x_user_token));
@@ -51,7 +57,7 @@ class Api {
       this.headers = {
         ...this.headers,
         Authorization: `Bearer ${id_token}`,
-        x_user_token,
+        x_user_token
       };
       this.initClient();
     }
@@ -67,13 +73,12 @@ class Api {
   }
 
   initClient() {
-    // this.client = this.client ?? axios.create({
     this.client = axios.create({
       baseURL: BASE_URL,
       headers: {
         ...this.getHeaders(),
         ...this.headersForOneRequest
-      },
+      }
     });
 
     this.client.interceptors.response.use(
@@ -82,11 +87,17 @@ class Api {
         return response;
       },
       (error) => {
-        if (error.response.status === 401 && CookieManager.getValue(REFRESH_TOKEN)) {
+        const responseURL = error.request?.responseURL;
+
+        if (
+          error.response?.status === 401 &&
+          CookieManager.getValue(REFRESH_TOKEN) &&
+          !responseURL.includes(UPDATE_REFRESH_TOKEN)
+        ) {
           const { config } = error;
           const originalRequest = { ...config };
 
-          if (! this.requestWait) {
+          if (!this.requestWait) {
             this.requestWait = true;
             TokensManager.updateRefreshToken(originalRequest)
               .then(() => {
@@ -94,7 +105,9 @@ class Api {
                 this.requestWait = false;
               })
               .catch((e) => {
-                window.location.replace('/login/');
+                if (window.location.pathname === '/dashboard/') {
+                  window.location.replace('/login/');
+                }
                 return Promise.reject(e);
               });
           }
@@ -104,22 +117,24 @@ class Api {
               originalRequest.headers = {
                 ...originalRequest.headers,
                 ...{
-                  'Authorization': 'Bearer ' + access_token,
+                  Authorization: 'Bearer ' + access_token,
                   [X_USER_TOKEN]: x_user_token
-                },
+                }
               };
               resolve(axios(originalRequest));
             });
           });
 
           return retryOriginalRequest;
-
-        } else if (error.response.status === 401 && error.config.url !== LOGIN) {
-          window.location.replace('/login/');
+        } else if (error.response?.status === 401 && error.config?.url !== LOGIN) {
+          if (window.location.pathname === '/dashboard/') {
+            window.location.replace('/login/');
+          }
         }
 
         return Promise.reject(error);
-      });
+      }
+    );
 
     return this.client;
   }
@@ -135,7 +150,7 @@ class Api {
     return this.request({
       method: 'GET',
       url,
-      ...config,
+      ...config
     });
   }
 
@@ -144,7 +159,7 @@ class Api {
       method: 'POST',
       url,
       data,
-      ...config,
+      ...config
     });
   }
 
@@ -153,7 +168,7 @@ class Api {
       method: 'PUT',
       url,
       data,
-      ...config,
+      ...config
     });
   }
 
@@ -161,7 +176,7 @@ class Api {
     return this.request({
       method: 'DELETE',
       url,
-      ...config,
+      ...config
     });
   }
 }

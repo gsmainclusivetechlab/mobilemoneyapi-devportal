@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { SECONDS_IN_DAY } from '../api/constants';
+import { SECONDS_IN_DAY } from '@/api/constants';
 
 export default {
   getValue(name) {

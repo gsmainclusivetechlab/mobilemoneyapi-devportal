@@ -51,18 +51,6 @@ export default {
         {
           title: 'First name',
           value: 'firstName'
-        },
-        {
-          title: 'Active',
-          value: 'Active'
-        },
-        {
-          title: 'Inactive',
-          value: 'Inactive'
-        },
-        {
-          title: 'Blocked',
-          value: 'Blocked'
         }
       ],
       valuesApplications: [
@@ -72,21 +60,25 @@ export default {
         },
         {
           title: 'Author',
-          value: 'userName'
+          value: 'author'
         },
         {
           title: 'Usage plan',
-          value: 'usagePlan'
+          value: 'usagePlanName'
         }
       ],
       valuesPlans: [
         {
           title: 'Unpublish',
-          value: 'Unpublish'
+          value: 'unPublish'
         },
         {
           title: 'Publish',
-          value: 'Publish'
+          value: 'publish'
+        },
+        {
+          title: 'Alphabetically',
+          value: 'planName'
         }
       ]
     };

@@ -1,3 +1,5 @@
 export default {
-  activeCodeBlock: ''
+  activeCodeBlock: '',
+  menuSidebarOpen: false,
+  dashboardSidebarOpen: false
 };

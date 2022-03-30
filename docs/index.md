@@ -17,6 +17,10 @@ title: Home
 
 !!!include(docs/.vuepress/pages/home/platforms.md)!!!
 
+!!!include(docs/.vuepress/pages/home/other-developer-resources.md)!!!
+
+!!!include(docs/.vuepress/pages/home/user-dashboard.md)!!!
+
 !!!include(docs/.vuepress/pages/home/get-started.md)!!!
 
 !!!include(docs/.vuepress/pages/home/testimonials.md)!!!

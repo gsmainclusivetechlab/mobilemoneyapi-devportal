@@ -121,6 +121,7 @@ export default {
         this.focused = true;
       }
     }
+    this.$refs.input.focus()
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.onHotkey);
@@ -199,7 +200,6 @@ export default {
             throw error;
           }
         });
-        this.query = '';
         this.focusIndex = 0;
         // this.focused = false
 
@@ -242,8 +242,6 @@ function highlight(str, strHighlight) {
   const highlightedContent = str.slice(start, end);
   const suffix = str.slice(end);
   return { prefix, highlightedContent, suffix };
-
-  // return `${prefix}<span class="highlight">${highlightedContent}</span>${suffix}`
 }
 </script>
 
@@ -276,7 +274,6 @@ function highlight(str, strHighlight) {
   .suggestions
     background #fff
     min-width 500px
-    max-width 700px
     position absolute
     top 2rem
     border 1px solid darken($borderColor, 10%)
@@ -289,7 +286,6 @@ function highlight(str, strHighlight) {
 
   .suggestion
     line-height 1.4
-    // padding 0.4rem 0.6rem
     border-radius 4px
     cursor pointer
     width 100%
@@ -345,36 +341,15 @@ function highlight(str, strHighlight) {
       border-color transparent
       position relative
 
-      &:focus
-        cursor text
-        left 0
-        width 10rem
-
 // Match IE11
 @media all and (-ms-high-contrast: none)
   .search-box input
     height 2rem
 
-@media (max-width: $MQNarrow) and (min-width: $MQMobile)
-  .search-box
-    .suggestions
-      left 0
-
 @media (max-width: $MQMobile)
   .search-box
     margin-right 0
 
-    input
-      left 1rem
-
     .suggestions
       right 0
-
-@media (max-width: $MQMobileNarrow)
-  .search-box
-    .suggestions
-      width calc(100vw - 4rem)
-
-    input:focus
-      width 8rem
 </style>

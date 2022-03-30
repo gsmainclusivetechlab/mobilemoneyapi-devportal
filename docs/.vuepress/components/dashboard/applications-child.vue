@@ -17,97 +17,131 @@
       <div class="application-info-container">
         <div class="application-info-title-wrap">
           <span class="application-info-title">Application details</span>
-          <button class="btn btn--transparent edit-btn" type="button"
-                  @click="handleEditClick(false)"
-                  v-if="editBtnEnabled"
-          >Edit
+          <button
+            class="btn btn--transparent edit-btn"
+            type="button"
+            @click="handleEditClick(false)"
+            v-if="editBtnEnabled"
+          >
+            Edit
           </button>
         </div>
         <div class="fields-wrap">
           <ValidationObserver v-slot="{ invalid, handleSubmit }" ref="application-details">
             <form @submit.prevent="handleSubmit(editApp)">
-              <ValidationProvider class="input-group"
-                                  vid="appName"
-                                  :rules="{ required: { allowFalse: false }, min: 2}"
-                                  v-slot="{ errors }"
-                                  tag="div">
+              <ValidationProvider
+                class="input-group"
+                vid="appName"
+                :rules="{ required: { allowFalse: false }, min: 2 }"
+                v-slot="{ errors }"
+                tag="div"
+              >
                 <label for="appName">
                   App name
                   <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
                 </label>
-                <input type="text" v-model="form.appName" id="appName" :disabled="editBtnEnabled" placeholder="Enter app name">
+                <input
+                  type="text"
+                  v-model="form.appName"
+                  id="appName"
+                  :disabled="editBtnEnabled"
+                  placeholder="Enter app name"
+                />
               </ValidationProvider>
 
-              <ValidationProvider class="input-group input-wrapper__custom-select"
-                                  vid="product"
-                                  :rules="{ required: { allowFalse: false }}"
-                                  v-slot="{ errors }"
-                                  tag="div">
-                <label for="product">Product
+              <ValidationProvider
+                class="input-group input-wrapper__custom-select"
+                vid="product"
+                :rules="{ required: { allowFalse: false } }"
+                v-slot="{ errors }"
+                tag="div"
+              >
+                <label for="product"
+                  >Product
                   <div class="tooltip-wrap">
-                    <button class="tooltip-btn"
-                            @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
-                            @focusout="tooltipPopupIsVisible = false"
-                            tabindex="0"
-                    >?
+                    <button
+                      class="tooltip-btn"
+                      @click="tooltipPopupIsVisible = !tooltipPopupIsVisible"
+                      @focusout="tooltipPopupIsVisible = false"
+                      tabindex="0"
+                    >
+                      ?
                     </button>
-                    <span class="tooltip-popup"
-                          v-show="tooltipPopupIsVisible"
-                    >Here you can select product version</span>
+                    <span class="tooltip-popup" v-show="tooltipPopupIsVisible"
+                      >Here you can select product version</span
+                    >
                   </div>
                   <span class="form-row__error" v-show="errors[0]">({{ errors[0] }})</span>
                 </label>
                 <v-select
-                    return-object
-                    v-model="form.usagePlan"
-                    id="product"
-                    name="product"
-                    :clearable="false"
-                    :options="getPublishedUsagePlans"
-                    :disabled="editBtnEnabled"
-                    :reduce="item => item.value"
-                    placeholder="Select product"
+                  return-object
+                  v-model="form.usagePlanName"
+                  id="product"
+                  name="product"
+                  :clearable="false"
+                  :options="getPublishedUsagePlans"
+                  :disabled="editBtnEnabled"
+                  :reduce="(item) => item.label"
+                  placeholder="Select product"
                 ></v-select>
               </ValidationProvider>
 
               <div class="update-btn-wrap">
-                <button class="btn btn--accent update-btn" type="submit"
-                        :disabled="waitingResponseUpdate"
-                        v-if="!editBtnEnabled"
+                <button
+                  class="btn btn--accent update-btn"
+                  type="submit"
+                  :disabled="waitingResponseUpdate"
+                  v-if="!editBtnEnabled"
                 >
                   <span v-if="!waitingResponseUpdate">Update</span>
-                  <spinner-component v-else/>
+                  <spinner-component v-else />
                 </button>
               </div>
             </form>
           </ValidationObserver>
           <div class="info-text">
             <p>
-              Below are keys you can use to access the Product (Usage Plan) associated with this application. The actual keys are capable of accessing any of the URIS defined in the Product (Usage
-              Plan).
+              Below are keys you can use to access the Product (Usage Plan) associated with this
+              application. The actual keys are capable of accessing any of the URIS defined in the
+              Product (Usage Plan).
             </p>
           </div>
           <div class="input-group key-group">
             <label for="consumerKey">Consumer key</label>
-            <input type="text" id="consumerKey" v-model="selectedApplication.consumerKey" readonly>
-            <dashboard-copy-button v-model="selectedApplication.consumerKey"/>
+            <input
+              type="text"
+              id="consumerKey"
+              v-model="selectedApplication.consumerKey"
+              readonly
+            />
+            <dashboard-copy-button v-model="selectedApplication.consumerKey" />
           </div>
           <div class="input-group key-group">
             <label for="consumerSecret">Consumer secret</label>
-            <input type="text" id="consumerSecret" v-model="selectedApplication.consumerSecret" readonly>
-            <dashboard-copy-button v-model="selectedApplication.consumerSecret"/>
+            <input
+              type="text"
+              id="consumerSecret"
+              v-model="selectedApplication.consumerSecret"
+              readonly
+            />
+            <dashboard-copy-button v-model="selectedApplication.consumerSecret" />
           </div>
           <div class="input-group key-group">
             <label for="apiKey">API key</label>
-            <input type="text" id="apiKey" v-model="selectedApplication.apiKey" readonly>
-            <dashboard-copy-button v-model="selectedApplication.apiKey"/>
+            <input type="text" id="apiKey" v-model="selectedApplication.apiKey" readonly />
+            <dashboard-copy-button v-model="selectedApplication.apiKey" />
           </div>
         </div>
       </div>
       <div class="application-control-buttons">
-        <button class="delete-btn btn btn--accent" type="button" @click="deleteApplication" :disabled="waitingResponseDelete">
+        <button
+          class="delete-btn btn btn--accent"
+          type="button"
+          @click="deleteApplication"
+          :disabled="waitingResponseDelete"
+        >
           <span v-if="!waitingResponseDelete">Delete</span>
-          <spinner-component v-else/>
+          <spinner-component v-else />
         </button>
       </div>
     </div>
@@ -118,12 +152,11 @@
 import DashboardCopyButton from './DashboardCopyButton';
 import { mapGetters, mapState } from 'vuex';
 import SpinnerComponent from '../helpers/spinner-component';
-import ModalWindow from '../../services/ModalWindow';
-import { nameWithSlash } from '../../helpers/vuexHelper';
-import { ALL_PLANS, MY_APPS } from '../../store/modules/module-types';
-import { CLEAR_SELECTED_APPLICATION } from '../../store/modules/mutation-types';
-import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '../../store/modules/action-types';
-import { GET_PUBLISHED_USAGE_PLANS } from '../../store/modules/getter-types';
+import ModalWindow from '@/services/ModalWindow';
+import { nameWithSlash } from '@/helpers/vuexHelper';
+import { ALL_PLANS, MY_APPS } from '@/store/modules/module-types';
+import { REMOVE_ITEM, UPDATE_APP_BY_ID } from '@/store/modules/action-types';
+import { GET_PUBLISHED_USAGE_PLANS } from '@/store/modules/getter-types';
 
 export default {
   name: 'applications-child',
@@ -137,10 +170,10 @@ export default {
       tooltipPopupIsVisible: false,
       form: {
         appName: '',
-        usagePlan: ''
+        usagePlanName: ''
       },
       waitingResponseUpdate: false,
-      waitingResponseDelete: false,
+      waitingResponseDelete: false
     };
   },
 
@@ -153,25 +186,26 @@ export default {
 
   watch: {
     selectedApplication: {
-      handler (value) {
-        this.setSelectedAppInForm(value)
+      handler(value) {
+        this.setSelectedAppInForm(value);
       },
       deep: true,
       immediate: true
     }
   },
 
-  beforeDestroy() {
-    this.$store.commit(nameWithSlash(MY_APPS, CLEAR_SELECTED_APPLICATION));
-  },
-
   methods: {
     async editApp() {
-      this.waitingResponseUpdate = true;
-
       try {
         this.waitingResponseUpdate = true;
-        await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), this.form);
+        const payload = {
+          appName: this.form.appName,
+          usagePlan: this.getPublishedUsagePlans.find(
+            (plan) => plan.label === this.form.usagePlanName
+          ).value
+        };
+
+        await this.$store.dispatch(nameWithSlash(MY_APPS, UPDATE_APP_BY_ID), payload);
         this.handleEditClick(true);
       } catch (error) {
         console.log(error);
@@ -186,10 +220,12 @@ export default {
 
     copyToClipboard(e) {
       const text = e.currentTarget.getAttribute('data-bind');
-      navigator.clipboard.writeText(this[text]).then(function () {
-      }, function (err) {
-        console.error('Async: Could not copy text: ', err);
-      });
+      navigator.clipboard.writeText(this[text]).then(
+        function() {},
+        function(err) {
+          console.error('Async: Could not copy text: ', err);
+        }
+      );
       const popup = document.querySelectorAll(`span[data-bind="${text}"]`);
       popup[0].style.opacity = 1;
       setTimeout(() => {
@@ -203,7 +239,7 @@ export default {
 
     setSelectedAppInForm(app) {
       this.form.appName = app?.appName ?? '';
-      this.form.usagePlan = app?.usagePlan ?? '';
+      this.form.usagePlanName = app?.usagePlanName ?? '';
     },
 
     async deleteApplication(event) {
@@ -211,10 +247,10 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        this.$emit('close-application', event);
         await this.$store.dispatch(nameWithSlash(MY_APPS, REMOVE_ITEM));
+        this.$emit('close-application', event);
       }
-
+      this.$emit('close-application', event);
       this.waitingResponseDelete = false;
     }
   }

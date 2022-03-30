@@ -1,18 +1,58 @@
-import AllUsers from '../../../api/admin/allUsers';
-import ModalWindow from '../../../services/ModalWindow';
-import { ALL_USERS, PAGINATION } from '../module-types';
-import { nameWithSlash } from '../../../helpers/vuexHelper';
+import AllUsers from '@/api/admin/allUsers';
+import ModalWindow from '@/services/ModalWindow';
+import { GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../getter-types';
 import { GET_DATA, REMOVE_ITEM, SET_USER_STATUS, UPDATE_ROLE } from '../action-types';
-import { SET_DATA, ADD_TOKEN } from '../mutation-types';
+import {
+  ADD_PAGINATION_TOKEN,
+  REMOVE_PAGINATION_TOKEN,
+  SET_CURRENT_PAGE,
+  RESET_PAGINATION,
+  SET_DATA
+} from '../mutation-types';
+import { PAGINATION, ALL_USERS } from '../module-types';
+import { nameWithSlash } from '../../../helpers/vuexHelper';
 
 export default {
+  async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
+    const isCurrentModule = rootState.pagination.currentModule === ALL_USERS;
 
-  async [GET_DATA]({ commit }, paginationToken = null) {
     try {
-      const { data } = await AllUsers.get(paginationToken);
+      const { data } = await AllUsers.get(
+        {
+          sortValue: state.sortValue,
+          searchValue: state.searchValue,
+          searchField: state.searchField,
+          paginationToken: isCurrentModule
+            ? rootState.pagination.tokens[rootState.pagination.currentPage]
+            : ''
+        },
+        controller
+      );
+
+      if (!data.users.length && state.currentPage && isCurrentModule) {
+        commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
+          root: true
+        });
+        commit(nameWithSlash(PAGINATION, REMOVE_PAGINATION_TOKEN), null, { root: true });
+        return dispatch(GET_DATA);
+      }
+
       commit(SET_DATA, data.users);
-      commit(nameWithSlash(PAGINATION, ADD_TOKEN), { token: data.PaginationToken, module: ALL_USERS }, { root: true });
+
+      if (
+        rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last' &&
+        isCurrentModule
+      ) {
+        commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
+          root: true
+        });
+      }
     } catch (error) {
+      if (isCurrentModule) {
+        commit(SET_DATA, []);
+        commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
+      }
+
       console.log(error);
     }
 
@@ -20,11 +60,9 @@ export default {
   },
 
   async [UPDATE_ROLE]({ dispatch, state }, userId) {
-    const { role, userName } = state.data.find(user => user.userId === userId);
+    const { role, userName } = state.data.find((user) => user.userId === userId);
 
-    const roles = [
-      'user', 'admin'
-    ];
+    const roles = ['user', 'admin'];
 
     const roleIndex = roles.indexOf(role) + 1;
 
@@ -51,7 +89,7 @@ export default {
       const confirm = await ModalWindow.openDialog();
 
       if (confirm) {
-        const { userEnabled } = state.data.find(user => user.userName === userName);
+        const { userEnabled } = state.data.find((user) => user.userName === userName);
 
         await AllUsers.setUserStatus(userName, userEnabled);
         await dispatch(GET_DATA);

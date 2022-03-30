@@ -1,0 +1,71 @@
+.user-dashboard {
+  &__container {
+    display: flex;
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+  }
+  &__image {
+    display: flex;
+    width: 50%;
+    padding: 0 15px;
+    align-items: flex-start;
+
+    @include media('<tablet') {
+      width: 100%;
+      margin: 0 auto 25px auto;
+    }
+
+    @include media('<phone') {
+      padding: 0;
+    }
+
+    img {
+      height: 70%;
+      object-fit: cover;
+    }
+  }
+  &__intro {
+    display: flex;
+    width: 50%;
+    padding: 0 15px;
+    flex-direction: column;
+
+    @include media('<tablet') {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    @include media('<phone') {
+      padding: 0;
+    }
+
+    p {
+      line-height: 2;
+      font-size: 1.8rem;
+
+      @include media('<phone') {
+        font-size: 1.6rem;
+      }
+    }
+
+    .buttons-holder.content-center {
+      justify-content: unset;
+
+      .btn {
+        margin: unset;
+      }
+    }
+  }
+  &__info {
+  }
+  &__btn-holder {
+    margin: 30px 0 0;
+
+    .btn {
+      min-width: 184px;
+      padding: 10px 22px;
+    }
+  }
+}
