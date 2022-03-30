@@ -6,7 +6,7 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-php-sdk" target="_blank">mmapi-php-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-php-sdk" target="_blank">mmapi-php-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-php-sdk.git -b develop
@@ -73,3 +73,18 @@ print("Callback URL : " . MobileMoney::getCallbackUrl() . PHP_EOL);
 print("MMAPI URL : " . MobileMoney::getBaseUrl() . PHP_EOL);
 ?>
 ```
+<script>
+  setTimeout(() => {
+    const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+  
+    codeBlocks.forEach(element => {
+      const preElement = element.querySelector('pre');
+
+      const div = document.createElement('div');
+      div.classList.add('pre-wrapper');
+      div.appendChild(preElement);
+
+      element.appendChild(div);
+    });
+  }, 0);
+</script>
