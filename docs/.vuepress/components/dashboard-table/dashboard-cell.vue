@@ -1,17 +1,16 @@
 <template>
   <td class="dashboard-table__cell">
-    <tippy
-        interactive
-        style="max-width: 100%"
-        delay="600"
-        zIndex="1"
-    >
+    <tippy style="max-width: 100%" delay="600">
       <template v-slot:trigger>
         <div class="dashboard-table__cell-content">{{ value }}</div>
       </template>
-      <span class="tooltip-text" @click="copyToClipboard" :class="{'tooltip-text--copied': isCopied}">
-            {{ value }}
-          </span>
+      <span
+        class="tooltip-text"
+        @click="copyToClipboard"
+        :class="{ 'tooltip-text--copied': isCopied }"
+      >
+        {{ value }}
+      </span>
     </tippy>
   </td>
 </template>
@@ -19,22 +18,26 @@
 <script>
 export default {
   name: 'dashboard-cell',
+
   props: ['value'],
+
   data() {
     return {
       isCopied: false,
       successTimeout: undefined
     };
   },
+
   methods: {
     copyToClipboard() {
-      navigator.clipboard.writeText(this.value)
-          .then(() => {
-            this.setSuccessCopy();
-          })
-          .catch((err) => {
-            console.error('Async: Could not copy text: ', err);
-          });
+      navigator.clipboard
+        .writeText(this.value)
+        .then(() => {
+          this.setSuccessCopy();
+        })
+        .catch((err) => {
+          console.error('Async: Could not copy text: ', err);
+        });
     },
     setSuccessCopy() {
       clearTimeout(this.successTimeout);
@@ -47,6 +50,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

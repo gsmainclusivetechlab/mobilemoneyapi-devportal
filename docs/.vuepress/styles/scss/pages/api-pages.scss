@@ -55,7 +55,42 @@
     &.security-page {
       .content__default {
         max-width: 896px;
-        margin-left: auto;
+        margin: 0 auto;
+        padding: 34px 32px 64px;
+
+        p {
+          font-size: 2rem;
+          line-height: 1.8;
+
+          @include media('<tablet') {
+            font-size: 1.6rem;
+          }
+        }
+
+        h1 {
+          font-size: var(--h1-font-size);
+
+          &:first-of-type {
+            padding-top: 139px;
+            margin-bottom: 25px;
+
+            @include media('<tablet') {
+              padding-top: 90px;
+              margin-bottom: 15px;
+            }
+          }
+        }
+
+        .iframe {
+          margin: 31px 0;
+        }
+      }
+    }
+
+    &.guidelines-page {
+      .content__default {
+        max-width: 896px;
+        margin: 0 auto;
         padding: 34px 32px 64px;
 
         p {
@@ -94,6 +129,15 @@
 
       @include media('<tablet') {
         padding: 34px 0 64px;
+      }
+
+      span.highlight {
+        background-color: #f0f0f0;
+        color: #fc6565;
+        border-radius: 2px;
+        font-size: 1.2rem;
+        display: inline-block;
+        padding: 0 0.6em;
       }
 
       h1, .h1 {
@@ -199,6 +243,12 @@
         margin: 8px 0;
         font-size: 1.4rem;
         line-height: 1.8;
+      }
+
+      ol {
+        .language-shell {
+          margin-left: -1.2em;
+        }
       }
 
       ul {
@@ -468,6 +518,12 @@
         }
       }
 
+      ol {
+        div[class*="language-"] {
+          margin-left: -1.2em;
+        }
+      }
+
       div[class*="language-"] {
         margin: 21px 0;
         background: var(--primaty-dark-color);
@@ -486,7 +542,7 @@
         pre[class*="language-"] {
           margin: 0;
           padding: 8px 8px 15px 14px;
-          min-height: 130px;
+          min-height: 50px;
         }
 
         code {

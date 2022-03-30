@@ -9,7 +9,3 @@ export default {
   name: 'glossary-container'
 };
 </script>
-
-<style scoped>
-
-</style>

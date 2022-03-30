@@ -22,7 +22,7 @@
 
       <NavLinks class="can-hide"/>
 
-      <SearchBox @set-active-search="setActiveSearch"/>
+      <SearchBox v-if="isMobileSearchOpened" @set-active-search="setActiveSearch"/>
       <button @click="toggleMobileSearch" class="mobile-search-opener" type="button"></button>
 
       <div class="login-links" v-if="!isLoggedUser">

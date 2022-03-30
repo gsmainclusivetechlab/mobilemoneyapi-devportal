@@ -5,7 +5,10 @@
         <div class="content-box">
           <span class="h3 create-app-banner-title">Create an app</span>
           <div class="create-app-banner-text">
-            <span>Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span>
+            <span
+              >Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida
+              sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span
+            >
             <ol class="create-app-banner-list">
               <li>Tincidunt aenean eget tincidunt in fringilla congue.</li>
               <li>Egestas lectus nisi diam felis, tortor.</li>
@@ -15,7 +18,7 @@
         </div>
         <div class="content-box">
           <div class="img-wrap">
-            <img src="/images/create-app-img.svg" alt="">
+            <img src="/images/create-app-img.svg" alt="" />
           </div>
         </div>
       </div>
@@ -24,8 +27,8 @@
         <a href="" class="btn btn--link">Learn more</a>
       </div>
     </div>
-    <card-links-section/>
-    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false"/>
+    <card-links-section />
+    <dashboard-modal v-if="modalIsVisible" @close-modal="modalIsVisible = false" />
   </div>
 </template>
 
@@ -38,20 +41,20 @@ export default {
 
   components: { dashboardModal, cardLinksSection },
 
-  data: function () {
+  data: function() {
     return {
-      modalIsVisible: false,
+      modalIsVisible: false
     };
   },
 
   methods: {
     toggleModal() {
-      this.modalIsVisible = ! this.modalIsVisible;
+      this.modalIsVisible = !this.modalIsVisible;
     },
 
     handleMenuClose() {
       this.$emit('close-menu');
-    },
+    }
   }
 };
 </script>

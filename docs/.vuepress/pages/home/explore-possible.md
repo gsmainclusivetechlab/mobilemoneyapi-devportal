@@ -7,7 +7,7 @@
 ## Explore what’s possible
 
 <div class="section-description">
-            Bibendum integer quam sem purus donec. Morbi volutpat euismod cras convallis quam.
+            How can the GSMA API support your business?  Explore potential use cases for your industry.
           </div>
         </div>
         <div class="section-intro__column">
@@ -22,7 +22,7 @@
               </div>
             </div>
             <h5 class="industries-title">Mobile Money Provider</h5>
-            <div class="industries-description">Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.</div>
+            <div class="industries-description">Use the GSMA API to connect with many third party service providers</div>
             <div class="btn btn--transparent">Learn more</div>
           </router-link>
           <a v-else :href="link" class="industries-card" target="_blank">
@@ -32,7 +32,7 @@
               </div>
             </div>
             <h5 class="industries-title">Mobile Money Provider</h5>
-            <div class="industries-description">Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.</div>
+            <div class="industries-description">Use the GSMA API to accept in-store and online payments from your customers</div>
             <div class="btn btn--transparent">Learn more</div>
           </a>
         </div>
@@ -50,7 +50,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Merchants & Service Providers</h5>
-              <div class="industries-description">Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.</div>
+              <div class="industries-description">Use the GSMA API to accept in-store and online payments from your customers</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -65,7 +65,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Governments</h5>
-              <div class="industries-description">Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.</div>
+              <div class="industries-description">Use the GSMA API specification to facilitate G2P cash disbursements</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -80,7 +80,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Humanitarian Agencies</h5>
-              <div class="industries-description">Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.</div>
+              <div class="industries-description">Use the GSMA API to optimise the delivery of cash disbursements</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -95,7 +95,7 @@
                 </div>
               </div>
               <h5 class="industries-title">International Transfer Organisations</h5>
-              <div class="industries-description">Fringilla egestas ut sit odio hendrerit in quis purus in. Molestie euismod cras dis neque eget urna eget amet enim.</div>
+              <div class="industries-description">Use the GSMA API to integrate with mobile money wallets and transfer money across international borders</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -110,7 +110,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Payment Service Providers & Payment Aggregators</h5>
-              <div class="industries-description">At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.</div>
+              <div class="industries-description">Use the GSMA API when working at large scale with multiple APIs using a single connection point</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -125,7 +125,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Banks & Microfinance Institutions</h5>
-              <div class="industries-description">At et tristique vulputate est elementum aliquet. Odio magna semper mauris magna erat dolor justo condimentum.</div>
+              <div class="industries-description">Use the GSMA API to integrate provision of financial services such as loans and savings to customers with mobile money wallets</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -140,7 +140,7 @@
                 </div>
               </div>
               <h5 class="industries-title">FinTech Providers (Insurance Savings Loans)</h5>
-              <div class="industries-description">Et vel tincidunt ipsum eleifend nisi. Ipsum sapien neque pellentesque nec nibh tellus scelerisque ut lectus.</div>
+              <div class="industries-description">Use the GSMA API to enable customers to pay bills and set up subscriptions for services such as insurance and other digital financial services</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -155,7 +155,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Employers</h5>
-              <div class="industries-description">Integer pulvinar risus nisi tristique. Molestie dictumst ac in pulvinar et natoque semper vitae convallis.</div>
+              <div class="industries-description">Use the GSMA API to distribute salaries to their employees directly via their mobile phones</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -170,7 +170,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Energy & Utilities & AgriTech</h5>
-              <div class="industries-description">Euismod pulvinar mattis laoreet mauris neque egestas lorem enim. At scelerisque nisl eros, nunc, eu urna, nisl viverra non.</div>
+              <div class="industries-description">Use the GSMA API to automate processing of customers’ bill payments</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -185,7 +185,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Education & Health</h5>
-              <div class="industries-description">Risus, ligula facilisis viverra placerat a neque sed. Sagittis, sit nunc consectetur amet feugiat ornare.</div>
+              <div class="industries-description">Use the GSMA API to simplify acceptance of payments from clients for essential services</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>
@@ -200,7 +200,7 @@
                 </div>
               </div>
               <h5 class="industries-title">Mobile Money Agents</h5>
-              <div class="industries-description">Tempor, pellentesque volutpat id ipsum ornare vestibulum, velit sed. Ut hendrerit commodo scelerisque ipsum vel.</div>
+              <div class="industries-description">Use the GSMA API to provide services registration of new accounts and cash-in and cash-out from their account</div>
               <div class="btn btn--transparent">Learn more</div>
             </router-link>
           </div>

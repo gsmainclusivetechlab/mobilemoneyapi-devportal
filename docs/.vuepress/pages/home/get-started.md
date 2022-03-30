@@ -5,8 +5,7 @@
 
 ## Get Started with Development
 
-<div class="section-description">We offers a powerful and easy to use tools to take full
-          advantage of the Mobile Money API Specification.
+<div class="section-description">Get started with the powerful range of easy to use developer tools to work with the Mobile Money API Specification.
         </div>
       </div>
       <div class="buttons-holder content-center get-started__btn-holder">
