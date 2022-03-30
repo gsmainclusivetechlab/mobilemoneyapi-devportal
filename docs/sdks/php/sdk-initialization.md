@@ -73,18 +73,23 @@ print("Callback URL : " . MobileMoney::getCallbackUrl() . PHP_EOL);
 print("MMAPI URL : " . MobileMoney::getBaseUrl() . PHP_EOL);
 ?>
 ```
+
 <script>
-  setTimeout(() => {
-    const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
-  
-    codeBlocks.forEach(element => {
-      const preElement = element.querySelector('pre');
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
 
-      const div = document.createElement('div');
-      div.classList.add('pre-wrapper');
-      div.appendChild(preElement);
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
 
-      element.appendChild(div);
-    });
-  }, 0);
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
 </script>

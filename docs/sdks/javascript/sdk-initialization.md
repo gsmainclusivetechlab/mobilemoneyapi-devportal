@@ -71,17 +71,21 @@ npm run build
 <a href="https://www.notion.so/Code-Snippets-Integration-b5a4cba3838e4ed881befd900694b6f2" target="_blank">Code Snippets Integration</a>
 
 <script>
-  setTimeout(() => {
-    const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
-  
-    codeBlocks.forEach(element => {
-      const preElement = element.querySelector('pre');
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
 
-      const div = document.createElement('div');
-      div.classList.add('pre-wrapper');
-      div.appendChild(preElement);
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
 
-      element.appendChild(div);
-    });
-  }, 0);
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
 </script>
