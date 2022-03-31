@@ -70,7 +70,7 @@
           </template>
 
           <user-options-block
-            :allowOptions="['delete', 'block']"
+            :allowOptions="allowOptions"
             :userStatus="user.userEnabled"
             @deleteUser="deleteUser(user.userName)"
             @changeStatus="changeStatus(user.userName)"
@@ -114,6 +114,10 @@ export default {
   },
 
   computed: {
+    allowOptions() {
+      return this.userData.role === 'admin' ? ['block'] : ['delete', 'block'];
+    },
+
     getSearchBy() {
       return [
         { label: 'Username', value: 'username' },
