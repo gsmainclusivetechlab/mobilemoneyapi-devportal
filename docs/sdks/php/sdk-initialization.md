@@ -73,6 +73,7 @@ print("Callback URL : " . MobileMoney::getCallbackUrl() . PHP_EOL);
 print("MMAPI URL : " . MobileMoney::getBaseUrl() . PHP_EOL);
 ?>
 ```
+
 <script>
 export default {
   mounted() {

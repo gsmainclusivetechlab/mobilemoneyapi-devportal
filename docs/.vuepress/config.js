@@ -477,6 +477,42 @@ const sidebarNavigation = {
           ]
         },
         {
+          title: 'Java',
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Introduction',
+              path: '/sdks/java/introduction',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'System Requirements',
+              path: '/sdks/java/system-requirements',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'SDK Initialisation',
+              path: '/sdks/java/sdk-initialization',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'Downloads',
+              path: '/sdks/java/downloads',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'GitHub',
+              path: 'https://github.com/gsmainclusivetechlab/mmapi-java-sdk/tree/develop#readme',
+              sidebarDepth: 2,
+              collapsable: true
+            }
+          ]
+        },
+        {
           title: 'JavaScript',
           sidebarDepth: 2,
           children: [
@@ -508,42 +544,6 @@ const sidebarNavigation = {
               title: 'GitHub',
               path:
                 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/development#readme',
-              sidebarDepth: 2,
-              collapsable: true
-            }
-          ]
-        },
-        {
-          title: 'Java',
-          sidebarDepth: 2,
-          children: [
-            {
-              title: 'Introduction',
-              path: '/sdks/java/introduction',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'System Requirements',
-              path: '/sdks/java/system-requirements',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'SDK Initialisation',
-              path: '/sdks/java/sdk-initialization',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'Downloads',
-              path: '/sdks/java/downloads',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'GitHub',
-              path: 'https://github.com/gsmainclusivetechlab/mmapi-java-sdk/tree/develop#readme',
               sidebarDepth: 2,
               collapsable: true
             }
