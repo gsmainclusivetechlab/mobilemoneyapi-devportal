@@ -106,14 +106,12 @@ export default {
       this.waitingResponse = true;
       this.errorMessage = '';
 
-      try {
-        await this.$store.dispatch(nameWithSlash(AUTH, SIGN_IN), this.form);
+      const response = await this.$store.dispatch(nameWithSlash(AUTH, SIGN_IN), this.form);
 
+      if (response.status) {
         this.$router.push({ path: '/dashboard/' });
-      } catch (err) {
-        if (err?.response?.data?.error) {
-          this.errorMessage = err.response.data.errorDescription;
-        }
+      } else {
+        this.errorMessage = response.errorMessage;
       }
 
       this.waitingResponse = false;
