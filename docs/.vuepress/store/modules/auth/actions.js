@@ -38,7 +38,10 @@ export default {
     } catch (err) {
       resolveObject.status = false;
 
-      if (err.response.status === 404 && err.response.data.error === INVALID_CREDENTIALS) {
+      if (
+        (err.response.status === 404 || err.response.status === 401) &&
+        err.response.data.error === INVALID_CREDENTIALS
+      ) {
         resolveObject.errorMessage = err.response.data.errorDescription;
       }
     }
