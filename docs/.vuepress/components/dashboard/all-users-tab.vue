@@ -51,7 +51,7 @@
           style="overflow: visible"
           arrow
           offset="0,-30"
-          v-if="user.userName !== getUserName && !isUserAdminOrSuperadmin(user)"
+          v-if="user.userName !== getUserName && !isUserAdminOrSuperAdmin(user)"
         >
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button">
@@ -115,7 +115,7 @@ export default {
 
   computed: {
     allowOptions() {
-      return this.userData.role === 'admin' ? ['block'] : ['delete', 'block'];
+      return this.userData.role === 'superadmin' ? ['delete', 'block'] : [];
     },
 
     getSearchBy() {
@@ -169,9 +169,9 @@ export default {
       this.isGettingData = false;
     },
 
-    isUserAdminOrSuperadmin(user) {
+    isUserAdminOrSuperAdmin(user) {
       if (this.isAdminRole) {
-        return user.role === 'admin' || user.role === 'superadmin';
+        return user.role === 'admin' || user.role === 'superadmin' || user.role === 'user';
       }
       if (this.isSuperAdminRole) {
         return user.role === 'superadmin';
@@ -200,7 +200,7 @@ export default {
     },
 
     async changeUserRole(user) {
-      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperadmin(user)) {
+      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperAdmin(user)) {
         this.waitingUserId = user.userId;
         await this.updateRole(user.userId);
         this.waitingUserId = '';

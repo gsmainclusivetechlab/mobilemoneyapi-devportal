@@ -6,7 +6,7 @@
 ## Succeed case study
 
 </div>
-      <case-study imageLink="/images/test.jpg">
+      <case-study imageHeight='150px' imageLink="/images/Engie.png">
         <template v-slot:main-description>
 As an energy provider whose business is mainly in rural areas, partnerships with MNOs are of extreme importance to its operations. Mobile Money is regarded an enabler of its business.
 Most of the third-party service provider’s consumers are pay-as-you go customers and by being directly integrated with over 10 MNO partners, it facilitates faster and smoother payments.
