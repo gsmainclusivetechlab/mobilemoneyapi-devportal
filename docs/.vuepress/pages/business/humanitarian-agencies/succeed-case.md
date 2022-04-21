@@ -3,7 +3,7 @@
     <div class="container container--narrow">
       <div class="section-intro section-intro--one-column">
 
-## Succeed case study
+## API Case Study
 
 </div>
       <case-study imageLink="/images/test.jpg">

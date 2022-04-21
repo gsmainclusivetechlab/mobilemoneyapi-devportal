@@ -8,7 +8,7 @@
                   Which API Version should we implement?
                 </template>
                 <template v-slot:body>
-                  The current version of the Mobile Money API is v1.1 and this version should be
+                  The current version of the Mobile Money API is v1.2.0 and this version should be
                   implemented by all new adopters. We encourage existing adopters who have
                   implemented the previous version of the API to migrate to the latest version which
                   is backwards compatible.

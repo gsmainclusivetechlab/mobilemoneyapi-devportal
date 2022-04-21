@@ -20,7 +20,12 @@
       </div>
     </div>
     <div class="testimonials__info-holder">
-      <img class="testimonials__info-image" :src="imageLink" alt="Mobile Money API Developer Portal">
+      <img
+        :style="{ height: imageHeight }"
+        class="testimonials__info-image"
+        :src="imageLink"
+        alt="Mobile Money API Developer Portal"
+      />
       <div class="testimonials__info-holder--container">
         <div>
           <p class="testimonials__info-holder--company">
@@ -45,11 +50,13 @@ export default {
     imageLink: {
       type: String,
       default: ''
+    },
+    imageHeight: {
+      type: String,
+      default: ''
     }
   }
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
