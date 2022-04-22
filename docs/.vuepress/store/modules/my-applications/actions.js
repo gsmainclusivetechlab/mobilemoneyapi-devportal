@@ -15,14 +15,12 @@ import { GET_USER_NAME, GET_TOKEN_NEXT_PAGE, GET_TOKEN_PREV_PAGE } from '../gett
 
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootGetters, rootState }, controller) {
-    const isCurrentModule = rootState.pagination.currentModule === MY_APPS;
-
     try {
       const userName = rootGetters[nameWithSlash(USER, GET_USER_NAME)];
 
       const { data } = await Application.getApps(
         {
-          paginationToken: isCurrentModule
+          paginationToken: rootState.pagination.currentModule === MY_APPS
             ? rootState.pagination.tokens[rootState.pagination.currentPage]
             : '',
           userName
@@ -30,7 +28,7 @@ export default {
         controller
       );
 
-      if (!data.appData.length && state.currentPage && isCurrentModule) {
+      if (!data.appData.length && state.currentPage && rootState.pagination.currentModule === MY_APPS) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
           root: true
         });
@@ -42,17 +40,17 @@ export default {
 
       if (
         rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_NEXT_PAGE)] !== 'last' &&
-        isCurrentModule
+        rootState.pagination.currentModule === MY_APPS
       ) {
         commit(nameWithSlash(PAGINATION, ADD_PAGINATION_TOKEN), data.paginationToken, {
           root: true
         });
       }
     } catch (error) {
-      if (isCurrentModule) {
-        commit(SET_DATA, []);
+      if (rootState.pagination.currentModule === MY_APPS) {
         commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
       }
+      commit(SET_DATA, []);
 
       console.log(error);
     }
