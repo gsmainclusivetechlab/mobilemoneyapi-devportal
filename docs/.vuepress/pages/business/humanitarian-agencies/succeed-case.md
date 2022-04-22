@@ -6,7 +6,7 @@
 ## API Case Study
 
 </div>
-      <case-study imageLink="/images/test.jpg">
+      <case-study customCSSclass="humanitarian-service" imageLink="/images/industry-5.svg">
         <template v-slot:main-description>
 The disbursement process has to be efficient and being directly integrated with the MNOs results in faster and more successful outreach. A lot of humanitarian work will be in non-urban areas, which might be more difficult to reach physically.  
 Being able to distribute money via mobile wallets, which can be easily facilitated through integrations with MNOs, offers lot of convenience to the organisation’s disbursement process. The organisation is currently directly integrated with over 30 MNOs in various regions, mainly in the Sub-Saharan African region.

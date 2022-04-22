@@ -35,7 +35,9 @@
     </div>
     <div class="testimonials__info-holder">
       <div class="testimonials__info-holder--container">
-        <img :style="customStyles" class="testimonials__info-image" :src="imageLink" alt="Company Logo" />
+        <div :style="customStyles" :class="['testimonials__info-image--holder', customCSSclass ? customCSSclass : '']">
+          <img class="testimonials__info-image" :src="imageLink" alt="Company Logo" />
+        </div>
         <div>
           <p class="testimonials__info-holder--company">
             <slot name="company"></slot>
@@ -61,6 +63,10 @@ export default {
       default: ''
     },
     customStyles: {
+      type: String,
+      default: ''
+    },
+    customCSSclass: {
       type: String,
       default: ''
     }

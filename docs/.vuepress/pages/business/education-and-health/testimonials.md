@@ -7,7 +7,7 @@
 
 </div>
       <div class="testimonials__slider-wrapper">
-<testimonials-slide customStyles="background-color: rgb(149, 34, 108);" imageLink="/images/industry-3.svg">
+<testimonials-slide customCSSclass="education-service" customStyles="background-color: rgb(149, 34, 108);" imageLink="/images/industry-3.svg">
 <template v-slot:description>
 As a platform that offers educational content through mobile money, we appreciate the importance of being integrated with MMPs using APIs. It enables our consumers to easily purchase desired content. As we continue to expand our services and customer base, we hope to have access to a Standard API in the future, which will enable us to reach a wider base of users in remote areas.
 </template>
