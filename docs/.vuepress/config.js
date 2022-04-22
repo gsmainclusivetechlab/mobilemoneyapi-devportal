@@ -358,11 +358,6 @@ const sidebarNavigation = {
             {
               title: 'Client Authentication',
               path: '/sdks/auth/client-authentication',
-              sidebarDepth: 2
-            },
-            {
-              title: 'API Authorisation',
-              path: '/sdks/auth/api-authorization',
               collapsable: true,
               sidebarDepth: 2
             }
@@ -542,8 +537,7 @@ const sidebarNavigation = {
             },
             {
               title: 'GitHub',
-              path:
-                'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/development#readme',
+              path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk',
               sidebarDepth: 2,
               collapsable: true
             }
