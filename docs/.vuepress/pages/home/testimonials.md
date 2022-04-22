@@ -23,7 +23,9 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img style="background-color: rgb(255, 102, 0);" class="testimonials__info-image" src="/images/industry-5.svg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder payment-service">
+                    <img class="testimonials__info-image" src="/images/industry-5.svg" alt="Company Logo">
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Cellulant</p>
                     <p class="testimonials__info-holder--organisation">Payment Service Provider</p>
@@ -52,7 +54,9 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img style="background-color: rgb(252, 187, 44);" class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder government-service">
+                    <img class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Uganda Revenue</p>
                     <p class="testimonials__info-holder--organisation">Authority Government / Government Agency</p>
@@ -81,7 +85,9 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img style="background-color: rgb(149, 34, 108);" class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder education-service">
+                     <img class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Eneza Education</p>
                     <p class="testimonials__info-holder--organisation">Education Service Provider</p>
@@ -110,7 +116,9 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img style="background-color: rgb(149, 34, 108);" class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder healthcare-service">
+                     <img class="testimonials__info-image" src="/images/industry-3.svg" alt="Company Logo">
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Baobab Circle</p>
                     <p class="testimonials__info-holder--organisation">Healthcare Service Provider</p>
@@ -138,7 +146,9 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img style="background-color: rgb(149, 34, 108);" class="testimonials__info-image" src="/images/industry-1.svg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder banks-service">
+                     <img class="testimonials__info-image" src="/images/industry-1.svg" alt="Company Logo">
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Musoni</p>
                     <p class="testimonials__info-holder--organisation">Banks and MFIs</p>

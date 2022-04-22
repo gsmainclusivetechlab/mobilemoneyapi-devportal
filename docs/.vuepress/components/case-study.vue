@@ -20,12 +20,14 @@
       </div>
     </div>
     <div class="testimonials__info-holder">
-      <img
-        :style="{ height: imageHeight }"
-        class="testimonials__info-image"
-        :src="imageLink"
-        alt="Mobile Money API Developer Portal"
-      />
+      <div :class="['testimonials__info-image--holder', customCSSclass ? customCSSclass : '']">
+        <img
+          :style="{ height: imageHeight }"
+          class="testimonials__info-image"
+          :src="imageLink"
+          alt="Mobile Money API Developer Portal"
+        />
+      </div>
       <div class="testimonials__info-holder--container">
         <div>
           <p class="testimonials__info-holder--company">
@@ -52,6 +54,10 @@ export default {
       default: ''
     },
     imageHeight: {
+      type: String,
+      default: ''
+    },
+    customCSSclass: {
       type: String,
       default: ''
     }
