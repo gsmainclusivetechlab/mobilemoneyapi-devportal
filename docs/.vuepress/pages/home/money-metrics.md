@@ -12,10 +12,11 @@
         </div>
       </div>
       <div class="iframe-box">
-        <!-- <iframe src="" frameborder="0"></iframe> -->
-        <img src="/images/iframe_placeholder.png" alt="iframe will be here">
+        <a href="https://www.gsma.com/mobilemoneymetrics/#deployment-tracker" target="_blank">
+          <img src="/images/iframe_placeholder.png" alt="iframe_placeholder">
+        </a>
       </div>
-      <a href="https://www.gsma.com/mobilemoneymetrics/wp-content/uploads/Deployment_Tracker_dataset.xlsx" target="_blank" class="btn btn--accent">Download dataset</a>
+      <a href="/download-files/01.01.2022-Mobile-Money-Deployment-Tracker_Public-Version.xlsx" class="btn btn--accent" download>Download dataset</a>
     </div>
   </div>
 </template>

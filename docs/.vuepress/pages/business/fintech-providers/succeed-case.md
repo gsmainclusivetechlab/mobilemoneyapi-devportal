@@ -6,7 +6,7 @@
 ## API Case Study
 
 </div>
-      <case-study customCSSclass="insurance-service" imageLink="/images/industry-3.svg">
+      <case-study customCSSclass="insurance-service" imageLink="/images/industry-5.svg">
         <template v-slot:main-description>
 The third party provides inclusive insurance services to multiple countries within the Sub-Saharan region. Services available include health, life, funeral and property insurance. The insurance provider is currently directly integrated with five MMPs, and working on expanding integrations with other MMPs. Working with MMPs, is expanding the reach of the insurance provider as the MMPs’ distributions tend to be higher, enabling the insurer to distribute services to consumers that have been traditionally excluded.
         </template>

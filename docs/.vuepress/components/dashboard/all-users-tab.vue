@@ -121,7 +121,8 @@ export default {
     getSearchBy() {
       return [
         { label: 'Username', value: 'username' },
-        { label: 'Email', value: 'email' }
+        { label: 'Email', value: 'email' },
+        { label: 'Name', value: 'flname' }
       ];
     },
 

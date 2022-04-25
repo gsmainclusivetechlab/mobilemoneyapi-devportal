@@ -134,7 +134,7 @@ export default {
       if (!this.searchRequest) {
         this.searchRequest = true;
         this.timer = setTimeout(() => {
-          this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+          this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION), this.module);
           this.$emit('changedSearchValue');
           this.searchRequest = false;
         }, 700);

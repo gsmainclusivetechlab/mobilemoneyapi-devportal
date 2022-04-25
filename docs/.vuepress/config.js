@@ -196,14 +196,6 @@ const footerNavigation = [
 ];
 
 const sidebarNavigation = {
-  '/examples/': [
-    {
-      title: 'Examples',
-      collapsable: false,
-      children: ['#introduction', 'swagger-page']
-    }
-  ],
-
   '/api-versions-1.2/': [
     {
       title: 'API version 1.2',
