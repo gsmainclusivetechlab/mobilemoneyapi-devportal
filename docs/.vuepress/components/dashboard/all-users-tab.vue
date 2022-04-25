@@ -14,6 +14,8 @@
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)" />
 
+      <dashboard-cell :value="user.userName" />
+
       <dashboard-cell :value="user.email" />
 
       <dashboard-cell :value="user.companyName" />
