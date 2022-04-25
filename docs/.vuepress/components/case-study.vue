@@ -20,13 +20,23 @@
       </div>
     </div>
     <div class="testimonials__info-holder">
-      <div :class="['testimonials__info-image--holder', customCSSclass ? customCSSclass : '']">
+      <div class="testimonials__info-image--holder">
         <img
+          v-if="mediaType === 'image/png'"
+          :class="['testimonials__info-image', customCSSclass]"
           :style="{ height: imageHeight }"
-          class="testimonials__info-image"
           :src="imageLink"
           alt="Mobile Money API Developer Portal"
         />
+        <object
+          v-if="mediaType === 'image/svg+xml'"
+          :class="['testimonials__info-image', customCSSclass]"
+          :style="{ height: imageHeight }"
+          :data="imageLink"
+          :type="mediaType"
+        >
+          Mobile Money API Developer Portal
+        </object>
       </div>
       <div class="testimonials__info-holder--container">
         <div>
@@ -60,6 +70,10 @@ export default {
     customCSSclass: {
       type: String,
       default: ''
+    },
+    mediaType: {
+      type: String,
+      default: 'image/png'
     }
   }
 };

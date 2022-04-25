@@ -7,7 +7,7 @@
 
 </div>
       <div class="testimonials__slider-wrapper">
-<testimonials-slide customCSSclass="payment-service" customStyles="background-color: rgb(255, 102, 0);" imageLink="/images/industry-5.svg">
+<testimonials-slide mediaType='image/svg+xml' imageLink="/images/payment_service_providers_aggregators.svg">
 <template v-slot:description>
 As a payment service provider that is directly integrated with over 35 MNO partners, we understand the importance of Standardised APIs to save time on development work, resources and keeping integrations up to date.
 </template>

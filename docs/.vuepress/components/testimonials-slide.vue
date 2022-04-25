@@ -35,8 +35,14 @@
     </div>
     <div class="testimonials__info-holder">
       <div class="testimonials__info-holder--container">
-        <div :style="customStyles" :class="['testimonials__info-image--holder', customCSSclass ? customCSSclass : '']">
-          <img class="testimonials__info-image" :src="imageLink" alt="Company Logo" />
+        <div class="testimonials__info-image--holder">
+          <object
+          class="testimonials__info-image"
+          :data="imageLink"
+          type="image/svg+xml"
+        >
+          Company Logo
+        </object>
         </div>
         <div>
           <p class="testimonials__info-holder--company">
