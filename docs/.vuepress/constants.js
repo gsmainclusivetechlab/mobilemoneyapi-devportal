@@ -691,6 +691,7 @@ export const COUNTRIES = [
 
 export const allUsersHeaderTitles = [
     'NAME',
+    'USERNAME',
     'EMAIL',
     'COMPANY',
     'STATUS',
