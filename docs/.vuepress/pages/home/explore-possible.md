@@ -21,7 +21,7 @@
                 <img :src="icon" alt="industry icon">
               </div>
             </div>
-            <h5 class="industries-title">Mobile Money Provider</h5>
+            <h5 class="industries-title">Mobile Money Providers</h5>
             <div class="industries-description">Use the GSMA API to connect with many third party service providers</div>
             <div class="btn btn--transparent">Learn more</div>
           </router-link>

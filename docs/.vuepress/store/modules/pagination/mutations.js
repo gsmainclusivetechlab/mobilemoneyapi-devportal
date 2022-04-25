@@ -25,11 +25,11 @@ export default {
       state.tokens.pop();
     }
   },
-  [RESET_PAGINATION](state) {
+  [RESET_PAGINATION](state, currentModule = '') {
     (state.currentPage = 0),
       (state.oldPageValue = 0),
       (state.tokens = ['first']),
-      (state.currentModule = '');
+      (state.currentModule = currentModule);
   },
   [CLEAR_PAGINATION_TOKENS](state) {
     state.tokens = ['first'];

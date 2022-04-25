@@ -3,7 +3,7 @@
     <div class="container container--narrow">
 <div class="user-dashboard__container">
   <div class="user-dashboard__image">
-    <img src="/images/succeed-use-case.jpg" alt="image description">
+    <img src="/images/User.png" alt="image user description">
   </div>
   <div class="user-dashboard__intro">
 
