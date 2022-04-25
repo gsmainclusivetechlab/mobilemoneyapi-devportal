@@ -192,6 +192,10 @@ const footerNavigation = [
     text: 'Email Preference Centre',
     link: 'https://www.gsma.com/aboutus/legal/email-preference-centre',
     target: '_blank'
+  },
+  {
+    text: 'Cookie Policy',
+    link: '/cookie-policy/',
   }
 ];
 

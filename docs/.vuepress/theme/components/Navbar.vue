@@ -1,5 +1,10 @@
 <template>
   <header class="navbar main-header" :class="{'mobile-search-opened': isMobileSearchOpened}">
+    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/07690a29-f46f-4a9b-a625-15e9d6f82176/OtAutoBlock.js" ></script>
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="07690a29-f46f-4a9b-a625-15e9d6f82176" ></script>
+    <script type="text/javascript">
+    function OptanonWrapper() { }
+    </script>
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="main-header__box">
       <div class="logo-holder">
