@@ -6,7 +6,7 @@
 ## API Case Study
 
 </div>
-      <case-study imageLink="/images/mama_money.png">
+      <case-study mediaType='image/png' customCSSclass='custom' imageLink="/images/mama_money.png">
         <template v-slot:main-description>
 The remittance provider completed its first direct integration with an MNO six years ago, and now currently integrated with multiple MNO partners. 
 According to the provider, the direct API Integrations offer a higher level of convenience as the recipients do not have to go to physical locations to cash out. During the pandemic, it was difficult for some to access agents or banks and direct integrations speeded remittance transactions to end users.  

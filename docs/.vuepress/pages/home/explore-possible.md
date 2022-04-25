@@ -12,29 +12,18 @@
         </div>
         <div class="section-intro__column">
           <router-link
-              v-if="!target"
-              :to="link"
+              to="/mobile-money-providers/"
               class="industries-card"
           >
             <div class="icon-box">
-              <div class="icon-holder" :style="{'background-color': iconBackground}">
-                <img :src="icon" alt="industry icon">
+              <div class="icon-holder">
+                <object data="/images/mobile_money_providers.svg" type="image/svg+xml"></object>
               </div>
             </div>
             <h5 class="industries-title">Mobile Money Providers</h5>
             <div class="industries-description">Use the GSMA API to connect with many third party service providers</div>
             <div class="btn btn--transparent">Learn more</div>
           </router-link>
-          <a v-else :href="link" class="industries-card" target="_blank">
-            <div class="icon-box">
-              <div class="icon-holder" :style="{'background-color': iconBackground}">
-                <img :src="icon" alt="industry icon">
-              </div>
-            </div>
-            <h5 class="industries-title">Mobile Money Provider</h5>
-            <div class="industries-description">Use the GSMA API to accept in-store and online payments from your customers</div>
-            <div class="btn btn--transparent">Learn more</div>
-          </a>
         </div>
       </div>
       <div class="industries-grid">
@@ -45,8 +34,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#EE3772">
-                  <img src="/images/industry-2.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/merchants_service_providers.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Merchants & Service Providers</h5>
@@ -60,8 +49,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#FCBB2C">
-                  <img src="/images/industry-3.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/governments.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Governments</h5>
@@ -75,8 +64,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#00A182">
-                  <img src="/images/industry-3.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/humanitarian_agencies.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Humanitarian Agencies</h5>
@@ -90,8 +79,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#00A6C9">
-                  <img src="/images/industry-4.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/international_transfer_organisations.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">International Transfer Organisations</h5>
@@ -105,8 +94,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#FF6600">
-                  <img src="/images/industry-5.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/payment_service_providers_aggregators.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Payment Service Providers & Payment Aggregators</h5>
@@ -120,8 +109,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#95226C">
-                  <img src="/images/industry-1.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/banks_microfinance.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Banks & Microfinance Institutions</h5>
@@ -135,8 +124,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#99CCCC">
-                  <img src="/images/industry-5.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/fintech.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">FinTech Providers (Insurance Savings Loans)</h5>
@@ -150,8 +139,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#00A6C9">
-                  <img src="/images/industry-1.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/employers.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Employers</h5>
@@ -165,8 +154,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#FF6600">
-                  <img src="/images/industry-2.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/energy_utilities_agriTech.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Energy & Utilities & AgriTech</h5>
@@ -180,8 +169,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#95226C">
-                  <img src="/images/industry-3.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/education_health.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Education & Health</h5>
@@ -195,8 +184,8 @@
                 class="industries-card"
             >
               <div class="icon-box">
-                <div class="icon-holder" style="background-color:#99CCCC">
-                  <img src="/images/industry-3.svg" alt="industry icon">
+                <div class="icon-holder">
+                  <object data="/images/mobile_money_agents.svg" type="image/svg+xml"></object>
                 </div>
               </div>
               <h5 class="industries-title">Mobile Money Agents</h5>

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="what-you-get__box">
         <div class="image-holder">
-          <img class="image" src="/images/what_youll_get.jpg" alt="what_youll_get">
+          <img class="image" src="/images/dev_portal.png" alt="what_youll_get">
         </div>
         <div class="content-holder">
 
