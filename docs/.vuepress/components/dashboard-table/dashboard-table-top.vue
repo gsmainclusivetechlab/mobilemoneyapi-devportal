@@ -124,7 +124,7 @@ export default {
 
     setSortValue(value) {
       this.$store.commit(nameWithSlash(this.module, SET_SORT_VALUE), value);
-      this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION));
+      this.$store.commit(nameWithSlash(PAGINATION, RESET_PAGINATION), this.module);
       this.$emit('changedSortValue');
     },
 
