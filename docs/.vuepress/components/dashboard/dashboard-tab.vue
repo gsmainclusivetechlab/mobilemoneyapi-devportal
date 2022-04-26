@@ -39,7 +39,6 @@
       </div>
       <div class="btn-wrap">
         <button class="btn btn--accent" type="button" @click="toggleModal">Create app</button>
-        <a href="" class="btn btn--link">Learn more</a>
       </div>
     </div>
     <card-links-section />
