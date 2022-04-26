@@ -4,7 +4,7 @@
       <div class="special-grid__container">
         <div class="special-grid__block">
           <div class="special-grid__image-holder">
-            <img src="/images/Compliance.png" alt="image сompliance alt">
+            <img class="special-grid__image--custom" src="/images/Compliance.png" alt="image сompliance alt">
           </div>
           <div class="special-grid__content-holder">
             <div class="section-intro__column">
@@ -24,7 +24,7 @@
         </div>
         <div class="special-grid__block">
           <div class="special-grid__image-holder">
-            <img src="/images/Collaboration.png" alt="image сollaboration alt">
+            <img class="special-grid__image--custom" src="/images/Collaboration.png" alt="image сollaboration alt">
           </div>
           <div class="special-grid__content-holder">
             <div class="section-intro__column">
