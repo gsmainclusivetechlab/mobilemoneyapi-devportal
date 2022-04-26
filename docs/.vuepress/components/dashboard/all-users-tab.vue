@@ -14,6 +14,8 @@
     <tr class="dashboard-table__row" v-for="user of tableData" :key="user.userId">
       <dashboard-cell :value="getFullName(user)" />
 
+      <dashboard-cell :value="user.userName" />
+
       <dashboard-cell :value="user.email" />
 
       <dashboard-cell :value="user.companyName" />
@@ -51,7 +53,7 @@
           style="overflow: visible"
           arrow
           offset="0,-30"
-          v-if="user.userName !== getUserName && !isUserAdminOrSuperadmin(user)"
+          v-if="user.userName !== getUserName && !isUserAdminOrSuperAdmin(user)"
         >
           <template v-slot:trigger>
             <button type="button" class="dashboard-table__button">
@@ -70,7 +72,7 @@
           </template>
 
           <user-options-block
-            :allowOptions="['delete', 'block']"
+            :allowOptions="allowOptions"
             :userStatus="user.userEnabled"
             @deleteUser="deleteUser(user.userName)"
             @changeStatus="changeStatus(user.userName)"
@@ -114,10 +116,15 @@ export default {
   },
 
   computed: {
+    allowOptions() {
+      return this.userData.role === 'superadmin' ? ['delete', 'block'] : [];
+    },
+
     getSearchBy() {
       return [
         { label: 'Username', value: 'username' },
-        { label: 'Email', value: 'email' }
+        { label: 'Email', value: 'email' },
+        { label: 'Name', value: 'flname' }
       ];
     },
 
@@ -165,9 +172,9 @@ export default {
       this.isGettingData = false;
     },
 
-    isUserAdminOrSuperadmin(user) {
+    isUserAdminOrSuperAdmin(user) {
       if (this.isAdminRole) {
-        return user.role === 'admin' || user.role === 'superadmin';
+        return user.role === 'admin' || user.role === 'superadmin' || user.role === 'user';
       }
       if (this.isSuperAdminRole) {
         return user.role === 'superadmin';
@@ -196,7 +203,7 @@ export default {
     },
 
     async changeUserRole(user) {
-      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperadmin(user)) {
+      if (user.userName !== this.getUserName && !this.isUserAdminOrSuperAdmin(user)) {
         this.waitingUserId = user.userId;
         await this.updateRole(user.userId);
         this.waitingUserId = '';

@@ -518,7 +518,18 @@
         }
       }
 
-      ol {
+      ol.alphaList {
+        list-style: none;
+        counter-reset: my-awesome-counter;
+
+        li {
+          counter-increment: my-awesome-counter;
+        }
+
+        li::before {
+          content: counter(my-awesome-counter, lower-alpha) ") ";
+        }
+
         div[class*="language-"] {
           margin-left: -1.2em;
         }
@@ -528,6 +539,10 @@
         margin: 21px 0;
         background: var(--primaty-dark-color);
         border-radius: 8px;
+
+        .pre-wrapper {
+          padding: 0 14px 0 0;
+        }
 
         &:before {
           position: static;

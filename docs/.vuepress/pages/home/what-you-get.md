@@ -3,7 +3,7 @@
     <div class="container">
       <div class="what-you-get__box">
         <div class="image-holder">
-          <img class="image" src="/images/what_youll_get.jpg" alt="image description">
+          <img class="image" src="/images/dev_portal.png" alt="what_youll_get">
         </div>
         <div class="content-holder">
 
@@ -22,24 +22,24 @@
           <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder docs">
-                  <img src="/images/what-you-get-icon-1.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/industry_use_cases.png" alt="industry_use_cases">
                 </div>
               </div>
               <div class="title">Industry use cases</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder use-cases">
-                  <img src="/images/what-you-get-icon-2.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/case_studies.png" alt="case_studies">
                 </div>
               </div>
               <div class="title">Case studies</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder simulator">
-                  <img src="/images/what-you-get-icon-3.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/testimonials.png" alt="testimonials">
                 </div>
               </div>
               <div class="title">Testimonials</div>
@@ -54,48 +54,48 @@
           <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder docs">
-                  <img src="/images/what-you-get-icon-1.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/api_fundamentals.png" alt="api_fundamentals">
                 </div>
               </div>
               <div class="title">API fundamentals</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder use-cases">
-                  <img src="/images/what-you-get-icon-2.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/security_and_api_flows.png" alt="security_and_api_flows">
                 </div>
               </div>
               <div class="title">Security and API flows</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder simulator">
-                  <img src="/images/what-you-get-icon-3.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/api_reference_docs.png" alt="api_reference_docs">
                 </div>
               </div>
               <div class="title">API reference docs</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder docs">
-                  <img src="/images/what-you-get-icon-1.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/oas_open_api_docs.png" alt="oas_open_api_docs">
                 </div>
               </div>
               <div class="title">OAS Open API docs</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder use-cases">
-                  <img src="/images/what-you-get-icon-2.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/code_snippets.png" alt="code_snippets">
                 </div>
               </div>
               <div class="title">Code snippets</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder simulator">
-                  <img src="/images/what-you-get-icon-3.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/api_use_case_guides_sequence_flows.png" alt="api_use_case_guides_sequence_flows">
                 </div>
               </div>
               <div class="title">API use case guides and sequence flows</div>
@@ -110,16 +110,16 @@
           <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder use-cases">
-                  <img src="/images/what-you-get-icon-2.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/simualator_sandbox.png" alt="simualator_sandbox">
                 </div>
               </div>
               <div class="title">Simulator sandbox of example API</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder simulator">
-                  <img src="/images/what-you-get-icon-3.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/oauth_2_gateway.png" alt="oauth_2_gateway">
                 </div>
               </div>
               <div class="title">Example OAuth 2.0 API Gateway</div>
@@ -128,16 +128,16 @@
           <ul class="what-you-get__information-list">
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder use-cases">
-                  <img src="/images/what-you-get-icon-2.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/use_case_scenariosequences.png" alt="use_case_scenariosequences">
                 </div>
               </div>
               <div class="title">Use case scenarios sequences</div>
             </li>
             <li class="what-you-get__information-item">
               <div class="icon-box">
-                <div class="icon-holder simulator">
-                  <img src="/images/what-you-get-icon-3.svg" alt="">
+                <div class="icon-holder">
+                  <img src="/images/authenticated_postmans.png" alt="authenticated_postmans">
                 </div>
               </div>
               <div class="title">Authenticated Postmans for each scenario</div>

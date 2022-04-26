@@ -7,7 +7,7 @@
 
 </div>
       <div class="testimonials__slider-wrapper">
-<testimonials-slide imageLink="/images/test.jpg">
+<testimonials-slide mediaType='image/svg+xml' imageLink="/images/governments.svg">
 <template v-slot:description>
 Mobile money is revolutionising the way citizens in our country are making payments. As a government authority, we are benefiting from direct API Integrations with MMPs as they enable users to make fast, efficient and secure payments for government services; while lessening the use of cash.
 </template>

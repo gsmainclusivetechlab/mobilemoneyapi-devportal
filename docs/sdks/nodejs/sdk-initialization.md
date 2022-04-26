@@ -6,7 +6,7 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-nodejs-sdk" target="_blank">mmapi-android-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-nodejs-sdk" target="_blank">mmapi-android-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-nodejs-sdk.git -b develop
@@ -31,12 +31,12 @@ export CALLBACK_URL=<see "CALLBACK_URL setup" below>
 source config.env
 ```
 
-4. <span class="highlight">CALLBACK_URL</span> setup
+4. <span style="font-size: 1.1rem;" class="highlight">CALLBACK_URL</span> setup
 
 To setup a callback URL to receive the requests for test and debug purposes, you'll need to use <span class="highlight">socat</span> and <span class="highlight">ngrok</span> commands on Linux.
 
-<ol type="a">
-  <li>Install the tools</li>
+<ol class="alphaList" type="a">
+  <li>Install the tools:</li>
 
 ```shell
 sudo apt install socat
@@ -73,6 +73,7 @@ Connections                  ttl opn rt1 rt5 p50 p90
 
 5. Get the address in red starting with <span class="highlight">https</span> in step 4 → d) and put as the value of <span class="highlight">callback_url</span> in the file
 <span class="highlight">config.env</span>. You can use the <span class="highlight">http</span> address as well, but give priority to use <span class="highlight">https</span>.
+<br>
 <svg version="1.1" id="Capa_1" fill="orange" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 34.854 34.855" style="enable-background:new 0 0 34.854 34.855; width: 16px; height: 16px;"
 	 xml:space="preserve">
@@ -122,3 +123,23 @@ console.log("Security Level : " + client.environment.securityOption)
 console.log("Callback URL : " + client.environment.callbackUrl)
 console.log("MMAPI URL : " + client.environment.baseUrl)
 ```
+
+<script>
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
+
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
+
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
+</script>

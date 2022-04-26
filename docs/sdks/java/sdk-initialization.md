@@ -6,7 +6,7 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-java-sdk.git -b develop
@@ -86,3 +86,23 @@ public class SDKInit {
   }
 }
 ```
+
+<script>
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
+
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
+
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
+</script>

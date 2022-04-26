@@ -15,7 +15,6 @@ import { nameWithSlash } from '../../../helpers/vuexHelper';
 export default {
   async [GET_DATA]({ commit, state, dispatch, rootState, rootGetters }, controller) {
     const PRE_PAGE_LENGTH = 25;
-    const isCurrentModule = rootState.pagination.currentModule === ALL_APPS;
 
     try {
       const { data } = await AllApplications.get(
@@ -23,16 +22,21 @@ export default {
           sortValue: state.sortValue,
           searchValue: state.searchValue,
           searchField: state.searchField,
-          paginationToken: isCurrentModule
-            ? rootState.pagination.tokens[rootState.pagination.currentPage]
-            : ''
+          paginationToken:
+            rootState.pagination.currentModule === ALL_APPS
+              ? rootState.pagination.tokens[rootState.pagination.currentPage]
+              : ''
         },
         controller
       );
 
       const appsLength = data.appData.length;
 
-      if (!appsLength && rootState.pagination.currentPage && isCurrentModule) {
+      if (
+        !appsLength &&
+        rootState.pagination.currentPage &&
+        rootState.pagination.currentModule === ALL_APPS
+      ) {
         commit(nameWithSlash(PAGINATION, SET_CURRENT_PAGE), rootState.pagination.currentPage - 1, {
           root: true
         });
@@ -42,7 +46,7 @@ export default {
 
       commit(SET_DATA, data.appData);
 
-      if (isCurrentModule) {
+      if (rootState.pagination.currentModule === ALL_APPS) {
         let comingNextPageToken = data.paginationToken;
         const currentPageToken = rootGetters[nameWithSlash(PAGINATION, GET_TOKEN_CURRENT_PAGE)];
 
@@ -57,10 +61,10 @@ export default {
         }
       }
     } catch (error) {
-      if (isCurrentModule) {
-        commit(SET_DATA, []);
+      if (rootState.pagination.currentModule === ALL_APPS) {
         commit(nameWithSlash(PAGINATION, RESET_PAGINATION), null, { root: true });
       }
+      commit(SET_DATA, []);
 
       console.log(error);
     }

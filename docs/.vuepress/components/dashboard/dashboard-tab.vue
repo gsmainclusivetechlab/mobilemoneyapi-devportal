@@ -5,14 +5,29 @@
         <div class="content-box">
           <span class="h3 create-app-banner-title">Create an app</span>
           <div class="create-app-banner-text">
-            <span
-              >Welcome on Portal! Here you can arcu eget ultrices. Diam sollicitudin quis ut gravida
-              sed lacus aliquet. Id etiam tortor morbi at sagittis nisi, nisl:</span
-            >
+            <p class="create-app-banner-paragraph">
+              The AWS API Gateway application tools enable developers to easily test how GSMA APIs
+              could work in production with on-boarded service providers.
+            </p>
+            <p class="create-app-banner-paragraph">
+              To utilise the GSMA example OAuth 2.0 compliant authentication API Gateway and test
+              the Postman Collections with Authentication you can create Applications for the GSMA
+              API sandbox products which you support for your API implementation or end user
+              solution.
+            </p>
             <ol class="create-app-banner-list">
-              <li>Tincidunt aenean eget tincidunt in fringilla congue.</li>
-              <li>Egestas lectus nisi diam felis, tortor.</li>
-              <li>Sed vitae est a, consectetur viverra fringilla non.</li>
+              <li>
+                Simply click Create App, add a name and select the API product for the API
+                Specification you require and save your app.
+              </li>
+              <li>
+                From your user dashboard you can view and edit all application details and view
+                corresponding tokens required for API access.
+              </li>
+              <li>
+                These credentials can be utilised to test Postman collections with authentication
+                for all API Use Case scenarios.
+              </li>
             </ol>
           </div>
         </div>

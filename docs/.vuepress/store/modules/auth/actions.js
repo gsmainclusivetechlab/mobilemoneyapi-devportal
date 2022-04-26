@@ -6,7 +6,8 @@ import {
   ID_TOKEN,
   REFRESH_TOKEN,
   USERNAME_ALREADY_REGISTERED,
-  X_USER_TOKEN
+  X_USER_TOKEN,
+  INVALID_CREDENTIALS
 } from '@/api/constants';
 import ModalWindow from '@/services/ModalWindow';
 import { nameWithSlash } from '@/helpers/vuexHelper';
@@ -16,6 +17,11 @@ import { CLEAR_USER_DATA, SET_LOGGED_USER } from '../mutation-types';
 
 export default {
   async [SIGN_IN]({ dispatch, commit }, payload) {
+    const resolveObject = {
+      status: true,
+      errorMessage: ''
+    };
+
     try {
       const response = await Auth.signIn(payload);
       const { x_user_token, id_token, expires_in, refresh_token } = response.data;
@@ -30,10 +36,17 @@ export default {
 
       await dispatch(nameWithSlash(USER, GET_DATA), null, { root: true });
     } catch (err) {
-      console.error(err);
+      resolveObject.status = false;
+
+      if (
+        (err.response.status === 404 || err.response.status === 401) &&
+        err.response.data.error === INVALID_CREDENTIALS
+      ) {
+        resolveObject.errorMessage = err.response.data.errorDescription;
+      }
     }
 
-    return Promise.resolve();
+    return Promise.resolve(resolveObject);
   },
 
   async signUp(ctx, form) {
