@@ -529,7 +529,7 @@ const sidebarNavigation = {
             },
             {
               title: 'GitHub',
-              path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/develop#readmeJavascript',
+              path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/develop#readme',
               sidebarDepth: 2,
               collapsable: true
             }
