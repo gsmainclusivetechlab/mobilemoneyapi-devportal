@@ -68,8 +68,6 @@ npm run build
 </html>
 ```
 
-<a href="https://www.notion.so/Code-Snippets-Integration-b5a4cba3838e4ed881befd900694b6f2" target="_blank">Code Snippets Integration</a>
-
 <script>
 export default {
   mounted() {

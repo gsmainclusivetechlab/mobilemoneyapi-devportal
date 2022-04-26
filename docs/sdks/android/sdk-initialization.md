@@ -11,12 +11,12 @@ title: SDK Initialization
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-android-sdk.git -b develop
 export MMAPI_ANDROID_SDK=$(pwd)/mmapi-android-sdk
+cd $MMAPI_ANDROID_SDK
 ```
 
 2. Edit the file <span class="highlight">strings.xml</span> inside the directory <span class="highlight">$MMAPI_ANDROID_SDK/GSMATest/src/main/res/values</span> and insert the
 values for <span class="highlight"><consumer_key></span> , <span class="highlight"><consumer_secret></span> , <span class="highlight"><api_key></span> taken from your mmapi developer account and
-also the value for  <span class="highlight"><callback_url></span> according to your environment. For setup a callback environment with
-Postman, see this tutorial. <span style="color: red;">(need to write the tutorial)</span>
+also the value for  <span class="highlight"><callback_url></span> according to your environment.</span>
 
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">

@@ -22,14 +22,13 @@ touch $MMAPI_JAVA_SDK/mmapi-java-sdk/src/test/resources/config.properties
 touch $MMAPI_JAVA_SDK/mmapi-java-sdk-samples/resources/config.properties
 ```
 
-3. The values that must be present inside the <span class="highlight">(config.properties)(<http://config.properties>)</span> files created
-above file comes from your mmapi developer account. The final content of the files should look like:
+3. Replace <span class="highlight"><consumer_key></span> , <span class="highlight"><consumer_secret></span> and <span class="highlight"><api_key></span> with the values taken from your mmapi developer account. Also replace <span class="highlight"><callback_url></span> with the value according to your environment.</span>
 
 ```shell
-CONSUMER_KEY=7g47724jk9hpi5o1jja3m3rouc
-CONSUMER_SECRET=g5i176kcqjgnv17rf7sg9931v4b0eed7kjn1oi0a7dm5mkgfu6l
-API_KEY=cxxZeeGh0P5xHDRSJzlbm2JIRPsbq9jC9k7Bh239
-CALLBACK_URL=http://your-url.com
+CONSUMER_KEY=<consumer_key>
+CONSUMER_SECRET=<consumer_secret>
+API_KEY=<api_key>
+CALLBACK_URL=<callback_url>
 ```
 
 4. Sample code to initialise Java SDK:

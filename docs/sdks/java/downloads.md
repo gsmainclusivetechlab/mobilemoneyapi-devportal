@@ -8,7 +8,7 @@ title: Downloads
   <p style="font-weight: bold;">
     You can download the latest Java SDK here
   </p>
-  <a href="/download-files/mmapi-java-sdk-1.0.0.zip" class="btn btn--accent" download>
+  <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk/archive/refs/tags/v1.0.0.zip" class="btn btn--accent" download>
     Download SDK
   </a>
 </div>
