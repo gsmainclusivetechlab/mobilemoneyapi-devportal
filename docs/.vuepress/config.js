@@ -200,14 +200,6 @@ const footerNavigation = [
 ];
 
 const sidebarNavigation = {
-  '/examples/': [
-    {
-      title: 'Examples',
-      collapsable: false,
-      children: ['#introduction', 'swagger-page']
-    }
-  ],
-
   '/api-versions-1.2/': [
     {
       title: 'API version 1.2',
@@ -362,11 +354,6 @@ const sidebarNavigation = {
             {
               title: 'Client Authentication',
               path: '/sdks/auth/client-authentication',
-              sidebarDepth: 2
-            },
-            {
-              title: 'API Authorisation',
-              path: '/sdks/auth/api-authorization',
               collapsable: true,
               sidebarDepth: 2
             }
@@ -481,43 +468,6 @@ const sidebarNavigation = {
           ]
         },
         {
-          title: 'JavaScript',
-          sidebarDepth: 2,
-          children: [
-            {
-              title: 'Introduction',
-              path: '/sdks/javascript/introduction',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'System Requirements',
-              path: '/sdks/javascript/system-requirements',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'SDK Initialisation',
-              path: '/sdks/javascript/sdk-initialization',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'Downloads',
-              path: '/sdks/javascript/downloads',
-              sidebarDepth: 2,
-              collapsable: true
-            },
-            {
-              title: 'GitHub',
-              path:
-                'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/development#readme',
-              sidebarDepth: 2,
-              collapsable: true
-            }
-          ]
-        },
-        {
           title: 'Java',
           sidebarDepth: 2,
           children: [
@@ -548,6 +498,42 @@ const sidebarNavigation = {
             {
               title: 'GitHub',
               path: 'https://github.com/gsmainclusivetechlab/mmapi-java-sdk/tree/develop#readme',
+              sidebarDepth: 2,
+              collapsable: true
+            }
+          ]
+        },
+        {
+          title: 'JavaScript',
+          sidebarDepth: 2,
+          children: [
+            {
+              title: 'Introduction',
+              path: '/sdks/javascript/introduction',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'System Requirements',
+              path: '/sdks/javascript/system-requirements',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'SDK Initialisation',
+              path: '/sdks/javascript/sdk-initialization',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'Downloads',
+              path: '/sdks/javascript/downloads',
+              sidebarDepth: 2,
+              collapsable: true
+            },
+            {
+              title: 'GitHub',
+              path: 'https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk/tree/develop#readme',
               sidebarDepth: 2,
               collapsable: true
             }

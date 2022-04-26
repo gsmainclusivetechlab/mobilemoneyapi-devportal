@@ -33,12 +33,7 @@ export default {
     useCaseCard,
   },
   data () {
-    return {
-      target: false,
-      link: '/mobile-money-providers/',
-      icon: '/images/industry-1.svg',
-      iconBackground: '#DE002B',
-    }
+    return {}
   }
 }
 </script>

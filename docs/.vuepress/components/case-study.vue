@@ -20,7 +20,24 @@
       </div>
     </div>
     <div class="testimonials__info-holder">
-      <img class="testimonials__info-image" :src="imageLink" alt="Mobile Money API Developer Portal">
+      <div class="testimonials__info-image--holder">
+        <img
+          v-if="mediaType === 'image/png'"
+          :class="['testimonials__info-image', customCSSclass]"
+          :style="{ height: imageHeight }"
+          :src="imageLink"
+          alt="Mobile Money API Developer Portal"
+        />
+        <object
+          v-if="mediaType === 'image/svg+xml'"
+          :class="['testimonials__info-image', customCSSclass]"
+          :style="{ height: imageHeight }"
+          :data="imageLink"
+          :type="mediaType"
+        >
+          Mobile Money API Developer Portal
+        </object>
+      </div>
       <div class="testimonials__info-holder--container">
         <div>
           <p class="testimonials__info-holder--company">
@@ -45,11 +62,21 @@ export default {
     imageLink: {
       type: String,
       default: ''
+    },
+    imageHeight: {
+      type: String,
+      default: ''
+    },
+    customCSSclass: {
+      type: String,
+      default: ''
+    },
+    mediaType: {
+      type: String,
+      default: 'image/png'
     }
   }
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

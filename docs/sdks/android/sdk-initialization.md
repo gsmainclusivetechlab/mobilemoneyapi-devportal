@@ -6,17 +6,17 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-android-sdk" target="_blank">mmapi-android-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-android-sdk" target="_blank">mmapi-android-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-android-sdk.git -b develop
 export MMAPI_ANDROID_SDK=$(pwd)/mmapi-android-sdk
+cd $MMAPI_ANDROID_SDK
 ```
 
 2. Edit the file <span class="highlight">strings.xml</span> inside the directory <span class="highlight">$MMAPI_ANDROID_SDK/GSMATest/src/main/res/values</span> and insert the
 values for <span class="highlight"><consumer_key></span> , <span class="highlight"><consumer_secret></span> , <span class="highlight"><api_key></span> taken from your mmapi developer account and
-also the value for  <span class="highlight"><callback_url></span> according to your environment. For setup a callback environment with
-Postman, see this tutorial. <span style="color: red;">(need to write the tutorial)</span>
+also the value for  <span class="highlight"><callback_url></span> according to your environment.</span>
 
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
@@ -79,3 +79,23 @@ public static void main(String... args) {
  }
 }
 ```
+
+<script>
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
+
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
+
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
+</script>

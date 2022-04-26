@@ -17,7 +17,7 @@
         </router-link>
         <router-link
             v-if="accentLink"
-            :to="accentLink.link"
+            :to='getActiveTab()'
             class="btn btn--accent"
         > {{ accentLink.text }}
         </router-link>

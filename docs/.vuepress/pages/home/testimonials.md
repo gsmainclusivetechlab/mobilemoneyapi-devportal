@@ -23,7 +23,11 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img class="testimonials__info-image" src="/images/test.jpg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder">
+                    <object class="testimonials__info-image" data="/images/payment_service_providers_aggregators.svg" type="image/svg+xml">
+                      Company Logo
+                    </object>
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Cellulant</p>
                     <p class="testimonials__info-holder--organisation">Payment Service Provider</p>
@@ -52,7 +56,11 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img class="testimonials__info-image" src="/images/test.jpg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder">
+                    <object class="testimonials__info-image" data="/images/governments.svg" type="image/svg+xml">
+                      Company Logo
+                    </object>
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Uganda Revenue</p>
                     <p class="testimonials__info-holder--organisation">Authority Government / Government Agency</p>
@@ -81,7 +89,11 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img class="testimonials__info-image" src="/images/test.jpg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder">
+                    <object class="testimonials__info-image" data="/images/education_health.svg" type="image/svg+xml">
+                      Company Logo
+                    </object>
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Eneza Education</p>
                     <p class="testimonials__info-holder--organisation">Education Service Provider</p>
@@ -110,7 +122,11 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img class="testimonials__info-image" src="/images/test.jpg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder">
+                    <object class="testimonials__info-image" data="/images/education_health.svg" type="image/svg+xml">
+                      Company Logo
+                    </object>
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Baobab Circle</p>
                     <p class="testimonials__info-holder--organisation">Healthcare Service Provider</p>
@@ -138,7 +154,11 @@
               </div>
               <div class="testimonials__info-holder">
                 <div class="testimonials__info-holder--container">
-                  <img class="testimonials__info-image" src="/images/test.jpg" alt="Company Logo">
+                  <div class="testimonials__info-image--holder">
+                    <object class="testimonials__info-image" data="/images/banks_microfinance.svg" type="image/svg+xml">
+                      Company Logo
+                    </object>
+                  </div>
                   <div>
                     <p class="testimonials__info-holder--company">Musoni</p>
                     <p class="testimonials__info-holder--organisation">Banks and MFIs</p>

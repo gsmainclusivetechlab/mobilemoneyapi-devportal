@@ -6,7 +6,7 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-java-sdk" target="_blank">mmapi-java-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-java-sdk.git -b develop
@@ -22,14 +22,13 @@ touch $MMAPI_JAVA_SDK/mmapi-java-sdk/src/test/resources/config.properties
 touch $MMAPI_JAVA_SDK/mmapi-java-sdk-samples/resources/config.properties
 ```
 
-3. The values that must be present inside the <span class="highlight">(config.properties)(<http://config.properties>)</span> files created
-above file comes from your mmapi developer account. The final content of the files should look like:
+3. Replace <span class="highlight"><consumer_key></span> , <span class="highlight"><consumer_secret></span> and <span class="highlight"><api_key></span> with the values taken from your mmapi developer account. Also replace <span class="highlight"><callback_url></span> with the value according to your environment.</span>
 
 ```shell
-CONSUMER_KEY=7g47724jk9hpi5o1jja3m3rouc
-CONSUMER_SECRET=g5i176kcqjgnv17rf7sg9931v4b0eed7kjn1oi0a7dm5mkgfu6l
-API_KEY=cxxZeeGh0P5xHDRSJzlbm2JIRPsbq9jC9k7Bh239
-CALLBACK_URL=http://your-url.com
+CONSUMER_KEY=<consumer_key>
+CONSUMER_SECRET=<consumer_secret>
+API_KEY=<api_key>
+CALLBACK_URL=<callback_url>
 ```
 
 4. Sample code to initialise Java SDK:
@@ -86,3 +85,23 @@ public class SDKInit {
   }
 }
 ```
+
+<script>
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
+
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
+
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
+</script>

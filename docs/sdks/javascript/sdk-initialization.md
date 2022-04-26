@@ -6,7 +6,7 @@ title: SDK Initialization
 
 ## SDK Initialisation
 
-1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk" target="_blank">mmapi-javascript-sdk</a>
+1. Clone the develop branch of the repository <a href="https://github.com/gsmainclusivetechlab/mmapi-javascript-sdk" target="_blank">mmapi-javascript-sdk</a>:
 
 ```shell
 git clone git@github.com:gsmainclusivetechlab/mmapi-javascript-sdk.git -b develop
@@ -68,4 +68,22 @@ npm run build
 </html>
 ```
 
-<a href="https://www.notion.so/Code-Snippets-Integration-b5a4cba3838e4ed881befd900694b6f2" target="_blank">Code Snippets Integration</a>
+<script>
+export default {
+  mounted() {
+    setTimeout(() => {
+      const codeBlocks = Array.from(document.querySelectorAll('.extra-class'));
+    
+      codeBlocks.forEach(element => {
+        const preElement = element.querySelector('pre');
+
+        const div = document.createElement('div');
+        div.classList.add('pre-wrapper');
+        div.appendChild(preElement);
+
+        element.appendChild(div);
+      });
+    }, 0);
+  },
+}
+</script>

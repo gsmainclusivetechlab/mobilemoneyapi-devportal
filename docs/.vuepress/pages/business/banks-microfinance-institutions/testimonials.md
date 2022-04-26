@@ -7,7 +7,7 @@
 
 </div>
       <div class="testimonials__slider-wrapper">
-<testimonials-slide imageLink="/images/test.jpg">
+<testimonials-slide mediaType='image/svg+xml' imageLink="/images/banks_microfinance.svg">
 <template v-slot:description>
 As a financial service provider operating in a country where the majority of the population have access to banking services through their mobile phones, establishing partnerships and integrating with MMPs has benefited us when extending services to the financially exclude
 </template>

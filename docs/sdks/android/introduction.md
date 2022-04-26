@@ -4,13 +4,9 @@ pageClass: api-page
 title: Introduction
 ---
 
-
-
-## Transaction Status Update
-
-Introduced the ability to update the _transactionStatus_ of mobile money transactions through a new API - _PATCH /transactions/{transactionReference}_. This supports a number of scenarios including:
-
-*   **Resolution of doubt transactions**. Some mobile money providers will put transactions into ‘doubt’ where communication is interrupted. This may then require a subsequent API request from the client to inform the provider of the final outcome to the transaction.
-*   **Two stage transaction processing**. Some systems require two steps to create a transaction:
-1.  The client submits the request to the provider to create the transaction. The provider then performs necessary checks on the transaction and returns a response indicating that the transaction is pending confirmation.
-2.  The client then must provide an explicit request to ‘confirm’ the transaction. Upon receiving the request, the provider will complete the transaction.
+<p>
+The GSMA Mobile Money API SDK for Android enables Android developers to easily work with GSMA Mobile Money API Specification 1.2.0. Developers can build Android client applications which can interact with mobile money APIs from a provider directly.
+</p>
+<p>
+The SDK provides separate use cases to handle necessary GSMA API functionality including Merchant Payments, Disbursements, International Transfers, P2P Transfers, Recurring Payments, Account Linking, Bill Payments and Agent Services.  Each use case exposes use case scenarios to customise your application integrations as needed, and samples so you can test interactions before integration.
+</p>

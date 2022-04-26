@@ -34,7 +34,6 @@ export default {
       borderedLink: false,
       accentLink: {
         text: 'Start developing',
-        link: '/examples'
       },
       tabs: [
         'P2P Transfers',
