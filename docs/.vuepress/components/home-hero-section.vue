@@ -27,9 +27,9 @@
       <div v-if="videoSrc" class="hero-iframe-holder">
         <div class="iframe-wrapper">
           <iframe
-              class="iframe"
+              class="iframe optanon-category-C0004"
               v-if="parseVideoLink(videoSrc)"
-              :src="parseVideoLink(videoSrc)"
+              :data-src="parseVideoLink(videoSrc)"
               frameborder="0"
               allowfullscreen
           ></iframe>
