@@ -17,8 +17,13 @@ const mainNavigation = [
         target: '_blank'
       },
       {
-        text: 'Mobile for Development',
+        text: 'Mobile Money',
         link: 'https://www.gsma.com/mobilefordevelopment/mobile-money/',
+        target: '_blank'
+      },
+      {
+        text: 'Mobile for Development',
+        link: 'https://www.gsma.com/mobilefordevelopment/',
         target: '_blank'
       },
       {
