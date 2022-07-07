@@ -4,7 +4,7 @@ use mmpsdk\Common\Exceptions\MobileMoneyException;
 use mmpsdk\AgentService\AgentService;
 
 try {
-     * Construct request object and set desired parameters
+     /* Construct request object and set desired parameters
      */
     $request = AgentService::viewServiceAvailability();
 

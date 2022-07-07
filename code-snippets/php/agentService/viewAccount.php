@@ -17,7 +17,6 @@ try {
      *Execute the request
      */
     $response = $request->execute();
-chat
     print_r($response);
 } catch (MobileMoneyException $ex) {
     print_r($ex->getMessage());
