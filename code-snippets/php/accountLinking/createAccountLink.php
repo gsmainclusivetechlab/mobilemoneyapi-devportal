@@ -37,7 +37,7 @@ try {
     /**
      * Get Client Correlation Id that will be sent along with request
      */
-    $clientCorrelationId = $request->getClientCorrelationId()
+    $clientCorrelationId = $request->getClientCorrelationId();
     print_r($clientCorrelationId);
 
     /**

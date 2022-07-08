@@ -4,7 +4,7 @@ use mmpsdk\Common\Exceptions\MobileMoneyException;
 use mmpsdk\AccountLinking\AccountLinking;
 
 try {
-     * Construct request object and set desired parameters
+     /* Construct request object and set desired parameters
      */
     $request = AccountLinking::viewServiceAvailability();
 

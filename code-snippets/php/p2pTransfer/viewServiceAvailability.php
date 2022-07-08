@@ -4,7 +4,7 @@ use mmpsdk\Common\Exceptions\MobileMoneyException;
 use mmpsdk\P2PTransfer\P2PTransfer;
 
 try {
-     * Construct request object and set desired parameters
+     /* Construct request object and set desired parameters
      */
     $request = P2PTransfer::viewServiceAvailability();
 
