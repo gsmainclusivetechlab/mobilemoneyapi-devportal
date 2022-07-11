@@ -1,11 +1,14 @@
 <template>
+  <!-- <Layout>
+      <template v-slot:page-top>
+          <div class="theme-default-content">
+            <h1>404: Page Not Found</h1>
+            <p style="font-family: 'proxima_nova_condensedlight','Trebuchet MS',Arial,Helvetica,sans-serif;font-size: 22px; line-height:24px;margin-top: 10px;float:left;">The page you are looking for cannot be found.<br>Please try again using the main navigation above or the search box to the right.</p>
+          </div>
+        </template>
+  </Layout> -->
+  <div class="404-page">
   <header class="navbar main-header" :class="{'mobile-search-opened': isMobileSearchOpened}">
-    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/07690a29-f46f-4a9b-a625-15e9d6f82176/OtAutoBlock.js" ></script>
-    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="07690a29-f46f-4a9b-a625-15e9d6f82176" ></script>
-    <script src="/js/youtube-placeholder.js"></script>
-    <script type="text/javascript">
-    function OptanonWrapper() { }
-    </script>
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
     <div class="main-header__box">
       <div class="logo-holder">
@@ -62,6 +65,11 @@
       </div>
     </div>
   </header>
+     <div class="theme-default-content" style="margin-top: 46px">
+            <h1 class="404-header">404: Page Not Found</h1>
+            <p style="font-family: 'proxima_nova_condensedlight','Trebuchet MS',Arial,Helvetica,sans-serif;font-size: 22px; line-height:24px;margin-top: 10px;float:left;">The page you are looking for cannot be found.<br>Please try again using the main navigation above or the search box to the right.</p>
+          </div>
+  </div>
 </template>
 
 <script>
@@ -102,6 +110,7 @@ export default {
   },
 
   mounted() {
+    document.title = "Page not found - Mobile Money API Developer Portal";
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'));
 
     const handleLinksWrapWidth = () => {

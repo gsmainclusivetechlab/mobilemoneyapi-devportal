@@ -7,6 +7,35 @@ title: Getting Started
 
 ## API Fundamentals
 
+#### API Endpoints
+
+API endpoint fields are described in this specification as follows:
+
+- The field **name**.
+- The field **type**.
+- **Description** of the field.
+- **Optionality** of the field, i.e. whether the field must be supplied. Optionality is identified as per follows:
+
+&#8594;&nbsp; Request optionality
+
+&#8592;&nbsp; Response optionality
+
+O&nbsp; Field is optional
+
+M&nbsp; Field is mandatory
+
+C&nbsp; Field is conditional
+
+NA&nbsp; Field does not need to be supplied. If supplied, it will be ignored.
+<br>
+
+- **Reference** where the fields is an array and/or is defined by another object.
+- **Validation** applied to the field, including enumeration, field length and use of regular expressions to validate format.
+
+::: tip
+Please note that string fields have a default maximum length of 256 characters unless specified otherwise.
+:::
+
 ##### URI
 
 The Mobile Money API uses the following URI format:

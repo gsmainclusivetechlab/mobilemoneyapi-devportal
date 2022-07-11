@@ -4,7 +4,7 @@ use mmpsdk\Common\Exceptions\MobileMoneyException;
 use mmpsdk\RecurringPayment\RecurringPayment;
 
 try {
-     * Construct request object and set desired parameters
+     /* Construct request object and set desired parameters
      */
     $request = RecurringPayment::viewServiceAvailability();
 
