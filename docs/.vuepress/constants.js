@@ -635,7 +635,7 @@ export const COUNTRIES = [
         name: 'Tonga',
         code: 'TO',
     },
-    {name: 'Turkey', code: 'TR'},
+    {name: 'Türkiye', code: 'TR'},
     {name: 'Trinidad and Tobago', code: 'TT'},
     {
         name: 'Tuvalu',
