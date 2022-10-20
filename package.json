@@ -26,6 +26,7 @@
     "watchpack": "^1.7.5"
   },
   "dependencies": {
+    "@vuepress/plugin-google-analytics": "^1.9.7",
     "axios": "^0.24.0",
     "include-media": "^1.4.10",
     "js-cookie": "^3.0.1",
