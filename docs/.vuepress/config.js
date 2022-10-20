@@ -1047,7 +1047,7 @@ module.exports = {
     ['@vuepress/active-header-links', false],
     ['vuepress-plugin-code-copy', true],
     ['vuepress-plugin-smooth-scroll', true],
-    ['@vuepress/google-analytics', { ga: 'G-YSLBF3961D' }],
+    ['@vuepress/plugin-google-analytics', { ga: 'G-YSLBF3961D' }],
     [
       require('./plugins/vuepress-plugin-fulltext-search/index.js'),
       {
