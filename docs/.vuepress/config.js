@@ -1014,7 +1014,9 @@ module.exports = {
     ['meta', { name: 'theme-color', content: 'red' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['script', { src: '/js/fix-scroll-to-hash.js' }]
+    ['script', { src: '/js/fix-scroll-to-hash.js' }],
+    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-YSLBF3961D',}],
+    ['script', {}, ["window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-YSLBF3961D');",]],
   ],
   extend: '@vuepress/theme-default',
   markdown: {
@@ -1047,7 +1049,7 @@ module.exports = {
     ['@vuepress/active-header-links', false],
     ['vuepress-plugin-code-copy', true],
     ['vuepress-plugin-smooth-scroll', true],
-    ['@vuepress/plugin-google-analytics', { ga: 'G-YSLBF3961D' }],
+    ['@vuepress/google-analytics', { ga: 'G-YSLBF3961D' }],
     [
       require('./plugins/vuepress-plugin-fulltext-search/index.js'),
       {
