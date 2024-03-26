@@ -153,10 +153,6 @@ const mainNavigation = [
         text: 'Java',
         link: '/sdks/java/introduction'
       },
-      {
-        text: 'Adoption Guide',
-        link: '/sdks/adoption-guide/introduction'
-      }
     ]
   },
   {
@@ -169,6 +165,10 @@ const mainNavigation = [
       {
         text: 'API Guidelines',
         link: '/guidelines/'
+      },
+      {
+        text: 'SDK Adoption Guide',
+        link: '/sdk-adoption-guide/'
       },
       {
         text: 'Glossary',
@@ -547,18 +547,7 @@ const sidebarNavigation = {
               collapsable: true
             }
           ]
-        }, 
-        {
-          title: 'Adoption Guide',
-          sidebarDepth: 2,
-          children: [
-            {
-              title: 'Introduction',
-              path: '/sdks/adoption-guide/introduction',
-              sidebarDepth: 2
-            },
-          ]
-        }
+        },
       ]
     }
   ],
