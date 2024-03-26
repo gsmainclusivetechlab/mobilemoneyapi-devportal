@@ -152,7 +152,7 @@ const mainNavigation = [
       {
         text: 'Java',
         link: '/sdks/java/introduction'
-      }
+      },
     ]
   },
   {
@@ -165,6 +165,10 @@ const mainNavigation = [
       {
         text: 'API Guidelines',
         link: '/guidelines/'
+      },
+      {
+        text: 'SDK Adoption Guide',
+        link: '/sdk-adoption-guide/'
       },
       {
         text: 'Glossary',
@@ -543,7 +547,7 @@ const sidebarNavigation = {
               collapsable: true
             }
           ]
-        }
+        },
       ]
     }
   ],
